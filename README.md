@@ -552,12 +552,6 @@ Last updated: 2020-01-12
   aur clone firefox-nightly
   makepkg -si --skippgpcheck
   ```
-  <!--
-- Install `iw`.
-  ```
-  sudo pacman -S iw
-  ```
-  -->
 - Install the `TLP` power management package.
   ```
   sudo pacman -S tlp
