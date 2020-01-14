@@ -1,0 +1,16 @@
+[colors]
+background = rgba(15, 16, 16, 0.6)
+foreground = #dddddd
+foreground = #cccccc
+
+# directories - blue
+color12 = #4097e3
+
+# executables - green
+color10 = #64ba48
+
+# links - orange
+color14 = #de935f
+
+# sticky bit (/tmp) - magenta
+color13 = #a25eb7

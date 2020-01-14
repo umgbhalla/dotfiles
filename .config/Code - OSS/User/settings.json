@@ -1,0 +1,85 @@
+// user settings for Visual Studio Code
+// default location: ~/.config/Code/User/
+{
+  // ------------------------------------------------------------------------------------------
+  // Defaults
+  // ------------------------------------------------------------------------------------------
+  "workbench.startupEditor": "none",
+  "window.restoreWindows": "one",
+  "editor.tabSize": 2,
+  "editor.acceptSuggestionOnEnter": "off",
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "editor.fontSize": 12,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  // prevent update notifications
+  "update.mode": "none",
+  // ignore extension recommendations from vscode 
+  "extensions.ignoreRecommendations": true,
+  // zen mode
+  "zenMode.centerLayout": false,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.restore": true,
+  "zenMode.hideTabs": false,
+  "breadcrumbs.enabled": false,
+  "editor.minimap.enabled": true,
+  // stop sending crash reports!
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  // source control manager
+  "scm.diffDecorations": "gutter",
+  // ------------------------------------------------------------------------------------------
+  // Optimization / Reducing footprint
+  // ------------------------------------------------------------------------------------------
+  // don't parse these folders
+  "search.exclude": {
+    "**/bower_components": true,
+    "**/.DS_Store": true,
+    "**/.git/**": true,
+    "**/node_modules/**": true,
+    "**/.vscode": true
+  },
+  "files.watcherExclude": {
+    "**/bower_components": true,
+    "**/.DS_Store": true,
+    "**/.git/**": true,
+    "**/node_modules/**": true,
+    "**/.vscode": true
+  },
+  "files.exclude": {
+    "**/bower_components": true,
+    "**/.DS_Store": true,
+    "**/.git/**": true,
+    "**/node_modules/**": true,
+    "**/.vscode": true
+  },
+  // make terminals render faster
+  "terminal.integrated.rendererType": "canvas",
+  "terminal.external.linuxExec": "xfce4-terminal",
+  "terminal.integrated.showExitAlert": false,
+  "window.zoomLevel": 0,
+  "window.restoreFullscreen": true,
+  "window.menuBarVisibility": "toggle",
+  "window.customMenuBarAltFocus": false,
+  // ------------------------------------------------------------------------------------------
+  // Extensions
+  // ------------------------------------------------------------------------------------------
+  // TO-DO Tree
+  "todo-tree.highlights.customHighlight": {
+    "TODO": {
+      "foreground": "black",
+      "background": "yellow"
+    },
+    "FIXME": {
+      "foreground": "black",
+      "iconColour": "yellow"
+    },
+    "TEMP": {
+      "foreground": "black",
+      "iconColour": "yellow"
+    }
+  },
+  "todo-tree.regex.regexCaseSensitive": false,
+  "todo-tree.filtering.ignoreGitSubmodules": true
+}
+

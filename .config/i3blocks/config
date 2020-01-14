@@ -1,0 +1,59 @@
+
+# red=#ff5555
+# blue=#228dff
+# yellow=#f5a70a
+
+blue=#006cdf
+yellow=#e68100
+red=#dd0000
+
+#[player]
+#command=echo player
+#interval=5
+
+[audio]
+command=scripts/audio.sh $blue $yellow $red
+interval=once
+signal=1
+
+[backlight]
+command=scripts/light.sh $blue $yellow $red
+interval=once
+signal=1
+
+#[weather]
+#command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
+#interval=3600
+#color=#A4C2F4
+
+#[bluetooth]
+#command=echo bluetooth
+#interval=30
+
+[memory]
+command=scripts/memory.sh $blue $yellow $red
+interval=30
+
+[cpu]
+command=scripts/cpu.sh $blue $yellow $red
+interval=30
+
+[temperature]
+command=scripts/temperature.sh $blue $yellow $red
+interval=30
+
+[battery]
+command=scripts/battery.sh $blue $yellow $red
+interval=5
+
+[date]
+command=date +"%m⽉%d天 %H:%M"
+interval=60
+
+[network]
+full_text=
+command=wpa_gui
+
+#[powermenu]
+#full_text=
+#command=echo "clicked with $button"

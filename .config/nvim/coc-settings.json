@@ -1,0 +1,14 @@
+{
+  "emmet.excludeLanguages":[],
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "javascript": "javascriptreact"
+  },
+  "emmet.optimizeStylesheetParsing": true,
+  "emmet.showAbbreviationSuggestions": true,
+  "coc.preferences.extensionUpdateCheck": "never",
+  "coc.source.around.priority": 10,
+  "suggest.minTriggerInputLength": 2,
+  "suggest.noselect": false,
+  "suggest.timeout": 500
+}
