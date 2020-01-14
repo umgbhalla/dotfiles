@@ -579,6 +579,10 @@ Last updated: 2020-01-12
   ```
   sudo reboot
   ```
+- `swaylock` and `swayidle` need to be installed for screen locking, as they are not installed by default.
+  ```
+  sudo pacman -S swaylock swayidle
+  ```
 
 ### Additional
 
