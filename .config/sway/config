@@ -58,6 +58,7 @@ output "*" bg /usr/share/backgrounds/custom/void-exodus.png fill
 
 # disable window titlebars and borders
 default_border none
+default_floating_border none
 
 # floating windows by default
 # for_window [class="[.]*"] floating enable
