@@ -1,0 +1,47 @@
+ignore-empty-password
+daemonize
+image=/usr/share/backgrounds/custom/void-exodus.png
+scaling=fill
+indicator-caps-lock
+
+# circle sizes
+indicator-radius=160
+indicator-thickness=24
+
+# remove separators
+separator-color=00000000
+
+# remove center
+inside-color=00000000
+inside-clear-color=00000000
+inside-caps-lock-color=00000000
+inside-ver-color=00000000
+inside-wrong-color=00000000
+
+# remove lines around indicator
+line-color=00000000
+line-clear-color=00000000
+line-caps-lock-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+
+# remove text
+text-color=00000000
+text-clear-color=00000000
+text-caps-lock-color=00000000
+text-ver-color=00000000
+text-wrong-color=00000000
+
+
+# colors
+ring-color=00000077
+ring-clear-color=ffffff55
+ring-caps-lock-color=e6810077
+ring-ver-color=1186cecc
+ring-wrong-color=dd000077
+
+key-hl-color=30b86cff
+caps-lock-key-hl-color=30b86cff
+
+bs-hl-color=dd000099
+caps-lock-bs-hl-color=dd000099

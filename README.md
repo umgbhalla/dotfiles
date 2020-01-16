@@ -43,7 +43,7 @@ Last updated: 2020-01-12
 - Download [Arch](https://github.com/swaywm/sway/wiki). My version was 2020-01-01.
 - Burn the cd image onto a usb. This can be done via [Balena Etcher](https://www.balena.io/etcher/), [Rufus](https://rufus.ie/), or manually (Note not to include partition number):
     ```
-    sudo dd bs=4M if=/path/to/iso of=/dev/sdx
+    sudo dd bs=4M if=/path/to/iso of=/dev/sdx status=progress
     ```
 - Plug ethernet into the machine and boot from the live usb.
 - Test `ping archlinux.org` for a network response. If a response appears, skip this step. If no response appears:
@@ -579,10 +579,53 @@ Last updated: 2020-01-12
   ```
   sudo reboot
   ```
-- `swaylock` and `swayidle` need to be installed for screen locking, as they are not installed by default.
+- Now, add power management settings. First, install screenlocking packages.
   ```
-  sudo pacman -S swaylock swayidle
+  sudo pacman -S swayidle swaylock
+  mkdir -p ~/.config/swaylock
   ```
+  Make a configuration file at `~/.config/swaylock/config`.
+  Now, setup hibernation. Enable the `resume` hook in `/etc/mkinitcpio.conf`.
+  This hook must be placed after `udev` and `lvm2` (if they exist).
+  ```
+  HOOKS=(... udev ... lvm2 ... resume ... fsck)
+  ```
+  Then build.
+  ```
+  sudo mkinitcpio -p linux
+  ```
+  Edit `/etc/default/grub` to enable the resume partition created earlier.
+  ```
+  GRUB_CMDLINE_LINUX_DEFAULT='... resume=/dev/sda2 ...'
+  ```
+  Then update grub.
+  ```
+  sudo grub-mkconfig -o /boot/grub/grub.cfg
+  ```
+  Use the `free` command to see how much memory is allocated for swap. It should say zero. This is because the machine has not yet been told about a swap partition.
+  Change the image size to the swap size.
+  ```
+  free | grep Swap | awk '{ print $2 }' | sudo tee /sys/power/image_size
+  ```
+  Reboot.
+  ```
+  sudo reboot
+  ```
+  Get the uuid for `/dev/sda2`.
+  ```
+  sudo blkid
+  ```
+  Then, inside `/etc/fstab`, label this partition as swap.
+  ```
+  UUID=YOUR-UUID-HERE none swap sw 0 0
+  ```
+  Reboot.
+  ```
+  sudo reboot
+  ```
+  You will now be able to hibernate by running `systemctl hibernate`.
+  You can lock the screen by running `swaylock -c ~/.config/swaylock/config`.
+  You can suspend by running `systemctl suspend`.
 
 ### Additional
 
