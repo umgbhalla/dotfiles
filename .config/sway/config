@@ -46,9 +46,10 @@ focus_follows_mouse no
 # lock screen after 3 minutes
 set $locker 'swaylock -C ~/.config/swaylock/config'
 exec swayidle -w \
-  timeout 120 'swaymsg "output * dpms off"' \
-  timeout 180 $locker \
-  resume 'swaymsg "output * dpms on"; pkill -nx swayidle'
+  timeout 180 $locker
+  # timeout 120 'swaymsg "output * dpms off"' \
+  # timeout 180 $locker \
+  # resume 'swaymsg "output * dpms on"; pkill -nx swayidle'
 
 font pango:Noto Sans 12
 
