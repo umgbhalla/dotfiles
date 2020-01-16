@@ -52,8 +52,8 @@ interval=60
 
 [network]
 full_text=
-command=wpa_gui
+command=swaymsg -q exec wpa_gui
 
-#[powermenu]
-#full_text=
-#command=echo "clicked with $button"
+[powermenu]
+full_text=
+command=swaymsg -q exec "wlogout -l ~/.config/wlogout/layout -C ~/.config/wlogout/style.css"

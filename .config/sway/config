@@ -42,14 +42,13 @@ focus_follows_mouse no
 # display
 # -------------------------------------------------------------------------------------------------------------------
 
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-#exec swayidle -w \
-#  timeout 300 'swaylock -f -c 000000' \
-#  timeout 600 'swaymsg "output * dpms off"' \
-#  resume 'swaymsg "output * dpms on"' \
-#  before-sleep 'swaylock -f -c 000000'
+# turn off screen after 2 minutes
+# lock screen after 3 minutes
+set $locker 'swaylock -C ~/.config/swaylock/config'
+exec swayidle -w \
+  timeout 120 'swaymsg "output * dpms off"' \
+  timeout 180 $locker \
+  resume 'swaymsg "output * dpms on"; pkill -nx swayidle'
 
 font pango:Noto Sans 12
 

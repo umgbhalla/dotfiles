@@ -626,6 +626,31 @@ Last updated: 2020-01-12
   You will now be able to hibernate by running `systemctl hibernate`.
   You can lock the screen by running `swaylock -c ~/.config/swaylock/config`.
   You can suspend by running `systemctl suspend`.
+- Change various power button and lid closing settings with `sudo vim /etc/systemd/logind.conf`:
+  ```
+  HandlePowerKey=hibernate
+  HandleLidSwitch=hibernate
+  HandleLidSwitchDocked=hibernate
+  ```
+  Reboot.
+  ```
+  sudo reboot
+  ```
+- Use `wlogout` to manage a logout menu.
+  ```
+  aur clone gtk-layer-shell
+  makepkg -si
+  aur clone wlogout
+  makepkg -si --skippgpcheck
+
+  mkdir -p ~/.config/wlogout  
+  ```
+- Enable `ssh`.
+  ```
+  sudo pacman -S openssh
+  sudo systemctl enable sshd
+  sudo systemctl start sshd
+  ```
 
 ### Additional
 

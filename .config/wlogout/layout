@@ -1,0 +1,30 @@
+{
+  "label": "lock",
+  "action": "swaylock -C ~/.config/swaylock/config",
+  "text": " lock"
+}
+{
+  "label": "hibernate",
+  "action": "systemctl hibernate",
+  "text": " hibernate"
+}
+{
+  "label": "logout",
+  "action": "loginctl terminate-user $USER",
+  "text": " logout"
+}
+{
+  "label": "suspend",
+  "action": "systemctl suspend",
+  "text": " suspend"
+}
+{
+  "label": "reboot",
+  "action": "systemctl reboot",
+  "text": " reboot"
+}
+{
+  "label": "shutdown",
+  "action": "systemctl poweroff",
+  "text": " shutdown"
+}
