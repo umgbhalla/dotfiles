@@ -327,6 +327,9 @@ set nocompatible
 set incsearch
 set hlsearch
 
+" allow <Left> and <Right> keys to wrap lines
+set whichwrap+=<,>,[,]
+
 " ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
 " gui display
@@ -377,6 +380,7 @@ set cmdheight=1
 
 " highlight line cursor rests on
 " set cursorline
+" hi Cursorline       ctermbg=239
 
 " mouse support
 set mouse=a
@@ -443,17 +447,20 @@ vnoremap <Down> <Esc><Down>
 " CTRL + <Left> switch tabs
 " CTRL + h or
 " CTRL + l alternate mappings
-" CTRL + e switch/split windows
+" CTRL + a switch/split windows
 " :new opens tabs vertically
+
+inoremap <C-a> <Esc><C-w>
+nnoremap <C-a> <C-w>
+vnoremap <C-a> <C-w>
 
 inoremap <silent> <C-t> <Esc>:enew<CR>i
 nnoremap <silent> <C-t> :enew<CR> 
 vnoremap <silent> <C-t> :enew<CR> 
 
 fu! DelBuff() " deleting buffers
-  call SwBuff(-1)
-  " seems like buffwinnr is inverted
-  if bufwinnr(expand('#:p')) <= 0 && expand('#:p') != expand('%:p')
+  call SwBuff(1)
+  if expand('#:p') != expand('%:p')
     if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) > 1
       execute 'bw#'
     endif
