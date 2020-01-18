@@ -380,10 +380,15 @@ set cmdheight=1
 
 " highlight line cursor rests on
 " set cursorline
-" hi Cursorline       ctermbg=239
+" hi Cursorline             ctermbg=237
 
 " mouse support
 set mouse=a
+
+" change cursor to hairline in all modes but normal
+set guicursor=n:block-Cursor
+set guicursor+=v-c:ver100-iCursor
+set guicursor+=i:ver100-iCursor
 
 " ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
@@ -396,7 +401,7 @@ vnoremap <BS> d
 
 " CTRL + s to save
 
-inoremap <silent><expr> <C-s> (&buftype ==# 'terminal' ? '<C-s>' : '<Esc>:w<CR>i')
+inoremap <silent><expr> <C-s> (&buftype ==# 'terminal' ? '<C-s>' : '<Esc>:w<CR>i<Right>')
 nnoremap <silent><expr> <C-s> (&buftype ==# 'terminal' ? '<C-s>' : '<Esc>:w<CR>')
 vnoremap <silent><expr> <C-s> (&buftype ==# 'terminal' ? '<C-s>' : '<Esc>:w<CR>')
 
@@ -514,17 +519,13 @@ nnoremap <M-e> <C-w>
 vnoremap <M-e> <C-w>
 
 " CTRL + <Up>
-" CTRL + k
-" CTRL + <Down> 
-" CTRL + j to scroll faster vertically
+" CTRL + <Down> to scroll faster vertically
 
 let scAmt = 5
-for i in ['Up', 'k', 'Down', 'j']
+for i in ['Up', 'Down']
   let key = i
-  if i ==# 'Up' || i ==# 'Down'
-    let key = '<' . key . '>'
-  endif
-
+  let key = '<' . key . '>'
+ 
   let insertScroll = ''
   let c = 0
 
@@ -533,7 +534,7 @@ for i in ['Up', 'k', 'Down', 'j']
     let c += 1
   endwhile
 
-  execute 'inoremap <silent> <C-' . i . '> <Esc>' . insertScroll . 'i'
+  execute 'inoremap <silent> <C-' . i . '> ' . insertScroll
   execute 'nnoremap <silent> <C-' . i . '> ' . scAmt . key
   execute 'vnoremap <silent> <C-' . i . '> ' . scAmt . key
 endfor
@@ -565,7 +566,9 @@ endfor
 " CTRL + b toggles the file explorer
 " CTRL + h toggle displaying hidden files
 
-map <C-b> :NERDTreeToggle<CR>
+inoremap <silent> <C-b> <Esc>:NERDTreeToggle<CR>
+nnoremap <silent> <C-b> :NERDTreeToggle<CR>
+vnoremap <silent> <C-b> :NERDTreeToggle<CR>
 let NERDTreeMapToggleHidden='<C-h>'
 
 " ALT + / to comment/uncomment line(s) (will not work with non-recursive mappings)
@@ -606,7 +609,7 @@ inoremap <silent> <Esc><Esc> <Esc>:nohls<CR>i
 nnoremap <silent> <Esc><Esc> :nohls<CR>
 vnoremap <silent> <Esc><Esc> :nohls<CR>
 
-inoremap <F3> <Esc>ni
+inoremap <F3> <Esc>nni
 nnoremap <F3> n
 vnoremap <F3> n
 
@@ -645,6 +648,9 @@ inoremap <C-q> <Esc>:call SaveSession()<CR>:q!<CR>
 nnoremap <C-q> <Esc>:call SaveSession()<CR>:q!<CR>
 vnoremap <C-q> <Esc>:call SaveSession()<CR>:q!<CR>
 
+" CTRL + z to undo in insert mode
+inoremap <silent> <C-z> <Esc>ui
+
 " ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
 " auto commands (events)
@@ -669,6 +675,9 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd VimLeavePre * call SaveSession()
 autocmd VimEnter * nested call RestoreSession()
 
+" start in insert mode
+autocmd VimEnter * startinsert
+
 " comment highlighting in json
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
@@ -683,5 +692,5 @@ set noshowmode
 " remove last command from display
 set noshowcmd
 " remove file name displayed in the command line bar
-set shortmess+=F 
+set shortmess+=F
 
