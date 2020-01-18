@@ -1,9 +1,9 @@
 " Neovim configuration file created by Sam Bossley
 
 " ------------------------------------------------------------------------
-" -----------------------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 " plugins
-" -----------------------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
 
 call plug#begin('~/.vim/plugged')
@@ -38,9 +38,9 @@ Plug 'neoclide/coc-css'
 call plug#end()
 
 " ------------------------------------------------------------------------
-" -----------------------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 " plugin settings
-" -----------------------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
 
 " airline bar icons
@@ -130,9 +130,9 @@ let g:NERDTreeIndicatorMapCustom = {
 let g:AutoPairsShortcutToggle = '<leader>cfd' " this is just a random hotkey I'll never press
 
 " ------------------------------------------------------------------------
-" -----------------------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 " language syntax settings
-" -----------------------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
 
 " html auto closing on these file types
@@ -156,9 +156,9 @@ autocmd BufRead,BufNewFile *.html,*.js,*.jsx,*.ts,*.tsx let s:emmetActivator = "
 " lorem# TAB produces lorem ipsum filler content
 
 " ------------------------------------------------------------------------
-" -----------------------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 " autocomplete
-" -----------------------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
 
 " if hidden is not set, TextEdit might fail.
@@ -189,9 +189,9 @@ function! s:expand()
 endfunction
 
 " ------------------------------------------------------------------------
-" -----------------------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 " session management
-" -----------------------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
 
 let s:shouldSaveSession = 0
@@ -240,9 +240,9 @@ fu! RestoreSession()
 endfunction
 
 " ------------------------------------------------------------------------
-" -----------------------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 " terminal management
-" -----------------------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
 
 let s:termState = 0
@@ -285,9 +285,9 @@ fu! TExit(job_id, code, event) dict
 endfunction
 
 " ------------------------------------------------------------------------
-" -----------------------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 " basic settings
-" -----------------------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
 
 " disable swap file creation due to manual session saving
@@ -327,9 +327,9 @@ set incsearch
 set hlsearch
 
 " ------------------------------------------------------------------------
-" -----------------------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 " gui display
-" -----------------------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
 
 " color scheme
@@ -381,9 +381,9 @@ set cmdheight=1
 set mouse=a
 
 " ------------------------------------------------------------------------
-" -----------------------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 " keyboard shortcuts
-" -----------------------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
 
 " BACKSPACE deletes highlighted characters
@@ -395,37 +395,59 @@ inoremap <silent><expr> <C-s> (&buftype ==# 'terminal' ? '<C-s>' : '<Esc>:w<CR>'
 nnoremap <silent><expr> <C-s> (&buftype ==# 'terminal' ? '<C-s>' : '<Esc>:w<CR>')
 vnoremap <silent><expr> <C-s> (&buftype ==# 'terminal' ? '<C-s>' : '<Esc>:w<CR>')
 
-" fast navigation
-" SHIFT + h
-" SHIFT + l
-" SHIFT + j
-" SHIFT + k
+" ALT + <Left>
+" ALT + <Right> move faster along lines
 
-nnoremap <S-h> b
-vnoremap <S-h> b
+inoremap <silent> <M-Left> <Esc>bi
+nnoremap <M-Left> b
+vnoremap <M-Left> <S-Left>
 
-nnoremap <S-l> w
-vnoremap <S-l> w
+inoremap <silent> <M-Right> <Esc>wwi
+nnoremap <M-Right> w
+nnoremap <S-Left> v<Left>
+vnoremap <M-Right> <S-Right>
 
-nnoremap <S-j> <S-Down>
-vnoremap <S-j> <S-Down>
+" SHIFT + <Left>
+" SHIFT + <Right>
+" SHIFT + <Up>
+" SHIFT + <Down> highlight text
 
-nnoremap <S-k> <S-Up>
-vnoremap <S-k> <S-Up>
+inoremap <S-Left> <C-o>v<Left>
+nnoremap <S-Left> v<Left>
+vnoremap <S-Left> <Left>
+
+inoremap <S-Right> <C-o>v<Right>
+nnoremap <S-Right> v<Right>
+vnoremap <S-Right> <Right>
+
+inoremap <S-Up> <C-o>v<Up>
+nnoremap <S-Up> v<Up>
+vnoremap <S-Up> <Up>
+
+inoremap <S-Down> <C-o>v<Down>
+nnoremap <S-Down> v<Down>
+vnoremap <S-Down> <Down>
+
+" clear visual mode nav mappings
+
+vnoremap <Left> <Esc><Left>
+vnoremap <Right> <Esc><Right>
+vnoremap <Up> <Esc><Up>
+vnoremap <Down> <Esc><Down>
 
 " tab navigation
-" ALT + t opens a new tab
-" ALT + w closes the current tab
-" ALT + <Right> and
-" ALT + <Left> switch tabs
-" ALT + h or
-" ALT + l alternate mappings
-" ALT + e switch/split windows
+" CTRL + t opens a new tab
+" CTRL + w closes the current tab
+" CTRL + <Right> and
+" CTRL + <Left> switch tabs
+" CTRL + h or
+" CTRL + l alternate mappings
+" CTRL + e switch/split windows
 " :new opens tabs vertically
 
-inoremap <silent> <M-t> <Esc>:enew<CR>i
-nnoremap <silent> <M-t> :enew<CR> 
-vnoremap <silent> <M-t> :enew<CR> 
+inoremap <silent> <C-t> <Esc>:enew<CR>i
+nnoremap <silent> <C-t> :enew<CR> 
+vnoremap <silent> <C-t> :enew<CR> 
 
 fu! DelBuff() " deleting buffers
   call SwBuff(-1)
@@ -460,20 +482,20 @@ fu! SwBuff(dir) " switching buffers
   execute 'b' . l:n
 endfunction
 
-inoremap <silent> <M-w> <Esc>:call DelBuff()<CR>i
-nnoremap <silent> <M-w> :call DelBuff()<CR>
-vnoremap <silent> <M-w> :call DelBuff()<CR>
+inoremap <silent> <C-w> <Esc>:call DelBuff()<CR>i
+nnoremap <silent> <C-w> :call DelBuff()<CR>
+vnoremap <silent> <C-w> :call DelBuff()<CR>
 
 for i in ['l', 'Right']
-  execute 'inoremap <silent> <M-' . i . '> <Esc>:call SwBuff(1)<CR>i'
-  execute 'nnoremap <silent> <M-' . i . '> :call SwBuff(1)<CR>'
-  execute 'vnoremap <silent> <M-' . i . '> :call SwBuff(1)<CR>'
+  execute 'inoremap <silent> <C-' . i . '> <Esc>:call SwBuff(1)<CR>i'
+  execute 'nnoremap <silent> <C-' . i . '> :call SwBuff(1)<CR>'
+  execute 'vnoremap <silent> <C-' . i . '> :call SwBuff(1)<CR>'
 endfor
 
 for i in ['h', 'Left']
-  execute 'inoremap <silent> <M-' . i . '> <Esc>:call SwBuff(-1)<CR>i'
-  execute 'nnoremap <silent> <M-' . i . '> :call SwBuff(-1)<CR>'
-  execute 'vnoremap <silent> <M-' . i . '> :call SwBuff(-1)<CR>'
+  execute 'inoremap <silent> <C-' . i . '> <Esc>:call SwBuff(-1)<CR>i'
+  execute 'nnoremap <silent> <C-' . i . '> :call SwBuff(-1)<CR>'
+  execute 'vnoremap <silent> <C-' . i . '> :call SwBuff(-1)<CR>'
 endfor
 
 " always split windows vertically
@@ -483,10 +505,10 @@ set splitright
 nnoremap <M-e> <C-w>
 vnoremap <M-e> <C-w>
 
-" ALT + <Up>
-" ALT + k
-" ALT + <Down> 
-" ALT + j to scroll faster vertically
+" CTRL + <Up>
+" CTRL + k
+" CTRL + <Down> 
+" CTRL + j to scroll faster vertically
 
 let scAmt = 5
 for i in ['Up', 'k', 'Down', 'j']
@@ -503,9 +525,9 @@ for i in ['Up', 'k', 'Down', 'j']
     let c += 1
   endwhile
 
-  execute 'inoremap <silent> <M-' . i . '> <Esc>' . insertScroll . 'i'
-  execute 'nnoremap <silent> <M-' . i . '> ' . scAmt . key
-  execute 'vnoremap <silent> <M-' . i . '> ' . scAmt . key
+  execute 'inoremap <silent> <C-' . i . '> <Esc>' . insertScroll . 'i'
+  execute 'nnoremap <silent> <C-' . i . '> ' . scAmt . key
+  execute 'vnoremap <silent> <C-' . i . '> ' . scAmt . key
 endfor
 
 " ALT + p to activame fuzzy finder
@@ -515,30 +537,31 @@ inoremap <silent> <M-p> <Esc>:CtrlP<CR>
 nnoremap <silent> <M-p> :CtrlP<CR>
 vnoremap <silent> <M-p> <Esc>:CtrlP<CR>
 
-" CTRL + <Up> or
-" CTRL + <Down> to line swap
-" CTRL + k or
-" CTRL + j alternate mappings
+" ALT + <Up> or
+" ALT + <Down> to line swap
+" ALT + k or
+" ALT + j alternate mappings
 
 for i in ['Up', 'k']
-  execute "inoremap <silent> <C-" . i . "> <Esc>:m .-2<CR>==gi"
-  execute "nnoremap <silent> <C-" . i . "> :m .-2<CR>=="
-  execute "vnoremap <silent> <C-" . i . "> :m '<-2<CR>gv=gv"
+  execute "inoremap <silent> <M-" . i . "> <Esc>:m .-2<CR>==gi"
+  execute "vnoremap <silent> <M-" . i . "> :m '<-2<CR>gv=gv"
+  execute "nnoremap <silent> <M-" . i . "> :m .-2<CR>=="
 endfor
 
 for i in ['Down', 'j']
-  execute "inoremap <silent> <C-" . i . "> <Esc>:m .+1<CR>==gi"
-  execute "nnoremap <silent> <C-" . i . "> :m .+1<CR>=="
-  execute "vnoremap <silent> <C-" . i . "> :m '>+1<CR>gv=gv"
+  execute "inoremap <silent> <M-" . i . "> <Esc>:m .+1<CR>==gi"
+  execute "nnoremap <silent> <M-" . i . "> :m .+1<CR>=="
+  execute "vnoremap <silent> <M-" . i . "> :m '>+1<CR>gv=gv"
 endfor
 
-" ALT + b toggles the file explorer
-" ALT + h toggle displaying hidden files
+" CTRL + b toggles the file explorer
+" CTRL + h toggle displaying hidden files
 
-map <M-b> :NERDTreeToggle<CR>
-let NERDTreeMapToggleHidden='<M-h>'
+map <C-b> :NERDTreeToggle<CR>
+let NERDTreeMapToggleHidden='<C-h>'
 
 " ALT + / to comment/uncomment line(s) (will not work with non-recursive mappings)
+" CTRL + / alternate mapping
 
 imap <M-/> <Esc>gc<Right><Right>i
 nmap <M-/> gc<Right>
@@ -555,6 +578,7 @@ nnoremap <S-Tab> <<
 vnoremap <S-Tab> <gv
 
 " ALT + f to search
+" CTRL + f alternate
 " ESC + ESC to remove highlight
 " F3 to skip to next search
 " SHIFT + F3 to skip to the previous search
@@ -562,10 +586,13 @@ vnoremap <S-Tab> <gv
 " pressing Esc will not remove search position
 set cpoptions+=x
 
-inoremap <M-f> <Esc>:/
-nnoremap <M-f> :/
-noremap / :/
-vnoremap <M-f> :/
+inoremap <M-f> <C-o>/
+nnoremap <M-f> /
+vnoremap <M-f> /
+
+inoremap <C-f> <C-o>/
+nnoremap <C-f> /
+vnoremap <C-f> /
 
 inoremap <silent> <Esc><Esc> <Esc>:nohls<CR>i
 nnoremap <silent> <Esc><Esc> :nohls<CR>
@@ -593,19 +620,27 @@ tnoremap <silent> <Esc> <C-\><C-n>
 " CTRL + C or
 " CTRL + SHIFT + C to copy
 
-" copy entire line
-nnoremap <C-c> <Esc>v<S-v>"+y 
-vnoremap <C-c> "+y
+set clipboard=unnamed,unnamedplus
+
+inoremap <C-c> <C-o><S-v>"+y
+nnoremap <C-c> <S-v>"+y 
+vnoremap <C-c> m`"+y``
 
 " ALT + q to quit
+" CTRL + q alternate
+
 inoremap <M-q> <Esc>:call SaveSession()<CR>:q!<CR>
 nnoremap <M-q> <Esc>:call SaveSession()<CR>:q!<CR>
 vnoremap <M-q> <Esc>:call SaveSession()<CR>:q!<CR>
 
+inoremap <C-q> <Esc>:call SaveSession()<CR>:q!<CR>
+nnoremap <C-q> <Esc>:call SaveSession()<CR>:q!<CR>
+vnoremap <C-q> <Esc>:call SaveSession()<CR>:q!<CR>
+
 " ------------------------------------------------------------------------
-" -----------------------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 " auto commands (events)
-" -----------------------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
 
 " refresh fuzzy finder cache every time a file is saved
@@ -626,10 +661,13 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd VimLeavePre * call SaveSession()
 autocmd VimEnter * nested call RestoreSession()
 
+" comment highlighting in json
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
 " ------------------------------------------------------------------------
-" -----------------------------------------------------------------------------------------------------------------
-" -----------------------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 " post settings
+" ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
 
 " remove mode display

@@ -15,6 +15,7 @@ for_window [app_id="applauncher"] focus, floating enabled
 # browser
 set $browser firefox-nightly
 # set $browser google-chrome-stable
+set $private firefox-nightly -private-window 
 # file explorer
 set $fileexp thunar
 
@@ -44,9 +45,9 @@ focus_follows_mouse no
 
 # turn off screen after 2 minutes
 # lock screen after 3 minutes
-set $locker 'swaylock -C ~/.config/swaylock/config'
-exec swayidle -w \
-  timeout 180 $locker
+# set $locker 'swaylock -C ~/.config/swaylock/config'
+# exec swayidle -w \
+#   timeout 180 $locker
   # timeout 120 'swaymsg "output * dpms off"' \
   # timeout 180 $locker \
   # resume 'swaymsg "output * dpms on"; pkill -nx swayidle'
@@ -97,6 +98,7 @@ bar {
 
 bindsym $mod+Return exec $term
 bindsym $mod+b exec $browser
+bindsym $mod+Shift+b exec $private
 bindsym $mod+d exec $menu
 bindsym $mod+y exec $fileexp
 bindsym $mod+m exec discord-ptb

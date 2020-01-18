@@ -1,5 +1,4 @@
-// user settings for Visual Studio Code
-// default location: ~/.config/Code/User/
+// VS Code configuration
 {
   // ------------------------------------------------------------------------------------------
   // Defaults
@@ -55,7 +54,7 @@
   },
   // make terminals render faster
   "terminal.integrated.rendererType": "canvas",
-  "terminal.external.linuxExec": "xfce4-terminal",
+  "terminal.external.linuxExec": "termite",
   "terminal.integrated.showExitAlert": false,
   "window.zoomLevel": 0,
   "window.restoreFullscreen": true,

@@ -19,8 +19,11 @@ alias rm="rm -v"
 
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;35:"
 
+# to move global npm directory to local directory
+# mkdir -p ~/.npm-global 
+# npm config set prefix '~/.npm-global'
 export PATH=$PATH:~/.local/bin/
-export PATH="/home/sam/.npm-global/bin:$PATH"
+export PATH="~/.npm-global/bin:$PATH"
 
 bind 'set bell-style none' # silence error ring
 

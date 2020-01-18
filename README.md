@@ -629,8 +629,8 @@ Last updated: 2020-01-12
 - Change various power button and lid closing settings with `sudo vim /etc/systemd/logind.conf`:
   ```
   HandlePowerKey=hibernate
-  HandleLidSwitch=hibernate
-  HandleLidSwitchDocked=hibernate
+  HandleLidSwitch=suspend
+  HandleLidSwitchDocked=suspend
   ```
   Reboot.
   ```
@@ -650,6 +650,11 @@ Last updated: 2020-01-12
   sudo pacman -S openssh
   sudo systemctl enable sshd
   sudo systemctl start sshd
+  ```
+- Fixing the `wayland` system clipboard:
+  ```
+  aur clone wl-clipboard-git
+  makepkg -si
   ```
 
 ### Additional
