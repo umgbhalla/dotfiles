@@ -20,6 +20,7 @@ Plug 'scrooloose/nerdtree'              " file explorer
 Plug 'Xuyuanp/nerdtree-git-plugin'      " git in file explorer
 Plug 'tpope/vim-commentary'             " commentng shortcut
 Plug 'jiangmiao/auto-pairs'             " auto pair inserting
+Plug 'Yggdroot/indentLine'              " indentation guidelines 
 
 " language syntax
 
@@ -391,7 +392,7 @@ vnoremap <BS> d
 
 " CTRL + s to save
 
-inoremap <silent><expr> <C-s> (&buftype ==# 'terminal' ? '<C-s>' : '<Esc>:w<CR>')
+inoremap <silent><expr> <C-s> (&buftype ==# 'terminal' ? '<C-s>' : '<Esc>:w<CR>i')
 nnoremap <silent><expr> <C-s> (&buftype ==# 'terminal' ? '<C-s>' : '<Esc>:w<CR>')
 vnoremap <silent><expr> <C-s> (&buftype ==# 'terminal' ? '<C-s>' : '<Esc>:w<CR>')
 
