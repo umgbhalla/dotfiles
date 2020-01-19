@@ -47,7 +47,7 @@ call plug#end()
 " airline bar icons
 if !exists('g:airline_symbols') | let g:airline_symbols = {} | endif
 let g:airline_symbols.linenr = ''
-let g:airline_symbols.branch = ''
+let g:airline_symbols.branch = ''
 let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.whitespace = ''
 " if no version control is detected
@@ -330,6 +330,9 @@ set hlsearch
 " allow <Left> and <Right> keys to wrap lines
 set whichwrap+=<,>,[,]
 
+" do not show highlighting of last character
+set selection=exclusive
+
 " ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
 " gui display
@@ -396,8 +399,11 @@ set guicursor+=i:ver100-iCursor
 " ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
 
+let mapleader=","
+
 " BACKSPACE deletes highlighted characters
-vnoremap <BS> d
+vnoremap <silent> <BS> d
+vnoremap <silent> <CR> di<CR>
 
 " CTRL + s to save
 
@@ -628,14 +634,26 @@ tnoremap <M-`> <C-\><C-n>:Ttoggle<CR>
 
 tnoremap <silent> <Esc> <C-\><C-n>
 
-" CTRL + C or
-" CTRL + SHIFT + C to copy
+" CTRL + c to copy
 
 set clipboard=unnamed,unnamedplus
 
-inoremap <C-c> <C-o><S-v>"+y
-nnoremap <C-c> <S-v>"+y 
-vnoremap <C-c> m`"+y``
+inoremap <silent> <C-c> <C-o><S-v>"*y
+nnoremap <silent> <C-c> <S-v>"*y 
+vnoremap <silent> <C-c> m`"*y``
+
+" CTRL + x to cut
+
+inoremap <silent> <C-x> <C-o><S-v>"*y<Esc>d$i
+vnoremap <silent> <C-x> d
+
+" CTRL + v to paste
+
+inoremap <silent> <Leader>v <C-v>
+inoremap <silent> <C-v> <Esc>"*pi<Right>
+
+" TODO empty line comments
+" TODO autocomplete one suggestion
 
 " ALT + q to quit
 " CTRL + q alternate
@@ -649,7 +667,9 @@ nnoremap <C-q> <Esc>:call SaveSession()<CR>:q!<CR>
 vnoremap <C-q> <Esc>:call SaveSession()<CR>:q!<CR>
 
 " CTRL + z to undo in insert mode
+" CTRL + r to redo in insert mode
 inoremap <silent> <C-z> <Esc>ui
+inoremap <silent> <C-r> <Esc><C-r>i
 
 " ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
@@ -657,7 +677,7 @@ inoremap <silent> <C-z> <Esc>ui
 " ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
 
-" refresh fuzzy finder cache every time a file is saved
+" refresh fuzzy finder cache every time a file issaved
 autocmd FocusGained  * CtrlPClearCache
 autocmd BufWritePost * CtrlPClearCache
 
