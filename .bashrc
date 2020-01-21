@@ -1,4 +1,8 @@
 
+LG='\033[1;32m'
+LB='\033[1;94m'
+NC='\033[0m'
+
 # ----------------------------------------------------------------------------
 # defaults
 # ----------------------------------------------------------------------------
@@ -41,6 +45,28 @@ alias vim="nvim"
 function aur() {
   if [ "$1" == "clone" ]; then cd /tmp && auracle clone $2 && cd $2
   else auracle $@; fi
+}
+
+# cache
+function clear-cache() {
+  function create_prompt () { echo -e "${LB}$1 (Y/N) ${NC}"; }
+
+  read -p "$(create_prompt "Remove all files from /Downloads/?")" bDownloads
+  case $bDownloads in
+    [Yy]* ) echo "removing downloads..." && rm -rv ~/Downloads/* 2> /dev/null;;
+  esac
+
+  read -p "$(create_prompt "Remove all files from trash?")" bTrash
+  case $bTrash in
+    [Yy]* ) echo "emptying trash..." && rm -rv ~/.local/share/Trash/* 2> /dev/null;;
+  esac
+
+  read -p "$(create_prompt "Remove all cache files?")" bCache
+  case $bCache in
+    [Yy]* ) echo "removing cache files..." && rm -rv ~/.cache/* 2> /dev/null;;
+  esac
+
+  echo -e "${LG}done.${NC}"
 }
 
 # trash

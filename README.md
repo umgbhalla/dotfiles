@@ -688,3 +688,6 @@ Below are a few utilities and programs I additionally install to improve my prod
 
 - `gimp`
 
+Some programs are just for bells and whistles, too.
+
+- `glava`

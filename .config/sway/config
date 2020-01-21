@@ -13,8 +13,8 @@ set $term termite
 set $menu $term --name applauncher -e "bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
 for_window [app_id="applauncher"] focus, floating enabled
 # browser
-set $browser firefox-nightly
 # set $browser google-chrome-stable
+set $browser firefox-nightly
 set $private firefox-nightly -private-window 
 # file explorer
 set $fileexp thunar
@@ -103,6 +103,10 @@ bindsym $mod+d exec $menu
 bindsym $mod+y exec $fileexp
 bindsym $mod+m exec discord-ptb
 
+# audio visualizer
+bindsym $mod+t exec glava
+for_window [class="GLava"] # floating enabled #, sticky enabled
+
 # audio
 bindsym XF86AudioMicMute exec pulseaudio-ctl mute-input && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMute exec pulseaudio-ctl mute && pkill -RTMIN+1 i3blocks
@@ -120,6 +124,9 @@ bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/screenshots/$(date +"%y-%
 # -------------------------------------------------------------------------------------------------------------------
 # modes / window management
 # -------------------------------------------------------------------------------------------------------------------
+
+# anchor floating window to desktop
+bindsym $mod+Prior sticky toggle
 
 # fullscreen
 bindsym $mod+f fullscreen
