@@ -1,4 +1,3 @@
-" Neovim configuration file created by Sam Bossley
 
 " ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
@@ -20,7 +19,6 @@ Plug 'scrooloose/nerdtree'              " file explorer
 Plug 'Xuyuanp/nerdtree-git-plugin'      " git in file explorer
 Plug 'tpope/vim-commentary'             " commentng shortcut
 Plug 'jiangmiao/auto-pairs'             " auto pair inserting
-Plug 'Yggdroot/indentLine'              " indentation guidelines 
 
 " language syntax
 
@@ -78,9 +76,10 @@ let g:fugitive_no_maps = 1
 " signcolumn should always display
 if has('signcolumn') | set signcolumn='yes' | endif
 " git gutter symbols
-let g:gitgutter_sign_added = '++'
-let g:gitgutter_sign_modified = '~~'
-let g:gitgutter_sign_removed = '--'
+let g:gitgutter_sign_added = ''
+let g:gitgutter_sign_modified = ''
+let g:gitgutter_sign_removed = ''
+let g:gitgutter_sign_modified_removed = ''
 " disable gutter keymappings
 let g:gitgutter_map_keys = 0
 " update gutters every x milliseconds
@@ -115,20 +114,20 @@ let NERDTreeIgnore += ['\.png$','\.jpg$','\.gif$','\.mp3$','\.flac$', '\.ogg$', 
 
 " file explorer git icons
 let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "~~",
-    \ "Staged"    : "?",
-    \ "Untracked" : "++",
-    \ "Renamed"   : "?",
-    \ "Unmerged"  : "?",
-    \ "Deleted"   : "--",
-    \ "Dirty"     : "?",
-    \ "Clean"     : "?",
-    \ "Ignored"   : "?",
-    \ "Unknown"   : "?"
-    \ }
+  \ "Modified"  : "",
+  \ "Staged"    : "?",
+  \ "Untracked" : "",
+  \ "Renamed"   : "?",
+  \ "Unmerged"  : "?",
+  \ "Deleted"   : "",
+  \ "Dirty"     : "?",
+  \ "Clean"     : "?",
+  \ "Ignored"   : "?",
+  \ "Unknown"   : "?"
+\ }
 
 " change autopairs hotkey to not conflict with commenter
-let g:AutoPairsShortcutToggle = '<leader>cfd' " this is just a random hotkey I'll never press
+let g:AutoPairsShortcutToggle = '<leader>cfd' " just a random hotkey
 
 " ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
@@ -188,6 +187,16 @@ function! s:expand()
   endif
   return s:emmetActivator
 endfunction
+
+" fix autocomplete on <CR>
+inoremap <silent> <expr> <CR> pumvisible() ? "\<Esc>i<Right>\<CR>" : "\<CR>"
+
+" improve autocompletion display
+set completeopt+=preview
+set completeopt+=menu,menuone,noinsert,noselect
+
+" TODO fix keymap
+" inoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
 
 " ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
@@ -356,6 +365,7 @@ highlight SignColumn      ctermbg=None
 highlight GitGutterAdd    ctermbg=None
 highlight GitGutterChange ctermbg=None
 highlight GitGutterDelete ctermbg=None
+hi GitGutterChangeDelete  ctermbg=None
 
 " redraw screen when vertical position has changed in WSL 
 let s:screenLine = line("w0")
@@ -383,14 +393,15 @@ set cmdheight=1
 
 " highlight line cursor rests on
 " set cursorline
-" hi Cursorline             ctermbg=237
+" hi Cursorline             ctermbg=241
 
 " mouse support
 set mouse=a
 
 " change cursor to hairline in all modes but normal
 set guicursor=n:block-Cursor
-set guicursor+=v-c:ver100-iCursor
+set guicursor+=v:ver100-iCursor
+set guicursor+=c:ver100-iCursor
 set guicursor+=i:ver100-iCursor
 
 " ------------------------------------------------------------------------
@@ -407,21 +418,21 @@ vnoremap <silent> <CR> di<CR>
 
 " CTRL + s to save
 
-inoremap <silent><expr> <C-s> (&buftype ==# 'terminal' ? '<C-s>' : '<Esc>:w<CR>i<Right>')
+inoremap <silent><expr> <C-s> (&buftype ==# 'terminal' ? '<C-s>' : '<Esc>:w<CR>a')
 nnoremap <silent><expr> <C-s> (&buftype ==# 'terminal' ? '<C-s>' : '<Esc>:w<CR>')
 vnoremap <silent><expr> <C-s> (&buftype ==# 'terminal' ? '<C-s>' : '<Esc>:w<CR>')
 
-" ALT + <Left>
-" ALT + <Right> move faster along lines
+" CTRL + <Left>
+" CTRL + <Right> move faster along lines
 
-inoremap <silent> <M-Left> <Esc>bi
-nnoremap <M-Left> b
-vnoremap <M-Left> <S-Left>
+inoremap <silent> <C-Left> <Esc>bi
+nnoremap <C-Left> b
+nnoremap <C-Left> v<Left>
+vnoremap <C-Left> <S-Left>
 
-inoremap <silent> <M-Right> <Esc>wwi
-nnoremap <M-Right> w
-nnoremap <S-Left> v<Left>
-vnoremap <M-Right> <S-Right>
+inoremap <silent> <C-Right> <Esc>wwi
+nnoremap <C-Right> w
+vnoremap <C-Right> <S-Right>
 
 " SHIFT + <Left>
 " SHIFT + <Right>
@@ -452,22 +463,15 @@ vnoremap <Up> <Esc><Up>
 vnoremap <Down> <Esc><Down>
 
 " tab navigation
-" CTRL + t opens a new tab
-" CTRL + w closes the current tab
-" CTRL + <Right> and
-" CTRL + <Left> switch tabs
-" CTRL + h or
-" CTRL + l alternate mappings
-" CTRL + a switch/split windows
+" ALT + t opens a new tab
+" ALT + w closes the current tab
+" ALT + <Right> and
+" ALT + <Left> switch tabs
 " :new opens tabs vertically
 
-inoremap <C-a> <Esc><C-w>
-nnoremap <C-a> <C-w>
-vnoremap <C-a> <C-w>
-
-inoremap <silent> <C-t> <Esc>:enew<CR>i
-nnoremap <silent> <C-t> :enew<CR> 
-vnoremap <silent> <C-t> :enew<CR> 
+inoremap <silent> <M-t> <Esc>:enew<CR>i
+nnoremap <silent> <M-t> :enew<CR> 
+vnoremap <silent> <M-t> :enew<CR> 
 
 fu! DelBuff() " deleting buffers
   call SwBuff(1)
@@ -501,28 +505,25 @@ fu! SwBuff(dir) " switching buffers
   execute 'b' . l:n
 endfunction
 
-inoremap <silent> <C-w> <Esc>:call DelBuff()<CR>i
-nnoremap <silent> <C-w> :call DelBuff()<CR>
-vnoremap <silent> <C-w> :call DelBuff()<CR>
+inoremap <silent> <M-w> <Esc>:call DelBuff()<CR>i
+nnoremap <silent> <M-w> :call DelBuff()<CR>
+vnoremap <silent> <M-w> :call DelBuff()<CR>
 
 for i in ['l', 'Right']
-  execute 'inoremap <silent> <C-' . i . '> <Esc>:call SwBuff(1)<CR>i'
-  execute 'nnoremap <silent> <C-' . i . '> :call SwBuff(1)<CR>'
-  execute 'vnoremap <silent> <C-' . i . '> :call SwBuff(1)<CR>'
+  execute 'inoremap <silent> <M-' . i . '> <Esc>:call SwBuff(1)<CR>i'
+  execute 'nnoremap <silent> <M-' . i . '> :call SwBuff(1)<CR>'
+  execute 'vnoremap <silent> <M-' . i . '> :call SwBuff(1)<CR>'
 endfor
 
 for i in ['h', 'Left']
-  execute 'inoremap <silent> <C-' . i . '> <Esc>:call SwBuff(-1)<CR>i'
-  execute 'nnoremap <silent> <C-' . i . '> :call SwBuff(-1)<CR>'
-  execute 'vnoremap <silent> <C-' . i . '> :call SwBuff(-1)<CR>'
+  execute 'inoremap <silent> <M-' . i . '> <Esc>:call SwBuff(-1)<CR>i'
+  execute 'nnoremap <silent> <M-' . i . '> :call SwBuff(-1)<CR>'
+  execute 'vnoremap <silent> <M-' . i . '> :call SwBuff(-1)<CR>'
 endfor
 
 " always split windows vertically
 cabbrev new vsplit
 set splitright
-
-nnoremap <M-e> <C-w>
-vnoremap <M-e> <C-w>
 
 " CTRL + <Up>
 " CTRL + <Down> to scroll faster vertically
@@ -545,7 +546,7 @@ for i in ['Up', 'Down']
   execute 'vnoremap <silent> <C-' . i . '> ' . scAmt . key
 endfor
 
-" ALT + p to activame fuzzy finder
+" ALT + p to activate fuzzy finder
 " CTRL + p is the default
 
 inoremap <silent> <M-p> <Esc>:CtrlP<CR>
@@ -638,19 +639,19 @@ tnoremap <silent> <Esc> <C-\><C-n>
 
 set clipboard=unnamed,unnamedplus
 
-inoremap <silent> <C-c> <C-o><S-v>"*y
-nnoremap <silent> <C-c> <S-v>"*y 
-vnoremap <silent> <C-c> m`"*y``
+" inoremap <silent> <C-c> <C-o><S-v>"*y
+" nnoremap <silent> <C-c> <S-v>"*y 
+" vnoremap <silent> <C-c> m`"*y``
 
 " CTRL + x to cut
 
-inoremap <silent> <C-x> <C-o><S-v>"*y<Esc>d$i
-vnoremap <silent> <C-x> d
+" inoremap <silent> <C-x> <C-o><S-v>"*y<Esc>d$i
+" vnoremap <silent> <C-x> d
 
 " CTRL + v to paste
 
-inoremap <silent> <Leader>v <C-v>
-inoremap <silent> <C-v> <Esc>"*pi<Right>
+" inoremap <silent> <Leader>v <C-v>
+" inoremap <silent> <C-v> <Esc>"*pi<Right>
 
 " TODO empty line comments
 " TODO autocomplete one suggestion
@@ -666,9 +667,7 @@ inoremap <C-q> <Esc>:call SaveSession()<CR>:q!<CR>
 nnoremap <C-q> <Esc>:call SaveSession()<CR>:q!<CR>
 vnoremap <C-q> <Esc>:call SaveSession()<CR>:q!<CR>
 
-" CTRL + z to undo in insert mode
 " CTRL + r to redo in insert mode
-inoremap <silent> <C-z> <Esc>ui
 inoremap <silent> <C-r> <Esc><C-r>i
 
 " ------------------------------------------------------------------------
@@ -700,6 +699,9 @@ autocmd VimEnter * startinsert
 
 " comment highlighting in json
 autocmd FileType json syntax match Comment +\/\/.\+$+
+
+" disable autocomplete in terminal buffers
+autocmd FileType vim if bufname('%') == '[Command Line]' | let b:coc_suggest_disable = 1 | endif
 
 " ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
