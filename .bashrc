@@ -41,6 +41,13 @@ alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
 
+# unzip archives
+function unz() {
+  if [[ $# != 1 ]]; then echo "${LB}Usage: unz [filename.zip]${NC}"; return 1; fi
+  target="${1%.zip}"
+  unzip "$1" -d "${target##*/}"
+}
+
 # auracle wrapper
 function aur() {
   if [ "$1" == "clone" ]; then cd /tmp && auracle clone $2 && cd $2
@@ -60,6 +67,11 @@ function clear-cache() {
   case $bTrash in
     [Yy]* ) echo "emptying trash..." && rm -rv ~/.local/share/Trash/* 2> /dev/null;;
   esac
+
+  read -p "$(create_prompt "Remove all package manager cache files?")" bPacCache
+  case $bPacCache in
+    [Yy]* ) echo "clearing package manager cache..." && sudo pacman -Sc;;
+  esac  
 
   read -p "$(create_prompt "Remove all cache files?")" bCache
   case $bCache in

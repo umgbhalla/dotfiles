@@ -1,0 +1,7 @@
+<application>
+  <component name="GeneralSettings">
+    <option name="confirmExit" value="false" />
+    <option name="defaultProjectDirectory" value="$USER_HOME$/Documents/AndroidStudio/Projects" />
+    <option name="showTipsOnStartup" value="false" />
+  </component>
+</application>

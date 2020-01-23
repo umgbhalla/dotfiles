@@ -10,12 +10,14 @@ set $mod Mod4
 # terminal
 set $term termite
 # launcher
-set $menu $term --name applauncher -e "bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
+set $menu $term --name applauncher -c ~/.config/termite/applauncher -e "bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
 for_window [app_id="applauncher"] focus, floating enabled
 # browser
+set $browser brave
 # set $browser google-chrome-stable
-set $browser firefox-nightly
-set $private firefox-nightly -private-window 
+# set $browser firefox-nightly
+set $private brave -incognito
+# set $private firefox-nightly -private-window 
 # file explorer
 set $fileexp thunar
 
@@ -120,6 +122,8 @@ bindsym Xf86MonBrightnessDown exec light -U 5 && pkill -RTMIN+1 i3blocks
 # screenshots
 bindsym Print exec grim ~/Pictures/screenshots/$(date +"%y-%m-%d-%T").png
 bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/screenshots/$(date +"%y-%m-%d-%T").png
+
+bindsym $mod+Escape exec wlogout -l ~/.config/wlogout/layout -C ~/.config/wlogout/style.css
 
 # -------------------------------------------------------------------------------------------------------------------
 # modes / window management
