@@ -13,11 +13,11 @@ set $term termite
 set $menu $term --name applauncher -c ~/.config/termite/applauncher -e "bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
 for_window [app_id="applauncher"] focus, floating enabled
 # browser
-set $browser brave
+# set $browser brave
 # set $browser google-chrome-stable
-# set $browser firefox-nightly
-set $private brave -incognito
-# set $private firefox-nightly -private-window 
+set $browser firefox-nightly
+# set $private brave -incognito
+set $private firefox-nightly -private-window 
 # file explorer
 set $fileexp thunar
 
@@ -58,6 +58,7 @@ font pango:Noto Sans 12
 
 # background
 output "*" bg /usr/share/backgrounds/custom/void-exodus.png fill
+# output "*" bg ~/Pictures/MysteryJojo.png fill
 
 # disable window titlebars and borders
 default_border none
