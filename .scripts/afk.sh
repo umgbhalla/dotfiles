@@ -1,0 +1,15 @@
+# prerequisites:
+# change ~/.minecraft/options.txt:
+#   pauseOnLostFocus: false
+# sudo pacman -S xdotool
+
+pids=$(xdotool search --class "minecraft")
+echo $pids
+for pid in $pids; do
+  name=$(xdotool getwindowname $pid)
+  echo $name
+  if [[ $name == *"Minecraft"* ]]; then
+    echo "xdotool mousedown 3 --window $pid"
+    xdotool mousedown --window $pid 3
+  fi
+done
