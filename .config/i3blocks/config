@@ -1,11 +1,7 @@
 
-# red=#ff5555
-# blue=#228dff
-# yellow=#f5a70a
-
-blue=#006cdf
-yellow=#e68100
-red=#dd0000
+blue=#5170fd
+yellow=#ab6a29
+red=#993333
 
 #[player]
 #command=echo player
@@ -21,30 +17,25 @@ command=scripts/light.sh $blue $yellow $red
 interval=once
 signal=1
 
-#[weather]
-#command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
-#interval=3600
-#color=#A4C2F4
-
 #[bluetooth]
 #command=echo bluetooth
 #interval=30
 
 [memory]
 command=scripts/memory.sh $blue $yellow $red
-interval=30
+interval=20
 
 [cpu]
 command=scripts/cpu.sh $blue $yellow $red
-interval=30
+interval=20
 
 [temperature]
 command=scripts/temperature.sh $blue $yellow $red
-interval=30
+interval=20
 
 [battery]
 command=scripts/battery.sh $blue $yellow $red
-interval=5
+interval=3
 
 [date]
 command=date +"%m⽉%d天 %H:%M"

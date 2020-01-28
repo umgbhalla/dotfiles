@@ -1,6 +1,6 @@
 ignore-empty-password
 daemonize
-image=/usr/share/backgrounds/custom/void-exodus.png
+image=~/Pictures/backgrounds/Nordic.png
 scaling=fill
 indicator-caps-lock
 
@@ -34,14 +34,17 @@ text-wrong-color=00000000
 
 
 # colors
-ring-color=00000077
-ring-clear-color=ffffff55
-ring-caps-lock-color=e6810077
-ring-ver-color=1186cecc
-ring-wrong-color=dd000077
+ring-color=00000022
 
-key-hl-color=30b86cff
-caps-lock-key-hl-color=30b86cff
+ring-clear-color=ffffff22
 
-bs-hl-color=dd000099
-caps-lock-bs-hl-color=dd000099
+ring-caps-lock-color=e6810055
+
+ring-ver-color=1186ce77
+
+key-hl-color=556677ff
+caps-lock-key-hl-color=556677ff
+
+ring-wrong-color=993333ff
+bs-hl-color=993333ff
+caps-lock-bs-hl-color=993333ff

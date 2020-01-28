@@ -14,3 +14,6 @@ color14 = #de935f
 
 # sticky bit (/tmp) - magenta
 color13 = #a25eb7
+
+[options]
+font = Droid Sans Mono 18

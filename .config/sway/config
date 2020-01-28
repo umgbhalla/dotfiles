@@ -9,24 +9,37 @@ set $mod Mod4
 
 # terminal
 set $term termite
+
 # launcher
-set $menu $term --name applauncher -c ~/.config/termite/applauncher -e "bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
-for_window [app_id="applauncher"] focus, floating enabled
+set $menu $term --name applauncher -c ~/.config/termite/applauncher -e \
+  "bash -c 'ls /usr/bin --color=no | fzf \
+  --color=fg:#bbbbbb,bg:#2e3440,hl:#5f87af \
+  --color=fg+:#dddddd,bg+:#3d4454,hl+:#43bde6 \
+  --color=info:#b38344,prompt:#ffa742,pointer:#ffa742 \
+  --color=marker:#adadad,spinner:#a855fa,header:#70b5a7 \
+  | xargs -r swaymsg -t command exec'"
+for_window [app_id="applauncher"] focus, floating enable, sticky enable, fullscreen
+
 # browser
-# set $browser brave
-# set $browser google-chrome-stable
 set $browser firefox-nightly
-# set $private brave -incognito
-set $private firefox-nightly -private-window 
+set $private firefox-nightly -private-window
+
 # file explorer
 set $fileexp thunar
 
 # gap size
 set $gaps 16
 
+# background
+set $bg ~/Pictures/backgrounds/Nordic.png
+
 # foreground color
-set $fg #222222
+set $fg #aaaaaa
 set $fglight #777777
+
+set $borderWidth 5
+set $borderFocused #2e3440
+set $borderUnfocused #2e3440
 
 # -------------------------------------------------------------------------------------------------------------------
 # setup
@@ -45,24 +58,16 @@ focus_follows_mouse no
 # display
 # -------------------------------------------------------------------------------------------------------------------
 
-# turn off screen after 2 minutes
-# lock screen after 3 minutes
-# set $locker 'swaylock -C ~/.config/swaylock/config'
-# exec swayidle -w \
-#   timeout 180 $locker
-  # timeout 120 'swaymsg "output * dpms off"' \
-  # timeout 180 $locker \
-  # resume 'swaymsg "output * dpms on"; pkill -nx swayidle'
-
 font pango:Noto Sans 12
 
 # background
-output "*" bg /usr/share/backgrounds/custom/void-exodus.png fill
-# output "*" bg ~/Pictures/MysteryJojo.png fill
+output "*" bg $bg fill
 
-# disable window titlebars and borders
-default_border none
-default_floating_border none
+# disable window titlebars, use borders
+default_border pixel $borderWidth
+client.focused #00000000 #00000000 #00000000 $borderFocused $borderFocused
+client.unfocused #00000000 #00000000 #00000000 $borderUnfocused $borderUnfocused
+client.focused_inactive #00000000 #00000000 #00000000 $borderUnfocused $borderUnfocused
 
 # floating windows by default
 # for_window [class="[.]*"] floating enable
@@ -77,6 +82,9 @@ gaps outer 0
 
 # unity
 for_window [class="UnityHub"] floating enable
+
+# glava
+for_window [class="GLava"] border none, floating enable, sticky enable
 
 # -------------------------------------------------------------------------------------------------------------------
 # status bar
@@ -111,11 +119,9 @@ bindsym $mod+b exec $browser
 bindsym $mod+Shift+b exec $private
 bindsym $mod+d exec $menu
 bindsym $mod+y exec $fileexp
-bindsym $mod+m exec discord-ptb
 
-# audio visualizer
+bindsym $mod+m exec discord-ptb
 bindsym $mod+t exec glava
-for_window [class="GLava"] # floating enabled #, sticky enabled
 
 # audio
 bindsym XF86AudioMicMute exec pulseaudio-ctl mute-input && pkill -RTMIN+1 i3blocks

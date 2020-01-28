@@ -6,17 +6,19 @@
 }
 
 window {
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: #3a3e47;
 }
 
 button {
   border-radius: 0;
+  color: #777;
   font-size: 30pt;
   transition: 0.1s all;
 }
 
-button:focus, button:active, button:hover {
-  color: #30b86c;
+/* button:focus, button:active, */ 
+button:hover {
+  color: #bbccdd;
 	outline: none;
 }
 
