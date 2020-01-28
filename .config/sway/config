@@ -91,23 +91,7 @@ for_window [class="GLava"] border none, floating enable, sticky enable
 # -------------------------------------------------------------------------------------------------------------------
 
 bar {
-  position top
-  gaps 4 $gaps 0 $gaps
-  separator_symbol " "
-
-  font pango:Noto Sans:24
-
-  colors {
-    background #00000000
-    statusline $fg
-
-    focused_workspace $fg #00000000 $fg
-    inactive_workspace #00000000 #00000000 $fglight
-    urgent_workspace #00000000 #00000000 #dd0000
-  }
-
-  tray_output none
-  status_command i3blocks
+  swaybar_command waybar
 }
 
 # -------------------------------------------------------------------------------------------------------------------
@@ -203,17 +187,16 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# workspace variables
-set $ws1 ⼀
-set $ws2 ⼆
-set $ws3 三
-set $ws4 四
-set $ws5 五
-set $ws6 六
-set $ws7 七
-set $ws8 八
-set $ws9 九
-set $ws10 十
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
 
 # workspaces
 bindsym $mod+1 workspace $ws1
