@@ -134,8 +134,9 @@ bindsym Xf86MonBrightnessUp exec light -A 5 && pkill -RTMIN+1 i3blocks
 bindsym Xf86MonBrightnessDown exec light -U 5 && pkill -RTMIN+1 i3blocks
 
 # screenshots
-bindsym Print exec grim ~/Pictures/screenshots/$(date +"%y-%m-%d-%T").png
-bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/screenshots/$(date +"%y-%m-%d-%T").png
+set $flash light -A 10 && sleep 0.2 && light -U 10
+bindsym Print exec grim ~/Pictures/screenshots/$(date +"%y-%m-%d-%T").png && $flash
+bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/screenshots/$(date +"%y-%m-%d-%T").png && $flash
 
 bindsym $mod+Escape exec wlogout -l ~/.config/wlogout/layout -C ~/.config/wlogout/style.css
 

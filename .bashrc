@@ -41,6 +41,8 @@ alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
 
+alias gotop="gotop -c nordic"
+
 # unzip archives
 function unz() {
   if [[ $# != 1 ]]; then echo "${LB}Usage: unz [filename.zip]${NC}"; return 1; fi
