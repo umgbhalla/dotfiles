@@ -44,9 +44,6 @@ alias vim="nvim"
 # system monitor
 alias gotop="gotop -c nordic"
 
-# archive manager
-alias arc="~/.arc"
-
 # auracle wrapper
 function aur() {
   if [ "$1" == "clone" ]; then cd /tmp && auracle clone $2 && cd $2
@@ -108,4 +105,9 @@ function trash() {
 # scripts
 # ----------------------------------------------------------------------------
 
+# afk fish farm
 alias afk="~/.scripts/afk.sh"
+
+# archive manager
+alias arc="~/.scripts/arc.sh"
+
