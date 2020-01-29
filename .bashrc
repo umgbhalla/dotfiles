@@ -41,14 +41,11 @@ alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
 
+# system monitor
 alias gotop="gotop -c nordic"
 
-# unzip archives
-function unz() {
-  if [[ $# != 1 ]]; then echo "${LB}Usage: unz [filename.zip]${NC}"; return 1; fi
-  target="${1%.zip}"
-  unzip "$1" -d "${target##*/}"
-}
+# archive manager
+alias arc="~/.arc"
 
 # auracle wrapper
 function aur() {

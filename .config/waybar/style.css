@@ -82,6 +82,7 @@ window#waybar {
 
 #battery.warning {
   color: #ab6a29;
+  background-color: transparent;
 }
 
 #battery.charging {
@@ -89,14 +90,17 @@ window#waybar {
 }
 
 @keyframes blink {
-  to { color: inherit; }
+  to {
+    color: #993333;
+  }
 }
 
 #battery.critical:not(.charging) {
-  color: #993333;
+  background-color: transparent;
+  color: inherit;
   animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
