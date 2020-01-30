@@ -13,11 +13,11 @@ error() {
 }
 
 function format() {
-  echo $1 | cut -d "." -f 2-
+  echo "$1" | cut -d "." -f 2-
 }
 
 function outdir() {
-  echo $1 | cut -d "." -f 1
+  echo "$1" | cut -d "." -f 1
 }
 
 if [[ $# < 1 ]]; then 
@@ -40,14 +40,14 @@ else
     c|create)
       if [[ -z $2 ]]; then invalid "output file not specified"; exit; fi
       if [[ -z $3 ]]; then invalid "no input file(s) specified"; exit; fi
-      case $(format $2) in
+      case $(format "$2") in
         zip)
           if ! hash zip 2>/dev/null; then error "zip is not installed. Try sudo pacman -S zip"; fi
           echo -e "${LB}"
-          zip -v $2 ${@:3}
+          zip -v "$2" ${@:3}
           echo -e "${NC}"        
           ;;
-
+          
         # tar.xz)
         #   echo tar.xz
         #   ;;
@@ -60,11 +60,19 @@ else
       ;;
 
     e|extract)
-      case $(format $2) in
+      if [[ -z "$2" ]]; then invalid "input file not specified"; exit; fi
+      case $(format "$2") in
         zip)
           if ! hash unzip 2>/dev/null; then error "unzip is not installed. Try sudo pacman -S unzip"; fi
           echo -e "${LB}"
-          unzip $2 -d $(outdir $2)
+          unzip "$2" -d "$(outdir "$2")"
+          echo -e "${NC}"
+          ;;
+
+        jar)
+          if ! hash unzip 2>/dev/null; then error "unzip is not installed. Try sudo pacman -S unzip"; fi
+          echo -e "${LB}"
+          unzip "$2" -d "$(outdir "$2")"
           echo -e "${NC}"
           ;;
 
