@@ -84,7 +84,7 @@ gaps outer 0
 for_window [class="UnityHub"] floating enable
 
 # glava
-for_window [class="GLava"] border none, floating enable, sticky enable
+for_window [class="GLava"] border none, floating enable, sticky enable, move position -16px 960px
 
 # -------------------------------------------------------------------------------------------------------------------
 # status bar
@@ -105,7 +105,15 @@ bindsym $mod+d exec $menu
 bindsym $mod+y exec $fileexp
 
 bindsym $mod+m exec discord-ptb
-bindsym $mod+t exec glava
+
+mode "audiovis" {
+  bindsym $mod+t exec ~/.scripts/audiovisualizer.sh on
+  bindsym $mod+r exec ~/.scripts/audiovisualizer.sh off
+  
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+t mode "audiovis"
 
 # audio
 bindsym XF86AudioMicMute exec pulseaudio-ctl mute-input && pkill -RTMIN+1 i3blocks
