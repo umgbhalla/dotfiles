@@ -11,13 +11,7 @@ set $mod Mod4
 set $term termite
 
 # launcher
-set $menu $term --name applauncher -c ~/.config/termite/applauncher -e \
-  "bash -c 'ls /usr/bin --color=no | fzf \
-  --color=fg:#bbbbbb,bg:#2e3440,hl:#5f87af \
-  --color=fg+:#dddddd,bg+:#3d4454,hl+:#43bde6 \
-  --color=info:#b38344,prompt:#ffa742,pointer:#ffa742 \
-  --color=marker:#adadad,spinner:#a855fa,header:#70b5a7 \
-  | xargs -r swaymsg -t command exec'"
+set $menu ~/.scripts/menu.sh
 for_window [app_id="applauncher"] focus, floating enable, sticky enable, fullscreen
 
 # browser
@@ -26,6 +20,9 @@ set $private firefox-nightly -private-window
 
 # file explorer
 set $fileexp thunar
+
+# mail client
+set $mail thunderbird
 
 # gap size
 set $gaps 16
@@ -103,8 +100,9 @@ bindsym $mod+b exec $browser
 bindsym $mod+Shift+b exec $private
 bindsym $mod+d exec $menu
 bindsym $mod+y exec $fileexp
+bindsym $mod+m exec $mail
 
-bindsym $mod+m exec discord-ptb
+bindsym $mod+p exec discord-ptb
 
 mode "audiovis" {
   bindsym $mod+t exec ~/.scripts/audiovisualizer.sh on

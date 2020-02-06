@@ -670,11 +670,9 @@ Last updated: 2020-01-12
 Below are a few utilities and programs I additionally install to improve my productivity.
 
 #### Languages
-
 - `nodejs`
 
 #### Program/System Monitoring
-
 - `htop`
 - `strace`
 - `gotop` (AUR)
@@ -683,24 +681,22 @@ Below are a few utilities and programs I additionally install to improve my prod
 - `xorg-xeyes`
 
 #### Package managers
-
 - `npm`
 - `yarn`
 
 #### Code Editor Utilities
-
 - `neovim`
 - `code-oss`
 
-#### Image editing
+#### Mail Client
+- `thunderbird`
 
+#### Image editing
 - `gimp`
 
 #### PDF Viewer
-
 - `okular`
 
 #### Audio Visualizer
-
 - `glava`
 > Some programs are just for bells and whistles, too.
