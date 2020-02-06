@@ -111,3 +111,5 @@ alias afk="~/.scripts/afk.sh"
 # archive manager
 alias arc="~/.scripts/arc.sh"
 
+# sudo access to the display
+alias wsudo="~/.scripts/wsudo.sh"
