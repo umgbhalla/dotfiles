@@ -281,7 +281,8 @@ Last updated: 2020-01-12
   enable_network RESULT
   save config
   quit
-  ```  
+  ```
+  For school networks I used PEAP.
 - Disconnect ethernet once connected. Reboot and verify wifi connection with `ping archlinux.org`.
 - Create a user account.
   ```
@@ -657,6 +658,12 @@ Last updated: 2020-01-12
   aur clone wl-clipboard-git
   makepkg -si
   ```
+- If `pacman` has a slow download speed, it may be due to mirror order in the mirror list.
+  ```
+  sudo pacman -S reflector
+  sudo reflector --verbose --country 'United States' -l 10 --sort rate --save /etc/pacman.d/mirrorlist
+  ```
+  Available countries can be viewed in `/etc/pacman.d/mirrorlist`.
 
 ### Additional
 
@@ -683,12 +690,17 @@ Below are a few utilities and programs I additionally install to improve my prod
 #### Code Editor Utilities
 
 - `neovim`
-- `code`
+- `code-oss`
 
 #### Image editing
 
 - `gimp`
 
-Some programs are just for bells and whistles, too.
+#### PDF Viewer
+
+- `okular`
+
+#### Audio Visualizer
 
 - `glava`
+> Some programs are just for bells and whistles, too.

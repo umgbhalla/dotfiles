@@ -9,7 +9,6 @@
   "editor.acceptSuggestionOnEnter": "off",
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
-  "editor.fontSize": 12,
   "javascript.updateImportsOnFileMove.enabled": "always",
   // prevent update notifications
   "update.mode": "none",
@@ -57,7 +56,6 @@
   "terminal.external.linuxExec": "termite",
   "terminal.integrated.showExitAlert": false,
   "window.zoomLevel": 0,
-  "window.restoreFullscreen": true,
   "window.menuBarVisibility": "toggle",
   "window.customMenuBarAltFocus": false,
   // ------------------------------------------------------------------------------------------
