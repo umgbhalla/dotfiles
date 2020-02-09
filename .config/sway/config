@@ -12,11 +12,11 @@ set $term termite
 
 # launcher
 set $menu ~/.scripts/menu.sh
-for_window [app_id="applauncher"] focus, floating enable, sticky enable, fullscreen
+for_window [class="URxvt"] focus, floating enable, sticky enable, fullscreen
 
 # browser
-set $browser firefox-nightly
-set $private firefox-nightly -private-window
+set $browser brave
+set $private brave --incognito
 
 # file explorer
 set $fileexp thunar

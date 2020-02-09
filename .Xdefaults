@@ -1,0 +1,46 @@
+urxvt.termName: xterm-256color
+urxvt.inheritPixmap: False
+urxvt.imLocale: en_US.UTF-8
+urxvt.scrollBar: false
+urxvt.saveLines: 1000
+urxvt.cursorBlink: true
+urxvt.font:             xft:Inconsolata:pixelsize=14
+urxvt.boldFont:         xft:Inconsolata:bold:pixelsize=14
+urxvt.letterSpace: -1
+urxvt*background: #2e3440
+urxvt.foreground: #dddddd
+urxvt.lineSpace: 1
+! disable perl keyboard shortcuts
+urxvt.perl-ext:
+urxvt.perl-ext-common:
+urxvt.iso14755: false
+urxvt.iso14755_52: false
+! clipboard
+! urxvt.keysym.Shift-Control-V: eval:paste_clipboard
+! urxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+! urxvt.keysym.Shift-Control-C: perl:clipboard:copy
+
+! black
+!*color0:    rgb:20/20/20
+!*color8:    rgb:75/77/73
+! red
+!*color1:    rgb:cc/00/00  
+!*color9:    rgb:ef/29/29
+! green
+!*color2:    rgb:4e/9a/06
+*color10:   #64ba48
+! brown/yellow
+!*color3:    rgb:c4/a0/00
+!*color11:   rgb:fc/e9/4f
+! blue
+!*color4:    rgb:34/65/a4
+*color12:   #4097e3
+! magenta
+!*color5:    rgb:75/50/7b
+*color13:   #a25eb7
+! cyan
+!*color6:    rgb:06/98/9a
+*color14:   #de935f
+! white
+!*color7:    rgb:d3/d7/cf
+!*color15:   rgb:ee/ee/ec

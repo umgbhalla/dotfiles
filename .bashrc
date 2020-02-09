@@ -36,10 +36,10 @@ bind 'set bell-style none' # silence error ring
 # ----------------------------------------------------------------------------
 
 # text editing
-alias n="nvim"
-alias v="nvim"
-alias vi="nvim"
-alias vim="nvim"
+# alias n="nvim"
+# alias v="nvim"
+# alias vi="nvim"
+# alias vim="nvim"
 
 # system monitor
 alias gotop="gotop -c nordic"
