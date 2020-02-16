@@ -102,7 +102,7 @@ bindsym $mod+d exec $menu
 bindsym $mod+y exec $fileexp
 bindsym $mod+m exec $mail
 
-bindsym $mod+p exec discord-ptb
+bindsym $mod+u exec discord-ptb
 
 mode "audiovis" {
   bindsym $mod+t exec ~/.scripts/audiovisualizer.sh on

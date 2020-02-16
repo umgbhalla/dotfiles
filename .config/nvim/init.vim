@@ -323,8 +323,10 @@ set mat=2
 set expandtab
 
 " one tab is x many spaces
+let s:tabwidth=2
 set shiftwidth=2
 set tabstop=2
+set softtabstop=2
 
 " x number of lines to see above and below cursor at all times
 set scrolloff=10

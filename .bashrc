@@ -36,13 +36,17 @@ bind 'set bell-style none' # silence error ring
 # ----------------------------------------------------------------------------
 
 # text editing
-# alias n="nvim"
-# alias v="nvim"
-# alias vi="nvim"
-# alias vim="nvim"
+alias n="nvim"
+alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
 
 # system monitor
 alias gotop="gotop -c nordic"
+
+# osu cse linux servers
+alias osuvpn="sudo openconnect --juniper vpn.coeit.osu.edu"
+alias osu="ssh bossley.9@stdlinux.cse.ohio-state.edu"
 
 # auracle wrapper
 function aur() {
@@ -56,12 +60,12 @@ function clear-cache() {
 
   read -p "$(create_prompt "Remove all files from /Downloads/?")" bDownloads
   case $bDownloads in
-    [Yy]* ) echo "removing downloads..." && rm -rv ~/Downloads/* 2> /dev/null;;
+    [Yy]* ) echo "removing downloads..." && rm -rvf ~/Downloads/* 2> /dev/null;;
   esac
 
   read -p "$(create_prompt "Remove all files from trash?")" bTrash
   case $bTrash in
-    [Yy]* ) echo "emptying trash..." && rm -rv ~/.local/share/Trash/* 2> /dev/null;;
+    [Yy]* ) echo "emptying trash..." && rm -rvf ~/.local/share/Trash/* 2> /dev/null;;
   esac
 
   read -p "$(create_prompt "Remove all package manager cache files?")" bPacCache
@@ -71,7 +75,7 @@ function clear-cache() {
 
   read -p "$(create_prompt "Remove all cache files?")" bCache
   case $bCache in
-    [Yy]* ) echo "removing cache files..." && rm -rv ~/.cache/* 2> /dev/null;;
+    [Yy]* ) echo "removing cache files..." && rm -rvf ~/.cache/* 2> /dev/null;;
   esac
 
   echo -e "${LG}done.${NC}"

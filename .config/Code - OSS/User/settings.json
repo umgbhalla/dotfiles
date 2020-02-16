@@ -1,7 +1,7 @@
 // VS Code configuration
 {
   // ------------------------------------------------------------------------------------------
-  // Defaults
+  // defaults
   // ------------------------------------------------------------------------------------------
   "workbench.startupEditor": "none",
   "window.restoreWindows": "one",
@@ -27,7 +27,7 @@
   // source control manager
   "scm.diffDecorations": "gutter",
   // ------------------------------------------------------------------------------------------
-  // Optimization / Reducing footprint
+  // optimization / reducing footprint
   // ------------------------------------------------------------------------------------------
   // don't parse these folders
   "search.exclude": {
@@ -59,7 +59,22 @@
   "window.menuBarVisibility": "toggle",
   "window.customMenuBarAltFocus": false,
   // ------------------------------------------------------------------------------------------
-  // Extensions
+  // color theme
+  // ------------------------------------------------------------------------------------------
+  "workbench.colorCustomizations": {
+    "editor.background": "#2e3440",
+    "editor.foreground": "#ccc",
+    "sideBar.background": "#262b35",
+    "statusBar.background": "#232831",
+    "statusBar.foreground": "#ccc",
+    "activityBar.background": "#232831",
+    "activityBar.foreground": "#aaa",
+		"tab.inactiveBackground": "#232831",
+		"tab.border": "#2e3440",
+		"editorGroupHeader.tabsBackground": "#262b35",
+  },
+  // ------------------------------------------------------------------------------------------
+  // extensions
   // ------------------------------------------------------------------------------------------
   // TO-DO Tree
   "todo-tree.highlights.customHighlight": {
