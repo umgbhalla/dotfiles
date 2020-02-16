@@ -76,6 +76,13 @@ else
           echo -e "${NC}"
           ;;
 
+        tar.bz2)
+          if ! hash tar 2>/dev/null; then error "tar is not installed. Try sudo pacman -S tar"; fi
+          echo -e "${LB}"
+          mkdir -p "$(outdir "$2")" && tar xvf "$2" -C "$(outdir "$2")"
+          echo -e "${NC}"
+          ;;
+
         *)
           invalid "unknown format \".$(format $2)\""
           ;;
