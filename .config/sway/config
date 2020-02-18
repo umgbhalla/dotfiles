@@ -67,7 +67,9 @@ client.unfocused #00000000 #00000000 #00000000 $borderUnfocused $borderUnfocused
 client.focused_inactive #00000000 #00000000 #00000000 $borderUnfocused $borderUnfocused
 
 # floating windows by default
-# for_window [class="[.]*"] floating enable
+for_window [app_id="[.]*"] floating enable
+# xwayland app support
+for_window [class="[.]*"] floating enable
 
 # set inner/outer gaps
 gaps inner $gaps
