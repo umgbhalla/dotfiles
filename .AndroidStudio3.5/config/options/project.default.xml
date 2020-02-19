@@ -2,6 +2,8 @@
   <component name="ProjectManager">
     <defaultProject>
       <component name="PropertiesComponent">
+        <property name="android.project.structure.last.selected" value="SDK Location" />
+        <property name="android.project.structure.proportion" value="0.15" />
         <property name="android.sdk.path" value="$USER_HOME$/Documents/AndroidStudio/SDK" />
         <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
       </component>

@@ -78,14 +78,15 @@ Last updated: 2020-01-12
     ```
   - Open the partition editor.
     ```
-    cfdisk
+    cfdisk [/dev/NAME-OF-DRIVE]
     ```
-  - Delete all partitions. Make two partitions: One for the root filesystem `/` and one for swap memory (10 GB).
+    Note that for all following steps, use the drive you specified and would like to format. I will be using /dev/sda for simplicity, but for nvme ssds it may be different.
+  - Delete all partitions. Make two partitions: One for the root filesystem `/` and one for swap memory.
     ```
     free space
     new
     ```
-  - The root filesystem size will be the total size minus 10 GB.
+  - The root filesystem size will be the total size minus the amount of ram you have installed.
     ```
     YOUR-FILESYSTEM-SIZE-MINUS-TEN-GIGABYTES
     primary
@@ -104,7 +105,7 @@ Last updated: 2020-01-12
     You can verify the partition sizes with `fdisk -l`.
   - Next, overwrite any existing data and change the partition extensions.
     ```
-    mkfs.etx4 /dev/sda1
+    mkfs.ext4 /dev/sda1
     mkswap /dev/sda2
     swapon /dev/sda2
     ```
@@ -172,18 +173,6 @@ Last updated: 2020-01-12
 
 ### System
 
-- Create sudo privileges by installing sudo:
-  ```
-  pacman -S sudo
-  ```
-  Then create a sudo group:
-  ```
-  groupadd sudo
-  ```
-  Edit the sudoers file with the command `EDITOR=vim visudo`:
-  ```
-  %sudo   ALL=(ALL)   ALL
-  ```
 - Set up internet. Start by enabling ethernet network packages:
   ```
   systemctl enable systemd-networkd
@@ -219,17 +208,11 @@ Last updated: 2020-01-12
   ```
   systemctl restart systemd-networkd
   ```
-  <!--
-  Reboot.
-  ```
-  reboot
-  ```
-  -->
 - Set up wireless.
   ```
   pacman -S wpa_supplicant
   ```
-  Edit `/etc/wap_supplicant/wpa_supplicant.conf`:
+  Edit `/etc/wpa_supplicant/wpa_supplicant.conf`:
   ```
   ctrl_interface=/run/wpa_supplicant
   ctrl_interface_group=sudo
@@ -257,7 +240,19 @@ Last updated: 2020-01-12
   [Install]
   WantedBy=multi-user.target
   ```
-  Enable the service.
+- Create sudo privileges by installing sudo:
+  ```
+  pacman -S sudo
+  ```
+  Then create a sudo group:
+  ```
+  groupadd sudo
+  ```
+  Edit the sudoers file with the command `EDITOR=vim visudo`:
+  ```
+  %sudo   ALL=(ALL)   ALL
+  ```
+- Enable the service.
   ```
   systemctl daemon-reload
   systemctl enable wireless
@@ -296,8 +291,14 @@ Last updated: 2020-01-12
 
 - Update and upgrade the system
   ```
-  sudo pacman -Syyuu  
+  sudo pacman -Syyuu
   ```
+- Change mirror order in the mirror list.
+  ```
+  sudo pacman -S reflector
+  sudo reflector --verbose --country 'United States' -l 10 --sort rate --save /etc/pacman.d/mirrorlist
+  ```
+  Available countries can be viewed in `/etc/pacman.d/mirrorlist`.
 - Install the `sway `window manager and the `wayland` server. This will take some time.
   ```
   sudo pacman -S wayland sway noto-fonts ttf-dejavu ttf-liberation
@@ -363,7 +364,7 @@ Last updated: 2020-01-12
   ```
   sudo pacman -S thunar engrampa
   ```
-- Invert the scroll for natural scroll and enable tap to click for the touchpad. The command `swaymsg -t get_inputs` will print all inputs. Use the identifier string for the touchpad.
+- If applicable, invert the scroll for natural scroll and enable tap to click for the touchpad. The command `swaymsg -t get_inputs` will print all inputs. Use the identifier string for the touchpad.
   Then, in `~/.config/sway/config`:
   ```
   input "YOUR-TOUCHPAD-IDENTIFIER" {
@@ -371,72 +372,10 @@ Last updated: 2020-01-12
      natural_scroll enabled
   }
   ```
-- Remove window borders in `~/.config/sway/config`.
+- Enable media controls such as screenshot taking and image viewing.
   ```
-  default_border none
-  ```
-  ~~
-- Enable unfocused window semi-transparency.
-  ```
-  sudo pip install i3ipc
-  curl https://raw.githubusercontent.com/swaywm/sway/master/contrib/inactive-windows-transparency.py -o ~/.config/sway/transparency.py
-  chmod u+x ~/.config/sway/transparency.py
-  ```
-  Then, in the `~/.config/sway/config` configuration file:
-  ```
-  exec ~/.config/sway/transparency.py --opacity OPACITY-VALUE
-  ```
-  Where `OPACITY-VALUE` is the opacity of an unfocused window in the range [0, 1] inclusive.
-  ~~
-- Change the background.
-  ```
-  sudo mkdir -p /usr/share/backgrounds/custom
-  sudo curl https://alkusin.net/voidlinux/extras/wallpapers/aks-voidX-exodus.png -o /usr/share/backgrounds/custom/void-exodus.png
-  ```
-  You may want to resize the image using some image manipulation program to reduce memory lag.
-  Then, in the configuration file `~/.config/sway/config`:
-  ```
-  output "*" bg /usr/share/backgrounds/custom/void-exodus.png fill
-  ```
-- Configure the terminal.
-  ```
-  mkdir -p ~/.config/termite
-  ```
-  In `~/.config/termite/config`:
-  ```
-  [colors]
-  foreground = #dddddd
-  background = rgba(15, 16, 16, 0.6)
-  ```
-  In order to change terminal transparency, a gtk configuration must be made.
-  ```
-  mkdir -p ~/.config/gtk-3.0/
-  ```
-  In `~/.config/gtk-3.0/gtk.css`:
-  ```
-  VteTerminal, vte-terminal {
-     padding: 8px;
-  }
-  ```
-- Enable screenshot taking and image viewing.
-  ```
-  sudo pacman -S grim slurp
-  sudo pacman -S imv
+  sudo pacman -S grim slurp imv mpv
   mkdir -p ~/Pictures/screenshots
-  ```
-  Configure bindings to take screenshots in `~/.config/sway/config`.
-  ```
-  bindsym Print exec grim ~/Pictures/screenshots/$(date +"%y-%m-%d-%T").png
-  bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/screenshots/$(date +"%y-%m-%d-%T").png
-  ```
-- Create a custom app launcher using `fzf`.
-  ```
-  sudo pacman -S fzf 
-  ```
-  In `~/.config/sway/config`:
-  ```
-  set $menu $term --name applauncher -e "bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
-  for_window [app_id="applauncher"] focus, floating enabled
   ```
 - Set brightness controls.
   ```
@@ -447,10 +386,6 @@ Last updated: 2020-01-12
   ```
   bindsym Xf86MonBrightnessUp exec light -A 5
   bindsym Xf86MonBrightnessDown exec light -U 5
-  ```
-- To play video files:
-  ```
-  sudo pacman -S mpv
   ```
 - To create a status bar using `i3blocks`:
   ```
@@ -547,6 +482,10 @@ Last updated: 2020-01-12
 
   # test it
   wpa_gui
+  ```
+- Create a custom app launcher using `fzf`.
+  ```
+  sudo pacman -S fzf rxvt-unicode
   ```
 - Install a browser, such as `firefox`. I chose `firefox nightly` for partial wayland support and I skipped gpg key verification because the signatures were invalid.
   ```
@@ -658,12 +597,10 @@ Last updated: 2020-01-12
   aur clone wl-clipboard-git
   makepkg -si
   ```
-- If `pacman` has a slow download speed, it may be due to mirror order in the mirror list.
+- I use `lxappearance` to change the theme and icon font for both gtk2 and 3.
   ```
-  sudo pacman -S reflector
-  sudo reflector --verbose --country 'United States' -l 10 --sort rate --save /etc/pacman.d/mirrorlist
+  sudo pacman -S lxappearance
   ```
-  Available countries can be viewed in `/etc/pacman.d/mirrorlist`.
 
 ### Additional
 

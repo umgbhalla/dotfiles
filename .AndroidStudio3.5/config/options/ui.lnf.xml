@@ -1,7 +1,12 @@
 <application>
   <component name="UISettings">
+    <option name="ANIMATE_WINDOWS" value="false" />
+    <option name="HIDE_TOOL_STRIPES" value="true" />
+    <option name="OVERRIDE_NONIDEA_LAF_FONTS" value="true" />
     <option name="SHOW_MAIN_TOOLBAR" value="true" />
     <option name="SHOW_MEMORY_INDICATOR" value="true" />
     <option name="SHOW_NAVIGATION_BAR" value="false" />
+    <option name="SHOW_TOOL_WINDOW_NUMBERS" value="false" />
+    <option name="WIDESCREEN_SUPPORT" value="true" />
   </component>
 </application>
