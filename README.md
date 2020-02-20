@@ -3,10 +3,10 @@ dotfiles
 
 ## Table of Contents
 1. [System Information](#info)
-2. [Setup](#setup)
+2. [Installation](#install)
+3. [Setup](#setup)
 
 ## System Information <a name="info"></a>
-
 
 > Information was taken from [`neofetch`](https://github.com/dylanaraps/neofetch).
 
@@ -32,9 +32,17 @@ dotfiles
  .`                                 `/
 ```
 
-## Setup <a name="setup"></a>
+## Installation <a name="install"></a>
 
-Last updated: 2020-01-12
+> Install each file at your own risk! If you don't use the exact same hardware or architecture I use, there is not guarantee each file will work properly.
+
+1. Clone this repository to your home folder (`~/` or `/home/USERNAME`):
+    ```
+    git clone https://github.com/bossley9/dotfiles.git /tmp
+    mv /tmp/dotfiles/.[!.]* ~/
+    ```
+
+## Setup <a name="setup"></a>
 
 > Note: [Sway does not support Nvidia GPU drivers](https://github.com/swaywm/sway/wiki)
 
@@ -303,14 +311,9 @@ Last updated: 2020-01-12
   ```
   sudo pacman -S wayland sway noto-fonts ttf-dejavu ttf-liberation
   ```
-- Copy the default configuration.
-  ```
-  mkdir -p ~/.config/sway
-  cp /etc/sway/config ~/.config/sway/config
-  ```
 - Add modules needed for sway with `sudo vim /etc/mkinitcpio.conf`:
   ```
-  MODULES=(... intel_agp i915 ...)
+  MODULES=(... amdgpu ...)
   ```
 
 > Note: This may be different [depending on your architecture](https://wiki.archlinux.org/index.php/kernel_mode_setting#Early_KMS_start).
