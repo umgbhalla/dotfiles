@@ -79,7 +79,70 @@ else
         tar.bz2)
           if ! hash tar 2>/dev/null; then error "tar is not installed. Try sudo pacman -S tar"; fi
           echo -e "${LB}"
-          mkdir -p "$(outdir "$2")" && tar xvf "$2" -C "$(outdir "$2")"
+          mkdir -p "$(outdir "$2")" && tar xvjf "$2" -C "$(outdir "$2")"
+          echo -e "${NC}"
+          ;;
+
+        tar.gz)
+          if ! hash tar 2>/dev/null; then error "tar is not installed. Try sudo pacman -S tar"; fi
+          echo -e "${LB}"
+          mkdir -p "$(outdir "$2")" && tar xvzf "$2" -C "$(outdir "$2")"
+          echo -e "${NC}"
+          ;;
+
+        bz2)
+          if ! hash bunzip2 2>/dev/null; then error "bunzip2 is not installed. Try sudo pacman -S bunzip2"; fi
+          echo -e "${LB}"
+          mkdir -p "$(outdir "$2")" && bunzip2 "$2" -C "$(outdir "$2")"
+          echo -e "${NC}"
+          ;;
+
+        rar)
+          if ! hash unrar 2>/dev/null; then error "unrar is not installed. Try sudo pacman -S unrar"; fi
+          echo -e "${LB}"
+          mkdir -p "$(outdir "$2")" && unrar x "$2" -C "$(outdir "$2")"
+          echo -e "${NC}"
+          ;;
+
+        gz)
+          if ! hash gunzip 2>/dev/null; then error "gunzip is not installed. Try sudo pacman -S gunzip"; fi
+          echo -e "${LB}"
+          mkdir -p "$(outdir "$2")" && gunzip "$2" -C "$(outdir "$2")"
+          echo -e "${NC}"
+          ;;
+
+        tar)
+          if ! hash tar 2>/dev/null; then error "tar is not installed. Try sudo pacman -S tar"; fi
+          echo -e "${LB}"
+          mkdir -p "$(outdir "$2")" && tar xf "$2" -C "$(outdir "$2")"
+          echo -e "${NC}"
+          ;;
+
+        tbz2)
+          if ! hash tar 2>/dev/null; then error "tar is not installed. Try sudo pacman -S tar"; fi
+          echo -e "${LB}"
+          mkdir -p "$(outdir "$2")" && tar xjf "$2" -C "$(outdir "$2")"
+          echo -e "${NC}"
+          ;;
+
+        tgz)
+          if ! hash tar 2>/dev/null; then error "tar is not installed. Try sudo pacman -S tar"; fi
+          echo -e "${LB}"
+          mkdir -p "$(outdir "$2")" && tar xzf "$2" -C "$(outdir "$2")"
+          echo -e "${NC}"
+          ;;
+
+        Z)
+          if ! hash uncompress 2>/dev/null; then error "uncompress is not installed. Try sudo pacman -S uncompress"; fi
+          echo -e "${LB}"
+          mkdir -p "$(outdir "$2")" && uncompress "$2" -C "$(outdir "$2")"
+          echo -e "${NC}"
+          ;;
+
+        7z)
+          if ! hash 7z 2>/dev/null; then error "7z is not installed. Try sudo pacman -S 7z"; fi
+          echo -e "${LB}"
+          mkdir -p "$(outdir "$2")" && 7z x "$2" -C "$(outdir "$2")"
           echo -e "${NC}"
           ;;
 

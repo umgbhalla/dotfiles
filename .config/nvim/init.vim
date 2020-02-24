@@ -1,3 +1,16 @@
+" Neovim configursation.
+" Make sure Vim-Plug is installed first!
+
+" curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+" Then run the following command in Neovim to install the packages.
+
+" :PlugInstall
+
+" To ensure fonts and icons display properly, FontAwesome 4 must be installed.
+" This can be installed from the AUR using the following command.
+
+" git clone https://aur.archlinux.org/ttf-font-awesome-4.git && cd ttf-font-awesome-4 && makepkg -si && cd .. && rm -rf ttf-font-awesome-4
 
 " ------------------------------------------------------------------------
 " ------------------------------------------------------------------------
