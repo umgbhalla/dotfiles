@@ -42,7 +42,7 @@ alias vi="nvim"
 alias vim="nvim"
 
 # system monitor
-alias gotop="gotop -c nordic"
+alias gotop="gotop -c monokai"
 
 # osu cse linux servers
 alias osuvpn="sudo openconnect --juniper vpn.coeit.osu.edu"

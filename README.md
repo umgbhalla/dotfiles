@@ -318,9 +318,9 @@ dotfiles
 
 > Note: This may be different [depending on your architecture](https://wiki.archlinux.org/index.php/kernel_mode_setting#Early_KMS_start).
 
-- Compile modules and reboot.
+- Compile modules for all kernels and reboot.
   ```
-  sudo mkinitcpio -p linux
+  sudo mkinitcpio -P
   sudo reboot
   ```
 - Install everything from `base-devel` for future package building.
@@ -385,41 +385,10 @@ dotfiles
   aur clone light-git
   makepkg -si
   ```
-  In `~/.config/sway/config`:
+- Create a status bar:
   ```
-  bindsym Xf86MonBrightnessUp exec light -A 5
-  bindsym Xf86MonBrightnessDown exec light -U 5
-  ```
-- To create a status bar using `i3blocks`:
-  ```
-  sudo pacman -S i3blocks
-  mkdir -p ~/.config/i3blocks
-  ```
-  Then create an `~/.config/i3blocks/config` configuration.
-  To enable the status bar in `~/.config/sway/config`:
-  ```
-  set $fg #222222
-  set $fglight #777777
-  set $gaps 16
-  bar {
-    position top
-    gaps 4 $gaps 0 $gaps
-    separator_symbol " "
-
-    font pango:Noto Sans:24
-
-    colors {
-      background #00000000
-      statusline $fg
-
-      focused_workspace $fg #00000000 $fg
-      inactive_workspace #00000000 #00000000 $fglight
-      urgent_workspace #00000000 #00000000 #dd0000
-    }
-
-    tray_output none
-    status_command i3blocks
-  }
+  aur clone waybar-git
+  makepkg -si
   ```
   I suggest installing font awesome for unique unicode symbols.
   ```
@@ -431,18 +400,6 @@ dotfiles
   fc-list | grep awesome
   fc-match fontawesome
   ```
-  To read events in `i3blocks`:
-  ```
-  sudo pacman -S acpid
-  sudo systemctl enable acpid
-  sudo systemctl restart acpid
-  ```
-  Then add an event. For example, in `/etc/acpi/events/headphonesin`:
-  ```
-  event=jack/headphone HEADPHONE plug
-  action=pkill -RTMIN+1 i3blocks
-  ```
-  This event will fire signal 1 every time headphones are plugged in. Reboot to see changes.
 - To setup sound with `ALSA` and `Pulseaudio`:
   ```
   sudo pacman -S pulseaudio-alsa
@@ -534,9 +491,9 @@ dotfiles
   ```
   HOOKS=(... udev ... lvm2 ... resume ... fsck)
   ```
-  Then build.
+  Then build for all kernels.
   ```
-  sudo mkinitcpio -p linux
+  sudo mkinitcpio -P
   ```
   Edit `/etc/default/grub` to enable the resume partition created earlier.
   ```
