@@ -4,7 +4,7 @@ dotfiles
 ## Table of Contents
 1. [System Information](#info)
 2. [Installation](#install)
-3. [Setup](#setup)
+3. [Arch Installation](#archinstall)
 
 ## System Information <a name="info"></a>
 
@@ -42,44 +42,107 @@ dotfiles
     mv /tmp/dotfiles/.[!.]* ~/
     ```
 
-## Setup <a name="setup"></a>
+## Arch Installation <a name="archinstall"></a>
 
-> Note: [Sway does not support Nvidia GPU drivers](https://github.com/swaywm/sway/wiki)
+For the best Arch installation experience I suggest reading the [Arch Wiki](https://wiki.archlinux.org/index.php/installation_guide). It's surpirsingly good and goes into depth about customizing Arch to fit your standards. Note that these settings are all settings I prefer to use and may not fit your specific use cases.
 
-### Installation
+Another disclaimer - I am a strong advocate for the text editor `vim`, and as such, I used `vim` to edit any files. If you prefer `emacs` or `nano`, I encourage you to use such tools.
 
-- Download [Arch](https://github.com/swaywm/sway/wiki). My version was 2020-01-01.
-- Burn the cd image onto a usb. This can be done via [Balena Etcher](https://www.balena.io/etcher/), [Rufus](https://rufus.ie/), or manually (Note not to include partition number):
-    ```
-    sudo dd bs=4M if=/path/to/iso of=/dev/sdx status=progress
-    ```
-- Plug ethernet into the machine and boot from the live usb.
-- Test `ping archlinux.org` for a network response. If a response appears, skip this step. If no response appears:
-  - Get the network card name.
+#### Setup
+
+1. Download [Arch](https://www.archlinux.org/download/). I downloaded version `2020.01.01` with kernel `5.4.15`.
+2. Burn the cd image onto a usb. This can be done using a number of different tools:
+    - [Balena Etcher](https://www.balena.io/etcher/)
+    - [Rufus](https://rufus.ie/)
+    - [Mkusb](https://help.ubuntu.com/community/mkusb)
+    - Or, if you prefer command line like me:
+      ```
+      sudo dd bs=4M if=/path/to/iso of=/dev/sdx status=progress
+      ```
+      where `/dev/sdx` is the root partition of the machine (note not to include specific partition numbers).
+3. Boot the machine from the live usb (you may need to modify BIOS settings to boot from a usb hard drive).
+
+#### Internet
+
+1. Test `ping archlinux.org` for a network connection. If a response appears, skip this section. If no response appears:
+2. Get the names of all network cards.
     ```
     ip link
     ```
-  - Copy the example configuration.
+    Remember the names of the cards. On most machines there are three:
+      - `lo` represents a loopback device, which is kind of like a virtual network (this is how we access 127.0.0.1 and other localhost ports).
+      - `eth0` represents an ethernet adapter. Usually the interface is given a more specific name, such as `enp0s25`. In this guide I will use `eth0` to represent the ethernet card.
+      - If your machine has a wifi card, it will be represented by `wlan0`. Like the ethernet card, this is usually passes under a more specific name, like `wlp1s0`. In this guide I will use `wlan0` to represent the wireless card.
+3. You can choose to either connect to an [ethernet connection](#archinstall-ethernet) or a [wireless connection](#archinstall-wireless). If you have a desktop without a wifi card, it may be easier to connect via ethernet. Remember, this can always be changed later - this connection is only to install the operating system on the computer.
+    #### ethernet: <a name="archinstall-ethernet"></a>
+    i. Copy the netctl example ethernet configuration.
+      ```
+      cp /etc/netctl/examples/ethernet-static /etc/netctl/ethernet-static
+      ```
+    ii. `vim /etc/netctl/ethernet-static` to change the interface:
+      ```
+      Interface=eth0
+      ```
+    iii. Enable the configuration and reboot:
     ```
-    cp /etc/netctl/examples/ethernet-static /etc/netctl/YOUR-NETWORK-CARD-HERE
-    ```
-  - Then, in `/etc/netctl/YOUR-NETWORK-CARD-HERE`:
-    ```
-    Interface=YOUR-NETWORK-CARD-HERE
-    ```
-  - Reboot with the configuration:
-    ```
-    netctl enable YOUR-NETWORK-CARD-HERE
+    netctl enable ethernet-static
     systemctl stop dhcpcd
     systemctl disable dhcpcd
     sudo reboot
     ```
-  - verify `ping archlinux.org` produces a response. Do not proceed and repeat this step until a response appears.
-- Update the system time.
-  ```
-  timedatectl set-ntp true
-  ```
-- Disk Partitioning:
+    iv. verify `ping archlinux.org` produces a response. Do not proceed and repeat this step until a response appears. 
+    #### wireless: <a name="archinstall-wireless"></a>
+    i. Bring up the wireless interface.
+    ```
+    ip link set wlan0 up
+    ```
+    ii. `vim /etc/systemd/network/wireless.network`:
+    ```
+    [Match]
+    Name=wlan0
+
+    [Network]
+    DHCP=ipv4
+
+    [DHCP]
+    RouteMetric=20
+    ```
+    Restart the system network daemon.
+    ```
+    systemctl restart systemd-networkd
+    systemctl restart systemd-resolved
+    ```
+    iii. `vim /etc/wpa_supplicant/wpa_supplicant.conf` to configure networks:
+    ```
+    ctrl_interface=/run/wpa_supplicant
+    update_config=1
+    p2p_disabled=1
+    ```
+    iv. Start the network service.
+    ```
+    wpa_supplicant -i wlan0 -B -c /etc/wpa_suplicant/wpa_supplicant.conf
+    ```
+    v. Connect to a network with `wpa_cli -i wlan0`.
+
+    `wpa_cli` commands:
+      - display found networks using `scan`, then `scan_results` once the scan has completed.
+      - `add_network` creates a network and returns the network id.
+      - set the network name using `set_network RESULT_ID ssid "NETWORK NAME"` given a network id.
+        - most networks use a simple passkey. Set the passkey with `set_network RESULT_ID psk "PASSWORD"`.
+        - to connect to a network with a login portal, set key management to none with `set_network RESULT_ID key_mgmt NONE`.
+        - most school networks use PEAP.
+      - enable the network with `enable_network RESULT_ID`.
+      - `save config` and `quit` to save changes.
+
+    vi. verify `ping archlinux.org` produces a response. Do not proceed and repeat this step until a response appears.
+    > In some cases, if no response appears, you may need to add nameservers. `vim /etc/resolv.conf` to add nameservers. Usually adding Google nameservers work: `nameserver 8.8.8.8` and `nameserver 8.8.4.4`.
+
+#### System Time
+1. Update the system time.
+    ```
+    timedatectl set-ntp true
+    ```
+#### Disk Partitioning:
   - To view disks beforehand:
     ```
     fdisk -l
