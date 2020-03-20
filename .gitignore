@@ -11,5 +11,8 @@ Public/
 Templates/
 Videos/
 .cache/
+.local/
+.vim/
+.viminfo
 
 
