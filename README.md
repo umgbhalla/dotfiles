@@ -22,7 +22,8 @@ To clone this repository into your home directory, you may need to first follow 
     - `zsh`:
       ```zsh
       git clone https://github.com/bossley9/dotfiles.git /tmp/dotfiles
-      mv /tmp/dotfiles/*(N) ~/
+      setopt -s glob_dots
+      mv /tmp/dotfiles/* ~/
       ```
     - `bash`:
       ```bash
