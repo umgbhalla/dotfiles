@@ -11,25 +11,7 @@ Do not copy these dotfiles blindly unless you know exactly what you are doing to
 ## System Information <a name="sysinfo"></a>
 
 ```
-                   -`                     
-                  .o+`                   ------------- 
-                 `ooo/                   OS: Arch Linux x86_64 
-                `+oooo:                  Host: Latitude E7470 
-               `+oooooo:                 Kernel: 5.4.8-arch1-1 
-               -+oooooo+:                Uptime: 37 mins 
-             `/:-:++oooo+:               Packages: 553 (pacman) 
-            `/++++/+++++++:              Shell: bash 5.0.11 
-           `/++++++++++++++:             WM: sway 
-          `/+++ooooooooooooo/`           Theme: Adwaita [GTK2], Nordic [GTK3] 
-         ./ooosssso++osssssso+`          Icons: Adwaita [GTK2/3] 
-        .oossssso-````/ossssss+`         Terminal: termite 
-       -osssssso.      :ssssssso.        Terminal Font: Monospace 9 
-      :osssssss/        osssso+++.       CPU: Intel i7-6600U (4) @ 3.400GHz 
-     /ossssssss/        +ssssooo/-       GPU: Intel Skylake GT2 [HD Graphics 520] 
-   `/ossssso+/:-        -:/+osssso+-     Memory: 1059MiB / 15684MiB 
-  `+sso+:-`                 `.-/+oso:
- `++:.                           `-/+/
- .`                                 `/
+
 ```
 
 ## Cloning <a name="cloning"></a>
@@ -37,10 +19,17 @@ Do not copy these dotfiles blindly unless you know exactly what you are doing to
 To clone this repository into your home directory, you may need to first follow the [manual installation](#manualinstall) instructions to make sure you have the proper packages installed, such as `bspwm`.
 
 1. Clone this repository to your home folder.
-    ```
-    git clone https://github.com/bossley9/dotfiles.git /tmp
-    mv /tmp/dotfiles/.[!.]* ~/
-    ```
+    - `zsh`:
+      ```zsh
+      git clone https://github.com/bossley9/dotfiles.git /tmp/dotfiles
+      mv /tmp/dotfiles/*(N) ~/
+      ```
+    - `bash`:
+      ```bash
+        git clone https://github.com/bossley9/dotfiles.git /tmp/dotfiles
+        shopt -s dotglob nullglob
+        mv /tmp/dotfiles/* ~/
+      ```
 
 ## Manual Installation <a name="manualinstall"></a>
 
