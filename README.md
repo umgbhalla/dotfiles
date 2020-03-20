@@ -11,7 +11,14 @@ Do not copy these dotfiles blindly unless you know exactly what you are doing to
 ## System Information <a name="sysinfo"></a>
 
 ```
-
+OS: Manjaro Linux x86_64
+Kernel: 5.4.24-1-MANJARO
+Shell: zsh
+WM: bspwm
+Theme: adwaita [GTK2], matcha-sea [GTK3]
+Icons: adwaita [GTK2], papirus-dark-maia [GTK3]
+Terminal: urxvt
+Launcher: dmenu
 ```
 
 ## Cloning <a name="cloning"></a>
