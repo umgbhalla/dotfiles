@@ -1,2 +1,15 @@
 # development
 .nvim/
+
+# content folders
+Desktop/
+Documents/
+Downloads/
+Music/
+Pictures/
+Public/
+Templates/
+Videos/
+.cache/
+
+
