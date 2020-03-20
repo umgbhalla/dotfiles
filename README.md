@@ -1,14 +1,14 @@
 # dotfiles
-dotfiles
+These are the dotfiles I use regularly in my work and school laptop.
+
+Do not copy these dotfiles blindly unless you know exactly what you are doing to your system. A lot of the features or packages I use in my system are experimental or built with a specific hardware in mind. I take no responsibility for any damages or system failures you may encounter - that being said, if you come across a reproducible issue or would like to ask me questions, feel free to open an issue or contact me privately and I would be happy to help.
 
 ## Table of Contents
-1. [System Information](#info)
-2. [Installation](#install)
-3. [Arch Installation](#archinstall)
+1. [System Information](#sysinfo)
+2. [Cloning](#cloning)
+3. [Manual Installation](#manualinstall)
 
-## System Information <a name="info"></a>
-
-> Information was taken from [`neofetch`](https://github.com/dylanaraps/neofetch).
+## System Information <a name="sysinfo"></a>
 
 ```
                    -`                     
@@ -32,25 +32,25 @@ dotfiles
  .`                                 `/
 ```
 
-## Installation <a name="install"></a>
+## Cloning <a name="cloning"></a>
 
-> Install each file at your own risk! If you don't use the exact same hardware or architecture I use, there is not guarantee each file will work properly.
+To clone this repository into your home directory, you may need to first follow the [manual installation](#manualinstall) instructions to make sure you have the proper packages installed, such as `bspwm`.
 
-1. Clone this repository to your home folder (`~/` or `/home/USERNAME`):
+1. Clone this repository to your home folder.
     ```
     git clone https://github.com/bossley9/dotfiles.git /tmp
     mv /tmp/dotfiles/.[!.]* ~/
     ```
 
-## Arch Installation <a name="archinstall"></a>
+## Manual Installation <a name="manualinstall"></a>
 
-For the best Arch installation experience I suggest reading the [Arch Wiki](https://wiki.archlinux.org/index.php/installation_guide). It's surpirsingly good and goes into depth about customizing Arch to fit your standards. Note that these settings are all settings I prefer to use and may not fit your specific use cases.
+> I use to experiment a lot with Wayland on Arch. To see the legacy installation for that setup, see [this release](https://github.com/bossley9/dotfiles/releases/tag/Wayland).
 
-Another disclaimer - I am a strong advocate for the text editor `vim`, and as such, I used `vim` to edit any files. If you prefer `emacs` or `nano`, I encourage you to use such tools.
+This installation summarizes installing `bspwm` onto `Manjaro`.
 
 #### Setup
 
-1. Download [Arch](https://www.archlinux.org/download/). I downloaded version `2020.01.01` with kernel `5.4.15`.
+1. Download the [Manjaro Gnome minimal edition](https://manjaro.org/downloads/official/gnome/). Since Gnome will eventually be replaced by `bspwm`, it doesn't necessary matter which window manager you choose, but I prefer `Gnome` because it is simple and will provide nice tweaking options later. I downloaded version `manjaro-gnome-19.0.2-minimal-200311-linux54.iso`.
 2. Burn the cd image onto a usb. This can be done using a number of different tools:
     - [Balena Etcher](https://www.balena.io/etcher/)
     - [Rufus](https://rufus.ie/)
@@ -59,604 +59,54 @@ Another disclaimer - I am a strong advocate for the text editor `vim`, and as su
       ```
       sudo dd bs=4M if=/path/to/iso of=/dev/sdx status=progress
       ```
-      where `/dev/sdx` is the root partition of the machine (note not to include specific partition numbers).
+      where `/dev/sdx` is the root partition of the usb (do not include specific partition numbers). You may want to run `sudo fdisk -l` first to double check the partition name.
 3. Boot the machine from the live usb (you may need to modify BIOS settings to boot from a usb hard drive).
 
-#### Internet
+#### Distro installation
 
-1. Test `ping archlinux.org` for a network connection. If a response appears, skip this section. If no response appears:
-2. Get the names of all network cards.
+> Luckily, Manjaro does a fantastic job of setting up all the basic packages and tools for you. I used to manually integrate every feature I needed when I primarily used Archlinux, but I've since realized that the Manjaro minimal installs are nearly perfect for every use case.
+
+1. After the grub bios screen, the system will boot into Manjaro's guest installation session. Connect the machine to internet (ethernet is recommended for a stable connection but definitely not required) and open `Install Manjaro Linux` located on the side bar.
+2. Most of the settings will be your preference. Since I have experimental machines, I completely erased the disk to use Manjaro, but you may want to install alongside an existing partition (the hardware of my test machine was so old that I actually had to install Ubuntu first for drivers, then install Manjaro alongside it).
+3. Instead of restarting, it might be better to shutdown, remove the usb, then power on, just to verify the machine is booting from the hard drive and not the live usb.
+
+#### Core Package Configuration
+
+1. Connect to a network on reboot and upgrade the system from the command line.
     ```
-    ip link
+    sudo pacman -Syyuu
     ```
-    Remember the names of the cards. On most machines there are three:
-      - `lo` represents a loopback device, which is kind of like a virtual network (this is how we access 127.0.0.1 and other localhost ports).
-      - `eth0` represents an ethernet adapter. Usually the interface is given a more specific name, such as `enp0s25`. In this guide I will use `eth0` to represent the ethernet card.
-      - If your machine has a wifi card, it will be represented by `wlan0`. Like the ethernet card, this is usually passes under a more specific name, like `wlp1s0`. In this guide I will use `wlan0` to represent the wireless card.
-3. You can choose to either connect to an [ethernet connection](#archinstall-ethernet) or a [wireless connection](#archinstall-wireless). If you have a desktop without a wifi card, it may be easier to connect via ethernet. Remember, this can always be changed later - this connection is only to install the operating system on the computer.
-    #### ethernet: <a name="archinstall-ethernet"></a>
-    i. Copy the netctl example ethernet configuration.
-      ```
-      cp /etc/netctl/examples/ethernet-static /etc/netctl/ethernet-static
-      ```
-    ii. `vim /etc/netctl/ethernet-static` to change the interface:
-      ```
-      Interface=eth0
-      ```
-    iii. Enable the configuration and reboot:
+2. Install `zsh` as an improvement to the original `bash` shell.
     ```
-    netctl enable ethernet-static
-    systemctl stop dhcpcd
-    systemctl disable dhcpcd
-    sudo reboot
+    sudo pacman -S zsh
+    chsh -s /bin/zsh
     ```
-    iv. verify `ping archlinux.org` produces a response. Do not proceed and repeat this step until a response appears. 
-    #### wireless: <a name="archinstall-wireless"></a>
-    i. Bring up the wireless interface.
+3. Install `yay`, an AUR helper, and `git`, a source control client.
     ```
-    ip link set wlan0 up
+    sudo pacman -S yay git
     ```
-    ii. `vim /etc/systemd/network/wireless.network`:
+3. Install the `bspwm` window manager and the `sxhkd` hotkey manager.
     ```
-    [Match]
-    Name=wlan0
-
-    [Network]
-    DHCP=ipv4
-
-    [DHCP]
-    RouteMetric=20
+    sudo pacman -S bspwm sxhkd
     ```
-    Restart the system network daemon.
+4. Install a command line text editor. My preference is `vim`, but you can also use `vi`, `emacs`, or `nano`, the most user-friendly of command line text editors. I will be using `vim` for the rest of the setup.
     ```
-    systemctl restart systemd-networkd
-    systemctl restart systemd-resolved
+    sudo pacman -S vim
     ```
-    iii. `vim /etc/wpa_supplicant/wpa_supplicant.conf` to configure networks:
+5. Install the default `bsp` terminal and fuzzy menu.
     ```
-    ctrl_interface=/run/wpa_supplicant
-    update_config=1
-    p2p_disabled=1
+    sudo pacman -S rxvt-unicode dmenu
     ```
-    iv. Start the network service.
+6. Install `openssh` to be able to ssh connect to other machines.
     ```
-    wpa_supplicant -i wlan0 -B -c /etc/wpa_suplicant/wpa_supplicant.conf
+    sudo pacman -S openssh
     ```
-    v. Connect to a network with `wpa_cli -i wlan0`.
-
-    `wpa_cli` commands:
-      - display found networks using `scan`, then `scan_results` once the scan has completed.
-      - `add_network` creates a network and returns the network id.
-      - set the network name using `set_network RESULT_ID ssid "NETWORK NAME"` given a network id.
-        - most networks use a simple passkey. Set the passkey with `set_network RESULT_ID psk "PASSWORD"`.
-        - to connect to a network with a login portal, set key management to none with `set_network RESULT_ID key_mgmt NONE`.
-        - most school networks use PEAP.
-      - enable the network with `enable_network RESULT_ID`.
-      - `save config` and `quit` to save changes.
-
-    vi. verify `ping archlinux.org` produces a response. Do not proceed and repeat this step until a response appears.
-    > In some cases, if no response appears, you may need to add nameservers. `vim /etc/resolv.conf` to add nameservers. Usually adding Google nameservers work: `nameserver 8.8.8.8` and `nameserver 8.8.4.4`.
-
-#### System Time
-1. Update the system time.
+7. Use any of my dotfiles or programs you would like at this point. **A `bspwm` configuration and an `sxhkd` configuration must be included or the window manager may not boot properly**. The exmaple configurations can be used with the commands below.
     ```
-    timedatectl set-ntp true
+    mkdir -p ~/.config/bspwm
+    cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/
+    mkdir -p ~/.config/sxhkd
+    cp /usr/share/doc/bspwm/examples/sxhkrc ~/.config/sxhkd/
     ```
-#### Disk Partitioning:
-  - To view disks beforehand:
-    ```
-    fdisk -l
-    ```
-  - Open the partition editor.
-    ```
-    cfdisk [/dev/NAME-OF-DRIVE]
-    ```
-    Note that for all following steps, use the drive you specified and would like to format. I will be using /dev/sda for simplicity, but for nvme ssds it may be different.
-  - Delete all partitions. Make two partitions: One for the root filesystem `/` and one for swap memory.
-    ```
-    free space
-    new
-    ```
-  - The root filesystem size will be the total size minus the amount of ram you have installed.
-    ```
-    YOUR-FILESYSTEM-SIZE-MINUS-TEN-GIGABYTES
-    primary
-    bootable
-    write
-    ```
-  - Next, the swap.
-    ```
-    free space
-    new
-    ENTER
-    primary
-    write
-    quit
-    ```
-    You can verify the partition sizes with `fdisk -l`.
-  - Next, overwrite any existing data and change the partition extensions.
-    ```
-    mkfs.ext4 /dev/sda1
-    mkswap /dev/sda2
-    swapon /dev/sda2
-    ```
-- Mount the created root partition.
-  ```
-  mount /dev/sda1 /mnt
-  ```  
-- Install the linux kernel and base. This will take some time to complete.
-  ```
-  pacstrap /mnt base linux linux-firmware
-  ```
-- Generate the `fstab` and log into the root partition.
-  ```
-  genfstab -U /mnt >> /mnt/etc/fstab
-  arch-chroot /mnt
-  ```
-- Install vim (or emacs) to edit files:
-  ```
-  pacman -S vim
-  ```
-- Synchronize the local time and hardware clock, where `[region]` is your region and `[city]` is your city:
-  ```
-  ln -sf /usr/share/zoneinfo/[region]/[city] /etc/localtime
-  hwclock --systohc
-  ```
-- Edit `/etc/locale.gen`:
-  ```
-  en_US.UTF-8 UTF-8
-  ```
-  Then generate locales.
-  ```
-  locale-gen
-  ```
-- Edit `/etc/locale.conf` to set the system language:
-  ```
-  LANG=en_US.UTF-8
-  ```
-- Name your computer in `/etc/hostname`:
-  ```
-  YOUR-HOSTNAME-HERE
-  ```
-  Then update `/etc/hosts` accordingly:
-  ```
-  127.0.0.1 localhost
-  ::1 localhost
-  127.0.1.1 YOUR-HOSTNAME-HERE.localdomain YOUR-HOSTNAME-HERE
-  ```
-- Change the root password.
-  ```
-  passwd
-  ```
-- Install and update the grub:
-  ```
-  pacman -S grub os-prober
-  grub-install --target=i386-pc /dev/sda
-  grub-mkconfig -o /boot/grub/grub.cfg
-  ```
-- Now exit, unmount the filesystem, and shutdown. Safely remove the usb after the machine is powered off.
-  ```
-  exit
-  umount -R /mnt
-  shutdown -h now
-  ```
-- Power on the machine. It should boot immediately into the Arch login. If not, repeat the previous steps to install Arch.
+8. Log out of the user you created. Then log back in, clicking on the gear icon below the password blank and choosing `bspwm` before typing the password. You will now boot into `bspwm`.
 
-### System
-
-- Set up internet. Start by enabling ethernet network packages:
-  ```
-  systemctl enable systemd-networkd
-  systemctl start systemd-networkd
-
-  systemctl enable systemd-resolved
-  systemctl start systemd-resolved
-  ```
-- Once more, use `ip link` to get the name of the network card, in addition to the wifi card.
-  Edit `/etc/systemd/network/wired.network`:
-  ```
-  [Match]
-  Name=YOUR-NETWORK-CARD-HERE
-
-  [Network]
-  DHCP=ipv4
-
-  [DHCP]
-  RouteMetric=10
-  ```
-  Edit `/etc/systemd/network/wireless.network`:
-  ```
-  [Match]
-  Name=YOUR-WIFI-CARD-HERE
-
-  [Network]
-  DHCP=ipv4
-
-  [DHCP]
-  RouteMetric=20
-  ```
-  Restart the system network daemon.
-  ```
-  systemctl restart systemd-networkd
-  ```
-- Set up wireless.
-  ```
-  pacman -S wpa_supplicant
-  ```
-  Edit `/etc/wpa_supplicant/wpa_supplicant.conf`:
-  ```
-  ctrl_interface=/run/wpa_supplicant
-  ctrl_interface_group=sudo
-  update_config=1
-  p2p_disabled=1
-  ```
-- Now make wifi enabled on boot.
-  Edit `/etc/systemd/system/wireless.service`:
-  ```
-  [Unit]
-  Description=wpa supplicant wifi service
-  Wants=network.target
-  Before=network.target
-  BindsTo=sys-subsystem-net-devices-YOUR-WIFI-CARD.device
-  After=sys-subsystem-net-devices-YOUR-WIFI-CARD.device
-
-  [Service]
-  Type=oneshot
-  RemainAfterExit=yes
-
-  ExecStart=/usr/sbin/ip link set dev YOUR-WIFI-CARD up
-  ExecStart=/usr/sbin/wpa_supplicant -i YOUR-WIFI-CARD -B -c /etc/wpa_suplicant/wpa_supplicant.conf
-  ExecStop=/usr/sbin/ip link set dev YOUR-WIFI-CARD down
-
-  [Install]
-  WantedBy=multi-user.target
-  ```
-- Create sudo privileges by installing sudo:
-  ```
-  pacman -S sudo
-  ```
-  Then create a sudo group:
-  ```
-  groupadd sudo
-  ```
-  Edit the sudoers file with the command `EDITOR=vim visudo`:
-  ```
-  %sudo   ALL=(ALL)   ALL
-  ```
-- Enable the service.
-  ```
-  systemctl daemon-reload
-  systemctl enable wireless
-  systemctl start wireless
-  ```
-- Connect to a network nearby with `wpa_cli -i YOUR-WIFI-CARD`:
-  ```
-  scan # wait for scan to finish
-  
-  scan_results
-  
-  add_network # take result of this command as RESULT
-  
-  set_network RESULT ssid "WIFINAME"
-  set_network RESULT psk "PASSWORD"
-  
-  # for connecting to a network with no password and a login portal (hotel wifi),
-  # don't set the psk and instead type:
-  # set_network RESULT key_mgmt NONE
-
-  enable_network RESULT
-  save config
-  quit
-  ```
-  For school networks I used PEAP.
-- Disconnect ethernet once connected. Reboot and verify wifi connection with `ping archlinux.org`.
-- Create a user account.
-  ```
-  useradd -m YOUR-USERNAME
-  usermod -aG sudo YOUR-USERNAME
-  passwd YOUR-USERNAME
-  ```
-  Logout with `exit` and log back in as the created user.
-
-### Desktop environment
-
-- Update and upgrade the system
-  ```
-  sudo pacman -Syyuu
-  ```
-- Change mirror order in the mirror list.
-  ```
-  sudo pacman -S reflector
-  sudo reflector --verbose --country 'United States' -l 10 --sort rate --save /etc/pacman.d/mirrorlist
-  ```
-  Available countries can be viewed in `/etc/pacman.d/mirrorlist`.
-- Install the `sway `window manager and the `wayland` server. This will take some time.
-  ```
-  sudo pacman -S wayland sway noto-fonts ttf-dejavu ttf-liberation
-  ```
-- Add modules needed for sway with `sudo vim /etc/mkinitcpio.conf`:
-  ```
-  MODULES=(... amdgpu ...)
-  ```
-
-> Note: This may be different [depending on your architecture](https://wiki.archlinux.org/index.php/kernel_mode_setting#Early_KMS_start).
-
-- Compile modules for all kernels and reboot.
-  ```
-  sudo mkinitcpio -P
-  sudo reboot
-  ```
-- Install everything from `base-devel` for future package building.
-  ```
-  sudo pacman -S git base-devel man cmake
-  ```  
-- Install `pip`:
-  ```
-  curl https://bootstrap.pypa.io/get-pip.py | sudo python
-  ```
-- Install a desktop terminal:
-  ```
-  sudo pacman -S termite
-  ```
-- Install an `AUR` package manager:
-  ```
-  cd /tmp && git clone https://aur.archlinux.org/auracle-git.git
-  cd auracle-git
-  makepkg -si
-  ```
-- It's easiest to create a wrapper inside `~/.bashrc`, like so:
-  ```bash
-  # auracle wrapper
-  function aur() {
-    if [ "$1" == "clone" ]; then  
-    cd /tmp && auracle clone $2 && cd $2
-    else
-    auracle $@
-    fi
-  }
-  ```
-- Set up `~/.bashrc` to start `sway` by default on `tty1`.
-  ```bash
-  if [ "$(tty)" == "/dev/tty1" ]; then
-    mkdir -p ~/.cache/sway
-    sway > ~/.cache/sway/sway.log 2>&1
-  fi
-  ```
-- Reboot and login as the created user. It should boot into `sway` automatically.
-
-### Customization
-
-- Install a file explorer and archive manager.
-  ```
-  sudo pacman -S thunar engrampa
-  ```
-- If applicable, invert the scroll for natural scroll and enable tap to click for the touchpad. The command `swaymsg -t get_inputs` will print all inputs. Use the identifier string for the touchpad.
-  Then, in `~/.config/sway/config`:
-  ```
-  input "YOUR-TOUCHPAD-IDENTIFIER" {
-     tap enabled
-     natural_scroll enabled
-  }
-  ```
-- Enable media controls such as screenshot taking and image viewing.
-  ```
-  sudo pacman -S grim slurp imv mpv
-  mkdir -p ~/Pictures/screenshots
-  ```
-- Set brightness controls.
-  ```
-  aur clone light-git
-  makepkg -si
-  ```
-- Create a status bar:
-  ```
-  aur clone waybar-git
-  makepkg -si
-  ```
-  I suggest installing font awesome for unique unicode symbols.
-  ```
-  aur clone ttf-font-awesome-4
-  makepkg -si
-  
-  # just to verify installation
-  
-  fc-list | grep awesome
-  fc-match fontawesome
-  ```
-- To setup sound with `ALSA` and `Pulseaudio`:
-  ```
-  sudo pacman -S pulseaudio-alsa
-  aur clone pulseaudio-ctl
-  makepkg -si
-  ```
-  <!--
-  Make sure it always starts on boot in `/etc/pulse/client.conf`:
-  ```
-  autospawn = yes
-  ```
-  -->
-  Enable pulseaudio services:
-  ```
-  systemctl --user enable pulseaudio
-  systemctl --user enable pulseaudio.socket
-  ```
-  Then reboot.
-  ```
-  sudo reboot
-  ```
-- Edit grub to remove the boot menu. Open `/etc/default/grub`:
-  ```
-  GRUB_TIMEOUT_STYLE=hidden
-  ```
-  Then update grub.
-  ```
-  sudo grub-mkconfig -o /boot/grub/grub.cfg
-  ```
-- At this point I realized many programs are just incompatible without an `xorg` server. I had no other alternative but to install some form of `x`.
-  ```
-  aur clone xorg-server-xwayland-git
-  cd /tmp/xorg-server-git
-  makepkg -si
-  ```
-- Once an `x` server is running, it is possible to open `x` programs such as the `wpa gui`:
-  ```
-  aur clone wpa_supplicant_gui
-  makepkg -si
-
-  # test it
-  wpa_gui
-  ```
-- Create a custom app launcher using `fzf`.
-  ```
-  sudo pacman -S fzf rxvt-unicode
-  ```
-- Install a browser, such as `firefox`. I chose `firefox nightly` for partial wayland support and I skipped gpg key verification because the signatures were invalid.
-  ```
-  aur clone firefox-nightly
-  makepkg -si --skippgpcheck
-  ```
-  I use the theme `Humble Nord`.
-- Install the `TLP` power management package.
-  ```
-  sudo pacman -S tlp
-  sudo systemctl enable tlp
-  sudo systemctl start tlp
-  ```
-  To improve laptop battery life, edit `/etc/default/tlp`:
-  ```
-  TLP_DEFAULT_MODE=BAT
-  ```
-- Install a theme. I chose Nordic.
-  ```
-  aur clone nordic-theme-git
-  makepkg -si
-
-  gsettings set org.gnome.desktop.interface gtk-theme "Nordic"
-  gsettings set org.gnome.desktop.wm.preferences theme "Nordic"
-  ```
-  Then reboot for changes to take effect.
-- I installed a chinese character font to use mandarin characters.
-  ```
-  sudo pacman -S wqy-zenhei
-  ```
-  Then reboot to see characters.
-  ```
-  sudo reboot
-  ```
-- Now, add power management settings. First, install screenlocking packages.
-  ```
-  sudo pacman -S swayidle swaylock
-  mkdir -p ~/.config/swaylock
-  ```
-  Make a configuration file at `~/.config/swaylock/config`.
-  Now, setup hibernation. Enable the `resume` hook in `/etc/mkinitcpio.conf`.
-  This hook must be placed after `udev` and `lvm2` (if they exist).
-  ```
-  HOOKS=(... udev ... lvm2 ... resume ... fsck)
-  ```
-  Then build for all kernels.
-  ```
-  sudo mkinitcpio -P
-  ```
-  Edit `/etc/default/grub` to enable the resume partition created earlier.
-  ```
-  GRUB_CMDLINE_LINUX_DEFAULT='... resume=/dev/sda2 ...'
-  ```
-  Then update grub.
-  ```
-  sudo grub-mkconfig -o /boot/grub/grub.cfg
-  ```
-  Use the `free` command to see how much memory is allocated for swap. It should say zero. This is because the machine has not yet been told about a swap partition.
-  Change the image size to the swap size.
-  ```
-  free | grep Swap | awk '{ print $2 }' | sudo tee /sys/power/image_size
-  ```
-  Reboot.
-  ```
-  sudo reboot
-  ```
-  Get the uuid for `/dev/sda2`.
-  ```
-  sudo blkid
-  ```
-  Then, inside `/etc/fstab`, label this partition as swap.
-  ```
-  UUID=YOUR-UUID-HERE none swap sw 0 0
-  ```
-  Reboot.
-  ```
-  sudo reboot
-  ```
-  You will now be able to hibernate by running `systemctl hibernate`.
-  You can lock the screen by running `swaylock -c ~/.config/swaylock/config`.
-  You can suspend by running `systemctl suspend`.
-- Change various power button and lid closing settings with `sudo vim /etc/systemd/logind.conf`:
-  ```
-  HandlePowerKey=hibernate
-  HandleLidSwitch=suspend
-  HandleLidSwitchDocked=suspend
-  ```
-  Reboot.
-  ```
-  sudo reboot
-  ```
-- Use `wlogout` to manage a logout menu.
-  ```
-  aur clone gtk-layer-shell
-  makepkg -si
-  aur clone wlogout
-  makepkg -si --skippgpcheck
-
-  mkdir -p ~/.config/wlogout  
-  ```
-- Enable `ssh`.
-  ```
-  sudo pacman -S openssh
-  sudo systemctl enable sshd
-  sudo systemctl start sshd
-  ```
-- Fixing the `wayland` system clipboard:
-  ```
-  aur clone wl-clipboard-git
-  makepkg -si
-  ```
-- I use `lxappearance` to change the theme and icon font for both gtk2 and 3.
-  ```
-  sudo pacman -S lxappearance
-  ```
-
-### Additional
-
-Below are a few utilities and programs I additionally install to improve my productivity.
-
-#### Languages
-- `nodejs`
-
-#### Program/System Monitoring
-- `htop`
-- `strace`
-- `gotop` (AUR)
-- `neofetch`
-- `wshowkeys-git` (AUR)
-- `xorg-xeyes`
-
-#### Package managers
-- `npm`
-- `yarn`
-
-#### Code Editor Utilities
-- `neovim`
-- `code-oss`
-
-#### Mail Client
-- `thunderbird`
-
-#### Image editing
-- `gimp`
-
-#### PDF Viewer
-- `okular`
-
-#### Audio Visualizer
-- `glava`
-> Some programs are just for bells and whistles, too.
