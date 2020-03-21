@@ -7,6 +7,7 @@ Do not copy these dotfiles blindly unless you know exactly what you are doing to
 1. [System Information](#sysinfo)
 2. [Cloning](#cloning)
 3. [Manual Installation](#manualinstall)
+4. [Personal Configuration](#personalconfig)
 
 ## System Information <a name="sysinfo"></a>
 
@@ -18,6 +19,7 @@ WM: bspwm
 Theme: adwaita [GTK2], matcha-sea [GTK3]
 Icons: adwaita [GTK2], papirus-dark-maia [GTK3]
 Terminal: urxvt
+Status Bar: lemonbar
 Launcher: dmenu
 ```
 
@@ -69,30 +71,32 @@ This installation summarizes installing `bspwm` onto `Manjaro`.
 
 #### Core Package Configuration
 
-1. Connect to a network on reboot and upgrade the system from the command line.
+1. Connect to a network on reboot and upgrade the system from the command line. Then install packages necessary for binary compilation and source control. Install all packages `base-devel` provides.
     ```
     sudo pacman -Syyuu
+    sudo pacman -S base-devel
+    sudo pacamn -S git
     ```
 2. Install `zsh` as an improvement to the original `bash` shell.
     ```
     sudo pacman -S zsh
     chsh -s /bin/zsh
     ```
-3. Install `yay`, an AUR helper, and `git`, a source control client.
+3. Install `yay`, an AUR helper.
     ```
-    sudo pacman -S yay git
+    sudo pacman -S yay
     ```
 3. Install the `bspwm` window manager and the `sxhkd` hotkey manager.
     ```
     sudo pacman -S bspwm sxhkd
     ```
-4. Install a command line text editor. My preference is `vim`, but you can also use `vi`, `emacs`, or `nano`, the most user-friendly of command line text editors. I will be using `vim` for the rest of the setup.
+4. Install a command line text editor. My preference is `vim`, but you can also use `vi`, `emacs`, or `nano`, the most user-friendly of command line text editors.
     ```
     sudo pacman -S vim
     ```
-5. Install the default `bsp` terminal and fuzzy menu.
+5. Install a terminal emulator. I use `urxvt` because it is lightweight and fast.
     ```
-    sudo pacman -S rxvt-unicode dmenu
+    sudo pacman -S rxvt-unicode
     ```
 6. Install `openssh` to be able to ssh connect to other machines.
     ```
@@ -105,5 +109,49 @@ This installation summarizes installing `bspwm` onto `Manjaro`.
     mkdir -p ~/.config/sxhkd
     cp /usr/share/doc/bspwm/examples/sxhkrc ~/.config/sxhkd/
     ```
+    Make sure the `sxhkd` configuration file is changed to open the correct terminal emulator.
 8. Log out of the user you created. Then log back in, clicking on the gear icon below the password blank and choosing `bspwm` before typing the password. You will now boot into `bspwm`.
+
+## Personal Configuration <a name="personalconfig"></a>
+
+### Text Editor
+
+I use `vim` primarily due to its performance and multitude of quick hotkeys. It is also extremely customizable to your liking. It has a steep learning curve but is worth the while.
+```
+sudo pacman -S vim
+```
+
+I also use `code` since it is efficient and customizable, albeit not to the extents of `vim`.
+```
+sudo pacman -S code 
+```
+
+### Terminal Emulator
+
+`urxvt` is quick and has a small memory footprint. It also supports unicode out of the box, hence the name.
+```
+sudo pacman -S rxvt-unicode
+```
+
+### Status Bar
+
+`lemonbar` is simple to configure and performance-efficient on low-budget machines.
+```
+yay -S lemonbar-git
+```
+
+### Browser
+
+`brave` is my browser of choice since it contains most aspects of Google Chrome's speed and efficiency, while providing better security and better profile management.
+```
+sudo pacman -S brave
+```
+### System Profilers
+
+I always find myself drawn back to `htop` for its simplicity, speed, and low system footprint. It very clearly displays information, which can be filtered.
+```
+sudo pacman -S htop
+```
+
+
 
