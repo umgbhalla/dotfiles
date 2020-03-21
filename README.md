@@ -153,5 +153,10 @@ I always find myself drawn back to `htop` for its simplicity, speed, and low sys
 sudo pacman -S htop
 ```
 
+### File Explorer
 
+`nautilus` is very customizable and provides a pleasant and simple UI.
+```
+sudo pacman -S nautilus
+```
 
