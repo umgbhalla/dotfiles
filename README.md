@@ -114,14 +114,14 @@ This installation summarizes installing `bspwm` onto `Manjaro`.
 
 ## Personal Configuration <a name="personalconfig"></a>
 
-### Text Editor
+### Text/Code Editor/IDE
 
 I use `vim` primarily due to its performance and multitude of quick hotkeys. It is also extremely customizable to your liking. It has a steep learning curve but is worth the while.
 ```
 sudo pacman -S vim
 ```
 
-I also use `code` since it is efficient and customizable, albeit not to the extents of `vim`.
+I also use `code` due to its modern status quo and presentability. It is quite efficient and customizable (albeit not to the extents of `vim` in terms of keybindings and auto commands). `code` also provides a fantastic extension marketplace, where you can actually add `vim`-style keybindings.
 ```
 sudo pacman -S code 
 ```
