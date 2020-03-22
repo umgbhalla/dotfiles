@@ -29,13 +29,17 @@ super + y
 # bspwm core
 #
 
-# reload bspwm
+# reload sxhkd and bspwm
 super + shift + r
-	bspc wm -r
+	pkill -USR1 -x sxhkd && bspc wm -r
 
 # quit bspwm
 super + shift + Escape
 	bspc quit
+
+#
+# node management
+#
 
 # node focusing
 super {h,j,k,l}
@@ -48,3 +52,20 @@ super + shift {h,j,k,l}
 # close node
 super + shift + q
 	bspc node -k
+
+# toggle fullscreen
+super + f
+	bspc node -t \~fullscreen
+
+#
+# workspace management
+#
+
+# switch workspace
+super {1-9,0}
+	bspc desktop -f {I,II,III,IV,V,VI,VII,VIII,IX,X}
+
+# move node to workspace
+super + shift + {1-9,0}
+	bspc node -d '^{1-9,10}'
+

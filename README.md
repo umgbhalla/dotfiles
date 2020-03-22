@@ -1,7 +1,9 @@
 # dotfiles
 These are the dotfiles I use regularly in my work and school laptop.
 
-Do not copy these dotfiles blindly unless you know exactly what you are doing to your system. A lot of the features or packages I use in my system are experimental or built with a specific hardware in mind. I take no responsibility for any damages or system failures you may encounter - that being said, if you come across a reproducible issue or would like to ask me questions, feel free to open an issue or contact me privately and I would be happy to help.
+Do not copy these dotfiles blindly unless you know exactly what you are doing to your system. A lot of the features or packages I use in my system are experimental or built with a specific hardware in mind. I take no responsibility for any damages or system failures you may encounter - that being said, if you come across a reproducible issue or would like to ask me questions, feel free to open an issue or contact me privately and I would be more than happy to help.
+
+> I use to primarily experiment with Wayland on Arch. If you would like to use Wayland or are interested in replicating this setup, see [this release](https://github.com/bossley9/dotfiles/releases/tag/Wayland).
 
 ## Table of Contents
 1. [System Information](#sysinfo)
@@ -42,8 +44,6 @@ To clone this repository into your home directory, you may need to first follow 
       ```
 
 ## Manual Installation <a name="manualinstall"></a>
-
-> I use to experiment a lot with Wayland on Arch. To see the legacy installation for that setup, see [this release](https://github.com/bossley9/dotfiles/releases/tag/Wayland).
 
 This installation summarizes installing `bspwm` onto `Manjaro`.
 
