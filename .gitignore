@@ -11,8 +11,12 @@ Public/
 Templates/
 Videos/
 .cache/
+.config/
 .local/
+.pki/
 .vim/
 .viminfo
+.vscode-oss/
 
-
+!.config/bspwm/
+!.config/sxhkd/
