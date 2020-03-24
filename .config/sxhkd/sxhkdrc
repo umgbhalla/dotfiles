@@ -29,9 +29,11 @@ super + y
 # bspwm core
 #
 
-# reload sxhkd and bspwm
+# reload sxhkd, bspwm and other configuration files
 super + shift + r
-	pkill -USR1 -x sxhkd && bspc wm -r
+	pkill -USR1 -x sxhkd && \
+	bspc wm -r && \
+	xrdb ~/.Xresources
 
 # quit bspwm
 super + shift + Escape

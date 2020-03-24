@@ -1,0 +1,12 @@
+
+*background: rgb:10/10/10
+*foreground: rgb:d/d/d
+
+! font
+URxvt.font: xft:bitstream vera sans mono:size=8.5:antialias=true
+URxvt.boldFont: xft:bitstream vera sans mono:bold:size=8.5:antialias=true
+
+! remove scrollbar
+URxvt.scrollBar: false
+
+! TODO copy and paste: https://addy-dclxvi.github.io/post/configuring-urxvt
