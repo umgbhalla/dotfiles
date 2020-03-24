@@ -10,6 +10,7 @@ Do not copy these dotfiles blindly unless you know exactly what you are doing to
 2. [Cloning](#cloning)
 3. [Manual Installation](#manualinstall)
 4. [Personal Configuration](#personalconfig)
+5. [Additional Configuration](#addconfig)
 
 ## System Information <a name="sysinfo"></a>
 
@@ -158,5 +159,19 @@ sudo pacman -S htop
 `nautilus` is very customizable and provides a pleasant and simple UI.
 ```
 sudo pacman -S nautilus
+```
+
+## Additional Configuration <a name="addconfig"></a>
+
+### Touchpad settings
+By default, most linux distros disable natural scrolling and disable touchpad tapping. I personally find this very irritating. To change touchpad settings, `sudo vim /etc/X11/xorg.conf.d/30-touchpad.conf` and add the following configuration:
+```
+Section "InputClass"
+	Identifier "touchpad"
+	Driver "libinput"
+	MatchIsTouchpad "on"
+	Option "Tapping" "on"
+	Option "NaturalScrolling" "true"
+EndSection
 ```
 
