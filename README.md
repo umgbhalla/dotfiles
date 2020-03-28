@@ -103,7 +103,7 @@ This installation summarizes installing `bspwm` onto `Manjaro`.
     ```
     sudo pacman -S openssh
     ```
-7. Use any of my dotfiles or programs you would like at this point. **A `bspwm` configuration and an `sxhkd` configuration must be included or the window manager may not boot properly**. The exmaple configurations can be used with the commands below.
+7. Use any of my dotfiles or programs you would like at this point. **A `bspwm` configuration and an `sxhkd` configuration must be included or the window manager may not boot properly**. The example configurations can be used with the commands below.
     ```
     mkdir -p ~/.config/bspwm
     cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/
@@ -115,63 +115,14 @@ This installation summarizes installing `bspwm` onto `Manjaro`.
 
 ## Personal Configuration <a name="personalconfig"></a>
 
-### Text/Code Editor/IDE
-
-I use `nvim`, also known as `neovim`, primarily due to its performance and multitude of quick hotkeys. It is also extremely customizable to your liking. It has a steep learning curve but is worth the while.
-```
-sudo pacman -S neovim
-```
-
-I also use `code` due to its modern status quo and presentability. It is quite efficient and customizable (albeit not to the extents of `vim` in terms of keybindings and auto commands). `code` also provides a fantastic extension marketplace, where you can actually add `vim`-style keybindings.
-```
-sudo pacman -S code 
-```
-
-### Terminal Emulator
-
-`urxvt` is quick and has a small memory footprint. It also supports unicode out of the box, hence the name.
-```
-sudo pacman -S rxvt-unicode
-```
-
-### Status Bar
-
-`lemonbar` is simple to configure and performance-efficient on low-budget machines.
-```
-yay -S lemonbar-git
-```
-
-### Browser
-
-`brave` is my browser of choice since it contains most aspects of Google Chrome's speed and efficiency, while providing better security and better profile management.
-```
-sudo pacman -S brave
-```
-### System Profilers
-
-I always find myself drawn back to `htop` for its simplicity, speed, and low system footprint. It very clearly displays information, which can be filtered.
-```
-sudo pacman -S htop
-```
-
-### File Explorer
-
-`nautilus` is very customizable and provides a pleasant and simple UI.
-```
-sudo pacman -S nautilus
-```
-
-### Package Manager
-`pacman` is a given for Arch-based distributions. I also use `yay` as an AUR helper.
-```
-sudo pacman -S yay
-```
-
-### Image Viewer
-`feh` also doubles as a background image manager.
-```
-sudo pacman -S feh
-```
+### Text/Code Editor/IDE - `nvim`/`neovim`, `code-oss`
+### Terminal Emulator - `urxvt`
+### Status Bar - `lemonbar`
+### Browser - `brave`
+### System Profilers - `htop`, `gotop`
+### File Explorer - `nautilus`
+### Package Manager/Helper - `pacman`, `yay`
+### Image Viewer - `feh`
 
 ## Additional Configuration <a name="addconfig"></a>
 
