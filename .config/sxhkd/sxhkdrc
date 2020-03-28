@@ -1,0 +1,74 @@
+
+#
+# main programs
+#
+
+# terminal emulator
+# (consider tmux?)
+super + Return
+	urxvt
+
+# TODO launcher
+super + @space
+	dmenu_run
+
+# browser
+super + b
+	brave
+super + shift + b
+	brave --incognito
+
+# file explorer
+super + y
+	nautilus
+
+# TODO mail client
+#super + m
+#	thunderbird
+
+#
+# bspwm core
+#
+
+# reload sxhkd, bspwm and other configuration files
+super + shift + r
+	pkill -USR1 -x sxhkd && \
+	bspc wm -r && \
+	xrdb ~/.Xresources
+
+# quit bspwm
+super + shift + Escape
+	bspc quit
+
+#
+# node management
+#
+
+# node focusing
+super {h,j,k,l}
+	bspc node -f {west,south,north,east}
+
+# node swaping
+super + shift {h,j,k,l}
+	bspc node -s {west,south,north,east}
+
+# close node
+super + shift + q
+	bspc node -k
+
+# toggle fullscreen
+super + f
+	bspc node -t \~fullscreen
+
+#
+# workspace management
+#
+
+# switch workspace
+super {1-9,0}
+	bspc desktop -f {I,II,III,IV,V,VI,VII,VIII,IX,X}
+
+# move node to workspace
+super + shift + {1-9,0}
+	bspc node -d '^{1-9,10}'
+
