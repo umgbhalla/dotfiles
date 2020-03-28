@@ -19,6 +19,7 @@ Videos/
 .vscode-oss/
 
 !.config/bspwm/
+!.config/lemonbar/
 !.config/nvim/
 !.config/sxhkd/
 !.config/zsh/
