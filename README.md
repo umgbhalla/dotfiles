@@ -161,6 +161,18 @@ sudo pacman -S htop
 sudo pacman -S nautilus
 ```
 
+### Package Manager
+`pacman` is a given for Arch-based distributions. I also use `yay` as an AUR helper.
+```
+sudo pacman -S yay
+```
+
+### Image Viewer
+`feh` also doubles as a background image manager.
+```
+sudo pacman -S feh
+```
+
 ## Additional Configuration <a name="addconfig"></a>
 
 ### Touchpad settings
@@ -173,5 +185,13 @@ Section "InputClass"
 	Option "Tapping" "on"
 	Option "NaturalScrolling" "true"
 EndSection
+```
+
+### Theme
+I installed a GTK3 Nordic theme created by EliverLara.
+```
+sudo git clone https://github.com/EliverLara/Nordic.git /usr/share/themes/Nordic
+gsettings set org.gnome.desktop.interface gtk-theme "Nordic"
+gsettings set org.gnome.desktop.wm.preferences theme "Nordic"
 ```
 

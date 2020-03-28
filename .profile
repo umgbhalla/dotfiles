@@ -8,3 +8,5 @@ export BROWSER="brave"
 # configurations
 export ZDOTDIR="$HOME/.config/zsh/"
 
+# background
+feh --bg-fill --no-fehbg $HOME/.config/wallpaper.png
