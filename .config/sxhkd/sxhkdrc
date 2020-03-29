@@ -34,7 +34,7 @@ super + y
 super + shift + r
 	pkill -USR1 -x sxhkd && \
 	bspc wm -r && \
-	xrdb ~/.Xresources
+	xrdb $HOME/.Xresources
 
 # quit bspwm
 super + shift + Escape
