@@ -115,14 +115,14 @@ This installation summarizes installing `bspwm` onto `Manjaro`.
 
 ## Personal Configuration <a name="personalconfig"></a>
 
-Text/Code Editor/IDE - `nvim`/`neovim`, `code-oss`
-Terminal Emulator - `urxvt`
-Status Bar - `lemonbar`
-Browser - `brave`
-System Profilers - `htop`, `gotop`
-File Explorer - `nautilus`
-Package Manager/Helper - `pacman`, `yay`
-Image Viewer - `feh`
+Text/Code Editor/IDE - `nvim`/`neovim`, `code-oss`  
+Terminal Emulator - `urxvt`  
+Status Bar - `lemonbar`  
+Browser - `brave`  
+System Profilers - `htop`, `gotop`  
+File Explorer - `nautilus`  
+Package Manager/Helper - `pacman`, `yay`  
+Image Viewer - `feh`  
 
 ## Additional Configuration <a name="addconfig"></a>
 
