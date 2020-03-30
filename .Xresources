@@ -13,7 +13,7 @@
 
 *.color0: #3b4252
 *.color1: #3b42521
-*.color2: #3b42524
+#*.color2: #a3be8c
 *.color3: #3b42523
 *.color4: #81a1c1
 *.color5: #3b42525

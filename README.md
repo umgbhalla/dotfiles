@@ -146,3 +146,17 @@ gsettings set org.gnome.desktop.interface gtk-theme "Nordic"
 gsettings set org.gnome.desktop.wm.preferences theme "Nordic"
 ```
 
+### Compositor
+In order to utilize fancy screen rendering such as opacity, you need a screen compositor such as `picom`.
+```
+sudo pacman -S picom
+```
+
+### X cursor on desktop
+In order to change the desktop cursor from an X to a left pointer, install `xsetroot` and add the following to your bspwmrc.
+```
+sudo pacman -S xorg-xsetroot
+---------------------------------
+xsetroot -cursor_name left_ptr &
+```
+

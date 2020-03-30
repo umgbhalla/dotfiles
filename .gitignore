@@ -21,5 +21,6 @@ Videos/
 !.config/bspwm/
 !.config/lemonbar/
 !.config/nvim/
+!.config/picom/
 !.config/sxhkd/
 !.config/zsh/
