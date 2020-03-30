@@ -11,16 +11,37 @@ Public/
 Templates/
 Videos/
 .cache/
-.config/
 .local/
 .pki/
 .vim/
 .viminfo
 .vscode-oss/
 
-!.config/bspwm/
-!.config/lemonbar/
-!.config/nvim/
-!.config/picom/
-!.config/sxhkd/
-!.config/zsh/
+# config
+.config/autostart/
+.config/BraveSoftware/
+.config/Code\ -\ OSS/
+.config/dconf/
+.config/falkon/
+.config/gnome-session/
+.config/goa-1.0/
+.config/gtk-3.0/
+.config/hexchat/
+.config/htop/
+.config/ibus/
+.config/Kvantum/
+.config/manjaro/
+.config/nautilus/
+.config/neofetch/
+.config/procps/
+.config/pulse/
+.config/pulseaudio-ctl/
+.config/qt5ct/
+.config/systemd/
+.config/yay/
+.config/manjaro-hello.json
+.config/mimeapps.list
+.config/Trolltech.conf
+.config/user-dirs.dirs
+.config/user-dirs.locale
+

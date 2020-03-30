@@ -1,0 +1,11 @@
+#!/bin/bash
+# collection of commonly used shell alias definitions
+
+# defaults
+alias \
+    ls="ls --color=auto --group-directories-first" \
+    cp="cp -v" \
+    mv="mv -v" \
+    rm="rm -v" \
+    mkdir="mkdir -pv"
+
