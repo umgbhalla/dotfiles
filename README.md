@@ -46,11 +46,13 @@ To clone this repository into your home directory, you may need to first follow 
 
 ## Manual Installation <a name="manualinstall"></a>
 
-This installation summarizes installing `bspwm` onto `Manjaro`.
+This installation summarizes installing `bspwm` onto `Arch`.
 
 #### Setup
 
-1. Download the [Manjaro Gnome minimal edition](https://manjaro.org/downloads/official/gnome/). Since Gnome will eventually be replaced by `bspwm`, it doesn't necessary matter which window manager you choose, but I prefer `Gnome` because it is simple and will provide nice tweaking options later. I downloaded version `manjaro-gnome-19.0.2-minimal-200311-linux54.iso`.
+> In this setup I go over how I installed and configured Arch for my own personal use. The [Arch Wiki](https://wiki.archlinux.org/index.php/installation_guide) is much more thorough and goes into depth on details I may skim over.
+
+1. Download [Arch](https://www.archlinux.org/download/). I downloaded version `archlinux-2020.04.01-x86_64.iso`.
 2. Burn the cd image onto a usb. This can be done using a number of different tools:
     - [Balena Etcher](https://www.balena.io/etcher/)
     - [Rufus](https://rufus.ie/)
@@ -64,11 +66,7 @@ This installation summarizes installing `bspwm` onto `Manjaro`.
 
 #### Distro installation
 
-> Luckily, Manjaro does a fantastic job of setting up all the basic packages and tools for you. I used to manually integrate every feature I needed when I primarily used Archlinux, but I've since realized that the Manjaro minimal installs are nearly perfect for every use case.
-
-1. After the grub bios screen, the system will boot into Manjaro's guest installation session. Connect the machine to internet (ethernet is recommended for a stable connection but definitely not required) and open `Install Manjaro Linux` located on the side bar.
-2. Most of the settings will be your preference. Since I have experimental machines, I completely erased the disk to use Manjaro, but you may want to install alongside an existing partition (the hardware of my test machine was so old that I actually had to install Ubuntu first for drivers, then install Manjaro alongside it).
-3. Instead of restarting, it might be better to shutdown, remove the usb, then power on, just to verify the machine is booting from the hard drive and not the live usb.
+TODO
 
 #### Core Package Configuration
 
