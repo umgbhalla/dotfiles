@@ -33,8 +33,8 @@
 ! ----------------------------------------------------
 
 ! font
-!URxvt.font: xft:bitstream vera sans mono:size=8.5:antialias=true
-URxvt.boldFont: xft:bitstream vera sans mono:bold:size=8.5:antialias=true
+URxvt.font: xft:Liberation Mono:size=11:antialias=true
+URxvt.boldFont: xft:Liberation Mono:bold:size=11:antialias=true
 
 ! remove scrollbar
 URxvt.scrollBar: false

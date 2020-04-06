@@ -13,14 +13,14 @@ super + Return
 #	dmenu_run
 
 # browser
-#super + b
-#	brave
-#super + shift + b
-#	brave --incognito
+super + b
+	brave
+super + shift + b
+	brave --incognito
 
 # file explorer
-#super + y
-#	nautilus
+super + y
+	nautilus
 
 # TODO mail client
 #super + m

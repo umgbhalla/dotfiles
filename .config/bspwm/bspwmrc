@@ -4,13 +4,13 @@
 sxhkd &
 
 # compositor
-#picom &
+picom --xrender-sync --xrender-sync-fence --backend xrender &
 
 # change desktop cursor to left pointer
-#xsetroot -cursor_name left_ptr &
+xsetroot -cursor_name left_ptr &
 
 # status bar
-# $HOME/.config/lemonbar/lemonbar.sh | lemonbar -p &
+$HOME/.config/lemonbar/lemonbar.sh | lemonbar -p &
 
 # bspwm defaults
 bspc monitor -d I II III IV V VI VII VIII IX X

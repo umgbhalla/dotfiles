@@ -13,14 +13,17 @@ Videos/
 .cache/
 .git-credentials
 .local/
+.npm/
 .pki/
 .vim/
 .viminfo
 .vscode-oss/
+.Xauthority
 
 # config
 .config/autostart/
 .config/BraveSoftware/
+.config/configstore/
 .config/Code\ -\ OSS/
 .config/dconf/
 .config/falkon/
@@ -34,6 +37,7 @@ Videos/
 .config/manjaro/
 .config/nautilus/
 .config/neofetch/
+.config/nvim/.netrwhist
 .config/procps/
 .config/pulse/
 .config/pulseaudio-ctl/

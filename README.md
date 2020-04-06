@@ -5,8 +5,7 @@ These are the dotfiles I use regularly in my work and school laptop. Do not copy
 1. [System Information](#sysinfo)
 2. [Cloning](#cloning)
 3. [Manual Installation](#manualinstall)
-4. [Personal Configuration](#personalconfig)
-5. [Additional Configuration](#addconfig)
+4. [Additional Configuration](#addconfig)
 
 ## System Information <a name="sysinfo"></a>
 
@@ -18,8 +17,13 @@ WM: bspwm
 Theme: adwaita [GTK2], matcha-sea [GTK3]
 Icons: adwaita [GTK2], papirus-dark-maia [GTK3]
 Terminal: urxvt
-Status Bar: lemonbar
+Status Bar: lemonbar-xft-git
 Launcher: dmenu
+
+Editor: neovim
+Browser: brave
+File Exporer: nautilus
+System Profiler:  htop
 ```
 
 ## Cloning <a name="cloning"></a>
@@ -286,29 +290,25 @@ We will be creating a main partition for all files and a swap partition for susp
     ```
 4. Install a terminal emulator. I use `urxvt` because it is lightweight and fast.
     ```
-    sudo pacman -S rxvt-unicode
+    yay -S rxvt-unicode
     ```
-6. Install `openssh` to be able to ssh connect to other machines.
+6. Install other necessary packages, as well as commonly used packages.
     ```
-    sudo pacman -S openssh
+    sudo pacman -S feh xorg-xsetroot
+    yay -S lemonbar-xft-git
+
+    sudo pacman -S htop man nautilus neovim openssh
+    yay -S brave
     ```
 7. Install my dotfiles. See [cloning](#cloning) for more details.
-8. Log out of the user you created. Then log back in to verify everything is functioning properly.
-
-## Personal Configuration <a name="personalconfig"></a>
-
-Text/Code Editor/IDE - `nvim`/`neovim`, `code-oss`  
-Terminal Emulator - `urxvt`  
-Status Bar - `lemonbar-xft-git`  
-Browser - `brave`  
-System Profilers - `htop`, `gotop`  
-File Explorer - `nautilus`  
-Package Manager/Helper - `pacman`, `yay`  
-Image Viewer - `feh`  
+8. Reboot. Then log back in as the user you created to verify everything is functioning properly.
+    ```
+    sudo reboot
+    ```
 
 ## Additional Configuration <a name="addconfig"></a>
 
-### Touchpad settings
+#### Touchpad settings
 By default, most linux distros disable natural scrolling and disable touchpad tapping. I personally find this very irritating. To change touchpad settings, `sudo vim /etc/X11/xorg.conf.d/30-touchpad.conf` and add the following configuration:
 ```
 Section "InputClass"
@@ -319,26 +319,4 @@ Section "InputClass"
 	Option "NaturalScrolling" "true"
 EndSection
 ```
-
-### Theme
-I installed a GTK3 Nordic theme created by EliverLara.
-```
-sudo git clone https://github.com/EliverLara/Nordic.git /usr/share/themes/Nordic
-gsettings set org.gnome.desktop.interface gtk-theme "Nordic"
-gsettings set org.gnome.desktop.wm.preferences theme "Nordic"
-```
-
-### Compositor
-In order to utilize fancy screen rendering such as opacity, you need a screen compositor such as `picom`.
-```
-sudo pacman -S picom
-```
-
-### X cursor on desktop
-In order to change the desktop cursor from an X to a left pointer, install `xsetroot` and add the following to your bspwmrc.
-```
-sudo pacman -S xorg-xsetroot
----------------------------------
-xsetroot -cursor_name left_ptr &
-```
-
+Then reboot to verify changes.
