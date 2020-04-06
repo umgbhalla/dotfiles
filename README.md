@@ -1,9 +1,5 @@
 # dotfiles
-These are the dotfiles I use regularly in my work and school laptop.
-
-Do not copy these dotfiles blindly unless you know exactly what you are doing to your system. A lot of the features or packages I use in my system are experimental or built with a specific hardware in mind. I take no responsibility for any damages or system failures you may encounter - that being said, if you come across a reproducible issue or would like to ask me questions, feel free to open an issue or contact me privately and I would be more than happy to help.
-
-> I use to primarily experiment with Wayland on Arch. If you would like to use Wayland or are interested in replicating this setup, see [this release](https://github.com/bossley9/dotfiles/releases/tag/Wayland).
+These are the dotfiles I use regularly in my work and school laptop. Do not copy these dotfiles blindly unless you know exactly what you are doing to your system. A lot of the features or packages I use in my system are experimental or built with a specific hardware in mind. I take no responsibility for any damages or system failures you may encounter - that being said, if you come across a reproducible issue or would like to ask me questions, feel free to open an issue or contact me privately and I would be more than happy to help.
 
 ## Table of Contents
 1. [System Information](#sysinfo)
@@ -28,7 +24,7 @@ Launcher: dmenu
 
 ## Cloning <a name="cloning"></a>
 
-To clone this repository into your home directory, you may need to first follow the [manual installation](#manualinstall) instructions to make sure you have the proper packages installed, such as `bspwm`.
+To clone this repository into your home directory, you may need to first follow the [manual installation](#manualinstall) instructions to make sure you have the necessary packages installed.
 
 1. Clone this repository to your home folder.
     - `zsh`:
@@ -54,13 +50,22 @@ Another disclaimer - I am a strong advocate for the `vim` and `nvim` text editor
 1. [Setup](#setup)
 2. [Preliminary Internet](#preliminternet)
 3. [System Time](#systime)
+4. [Disk Partitioning](#diskpartition)
+5. [Distro Installation](#distroinstall)
+6. [Mounting with Fstab](#fstabmount)
+7. [System Network Manager](networkmanager)
+8. [Grub Bootloader](#grubboot)
+9. [Password](#password)
+10. [Locales and System Information](#locales)
+11. [Installation Wrapup](#installwrap)
+12. [Wifi](#wifi)
 
 #### Setup <a name="setup"></a>
 
 1. For this guide, you will need the following tools:
     - A computer that can be wiped to install Archlinux
     - An ethernet connection
-    - A USB drive that can be wiped
+    - A usb drive that can be wiped
 2. Download [Arch](https://www.archlinux.org/download/). I downloaded version `archlinux-2020.04.01-x86_64.iso`.
 3. Burn the cd image onto a usb. This can be done using a number of different tools:
     - [Balena Etcher](https://www.balena.io/etcher/)
@@ -111,10 +116,10 @@ Booting into Arch will bring up a simple command prompt.
     timedatectl set-ntp true
     ```
 
-#### Disk Partitioning
+#### Disk Partitioning <a name="diskpartition"></a>
 We will be creating a main partition for all files and a swap partition for suspending and hibernation. To view the amount of memory installed in the system, run the `free` command, or the more human-readable `free -g` command. To be safe, we will make the swap partition to be twice the amount of RAM.
 
-1. To view the disks to partition, use `fdisk -l` to display all drives and note the drive you wish to install Arch on. Make sure this drive is not the USB drive. Mine is `/dev/sda`, and as such, I will be using this drive for the purposes of this guide. Run the following command to open the partitioning editor for that disk:
+1. To view the disks to partition, use `fdisk -l` to display all drives and note the drive you wish to install Arch on. Make sure this drive is not the usb drive. Mine is `/dev/sda`, and as such, I will be using this drive for the purposes of this guide. Run the following command to open the partitioning editor for that disk:
     ```
     fdisk /dev/sda
     ```
@@ -139,14 +144,14 @@ We will be creating a main partition for all files and a swap partition for susp
     mount /dev/sda2 /mnt
     ```
 
-#### Distro Installation
+#### Distro Installation <a name="distroinstall"></a>
 
 1. Install the linux kernel and base. This will take some time to complete. It is also recommended to install `base-devel` development tools and an editor like `vim`.
     ```
     pacstrap /mnt base base-devel linux linux-firmware vim
     ```
 
-#### Mounting with fstab
+#### Mounting with Fstab <a name="fstabmount"></a>
 
 `fstab` is used to mount drives to the system.
 
@@ -159,7 +164,7 @@ We will be creating a main partition for all files and a swap partition for susp
     arch-chroot /mnt
     ```
 
-#### System Network Manager
+#### System Network Manager <a name="networkmanager"></a>
 
 1. Install `networkmanager`.
     ```
@@ -170,7 +175,7 @@ We will be creating a main partition for all files and a swap partition for susp
     systemctl enable NetworkManager
     ```
 
-#### Grub boot loader
+#### Grub Bootloader <a name="grubboot"></a>
 
 1. Install `grub`.
     ```
@@ -182,14 +187,14 @@ We will be creating a main partition for all files and a swap partition for susp
     grub-mkconfig -o /boot/grub/grub.cfg
     ```
 
-#### Password
+#### Password <a name="password"></a>
 
 1. Set a password.
     ```
     passwd
     ```
 
-#### Locales and System Information
+#### Locales and System Information <a name="locales"></a>
 
 1. `vim /etc/locale.gen` to enable locales.
     ```
@@ -220,7 +225,7 @@ We will be creating a main partition for all files and a swap partition for susp
     127.0.1.1 diobrando.localdomain diobrando 
     ```
 
-#### Installation Wrapup
+#### Installation Wrapup <a name="installwrap"></a>
 
 1. Exit, unmount the filesystem, and shutdown. Safely remove the usb after the machine is powered off.
     ```
@@ -228,34 +233,52 @@ We will be creating a main partition for all files and a swap partition for susp
     umount -R /mnt
     shutdown -h now
     ```
-2. Unplug the USB and power on the machine. It should boot immediately into the Arch login. If not, repeat the previous steps to install Arch.
+2. Unplug the usb and power on the machine. It should boot immediately into the Arch login. If not, repeat the previous steps to install Arch.
 
-#### Core Package Configuration
+#### Wifi <a name="wifi"></a>
 
-1. Connect to a network on reboot and upgrade the system from the command line. Then install packages necessary for binary compilation and source control. Install all packages `base-devel` provides.
+1. A wifi network connection can be set up from the command line temporarily if needed. Run `nmcli d wifi list` to display all networks. Then connect with the appropriate SSID and password.
+    ```
+    nmcli d wifi connect SSID password PASSWORD iface wlan0
+    ```
+
+#### Creating a User <a name="creatinguser"></a>
+
+1. Create a user. This is the user you will use to log in. I will create a username of `sam`.
+    ```
+    useradd -m -g wheel sam
+    passwd sam
+    ```
+2. `EDITOR=vim visudo` to grant the new user sudo permissions.
+    ```
+    %wheel ALL=(ALL) ALL 
+    ```
+3. Log out and log back in as the user.
+    ```
+    exit
+    ```
+
+#### Core Packages <a name="corepackages"></a>
+
+1. Install a system upgrade. It's good to do this on a clean install. Additionally, install useful package helper packages like `git` and `yay`.
     ```
     sudo pacman -Syyuu
-    sudo pacman -S base-devel
-    sudo pacamn -S git
+    sudo pacman -S git
+
+    cd /tmp 
+    git clone https://aur.archlinux.org/yay.git
+    cd yay && makepkg -si
     ```
-2. Install `zsh` as an improvement to the original `bash` shell.
+2. Install `zsh`.
     ```
     sudo pacman -S zsh
     chsh -s /bin/zsh
-    ```
-3. Install `yay`, an AUR helper.
-    ```
-    sudo pacman -S yay
     ```
 3. Install the `bspwm` window manager and the `sxhkd` hotkey manager.
     ```
     sudo pacman -S bspwm sxhkd
     ```
-4. Install a command line text editor. My preference is `vim`, but you can also use `vi`, `emacs`, or `nano`, the most user-friendly of command line text editors.
-    ```
-    sudo pacman -S vim
-    ```
-5. Install a terminal emulator. I use `urxvt` because it is lightweight and fast.
+4. Install a terminal emulator. I use `urxvt` because it is lightweight and fast.
     ```
     sudo pacman -S rxvt-unicode
     ```
@@ -263,15 +286,8 @@ We will be creating a main partition for all files and a swap partition for susp
     ```
     sudo pacman -S openssh
     ```
-7. Use any of my dotfiles or programs you would like at this point. **A `bspwm` configuration and an `sxhkd` configuration must be included or the window manager may not boot properly**. The example configurations can be used with the commands below.
-    ```
-    mkdir -p ~/.config/bspwm
-    cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/
-    mkdir -p ~/.config/sxhkd
-    cp /usr/share/doc/bspwm/examples/sxhkrc ~/.config/sxhkd/
-    ```
-    Make sure the `sxhkd` configuration file is changed to open the correct terminal emulator.
-8. Log out of the user you created. Then log back in, clicking on the gear icon below the password blank and choosing `bspwm` before typing the password. You will now boot into `bspwm`.
+7. Install my dotfiles. See [cloning](#cloning) for more details.
+8. Log out of the user you created. Then log back in to verify everything is functioning properly.
 
 ## Personal Configuration <a name="personalconfig"></a>
 
