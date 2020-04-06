@@ -11,6 +11,7 @@ Public/
 Templates/
 Videos/
 .cache/
+.git-credentials
 .local/
 .pki/
 .vim/
