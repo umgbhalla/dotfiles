@@ -39,6 +39,10 @@ To clone this repository into your home directory, you may need to first follow 
         shopt -s dotglob nullglob
         mv /tmp/dotfiles/* ~/
       ```
+2. Install all programs I use in my configuration.
+    ```
+    sudo pacman -S nvim feh
+    ```
 
 ## Manual Installation <a name="manualinstall"></a>
 
@@ -59,6 +63,8 @@ Another disclaimer - I am a strong advocate for the `vim` and `nvim` text editor
 10. [Locales and System Information](#locales)
 11. [Installation Wrapup](#installwrap)
 12. [Wifi](#wifi)
+13. [Creating a User](#creatinguser)
+14. [Core Packages](#corepackages)
 
 #### Setup <a name="setup"></a>
 
@@ -274,9 +280,9 @@ We will be creating a main partition for all files and a swap partition for susp
     sudo pacman -S zsh
     chsh -s /bin/zsh
     ```
-3. Install the `bspwm` window manager and the `sxhkd` hotkey manager.
+3. Install `x`, the `bspwm` window manager, and the `sxhkd` hotkey manager.
     ```
-    sudo pacman -S bspwm sxhkd
+    sudo pacman -S xorg-xinit xorg-server bspwm sxhkd
     ```
 4. Install a terminal emulator. I use `urxvt` because it is lightweight and fast.
     ```
@@ -293,7 +299,7 @@ We will be creating a main partition for all files and a swap partition for susp
 
 Text/Code Editor/IDE - `nvim`/`neovim`, `code-oss`  
 Terminal Emulator - `urxvt`  
-Status Bar - `lemonbar`  
+Status Bar - `lemonbar-xft-git`  
 Browser - `brave`  
 System Profilers - `htop`, `gotop`  
 File Explorer - `nautilus`  

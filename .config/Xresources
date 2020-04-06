@@ -14,7 +14,7 @@
 *.color10: #b8bb26
 ! yellow
 *.color3: #d79921
-*.color11: fabd2f
+*.color11: #fabd2f
 ! blue
 *.color4: #458588
 *.color12: #83a598
@@ -33,7 +33,7 @@
 ! ----------------------------------------------------
 
 ! font
-URxvt.font: xft:bitstream vera sans mono:size=8.5:antialias=true
+!URxvt.font: xft:bitstream vera sans mono:size=8.5:antialias=true
 URxvt.boldFont: xft:bitstream vera sans mono:bold:size=8.5:antialias=true
 
 ! remove scrollbar

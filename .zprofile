@@ -10,4 +10,3 @@ export BROWSER="brave"
 
 # configurations
 export ZDOTDIR="$HOME/.config/zsh/"
-

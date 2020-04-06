@@ -9,18 +9,18 @@ super + Return
 	urxvt
 
 # TODO launcher
-super + @space
-	dmenu_run
+#super + @space
+#	dmenu_run
 
 # browser
-super + b
-	brave
-super + shift + b
-	brave --incognito
+#super + b
+#	brave
+#super + shift + b
+#	brave --incognito
 
 # file explorer
-super + y
-	nautilus
+#super + y
+#	nautilus
 
 # TODO mail client
 #super + m
@@ -34,7 +34,7 @@ super + y
 super + shift + r
 	pkill -USR1 -x sxhkd && \
 	bspc wm -r && \
-	xrdb $HOME/.Xresources
+	xrdb $HOME/.config/Xresources
 
 # quit bspwm
 super + shift + Escape

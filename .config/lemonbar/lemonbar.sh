@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 clock() {
   DATETIME=$(date "+%a %b %d, %T")
