@@ -297,6 +297,7 @@ We will be creating a main partition for all files and a swap partition for susp
     ```
     sudo pacman -S feh xorg-xsetroot
     yay -S clight lemonbar-xft-git
+    sudo systemctl enable clightd
 
     sudo pacman -S htop man nautilus neovim openssh
     yay -S brave
@@ -321,3 +322,15 @@ Section "InputClass"
 EndSection
 ```
 Then reboot to verify changes.
+
+#### Disabling the grub menu
+If, like me, you only plan on using one boot entry, you can remove it with `sudo vim /etc/default/grub`:
+```
+GRUB_TIMEOUT=0
+```
+Update the grub, then reboot.
+```
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo reboot
+```
+

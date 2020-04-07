@@ -8,7 +8,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 # default programs
 export EDITOR="nvim"
-export TERM="rxvt-unicode-256color"
+export TERM="sakura"
 export BROWSER="brave"
 
 # configurations

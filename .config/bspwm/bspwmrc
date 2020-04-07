@@ -4,7 +4,7 @@
 sxhkd &
 
 # compositor
-picom --xrender-sync --xrender-sync-fence --backend xrender &
+picom & 
 
 # change desktop cursor to left pointer
 xsetroot -cursor_name left_ptr &
