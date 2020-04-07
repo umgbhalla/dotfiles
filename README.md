@@ -16,7 +16,7 @@ Shell: zsh
 WM: bspwm
 Theme: adwaita [GTK2], matcha-sea [GTK3]
 Icons: adwaita [GTK2], papirus-dark-maia [GTK3]
-Terminal: urxvt
+Terminal: sakura
 Status Bar: lemonbar-xft-git
 Launcher: dmenu
 
@@ -288,14 +288,15 @@ We will be creating a main partition for all files and a swap partition for susp
     ```
     sudo pacman -S xorg-xinit xorg-server bspwm sxhkd
     ```
-4. Install a terminal emulator. I use `urxvt` because it is lightweight and fast.
+4. Install a terminal emulator. I use `sakura` because it is lightweight and fast.
+    > I've had an adventure looking for the perfect terminal emulator, from `xterm`, to `termite`, to `urxvt`, to `konsole`, to `kitty`.
     ```
-    yay -S rxvt-unicode
+    yay -S sakura
     ```
 6. Install other necessary packages, as well as commonly used packages.
     ```
     sudo pacman -S feh xorg-xsetroot
-    yay -S lemonbar-xft-git
+    yay -S clight lemonbar-xft-git
 
     sudo pacman -S htop man nautilus neovim openssh
     yay -S brave

@@ -1,7 +1,10 @@
 # environmental variables set on login
 
 # shell prompt
-export PROMPT='%F{yellow}%m%f %F{cyan}%2~%f %# '
+export PROMPT="%F{yellow}%m%f %F{cyan}%2~%f %# "
+
+# config dir
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # default programs
 export EDITOR="nvim"
