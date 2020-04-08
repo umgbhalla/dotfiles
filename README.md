@@ -300,6 +300,7 @@ We will be creating a main partition for all files and a swap partition for susp
     sudo systemctl enable clightd
 
     sudo pacman -S htop man nautilus neovim openssh
+    sudo pacman -R vim
     yay -S brave
     ```
 7. Install my dotfiles. See [cloning](#cloning) for more details.

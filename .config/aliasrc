@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 # collection of commonly used shell alias definitions
+source $HOME/.config/colorrc
 
 # defaults
 alias \
@@ -9,3 +10,5 @@ alias \
     rm="rm -v" \
     mkdir="mkdir -pv"
 
+# ignore vim
+function vim() { echo -e "${LB}the local wizard says that vim does not exist in this universe.\nTry using nvim instead.${NC}" }
