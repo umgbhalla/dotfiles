@@ -1,69 +1,14 @@
-# development
-.nvim/
-
-# content folders
+# ignore patterns
 Desktop/
 Documents/
 Downloads/
 Games/
-Music/
 Pictures/
 Public/
 Repos/
 Templates/
 Videos/
-.cache/
-.git-credentials
-.go/
-.gradle/
-.java/
-.local/
-.npm/
-.npm-global/
-.npmrc
-.pki/
-.scripts/
-.ssh/
-.steam/
-.steampath
-.steampid
-.vim/
-.viminfo
-.vimrc
-.vscode-oss/
-.wine/
-.zoom/
+.*
 
-# config
-.config/autostart/
-.config/BraveSoftware/
-.config/configstore/
-.config/Code\ -\ OSS/
-.config/dconf/
-.config/falkon/
-.config/gnome-session/
-.config/goa-1.0/
-.config/gtk-3.0/
-.config/hexchat/
-.config/htop/
-.config/ibus/
-.config/Kvantum/
-.config/libvirt
-.config/lutris/
-.config/manjaro/
-.config/nautilus/
-.config/neofetch/
-.config/nvim/.netrwhist
-.config/procps/
-.config/pulse/
-.config/pulseaudio-ctl/
-.config/qt5ct/
-.config/systemd/
-.config/yay/
-.config/manjaro-hello.json
-.config/mimeapps.list
-.config/Trolltech.conf
-.config/user-dirs.dirs
-.config/user-dirs.locale
-.config/Xauthority
-
+!.config/zsh
+!.profile

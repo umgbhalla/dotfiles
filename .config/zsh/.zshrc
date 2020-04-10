@@ -10,5 +10,5 @@ SAVEHIST=20000
 setopt appendhistory
 
 # shell prompt
-PROMPT="%F{yellow}[%f %F{cyan}%2~%f %F{yellow}]%f "
+export PROMPT="%F{yellow}[%f %F{cyan}%2~%f %F{yellow}]%f "
 
