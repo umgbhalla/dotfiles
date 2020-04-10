@@ -9,11 +9,11 @@ alias \
     mv="mv -v" \
     rm="rm -v" \
     mkdir="mkdir -pv"
+alias g="git"
+alias gc="git clone"
 alias p="sudo pacman"
+alias vim="nvim"
 
 # firebase
 alias firebase="`npm config get prefix`/bin/firebase"
-
-# ignore vim
-function vim() { echo -e "${LB}the local wizard says that vim does not exist in this universe.\nTry using nvim instead.${NC}" }
 
