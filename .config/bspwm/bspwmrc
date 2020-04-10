@@ -10,7 +10,7 @@ picom &
 xsetroot -cursor_name left_ptr &
 
 # status bar
-$HOME/.config/lemonbar/lemonbar.sh | lemonbar -p &
+$HOME/.config/lemonbar/lemonbar.sh | lemonbar -f LiberationSans -p &
 
 # bspwm defaults
 bspc monitor -d I II III IV V VI VII VIII IX X

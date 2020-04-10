@@ -16,7 +16,7 @@ Shell: zsh
 WM: bspwm
 Theme: adwaita [GTK2], matcha-sea [GTK3]
 Icons: adwaita [GTK2], papirus-dark-maia [GTK3]
-Terminal: sakura
+Terminal: st
 Status Bar: lemonbar-xft-git
 Launcher: dmenu
 
@@ -249,8 +249,9 @@ We will be creating a main partition for all files and a swap partition for susp
 
 1. A wifi network connection can be set up from the command line temporarily if needed. Run `nmcli d wifi list` to display all networks. Then connect with the appropriate SSID and password.
     ```
-    nmcli d wifi connect SSID password PASSWORD iface wlan0
+    nmcli d wifi connect SSID password PASSWORD
     ```
+    The current network status can be displayed with the `nmcli radio` and `nmcli device` commands.
 
 #### Creating a User <a name="creatinguser"></a>
 
@@ -288,14 +289,20 @@ We will be creating a main partition for all files and a swap partition for susp
     ```
     sudo pacman -S xorg-xinit xorg-server bspwm sxhkd
     ```
-4. Install a terminal emulator. I use `sakura` because it is lightweight and fast.
-    > I've had an adventure looking for the perfect terminal emulator, from `xterm`, to `termite`, to `urxvt`, to `konsole`, to `kitty`.
+4. Install a terminal emulator. I've used nearly every popular terminal in existence and `st` is the best one by far.
+    To get the best configuration of `st`, it requires manual compilation. Clone the [st repo](https://git.suckless.org/st/).
     ```
-    yay -S sakura
+    sudo make clean install
     ```
+    To uninstall from the same directory:
+    ```
+    sudo make uninstall
+    ```
+    If you plan on using my dotfiles `st` configuration, you will run the above
+    make command in the `.config/st` folder.
 6. Install other necessary packages, as well as commonly used packages.
     ```
-    sudo pacman -S feh xorg-xsetroot
+    sudo pacman -S feh ttf-liberation xorg-xsetroot
     yay -S clight lemonbar-xft-git
     sudo systemctl enable clightd
 

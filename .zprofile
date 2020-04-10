@@ -1,15 +1,28 @@
 # environmental variables set on login
 
-# shell prompt
-export PROMPT="%F{yellow}%m%f %F{cyan}%2~%f %# "
-
-# config dir
+# config home directory
 export XDG_CONFIG_HOME="$HOME/.config"
 
+#
 # default programs
-export EDITOR="nvim"
-export TERM="sakura"
-export BROWSER="brave"
+#
 
-# configurations
-export ZDOTDIR="$HOME/.config/zsh/"
+export EDITOR="nvim"
+
+export TERM="st-256color"
+export TERMINAL="$TERM"
+
+export BROWSER="brave"
+export BROWSER_INCOGNITO="brave"
+
+#
+# variables
+#
+export SHELL="/bin/zsh"
+
+#
+# config directories
+#
+
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
+export XAUTHORITY="$XDG_CONFIG_HOME/Xauthority"

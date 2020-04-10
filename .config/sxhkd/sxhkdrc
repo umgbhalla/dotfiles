@@ -6,7 +6,7 @@
 # terminal emulator
 # (consider tmux?)
 super + Return
-	sakura
+  $TERM
 
 # TODO launcher
 #super + @space
@@ -14,9 +14,9 @@ super + Return
 
 # browser
 super + b
-	brave
+  $BROWSER
 super + shift + b
-	brave --incognito
+  $BROWSER_INCOGNITO
 
 # file explorer
 super + y
@@ -33,8 +33,7 @@ super + y
 # reload sxhkd, bspwm and other configuration files
 super + shift + r
 	pkill -USR1 -x sxhkd && \
-	bspc wm -r && \
-	xrdb $HOME/.config/Xresources
+	bspc wm -r &&
 
 # quit bspwm
 super + shift + Escape

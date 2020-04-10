@@ -18,7 +18,6 @@ Videos/
 .vim/
 .viminfo
 .vscode-oss/
-.Xauthority
 
 # config
 .config/autostart/
@@ -49,4 +48,5 @@ Videos/
 .config/Trolltech.conf
 .config/user-dirs.dirs
 .config/user-dirs.locale
+.config/Xauthority
 
