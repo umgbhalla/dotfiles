@@ -10,5 +10,9 @@ alias \
     rm="rm -v" \
     mkdir="mkdir -pv"
 
+# firebase
+alias firebase="`npm config get prefix`/bin/firebase"
+
 # ignore vim
 function vim() { echo -e "${LB}the local wizard says that vim does not exist in this universe.\nTry using nvim instead.${NC}" }
+

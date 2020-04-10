@@ -5,19 +5,34 @@
 Desktop/
 Documents/
 Downloads/
+Games/
 Music/
 Pictures/
 Public/
+Repos/
 Templates/
 Videos/
 .cache/
 .git-credentials
+.go/
+.gradle/
+.java/
 .local/
 .npm/
+.npm-global/
+.npmrc
 .pki/
+.scripts/
+.ssh/
+.steam/
+.steampath
+.steampid
 .vim/
 .viminfo
+.vimrc
 .vscode-oss/
+.wine/
+.zoom/
 
 # config
 .config/autostart/
@@ -33,6 +48,8 @@ Videos/
 .config/htop/
 .config/ibus/
 .config/Kvantum/
+.config/libvirt
+.config/lutris/
 .config/manjaro/
 .config/nautilus/
 .config/neofetch/

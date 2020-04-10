@@ -43,7 +43,7 @@ To clone this repository into your home directory, you may need to first follow 
         shopt -s dotglob nullglob
         mv /tmp/dotfiles/* ~/
       ```
-2. Install required core packages for this configuration to work, 
+2. Install required core packages for the configuration to work, 
     as well as preferred programs.
     ```
     sudo pacman -S feh ttf-liberation xorg-xsetroot
