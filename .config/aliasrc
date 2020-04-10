@@ -9,6 +9,7 @@ alias \
     mv="mv -v" \
     rm="rm -v" \
     mkdir="mkdir -pv"
+alias p="sudo pacman"
 
 # firebase
 alias firebase="`npm config get prefix`/bin/firebase"

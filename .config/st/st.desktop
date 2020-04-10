@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=st
+GenericName=Terminal emulator
+Comment=A simple terminal implementation for X.
+TryExec=st
+Exec=st
+Icon=st
+Categories=System;TerminalEmulator;
