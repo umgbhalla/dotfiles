@@ -43,9 +43,27 @@ To clone this repository into your home directory, you may need to first follow 
         shopt -s dotglob nullglob
         mv /tmp/dotfiles/* ~/
       ```
-2. Install all programs I use in my configuration.
+2. Install required core packages for this configuration to work, 
+    as well as preferred programs.
     ```
-    sudo pacman -S nvim feh
+    sudo pacman -S feh ttf-liberation xorg-xsetroot
+    yay -S clight lemonbar-xft-git
+    sudo systemctl enable clightd
+
+    sudo pacman -S htop man nautilus neovim openssh
+    sudo pacman -R vim
+    yay -S brave
+    ```
+3. Build my `st` configuration.
+    ```
+    cd ~/.config/st
+    sudo make clean install
+    ```
+    To apply patches, you can download patches from the `st` website and
+    run the following command, making sure to specify the file being
+    changed as `config.h`.
+    ```
+    patch --merge -i patchName.diff
     ```
 
 ## Manual Installation <a name="manualinstall"></a>
@@ -290,26 +308,10 @@ We will be creating a main partition for all files and a swap partition for susp
     sudo pacman -S xorg-xinit xorg-server bspwm sxhkd
     ```
 4. Install a terminal emulator. I've used nearly every popular terminal in existence and `st` is the best one by far.
-    To get the best configuration of `st`, it requires manual compilation. Clone the [st repo](https://git.suckless.org/st/).
     ```
-    sudo make clean install
+    yay -S st
     ```
-    To uninstall from the same directory:
-    ```
-    sudo make uninstall
-    ```
-    If you plan on using my dotfiles `st` configuration, you will run the above
-    make command in the `.config/st` folder.
-6. Install other necessary packages, as well as commonly used packages.
-    ```
-    sudo pacman -S feh ttf-liberation xorg-xsetroot
-    yay -S clight lemonbar-xft-git
-    sudo systemctl enable clightd
-
-    sudo pacman -S htop man nautilus neovim openssh
-    sudo pacman -R vim
-    yay -S brave
-    ```
+    This will just use the default version of `st`. To use my configured version of `st`, see [cloning](#cloning).
 7. Install my dotfiles. See [cloning](#cloning) for more details.
 8. Reboot. Then log back in as the user you created to verify everything is functioning properly.
     ```

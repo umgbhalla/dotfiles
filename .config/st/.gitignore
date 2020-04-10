@@ -1,3 +1,6 @@
 st
 x.o
 st.o
+*.orig
+patches/
+*.diff
