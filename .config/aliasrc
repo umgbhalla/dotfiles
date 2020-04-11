@@ -1,6 +1,7 @@
 #!/bin/sh
 # collection of commonly used shell alias definitions
-source $HOME/.config/colorrc
+
+[ -f $XDG_CONFIG_HOME/colorrc ] && source $XDG_CONFIG_HOME/colorrc
 
 # defaults
 alias \
@@ -9,6 +10,7 @@ alias \
     mv="mv -v" \
     rm="rm -v" \
     mkdir="mkdir -pv"
+
 alias g="git"
 alias gc="git clone"
 alias p="sudo pacman"

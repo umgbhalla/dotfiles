@@ -1,7 +1,9 @@
 # environmental variables set on login
 
-# config home directory
+# config directory
 export XDG_CONFIG_HOME="$HOME/.config"
+# cache directory
+export XDG_CACHE_HOME="$HOME/.cache"
 
 #
 # default programs
@@ -15,15 +17,19 @@ export TERMINAL="$TERM"
 export BROWSER="brave"
 export BROWSER_INCOGNITO="brave"
 
+# shell prompt
+export PROMPT="%F{yellow}[%f %F{cyan}%2~%f %F{yellow}]%f "
+
 #
 # path
 #
 
+export PATH="$PATH:$HOME/.local/bin/"
+
 # to move global npm directory to local directory
 # mkdir -p ~/.npm-global 
 # npm config set prefix '~/.npm-global'
-export PATH=$PATH:~/.local/bin/
-export PATH="~/.npm-global/bin:$PATH"
+export PATH="$PATH:$HOME/.npm-global/bin"
 
 #
 # variables
