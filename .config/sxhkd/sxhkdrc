@@ -9,8 +9,8 @@ super + Return
   $TERM
 
 # TODO launcher
-#super + @space
-#	dmenu_run
+super + d
+  rofi -show drun	
 
 # browser
 super + b

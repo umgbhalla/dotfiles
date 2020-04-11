@@ -18,7 +18,7 @@ Theme: adwaita [GTK2], matcha-sea [GTK3]
 Icons: adwaita [GTK2], papirus-dark-maia [GTK3]
 Terminal: st
 Status Bar: lemonbar-xft-git
-Launcher: dmenu
+Launcher: rofi
 
 Editor: neovim
 Browser: brave
@@ -50,7 +50,7 @@ To clone this repository into your home directory, you may need to first follow 
     yay -S clight lemonbar-xft-git
     sudo systemctl enable clightd
 
-    sudo pacman -S htop man nautilus neovim openssh
+    sudo pacman -S gimp htop man nautilus neovim openssh rofi 
     sudo pacman -R vim
     yay -S brave
     ```

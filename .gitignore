@@ -11,6 +11,7 @@ Videos/
 .*
 
 !.config/bspwm
+!.config/rofi
 !.config/st
 !.config/sxhkd
 !.config/zsh
