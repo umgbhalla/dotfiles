@@ -1,11 +1,5 @@
 #! /bin/sh
 
-# shortcut manager
-sxhkd &
-
-# compositor
-picom & 
-
 # change desktop cursor to left pointer
 xsetroot -cursor_name left_ptr &
 

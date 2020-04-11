@@ -10,5 +10,9 @@ Templates/
 Videos/
 .*
 
+!.config/bspwm
+!.config/st
+!.config/sxhkd
 !.config/zsh
 !.profile
+!.xinitrc
