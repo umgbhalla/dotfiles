@@ -24,9 +24,6 @@ export BAR_ARGS="$BAR main"
 # display
 #
 
-# shell prompt
-export PROMPT="%F{yellow}[%f %F{cyan}%2~%f %F{yellow}]%f "
-
 #
 # path
 #
