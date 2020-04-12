@@ -22,7 +22,7 @@ Launcher: rofi
 
 Editor: neovim
 Browser: brave
-File Exporer: nautilus
+File Exporer: nautilus, ranger
 System Profiler:  htop
 ```
 
@@ -52,7 +52,7 @@ To clone this repository into your home directory, you may need to first follow 
 
     sudo pacman -S ffmpeg gimp htop man nautilus neovim openssh rofi 
     sudo pacman -R vim
-    yay -S brave youtube-dl
+    yay -S brave ranger youtube-dl
     ```
 3. Build my `st` configuration.
     ```

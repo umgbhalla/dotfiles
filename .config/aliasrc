@@ -17,16 +17,20 @@ alias \
   reboot="sudo reboot" \
   shutdown="sudo shutdown -h now"
 
-# prograns
+# programs
 alias \
   p="sudo pacman" \
   g="git" \
-  vim="nvim"
+  vim="nvim" \
+  r="ranger"
 
 # media
 alias \
   ytmp4="youtube-dl --add-metadata -i" \
   ytmp3="youtube-dl --add-metadata -ix" \
+
+# davinci resolve codec converter
+function dav() { ffmpeg -i $1 -c:v dnxhd -profile:v 1 -pix_fmt yuv422p -c:a pcm_s16le -f mov $2 }
 
 # firebase
 alias firebase="`npm config get prefix`/bin/firebase"
