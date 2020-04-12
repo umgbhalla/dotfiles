@@ -25,8 +25,8 @@ alias \
 
 # media
 alias \
-  ytmp4="youtube-dl --add-metadata" \
-  ytmp3="youtube-dl --add-metadata -x" \
+  ytmp4="youtube-dl --add-metadata -i" \
+  ytmp3="youtube-dl --add-metadata -ix" \
 
 # firebase
 alias firebase="`npm config get prefix`/bin/firebase"
