@@ -5,10 +5,14 @@
 # (but I don't want to)
 [ -f $XDG_CONFIG_HOME/aliasrc ] && source $XDG_CONFIG_HOME/aliasrc
 
+# disable ctrl+s and ctrl+q 
+stty -ixon
+
 # history
 HISTFILE="$XDG_CACHE_HOME/zsh_history"
-HISTSIZE=20000
-SAVEHIST=20000
+HISTSIZE=
+HISTFILESIZE=
+SAVEHIST=
 setopt appendhistory
 
 # shell prompt

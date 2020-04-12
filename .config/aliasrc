@@ -9,17 +9,24 @@ alias \
     cp="cp -v" \
     mv="mv -v" \
     rm="rm -v" \
-    md="mkdir -pv"
-
-alias g="git"
-alias gc="git clone"
-alias p="sudo pacman"
-alias vim="nvim"
+    md="mkdir -pv" \
+    grep="grep --color=auto"
 
 # session
 alias \
   reboot="sudo reboot" \
   shutdown="sudo shutdown -h now"
+
+# prograns
+alias \
+  p="sudo pacman" \
+  g="git" \
+  vim="nvim"
+
+# media
+alias \
+  ytmp4="youtube-dl --add-metadata" \
+  ytmp3="youtube-dl --add-metadata -x" \
 
 # firebase
 alias firebase="`npm config get prefix`/bin/firebase"
