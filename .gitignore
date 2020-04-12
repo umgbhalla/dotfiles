@@ -13,10 +13,13 @@ Videos/
 !.config/bspwm
 !.config/nvim
 !.config/polybar
+!.config/ranger
 !.config/rofi
 !.config/st
 !.config/sxhkd
 !.config/zsh
 !.config/wallpaper.png
+!.config/aliasrc
+!.config/colorrc
 !.profile
 !.xinitrc

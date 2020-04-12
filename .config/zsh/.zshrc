@@ -10,10 +10,8 @@ stty -ixon
 
 # history
 HISTFILE="$XDG_CACHE_HOME/zsh_history"
-HISTSIZE=
-HISTFILESIZE=
-SAVEHIST=
-setopt appendhistory
+HISTSIZE= HISTFILESIZE= SAVEHIST=
+setopt inc_append_history share_history
 
 # shell prompt
 export PROMPT="%F{yellow}[%f %F{cyan}%2~%f %F{yellow}]%f "

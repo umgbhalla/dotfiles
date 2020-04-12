@@ -20,6 +20,8 @@ export BROWSER_INCOGNITO="brave"
 export BAR="polybar"
 export BAR_ARGS="$BAR main"
 
+export FILE_EXPORER="ranger"
+
 #
 # display
 #
@@ -39,6 +41,7 @@ export PATH="$PATH:$HOME/.npm-global/bin"
 # variables
 #
 
+export RANGER_LOAD_DEFAULT_RC="FALSE"
 export SHELL="/bin/zsh"
 
 #
