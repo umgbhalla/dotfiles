@@ -23,7 +23,7 @@ filetype indent on
 " disable arrow key bindings
 " no pain, no gain
 for i in ['Left', 'Down', 'Up', 'Right']
-    execute 'nnoremap <' . i . '> :echo "' . i . ' has been disabled by the user."<CR>'
-    execute 'vnoremap <' . i . '> <C-u>:echo "' . i . ' has been disabled by the user."<CR>'
-    execute 'inoremap <' . i . '> <C-o>:echo "' . i . ' has been disabled by the user."<CR>'
+  execute 'nnoremap <' . i . '> :echo "' . i . ' has been disabled by the user."<CR>'
+  execute 'vnoremap <' . i . '> <C-u>:echo "' . i . ' has been disabled by the user."<CR>'
+  execute 'inoremap <' . i . '> <C-o>:echo "' . i . ' has been disabled by the user."<CR>'
 endfor

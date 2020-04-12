@@ -17,6 +17,13 @@ export TERMINAL="$TERM"
 export BROWSER="brave"
 export BROWSER_INCOGNITO="brave"
 
+export BAR="polybar"
+export BAR_ARGS="$BAR main"
+
+#
+# display
+#
+
 # shell prompt
 export PROMPT="%F{yellow}[%f %F{cyan}%2~%f %F{yellow}]%f "
 
@@ -24,7 +31,7 @@ export PROMPT="%F{yellow}[%f %F{cyan}%2~%f %F{yellow}]%f "
 # path
 #
 
-export PATH="$PATH:$HOME/.local/bin/"
+export PATH="$HOME/.local/bin/:$PATH"
 
 # to move global npm directory to local directory
 # mkdir -p ~/.npm-global 

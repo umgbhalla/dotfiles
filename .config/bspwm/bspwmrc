@@ -1,13 +1,20 @@
-#! /bin/sh
+#!/bin/sh
 
 # change desktop cursor to left pointer
 xsetroot -cursor_name left_ptr &
 
-# status bar
-$HOME/.config/lemonbar/lemonbar.sh | lemonbar -f LiberationSans -p &
+# appearance
+bspc config top_padding 56
+
+bspc config border_width 0
+bspc config window_gap 16
+
+# no fullscreen gaps
+bspc config gapless_monocle true
 
 # bspwm defaults
 bspc monitor -d I II III IV V VI VII VIII IX X
 
 # background
-feh --bg-fill --no-fehbg $HOME/.config/wallpaper.png
+feh --bg-fill --no-fehbg $XDG_CONFIG_HOME/wallpaper.png
+

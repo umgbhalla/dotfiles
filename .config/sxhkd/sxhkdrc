@@ -4,11 +4,10 @@
 #
 
 # terminal emulator
-# (consider tmux?)
 super + Return
   $TERM
 
-# TODO launcher
+# launcher
 super + d
   rofi -show drun	
 
@@ -33,7 +32,7 @@ super + y
 # reload sxhkd, bspwm and other configuration files
 super + shift + r
 	pkill -USR1 -x sxhkd && \
-	bspc wm -r &&
+	bspc wm -r
 
 # quit bspwm
 super + shift + Escape

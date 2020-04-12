@@ -17,7 +17,7 @@ WM: bspwm
 Theme: adwaita [GTK2], matcha-sea [GTK3]
 Icons: adwaita [GTK2], papirus-dark-maia [GTK3]
 Terminal: st
-Status Bar: lemonbar-xft-git
+Status Bar: polybar
 Launcher: rofi
 
 Editor: neovim
@@ -47,7 +47,7 @@ To clone this repository into your home directory, you may need to first follow 
     as well as preferred programs.
     ```
     sudo pacman -S feh ttf-liberation xorg-xsetroot
-    yay -S clight lemonbar-xft-git
+    yay -S clight polybar
     sudo systemctl enable clightd
 
     sudo pacman -S gimp htop man nautilus neovim openssh rofi 

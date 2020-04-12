@@ -11,6 +11,8 @@ Videos/
 .*
 
 !.config/bspwm
+!.config/nvim
+!.config/polybar
 !.config/rofi
 !.config/st
 !.config/sxhkd
