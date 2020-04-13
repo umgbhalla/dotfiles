@@ -22,7 +22,9 @@ alias \
   p="sudo pacman" \
   g="git" \
   vim="nvim" \
-  r="ranger"
+  r="ranger" \
+  rc='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"' \
+  wifi="nmtui"
 
 # media
 alias \
