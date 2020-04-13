@@ -19,11 +19,15 @@ super + shift + b
 
 # file explorer
 super + y
-	nautilus
+  $TERM sh -c "$FILE_EXPLORER"
 
 # TODO mail client
 #super + m
 #	thunderbird
+
+# system profiler
+super + p
+  $TERM sh -c "$SYSTEM_PROFILER"
 
 #
 # bspwm core

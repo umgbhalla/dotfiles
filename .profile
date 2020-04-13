@@ -20,7 +20,9 @@ export BROWSER_INCOGNITO="brave"
 export BAR="polybar"
 export BAR_ARGS="$BAR main"
 
-export FILE_EXPORER="ranger"
+export FILE_EXPLORER="ranger"
+
+export SYSTEM_PROFILER="htop"
 
 #
 # display
