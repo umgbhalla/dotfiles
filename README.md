@@ -50,8 +50,8 @@ To clone this repository into your home directory, you may need to first follow 
     yay -S clight polybar
     sudo systemctl enable clightd
 
-    sudo pacman -S ffmpeg gimp htop man nautilus neovim openssh rofi w3m
-    yay -S brave ranger youtube-dl
+    sudo pacman -S ffmpeg ffmpegthumbnailer gimp htop man nautilus neovim openssh ranger rofi w3m
+    yay -S brave youtube-dl
     ```
 3. Build my `st` configuration.
     ```
