@@ -13,6 +13,7 @@ Videos/
 !.config/bspwm
 !.config/nvim
 !.config/polybar
+!.config/pulse
 !.config/ranger
 !.config/rofi
 !.config/st

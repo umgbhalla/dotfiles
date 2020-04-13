@@ -311,8 +311,14 @@ We will be creating a main partition for all files and a swap partition for susp
     yay -S st
     ```
     This will just use the default version of `st`. To use my configured version of `st`, see [cloning](#cloning).
-7. Install my dotfiles. See [cloning](#cloning) for more details.
-8. Reboot. Then log back in as the user you created to verify everything is functioning properly.
+5. Setup audio.
+    ```
+    yay -S ppulseaudio pulseaudio-alsa pulseaudio-ctl
+    sudo reboot
+    ```
+    You may need to edit the configuration files, which I have done in my dotfiles.
+6. Install my dotfiles. See [cloning](#cloning) for more details.
+7. Reboot. Then log back in as the user you created to verify everything is functioning properly.
     ```
     sudo reboot
     ```

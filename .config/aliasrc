@@ -21,6 +21,7 @@ alias \
 alias \
   p="sudo pacman" \
   g="git" \
+  system="sudo systemctl" \
   vim="nvim" \
   r="ranger" \
   rc='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"' \
