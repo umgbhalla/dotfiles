@@ -70,3 +70,7 @@ super {1-9,0}
 super + shift + {1-9,0}
 	bspc node -d '^{1-9,10}'
 
+# toggle layout mode
+super + space
+  bspc node -t '~floating'
+
