@@ -46,7 +46,7 @@ To clone this repository into your home directory, you may need to first follow 
 2. Install required core packages for the configuration to work, 
     as well as preferred programs.
     ```
-    sudo pacman -S feh ttf-liberation xorg-xsetroot
+    sudo pacman -S feh python-dbus python-gobject ttf-liberation xorg-xsetroot
     yay -S clight polybar
     sudo systemctl enable clightd
 

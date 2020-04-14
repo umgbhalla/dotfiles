@@ -30,6 +30,22 @@ super + p
   $TERM sh -c "$SYSTEM_PROFILER"
 
 #
+# audio controls
+#
+
+XF86AudioLowerVolume
+  pulseaudio-ctl down
+
+XF86AudioRaiseVolume
+  pulseaudio-ctl up
+
+XF86AudioMute
+  pulseaudio-ctl mute
+
+XF86AudioMicMute
+  pulseaudio-ctl mute-input
+
+#
 # bspwm core
 #
 
@@ -75,6 +91,6 @@ super + shift + {1-9,0}
 	bspc node -d '^{1-9,10}'
 
 # toggle layout mode
-super + space
+super + shift + space
   bspc node -t '~floating'
 
