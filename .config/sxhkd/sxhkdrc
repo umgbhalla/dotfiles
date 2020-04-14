@@ -74,9 +74,9 @@ super + shift {h,j,k,l}
 super + shift + q
 	bspc node -k
 
-# toggle fullscreen
-super + f
-	bspc node -t \~fullscreen
+# node layout mode
+super + {shift + t,shift + p,shift + space,f}
+    bspc node -t '~{tiled,pseudo_tiled,floating,fullscreen}'
 
 #
 # workspace management
@@ -89,8 +89,4 @@ super {1-9,0}
 # move node to workspace
 super + shift + {1-9,0}
 	bspc node -d '^{1-9,10}'
-
-# toggle layout mode
-super + shift + space
-  bspc node -t '~floating'
 
