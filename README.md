@@ -47,7 +47,7 @@ To clone this repository into your home directory, you may need to first follow 
     as well as preferred programs.
     ```
     sudo pacman -S feh python-dbus python-gobject ttf-liberation xorg-xsetroot
-    yay -S clight polybar
+    yay -S clight polybar ttf-font-awesome-4
     sudo systemctl enable clightd
 
     sudo pacman -S ffmpeg ffmpegthumbnailer gimp htop man neovim openssh ranger rofi unzip w3m

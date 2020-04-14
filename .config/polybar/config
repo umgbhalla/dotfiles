@@ -27,6 +27,7 @@ border-color = ${colors.transparent}
 
 font-0 = LiberationMono:pixelsize=12:antialias=true:autohint=true;1
 ;font-0 = fixed:pixelsize=10;1
+font-1 = FontAwesome:style=Regular
 ;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 ;font-2 = siji:pixelsize=10;1
 
@@ -58,7 +59,7 @@ label-empty-padding = 2
 
 [module/mpris]
 type = custom/script
-exec = $XDG_CONFIG_HOME/polybar/mpris.py -f '%{A1:$XDG_CONFIG_HOME/polybar/mpris.py previous:}<%{A} %{A1:$XDG_CONFIG_HOME/polybar/mpris.py play-pause:}=%{A} %{A1:$XDG_CONFIG_HOME/polybar/mpris.py next:}>%{A} {:t50:{title}:}'
+exec = $XDG_CONFIG_HOME/polybar/mpris.py -f '%{A1:$XDG_CONFIG_HOME/polybar/mpris.py previous:}%{A} %{A1:$XDG_CONFIG_HOME/polybar/mpris.py play-pause:}{icon-reversed}%{A} %{A1:$XDG_CONFIG_HOME/polybar/mpris.py next:}%{A} {:artist:t10:{artist}:}{:artist: - :}{:t40:{title}:}' --icon-stopped '' --icon-none '' --icon-playing '' --icon-paused ''
 tail = true
 
 format-background = ${colors.background}
@@ -76,8 +77,9 @@ format-connected-padding = 2
 label-connected = %essid%
 
 format-disconnected-background = ${colors.background}
+format-disconnected-foreground = ${colors.primary}
 format-disconnected-padding = 2
-label-disconnected = %ifname% disconnected
+label-disconnected = 
 
 [module/eth]
 type = internal/network
@@ -86,6 +88,7 @@ interval = 3.0
 
 format-connected-background = ${colors.background}
 format-connected-foreground = ${colors.tertiary}
+format-connected-padding = 2
 label-connected = %local_ip%
 
 format-disconnected-background = ${colors.background}
@@ -95,11 +98,11 @@ format-disconnected =
 type = internal/pulseaudio
 
 format-volume = <label-volume>
-label-volume = VOL %percentage%%
+label-volume = %percentage%%
 label-volume-background = ${colors.background}
 label-volume-padding = 2
 
-label-muted = VOL --%
+label-muted = --%
 label-muted-foreground = ${colors.primary}
 label-muted-background = ${colors.background}
 label-muted-padding = 2
@@ -121,8 +124,8 @@ format-charging-foreground = ${colors.background}
 format-charging-padding = 2
 
 format-discharging = <label-discharging>
-format-discharging-background = ${colors.background}
-format-discharging-foreground = ${colors.foreground}
+format-discharging-background = ${colors.primary}
+format-discharging-foreground = ${colors.background}
 format-discharging-padding = 2
 
 [module/date]
