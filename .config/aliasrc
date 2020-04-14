@@ -24,8 +24,12 @@ alias \
   system="sudo systemctl" \
   vim="nvim" \
   r="ranger" \
-  rc='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"' \
   wifi="nmtui"
+
+# navigation
+alias \
+  rc='ranger --choosedir=$XDG_CACHE_HOME/.rangerdir; LASTDIR=`cat $XDG_CACHE_HOME/.rangerdir`; cd "$LASTDIR"' \
+  c="find -L $XDG_CONFIG_HOME -type f | fzf | xargs -r $EDITOR"
 
 # media
 alias \
