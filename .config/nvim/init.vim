@@ -10,10 +10,34 @@ set noswapfile
 " line numbers
 set number
 
-" tab width
-set tabstop=2
-set shiftwidth=2
+" only search by case when using capital letters
+set ignorecase
+set smartcase
+
+" turn magic on for regex
+set magic
+
+" show matching brackets
+set showmatch
+
+" use spaces instead of tabs
 set expandtab
+" one tab is x many spaces
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+
+" x number of lines to see above and below cursor at all times
+set scrolloff=10
+
+" enable for various plugin compatibility
+set nocompatible
+
+" enable incremental search (search highlights while typing)
+set incsearch
+set hlsearch
+" pressing Esc will not remove search position
+" set cpoptions+=x
 
 " basic syntax highlighting
 filetype plugin on
