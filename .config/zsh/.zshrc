@@ -1,4 +1,4 @@
-# zsh configuration
+# o zsh configuration
 
 # include aliases
 # to reduce prompt appearing time you'll need to remove this line...
@@ -17,12 +17,20 @@ stty -ixon
 
 # shell prompt
 export PROMPT="%F{yellow}[%f %F{cyan}%2~%f %F{yellow}]%f "
-#export PROMPT="%F{cyan}┌ (%n@%m) - (%D{%y.%m.%d %H:%M:%S}) %f"$'\n'"%F{cyan}└%f %F{yellow}[%f %F{cyan}%2~%f %F{yellow}]%f "
+#autoload -Uz vcs_info
+#precmd() {
+#  psvar=()
+#  vcs_info
+#  [[ -n $vcs_info_msg_0_ ]] && psvar[1]="$vcs_info_msg_0_"
+#}
+#zstyle ':vcs_info:git:*' formats '%b'
+#setopt prompt_subst
+#export PROMPT="%F{cyan}┌—(%n@%m)——(%D{%y.%m.%d %H:%M:%S})——(%1v)%f"$'\n'"%F{cyan}└> %f%F{yellow}[%f %F{cyan}%2~%f %F{yellow}]%f "
 
 # syntax highlighting
 source $XDG_CONFIG_HOME/zsh/fsh/fast-syntax-highlighting.plugin.zsh
 
 # correction suggestions
-setopt CORRECT
-setopt CORRECT_ALL
+#setopt CORRECT
+#setopt CORRECT_ALL
 

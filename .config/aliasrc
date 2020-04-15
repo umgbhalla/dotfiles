@@ -24,7 +24,9 @@ alias \
   system="sudo systemctl" \
   vim="nvim" \
   r="ranger" \
-  wifi="nmtui"
+  wifi="nmtui" \
+  pf="ps aux | grep" \
+  pk="kill -9"
 
 # navigation
 alias \
