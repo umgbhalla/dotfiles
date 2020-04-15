@@ -52,6 +52,8 @@ To clone this repository into your home directory, you may need to first follow 
 
     sudo pacman -S ffmpeg ffmpegthumbnailer gimp htop man neovim openssh ranger rofi unzip w3m
     yay -S brave youtube-dl
+
+    git clone https://github.com/zdharma/fast-syntax-highlighting $XDG_CONFIG_HOME/zsh/fsh
     ```
 3. Build my `st` configuration.
     ```

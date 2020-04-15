@@ -5,11 +5,6 @@
 # (but I don't want to)
 [ -f $XDG_CONFIG_HOME/aliasrc ] && source $XDG_CONFIG_HOME/aliasrc
 
-# autocompletion
-autoload -Uz compinit
-compinit
-zstyle ':completion:*' menu select
-
 # history
 HISTFILE="$XDG_CACHE_HOME/zsh_history"
 HISTSIZE=10000000
@@ -22,4 +17,12 @@ stty -ixon
 
 # shell prompt
 export PROMPT="%F{yellow}[%f %F{cyan}%2~%f %F{yellow}]%f "
+#export PROMPT="%F{cyan}┌ (%n@%m) - (%D{%y.%m.%d %H:%M:%S}) %f"$'\n'"%F{cyan}└%f %F{yellow}[%f %F{cyan}%2~%f %F{yellow}]%f "
+
+# syntax highlighting
+source $XDG_CONFIG_HOME/zsh/fsh/fast-syntax-highlighting.plugin.zsh
+
+# correction suggestions
+setopt CORRECT
+setopt CORRECT_ALL
 
