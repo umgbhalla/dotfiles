@@ -50,10 +50,15 @@ To clone this repository into your home directory, you may need to first follow 
     yay -S clight polybar ttf-font-awesome-4
     sudo systemctl enable clightd
 
-    sudo pacman -S ffmpeg ffmpegthumbnailer gimp htop man neovim openssh ranger rofi unzip w3m
+    sudo pacman -S ffmpeg ffmpegthumbnailer gimp htop man neovim openssh ranger rofi tlp unzip w3m
+    sudo systemctl enable tlp
     yay -S brave youtube-dl
 
     git clone https://github.com/zdharma/fast-syntax-highlighting $XDG_CONFIG_HOME/zsh/fsh
+    ```
+    Restart.
+    ```
+    sudo reboot
     ```
 3. Build my `st` configuration.
     ```
