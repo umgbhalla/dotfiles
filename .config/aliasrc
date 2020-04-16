@@ -20,6 +20,7 @@ alias \
 # programs
 alias \
   p="sudo pacman" \
+  y="yay" \
   g="git" \
   system="sudo systemctl" \
   vim="nvim" \
@@ -36,7 +37,7 @@ alias \
 # media
 alias \
   ytmp4="youtube-dl --add-metadata -i" \
-  ytmp3="youtube-dl --add-metadata -ix" \
+  ytmp3="youtube-dl --add-metadata -ix"
 
 # davinci resolve codec converter
 function dav() { ffmpeg -i $1 -c:v dnxhd -profile:v 1 -pix_fmt yuv422p -c:a pcm_s16le -f mov $2 }
