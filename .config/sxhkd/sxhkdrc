@@ -52,7 +52,8 @@ XF86AudioMicMute
 # reload sxhkd, bspwm and other configuration files
 super + shift + r
 	pkill -USR1 -x sxhkd && \
-	bspc wm -r
+	bspc wm -r \
+  source $XDG_CONFIG_HOME/zsh/.zshrc
 
 # quit bspwm
 super + shift + Escape

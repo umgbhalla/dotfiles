@@ -10,7 +10,7 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'takac/vim-hardtime' " just to make things harder for you :)
+"Plug 'takac/vim-hardtime' " just to make things harder for you :)
 
 call plug#end()
 

@@ -16,7 +16,7 @@ setopt HIST_EXPIRE_DUPS_FIRST HIST_IGNORE_DUPS HIST_IGNORE_ALL_DUPS HIST_FIND_NO
 stty -ixon
 
 # shell prompt
-export PROMPT="%F{yellow}[%f %F{cyan}%2~%f %F{yellow}]%f "
+export PROMPT="%F{cyan}%2~ >>>%f "
 #autoload -Uz vcs_info
 #precmd() {
 #  psvar=()
