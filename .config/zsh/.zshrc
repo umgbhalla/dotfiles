@@ -26,7 +26,7 @@ zstyle ':vcs_info:git:*' formats '%b'
 setopt prompt_subst
 
 # shell prompt
-export PROMPT="%F{blue}┌—[%f%F{cyan}%m%f%F{blue}]——[%f%F{cyan}%2~%f%F{blue}]——[%f%F{cyan}%1v%f%F{blue}]%f"$'\n'"%F{blue}└——%f%F{magenta}>>%f "
+export PROMPT="%F{cyan}┌—[%f%F{cyan}%m%f%F{cyan}]——[%f%F{cyan}%2~%f%F{cyan}]——[%f%F{cyan}%1v%f%F{cyan}]%f"$'\n'"%F{cyan}└——%f%F{magenta}>>%f "
 
 # syntax highlighting
 source $XDG_CONFIG_HOME/zsh/fsh/fast-syntax-highlighting.plugin.zsh
