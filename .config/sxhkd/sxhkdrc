@@ -9,7 +9,7 @@ super + Return
 
 # launcher
 super + d
-  rofi -show drun	
+  dmenu_run
 
 # browser
 super + b
