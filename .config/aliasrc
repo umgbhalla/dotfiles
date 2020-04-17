@@ -27,7 +27,8 @@ alias \
   r="ranger" \
   wifi="nmtui" \
   pf="ps aux | grep" \
-  pk="kill -9"
+  pk="kill -9" \
+  zr="source $XDG_CONFIG_HOME/zsh/.zshrc"
 
 # navigation
 alias \
@@ -38,7 +39,6 @@ alias \
 alias \
   ytmp4="youtube-dl --add-metadata -i" \
   ytmp3="youtube-dl --add-metadata -ix"
-
 # davinci resolve codec converter
 function dav() { ffmpeg -i $1 -c:v dnxhd -profile:v 1 -pix_fmt yuv422p -c:a pcm_s16le -f mov $2 }
 

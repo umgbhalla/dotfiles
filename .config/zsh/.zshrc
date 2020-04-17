@@ -1,4 +1,4 @@
-# o zsh configuration
+# zsh configuration
 
 # include aliases
 # to reduce prompt appearing time you'll need to remove this line...
@@ -15,22 +15,19 @@ setopt HIST_EXPIRE_DUPS_FIRST HIST_IGNORE_DUPS HIST_IGNORE_ALL_DUPS HIST_FIND_NO
 # disable ctrl+s and ctrl+q 
 stty -ixon
 
+# vcs info
+autoload -Uz vcs_info
+precmd() {
+  psvar=()
+  vcs_info
+  [[ -n $vcs_info_msg_0_ ]] && psvar[1]="$vcs_info_msg_0_"
+}
+zstyle ':vcs_info:git:*' formats '%b'
+setopt prompt_subst
+
 # shell prompt
-export PROMPT="%F{cyan}%2~ >>>%f "
-#autoload -Uz vcs_info
-#precmd() {
-#  psvar=()
-#  vcs_info
-#  [[ -n $vcs_info_msg_0_ ]] && psvar[1]="$vcs_info_msg_0_"
-#}
-#zstyle ':vcs_info:git:*' formats '%b'
-#setopt prompt_subst
-#export PROMPT="%F{cyan}┌—(%n@%m)——(%D{%y.%m.%d %H:%M:%S})——(%1v)%f"$'\n'"%F{cyan}└> %f%F{yellow}[%f %F{cyan}%2~%f %F{yellow}]%f "
+export PROMPT="%F{blue}┌—[%f%F{cyan}%m%f%F{blue}]——[%f%F{cyan}%2~%f%F{blue}]——[%f%F{cyan}%1v%f%F{blue}]%f"$'\n'"%F{blue}└——%f%F{magenta}>>%f "
 
 # syntax highlighting
 source $XDG_CONFIG_HOME/zsh/fsh/fast-syntax-highlighting.plugin.zsh
-
-# correction suggestions
-#setopt CORRECT
-#setopt CORRECT_ALL
 
