@@ -60,6 +60,8 @@ To clone this repository into your home directory, you may need to first follow 
     ```
     sudo reboot
     ```
+    You may need to install certain packages or run certain commands in order to tweak everything accordingly. 
+    I've tried to include comments at the top of most relevant config files.
 3. Build my `st` configuration.
     ```
     cd ~/.config/st

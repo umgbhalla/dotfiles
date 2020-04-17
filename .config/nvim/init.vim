@@ -1,4 +1,24 @@
-" nvim configuration
+" neovim configuration
+"
+" install plugins with vim-plug first:
+" curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" :PlugInstall
+
+" ------------------------------------------------------------------------------
+" plugins
+" ------------------------------------------------------------------------------
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'takac/vim-hardtime' " just to make things harder for you :)
+
+call plug#end()
+
+" ------------------------------------------------------------------------------
+" plugin settings
+" ------------------------------------------------------------------------------
+
+let g:hardtime_default_on = 1 " hardtime on by default
 
 " ------------------------------------------------------------------------------
 "  general configuration
@@ -26,9 +46,6 @@ set expandtab
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
-
-" x number of lines to see above and below cursor at all times
-set scrolloff=10
 
 " enable for various plugin compatibility
 set nocompatible
