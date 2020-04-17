@@ -4,7 +4,7 @@
 xsetroot -cursor_name left_ptr &
 
 # appearance
-bspc config top_padding 56
+bspc config top_padding 32
 
 bspc config border_width 0
 bspc config window_gap 16

@@ -16,13 +16,13 @@ margin-bottom = 0
 
 [bar/main]
 width = 100%
-height = 40
+height = 32
 override-redirect = true
 
-background = ${colors.transparent}
+background = ${colors.background}
 foreground = ${colors.foreground}
 
-border-size = 16
+border-size = 0
 border-color = ${colors.transparent}
 
 font-0 = LiberationMono:pixelsize=12:antialias=true:autohint=true;1
@@ -59,11 +59,11 @@ label-empty-padding = 2
 
 [module/mpris]
 type = custom/script
-exec = $XDG_CONFIG_HOME/polybar/mpris.py -f '%{A1:$XDG_CONFIG_HOME/polybar/mpris.py previous:}%{A} %{A1:$XDG_CONFIG_HOME/polybar/mpris.py play-pause:}{icon-reversed}%{A} %{A1:$XDG_CONFIG_HOME/polybar/mpris.py next:}%{A} {:artist:t10:{artist}:}{:artist: - :}{:t40:{title}:}' --icon-stopped '' --icon-none '' --icon-playing '' --icon-paused ''
+exec = $XDG_CONFIG_HOME/polybar/mpris.py -f '%{A1:$XDG_CONFIG_HOME/polybar/mpris.py previous:}%{A}  %{A1:$XDG_CONFIG_HOME/polybar/mpris.py play-pause:}{icon-reversed}%{A}  %{A1:$XDG_CONFIG_HOME/polybar/mpris.py next:}%{A}  {:artist:t10:{artist}:}{:artist: - :}{:t40:{title}:}' --icon-stopped '' --icon-none '' --icon-playing '' --icon-paused ''
 tail = true
 
 format-background = ${colors.background}
-format-foreground = ${colors.tertiary}
+format-foreground = ${colors.secondary}
 format-padding = 2
 
 [module/wlan]

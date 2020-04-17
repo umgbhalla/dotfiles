@@ -1,8 +1,6 @@
 configuration {
     font: "Liberation 20";
-    /*
     show-icons: true;
-    */
     bw: 0;
 }
 
