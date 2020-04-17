@@ -14,8 +14,8 @@ OS: Archlinux 2020.04.01 x86_64
 Kernel: 5.5.14-arch
 Shell: zsh
 WM: bspwm
-Theme: adwaita [GTK2], matcha-sea [GTK3]
-Icons: adwaita [GTK2], papirus-dark-maia [GTK3]
+Theme: adwaita [GTK2/3]
+Icons: adwaita [GTK2/3]
 Terminal: st
 Status Bar: polybar
 Launcher: rofi
