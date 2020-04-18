@@ -25,19 +25,18 @@ precmd() {
 zstyle ':vcs_info:git:*' formats '%b'
 setopt prompt_subst
 
-
 # just for fun
-
-echo "\
-${BLACK}██${PINK}██████████${BLACK}██\n\
-${PINK}████${PEACH}██████${PINK}████\n\
-██${PEACH}██${GREEN}██${PEACH}██${GREEN}██${PEACH}██${PINK}██\tKing Crimson!\n\
-██${PEACH}██████████${PINK}██\tTime has been erased!\n\
-██${GRAY}██${PEACH}██████${GRAY}██${PEACH}██\n\
-██${PINK}██${GRAY}██${PEACH}██${GRAY}██${PINK}██${PEACH}██\n\
-${BLACK}██${PURPLE}████${GRAY}██${PURPLE}████${BLACK}██\n\
-██${PURPLE}██${BLACK}██████${PURPLE}██${BLACK}
-"
+if xset q &>/dev/null; then
+echo "$(tput cup "$LINES")${CYAN}\
+        /\\ \n\
+       /oo\\ \n\
+      /\\ooo\\    ${MAGENTA}oH yEAh iN cAsE${CYAN}\n\
+     /oooooo\\    ${MAGENTA}aNYoNe is WOnDeRInG${CYAN}\n\
+    /ooo,,ooo\\    ${MAGENTA}i uSe aRCh bTw${CYAN}\n\
+   /ooo|  |oo-\\ \n\
+  /L-''    ''-L\\ \n\
+${NC}"
+fi
 
 # shell prompt
 export PROMPT="%F{cyan}┌—[%f%F{cyan}%m%f%F{cyan}]——[%f%F{cyan}%2~%f%F{cyan}]——[%f%F{cyan}%1v%f%F{cyan}]%f"$'\n'"%F{cyan}└——%f%F{magenta}>>%f "
