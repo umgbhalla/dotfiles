@@ -4,7 +4,7 @@
 sxhkd &
 
 # compositor
-picom & 
+picom &
 
 # status bar
 $BAR_ARGS &

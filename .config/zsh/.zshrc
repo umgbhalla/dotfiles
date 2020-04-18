@@ -25,15 +25,10 @@ precmd() {
 zstyle ':vcs_info:git:*' formats '%b'
 setopt prompt_subst
 
-# shell prompt
-export PROMPT="%F{cyan}┌—[%f%F{cyan}%m%f%F{cyan}]——[%f%F{cyan}%2~%f%F{cyan}]——[%f%F{cyan}%1v%f%F{cyan}]%f"$'\n'"%F{cyan}└——%f%F{magenta}>>%f "
-
-# syntax highlighting
-source $XDG_CONFIG_HOME/zsh/fsh/fast-syntax-highlighting.plugin.zsh
-
 
 # just for fun
-echo -e "\
+
+echo "\
 ${BLACK}██${PINK}██████████${BLACK}██\n\
 ${PINK}████${PEACH}██████${PINK}████\n\
 ██${PEACH}██${GREEN}██${PEACH}██${GREEN}██${PEACH}██${PINK}██\tKing Crimson!\n\
@@ -43,4 +38,10 @@ ${PINK}████${PEACH}██████${PINK}████\n\
 ${BLACK}██${PURPLE}████${GRAY}██${PURPLE}████${BLACK}██\n\
 ██${PURPLE}██${BLACK}██████${PURPLE}██${BLACK}
 "
+
+# shell prompt
+export PROMPT="%F{cyan}┌—[%f%F{cyan}%m%f%F{cyan}]——[%f%F{cyan}%2~%f%F{cyan}]——[%f%F{cyan}%1v%f%F{cyan}]%f"$'\n'"%F{cyan}└——%f%F{magenta}>>%f "
+
+# syntax highlighting
+source $XDG_CONFIG_HOME/zsh/fsh/fast-syntax-highlighting.plugin.zsh
 

@@ -30,6 +30,13 @@ super + p
   $TERM sh -c "$SYSTEM_PROFILER"
 
 #
+# custom programs
+#
+
+super + u
+  discord
+
+#
 # audio controls
 #
 
