@@ -31,3 +31,16 @@ export PROMPT="%F{cyan}┌—[%f%F{cyan}%m%f%F{cyan}]——[%f%F{cyan}%2~%f%F{cy
 # syntax highlighting
 source $XDG_CONFIG_HOME/zsh/fsh/fast-syntax-highlighting.plugin.zsh
 
+
+# just for fun
+echo -e "\
+${BLACK}██${PINK}██████████${BLACK}██\n\
+${PINK}████${PEACH}██████${PINK}████\n\
+██${PEACH}██${GREEN}██${PEACH}██${GREEN}██${PEACH}██${PINK}██\tKing Crimson!\n\
+██${PEACH}██████████${PINK}██\tTime has been erased!\n\
+██${GRAY}██${PEACH}██████${GRAY}██${PEACH}██\n\
+██${PINK}██${GRAY}██${PEACH}██${GRAY}██${PINK}██${PEACH}██\n\
+${BLACK}██${PURPLE}████${GRAY}██${PURPLE}████${BLACK}██\n\
+██${PURPLE}██${BLACK}██████${PURPLE}██${BLACK}
+"
+
