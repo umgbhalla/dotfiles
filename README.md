@@ -62,12 +62,14 @@ To clone this repository into your home directory, you may need to first follow 
     ```
     You may need to install certain packages or run certain commands in order to tweak everything accordingly. 
     I've tried to include comments at the top of most relevant config files.
-3. Build my `st` configuration.
+3. Build my `suckless` tools configuration(s).
     ```
     cd ~/.config/st
     sudo make clean install
+    cd ~/.config/dmenu
+    sudo make clean install
     ```
-    To apply patches, you can download patches from the `st` website and
+    To apply patches, you can download patches from the `suckless tools` website and
     run the following command, making sure to specify the file being
     changed as `config.h`.
     ```
