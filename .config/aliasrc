@@ -25,7 +25,7 @@ alias \
   system="sudo systemctl" \
   vim="nvim" \
   r="ranger" \
-  wifi="nmtui" \
+  wifi="networkmanager_dmenu" \
   pf="ps aux | grep" \
   pk="kill -9" \
   zr="source $XDG_CONFIG_HOME/zsh/.zshrc"

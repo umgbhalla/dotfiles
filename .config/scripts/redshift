@@ -1,0 +1,17 @@
+#!/bin/sh
+
+TEMP=$XDG_CACHE_HOME/redshift_last
+
+if [ ! -e $TEMP ]; then
+    echo 6500 > $TEMP
+fi
+
+if [ $# == 0 ]; then
+    redshift -x
+    echo 6500 > "$TEMP"
+else
+  temperature=$(( $(cat $TEMP) ${1::1} ${1:1} ))
+  echo $temperature > $TEMP
+  redshift -P -O $temperature
+fi
+

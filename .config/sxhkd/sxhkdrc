@@ -63,14 +63,17 @@ shift + Print
   sleep 0.2; mkdir -p $HOME/Pictures && scrot -s "$HOME/Pictures/%y-%m-%d_%H:%M:%S.png"
 
 #
-# brightness
+# brightness control
 #
 
-XF86MonBrightnessUp
-  brightnessctl s +5%
+XF86MonBrightnessUp { , shift }
+  {brightnessctl s +5%, $XDG_SCRIPTS_HOME/redshift -300}
 
-XF86MonBrightnessDown
-  brightnessctl s 5%-
+XF86MonBrightnessDown { , shift }
+  {brightnessctl s 5%-, $XDG_SCRIPTS_HOME/redshift +300} 
+
+ctrl + XF86MonBrightnessUp
+  $XDG_SCRIPTS_HOME/redshift
 
 #
 # bspwm core

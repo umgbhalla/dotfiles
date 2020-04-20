@@ -26,10 +26,8 @@ border-size = 0
 border-color = ${colors.transparent}
 
 font-0 = LiberationMono:pixelsize=12:antialias=true:autohint=true;1
-;font-0 = fixed:pixelsize=10;1
 font-1 = FontAwesome:style=Regular
-;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-;font-2 = siji:pixelsize=10;1
+font-2 = LiberationMono:bold:pixelsize=12:antialias=true:autohint=true;1
 
 modules-left = bspwm
 modules-center = mpris
@@ -59,6 +57,7 @@ label-empty-padding = 2
 
 [module/mpris]
 type = custom/script
+format-font = 3
 exec = $XDG_CONFIG_HOME/polybar/mpris.py -f '%{A1:$XDG_CONFIG_HOME/polybar/mpris.py previous:}%{A}  %{A1:$XDG_CONFIG_HOME/polybar/mpris.py play-pause:}{icon-reversed}%{A}  %{A1:$XDG_CONFIG_HOME/polybar/mpris.py next:}%{A}  {:artist:t10:{artist}:}{:artist: - :}{:t40:{title}:}' --icon-stopped '' --icon-none '' --icon-playing '' --icon-paused ''
 tail = true
 
@@ -74,7 +73,7 @@ interval = 3.0
 format-connected-background = ${colors.background}
 format-connected-foreground = ${colors.tertiary}
 format-connected-padding = 2
-label-connected = %essid%
+label-connected = %{A1:networkmanager_dmenu:}%essid%%{A}
 
 format-disconnected-background = ${colors.background}
 format-disconnected-foreground = ${colors.primary}
@@ -89,7 +88,7 @@ interval = 3.0
 format-connected-background = ${colors.background}
 format-connected-foreground = ${colors.tertiary}
 format-connected-padding = 2
-label-connected = %local_ip%
+label-connected = %{A1:networkmanager_dmenu:}%local_ip%%{A}
 
 format-disconnected-background = ${colors.background}
 format-disconnected =

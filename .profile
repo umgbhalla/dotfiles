@@ -4,6 +4,8 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 # cache directory
 export XDG_CACHE_HOME="$HOME/.cache"
+# script directory
+export XDG_SCRIPTS_HOME="$XDG_CONFIG_HOME/scripts"
 
 #
 # default programs
