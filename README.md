@@ -49,7 +49,8 @@ To clone this repository into your home directory, you may need to first follow 
     sudo pacman -S feh fzf python-dbus python-gobject ttf-liberation xorg-xsetroot
     yay -S polybar ttf-font-awesome-4
 
-    sudo pacman -S brightnessctl discord ffmpeg ffmpegthumbnailer gimp htop man neofetch neovim openssh ranger scrot tlp unzip w3m
+    sudo pacman -S clight brightnessctl discord ffmpeg ffmpegthumbnailer gimp htop man neofetch neovim openssh ranger redshift scrot tlp unzip w3m
+    sudo systemctl enable clightd
     sudo systemctl enable tlp
     yay -S brave youtube-dl
 
