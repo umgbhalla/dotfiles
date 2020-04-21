@@ -73,7 +73,7 @@ interval = 3.0
 format-connected-background = ${colors.background}
 format-connected-foreground = ${colors.tertiary}
 format-connected-padding = 2
-label-connected = %{A1:networkmanager_dmenu:}%essid%%{A}
+label-connected = %essid%
 
 format-disconnected-background = ${colors.background}
 format-disconnected-foreground = ${colors.primary}
@@ -88,7 +88,7 @@ interval = 3.0
 format-connected-background = ${colors.background}
 format-connected-foreground = ${colors.tertiary}
 format-connected-padding = 2
-label-connected = %{A1:networkmanager_dmenu:}%local_ip%%{A}
+label-connected = %local_ip%
 
 format-disconnected-background = ${colors.background}
 format-disconnected =

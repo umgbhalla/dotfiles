@@ -12,6 +12,9 @@ bspc config window_gap 16
 # no fullscreen gaps
 bspc config gapless_monocle true
 
+# default floating
+# bspc rule -a '*' state=floating
+
 # bspwm defaults
 bspc monitor -d I II III IV V VI VII VIII IX X
 
