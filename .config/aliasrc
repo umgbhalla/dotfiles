@@ -39,14 +39,19 @@ alias \
   c="find -L $XDG_CONFIG_HOME -type f | fzf | xargs -r $EDITOR"
 
 # mounting
-mntpt=/mnt/usb
+mntpt="/mnt/usb"
 function mnt() {
   drive="$(sudo fdisk -l | grep '^Disk.*sectors$' | dmenu -l 20 | awk '{print $2}')"
   drive=${drive:0:-1}
   sudo mkdir -p $mntpt
-  sudo mount -o gid=users,fmask=113,dmask=002 $drive $mntpt
+  #sudo mount -o uid="$(id -u)",gid="$(id -g)",umask=0111 "$drive" "$mntpt"
+  sudo ntfs-3g "$drive" "$mntpt"
+  #sudo chown -R "$USER":wheel "$mntpt"
+  #sudo chmod a+rwx $mntpt
+  cd "$mntpt"
 }
-function umnt() { sudo umount $mntpt && sync }
+function umnt() { cd $HOME && sync && sudo umount $mntpt }
+alias mt="mnt" umt="umnt"
 
 # media
 alias \
