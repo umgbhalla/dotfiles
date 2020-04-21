@@ -10,8 +10,9 @@ alias \
     mv="mv -v" \
     rm="rm -v" \
     md="mkdir -pv" \
-    grep="grep --color=auto" \
-    cd="cd $@ && ls"
+    grep="grep --color=auto"
+    
+function cd() { builtin cd "$@" && ls }
 
 # session
 alias \
@@ -25,7 +26,6 @@ alias \
   g="git" \
   system="sudo systemctl" \
   vim="nvim" \
-  r="ranger" \
   feh="feh --scake-down --auto-zoom" \
   wifi="networkmanager_dmenu" \
   pk="ps aux | dmenu -l 20 | awk '{print $2}' | xargs kill -9 > /dev/null" \
@@ -34,8 +34,19 @@ alias \
 
 # navigation
 alias \
-  rc='ranger --choosedir=$XDG_CACHE_HOME/.rangerdir; LASTDIR=`cat $XDG_CACHE_HOME/.rangerdir`; cd "$LASTDIR"' \
+  r="ranger" \
+  rc='ranger --choosedir=$XDG_CACHE_HOME/ranger_dir; LASTDIR=`cat $XDG_CACHE_HOME/ranger_dir`; cd "$LASTDIR"' \
   c="find -L $XDG_CONFIG_HOME -type f | fzf | xargs -r $EDITOR"
+
+# mounting
+mntpt=/mnt/usb
+function mnt() {
+  drive="$(sudo fdisk -l | grep '^Disk.*sectors$' | dmenu -l 20 | awk '{print $2}')"
+  drive=${drive:0:-1}
+  sudo mkdir -p $mntpt
+  sudo mount -o gid=users,fmask=113,dmask=002 $drive $mntpt
+}
+function umnt() { sudo umount $mntpt && sync }
 
 # media
 alias \
