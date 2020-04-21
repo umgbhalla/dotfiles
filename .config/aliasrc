@@ -3,7 +3,10 @@
 
 [ -f $XDG_CONFIG_HOME/colorrc ] && source $XDG_CONFIG_HOME/colorrc
 
+# ----------------------------------------------------------------
 # defaults
+# ----------------------------------------------------------------
+
 alias \
     ls="ls --color=auto --group-directories-first" \
     cp="cp -v" \
@@ -14,19 +17,25 @@ alias \
     
 function cd() { builtin cd "$@" && ls }
 
+# ----------------------------------------------------------------
 # session
+# ----------------------------------------------------------------
+
 alias \
   reboot="sudo reboot" \
   shutdown="sudo shutdown -h now"
 
+# ----------------------------------------------------------------
 # programs
+# ----------------------------------------------------------------
+
+# core
 alias \
   p="sudo pacman" \
   y="yay" \
   g="git" \
   system="sudo systemctl" \
   vim="nvim" \
-  feh="feh --scake-down --auto-zoom" \
   wifi="networkmanager_dmenu" \
   pk="ps aux | dmenu -l 20 | awk '{print $2}' | xargs kill -9 > /dev/null" \
   zr="source $XDG_CONFIG_HOME/zsh/.zshrc" \
@@ -38,27 +47,39 @@ alias \
   rc='ranger --choosedir=$XDG_CACHE_HOME/ranger_dir; LASTDIR=`cat $XDG_CACHE_HOME/ranger_dir`; cd "$LASTDIR"' \
   c="find -L $XDG_CONFIG_HOME -type f | fzf | xargs -r $EDITOR"
 
+# ----------------------------------------------------------------
+# media
+# ----------------------------------------------------------------
+
 # mounting
 mntpt="/mnt/usb"
 function mnt() {
   drive="$(sudo fdisk -l | grep '^Disk.*sectors$' | dmenu -l 20 | awk '{print $2}')"
   drive=${drive:0:-1}
   sudo mkdir -p $mntpt
-  #sudo mount -o uid="$(id -u)",gid="$(id -g)",umask=0111 "$drive" "$mntpt"
   sudo ntfs-3g "$drive" "$mntpt"
-  #sudo chown -R "$USER":wheel "$mntpt"
-  #sudo chmod a+rwx $mntpt
   cd "$mntpt"
 }
 function umnt() { cd $HOME && sync && sudo umount $mntpt }
-alias mt="mnt" umt="umnt"
 
-# media
-alias \
-  ytmp4="youtube-dl --add-metadata -i" \
-  ytmp3="youtube-dl --add-metadata -ix"
+function dlLink() {
+  youtube-dl --add-metadata -i $@
+  unsetopt noglob
+}
+
 # davinci resolve codec converter
 function dav() { ffmpeg -i $1 -c:v dnxhd -profile:v 1 -pix_fmt yuv422p -c:a pcm_s16le -f mov $2 }
+
+alias \
+  mt="mnt" \
+  umt="umnt" \
+  ytmp4="setopt noglob && dlLink -f 22" \
+  ytmp3="setopt noglob && dlLink -x --audio-format mp3" \
+  feh="feh --scake-down --auto-zoom"
+
+# ----------------------------------------------------------------
+# miscellaneous
+# ----------------------------------------------------------------
 
 # firebase
 alias firebase="`npm config get prefix`/bin/firebase"
