@@ -28,8 +28,9 @@ alias \
   r="ranger" \
   feh="feh --scake-down --auto-zoom" \
   wifi="networkmanager_dmenu" \
-  pk="ps aux | dmenu -l 20 | awk '{print $2}' | xargs kill -9 2&>1" \
-  zr="source $XDG_CONFIG_HOME/zsh/.zshrc"
+  pk="ps aux | dmenu -l 20 | awk '{print $2}' | xargs kill -9 > /dev/null" \
+  zr="source $XDG_CONFIG_HOME/zsh/.zshrc" \
+  date="cal -3 && date && echo"
 
 # navigation
 alias \
