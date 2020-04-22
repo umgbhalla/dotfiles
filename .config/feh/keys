@@ -5,15 +5,15 @@ next_img l Right space
 prev_img h Left BackSpace
 
 # image movement
-scroll_up    K C-Up
-scroll_down  J C-Down
-scroll_left  H C-Left
-scroll_right L C-Right
+scroll_up    C-k
+scroll_down  C-j
+scroll_left  C-h
+scroll_right C-l
 
-scroll_up_page    1-K
-scroll_down_page  1-J
-scroll_left_page  1-H
-scroll_right_page 1-L
+scroll_up_page    C-1-k
+scroll_down_page  C-1-j
+scroll_left_page  C-1-h
+scroll_right_page C-1-l
 
 # zoom
 zoom_in plus C-K

@@ -37,13 +37,13 @@ alias \
   system="sudo systemctl" \
   vim="nvim" \
   wifi="networkmanager_dmenu" \
-  pk="ps aux | dmenu -l 20 | awk '{print $2}' | xargs kill -9 > /dev/null" \
+  pk="ps aux | dmenu -i -l 20 | awk '{print $2}' | xargs kill -9 > /dev/null" \
   zr="source $XDG_CONFIG_HOME/zsh/.zshrc" \
   date="cal -3 && date && echo"
 
 function rp() {
   repoPath="$HOME/Repos"
-  repo=$(ls -d $repoPath/* | sed 's/^\/.*\///' | dmenu -l 20)
+  repo=$(ls -d $repoPath/* | sed 's/^\/.*\///' | dmenu -i -l 20)
   cd $repoPath/$repo
 }
 
@@ -60,7 +60,7 @@ alias \
 # mounting
 mntpt="/mnt/usb"
 function mnt() {
-  drive="$(sudo fdisk -l | grep '^Disk.*sectors$' | dmenu -l 20 | awk '{print $2}')"
+  drive="$(sudo fdisk -l | grep '^Disk.*sectors$' | dmenu -i -l 20 | awk '{print $2}')"
   drive=${drive:0:-1}
   sudo mkdir -p $mntpt
   sudo ntfs-3g "$drive" "$mntpt"
