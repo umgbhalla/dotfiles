@@ -1,2 +1,2 @@
 #!/bin/sh
-ctags -R 
+ctags -Rf .git/tags --tag-relative --exclude=.git --exclude=node_modules --exclude=test .

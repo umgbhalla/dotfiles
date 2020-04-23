@@ -30,6 +30,9 @@ set noswapfile
 " recursive path searching
 set path+=**
 
+" look for tags in .git
+set tags+=./.git/tags;
+
 " line numbers
 set number
 
