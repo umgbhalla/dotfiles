@@ -45,16 +45,21 @@ To clone this repository into your home directory, you may need to first follow 
       ```
 2. Install required core packages for the configuration to work, 
     as well as preferred programs.
-    ```
-    sudo pacman -S feh fzf nfs-utils ntfs-3g python-dbus python-gobject ttf-liberation xorg-xsetroot
+    ```bash
+    # bare minimum programs required to get the installation working
+    sudo pacman -S ctags feh fzf ntfs-3g python-dbus python-gobject ttf-liberation xorg-xsetroot
     yay -S networkmanager-dmenu polybar ttf-font-awesome-4
 
-    sudo pacman -S clight brightnessctl discord ffmpeg ffmpegthumbnailer gimp htop man mpv neofetch neovim nm-connection-editor openssh ranger redshift scrot tlp unzip w3m
+    # extremely useful utilities
+    sudo pacman -S clight brightnessctl ffmpeg ffmpegthumbnailer gimp htop man mpv neofetch neovim nm-connection-editor openssh ranger redshift scrot tlp unzip w3m
     sudo systemctl enable clightd
     sudo systemctl enable tlp
-    yay -S brave lutris youtube-dl
-
+    yay -S brave youtube-dl
     git clone https://github.com/zdharma/fast-syntax-highlighting $XDG_CONFIG_HOME/zsh/fsh
+
+    # optional programs I regularly use
+    sudo pacman -S code discord
+    yay -S lutris
     ```
     Restart.
     ```

@@ -52,5 +52,7 @@ export SHELL="/bin/zsh"
 # config directories
 #
 
+export GIT_CONFIG="$XDG_CONFIG_HOME/git/config"
+export GIT_TEMPLATE_DIR="$XDG_CONFIG_HOME/git/template"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
 

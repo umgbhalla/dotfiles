@@ -1,0 +1,4 @@
+#!/bin/sh
+case "$1" in
+    rebase) .git/hooks/ctags >/dev/null
+esac

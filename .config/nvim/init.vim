@@ -27,6 +27,9 @@ let g:hardtime_default_on = 1 " hardtime on by default
 " disable swap files
 set noswapfile
 
+" recursive path searching
+set path+=**
+
 " line numbers
 set number
 
@@ -48,6 +51,7 @@ set tabstop=2
 set softtabstop=2
 
 " enable for various plugin compatibility
+" and stop using vi stuff
 set nocompatible
 
 " enable incremental search (search highlights while typing)
