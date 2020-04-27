@@ -1,4 +1,4 @@
-#!/bin/sh
+
 # collection of commonly used shell alias definitions
 
 [ -f $XDG_CONFIG_HOME/colorrc ] && source $XDG_CONFIG_HOME/colorrc
@@ -33,13 +33,25 @@ alias \
 alias \
   p="sudo pacman" \
   y="yay" \
-  g="git" \
   system="sudo systemctl" \
   vim="nvim" \
   wifi="networkmanager_dmenu" \
   pk="ps aux | dmenu -i -l 20 | awk '{print $2}' | xargs kill -9 > /dev/null" \
   zr="source $XDG_CONFIG_HOME/zsh/.zshrc" \
   date="cal -3 && date && echo"
+
+function g() {
+  case "$1" in
+    clone)
+      if [ -z "$3" ]; then 
+        git clone --recursive "$2" && cd "$(basename "$2" .git)"
+      else
+        git clone --recursive "${@:2}" && cd "$3"
+      fi
+      ;;
+    *) git $@;
+  esac
+}
 
 function rp() {
   repoPath="$HOME/Repos"

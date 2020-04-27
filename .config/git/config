@@ -3,3 +3,6 @@
 	email = 35381535+bossley9@users.noreply.github.com
 [credential]
 	helper = store
+[submodule "/home/sam/.config/zsh/fsh"]
+	url = https://github.com/zdharma/fast-syntax-highlighting
+	active = true

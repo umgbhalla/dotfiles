@@ -33,13 +33,13 @@ To clone this repository into your home directory, you may need to first follow 
 1. Clone this repository to your home folder.
     - `zsh`:
       ```zsh
-      git clone https://github.com/bossley9/dotfiles.git /tmp/dotfiles
+      git clone --recursive https://github.com/bossley9/dotfiles.git /tmp/dotfiles
       setopt -s glob_dots
       mv /tmp/dotfiles/* ~/
       ```
     - `bash`:
       ```bash
-        git clone https://github.com/bossley9/dotfiles.git /tmp/dotfiles
+        git clone --recursive https://github.com/bossley9/dotfiles.git /tmp/dotfiles
         shopt -s dotglob nullglob
         mv /tmp/dotfiles/* ~/
       ```
@@ -55,7 +55,6 @@ To clone this repository into your home directory, you may need to first follow 
     sudo systemctl enable clightd
     sudo systemctl enable tlp
     yay -S brave youtube-dl
-    git clone https://github.com/zdharma/fast-syntax-highlighting $XDG_CONFIG_HOME/zsh/fsh
 
     # optional programs I regularly use
     sudo pacman -S code discord
