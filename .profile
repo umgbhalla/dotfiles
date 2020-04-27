@@ -39,7 +39,9 @@ export PATH="$HOME/.local/bin/:$PATH"
 # to move global npm directory to local directory
 # mkdir -p ~/.npm-global 
 # npm config set prefix '~/.npm-global'
-export PATH="$PATH:$HOME/.npm-global/bin"
+#export PATH="$PATH:$HOME/.npm-global/bin"
+
+export PATH="$(yarn global bin):$PATH"
 
 #
 # variables

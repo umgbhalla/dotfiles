@@ -51,7 +51,7 @@ To clone this repository into your home directory, you may need to first follow 
     yay -S networkmanager-dmenu polybar ttf-font-awesome-4
 
     # extremely useful utilities
-    sudo pacman -S clight brightnessctl ffmpeg ffmpegthumbnailer gimp htop man mpv neofetch neovim nm-connection-editor openssh ranger redshift scrot tlp unzip w3m
+    sudo pacman -S clight brightnessctl ffmpeg ffmpegthumbnailer gimp htop man mpv neofetch neovim nm-connection-editor openssh ranger redshift scrot tlp unzip w3m yarn
     sudo systemctl enable clightd
     sudo systemctl enable tlp
     yay -S brave youtube-dl
