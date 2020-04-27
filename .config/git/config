@@ -3,3 +3,6 @@
 	email = 35381535+bossley9@users.noreply.github.com
 [credential]
 	helper = store
+[submodule "submod/VRBase"]
+	url = https://github.com/MMC-Scholars/VRBase
+	active = true
