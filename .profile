@@ -45,6 +45,7 @@ export PATH="$(yarn global bin):$PATH"
 # variables
 #
 
+export KEYTIMEOUT=1 # reduce delay in zsh vi-mode change
 export RANGER_LOAD_DEFAULT_RC="FALSE"
 export SHELL="/bin/zsh"
 

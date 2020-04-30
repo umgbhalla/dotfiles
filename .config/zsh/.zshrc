@@ -5,6 +5,9 @@
 # (but I don't want to)
 [ -f $XDG_CONFIG_HOME/aliasrc ] && source $XDG_CONFIG_HOME/aliasrc
 
+# syntax highlighting
+source $XDG_CONFIG_HOME/zsh/fsh/fast-syntax-highlighting.plugin.zsh
+
 # history
 HISTFILE="$XDG_CACHE_HOME/zsh_history"
 HISTSIZE=10000000
@@ -41,6 +44,17 @@ fi
 # shell prompt
 export PROMPT="%F{cyan}┌—[%f%F{cyan}%m%f%F{cyan}]——[%f%F{cyan}%2~%f%F{cyan}]——[%f%F{magenta}%1v%f%F{cyan}]%f"$'\n'"%F{cyan}└——%f%F{magenta}>>%f "
 
-# syntax highlighting
-source $XDG_CONFIG_HOME/zsh/fsh/fast-syntax-highlighting.plugin.zsh
+# mode display
+function viMode {
+    RPS1="%F{cyan}${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}%f"
+    RPS2=$RPS1
+}
 
+function zle-line-init zle-keymap-select {
+    viMode
+    zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+viMode
