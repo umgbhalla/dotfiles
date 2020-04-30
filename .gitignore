@@ -10,18 +10,3 @@ Templates/
 Videos/
 .*
 
-!.config/bspwm
-!.config/feh
-!.config/nvim
-!.config/polybar
-!.config/pulse
-!.config/ranger
-!.config/scripts
-!.config/st
-!.config/sxhkd
-!.config/zsh
-!.config/wallpaper.png
-!.config/aliasrc
-!.config/colorrc
-!.profile
-!.xinitrc

@@ -51,13 +51,12 @@ To clone this repository into your home directory, you may need to first follow 
     yay -S networkmanager-dmenu polybar ttf-font-awesome-4
 
     # extremely useful utilities
-    sudo pacman -S clight brightnessctl ffmpeg ffmpegthumbnailer gimp htop man mpv neofetch neovim nm-connection-editor openssh ranger redshift scrot tlp unzip w3m yarn
-    sudo systemctl enable clightd
+    sudo pacman -S brightnessctl ffmpeg ffmpegthumbnailer gimp htop man mpv neofetch neovim nm-connection-editor openssh ranger redshift scrot tlp unzip w3m yarn
     sudo systemctl enable tlp
     yay -S brave youtube-dl
 
     # optional programs I regularly use
-    sudo pacman -S code discord
+    sudo pacman -S discord
     yay -S lutris
     ```
     Restart.
@@ -328,7 +327,7 @@ We will be creating a main partition for all files and a swap partition for susp
     This will just use the default version of `st`. To use my configured version of `st`, see [cloning](#cloning).
 5. Setup audio.
     ```
-    yay -S ppulseaudio pulseaudio-alsa pulseaudio-ctl
+    yay -S pulseaudio pulseaudio-alsa pulseaudio-ctl
     sudo reboot
     ```
     You may need to edit the configuration files, which I have done in my dotfiles.
