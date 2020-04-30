@@ -23,7 +23,9 @@ function cd() { builtin cd "$@" && ls }
 
 alias \
   reboot="sudo reboot" \
-  shutdown="sudo shutdown -h now"
+  shutdown="sudo shutdown -h now" \
+  suspend="sudo systemctl suspend" \
+  hibernate="sudo systemctl hibernate"
 
 # ----------------------------------------------------------------
 # programs
