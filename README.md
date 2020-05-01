@@ -6,6 +6,7 @@ These are the dotfiles I use regularly in my work and school laptop. Do not copy
 2. [Cloning](#cloning)
 3. [Manual Installation](#manualinstall)
 4. [Additional Configuration](#addconfig)
+5. [TODO](#todo)
 
 ## System Information <a name="sysinfo"></a>
 
@@ -333,3 +334,18 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo reboot
 ```
 
+## TODO <a name="todo"></a>
+
+Below are a list of things in no particular order that I plan to do but haven't yet implemented or had the time to configure.
+
+- configure `dmenu_run` to only show "relevant" programs
+- configure `pulseaudio` input
+- write script for `pulseaudio` to choose default sink and source
+- notification for changes in volume, similar to gnome's interface
+- edit /etc/issue and store changes in dotfiles 
+- automatically install `nvim` plugins
+- fix bug with switching between fullscreen and floating applications locks them in a certain toggle state
+- store `lutris` game settings
+- store `brave` settings, or switch to a different browser (`firefox`?)
+- re-add `vim` `hardtime` plugin to force myself to learn better keybindings
+- configure `picom` to make blurry (or transparent) terminals and other windows (e.g. `discord`)

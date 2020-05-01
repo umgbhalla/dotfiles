@@ -67,7 +67,7 @@ format-padding = 2
 
 [module/wlan]
 type = internal/network
-interface = wlp1s0
+interface = ${env:WIFI_INTERFACE:wlan0}
 interval = 3.0
 
 format-connected-background = ${colors.background}
@@ -82,7 +82,7 @@ label-disconnected =
 
 [module/eth]
 type = internal/network
-interface = enp0s31f6
+interface = ${env:ETH_INTERFACE:wlan0}
 interval = 3.0
 
 format-connected-background = ${colors.background}
@@ -95,6 +95,7 @@ format-disconnected =
 
 [module/pulseaudio]
 type = internal/pulseaudio
+sink = alsa_output.pci-0000_28_00.4.analog-stereo
 
 format-volume = <label-volume>
 label-volume = %percentage%%

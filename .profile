@@ -49,6 +49,8 @@ export KEYTIMEOUT=1 # reduce delay in zsh vi-mode change
 export PROMPT_EOL_MARK="" # prevent partial line % from appearing
 export RANGER_LOAD_DEFAULT_RC="FALSE"
 export SHELL="/bin/zsh"
+export WIFI_INTERFACE="$(ip -o link show | awk -F': ' '{print $2}' | grep w)"
+export ETH_INTERFACE="$(ip -o link show | awk -F': ' '{print $2}' | grep e)"
 
 #
 # config directories
