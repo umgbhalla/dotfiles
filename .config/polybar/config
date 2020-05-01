@@ -131,7 +131,7 @@ format-discharging-padding = 2
 type = internal/date
 interval = 5
 
-date = %m/%d
+date = %a %b %d
 time = %H:%M
 label = %date% %time%
 

@@ -1,7 +1,6 @@
 #!/bin/sh
 
 DIR="$(dirname $0)"
-CFG="$XDG_CONFIG_HOME"
 
 #
 # install official repository packages
@@ -59,6 +58,6 @@ done
 
 echo "building suckless utilities..."
 for utility in $SUCKLESS; do
-  cd "$CFG/$utility"
+  cd "$HOME/.config/$utility"
   sudo make clean install
 done

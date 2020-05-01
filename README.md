@@ -41,13 +41,12 @@ To clone this repository into your home directory, you may need to first follow 
       ```bash
         git clone --recursive https://github.com/bossley9/dotfiles.git /tmp/dotfiles
         shopt -s dotglob nullglob
-        mv /tmp/dotfiles/* ~/
+        mv /tmp/dotfiles/* $HOME/
       ```
 2. Install required core packages for the configuration to work, 
     as well as preferred programs. I've written a script to install all necessary packages automatically. This script can be rerun to install any additional packages after an update, and you can even add your own packages to the files to install them. It will also enable any system packages and build my `suckless` utilities.
     ```bash
-    chmod u+x $XDG_CONFIG_HOME/installation/setup.sh
-    $XDG_CONFIG_HOME/installation/setup.sh
+    $HOME/.config/installation/setup.sh
     ```
     Restart and verify all packages are running properly.
     ```
@@ -154,7 +153,7 @@ We will be creating a main partition for all files and a swap partition for susp
     ```
     +32G
     ```
-    Press `ENTER` again to allocate the entire disk for the partition, and `y` to remove the `ext4` signature.
+    Press `ENTER` again to allocate the entire disk for the partition, and `y` to remove any existing signatures.
 5. The rest of the space will be used for the main partition. Using the same commands, create a partition which uses the rest of the disk. When prompted for the last sector, type `ENTER` to use the rest of the space.
 6. Type `w` to write the changes to the hard drive. You will be able to use `fdisk -l` to view the changes to the disk.
 7. Overwrite any existing data and change the partition extensions. In my case, my swap partition is `/dev/sda1` and my root partition is `/dev/sda2`.
@@ -213,7 +212,7 @@ We will be creating a main partition for all files and a swap partition for susp
 
 #### Password <a name="password"></a>
 
-1. Set a password.
+1. Set a password for the root user.
     ```
     passwd
     ```
@@ -269,7 +268,7 @@ We will be creating a main partition for all files and a swap partition for susp
 
 #### Creating a User <a name="creatinguser"></a>
 
-1. Create a user. This is the user you will use to log in. I will create a username of `sam`.
+1. Create a user. This is the user you will use to log in. I will create a user named `sam`.
     ```
     useradd -m -g wheel sam
     passwd sam
@@ -304,12 +303,7 @@ We will be creating a main partition for all files and a swap partition for susp
     sudo pacman -S xorg-xinit xorg-server bspwm sxhkd
     ```
 4. (Optional) If you choose to not use `st` as a terminal emulator, make sure you install one and change the `TERM` environment variable located in `.profile` and update the binding in `sxhkdrc`.
-5. Setup audio.
-    ```
-    yay -S pulseaudio pulseaudio-alsa pulseaudio-ctl
-    ```
-    You may need to edit the configuration files, which I have done in my dotfiles.
-6. Log out and log back in, then install my dotfiles. See [cloning](#cloning) for more details.
+5. Log out and log back in, then install my dotfiles. See [cloning](#cloning) for more details.
     ```
     exit
     ```

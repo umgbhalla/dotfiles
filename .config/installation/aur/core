@@ -6,3 +6,13 @@ youtube-dl
 
 # fonts
 ttf-font-awesome-4
+
+# for vim plugins
+vim-plug
+
+# audio
+# usually on reboot everything will be muted,
+# may need to unmute both source and sink
+pulseaudio
+pulseaudio-alsa
+pulseaudio-ctl
