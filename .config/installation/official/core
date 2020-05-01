@@ -7,6 +7,9 @@ fzf
 # reading windows-formatted usb drives
 ntfs-3g
 
+# general python3 update
+python3
+
 # mpris
 python-dbus
 python-gobject
