@@ -35,13 +35,13 @@ To clone this repository into your home directory, you may need to first follow 
       ```zsh
       git clone --recursive https://github.com/bossley9/dotfiles.git /tmp/dotfiles
       setopt -s glob_dots
-      mv /tmp/dotfiles/* ~/
+      cp -rv /tmp/dotfiles/* $HOME/
       ```
     - `bash`:
       ```bash
         git clone --recursive https://github.com/bossley9/dotfiles.git /tmp/dotfiles
         shopt -s dotglob nullglob
-        mv /tmp/dotfiles/* $HOME/
+        cp -rv /tmp/dotfiles/* $HOME/
       ```
 2. Install required core packages for the configuration to work, 
     as well as preferred programs. I've written a script to install all necessary packages automatically. This script can be rerun to install any additional packages after an update, and you can even add your own packages to the files to install them. It will also enable any system packages and build my `suckless` utilities.
@@ -284,14 +284,13 @@ We will be creating a main partition for all files and a swap partition for susp
 
 #### Core Packages <a name="corepackages"></a>
 
-1. Install a system upgrade. It's good to do this on a clean install. Additionally, install useful package helper packages like `git` and `yay`.
+1. Install a system upgrade. It's good to do this on a clean install. Additionally, install useful package helper like `git` and `yay`.
     ```
     sudo pacman -Syyuu
     sudo pacman -S git
 
-    cd /tmp 
-    git clone https://aur.archlinux.org/yay.git
-    cd yay && makepkg -si
+    git clone https://aur.archlinux.org/yay.git /tmp/yay
+    cd /tmp/yay && makepkg -si
     ```
 2. Install `zsh`.
     ```
