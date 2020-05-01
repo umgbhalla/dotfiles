@@ -31,7 +31,7 @@ if ! pacman -Qi yay > /dev/null; then
 fi
 
 echo "installing AUR packages..."
-yay -S --needed $PACKS
+yay -S --needed --batchinstall $PACKS
 
 #
 # enable any services
