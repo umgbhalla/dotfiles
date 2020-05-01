@@ -5,7 +5,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # cache directory
 export XDG_CACHE_HOME="$HOME/.cache"
 # script directory
-export XDG_SCRIPTS_HOME="$XDG_CONFIG_HOME/scripts"
+export XDG_SCRIPT_HOME="$XDG_CONFIG_HOME/scripts"
 
 #
 # default programs
@@ -46,6 +46,7 @@ export PATH="$(yarn global bin):$PATH"
 #
 
 export KEYTIMEOUT=1 # reduce delay in zsh vi-mode change
+export PROMPT_EOL_MARK="" # prevent partial line % from appearing
 export RANGER_LOAD_DEFAULT_RC="FALSE"
 export SHELL="/bin/zsh"
 
@@ -58,4 +59,3 @@ export GIT_TEMPLATE_DIR="$XDG_CONFIG_HOME/git/template"
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
 export VIMINIT="source $XDG_CONFIG_HOME/vim/.vimrc"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
-

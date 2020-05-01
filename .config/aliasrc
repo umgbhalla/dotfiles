@@ -42,6 +42,7 @@ alias \
   zr="source $XDG_CONFIG_HOME/zsh/.zshrc" \
   date="cal -3 && date && echo"
 
+# git wrapper
 function g() {
   case "$1" in
     clone)
@@ -55,6 +56,13 @@ function g() {
   esac
 }
 
+# script execution
+function s() {
+  script=$(ls $XDG_SCRIPT_HOME/* | sed 's/^\/.*\///' | dmenu -i -l 20)
+  xdotool type --delay 0 "$XDG_SCRIPT_HOME/\./$script"
+}
+
+# repo browser
 function rp() {
   repoPath="$HOME/Repos"
   repo=$(ls -d $repoPath/* | sed 's/^\/.*\///' | dmenu -i -l 20)

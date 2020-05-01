@@ -67,7 +67,7 @@ shift + Print
 #
 
 XF86MonBrightnessUp { , shift }
-  {brightnessctl s +5%, $XDG_SCRIPTS_HOME/redshift -300}
+  {brightnessctl s +5%, $XDG_SCRIPT_HOME/redshift -300}
 
 XF86MonBrightnessDown { , shift }
   {brightnessctl s 5%-, $XDG_SCRIPTS_HOME/redshift +300} 
