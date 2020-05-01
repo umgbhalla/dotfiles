@@ -36,6 +36,13 @@ super + p
 super + u
   discord
 
+# 
+# networking
+#
+
+super + w + i
+  $XDG_SCRIPT_HOME/networkmanager_dmenu
+
 #
 # audio controls
 #

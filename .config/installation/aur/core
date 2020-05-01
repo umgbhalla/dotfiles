@@ -1,8 +1,8 @@
 brave-bin
+polybar
 
 # download audio/video from various sources
 youtube-dl
 
-networkmanager-dmenu-git
-polybar
+# fonts
 ttf-font-awesome-4
