@@ -6,3 +6,5 @@
 [submodule "/home/sam/.config/zsh/fsh"]
 	url = https://github.com/zdharma/fast-syntax-highlighting
 	active = true
+[advice]
+	addIgnoredFile = false

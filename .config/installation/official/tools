@@ -1,0 +1,28 @@
+# vim tags
+ctags
+
+# brightness
+brightnessctl
+
+ffmpeg
+
+# ranger and previews
+ffmpegthumbnailer
+w3m 
+ranger
+
+gimp
+htop
+man
+mpv
+neofetch
+neovim
+openssh
+redshift
+
+# screenshots
+scrot
+
+tlp
+unzip
+yarn

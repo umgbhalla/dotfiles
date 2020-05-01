@@ -44,40 +44,23 @@ To clone this repository into your home directory, you may need to first follow 
         mv /tmp/dotfiles/* ~/
       ```
 2. Install required core packages for the configuration to work, 
-    as well as preferred programs.
+    as well as preferred programs. I've written a script to install all necessary packages automatically. This script can be rerun to install any additional packages after an update, and you can even add your own packages to the files to install them. It will also enable any system packages and build my `suckless` utilities.
     ```bash
-    # bare minimum programs required to get the installation working
-    sudo pacman -S ctags feh fzf ntfs-3g python-dbus python-gobject ttf-liberation xorg-xsetroot
-    yay -S networkmanager-dmenu polybar ttf-font-awesome-4
-
-    # extremely useful utilities
-    sudo pacman -S brightnessctl ffmpeg ffmpegthumbnailer gimp htop man mpv neofetch neovim nm-connection-editor openssh ranger redshift scrot tlp unzip w3m yarn
-    sudo systemctl enable tlp
-    yay -S brave youtube-dl
-
-    # optional programs I regularly use
-    sudo pacman -S discord
-    yay -S lutris
+    chmod u+x $XDG_CONFIG_HOME/installation/setup.sh
+    $XDG_CONFIG_HOME/installation/setup.sh
     ```
-    Restart.
+    Restart and verify all packages are running properly.
     ```
     sudo reboot
     ```
-    You may need to install certain packages or run certain commands in order to tweak everything accordingly. 
-    I've tried to include comments at the top of most relevant config files.
-3. Build my `suckless` tools configuration(s).
-    ```
-    cd ~/.config/st
-    sudo make clean install
-    cd ~/.config/dmenu
-    sudo make clean install
-    ```
-    To apply patches, you can download patches from the `suckless tools` website and
+    You may need to install certain packages or run certain commands in order to tweak everything accordingly.  
+    To apply patches to `suckless` tools, you can download patches from the `suckless` website and
     run the following command, making sure to specify the file being
     changed as `config.h`.
     ```
     patch --merge -i patchName.diff
     ```
+    I've tried to include comments at the top of most relevant config files.
 
 ## Manual Installation <a name="manualinstall"></a>
 
@@ -320,21 +303,15 @@ We will be creating a main partition for all files and a swap partition for susp
     ```
     sudo pacman -S xorg-xinit xorg-server bspwm sxhkd
     ```
-4. Install a terminal emulator. I've used nearly every popular terminal in existence and `st` is the best one by far.
-    ```
-    yay -S st
-    ```
-    This will just use the default version of `st`. To use my configured version of `st`, see [cloning](#cloning).
+4. (Optional) If you choose to not use `st` as a terminal emulator, make sure you install one and change the `TERM` environment variable located in `.profile` and update the binding in `sxhkdrc`.
 5. Setup audio.
     ```
     yay -S pulseaudio pulseaudio-alsa pulseaudio-ctl
-    sudo reboot
     ```
     You may need to edit the configuration files, which I have done in my dotfiles.
-6. Install my dotfiles. See [cloning](#cloning) for more details.
-7. Reboot. Then log back in as the user you created to verify everything is functioning properly.
+6. Log out and log back in, then install my dotfiles. See [cloning](#cloning) for more details.
     ```
-    sudo reboot
+    exit
     ```
 
 ## Additional Configuration <a name="addconfig"></a>
