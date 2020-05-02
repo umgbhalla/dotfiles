@@ -11,8 +11,8 @@ These are the dotfiles I use regularly in my work and school laptop. Do not copy
 ## System Information <a name="sysinfo"></a>
 
 ```
-OS: Archlinux 2020.04.01 x86_64
-Kernel: 5.5.14-arch
+OS: Arch Linux x86_64
+Kernel: 5.6.8-arch1-1
 Shell: zsh
 WM: bspwm
 Theme: adwaita [GTK2/3]
@@ -356,7 +356,6 @@ sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib3
 
 Below are a list of things in no particular order that I plan to do but haven't yet implemented or had the time to configure.
 
-- configure `pulseaudio` input
 - notification for changes in volume, brightness, and redshift, similar to gnome's interface
 - edit /etc/issue and store changes in dotfiles 
 - store `brave` settings, or switch to a different browser (`firefox`?)

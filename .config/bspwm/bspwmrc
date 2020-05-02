@@ -8,10 +8,10 @@
 xsetroot -cursor_name left_ptr &
 
 # appearance
-bspc config top_padding 32
+bspc config top_padding $WM_TOP_PADDING
 
 bspc config border_width 0
-bspc config window_gap 16
+bspc config window_gap $WM_GAPS
 
 # no fullscreen gaps
 bspc config gapless_monocle true

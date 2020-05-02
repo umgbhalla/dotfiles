@@ -20,7 +20,7 @@ export BROWSER="brave"
 export BROWSER_INCOGNITO="brave"
 
 export BAR="polybar"
-export BAR_ARGS="$BAR main"
+export BAR_ARGS="$BAR -r main"
 
 export FILE_EXPLORER="ranger"
 
@@ -29,6 +29,22 @@ export SYSTEM_PROFILER="htop"
 #
 # display
 #
+
+# colors
+export COLOR_BG="#2e3440"
+export COLOR_FG="#eceff4"
+# pink
+export COLOR_PRIMARY="#febdf7"
+# blue
+export COLOR_SECONDARY="#81a1c1"
+# purple
+export COLOR_TERTIARY="#5d62ac"
+# red
+export COLOR_ALERT="#bf616a"
+
+export WM_GAPS=10
+export WM_BAR_HEIGHT=${$(( $WM_GAPS * 3 ))%.*}
+export WM_TOP_PADDING=$(( $WM_GAPS + $WM_BAR_HEIGHT ))
 
 #
 # path
