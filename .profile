@@ -48,9 +48,11 @@ export PATH="$(yarn global bin):$PATH"
 export KEYTIMEOUT=1 # reduce delay in zsh vi-mode change
 export PROMPT_EOL_MARK="" # prevent partial line % from appearing
 export RANGER_LOAD_DEFAULT_RC="FALSE"
+export REDSHIFT_LAST="$XDG_CACHE_HOME/redshift_last"
 export SHELL="/bin/zsh"
-export WIFI_INTERFACE="$(ip -o link show | awk -F': ' '{print $2}' | grep w)"
+
 export ETH_INTERFACE="$(ip -o link show | awk -F': ' '{print $2}' | grep e)"
+export WIFI_INTERFACE="$(ip -o link show | awk -F': ' '{print $2}' | grep w)"
 
 #
 # config directories

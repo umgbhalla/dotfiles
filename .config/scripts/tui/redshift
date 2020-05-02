@@ -1,14 +1,22 @@
 #!/bin/sh
+TEMP="$REDSHIFT_LAST"
+DEFAULT_TEMP=6500
 
-TEMP=$XDG_CACHE_HOME/redshift_last
-
+# if cache is not set yet, set it!
 if [ ! -e $TEMP ]; then
-    echo 6500 > $TEMP
+  echo $DEFAULT_TEMP > $TEMP
 fi
 
+# if no argument is supplied, reset to default
 if [ $# == 0 ]; then
-    redshift -x
-    echo 6500 > "$TEMP"
+  redshift -x
+  echo $DEFAULT_TEMP > $TEMP
+# if integer is supplied, set temp to value
+elif [[ $1 =~ ^[0-9]+$ ]]; then
+  echo $1 > $TEMP
+  redshift -P -O $1
+# if + or - is appended to the argument,
+# increment or decrement by amount
 else
   temperature=$(( $(cat $TEMP) ${1::1} ${1:1} ))
   echo $temperature > $TEMP

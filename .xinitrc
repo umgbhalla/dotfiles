@@ -1,5 +1,16 @@
 #!/bin/sh
 
+#
+# environment settings
+#
+
+# redshift
+$XDG_SCRIPT_HOME/tui/redshift "$(cat $REDSHIFT_LAST)"
+
+#
+# core programs 
+#
+
 # shortcut manager
 sxhkd &
 
