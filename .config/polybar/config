@@ -112,17 +112,17 @@ adapter = ADP1
 full-at = 98
 
 format-full = <label-full>
-format-full-background = ${colors.background-alt}
+format-full-background = ${colors.primary}
 format-full-foreground = ${colors.background}
 format-full-padding = 2
 
 format-charging = <label-charging>
-format-charging-background = ${colors.background-alt}
+format-charging-background = ${colors.primary}
 format-charging-foreground = ${colors.background}
 format-charging-padding = 2
 
 format-discharging = <label-discharging>
-format-discharging-background = ${colors.primary}
+format-discharging-background = ${colors.secondary}
 format-discharging-foreground = ${colors.background}
 format-discharging-padding = 2
 
