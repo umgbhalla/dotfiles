@@ -29,12 +29,19 @@ super + y
 super + p
   $TERM sh -c "$SYSTEM_PROFILER"
 
-#
-# custom programs
-#
-
+# discord (for the meme, of course)
 super + u
   discord
+
+#
+# general scripts
+#
+
+super + s
+  $XDG_SCRIPT_HOME/bin/run.sh gui
+# because I'm dumb and type the wrong binding sometimes
+super + shift + s
+  $XDG_SCRIPT_HOME/bin/run.sh gui
 
 # 
 # networking
@@ -74,22 +81,22 @@ shift + Print
 #
 
 XF86MonBrightnessUp { , shift }
-  {brightnessctl s +5%, $XDG_SCRIPT_HOME/redshift -300}
+  {brightnessctl s +5%, $XDG_SCRIPT_HOME/tui/redshift -300}
 
 XF86MonBrightnessDown { , shift }
-  {brightnessctl s 5%-, $XDG_SCRIPTS_HOME/redshift +300} 
+  {brightnessctl s 5%-, $XDG_SCRIPTS_HOME/tui/redshift +300} 
 
 super + shift + braceright
-  $XDG_SCRIPT_HOME/redshift -300
+  $XDG_SCRIPT_HOME/tui/redshift -300
 
 super + shift + braceleft
-  $XDG_SCRIPT_HOME/redshift +300
+  $XDG_SCRIPT_HOME/tui/redshift +300
 
 super + shift + plus
-  $XDG_SCRIPT_HOME/redshift
+  $XDG_SCRIPT_HOME/tui/redshift
 
 ctrl + XF86MonBrightnessUp
-  $XDG_SCRIPTS_HOME/redshift
+  $XDG_SCRIPTS_HOME/tui/redshift
 
 #
 # bspwm core

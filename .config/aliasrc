@@ -40,7 +40,8 @@ alias \
   wifi="$XDG_SCRIPT_HOME/networkmanager_dmenu" \
   pk="ps aux | dmenu -i -l 20 | awk '{print $2}' | xargs kill -9 > /dev/null" \
   zr="source $XDG_CONFIG_HOME/zsh/.zshrc" \
-  date="cal -3 && date && echo"
+  date="cal -3 && date && echo" \
+  s="$XDG_SCRIPT_HOME/bin/run.sh"
 
 # git wrapper
 function g() {
@@ -54,12 +55,6 @@ function g() {
       ;;
     *) git $@;
   esac
-}
-
-# script execution
-function s() {
-  script=$(ls $XDG_SCRIPT_HOME/* | sed 's/^\/.*\///' | dmenu -i -l 20)
-  xdotool type --delay 0 "$XDG_SCRIPT_HOME/\./$script"
 }
 
 # repo browser
