@@ -84,7 +84,7 @@ XF86MonBrightnessUp { , shift }
   {brightnessctl s +5%, $XDG_SCRIPT_HOME/tui/redshift -300}
 
 XF86MonBrightnessDown { , shift }
-  {brightnessctl s 5%-, $XDG_SCRIPTS_HOME/tui/redshift +300} 
+  {brightnessctl s 5%-, $XDG_SCRIPT_HOME/tui/redshift +300} 
 
 super + shift + braceright
   $XDG_SCRIPT_HOME/tui/redshift -300
@@ -96,7 +96,7 @@ super + shift + plus
   $XDG_SCRIPT_HOME/tui/redshift
 
 ctrl + XF86MonBrightnessUp
-  $XDG_SCRIPTS_HOME/tui/redshift
+  $XDG_SCRIPT_HOME/tui/redshift
 
 #
 # bspwm core
