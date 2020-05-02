@@ -1,0 +1,4 @@
+game:
+  exe: /opt/minecraft-launcher/minecraft-launcher
+linux: {}
+system: {}

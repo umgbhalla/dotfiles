@@ -95,7 +95,6 @@ format-disconnected =
 
 [module/pulseaudio]
 type = internal/pulseaudio
-sink = alsa_output.pci-0000_28_00.4.analog-stereo
 
 format-volume = <label-volume>
 label-volume = %percentage%%

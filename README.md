@@ -334,6 +334,24 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo reboot
 ```
 
+#### Gaming
+A lot of gaming applications (such as the Steam client and Wine client) are 32bit architecture and 
+require the `multilib` repository to be enabled. To enable, `sudo vim /etc/pacman.conf` and uncomment
+the following section:
+```
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+```
+Then upgrade the system.
+```
+sudo pacman -Syu
+```
+You will also need to install the following packages. Many of these are essential for running games of any kind.
+```
+sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader
+```
+[https://github.com/lutris/lutris/wiki/Installing-drivers](Lutris also recommended that I install drivers specific to my GPU.)
+
 ## TODO <a name="todo"></a>
 
 Below are a list of things in no particular order that I plan to do but haven't yet implemented or had the time to configure.
@@ -347,5 +365,4 @@ Below are a list of things in no particular order that I plan to do but haven't 
 - fix bug with switching between fullscreen and floating applications locks them in a certain toggle state
 - store `lutris` game settings
 - store `brave` settings, or switch to a different browser (`firefox`?)
-- re-add `vim` `hardtime` plugin to force myself to learn better keybindings
 - configure `picom` to make blurry (or transparent) terminals and other windows (e.g. `discord`)

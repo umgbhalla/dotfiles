@@ -1,7 +1,6 @@
 " neovim configuration
 "
 " install plugins with vim-plug first:
-" curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 " :PlugInstall
 
 " ------------------------------------------------------------------------------
@@ -13,7 +12,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'sheerun/vim-polyglot' " improved syntax highlighting
 Plug 'sainnhe/edge' " color scheme
 "Plug 'pangloss/vim-javascript' " js syntax highlighting
-"Plug 'takac/vim-hardtime' " just to make things harder for you :)
 
 call plug#end()
 
