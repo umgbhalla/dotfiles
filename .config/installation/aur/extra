@@ -4,3 +4,6 @@ minecraft-launcher
 
 # messaging
 signal
+
+# phone display
+scrcpy
