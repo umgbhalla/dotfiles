@@ -356,13 +356,8 @@ sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib3
 
 Below are a list of things in no particular order that I plan to do but haven't yet implemented or had the time to configure.
 
-- configure `dmenu_run` to only show "relevant" programs
 - configure `pulseaudio` input
-- write script for `pulseaudio` to choose default sink and source
 - notification for changes in volume, similar to gnome's interface
 - edit /etc/issue and store changes in dotfiles 
-- automatically install `nvim` plugins
-- fix bug with switching between fullscreen and floating applications locks them in a certain toggle state
-- store `lutris` game settings
 - store `brave` settings, or switch to a different browser (`firefox`?)
 - configure `picom` to make blurry (or transparent) terminals and other windows (e.g. `discord`)

@@ -1,0 +1,10 @@
+#!/bin/sh
+output=$(pacmd list-sink-inputs | awk '/sink:/{print substr($3, 2, length($3)-2)}' | dmenu -l 10 -p "Output Sink:")
+
+if [ -z $output ]; then
+  echo "No sink specified."
+else
+  pacmd set-default-sink $output
+  echo "Default sink set to $output."
+fi
+

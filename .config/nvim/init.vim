@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'sheerun/vim-polyglot' " improved syntax highlighting
 Plug 'sainnhe/edge' " color scheme
-"Plug 'pangloss/vim-javascript' " js syntax highlighting
+" Plug 'pangloss/vim-javascript' " js syntax highlighting
 
 call plug#end()
 
@@ -100,3 +100,8 @@ hi Normal       ctermbg=None guibg=None
 hi NonText      ctermbg=None guibg=None
 hi EndOfBuffer  ctermbg=None guibg=None
 
+" automatically install plugins
+autocmd VimEnter *
+  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q
+  \| endif
