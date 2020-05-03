@@ -2,6 +2,9 @@
 
 DIR="$(dirname $0)"
 
+# unset git config to prevent yay errors
+unset GIT_CONFIG
+
 #
 # install official repository packages
 #
@@ -68,4 +71,4 @@ done
 
 echo "customizing login prompt..."
 yay -S --needed figlet
-echo "$(cat /etc/hostname | figlet -k)" | { sed 's/\\/\\\\/g'; echo "\\s \\\r [\l]" } | sudo tee /etc/issue > /dev/null
+echo "$(cat /etc/hostname | figlet -k)" | { sed 's/\\/\\\\/g'; echo "(\l) \\s \\\r\n" } | sudo tee /etc/issue > /dev/null

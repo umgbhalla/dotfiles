@@ -19,3 +19,6 @@ xorg-xsetroot
 
 # X11 automation tool used for script(s)
 xdotool
+
+# notification server
+dunst

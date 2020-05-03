@@ -46,6 +46,11 @@ export WM_GAPS=10
 export WM_BAR_HEIGHT=${$(( $WM_GAPS * 3 ))%.*}
 export WM_TOP_PADDING=$(( $WM_GAPS + $WM_BAR_HEIGHT ))
 
+export NOTIF_WIDTH_OFFSET=-1000
+export NOTIF_HEIGHT=100
+export NOTIF_X_OFFSET=$(( $NOTIF_WIDTH_OFFSET * -1 / 2 ))
+export NOTIF_Y_OFFSET=$(( $WM_GAPS / 2 ))
+
 #
 # path
 #
