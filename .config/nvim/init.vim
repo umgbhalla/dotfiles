@@ -105,3 +105,6 @@ autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \|   PlugInstall --sync | q
   \| endif
+
+" make visual highlight more visible
+hi Visual cterm=reverse gui=reverse
