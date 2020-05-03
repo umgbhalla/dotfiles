@@ -61,3 +61,11 @@ for utility in $SUCKLESS; do
   cd "$HOME/.config/$utility"
   sudo make clean install
 done
+
+#
+# login prompt eyecandy
+#
+
+echo "customizing login prompt..."
+yay -S --needed figlet
+echo "$(cat /etc/hostname | figlet -k)" | { sed 's/\\/\\\\/g'; echo "\\s \\\r [\l]" } | sudo tee /etc/issue > /dev/null

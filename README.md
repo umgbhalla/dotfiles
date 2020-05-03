@@ -357,7 +357,5 @@ sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib3
 Below are a list of things in no particular order that I plan to do but haven't yet implemented or had the time to configure.
 
 - notification for changes in volume, brightness, and redshift, similar to gnome's interface
-- edit /etc/issue and store changes in dotfiles 
-- store `brave` settings, or switch to a different browser (`firefox`?)
-- configure `picom` to make blurry (or transparent) terminals and other windows (e.g. `discord`)
 - hide `brave` ads
+- set global nordic theme
