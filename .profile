@@ -5,7 +5,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # cache directory
 export XDG_CACHE_HOME="$HOME/.cache"
 # script directory
-export XDG_SCRIPT_HOME="$XDG_CONFIG_HOME/scripts"
+export XDG_SCRIPT_HOME="$HOME/.local/bin/scripts"
 
 #
 # default programs
@@ -53,6 +53,8 @@ export NOTIF_X_OFFSET=$(( $NOTIF_WIDTH_OFFSET * -1 / 2 ))
 export NOTIF_Y_OFFSET=$(( $WM_GAPS + $WM_BAR_HEIGHT / 2 ))
 export NOTIF_FRAME_WIDTH=3
 export NOTIF_TRANSPARENCY=$(( 100 - ( $WM_TRANSPARENCY * 100 ) ))
+
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 
 #
 # path

@@ -1,7 +1,7 @@
 # dotfiles
 Dotfiles used by yours truly
 
-![screenshot of my desktop][.config/installation/scr.png]
+![screenshot of my desktop](.config/installation/scr.png)
 
 These are the dotfiles I use regularly in my work and school laptop. Do not copy these dotfiles blindly unless you know exactly what you are doing to your system. A lot of the features or packages I use in my system are experimental or built with a specific hardware in mind. I take no responsibility for any damages or system failures you may encounter - that being said, if you come across a reproducible issue or would like to ask me questions, feel free to open an issue or contact me privately and I would be more than happy to help.
 

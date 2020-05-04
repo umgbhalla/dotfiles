@@ -67,6 +67,13 @@ for utility in $SUCKLESS; do
 done
 
 #
+# gtk theme
+#
+
+git clone https://github.com/EliverLara/Nordic.git /tmp/Nordic
+cp -r /tmp/Nordic /usr/share/themes
+
+#
 # login prompt eyecandy
 #
 
