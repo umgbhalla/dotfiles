@@ -1,4 +1,3 @@
-
 # collection of commonly used shell alias definitions
 
 [ -f $XDG_CONFIG_HOME/colorrc ] && source $XDG_CONFIG_HOME/colorrc
@@ -69,6 +68,23 @@ alias \
   r="ranger" \
   rc='ranger --choosedir=$XDG_CACHE_HOME/ranger_dir; LASTDIR=`cat $XDG_CACHE_HOME/ranger_dir`; cd "$LASTDIR"' \
   c="find -L $XDG_CONFIG_HOME -type f | fzf | xargs -r $EDITOR"
+
+# suckless building
+function sbuild() {
+  dir=$XDG_CONFIG_HOME/$1
+
+  [ -z $1 ] && \
+    echo -e "${RED}No suckless utility specified.${NC}" && return
+  [ ! -d $dir ] && \
+    echo -e "${RED}Invalid suckless utility.${NC}" && return
+  [ ! -f $dir/template.config.h ] && \
+    echo -e "${RED}Unable to find template.config.h in $dir.${NC}" && return
+  
+  olddir=$(pwd)
+  cd $dir && envsubst < template.config.h > config.h
+  sudo make clean install
+  cd $olddir
+}
 
 # ----------------------------------------------------------------
 # media

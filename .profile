@@ -50,6 +50,7 @@ export NOTIF_WIDTH_OFFSET=-1000
 export NOTIF_HEIGHT=100
 export NOTIF_X_OFFSET=$(( $NOTIF_WIDTH_OFFSET * -1 / 2 ))
 export NOTIF_Y_OFFSET=$(( $WM_GAPS + $WM_BAR_HEIGHT / 2 ))
+export NOTIF_FRAME_WIDTH=3
 
 #
 # path

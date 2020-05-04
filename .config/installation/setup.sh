@@ -62,6 +62,7 @@ done
 echo "building suckless utilities..."
 for utility in $SUCKLESS; do
   cd "$HOME/.config/$utility"
+  envsubst < template.config.h > config.h
   sudo make clean install
 done
 
