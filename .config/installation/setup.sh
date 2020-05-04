@@ -71,7 +71,7 @@ done
 #
 
 git clone https://github.com/EliverLara/Nordic.git /tmp/Nordic
-cp -r /tmp/Nordic /usr/share/themes
+sudo cp -r /tmp/Nordic /usr/share/themes
 
 #
 # login prompt eyecandy
