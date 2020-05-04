@@ -12,7 +12,7 @@ $XDG_SCRIPT_HOME/tui/redshift "$(cat $REDSHIFT_LAST)"
 #
 
 # notifications
-envsubst < $XDG_CONFIG_HOME/dunst/dunstrc.template > $XDG_CONFIG_HOME/dunst/dunstrc && dunst &
+envsubst < $XDG_CONFIG_HOME/dunst/template.dunstrc > $XDG_CONFIG_HOME/dunst/dunstrc && dunst &
 
 # shortcut manager
 sxhkd &
