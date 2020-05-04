@@ -1,7 +1,8 @@
 # dotfiles
 Dotfiles used by yours truly
 
-![screenshot of my desktop](.config/installation/scr.png)
+![screenshot of desktop and vim](.config/installation/scr.png)
+![screenshot of lutris, scrcpy, and ranger](.config/installation/scr2.png)
 
 These are the dotfiles I use regularly in my work and school laptop. Do not copy these dotfiles blindly unless you know exactly what you are doing to your system. A lot of the features or packages I use in my system are experimental or built with a specific hardware in mind. I take no responsibility for any damages or system failures you may encounter - that being said, if you come across a reproducible issue or would like to ask me questions, feel free to open an issue or contact me privately and I would be more than happy to help.
 
@@ -19,8 +20,8 @@ OS: Arch Linux x86_64
 Kernel: 5.6.8-arch1-1
 Shell: zsh
 WM: bspwm
-Theme: adwaita [GTK2/3]
-Icons: adwaita [GTK2/3]
+Theme: Nordic [GTK2/3]
+Icons: Adwaita [GTK2/3]
 Terminal: st
 Status Bar: polybar
 Launcher: dmenu
@@ -29,6 +30,7 @@ Editor: neovim
 Browser: brave
 File Exporer: ranger
 System Profiler:  htop
+Gaming Client: lutris
 ```
 
 ## Cloning <a name="cloning"></a>
@@ -360,4 +362,4 @@ sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib3
 
 Below are a list of things in no particular order that I plan to do but haven't yet implemented or had the time to configure.
 
-- set global nordic theme
+- nothing to do!
