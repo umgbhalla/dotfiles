@@ -1,4 +1,8 @@
 # dotfiles
+Dotfiles used by yours truly
+
+![screenshot of my desktop][.config/installation/scr.png]
+
 These are the dotfiles I use regularly in my work and school laptop. Do not copy these dotfiles blindly unless you know exactly what you are doing to your system. A lot of the features or packages I use in my system are experimental or built with a specific hardware in mind. I take no responsibility for any damages or system failures you may encounter - that being said, if you come across a reproducible issue or would like to ask me questions, feel free to open an issue or contact me privately and I would be more than happy to help.
 
 ## Table of Contents
@@ -56,7 +60,7 @@ To clone this repository into your home directory, you may need to first follow 
     You may need to install certain packages or run certain commands in order to tweak everything accordingly.  
     To apply patches to `suckless` tools, you can download patches from the `suckless` website and
     run the following command, making sure to specify the file being
-    changed as `config.h`.
+    changed as `template.config.h` instead of the standard `config.h`.
     ```
     patch --merge -i patchName.diff
     ```
@@ -356,6 +360,4 @@ sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib3
 
 Below are a list of things in no particular order that I plan to do but haven't yet implemented or had the time to configure.
 
-- notification for changes in volume, brightness, and redshift, similar to gnome's interface
-- hide `brave` ads
 - set global nordic theme

@@ -4,7 +4,7 @@
  * appearance
  */
 static char *font = "Liberation Mono:pixelsize=16:antialias=true:autohint=true";
-static int borderpx = 16;
+static int borderpx = $WM_GAPS;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -81,7 +81,7 @@ char *termname = "st";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.95;
+float alpha = $WM_TRANSPARENCY;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
