@@ -1,7 +1,4 @@
 " neovim configuration
-"
-" install plugins with vim-plug first:
-" :PlugInstall
 
 " ------------------------------------------------------------------------------
 " plugins
@@ -11,6 +8,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'sheerun/vim-polyglot' " improved syntax highlighting
 Plug 'sainnhe/edge' " color scheme
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " Plug 'pangloss/vim-javascript' " js syntax highlighting
 
 call plug#end()
@@ -108,3 +106,6 @@ autocmd VimEnter *
 
 " make visual highlight more visible
 hi Visual cterm=reverse gui=reverse
+
+" automatically open markdown preview
+"let g:mkdp_auto_start = 1

@@ -59,14 +59,15 @@ To clone this repository into your home directory, you may need to first follow 
     ```
     sudo reboot
     ```
-    You may need to install certain packages or run certain commands in order to tweak everything accordingly.  
+    You may need to install certain packages or run certain commands in order to tweak everything accordingly.
+    I've tried to include comments at the top of most relevant config files.
+
     To apply patches to `suckless` tools, you can download patches from the `suckless` website and
     run the following command, making sure to specify the file being
     changed as `template.config.h` instead of the standard `config.h`.
     ```
     patch --merge -i patchName.diff
     ```
-    I've tried to include comments at the top of most relevant config files.
 
 ## Manual Installation <a name="manualinstall"></a>
 
@@ -96,7 +97,7 @@ Another disclaimer - I am a strong advocate for the `vim` and `nvim` text editor
     - A computer that can be wiped to install Archlinux
     - An ethernet connection
     - A usb drive that can be wiped
-2. Download [Arch](https://www.archlinux.org/download/). I downloaded version `archlinux-2020.04.01-x86_64.iso`.
+2. Download [Arch](https://www.archlinux.org/download/). I downloaded version `archlinux-2020.05.01-x86_64.iso`.
 3. Burn the cd image onto a usb. This can be done using a number of different tools:
     - [Balena Etcher](https://www.balena.io/etcher/)
     - [Rufus](https://rufus.ie/)
@@ -122,22 +123,22 @@ Booting into Arch will bring up a simple command prompt.
     - `eth0` represents an ethernet adapter. Usually the interface is given a more specific name, such as `enp0s25`. In this guide I will use `eth0` to represent the ethernet card.
     - If your machine has a wifi card, it will be represented by `wlan0`. Like the ethernet card, this is usually passes under a more specific name, like `wlp1s0`. In this guide I will use `wlan0` to represent the wireless card.
 3. This installation will use ethernet to download all packages and setup future internet with ethernet and/or wifi. It is definitely possible to install Archlinux on a computer using the `wifi-menu` command, but I recommend against it because it involves a lot more complication and will be subsequently slower during install. To set up a temporary internet:
-    i. Copy the netctl example ethernet configuration.
+    1. Copy the netctl example ethernet configuration.
         ```
         cp /etc/netctl/examples/ethernet-static /etc/netctl
         ```
-    ii. `vim /etc/netctl/ethernet-static` to change the interface to the interface found earlier.
+    2. `vim /etc/netctl/ethernet-static` to change the interface to the interface found earlier.
         ```
         Interface=eth0
         ```
-    iii. Enable the configuration and reboot.
+    3. Enable the configuration and reboot.
         ```
         netctl enable ethernet-static
         systemctl stop dhcpcd
         systemctl disable dhcpcd
         sudo reboot
         ```
-    iv. Verify `ping archlinux.org` produces a response. Do not proceed and repeat this section until a response appears.
+    4. Verify `ping archlinux.org` produces a response. Do not proceed and repeat this section until a response appears.
 
 #### System Time <a name="systime"></a>
 
