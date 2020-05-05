@@ -1,10 +1,11 @@
 # dotfiles
-Dotfiles used by yours truly
 
 ![screenshot of desktop and vim](.config/installation/scr.png)
 ![screenshot of lutris, scrcpy, and ranger](.config/installation/scr2.png)
 
-These are the dotfiles I use regularly in my work and school laptop. Do not copy these dotfiles blindly unless you know exactly what you are doing to your system. A lot of the features or packages I use in my system are experimental or built with a specific hardware in mind. I take no responsibility for any damages or system failures you may encounter - that being said, if you come across a reproducible issue or would like to ask me questions, feel free to open an issue or contact me privately and I would be more than happy to help.
+These are the dotfiles I use regularly in my school laptop and home desktop. I highly recommend against copying these dotfiles blindly unless you know exactly what each file does to your system. Some of the features or packages I use in my system are experimental or built with specific hardware in mind. I take no responsibility for any damages or system failures you may encounter - that being said, if you come across a reproducible issue or would like to ask me questions, feel free to open an issue or contact me privately and I would be more than happy to help.
+
+I use to primarily use Wayland and have a setup specifically set up for use with Sway. If you're interested, you can check it out in [this release](https://github.com/bossley9/dotfiles/tree/2020.03.11).
 
 ## Table of Contents
 1. [System Information](#sysinfo)
@@ -35,7 +36,9 @@ Gaming Client: lutris
 
 ## Cloning <a name="cloning"></a>
 
-To clone this repository into your home directory, you may need to first follow the [manual installation](#manualinstall) instructions to make sure you have the necessary packages installed.
+>There are two routes you can follow to reproduce the exact same setup I have, one being more tedious, but possibly less work in the long run.
+>  - If you would like to wipe an entire machine and begin from scratch with my setup, I have outlined a clean Arch installation according to my preferences in [manual installation](#manualinstall). This may be a bit more work but guarantees that the setup will work exactly the same as mine.
+>  - If you would like to install the dotfiles on top of an existing OS or setup, you can follow the instructions below to clone my dotfiles into your setup. However, be forewarned - I can't guarantee anything will work. You will likely have to fiddle with the `.xinitrc` and `.profile` files a bit to get everything working properly, and it may cost you a considerable amount of time to get everything to work in the long run.
 
 1. Clone this repository to your home folder.
     - `zsh`:
@@ -50,8 +53,11 @@ To clone this repository into your home directory, you may need to first follow 
         shopt -s dotglob nullglob
         cp -rv /tmp/dotfiles/* $HOME/
       ```
-2. Install required core packages for the configuration to work, 
-    as well as preferred programs. I've written a script to install all necessary packages automatically. This script can be rerun to install any additional packages after an update, and you can even add your own packages to the files to install them. It will also enable any system packages and build my `suckless` utilities.
+2. Install required core packages for the configuration to work, as well as my preferred programs. 
+    I've written a script in my dotfiles that installs all necessary packages automatically. 
+    This script can be rerun to install any additional packages after an update to this repository, 
+    and you can even add your own packages to the files to install them. 
+    It will also enable system packages and build my `suckless` utilities.
     ```bash
     $HOME/.config/installation/setup.sh
     ```
@@ -73,7 +79,7 @@ To clone this repository into your home directory, you may need to first follow 
 
 For the best personalized Arch installation experience I suggest reading the Arch Wiki. It's surprisingly good and goes into depth about customizing Arch to fit your standards. Note that these settings are all settings I prefer to use and may not fit your specific use case.
 
-Another disclaimer - I am a strong advocate for the `vim` and `nvim` text editors, and as such, I used vim to edit files during installation. If you prefer emacs or nano, I encourage you to use such tools.
+Another disclaimer - I am a strong advocate for the `vim` and text editors, and as such, I used `vim` to edit files during installation. If you prefer emacs or nano, I encourage you to use such tools.
 
 #### Table of Contents
 1. [Setup](#setup)
@@ -331,7 +337,7 @@ EndSection
 Then reboot to verify changes.
 
 #### Disabling the grub menu
-If, like me, you only plan on using one boot entry, you can remove it with `sudo vim /etc/default/grub`:
+If, like me, you don't plan on dual-booting or adding boot entries, you can disable the grub selection menu with `sudo vim /etc/default/grub`:
 ```
 GRUB_TIMEOUT=0
 ```
@@ -342,7 +348,17 @@ sudo reboot
 ```
 
 #### Gaming
-A lot of gaming applications (such as the Steam client and Wine client) are 32bit architecture and 
+
+> With these settings, I have been able to play every game I've tried.
+> I use the following hardware components:
+> - CPU: AMD Ryzen 9 3900x
+> - GPU: AMD Radeon RX 580
+>
+> I specifically chose AMD products for my build since all Nvidia
+> drivers are proprietary and I strongly advocate for open source 
+> software. Sorry, no RTX. But I think it's best in the long run.
+
+A lot of gaming applications (such as the Steam client and Wine client) are 32-bit architecture and 
 require the `multilib` repository to be enabled. To enable, `sudo vim /etc/pacman.conf` and uncomment
 the following section:
 ```
@@ -357,7 +373,7 @@ You will also need to install the following packages. Many of these are essentia
 ```
 sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader
 ```
-[https://github.com/lutris/lutris/wiki/Installing-drivers](Lutris also recommended that I install drivers specific to my GPU.)
+[Lutris also recommended that I install drivers specific to my GPU](https://github.com/lutris/lutris/wiki/Installing-drivers).
 
 ## TODO <a name="todo"></a>
 
