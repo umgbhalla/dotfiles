@@ -43,6 +43,10 @@ super + s
 super + shift + s
   $XDG_SCRIPT_HOME/bin/run.sh gui
 
+# emojis
+super + e
+  $XDG_SCRIPT_HOME/emoji
+
 # 
 # networking
 #
@@ -71,10 +75,10 @@ XF86AudioMicMute
 #
 
 Print
-  mkdir -p $HOME/Pictures && scrot "$HOME/Pictures/%y-%m-%d_%H:%M:%S.png"
+  $XDG_SCRIPT_HOME/tui/screenshot
 
 shift + Print
-  sleep 0.2; mkdir -p $HOME/Pictures && scrot -s "$HOME/Pictures/%y-%m-%d_%H:%M:%S.png"
+  $XDG_SCRIPT_HOME/tui/screenshot crop
 
 #
 # brightness control

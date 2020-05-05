@@ -4,5 +4,5 @@ if [[ "$1" == "gui" ]]; then
   $XDG_SCRIPT_HOME/./$script
 else
   script=$(ls $XDG_SCRIPT_HOME/tui/* | sed 's/^\/.*\///' | dmenu -i -l 20 -p "Script:")
-  xdotool type --delay 0 "$XDG_SCRIPT_HOME/tui/\./$script"
+  xdotool type --delay 10 "$XDG_SCRIPT_HOME/tui/$script"
 fi

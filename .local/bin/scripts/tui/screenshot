@@ -1,0 +1,12 @@
+#!/bin/sh
+
+mkdir -p $HOME/Pictures
+
+if [ -z $1 ]; then
+  scrot "$HOME/Pictures/%y-%m-%d_%H:%M:%S.png"
+  dunstify -i dialog-information-symbolic.symbolic -t 500 "Screenshot taken."
+elif [ $1 == "crop" ]; then
+  sleep 0.2
+  scrot -s "$HOME/Pictures/%y-%m-%d_%H:%M:%S.png"
+  dunstify -i dialog-information-symbolic.symbolic -t 500 "Screenshot taken."
+fi

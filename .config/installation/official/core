@@ -22,3 +22,6 @@ xdotool
 
 # notification server
 dunst
+
+# clipboard
+xclip -selection clipboard
