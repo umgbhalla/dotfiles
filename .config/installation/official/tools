@@ -31,5 +31,8 @@ unrar
 unzip
 tar
 
-# chinese characters
+# chinese font
 wqy-zenhei
+# chinese character input
+fcitx
+fcitx-sunpinyin

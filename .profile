@@ -77,8 +77,14 @@ export RANGER_LOAD_DEFAULT_RC="FALSE"
 export REDSHIFT_LAST="$XDG_CACHE_HOME/redshift_last"
 export SHELL="/bin/zsh"
 
+# eth0 and wlan0 interfaces
 export ETH_INTERFACE="$(ip -o link show | awk -F': ' '{print $2}' | grep e)"
 export WIFI_INTERFACE="$(ip -o link show | awk -F': ' '{print $2}' | grep w)"
+
+# fcitx character input
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 
 #
 # config directories
