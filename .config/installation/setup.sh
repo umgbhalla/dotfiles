@@ -3,6 +3,7 @@
 DIR="$(dirname $0)"
 
 # unset git config to prevent yay errors
+gcfg="$GIT_CONFIG"
 unset GIT_CONFIG
 
 #
@@ -73,10 +74,5 @@ done
 git clone https://github.com/EliverLara/Nordic.git /tmp/Nordic
 sudo cp -r /tmp/Nordic /usr/share/themes
 
-#
-# login prompt eyecandy
-#
-
-echo "customizing login prompt..."
-yay -S --needed figlet
-echo "$(cat /etc/hostname | figlet -k)" | { sed 's/\\/\\\\/g'; echo "(\l) \\s \\\r\n" } | sudo tee /etc/issue > /dev/null
+# reset git config
+GIT_CONFIG="$gcfg"

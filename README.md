@@ -160,7 +160,7 @@ We will be creating a main partition for all files and a swap partition for susp
     ```
     fdisk /dev/sda
     ```
-2. Delete all partitions on this drive by typing `d` consecutively until it states that no partitions are defined.
+2. Delete all partitions on this drive by typing `d` consecutively and selecting existing partitions until it states that no partitions are defined.
 3. Type `p` to display the disk size.
 3. Type `n` to create a new partition, and `p` to make this a primary partition. Partition number and first sector can both be left at default. You can press `ENTER` to use the default for both of these prompts.
 4. This partition will be the swap partition, which will be twice the size of RAM. My system uses 16Gb of RAM, so the partition created will be 2 x 16Gb = 32Gb.
@@ -374,6 +374,14 @@ You will also need to install the following packages. Many of these are essentia
 sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader
 ```
 [Lutris also recommended that I install drivers specific to my GPU](https://github.com/lutris/lutris/wiki/Installing-drivers).
+
+#### Login
+
+The default login prompt is generic and simple. If you would like to modify it, you can use different X-run interfaces to beautify the login prompt. I aim for minimalism, and think that any X server running before a user logs in is unnecessary. As an alternative, you can edit the `/etc/issue` file to modify what is displayed on the login prompt. In my setup, I use `figlet` to create a fancy hostname title on the login prompt.
+```
+yay -S --needed figlet
+echo "$(cat /etc/hostname | figlet -k)" | { sed 's/\\/\\\\/g'; echo "(\l) \\s \\\r\n" } | sudo tee /etc/issue > /dev/null
+```
 
 ## TODO <a name="todo"></a>
 
