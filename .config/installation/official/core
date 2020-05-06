@@ -24,4 +24,4 @@ xdotool
 dunst
 
 # clipboard
-xclip -selection clipboard
+xclip
