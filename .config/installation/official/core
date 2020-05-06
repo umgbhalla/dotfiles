@@ -1,3 +1,9 @@
+# window manager
+bspwm
+
+# key binding manager
+sxhkd
+
 # background
 feh
 

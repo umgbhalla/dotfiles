@@ -40,7 +40,7 @@ Gaming Client: lutris
 >  - If you would like to wipe an entire machine and begin from scratch with my setup, I have outlined a clean Arch installation according to my preferences in [manual installation](#manualinstall). This may be a bit more work but guarantees that the setup will work exactly the same as mine.
 >  - If you would like to install the dotfiles on top of an existing OS or setup, you can follow the instructions below to clone my dotfiles into your setup. However, be forewarned - I can't guarantee anything will work. You will likely have to fiddle with the `.xinitrc` and `.profile` files a bit to get everything working properly, and it may cost you a considerable amount of time to get everything to work in the long run.
 
-1. Clone this repository to your home folder.
+1. Clone this repository to your home folder. If you followed the [manual installation](#manualinstall), choose `zsh` here.
     - `zsh`:
       ```zsh
       git clone --recursive https://github.com/bossley9/dotfiles.git /tmp/dotfiles
@@ -270,7 +270,7 @@ We will be creating a main partition for all files and a swap partition for susp
     umount -R /mnt
     shutdown -h now
     ```
-2. Unplug the usb and power on the machine. It should boot immediately into the Arch login. If not, repeat the previous steps to install Arch.
+2. Unplug the usb and power on the machine. It should boot immediately into the Arch login. Then log in as the root user. If not, repeat the previous steps to install Arch.
 
 #### Wifi <a name="wifi"></a>
 
@@ -311,15 +311,16 @@ We will be creating a main partition for all files and a swap partition for susp
     sudo pacman -S zsh
     chsh -s /bin/zsh
     ```
-3. Install `x`, the `bspwm` window manager, and the `sxhkd` hotkey manager.
+3. Install `X` server packages.
     ```
-    sudo pacman -S xorg-xinit xorg-server bspwm sxhkd
+    sudo pacman -S xorg-xinit xorg-server
     ```
 4. (Optional) If you choose to not use `st` as a terminal emulator, make sure you install one and change the `TERM` environment variable located in `.profile` and update the binding in `sxhkdrc`.
 5. Log out and log back in, then install my dotfiles. See [cloning](#cloning) for more details.
     ```
     exit
     ```
+    If prompted to create a `zsh` startup file, you can press `q` to quit and do nothing. My dotfiles contain necessary `zsh` startup files.
 
 ## Additional Configuration <a name="addconfig"></a>
 
