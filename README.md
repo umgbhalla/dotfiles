@@ -59,6 +59,7 @@ Gaming Client: lutris
     and you can even add your own packages to the files to install them. 
     It will also enable system packages and build my `suckless` utilities.
     ```bash
+    source $HOME/.profile
     $HOME/.config/installation/setup.sh
     ```
     Restart and verify all packages are running properly.
