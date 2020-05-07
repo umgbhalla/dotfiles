@@ -1,4 +1,4 @@
-# dotfiles
+# [BSPWM] Stone Ocean
 
 ![screenshot of desktop and vim](.config/installation/scr.png)
 ![screenshot of lutris, scrcpy, and ranger](.config/installation/scr2.png)
@@ -31,7 +31,6 @@ Editor: neovim
 Browser: brave
 File Exporer: ranger
 System Profiler:  htop
-Gaming Client: lutris
 ```
 
 ## Cloning <a name="cloning"></a>
