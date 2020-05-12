@@ -9,7 +9,14 @@ call plug#begin('~/.vim/plugged')
 Plug 'sheerun/vim-polyglot' " improved syntax highlighting
 Plug 'sainnhe/edge' " color scheme
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-" Plug 'pangloss/vim-javascript' " js syntax highlighting
+" replace netrw with ranger
+"Plug 'rbgrouleff/bclose.vim'
+" Plug 'francoiscabrol/ranger.vim'
+
+" react and tsx syntax highlighting
+"Plug 'HerringtonDarkholme/yats.vim'
+"Plug 'yuezk/vim-js'
+"Plug 'maxmellon/vim-jsx-pretty'
 
 call plug#end()
 
@@ -17,7 +24,12 @@ call plug#end()
 " plugin settings
 " ------------------------------------------------------------------------------
 
-let g:hardtime_default_on = 1 " hardtime on by default
+"let g:ranger_map_keys = 0
+"map <c-b> :Ranger<CR>
+
+let g:vim_jsx_pretty_colorful_config = 1
+" get jsx-pretty override polyglot
+"let g:polyglot_disabled = ['jsx']
 
 " ------------------------------------------------------------------------------
 "  general configuration
@@ -32,14 +44,6 @@ set wildignore+=**/node_modules/**,**/.git/**
 
 " look for tags in .git
 set tags+=./.git/tags;
-
-" netrw file browser
-" hide banner
-let g:netrw_banner=0
-" open split to the right
-let g:netrw_altv=1
-" tree view
-let g:netrw_liststyle=3
 
 " line numbers
 set number
@@ -78,15 +82,10 @@ filetype plugin on
 syntax on
 filetype indent on
 
-" disable arrow key bindings
-" no pain, no gain
-for i in ['Left', 'Down', 'Up', 'Right']
-  execute 'nnoremap <' . i . '> :echo "' . i . ' has been disabled by the user."<CR>'
-  execute 'vnoremap <' . i . '> <C-u>:echo "' . i . ' has been disabled by the user."<CR>'
-  execute 'inoremap <' . i . '> <C-o>:echo "' . i . ' has been disabled by the user."<CR>'
-endfor
-
+"
 " color scheme
+"
+
 " important!!
 set termguicolors
 " for dark version
@@ -107,5 +106,15 @@ autocmd VimEnter *
 " make visual highlight more visible
 hi Visual cterm=reverse gui=reverse
 
-" automatically open markdown preview
-"let g:mkdp_auto_start = 1
+"
+" hardcore mode
+" no pain, no gain
+"
+
+" disable arrow key bindings
+for i in ['Left', 'Down', 'Up', 'Right']
+  execute 'nnoremap <' . i . '> :echo "' . i . ' has been disabled by the user."<CR>'
+  execute 'vnoremap <' . i . '> <C-u>:echo "' . i . ' has been disabled by the user."<CR>'
+  execute 'inoremap <' . i . '> <C-o>:echo "' . i . ' has been disabled by the user."<CR>'
+endfor
+
