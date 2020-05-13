@@ -36,3 +36,6 @@ wqy-zenhei
 # chinese character input
 fcitx
 fcitx-sunpinyin
+
+# languages
+typescript
