@@ -39,3 +39,7 @@ fcitx-sunpinyin
 
 # languages
 typescript
+
+# pdf viewer
+zathura
+zathura-pdf-mupdf

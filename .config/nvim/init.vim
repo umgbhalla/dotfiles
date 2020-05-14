@@ -10,8 +10,8 @@ Plug 'sheerun/vim-polyglot' " improved syntax highlighting
 Plug 'sainnhe/edge' " color scheme
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " replace netrw with ranger
-"Plug 'rbgrouleff/bclose.vim'
-" Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
+Plug 'francoiscabrol/ranger.vim'
 
 " react and tsx syntax highlighting
 "Plug 'HerringtonDarkholme/yats.vim'
@@ -25,7 +25,7 @@ call plug#end()
 " ------------------------------------------------------------------------------
 
 "let g:ranger_map_keys = 0
-"map <c-b> :Ranger<CR>
+map <c-b> :Ranger<CR>
 
 let g:vim_jsx_pretty_colorful_config = 1
 " get jsx-pretty override polyglot
@@ -107,8 +107,7 @@ autocmd VimEnter *
 hi Visual cterm=reverse gui=reverse
 
 "
-" hardcore mode
-" no pain, no gain
+" hardcore mode - no pain, no gain
 "
 
 " disable arrow key bindings

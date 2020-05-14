@@ -1,0 +1,25 @@
+# remove extra padding
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+
+# padding between pages (px)
+set page-padding 1
+
+# view side by side first page on the left
+set first-page-column 1:1
+
+# dark mode because I'm a chad
+set recolor true
+
+# mappings
+
+map <C-K> zoom in
+map <C-J> zoom out
+
+map <C-k> scroll half-up
+map <C-j> scroll half-down
+
+map i recolor
+
+# copying to clipboard
+set selection-clipboard clipboard
