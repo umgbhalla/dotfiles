@@ -67,7 +67,16 @@ function rp() {
 alias \
   r="ranger" \
   rc='ranger --choosedir=$XDG_CACHE_HOME/ranger_dir; LASTDIR=`cat $XDG_CACHE_HOME/ranger_dir`; cd "$LASTDIR"' \
-  c="find -L $XDG_CONFIG_HOME -type f | fzf | xargs -r $EDITOR"
+  c="find -L $XDG_CONFIG_HOME $XDG_SCRIPT_HOME -type f | fzf | xargs -r $EDITOR"
+
+function b() {
+  CONFIG=$XDG_CACHE_HOME/bookmarks; touch $CONFIG
+  bpath=$(cat $CONFIG | dmenu -i -l 20 | cut -d',' -f2)
+  bpath=$(eval "echo $bpath")
+  if ! cd $bpath; then
+    echo -e "${RED}Error: invalid bookmark.\nAdd new bookmarks to $XDG_CACHE_HOME/bookmarks with the format 'identifier, path'${NC}"
+fi
+}
 
 # suckless building
 function sbuild() {

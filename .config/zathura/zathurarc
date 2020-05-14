@@ -8,9 +8,6 @@ set page-padding 1
 # view side by side first page on the left
 set first-page-column 1:1
 
-# dark mode because I'm a chad
-set recolor true
-
 # mappings
 
 map <C-K> zoom in
@@ -19,6 +16,7 @@ map <C-J> zoom out
 map <C-k> scroll half-up
 map <C-j> scroll half-down
 
+# dark mode because I'm a chad
 map i recolor
 
 # copying to clipboard
