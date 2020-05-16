@@ -28,7 +28,7 @@ Status Bar: polybar
 Launcher: dmenu
 
 Editor: neovim
-Browser: brave
+Browser: brave (with cVim, JSON Formatter, and React Developer Tools extensions)
 File Exporer: ranger
 System Profiler:  htop
 ```
@@ -323,6 +323,14 @@ We will be creating a main partition for all files and a swap partition for susp
     If prompted to create a `zsh` startup file, you can press `q` to quit and do nothing. My dotfiles contain necessary `zsh` startup files.
 
 ## Additional Configuration <a name="addconfig"></a>
+
+#### Mirrorlist
+Sometimes downloading and installing packages takes longer than necessary because the package manager is looking through outdated (out of sync) mirrors or geographically far away ones. While there are many ways to organize the order in which mirrors are tried, I usually use `Reflector` because it is fast and works very well.
+```
+sudo pacman -S reflector
+sudo reflector --latest 50 --sort rate --save /etc/pacman.d/mirrorlist
+```
+See the [Reflector site](https://xyne.archlinux.ca/projects/reflector/) for additional options and fine-tuning settings.
 
 #### Touchpad settings
 By default, most linux distros disable natural scrolling and disable touchpad tapping. I personally find this very irritating. To change touchpad settings, `sudo vim /etc/X11/xorg.conf.d/30-touchpad.conf` and add the following configuration:

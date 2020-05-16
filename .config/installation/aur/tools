@@ -1,0 +1,5 @@
+# prints key names to the console
+xorg-xev
+
+# js/ts runtime
+deno
