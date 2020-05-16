@@ -59,6 +59,7 @@ function g() {
 # repo browser
 function rp() {
   repoPath="$HOME/Repos"
+  mkdir -p $repoPath
   repo=$(ls -d $repoPath/* | sed 's/^\/.*\///' | dmenu -i -l 20)
   cd $repoPath/$repo
 }
