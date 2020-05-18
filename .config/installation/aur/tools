@@ -3,3 +3,6 @@ xorg-xev
 
 # js/ts runtime
 deno
+
+# emoji support
+otf-openmoji
