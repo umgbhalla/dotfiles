@@ -356,6 +356,18 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo reboot
 ```
 
+#### DaVinci Resolve
+`DaVinci Resolve` can be quite cumbersome to get working on a Linux system, especially for one using an AMD gpu. These are the steps I took to install it on my machine, being very particular on drivers.
+```
+sudo pacman -S xf86-video-amdgpu vulkan-radeon libva-mesa-driver
+yay -S amdgpu-pro-libgl opencl-amd
+sudo reboot
+--------------------------------------------
+yay -S davinci-resolve
+```
+It's also important that the free version that comes with Linux does not have mp3/4 or h.264 support.
+I have a simple shell function written in `.config/aliasrc` which converts to the right codecs.
+
 #### Gaming
 
 > With these settings, I have been able to play every game I've tried.
