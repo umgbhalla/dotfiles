@@ -13,6 +13,11 @@ alias \
     rm="rm -v" \
     md="mkdir -pv" \
     grep="grep --color=auto"
+
+if [ $OS = "Darwin" ]; then
+    unalias ls
+    alias ls="ls -GF"
+fi
     
 function cd() { builtin cd "$@" && ls }
 

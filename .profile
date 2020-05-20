@@ -13,10 +13,14 @@ export XDG_DATA_HOME="$HOME/.local/share"
 # default programs
 #
 
+export OS="$(uname)"
+
 export EDITOR="nvim"
 
-export TERM="st"
-export TERMINAL="$TERM"
+if [ $OS != "Darwin" ]; then
+  export TERM="st"
+  export TERMINAL="$TERM"
+fi
 
 export BROWSER="brave"
 export BROWSER_INCOGNITO="brave"
@@ -80,8 +84,10 @@ export REDSHIFT_LAST="$XDG_CACHE_HOME/redshift_last"
 export SHELL="/bin/zsh"
 
 # eth0 and wlan0 interfaces
-export ETH_INTERFACE="$(ip -o link show | awk -F': ' '{print $2}' | grep e)"
-export WIFI_INTERFACE="$(ip -o link show | awk -F': ' '{print $2}' | grep w)"
+if [ $OS != "Darwin" ]; then
+  export ETH_INTERFACE="$(ip -o link show | awk -F': ' '{print $2}' | grep e)"
+  export WIFI_INTERFACE="$(ip -o link show | awk -F': ' '{print $2}' | grep w)"
+fi
 
 # fcitx character input
 export GTK_IM_MODULE=fcitx

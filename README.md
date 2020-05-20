@@ -5,6 +5,8 @@
 
 These are the dotfiles I use regularly in my school laptop and home desktop. I highly recommend against copying these dotfiles blindly unless you know exactly what each file does to your system. Some of the features or packages I use in my system are experimental or built with specific hardware in mind. I take no responsibility for any damages or system failures you may encounter - that being said, if you come across a reproducible issue or would like to ask me questions, feel free to open an issue or contact me privately and I would be more than happy to help.
 
+I also have been working on compatibility with MacOS. While I cannot fix everything to work in MacOS, basic utilities and command-line aliases are compatible. See [cloning](#cloning).
+
 I use to primarily use Wayland and have a setup specifically set up for use with Sway. If you're interested, you can check it out in [this release](https://github.com/bossley9/dotfiles/tree/2020.03.11).
 
 ## Table of Contents
@@ -57,9 +59,15 @@ System Profiler:  htop
     This script can be rerun to install any additional packages after an update to this repository, 
     and you can even add your own packages to the files to install them. 
     It will also enable system packages and build my `suckless` utilities.
-    ```bash
+    **GNU/Linux:**
+    ```sh
     source $HOME/.profile
     $HOME/.config/installation/setup.sh
+    ```
+    **MacOS:**
+    ```sh
+    source $HOME/.profile
+    $HOME/.config/installation/macos.sh
     ```
     Restart and verify all packages are running properly.
     ```
