@@ -97,7 +97,7 @@ Another disclaimer - I am a strong advocate for the `vim` and text editors, and 
 4. [Disk Partitioning](#diskpartition)
 5. [Distro Installation](#distroinstall)
 6. [Mounting with Fstab](#fstabmount)
-7. [System Network Manager](networkmanager)
+7. [System Network Manager](#networkmanager)
 8. [Grub Bootloader](#grubboot)
 9. [Password](#password)
 10. [Locales and System Information](#locales)

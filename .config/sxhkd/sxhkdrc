@@ -8,7 +8,7 @@ super + Return
   $TERM
 
 # launcher
-super + d
+super + space
   dmenu_run
 
 # browser
