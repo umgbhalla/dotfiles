@@ -59,15 +59,11 @@ System Profiler:  htop
     This script can be rerun to install any additional packages after an update to this repository, 
     and you can even add your own packages to the files to install them. 
     It will also enable system packages and build my `suckless` utilities.
+
     **GNU/Linux:**
     ```sh
     source $HOME/.profile
     $HOME/.config/installation/setup.sh
-    ```
-    **MacOS:**
-    ```sh
-    source $HOME/.profile
-    $HOME/.config/installation/macos.sh
     ```
     Restart and verify all packages are running properly.
     ```
@@ -81,6 +77,11 @@ System Profiler:  htop
     changed as `template.config.h` instead of the standard `config.h`.
     ```
     patch --merge -i patchName.diff
+    ```
+    **MacOS:**
+    ```sh
+    source $HOME/.profile
+    $HOME/.config/installation/macos.sh
     ```
 
 ## Manual Installation <a name="manualinstall"></a>
