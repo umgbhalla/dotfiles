@@ -7,3 +7,6 @@ signal
 
 # phone display
 scrcpy
+
+# slack
+slack-desktop

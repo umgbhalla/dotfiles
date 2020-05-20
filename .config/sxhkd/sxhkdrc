@@ -33,6 +33,10 @@ super + p
 super + u
   discord
 
+# slack (for actual productivity)
+super + o
+  slack
+
 #
 # general scripts
 #
