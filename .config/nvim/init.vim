@@ -1,7 +1,7 @@
 " neovim configuration
 
 " ------------------------------------------------------------------------------
-" plugins
+"  plugins
 " ------------------------------------------------------------------------------
 
 call plug#begin('~/.vim/plugged')
@@ -21,7 +21,7 @@ Plug 'francoiscabrol/ranger.vim'
 call plug#end()
 
 " ------------------------------------------------------------------------------
-" plugin settings
+"  plugin settings
 " ------------------------------------------------------------------------------
 
 "let g:ranger_map_keys = 0
@@ -82,12 +82,21 @@ filetype plugin on
 syntax on
 filetype indent on
 
-"
-" color scheme
-"
+" automatically install plugins
+autocmd VimEnter *
+  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q
+  \| endif
+
+" ------------------------------------------------------------------------------
+"  color scheme
+" ------------------------------------------------------------------------------
 
 " important!!
-set termguicolors
+if ! has('macunix')
+  set termguicolors
+endif
+
 " for dark version
 set background=dark
 " the configuration options should be placed before `colorscheme edge`
@@ -97,18 +106,12 @@ hi Normal       ctermbg=None guibg=None
 hi NonText      ctermbg=None guibg=None
 hi EndOfBuffer  ctermbg=None guibg=None
 
-" automatically install plugins
-autocmd VimEnter *
-  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \|   PlugInstall --sync | q
-  \| endif
-
 " make visual highlight more visible
 hi Visual cterm=reverse gui=reverse
 
-"
-" hardcore mode - no pain, no gain
-"
+" ------------------------------------------------------------------------------
+"  hardcore mode - no pain, no gain
+" ------------------------------------------------------------------------------
 
 " disable arrow key bindings
 for i in ['Left', 'Down', 'Up', 'Right']

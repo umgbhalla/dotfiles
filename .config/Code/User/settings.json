@@ -8,5 +8,7 @@
     "zenMode.hideLineNumbers": false,
     "zenMode.hideTabs": false,
     "zenMode.restore": true,
-    "zenMode.silentNotifications": false
+    "zenMode.silentNotifications": false,
+    "vscode-neovim.neovimPath": "/usr/local/bin/nvim",
+    "vscode-neovim.neovimInitPath": "$HOME/.config/nvim/init.vim",
 }

@@ -3,3 +3,9 @@ neovim
 
 # yarn package manager
 yarn
+
+# fuzzy
+fzf
+
+# necessary for suckless utilities and xft
+#freetype
