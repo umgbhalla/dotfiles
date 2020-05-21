@@ -89,7 +89,7 @@ autocmd VimEnter *
   \| endif
 
 " ------------------------------------------------------------------------------
-"  color scheme
+"  coloring and display
 " ------------------------------------------------------------------------------
 
 " important!!
@@ -108,6 +108,12 @@ hi EndOfBuffer  ctermbg=None guibg=None
 
 " make visual highlight more visible
 hi Visual cterm=reverse gui=reverse
+
+" disable visual/audio bell
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
 
 " ------------------------------------------------------------------------------
 "  hardcore mode - no pain, no gain

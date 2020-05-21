@@ -9,3 +9,6 @@ fzf
 
 # necessary for suckless utilities and xft
 #freetype
+
+# file explorer
+ranger
