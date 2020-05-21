@@ -65,7 +65,11 @@ function g() {
 function rp() {
   repoPath="$HOME/Repos"
   mkdir -p $repoPath
-  repo=$(ls -d $repoPath/* | sed 's/^\/.*\///' | dmenu -i -l 20)
+  if [ $OS = "Darwin" ]; then
+    repo=$(ls $repoPath | fzf)
+  else
+    repo=$(ls -d $repoPath/* | sed 's/^\/.*\///' | dmenu -i -l 20)
+  fi
   cd $repoPath/$repo
 }
 
