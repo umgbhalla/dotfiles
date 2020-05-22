@@ -13,10 +13,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'rbgrouleff/bclose.vim'
 Plug 'francoiscabrol/ranger.vim'
 
-" react and tsx syntax highlighting
-"Plug 'HerringtonDarkholme/yats.vim'
-"Plug 'yuezk/vim-js'
-"Plug 'maxmellon/vim-jsx-pretty'
+" linting and prettying
+Plug 'dense-analysis/ale'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 call plug#end()
 
@@ -28,8 +27,12 @@ call plug#end()
 map <c-b> :Ranger<CR>
 
 let g:vim_jsx_pretty_colorful_config = 1
-" get jsx-pretty override polyglot
-"let g:polyglot_disabled = ['jsx']
+
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'typescriptreact': ['prettier'],
+\}
 
 " ------------------------------------------------------------------------------
 "  general configuration
