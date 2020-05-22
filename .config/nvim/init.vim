@@ -6,8 +6,11 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'sheerun/vim-polyglot' " improved syntax highlighting
-Plug 'sainnhe/edge' " color scheme
+" improved syntax highlighting
+Plug 'sheerun/vim-polyglot'
+" color scheme
+Plug 'sainnhe/edge'
+" markdown previews
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " replace netrw with ranger
 Plug 'rbgrouleff/bclose.vim'
@@ -22,8 +25,10 @@ call plug#end()
 "  plugin settings
 " ------------------------------------------------------------------------------
 
-"let g:ranger_map_keys = 0
+let g:ranger_map_keys = 0
 map <c-b> :Ranger<CR>
+" open ranger instead of netrw for folders
+let g:ranger_replace_netrw = 1
 
 let g:vim_jsx_pretty_colorful_config = 1
 
@@ -135,9 +140,10 @@ if has('autocmd')
 endif
 
 " ------------------------------------------------------------------------------
-"  hardcore mode - no pain, no gain
+"  navigation
 " ------------------------------------------------------------------------------
 
+" hardcore mode - no pain, no gain
 " disable arrow key bindings
 for i in ['Left', 'Down', 'Up', 'Right']
   execute 'nnoremap <' . i . '> :echo "' . i . ' has been disabled by the user."<CR>'
@@ -147,6 +153,14 @@ endfor
 
 " ... but mouse user-friendliness
 set mouse=a
+
+" faster vertical jumping
+nnoremap <silent> <M-j> 5j
+vnoremap <silent> <M-j> 5j
+
+nnoremap <silent> <M-k> 5k
+vnoremap <silent> <M-k> 5k
+
 
 " ------------------------------------------------------------------------------
 "  terminal management
@@ -216,12 +230,9 @@ fu! SaveSession()
     if getbufvar(b, '&buftype', 'ERROR') ==# 'terminal' | execute 'bd!' . b | endif
   endfor
   
-  " make directories
-  execute 'silent !mkdir -p ~/.nvim'
-  execute 'silent !mkdir -p ' . getcwd() . '/.nvim'
-
-  execute 'mksession! ' . getcwd() . '/.nvim/session'
-  execute 'mksession! ~/.nvim/session'
+  " make directories and session
+  execute 'silent !mkdir -p $XDG_CACHE_HOME/nvim' . trim(execute('pwd'))
+  execute 'mksession! $XDG_CACHE_HOME/nvim' . trim(execute('pwd')) . '/session'
 endfunction
 
 fu! RestoreBuff(lastBuf)
@@ -238,13 +249,9 @@ fu! RestoreSession()
   " only restore if called with no arguments
   if eval('@%') == ''
     " if current directory session exists
-    if filereadable(getcwd() . '/.nvim/session')
-      execute 'so ' . getcwd() . '/.nvim/session'
-        call RestoreBuff(bufnr('$'))
-    " if latest session exists
-    elseif filereadable('~/.nvim/session')
-      execute 'so ~/.nvim/session'
-        call RestoreBuff(bufnr('$'))
+    if filereadable(expand('$XDG_CACHE_HOME/nvim' . trim(execute('pwd')) . '/session'))
+      execute 'so $XDG_CACHE_HOME/nvim' . trim(execute('pwd')) . '/session'
+      call RestoreBuff(bufnr('$'))
     endif
   endif
 endfunction
