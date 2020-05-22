@@ -83,6 +83,8 @@ System Profiler:  htop
     source $HOME/.profile
     $HOME/.config/installation/macos.sh
     ```
+    I generally utilize OSX's default terminal, changing the background to a darker theme.
+    In order to use the terminal buffer keymap(s) in `nvim`, make sure to set the `use option as meta key` option in the profile keyboard settings.
 
 ## Manual Installation <a name="manualinstall"></a>
 
