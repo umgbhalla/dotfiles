@@ -93,6 +93,12 @@ autocmd VimEnter *
   \|   PlugInstall --sync | q
   \| endif
 
+" prevent comments from continuing to new lines
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" remove file name displayed in the command line bar
+set shortmess+=F
+
 " ------------------------------------------------------------------------------
 "  coloring and display
 " ------------------------------------------------------------------------------
@@ -193,3 +199,56 @@ fu! TExit(job_id, code, event) dict
   let s:termState = 0
   if winnr('$') ==# 1 | qa! | else | bw! | endif
 endfunction
+
+" ------------------------------------------------------------------------------
+"  session management
+" ------------------------------------------------------------------------------
+
+let s:shouldSaveSession = 0
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | let s:shouldSaveSession = 1 | endif
+
+fu! SaveSession()
+  if s:shouldSaveSession == 0 | qa! | endif
+    
+  " close all terminal buffers  
+  for b in range(1, bufnr('$'))
+    if getbufvar(b, '&buftype', 'ERROR') ==# 'terminal' | execute 'bd!' . b | endif
+  endfor
+  
+  " make directories
+  execute 'silent !mkdir -p ~/.nvim'
+  execute 'silent !mkdir -p ' . getcwd() . '/.nvim'
+
+  execute 'mksession! ' . getcwd() . '/.nvim/session'
+  execute 'mksession! ~/.nvim/session'
+endfunction
+
+fu! RestoreBuff(lastBuf)
+  if bufexists(1)
+    for l in range(1, a:lastBuf)
+      if bufwinnr(l) == -1
+        exec 'sbuffer ' . l
+      endif
+    endfor
+  endif
+endfunction
+
+fu! RestoreSession()
+  " only restore if called with no arguments
+  if eval('@%') == ''
+    " if current directory session exists
+    if filereadable(getcwd() . '/.nvim/session')
+      execute 'so ' . getcwd() . '/.nvim/session'
+        call RestoreBuff(bufnr('$'))
+    " if latest session exists
+    elseif filereadable('~/.nvim/session')
+      execute 'so ~/.nvim/session'
+        call RestoreBuff(bufnr('$'))
+    endif
+  endif
+endfunction
+
+" saving session
+autocmd VimLeavePre * call SaveSession()
+autocmd VimEnter * nested call RestoreSession()
