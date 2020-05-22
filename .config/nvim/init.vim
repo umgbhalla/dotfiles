@@ -139,3 +139,57 @@ for i in ['Left', 'Down', 'Up', 'Right']
   execute 'inoremap <' . i . '> <C-o>:echo "' . i . ' has been disabled by the user."<CR>'
 endfor
 
+" ... but mouse user-friendliness
+set mouse=a
+
+" ------------------------------------------------------------------------------
+"  terminal management
+" ------------------------------------------------------------------------------
+
+command Ttoggle call Ttoggle()
+
+inoremap <M-`> <C-\><C-n>:Ttoggle<CR>
+nnoremap <M-`> :Ttoggle<CR>
+vnoremap <M-`> :Ttoggle<CR>
+tnoremap <M-`> <C-\><C-n>:Ttoggle<CR>
+
+tnoremap <silent> <Esc> <C-\><C-n>
+
+let s:termState = 0
+fu! Ttoggle()
+  if s:termState == 0     " terminal is not open
+    let s:termBuffNr = -1
+    for b in range(1, bufnr('$'))
+      if getbufvar(b, '&buftype', 'ERROR') ==# 'terminal'
+        let s:termBuffNr = b
+        break
+      endif
+    endfor
+
+    belowright split
+    resize 10
+
+    if s:termBuffNr >= 0  " if terminal buffer already exists
+      execute 'b' . s:termBuffNr
+    else
+      enew
+      call termopen('zsh', {'on_exit': 'TExit'})
+    endif
+
+    set nonumber
+    set norelativenumber
+    set signcolumn=no
+    set nocursorline
+
+    startinsert
+  else                    " terminal is open
+    normal <C-v><C-\><C-n>
+    hide
+  endif
+  let s:termState = ! s:termState
+endfunction
+
+fu! TExit(job_id, code, event) dict
+  let s:termState = 0
+  if winnr('$') ==# 1 | qa! | else | bw! | endif
+endfunction
