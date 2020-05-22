@@ -12,7 +12,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " replace netrw with ranger
 Plug 'rbgrouleff/bclose.vim'
 Plug 'francoiscabrol/ranger.vim'
-
 " linting and prettying
 Plug 'dense-analysis/ale'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
@@ -29,6 +28,9 @@ map <c-b> :Ranger<CR>
 let g:vim_jsx_pretty_colorful_config = 1
 
 let g:ale_fix_on_save = 1
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'typescriptreact': ['prettier'],
@@ -105,12 +107,20 @@ set background=dark
 " the configuration options should be placed before `colorscheme edge`
 let g:edge_disable_italic_comment = 1
 colorscheme edge
-hi Normal       ctermbg=None guibg=None
-hi NonText      ctermbg=None guibg=None
-hi EndOfBuffer  ctermbg=None guibg=None
+hi Normal                 ctermbg=None guibg=None
+hi NonText                ctermbg=None guibg=None
+hi EndOfBuffer            ctermbg=None guibg=None
 
 " make visual highlight more visible
 hi Visual cterm=reverse gui=reverse
+
+" always display sign column
+if has('signcolumn') | set signcolumn=yes | endif
+hi SignColumn             ctermbg=None guibg=None
+highlight ALEErrorSign    ctermbg=None guibg=None
+highlight ALEWarningSign  ctermbg=None guibg=None
+" removes highlights to the right of the line number column
+let g:ale_set_highlights = 0
 
 " disable visual/audio bell
 set noerrorbells visualbell t_vb=
