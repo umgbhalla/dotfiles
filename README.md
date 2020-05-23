@@ -419,4 +419,4 @@ echo "$(cat /etc/hostname | figlet -k)" | { sed 's/\\/\\\\/g'; echo "(\l) \\s \\
 
 Below are a list of things in no particular order that I plan to do but haven't yet implemented or had the time to configure.
 
-- fix ctags `-R` option in OSX (Darwin)
+- no todos!

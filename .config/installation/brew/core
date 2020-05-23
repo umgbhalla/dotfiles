@@ -1,5 +1,7 @@
 # editor
 neovim
+# ctags
+ctags
 
 # yarn package manager
 yarn
