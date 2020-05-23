@@ -18,6 +18,8 @@ Plug 'francoiscabrol/ranger.vim'
 " linting and prettying
 Plug 'dense-analysis/ale'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+" fuzzy file finding
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
@@ -32,6 +34,7 @@ let g:ranger_replace_netrw = 1
 
 let g:vim_jsx_pretty_colorful_config = 1
 
+" ale configuration
 let g:ale_fix_on_save = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '>>'
@@ -40,6 +43,17 @@ let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'typescriptreact': ['prettier'],
 \}
+
+" ctrlp fzf configuration
+" include more search results in fuzzy finder
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:15'
+" show hidden file results
+let g:ctrlp_show_hidden = 1
+" fuzzy finder ignore files/folders
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+"inoremap <silent> <M-p> <Esc>:CtrlP<CR>
+"nnoremap <silent> <M-p> :CtrlP<CR>
+"vnoremap <silent> <M-p> <Esc>:CtrlP<CR>
 
 " ------------------------------------------------------------------------------
 "  general configuration
