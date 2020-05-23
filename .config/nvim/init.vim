@@ -23,6 +23,12 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
+
+" temporary
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 " ------------------------------------------------------------------------------
 "  plugin settings
 " ------------------------------------------------------------------------------
@@ -51,9 +57,6 @@ let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:15'
 let g:ctrlp_show_hidden = 1
 " fuzzy finder ignore files/folders
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-"inoremap <silent> <M-p> <Esc>:CtrlP<CR>
-"nnoremap <silent> <M-p> :CtrlP<CR>
-"vnoremap <silent> <M-p> <Esc>:CtrlP<CR>
 
 " ------------------------------------------------------------------------------
 "  general configuration
@@ -137,7 +140,7 @@ hi NonText                ctermbg=None guibg=None
 hi EndOfBuffer            ctermbg=None guibg=None
 
 " make visual highlight more visible
-hi Visual cterm=reverse gui=reverse
+hi Visual                 cterm=reverse gui=reverse
 
 " always display sign column
 if has('signcolumn') | set signcolumn=yes | endif
@@ -152,6 +155,9 @@ set noerrorbells visualbell t_vb=
 if has('autocmd')
   autocmd GUIEnter * set visualbell t_vb=
 endif
+
+" improved matching brace visibility
+hi MatchParen             cterm=reverse gui=reverse
 
 " ------------------------------------------------------------------------------
 "  navigation
@@ -168,13 +174,17 @@ endfor
 " ... but mouse user-friendliness
 set mouse=a
 
+" ctrl+c to copy to system clipboard
+" copy entire line
+nnoremap <C-c> <Esc>v<S-v>"+y 
+vnoremap <C-c> "+y
+
 " faster vertical jumping
-nnoremap <silent> <M-j> 5j
-vnoremap <silent> <M-j> 5j
+nnoremap <silent> <C-j> 5j
+vnoremap <silent> <C-j> 5j
 
-nnoremap <silent> <M-k> 5k
-vnoremap <silent> <M-k> 5k
-
+nnoremap <silent> <C-k> 5k
+vnoremap <silent> <C-k> 5k
 
 " ------------------------------------------------------------------------------
 "  terminal management
