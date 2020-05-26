@@ -419,4 +419,8 @@ echo "$(cat /etc/hostname | figlet -k)" | { sed 's/\\/\\\\/g'; echo "(\l) \\s \\
 
 Below are a list of things in no particular order that I plan to do but haven't yet implemented or had the time to configure.
 
-- no todos!
++ nvim multiple terminal buffer support
++ nvim project-wide search
++ nvim method header tooltips
++ nvim move ALE warnings and errors to line number highlighting
++ nvim git integration

@@ -23,12 +23,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
-
-" temporary
-map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
 " ------------------------------------------------------------------------------
 "  plugin settings
 " ------------------------------------------------------------------------------
@@ -49,6 +43,15 @@ let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'typescriptreact': ['prettier'],
 \}
+
+fu! TogglePrettierOnSave()
+  if (g:ale_fix_on_save == 0)
+    let g:ale_fix_on_save = 1
+  else
+    let g:ale_fix_on_save = 0
+  endif
+endfunction
+command TogglePrettier call TogglePrettierOnSave()
 
 " ctrlp fzf configuration
 " include more search results in fuzzy finder
