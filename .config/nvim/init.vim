@@ -160,7 +160,7 @@ if has('autocmd')
 endif
 
 " improved matching brace visibility
-hi MatchParen             cterm=reverse gui=reverse
+hi MatchParen             ctermbg=178 guibg=178 ctermfg=0 guifg=0
 
 " ------------------------------------------------------------------------------
 "  navigation

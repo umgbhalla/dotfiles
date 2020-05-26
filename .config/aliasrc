@@ -47,6 +47,27 @@ alias \
   date="cal -3 && date && echo" \
   s="$XDG_SCRIPT_HOME/bin/run.sh"
 
+# suckless building
+function sbuild() {
+  dir=$XDG_CONFIG_HOME/$1
+
+  [ -z $1 ] && \
+    echo -e "${RED}No suckless utility specified.${NC}" && return
+  [ ! -d $dir ] && \
+    echo -e "${RED}Invalid suckless utility.${NC}" && return
+  [ ! -f $dir/template.config.h ] && \
+    echo -e "${RED}Unable to find template.config.h in $dir.${NC}" && return
+  
+  olddir=$(pwd)
+  cd $dir && envsubst < template.config.h > config.h
+  sudo make clean install
+  cd $olddir
+}
+
+# ----------------------------------------------------------------
+# version control
+# ----------------------------------------------------------------
+
 # git wrapper
 function g() {
   case "$1" in
@@ -57,9 +78,21 @@ function g() {
         git clone --recursive "${@:2}" && cd "$3"
       fi
       ;;
+    rpull)
+      echo "git pull --rebase origin master"
+      git pull --rebase origin master
+      ;;
+    rpush)
+      echo "git push -f"
+      git push -f
+      ;;
     *) git $@;
   esac
 }
+
+# ----------------------------------------------------------------
+# navigation
+# ----------------------------------------------------------------
 
 # repo browser
 function rp() {
@@ -86,23 +119,6 @@ function b() {
   if ! cd $bpath; then
     echo -e "${RED}Error: invalid bookmark.\nAdd new bookmarks to $XDG_CACHE_HOME/bookmarks with the format 'identifier, path'${NC}"
 fi
-}
-
-# suckless building
-function sbuild() {
-  dir=$XDG_CONFIG_HOME/$1
-
-  [ -z $1 ] && \
-    echo -e "${RED}No suckless utility specified.${NC}" && return
-  [ ! -d $dir ] && \
-    echo -e "${RED}Invalid suckless utility.${NC}" && return
-  [ ! -f $dir/template.config.h ] && \
-    echo -e "${RED}Unable to find template.config.h in $dir.${NC}" && return
-  
-  olddir=$(pwd)
-  cd $dir && envsubst < template.config.h > config.h
-  sudo make clean install
-  cd $olddir
 }
 
 # ----------------------------------------------------------------
