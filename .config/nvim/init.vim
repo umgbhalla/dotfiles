@@ -60,6 +60,9 @@ let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:15'
 let g:ctrlp_show_hidden = 1
 " fuzzy finder ignore files/folders
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" refresh fuzzy finder cache every time a file is saved
+autocmd FocusGained  * CtrlPClearCache
+autocmd BufWritePost * CtrlPClearCache
 
 " ------------------------------------------------------------------------------
 "  general configuration
@@ -147,6 +150,9 @@ hi Visual                 cterm=reverse gui=reverse
 
 " always display sign column
 if has('signcolumn') | set signcolumn=yes | endif
+" always show gutter (set signcolumn=yes does not work in all use cases)
+autocmd BufEnter * sign define dummy
+autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
 hi SignColumn             ctermbg=None guibg=None
 highlight ALEErrorSign    ctermbg=None guibg=None
 highlight ALEWarningSign  ctermbg=None guibg=None
