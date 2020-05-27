@@ -422,5 +422,4 @@ Below are a list of things in no particular order that I plan to do but haven't 
 + nvim multiple terminal buffer support
 + nvim project-wide search
 + nvim method header tooltips
-+ nvim move ALE warnings and errors to line number highlighting
-+ nvim git integration
++ custom nvim colorscheme

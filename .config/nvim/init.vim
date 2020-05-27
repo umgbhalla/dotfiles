@@ -20,6 +20,8 @@ Plug 'dense-analysis/ale'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " fuzzy file finding
 Plug 'ctrlpvim/ctrlp.vim'
+" git diff
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -38,7 +40,7 @@ let g:vim_jsx_pretty_colorful_config = 1
 let g:ale_fix_on_save = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '--'
+let g:ale_sign_warning = '!!'
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'typescriptreact': ['prettier'],
@@ -63,6 +65,16 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 " refresh fuzzy finder cache every time a file is saved
 autocmd FocusGained  * CtrlPClearCache
 autocmd BufWritePost * CtrlPClearCache
+
+" vim-gitgutter
+" git gutter symbols
+let g:gitgutter_sign_added = '++'
+let g:gitgutter_sign_modified = '~~'
+let g:gitgutter_sign_removed = '--'
+" disable gutter keymappings
+let g:gitgutter_map_keys = 0
+" update gutters every x milliseconds
+set updatetime=300
 
 " ------------------------------------------------------------------------------
 "  general configuration
@@ -129,6 +141,9 @@ set shortmess+=F
 
 " ------------------------------------------------------------------------------
 "  coloring and display
+"
+"  for more information on highlighting and current color scheme colors in use,
+"  try looking at :highlight, or :h hi for more details.
 " ------------------------------------------------------------------------------
 
 " important!!
@@ -166,7 +181,18 @@ if has('autocmd')
 endif
 
 " improved matching brace visibility
-hi MatchParen             ctermbg=178 guibg=178 ctermfg=0 guifg=0
+if has('macunix')
+  hi MatchParen             ctermbg=178 guibg=178 ctermfg=0 guifg=0
+else
+  hi MatchParen             cterm=reverse gui=reverse
+endif
+
+" gutter color
+let g:gitgutter_override_sign_column_highlight = 0
+hi SignColumn      ctermbg=None guibg=None
+hi GitGutterAdd    ctermbg=None guibg=None
+hi GitGutterChange ctermbg=None guibg=None
+hi GitGutterDelete ctermbg=None guibg=None
 
 " ------------------------------------------------------------------------------
 "  navigation

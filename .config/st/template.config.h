@@ -9,7 +9,7 @@
 /*
  * appearance
  */
-static char *font = "Liberation Mono:pixelsize=16:antialias=true:autohint=true";
+static char *font = "Liberation Mono:pixelsize=14:antialias=true:autohint=true";
 static int borderpx = $WM_GAPS;
 
 /*
