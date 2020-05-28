@@ -4,7 +4,7 @@
 "  plugins
 " ------------------------------------------------------------------------------
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
 
 " improved syntax highlighting
 Plug 'sheerun/vim-polyglot'
