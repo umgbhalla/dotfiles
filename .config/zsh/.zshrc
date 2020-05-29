@@ -1,5 +1,10 @@
 # zsh configuration
 
+bindkey -v # explicitly set vi keybindings to enabled
+
+bindkey -M viins 'jj' vi-cmd-mode
+typeset -g KEYTIMEOUT=25 # allow zsh to handle multichar bindings
+
 # include aliases
 # to reduce prompt appearing time you'll need to remove this line...
 # (but I don't want to)
@@ -46,15 +51,13 @@ export PROMPT="%F{cyan}┌—[%f%F{cyan}%m%f%F{cyan}]——[%f%F{cyan}%2~%f%F{cy
 
 # mode display
 function viMode {
-    RPS1="%F{cyan}${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}%f"
-    RPS2=$RPS1
+  RPS1="%F{cyan}${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}%f"
+  RPS2=$RPS1
 }
-
 function zle-line-init zle-keymap-select {
-    viMode
-    zle reset-prompt
+  viMode
+  zle reset-prompt
 }
-
 zle -N zle-line-init
 zle -N zle-keymap-select
 viMode
