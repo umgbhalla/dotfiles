@@ -9,13 +9,17 @@
     "zenMode.hideTabs": false,
     "zenMode.restore": true,
     "zenMode.silentNotifications": false,
-    "vscode-neovim.neovimPath": "/usr/local/bin/nvim",
-    "vscode-neovim.neovimInitPath": "$HOME/.config/nvim/init.vim",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "[typescriptreact]": {
         "editor.formatOnSave": true
     },
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
-    }
+    },
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }
+    ]
 }
