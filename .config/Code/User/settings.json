@@ -21,5 +21,11 @@
             "before": ["j", "j"],
             "after": ["<Esc>"]
         }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": ["<C-k>"],
+            "after": ["<Esc>"]
+        }
     ]
 }
