@@ -69,22 +69,20 @@ function sbuild() {
 # ----------------------------------------------------------------
 
 # git wrapper
+#
+# git clone URL --branch BRANCH
+# to merge the last n remote commits in branch b:
+# git rebase -i origin/b~n b
+# git push origin +b
 function g() {
   case "$1" in
     clone)
+      # if repo is not renamed
       if [ -z "$3" ]; then 
         git clone --recursive "$2" && cd "$(basename "$2" .git)"
       else
         git clone --recursive "${@:2}" && cd "$3"
       fi
-      ;;
-    rpull)
-      echo "git pull --rebase origin master"
-      git pull --rebase origin master
-      ;;
-    rpush)
-      echo "git push -f"
-      git push -f
       ;;
     *) git $@;
   esac
