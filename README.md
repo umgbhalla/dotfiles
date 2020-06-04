@@ -423,3 +423,4 @@ Below are a list of things in no particular order that I plan to do but haven't 
 + nvim project-wide search
 + nvim method header tooltips
 + custom nvim colorscheme
++ dmenu pinyin input

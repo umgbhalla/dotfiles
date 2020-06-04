@@ -34,8 +34,8 @@ tar
 # chinese font
 wqy-zenhei
 # chinese character input
-fcitx
-fcitx-sunpinyin
+#fcitx
+#fcitx-sunpinyin
 
 # languages
 typescript

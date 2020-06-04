@@ -8,7 +8,7 @@
 $XDG_SCRIPT_HOME/tui/redshift "$(cat $REDSHIFT_LAST)"
 
 # character input
-fcitx &
+# fcitx &
 
 # notifications
 envsubst < $XDG_CONFIG_HOME/dunst/template.dunstrc > $XDG_CONFIG_HOME/dunst/dunstrc && dunst &
