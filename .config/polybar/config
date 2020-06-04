@@ -24,9 +24,9 @@ foreground = ${colors.foreground}
 border-size = ${env:WM_GAPS:16}
 border-color = ${colors.transparent}
 
-font-0 = LiberationMono:pixelsize=12:antialias=true:autohint=true;1
+font-0 = Source Code Pro Medium:pixelsize=12:antialias=true:autohint=true;1
 font-1 = FontAwesome:style=Regular
-font-2 = LiberationMono:bold:pixelsize=12:antialias=true:autohint=true;1
+font-2 = Source Code Pro Medium:bold:pixelsize=12:antialias=true:autohint=true;1
 
 modules-left = bspwm
 modules-center = mpris

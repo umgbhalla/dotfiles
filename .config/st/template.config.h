@@ -9,7 +9,7 @@
 /*
  * appearance
  */
-static char *font = "Liberation Mono:pixelsize=14:antialias=true:autohint=true";
+static char *font = "Source Code Pro Medium:pixelsize=15:antialias=true:autohint=true";
 static int borderpx = $WM_GAPS;
 
 /*
