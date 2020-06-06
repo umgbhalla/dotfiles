@@ -43,3 +43,6 @@ typescript
 # pdf viewer
 zathura
 zathura-pdf-mupdf
+
+# vector editing
+inkscape

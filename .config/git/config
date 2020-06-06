@@ -8,3 +8,5 @@
 	active = true
 [advice]
 	addIgnoredFile = false
+[pull]
+	rebase = false
