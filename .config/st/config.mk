@@ -33,3 +33,9 @@ STLDFLAGS = $(LIBS) $(LDFLAGS)
 
 # compiler and linker
 # CC = c99
+
+LIBSOSX = -L$(X11LIB) -lm -lX11 -lutil -lXft -lXrender\
+       `$(PKG_CONFIG) --libs fontconfig` \
+       `$(PKG_CONFIG) --libs freetype2`
+
+STLDFLAGSOSX = $(LIBSOSX) $(LDFLAGS)

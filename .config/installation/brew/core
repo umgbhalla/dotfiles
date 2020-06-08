@@ -10,7 +10,8 @@ yarn
 fzf
 
 # necessary for suckless utilities and xft
-#freetype
+freetype
+pkg-config
 
 # file explorer
 ranger

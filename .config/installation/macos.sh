@@ -49,5 +49,15 @@ sh -c 'curl -fLo "$XDG_DATA_HOME/nvim/site/autoload/plug.vim" --create-dirs http
 rm $HOME/Library/Application\ Support/Code/User/settings.json
 ln $XDG_CONFIG_HOME/Code/User/settings.json $HOME/Library/Application\ Support/Code/User/settings.json   
 
+#
+# st build
+#
+
+sudo ln -s /usr/X11R6/include/freetype2/ft2build.h /usr/X11R6/include
+sudo ln -s /usr/X11R6/include/freetype2/freetype /usr/X11R6/include
+
+cd $XDG_CONFIG_HOME/st
+sudo PKG_CONFIG_PATH="/opt/X11/lib/pkgconfig/" make osx
+
 # reset git config
 GIT_CONFIG="$gcfg"
