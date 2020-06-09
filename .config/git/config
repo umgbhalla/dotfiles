@@ -10,3 +10,6 @@
 	addIgnoredFile = false
 [pull]
 	rebase = false
+[submodule ".config/nvim"]
+	url = https://github.com/bossley9/nvim.git
+	active = true
