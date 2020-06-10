@@ -94,6 +94,9 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
+# fzf read .gitignore
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
+
 #
 # config directories
 #
