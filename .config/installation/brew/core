@@ -2,6 +2,8 @@
 neovim
 # ctags
 ctags
+# rg search
+rg
 
 # yarn package manager
 yarn
@@ -10,8 +12,8 @@ yarn
 fzf
 
 # necessary for suckless utilities and xft
-freetype
-pkg-config
+# freetype
+# pkg-config
 
 # file explorer
 ranger
