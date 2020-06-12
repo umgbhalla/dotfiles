@@ -10,6 +10,9 @@
 --exclude=coverage
 --exclude=cypress
 
+--exclude=.circleci
+--exclude=tsconfig.json
+
 --languages=-javascript
 --langdef=js
 --langmap=js:.js
