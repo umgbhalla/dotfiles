@@ -2,7 +2,10 @@
 
 bindkey -v # explicitly set vi keybindings to enabled
 
-bindkey -M viins 'jj' vi-cmd-mode
+# bindkey -M viins 'jj' vi-cmd-mode
+bindkey -M viins '<M-;>' vi-cmd-mode
+# bindkey -M viins '<M-h>' backward-delete-char
+# bindkey '<M-j>' accept-line
 typeset -g KEYTIMEOUT=25 # allow zsh to handle multichar bindings
 
 # include aliases
