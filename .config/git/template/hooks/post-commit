@@ -1,2 +1,0 @@
-#!/bin/sh
-if [ -d .git ]; then .git/hooks/ctags >/dev/null; fi

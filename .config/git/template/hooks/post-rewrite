@@ -1,4 +1,0 @@
-#!/bin/sh
-case "$1" in
-    rebase) if [ -d .git ]; then .git/hooks/ctags >/dev/null; fi
-esac

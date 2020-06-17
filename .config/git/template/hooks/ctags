@@ -1,2 +1,0 @@
-#!/bin/sh
-ctags -R --tag-relative=always -f .git/tags .
