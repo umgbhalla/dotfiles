@@ -424,9 +424,6 @@ option.
 
 Below are a list of things in no particular order that I plan to do but haven't yet implemented or had the time to configure.
 
-+ nvim multiple terminal buffer support
-+ nvim project-wide search
-+ nvim method header tooltips
-+ custom nvim colorscheme
 + dmenu pinyin input
-+ consider removing liberation mono?
++ consider removing liberation mono
++ default applications with `mimeo`
