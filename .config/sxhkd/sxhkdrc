@@ -132,8 +132,8 @@ super + shift {h,j,k,l}
 	bspc node -s {west,south,north,east}
 
 # close node
-super + shift + q
-	bspc node -k
+super + shift + {w,q}
+    bspc node -{c,k}
 
 # node layout mode
 super + {shift + t,shift + p,shift + space,f}

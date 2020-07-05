@@ -45,6 +45,7 @@ alias \
   pk="ps aux | dmenu -i -l 20 | awk '{print $2}' | tr -d '\n' | xargs kill -9" \
   zr="source $XDG_CONFIG_HOME/zsh/.zshrc" \
   date="cal -3 && date && echo" \
+  surf="surf -g" \
   s="$XDG_SCRIPT_HOME/bin/run.sh"
 
 # suckless building
