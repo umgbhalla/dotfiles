@@ -427,3 +427,4 @@ Below are a list of things in no particular order that I plan to do but haven't 
 + dmenu pinyin input
 + consider removing liberation mono
 + default applications with `mimeo`
++ patch and create template config for `surf`
