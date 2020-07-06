@@ -77,6 +77,8 @@ export PATH="$(yarn global bin):$PATH"
 # variables
 #
 
+export DOLLAR='$' # vital for envsubst escaping
+
 export KEYTIMEOUT=1 # reduce delay in zsh vi-mode change
 export PROMPT_EOL_MARK="" # prevent partial line % from appearing
 export RANGER_LOAD_DEFAULT_RC="FALSE"

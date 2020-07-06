@@ -19,7 +19,7 @@ I use to primarily use Wayland and have a setup specifically set up for use with
 ## System Information <a name="sysinfo"></a>
 
 ```
-OS: Arch Linux x86_64
+OS: [Arch Linux x86_64]()
 Kernel: 5.6.8-arch1-1
 Shell: zsh
 WM: bspwm
@@ -30,7 +30,7 @@ Status Bar: polybar
 Launcher: dmenu
 
 Editor: neovim
-Browser: brave (with cVim, JSON Formatter, and React Developer Tools extensions)
+Browser: brave (JSON Formatter, React Dev Tools, Redux Dev Tools), surf
 File Exporer: ranger
 System Profiler:  htop
 ```
@@ -427,4 +427,5 @@ Below are a list of things in no particular order that I plan to do but haven't 
 + dmenu pinyin input
 + consider removing liberation mono
 + default applications with `mimeo`
-+ patch and create template config for `surf`
++ patch `surf` basics (loading indicator, better keybindings, video support, tabs?)
++ switch to `dwm`
