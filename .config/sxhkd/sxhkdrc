@@ -78,9 +78,13 @@ XF86AudioMicMute
 # screen capture
 #
 
+shift + alt + 3
+  $XDG_SCRIPT_HOME/tui/screenshot
 Print
   $XDG_SCRIPT_HOME/tui/screenshot
 
+shift + alt + 4
+  $XDG_SCRIPT_HOME/tui/screenshot crop
 shift + Print
   $XDG_SCRIPT_HOME/tui/screenshot crop
 

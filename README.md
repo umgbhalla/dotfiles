@@ -429,3 +429,5 @@ Below are a list of things in no particular order that I plan to do but haven't 
 + default applications with `mimeo`
 + patch `surf` basics (loading indicator, better keybindings, video support, tabs?)
 + switch to `dwm`
++ ranger use nvim nav keybindings
++ vim to refresh Nerdtree
