@@ -46,6 +46,7 @@ alias \
   zr="source $XDG_CONFIG_HOME/zsh/.zshrc" \
   date="cal -3 && date && echo" \
   surf="surf -g" \
+  n="newsboat -u $XDG_CONFIG_HOME/newsboat/urls -C $XDG_CONFIG_HOME/newsboat/config" \
   s="$XDG_SCRIPT_HOME/bin/run.sh"
 
 # suckless building
