@@ -1,7 +1,12 @@
 # all unread articles
 "query:Unread Articles:unread = \"yes\""
-https://sam.bossley.us/feeds/thoughts.xml
+
+# my own feeds
+# https://sam.bossley.us/feeds/thoughts.xml
+https://sam.bossley.us/feeds/log.xml
+
 # http://rss.cnn.com/rss/cnn_topstories.rss
 # http://newsrss.bbc.co.uk/rss/newsonline_world_edition/front_page/rss.xml
 https://lukesmith.xyz/rss.xml
 https://notrelated.libsyn.com/rss
+https://www.pewresearch.org/feed/
