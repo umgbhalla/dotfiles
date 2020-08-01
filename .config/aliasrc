@@ -182,3 +182,7 @@ alias e="extract"
 # ----------------------------------------------------------------
 
 alias clear-cache="sync; echo 1 | sudo tee /proc/sys/vm/drop_caches"
+clear-cached-files() {
+  rm -rf /home/$USER/Downloads/*
+  rm -rf /home/$USER/Pictures/*
+}
