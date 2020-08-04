@@ -1,3 +1,6 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = https://github.com/bossley9/nvim.git
+[submodule ".config/dwm"]
+	path = .config/dwm
+	url = git@github.com:bossley9/dwm.git

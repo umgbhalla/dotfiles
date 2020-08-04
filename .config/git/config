@@ -10,3 +10,6 @@
 [submodule ".config/nvim"]
 	url = https://github.com/bossley9/nvim.git
 	active = true
+[submodule ".config/dwm"]
+	url = git@github.com:bossley9/dwm.git
+	active = true
