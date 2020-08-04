@@ -186,3 +186,24 @@ clear-cached-files() {
   rm -rf /home/$USER/Downloads/*
   rm -rf /home/$USER/Pictures/*
 }
+
+# ----------------------------------------------------------------
+# work
+# ----------------------------------------------------------------
+
+segway () {
+  md $XDG_REPO_HOME/segway
+  cd $XDG_REPO_HOME/segway
+
+  dir=${1//\//-}
+
+  if [ -d "$dir" ]; then
+    cd $dir
+  else
+    git clone --branch "$1" https://github.com/shipt/segway.git $dir && cd $dir 2>/dev/null ||
+    \git clone https://github.com/shipt/segway.git $dir && cd $dir && git checkout -b $1
+  fi
+
+  yarn
+}
+

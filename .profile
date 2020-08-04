@@ -8,6 +8,8 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_SCRIPT_HOME="$HOME/.local/bin/scripts"
 # data dirrectory
 export XDG_DATA_HOME="$HOME/.local/share"
+# repo directory
+export XDG_REPO_HOME="$HOME/Repos"
 
 #
 # default programs
@@ -90,6 +92,10 @@ if [ $OS != "Darwin" ]; then
   export ETH_INTERFACE="$(ip -o link show | awk -F': ' '{print $2}' | grep e)"
   export WIFI_INTERFACE="$(ip -o link show | awk -F': ' '{print $2}' | grep w)"
 fi
+
+# vertical line jumping
+export VI_NAV_JUMP="5"
+export VI_NAV_JUMP_LARGE="25"
 
 # fcitx character input
 export GTK_IM_MODULE=fcitx
