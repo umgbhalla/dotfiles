@@ -14,7 +14,7 @@ $XDG_SCRIPT_HOME/tui/redshift "$(cat $REDSHIFT_LAST)"
 # fcitx &
 
 # notifications
-envsubst < $XDG_CONFIG_HOME/dunst/template.dunstrc > $XDG_CONFIG_HOME/dunst/dunstrc && dunst &
+$XDG_SCRIPT_HOME/tui/detemplate $XDG_CONFIG_HOME/dunst/template.dunst && dunst &
 
 #
 # core programs 

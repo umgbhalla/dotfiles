@@ -42,7 +42,8 @@ export C_BLACK_0="#2e3440"
 export C_BLACK_1="#4c566a"
 
 export C_RED_0="#bf616a"
-export C_RED_1="$C_RED_0"
+# pink
+export C_RED_1="#febdf7"
 
 export C_GREEN_0="#a3bE8C"
 export C_GREEN_1="$C_GREEN_0"
@@ -53,8 +54,8 @@ export C_YELLOW_1="$C_YELLOW_0"
 export C_BLUE_0="#81a1c1"
 export C_BLUE_1="$C_BLUE_0"
 
-export C_MAGENTA_0="#b48ead"
-export C_MAGENTA_1="$C_MAGENTA_0"
+export C_MAGENTA_0="#5d62ac"
+export C_MAGENTA_1="#b48ead"
 
 export C_CYAN_0="#88c0d0"
 export C_CYAN_1="#8fbcbb"
@@ -62,16 +63,12 @@ export C_CYAN_1="#8fbcbb"
 export C_GRAY_0="#e5e9f0"
 export C_GRAY_1="#eceff4"
 
-# colors
 export COLOR_BG="$C_BLACK_0"
 export COLOR_FG="$C_GRAY_1"
-# pink
-export COLOR_PRIMARY="#febdf7"
-# blue
-export COLOR_SECONDARY="#81a1c1"
-# purple
-export COLOR_TERTIARY="#5d62ac"
-# red
+
+export COLOR_PRIMARY="$C_RED_1"
+export COLOR_SECONDARY="$C_BLUE_0"
+export COLOR_TERTIARY="$C_MAGENTA_0"
 export COLOR_ALERT="$C_RED_0"
 
 export WM_GAPS=10
@@ -122,9 +119,9 @@ export VI_NAV_JUMP="5"
 export VI_NAV_JUMP_LARGE="25"
 
 # fcitx character input
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
+# export GTK_IM_MODULE=fcitx
+# export QT_IM_MODULE=fcitx
+# export XMODIFIERS=@im=fcitx
 
 #
 # config directories
