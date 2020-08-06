@@ -3,10 +3,16 @@
 
 # my own feeds
 # https://sam.bossley.us/feeds/thoughts.xml
-https://sam.bossley.us/feeds/log.xml
+# https://sam.bossley.us/feeds/log.xml
 
+# news sources
 # http://rss.cnn.com/rss/cnn_topstories.rss
 # http://newsrss.bbc.co.uk/rss/newsonline_world_edition/front_page/rss.xml
+https://www.pewresearch.org/feed/
+
+# independent projects
+https://suckless.org/atom.xml
+
+# independent creators
 https://lukesmith.xyz/rss.xml
 https://notrelated.libsyn.com/rss
-https://www.pewresearch.org/feed/
