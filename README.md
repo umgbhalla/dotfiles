@@ -430,3 +430,5 @@ Below are a list of things in no particular order that I plan to do but haven't 
 + patch `surf` basics (loading indicator, better keybindings, video support, tabs?)
 + switch to `dwm`
 + different wallpapers per workspace/monitor
++ htop vim keybindings
++ suckless utilities as standalone repos
