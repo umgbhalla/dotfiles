@@ -1,0 +1,9 @@
+game:
+  arch: win64
+  exe: drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/Uplay.exe
+  prefix: /home/sam/.games/assassins-creed-odyssey
+wine:
+  Desktop: true
+  WineDesktop: 1920x1080
+  dxvk: true
+  version: lutris-5.6-2-x86_64
