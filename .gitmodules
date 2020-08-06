@@ -4,3 +4,6 @@
 [submodule ".config/dwm"]
 	path = .config/dwm
 	url = git@github.com:bossley9/dwm.git
+[submodule ".config/st"]
+	path = .config/st
+	url = https://github.com/bossley9/st.git

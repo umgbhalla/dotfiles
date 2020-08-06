@@ -13,3 +13,6 @@
 [submodule ".config/dwm"]
 	url = git@github.com:bossley9/dwm.git
 	active = true
+[submodule ".config/st"]
+	url = https://github.com/bossley9/st.git
+	active = true
