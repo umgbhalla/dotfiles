@@ -149,7 +149,7 @@ alias \
   umt="umnt" \
   ytmp4="setopt noglob && dlLink -f 22" \
   ytmp3="setopt noglob && dlLink -x --audio-format mp3" \
-  feh="feh --scake-down --auto-zoom"
+  feh="feh --scale-down --auto-zoom"
 
 # archives
 extract () {

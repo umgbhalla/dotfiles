@@ -85,6 +85,8 @@ export NOTIF_TRANSPARENCY=$(( 100 - ( $WM_TRANSPARENCY * 100 ) ))
 
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 
+export WALLPAPER=4
+
 #
 # path
 #
