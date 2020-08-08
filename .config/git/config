@@ -19,3 +19,6 @@
 [submodule ".config/dmenu"]
 	url = git@github.com:bossley9/dmenu.git
 	active = true
+[submodule ".config/surf"]
+	url = git@github.com:bossley9/surf.git
+	active = true
