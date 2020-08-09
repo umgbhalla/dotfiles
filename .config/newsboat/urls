@@ -2,8 +2,8 @@
 "query:Unread Articles:unread = \"yes\""
 
 # my own feeds
-# https://sam.bossley.us/feeds/thoughts.xml
-# https://sam.bossley.us/feeds/log.xml
+https://sam.bossley.us/feeds/thoughts.xml
+https://sam.bossley.us/feeds/log.xml
 
 # news sources
 # http://rss.cnn.com/rss/cnn_topstories.rss

@@ -42,8 +42,9 @@ export C_BLACK_0="#2e3440"
 export C_BLACK_1="#4c566a"
 
 export C_RED_0="#bf616a"
-# pink
-export C_RED_1="#febdf7"
+export C_RED_1="$C_RED_0"
+
+export C_PINK_0="#febdf7"
 
 export C_GREEN_0="#a3bE8C"
 export C_GREEN_1="$C_GREEN_0"
@@ -66,7 +67,7 @@ export C_GRAY_1="#eceff4"
 export COLOR_BG="$C_BLACK_0"
 export COLOR_FG="$C_GRAY_1"
 
-export COLOR_PRIMARY="$C_RED_1"
+export COLOR_PRIMARY="$C_PINK_0"
 export COLOR_SECONDARY="$C_BLUE_0"
 export COLOR_TERTIARY="$C_MAGENTA_0"
 export COLOR_ALERT="$C_RED_0"
