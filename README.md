@@ -13,7 +13,7 @@ I use to primarily use Wayland and have a setup specifically set up for use with
 1. [System Information](#sysinfo)
 2. [Cloning](#cloning)
 3. [Manual Installation](#manualinstall)
-4. [Additional Configuration](#addconfig)
+4. [Additional Configuration or Notes](#addconfig)
 5. [TODO](#todo)
 
 ## System Information <a name="sysinfo"></a>
@@ -333,9 +333,18 @@ We will be creating a main partition for all files and a swap partition for susp
     ```
     If prompted to create a `zsh` startup file, you can press `q` to quit and do nothing. My dotfiles contain necessary `zsh` startup files.
 
-## Additional Configuration <a name="addconfig"></a>
+## Additional Configuration or Notes <a name="addconfig"></a>
 
-#### Mirrorlist
+- [Mirrorlist](#mirrorlist)
+- [Touchpad Settings](#touchpad-settings)
+- [Disabling the Grub Menu](#disabling-grub-menu)
+- [DaVinci Resolve](#davinci-resolve)
+- [Gaming](#gaming)
+- [Login](#login)
+- [WebGL in Brave](#webgl-brave)
+- [Time Out Of Sync](#time-out-of-sync)
+
+#### Mirrorlist <a name="mirrorlist"></a>
 Sometimes downloading and installing packages takes longer than necessary because the package manager is looking through outdated (out of sync) mirrors or geographically far away ones. While there are many ways to organize the order in which mirrors are tried, I usually use `Reflector` because it is fast and works very well.
 ```
 sudo pacman -S reflector
@@ -343,7 +352,7 @@ sudo reflector --latest 50 --sort rate --save /etc/pacman.d/mirrorlist
 ```
 See the [Reflector site](https://xyne.archlinux.ca/projects/reflector/) for additional options and fine-tuning settings.
 
-#### Touchpad settings
+#### Touchpad settings <a name="touchpad-settings"></a>
 By default, most linux distros disable natural scrolling and disable touchpad tapping. I personally find this very irritating. To change touchpad settings, `sudo vim /etc/X11/xorg.conf.d/30-touchpad.conf` and add the following configuration:
 ```
 Section "InputClass"
@@ -356,7 +365,7 @@ EndSection
 ```
 Then reboot to verify changes.
 
-#### Disabling the grub menu
+#### Disabling the Grub Menu <a name="disabling-grub-menu"></a>
 If, like me, you don't plan on dual-booting or adding boot entries, you can disable the grub selection menu with `sudo vim /etc/default/grub`:
 ```
 GRUB_TIMEOUT=0
@@ -367,7 +376,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo reboot
 ```
 
-#### DaVinci Resolve
+#### DaVinci Resolve <a name="davinci-resolve"></a>
 `DaVinci Resolve` can be quite cumbersome to get working on a Linux system, especially for one using an AMD gpu. These are the steps I took to install it on my machine, being very particular on drivers.
 ```
 sudo pacman -S xf86-video-amdgpu vulkan-radeon libva-mesa-driver
@@ -379,7 +388,7 @@ yay -S davinci-resolve
 It's also important that the free version that comes with Linux does not have mp3/4 or h.264 support.
 I have a simple shell function written in `.config/aliasrc` which converts to the right codecs.
 
-#### Gaming
+#### Gaming <a name="gaming"></a>
 
 > With these settings, I have been able to play every game I've tried.
 > I use the following hardware components:
@@ -407,7 +416,7 @@ sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib3
 ```
 [Lutris also recommended that I install drivers specific to my GPU](https://github.com/lutris/lutris/wiki/Installing-drivers).
 
-#### Login
+#### Login <a name="login"></a>
 
 The default login prompt is generic and simple. If you would like to modify it, you can use different X-run interfaces to beautify the login prompt. I aim for minimalism, and think that any X server running before a user logs in is unnecessary. As an alternative, you can edit the `/etc/issue` file to modify what is displayed on the login prompt. In my setup, I use `figlet` to create a fancy hostname title on the login prompt.
 ```
@@ -415,20 +424,27 @@ yay -S --needed figlet
 echo "$(cat /etc/hostname | figlet -k)" | { sed 's/\\/\\\\/g'; echo "(\l) \\s \\\r\n" } | sudo tee /etc/issue > /dev/null
 ```
 
-#### WebGL in Brave
+#### WebGL in Brave <a name="webgl-brave"></a>
 Using Brave in Linux with an AMD card disabled my WebGL, even if it was physically possible for Brave to use WebGL.
-To enable Brave to use WebGL, navigate to `brave://flags/` and `enable` the `override software rendering list`
-option.
+To enable Brave to use WebGL, navigate to `brave://flags/` and `enable` the `override software rendering list` option.
+
+#### Time Out Of Sync <a name="time-out-of-sync"></a>
+I recently encountered an issue where my internal clock went out of sync with the UTC 
+time. The only way to fix this is to reboot and set the time via boot settings.
+
+You can set the UTC time by verifying the time with the time on 
+[time.gov](https://time.gov) (Note that this only displays US times). Then on 
+reboot, the system time should match the timezone time displayed on the site.
 
 ## TODO <a name="todo"></a>
 
-Below are a list of things in no particular order that I plan to do but haven't yet implemented or had the time to configure.
+Below are a list of things in no particular order that I plan to do but haven't yet 
+implemented or had the time to configure.
 
 + dmenu pinyin input
-+ consider removing liberation mono
 + default applications with `mimeo`
 + patch `surf` basics (loading indicator, better keybindings, video support, tabs?)
 + switch to `dwm`
-+ different wallpapers per workspace/monitor
++ different wallpapers per workspace/monitor (Note: there's plenty of ways to do this,
+    just not efficiently)
 + htop vim keybindings
-+ suckless utilities as standalone repos
