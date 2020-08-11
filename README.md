@@ -19,7 +19,7 @@ you have interest, you can check it out in
 [this release](https://github.com/bossley9/dotfiles/tree/2020.03.11).
 
 ## Table of Contents
-1. [What are dotfiles?](#what-are-dotfiles)
+1. [What Are Dotfiles?](#what-are-dotfiles)
 2. [System Information](#sysinfo)
 3. [Cloning](#cloning)
 4. [Manual Installation](#manualinstall)
@@ -415,15 +415,23 @@ command. To be safe, we will make the swap partition to be twice the amount of t
 - [Time Out Of Sync](#time-out-of-sync)
 
 #### Mirrorlist <a name="mirrorlist"></a>
-Sometimes downloading and installing packages takes longer than necessary because the package manager is looking through outdated (out of sync) mirrors or geographically far away ones. While there are many ways to organize the order in which mirrors are tried, I usually use `Reflector` because it is fast and works very well.
+> This section isn't very relevant anymore since Arch automatically runs Reflector now, but
+> I'm keeping it here for consistency and for future reference.
+Sometimes downloading and installing packages takes longer than necessary because the package 
+manager is looking through outdated (out of sync) mirrors or geographically far away ones. 
+While there are many ways to organize the order in which mirrors are tried, I usually 
+use `Reflector` because it is fast and works very well.
 ```
 sudo pacman -S reflector
 sudo reflector --latest 50 --sort rate --save /etc/pacman.d/mirrorlist
 ```
-See the [Reflector site](https://xyne.archlinux.ca/projects/reflector/) for additional options and fine-tuning settings.
+See the [Reflector site](https://xyne.archlinux.ca/projects/reflector) for additional 
+options and fine-tuning settings.
 
 #### Touchpad settings <a name="touchpad-settings"></a>
-By default, most linux distros disable natural scrolling and disable touchpad tapping. I personally find this very irritating. To change touchpad settings, `sudo vim /etc/X11/xorg.conf.d/30-touchpad.conf` and add the following configuration:
+By default, most linux distros disable natural scrolling and disable touchpad tapping. I 
+personally find this very irritating. To change touchpad settings, 
+`sudo vim /etc/X11/xorg.conf.d/30-touchpad.conf` and add the following configuration:
 ```
 Section "InputClass"
 	Identifier "touchpad"
@@ -436,7 +444,8 @@ EndSection
 Then reboot to verify changes.
 
 #### Disabling the Grub Menu <a name="disabling-grub-menu"></a>
-If, like me, you don't plan on dual-booting or adding boot entries, you can disable the grub selection menu with `sudo vim /etc/default/grub`:
+If, like me, you don't plan on dual-booting or adding boot entries, you can disable the grub 
+selection menu with `sudo vim /etc/default/grub`:
 ```
 GRUB_TIMEOUT=0
 ```
@@ -447,7 +456,9 @@ sudo reboot
 ```
 
 #### DaVinci Resolve <a name="davinci-resolve"></a>
-`DaVinci Resolve` can be quite cumbersome to get working on a Linux system, especially for one using an AMD gpu. These are the steps I took to install it on my machine, being very particular on drivers.
+`DaVinci Resolve` can be quite cumbersome to get working on a Linux system, especially for one 
+using an AMD gpu. These are the steps I took to install it on my machine, being very 
+particular on drivers.
 ```
 sudo pacman -S xf86-video-amdgpu vulkan-radeon libva-mesa-driver
 yay -S amdgpu-pro-libgl opencl-amd
@@ -455,12 +466,13 @@ sudo reboot
 --------------------------------------------
 yay -S davinci-resolve
 ```
-It's also important that the free version that comes with Linux does not have mp3/4 or h.264 support.
-I have a simple shell function written in `.config/aliasrc` which converts to the right codecs.
+It's also important that the free version that comes with Linux does not have `mp3/4` or 
+`h.264` support.
+I have a simple shell function written in `.config/aliasrc` which converts to the right 
+codecs.
 
 #### Gaming <a name="gaming"></a>
-
-> With these settings, I have been able to play every game I've tried.
+With these settings, I have been able to play every game I've tried.
 > I use the following hardware components:
 > - CPU: AMD Ryzen 9 3900x
 > - GPU: AMD Radeon RX 580
@@ -469,9 +481,9 @@ I have a simple shell function written in `.config/aliasrc` which converts to th
 > drivers are proprietary and I strongly advocate for open source 
 > software. Sorry, no RTX. But I think it's best in the long run.
 
-A lot of gaming applications (such as the Steam client and Wine client) are 32-bit architecture and 
-require the `multilib` repository to be enabled. To enable, `sudo vim /etc/pacman.conf` and uncomment
-the following section:
+A lot of gaming applications (such as the Steam client and Wine client) are 32-bit 
+architecture and require the `multilib` repository to be enabled. To enable, 
+`sudo vim /etc/pacman.conf` and uncomment the following section:
 ```
 [multilib]
 Include = /etc/pacman.d/mirrorlist
@@ -480,23 +492,32 @@ Then upgrade the system.
 ```
 sudo pacman -Syu
 ```
-You will also need to install the following packages. Many of these are essential for running games of any kind.
+You will also need to install the following packages. Many of these are essential for running 
+games of any kind.
 ```
 sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader
 ```
-[Lutris also recommended that I install drivers specific to my GPU](https://github.com/lutris/lutris/wiki/Installing-drivers).
+[Lutris also recommended that I install drivers specific to my GPU](https://github.com/lutris/docs/blob/master/InstallingDrivers.md).
 
 #### Login <a name="login"></a>
 
-The default login prompt is generic and simple. If you would like to modify it, you can use different X-run interfaces to beautify the login prompt. I aim for minimalism, and think that any X server running before a user logs in is unnecessary. As an alternative, you can edit the `/etc/issue` file to modify what is displayed on the login prompt. In my setup, I use `figlet` to create a fancy hostname title on the login prompt.
+The default login prompt is generic and simple. If you would like to modify it, you can use 
+different X-run interfaces to beautify the login prompt. I aim for minimalism, and think that 
+any X server running for the purposes of an aesthetic login prompt is unnecessary bloat. As 
+an alternative, you can edit the `/etc/issue` file to modify what is displayed on the login 
+prompt. In my setup, I use `figlet` to create a fancy hostname title on the login prompt.
 ```
 yay -S --needed figlet
 echo "$(cat /etc/hostname | figlet -k)" | { sed 's/\\/\\\\/g'; echo "(\l) \\s \\\r\n" } | sudo tee /etc/issue > /dev/null
 ```
+You'll have to log out and log back in to notice changes.
 
 #### WebGL in Brave <a name="webgl-brave"></a>
-Using Brave in Linux with an AMD card disabled my WebGL, even if it was physically possible for Brave to use WebGL.
-To enable Brave to use WebGL, navigate to `brave://flags/` and `enable` the `override software rendering list` option.
+Using Brave in Linux with an AMD card disabled my WebGL, even if it was physically possible 
+for Brave to use WebGL.
+
+To enable Brave to use WebGL, navigate to `brave://flags/` and `enable` the 
+`override software rendering list` option.
 
 #### Time Out Of Sync <a name="time-out-of-sync"></a>
 I recently encountered an issue where my internal clock went out of sync with the UTC 

@@ -4,6 +4,10 @@ bspwm
 # key binding manager
 sxhkd
 
+# editor
+neovim
+ripgrep
+
 # background
 feh
 

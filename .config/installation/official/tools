@@ -16,7 +16,6 @@ htop
 man
 mpv
 neofetch
-neovim
 openssh
 redshift
 
@@ -30,9 +29,6 @@ tar
 
 # chinese font
 wqy-zenhei
-# chinese character input
-#fcitx
-#fcitx-sunpinyin
 
 # languages
 typescript
