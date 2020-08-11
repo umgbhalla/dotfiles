@@ -3,13 +3,13 @@
 	url = https://github.com/bossley9/nvim.git
 [submodule ".config/dwm"]
 	path = .config/dwm
-	url = git@github.com:bossley9/dwm.git
+	url = https://github.com/bossley9/dwm.git
 [submodule ".config/st"]
 	path = .config/st
 	url = https://github.com/bossley9/st.git
 [submodule ".config/dmenu"]
 	path = .config/dmenu
-	url = git@github.com:bossley9/dmenu.git
+	url = https://github.com/bossley9/dmenu.git
 [submodule ".config/surf"]
 	path = .config/surf
-	url = git@github.com:bossley9/surf.git
+	url = https://github.com/bossley9/surf.git
