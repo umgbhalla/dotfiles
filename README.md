@@ -38,7 +38,7 @@ Information taken from `neofetch` output.
 OS: Arch Linux x86_64
 Kernel: 5.6.8-arch1-1
 Shell: zsh
-WM: bspwm, dwm
+WM: bspwm
 Theme: Nordic [GTK2/3]
 Icons: Adwaita [GTK2/3]
 Terminal: st
@@ -413,6 +413,7 @@ command. To be safe, we will make the swap partition to be twice the amount of t
 - [Login](#login)
 - [WebGL in Brave](#webgl-brave)
 - [Time Out Of Sync](#time-out-of-sync)
+- [No dwm?](#no-dwm)
 
 #### Mirrorlist <a name="mirrorlist"></a>
 > This section isn't very relevant anymore since Arch automatically runs Reflector now, but
@@ -527,15 +528,32 @@ You can set the UTC time by verifying the time with the time on
 [time.gov](https://time.gov) (Note that this only displays US times). Then on 
 reboot, the system time should match the timezone time displayed on the site.
 
-## TODO <a name="todo"></a>
+#### No dwm? <a name="no-dwm"></a>
+It might be surprising that I am such an advocate for suckless utilities and yet do not use
+`dwm`, and to that statement I have a few reasons.
 
+Conceptually, `dwm` is fantastic, and more tiling window managers should be formatted using
+tags. 
+
+However, a large deal-breaker for me is that `dwm` integrates mostly with status bars such as
+`slstatus` or `i3blocks`. I have grown more than comfortable with `polybar`, its capabilities,
+and modularity, and until a 
+[`dwm` module is built into `polybar`](https://github.com/polybar/polybar/pull/2151), I have 
+less reason to use it. Additionally, I have grown accustomed to managing key bindings in 
+`sxhkd`. While other suckless utilities use application-specific key bindings, I prefer 
+maintaining window manager key bindings from within `sxhkd`.
+
+That being said, I've given this a lot of thought recently, and I may revisit `dwm` in the 
+future. As such, I am leaving my module build of `dwm` included in my dotfiles should I 
+ever switch to `dwm` down the road.
+
+## TODO <a name="todo"></a>
 Below are a list of things in no particular order that I plan to do but haven't yet 
 implemented or had the time to configure.
 
 + dmenu pinyin input
 + default applications with `mimeo`
-+ patch `surf` basics (loading indicator, better keybindings, video support, tabs?)
-+ switch to `dwm`
-+ different wallpapers per workspace/monitor (Note: there's plenty of ways to do this,
-    just not efficiently)
++ different wallpapers per workspace/monitor 
+    (_Note: there's plenty of ways to do this...
+    I just haven't found a solution that was efficient enough for the change to be worthwhile_)
 + htop vim keybindings
