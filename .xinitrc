@@ -10,11 +10,8 @@ $XDG_SCRIPT_HOME/tui/detemplate $XDG_CONFIG_HOME/ranger/template.rc.conf
 # set last redshift
 $XDG_SCRIPT_HOME/tui/redshift "$(cat $REDSHIFT_LAST)"
 
-# character input
-# fcitx &
-
 # notifications
-$XDG_SCRIPT_HOME/tui/detemplate $XDG_CONFIG_HOME/dunst/template.dunst && dunst &
+$XDG_SCRIPT_HOME/tui/detemplate $XDG_CONFIG_HOME/dunst/template.dunstrc && dunst &
 
 #
 # core programs 
