@@ -47,7 +47,8 @@ alias \
   date="cal -3 && date && echo" \
   surf="surf -g" \
   n="newsboat -u $XDG_CONFIG_HOME/newsboat/urls -C $XDG_CONFIG_HOME/newsboat/config" \
-  s="$XDG_SCRIPT_HOME/bin/run.sh"
+  s="$XDG_SCRIPT_HOME/bin/run.sh" \
+  yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn"
 
 # suckless building
 function sbuild() {

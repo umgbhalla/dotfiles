@@ -89,17 +89,6 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 export WALLPAPER=4
 
 #
-# path
-#
-
-export PATH="$HOME/.local/bin/:$PATH"
-
-# to move global yarn directory
-# mkdir -p ~/.local/share/yarn
-# yarn config set prefix $HOME/.local/share/yarn
-export PATH="$(yarn global bin):$PATH"
-
-#
 # variables
 #
 
@@ -121,16 +110,23 @@ fi
 export VI_NAV_JUMP="5"
 export VI_NAV_JUMP_LARGE="25"
 
-# fcitx character input
-# export GTK_IM_MODULE=fcitx
-# export QT_IM_MODULE=fcitx
-# export XMODIFIERS=@im=fcitx
-
 #
 # config directories
 #
 
 export GIT_CONFIG="$XDG_CONFIG_HOME/git/config"
 export GIT_TEMPLATE_DIR="$XDG_CONFIG_HOME/git/template"
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
+export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
+export YARN_GLOBAL_DIR="$XDG_CACHE_HOME/yarn_global"
+export YARN_RC_DIR="$XDG_CACHE_HOME"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
+
+#
+# path
+#
+
+export PATH="$HOME/.local/bin/:$PATH"
+export PATH="$(yarn global bin):$PATH"
+
