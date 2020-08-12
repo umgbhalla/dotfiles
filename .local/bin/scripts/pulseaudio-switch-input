@@ -5,6 +5,5 @@ if [ -z $input ]; then
   echo "No sink specified."
 else
   pacmd set-default-source $input
-  # move inputs to $input?
   echo "Default source set to $input."
 fi

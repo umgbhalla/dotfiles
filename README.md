@@ -556,3 +556,4 @@ implemented or had the time to configure.
 + different wallpapers per workspace/monitor 
     (_Note: there's plenty of ways to do this...
     I just haven't found a solution that was efficient enough for the change to be worthwhile_)
++ switch completely to ALSA

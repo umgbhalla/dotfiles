@@ -5,6 +5,11 @@ if [ -z $output ]; then
   echo "No sink specified."
 else
   pacmd set-default-sink $output
+
+  # TODO set playback output
+  # so it doesn't have to be manually set in pavucontrol
+  # pacmd set-card-profile $output
+
   for i in $(pacmd list-sink-inputs | awk '/index:/{print $2}'); do
     pacmd move-sink-input $i $output
   done
