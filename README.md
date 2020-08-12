@@ -36,7 +36,7 @@ to create a fully optimized system. It also helps me ease into using different m
 Information taken from `neofetch` output.
 ```
 OS: Arch Linux x86_64
-Kernel: 5.6.8-arch1-1
+Kernel: 5.7.12-arch1-1
 Shell: zsh
 WM: bspwm
 Theme: Nordic [GTK2/3]
@@ -556,4 +556,3 @@ implemented or had the time to configure.
 + different wallpapers per workspace/monitor 
     (_Note: there's plenty of ways to do this...
     I just haven't found a solution that was efficient enough for the change to be worthwhile_)
-+ htop vim keybindings

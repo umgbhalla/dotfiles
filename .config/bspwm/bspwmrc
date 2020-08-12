@@ -23,7 +23,7 @@ bspc rule -a '*' state=floating
 bspc monitor -d I II III IV V VI VII VIII IX X
 
 # background
-feh --bg-fill $XDG_CONFIG_HOME/wallpapers/$WALLPAPER.png
+feh --bg-fill --no-fehbg $XDG_CONFIG_HOME/wallpapers/$WALLPAPER.png
 
 #
 # custom rules
