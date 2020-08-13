@@ -552,7 +552,6 @@ Below are a list of things in no particular order that I plan to do but haven't 
 implemented or had the time to configure.
 
 + dmenu pinyin input
-+ default applications with `mimeo`
 + different wallpapers per workspace/monitor 
     (_Note: there's plenty of ways to do this...
     I just haven't found a solution that was efficient enough for the change to be worthwhile_)
