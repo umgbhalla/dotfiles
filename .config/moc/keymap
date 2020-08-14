@@ -102,10 +102,10 @@ toggle_repeat         = R
 # go_url                = o
 
 # Volume control keys:
-# volume_down_1         = <
-# volume_up_1           = >
-volume_down_5         = J
-volume_up_5           = K
+volume_down_1         = {
+volume_up_1           = }
+volume_down_5         = [
+volume_up_5           = ]
 # volume_10             = M-1
 # volume_20             = M-2
 # volume_30             = M-3
@@ -140,15 +140,15 @@ add_directory         = A
 # delete_from_playlist  = d
 delete_from_playlist  = x
 # playlist_full_paths   = P
-plist_move_up         = m-k
-plist_move_down       = m-j
+plist_move_up         = M-k
+plist_move_down       = M-j
 save_playlist         = ^s
 # remove_dead_entries   = Y
 clear_playlist        = C
 
 # # Queue manipulation keys:
-# enqueue_file          = z
-# clear_queue           = Z
+enqueue_file          = z
+clear_queue           = Z
 
 # # User interaction control:
 # history_up            = UP
