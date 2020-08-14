@@ -116,7 +116,6 @@ export VI_NAV_JUMP_LARGE="25"
 
 export GIT_CONFIG="$XDG_CONFIG_HOME/git/config"
 export GIT_TEMPLATE_DIR="$XDG_CONFIG_HOME/git/template"
-export MOC_ROOT_DIR="$XDG_CONFIG_HOME"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
 export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"

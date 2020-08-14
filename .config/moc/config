@@ -281,7 +281,7 @@
 #
 # Example:    Keymap = my_keymap
 #
-Keymap = keymap
+Keymap = ../moc/keymap
 
 # Use ASCII rather than graphic characters for drawing lines.  This
 # helps on some terminals.

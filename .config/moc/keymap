@@ -65,7 +65,7 @@ quit_client           = q
 quit                  = Q
 
 # Menu and interface control keys:
-# go                    = ENTER
+go                    = ENTER
 menu_down             = j
 menu_up               = k
 menu_page_down        = M-d
@@ -140,11 +140,11 @@ add_directory         = A
 # delete_from_playlist  = d
 delete_from_playlist  = x
 # playlist_full_paths   = P
-plist_move_up         = M-k
-plist_move_down       = M-j
+plist_move_up         = m-k
+plist_move_down       = m-j
 save_playlist         = ^s
 # remove_dead_entries   = Y
-# clear_playlist        = C
+clear_playlist        = C
 
 # # Queue manipulation keys:
 # enqueue_file          = z
