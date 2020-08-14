@@ -48,7 +48,8 @@ alias \
   surf="surf -g" \
   n="newsboat -u $XDG_CONFIG_HOME/newsboat/urls -C $XDG_CONFIG_HOME/newsboat/config" \
   s="$XDG_SCRIPT_HOME/bin/run.sh" \
-  yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn"
+  yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn" \
+  m="HOME=$MOC_ROOT_DIR mocp -T theme"
 
 # suckless building
 function sbuild() {
