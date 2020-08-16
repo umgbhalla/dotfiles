@@ -18,12 +18,8 @@ super + shift + b
   $BROWSER_INCOGNITO
 
 # file explorer
-super + y
-  $TERM sh -c "$FILE_EXPLORER"
-
-# TODO mail client
-#super + m
-#	thunderbird
+# super + y
+#   $TERM sh -c "$FILE_EXPLORER"
 
 # system profiler
 super + p
@@ -42,9 +38,6 @@ super + o
 #
 
 super + s
-  $XDG_SCRIPT_HOME/bin/run.sh gui
-# because I'm dumb and type the wrong binding sometimes
-super + shift + s
   $XDG_SCRIPT_HOME/bin/run.sh gui
 
 # emojis
@@ -78,13 +71,15 @@ XF86AudioMicMute
 # screen capture
 #
 
+# for ease and alignment with macOS
 shift + alt + 3
   $XDG_SCRIPT_HOME/tui/screenshot
-Print
-  $XDG_SCRIPT_HOME/tui/screenshot
-
 shift + alt + 4
   $XDG_SCRIPT_HOME/tui/screenshot crop
+
+# for general compatibility keys
+Print
+  $XDG_SCRIPT_HOME/tui/screenshot
 shift + Print
   $XDG_SCRIPT_HOME/tui/screenshot crop
 
@@ -119,7 +114,7 @@ super + shift + r
 	pkill -USR1 -x sxhkd && \
 	bspc wm -r
 
-# quit bspwm
+# quit bspwm/logout
 super + shift + Escape
 	bspc quit
 
