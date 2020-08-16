@@ -1,3 +1,4 @@
 music, $HOME/Music
 config, $XDG_CONFIG_HOME
 scripts, $XDG_SCRIPT_HOME
+downloads, $HOME/Downloads

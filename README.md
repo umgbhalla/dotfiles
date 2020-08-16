@@ -556,3 +556,7 @@ implemented or had the time to configure.
     (_Note: there's plenty of ways to do this...
     I just haven't found a solution that was efficient enough for the change to be worthwhile_)
 + switch completely to ALSA
++ centralize color definitions (`.profile`, `~/.config/colorrc`, `~/.config/Xresources`)
++ find better music player (`moc` vs `cmus`)
++ better calendar
++ better spreadsheet manager (`scim`)

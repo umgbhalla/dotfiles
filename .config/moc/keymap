@@ -97,7 +97,7 @@ next                  = n
 previous              = b
 toggle_shuffle        = S
 toggle_repeat         = R
-# toggle_auto_next      = X
+toggle_auto_next      = N
 # toggle_mixer          = x
 # go_url                = o
 
