@@ -559,4 +559,4 @@ implemented or had the time to configure.
 + centralize color definitions (`.profile`, `~/.config/colorrc`, `~/.config/Xresources`)
 + find better music player (`moc` vs `cmus`)
 + better calendar
-+ better spreadsheet manager (`scim`)
++ better contact manager
