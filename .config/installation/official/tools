@@ -42,3 +42,6 @@ inkscape
 
 # audio editing
 audacity
+
+# c lang tools
+clang
