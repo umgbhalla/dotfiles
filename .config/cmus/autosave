@@ -1,4 +1,4 @@
-set aaa_mode=artist
+set aaa_mode=all
 set altformat_current= %F 
 set altformat_playlist= %f%= %d 
 set altformat_title=%f
@@ -26,22 +26,22 @@ set color_trackwin_album_bg=default
 set color_trackwin_album_fg=default
 set color_win_attr=default
 set color_win_bg=default
-set color_win_cur=lightyellow
+set color_win_cur=magenta
 set color_win_cur_attr=default
 set color_win_cur_sel_attr=default
-set color_win_cur_sel_bg=blue
-set color_win_cur_sel_fg=lightyellow
+set color_win_cur_sel_bg=magenta
+set color_win_cur_sel_fg=black
 set color_win_dir=lightblue
 set color_win_fg=default
 set color_win_inactive_cur_sel_attr=default
-set color_win_inactive_cur_sel_bg=gray
-set color_win_inactive_cur_sel_fg=lightyellow
+set color_win_inactive_cur_sel_bg=default
+set color_win_inactive_cur_sel_fg=magenta
 set color_win_inactive_sel_attr=default
-set color_win_inactive_sel_bg=gray
-set color_win_inactive_sel_fg=black
+set color_win_inactive_sel_bg=default
+set color_win_inactive_sel_fg=blue
 set color_win_sel_attr=default
 set color_win_sel_bg=blue
-set color_win_sel_fg=white
+set color_win_sel_fg=black
 set color_win_title_attr=default
 set color_win_title_bg=blue
 set color_win_title_fg=white
@@ -87,7 +87,7 @@ set mpris=true
 set output_plugin=pulse
 set passwd=
 set pl_sort=
-set play_library=false
+set play_library=true
 set play_sorted=true
 set repeat=true
 set repeat_current=false
@@ -103,7 +103,7 @@ set show_current_bitrate=false
 set show_hidden=false
 set show_playback_position=true
 set show_remaining_time=false
-set shuffle=false
+set shuffle=true
 set skip_track_info=false
 set smart_artist_sort=true
 set softvol=false
@@ -117,9 +117,7 @@ bind browser i toggle show_hidden
 bind browser space win-activate
 bind browser u win-update
 bind common ! push shell 
-bind common + vol +10%
 bind common , seek -1m
-bind common - vol -10%
 bind common . seek +1m
 bind common / search-start
 bind common 1 view tree
@@ -130,8 +128,8 @@ bind common 5 view browser
 bind common 6 view filters
 bind common 7 view settings
 bind common 8 view settings
-bind common = vol +10%
 bind common ? search-b-start
+bind common A win-add-p
 bind common C toggle continue
 bind common D win-remove
 bind common E win-add-Q
@@ -149,8 +147,6 @@ bind common S toggle shuffle
 bind common U win-update-cache
 bind common W win-toggle
 bind common X win-toggle
-bind common [ vol +1% +0
-bind common ] vol +0 +1%
 bind common ^B win-page-up
 bind common ^C echo Type :quit<enter> to exit cmus.
 bind common ^D win-half-page-down
@@ -162,7 +158,6 @@ bind common ^P search-prev
 bind common ^R toggle repeat_current
 bind common ^U win-half-page-up
 bind common ^Y win-scroll-up
-bind common a win-add-p
 bind common b player-prev
 bind common c player-pause
 bind common delete win-remove
