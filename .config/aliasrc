@@ -107,7 +107,7 @@ function rp() {
 rangerDir=$XDG_CACHE_HOME/ranger_dir
 
 alias \
-  r='ranger --choosedir=$rangerDir; cd `cat $rangerDir`' \
+  r='ranger --choosedir=$rangerDir; LASTDIR=`cat $rangerDir`; cd $LASTDIR' \
   c="find -L $XDG_CONFIG_HOME $XDG_SCRIPT_HOME -type f | fzf | xargs -r $EDITOR"
 
 if [ $OS = "Darwin" ]; then
