@@ -7,8 +7,8 @@ brightnessctl
 ffmpeg
 
 # ranger and previews
-ffmpegthumbnailer
-w3m 
+# ffmpegthumbnailer
+# w3m 
 ranger
 
 gimp
