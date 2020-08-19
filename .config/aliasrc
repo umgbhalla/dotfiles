@@ -49,7 +49,8 @@ alias \
   n="newsboat -u $XDG_CONFIG_HOME/newsboat/urls -C $XDG_CONFIG_HOME/newsboat/config" \
   s="$XDG_SCRIPT_HOME/bin/run.sh" \
   yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn" \
-  m="cmus"
+  m="cmus" \
+  ss="sc-im"
 
 # suckless building
 function sbuild() {
@@ -117,7 +118,7 @@ fi
 # bookmarks
 function b() {
   CONFIG=$XDG_CONFIG_HOME/bookmarks; touch $CONFIG
-  bpath=$(cat $CONFIG | dmenu -i -l 20 | cut -d',' -f2)
+  bpath=$(cat $CONFIG | fzf | cut -d',' -f2)
   bpath=$(eval "echo $bpath")
   if [ ! -z $bpath ] && ! cd $bpath; then
     echo -e "${RED}Error: invalid bookmark.${NC}"
