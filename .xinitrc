@@ -5,13 +5,13 @@
 #
 
 # template vars
-$XDG_SCRIPT_HOME/tui/detemplate $XDG_CONFIG_HOME/ranger/template.rc.conf
+$DETEMPLATE $XDG_CONFIG_HOME/ranger/template.rc.conf
 
 # set last redshift
-$XDG_SCRIPT_HOME/tui/redshift "$(cat $REDSHIFT_LAST)"
+$REDSHIFT "$(cat $REDSHIFT_LAST)"
 
 # notifications
-$XDG_SCRIPT_HOME/tui/detemplate $XDG_CONFIG_HOME/dunst/template.dunstrc && dunst &
+$DETEMPLATE $XDG_CONFIG_HOME/dunst/template.dunstrc && dunst &
 
 #
 # core programs 

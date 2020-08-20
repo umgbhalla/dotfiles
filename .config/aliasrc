@@ -14,7 +14,7 @@ alias \
     md="mkdir -pv" \
     grep="grep --color=auto"
 
-if [ $OS = "Darwin" ]; then
+if [ $OS = $OS_MACOS ]; then
     unalias ls
     alias ls="ls -GF"
 fi
@@ -42,11 +42,11 @@ alias \
   system="sudo systemctl" \
   vim="nvim" \
   wifi="$XDG_SCRIPT_HOME/networkmanager_dmenu" \
-  pk="ps aux | dmenu -i -l 20 | awk '{print $2}' | tr -d '\n' | xargs kill -9" \
+  pk="ps aux | fzf | awk '{print $2}' | tr -d '\n' | xargs kill -9" \
   zr="source $XDG_CONFIG_HOME/zsh/.zshrc" \
   date="cal -3 && date && echo" \
   surf="surf -g" \
-  n="newsboat -u $XDG_CONFIG_HOME/newsboat/urls -C $XDG_CONFIG_HOME/newsboat/config" \
+  n="newsboat -u $NEWSBOAT_CONFIG/urls -C $NEWSBOAT_CONFIG/config" \
   s="$XDG_SCRIPT_HOME/bin/run.sh" \
   yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn" \
   m="cmus" \
@@ -60,12 +60,10 @@ function sbuild() {
     echo -e "${RED}No suckless utility specified.${NC}" && return
   [ ! -d $dir ] && \
     echo -e "${RED}Invalid suckless utility.${NC}" && return
-  [ ! -f $dir/template.config.h ] && \
-    echo -e "${RED}Unable to find template.config.h in $dir.${NC}" && return
-  
+
   olddir=$(pwd)
-  cd $dir && envsubst < template.config.h > config.h
-  sudo make clean install
+  cd $dir
+  $DETEMPLATE template.config.h && sudo make clean install
   cd $olddir
 }
 
@@ -99,32 +97,33 @@ function g() {
 
 # repo browser
 function rp() {
-  repoPath="$HOME/Repos"
-  mkdir -p $repoPath
-  repo=$(ls $repoPath | fzf)
-  cd $repoPath/$repo
+  mkdir -p $XDG_REPO_HOME
+  repo=$(ls $XDG_REPO_HOME | fzf)
+  cd $XDG_REPO_HOME/$repo
 }
 
-rangerDir=$XDG_CACHE_HOME/ranger_dir
+rangerDir=$XDG_CACHE_HOME/ranger_last_dir
+configEditList="find -L $XDG_CONFIG_HOME $XDG_SCRIPT_HOME -type f | fzf"
 
 alias \
   r='ranger --choosedir=$rangerDir; LASTDIR=`cat $rangerDir`; cd $LASTDIR' \
-  c="find -L $XDG_CONFIG_HOME $XDG_SCRIPT_HOME -type f | fzf | xargs -r $EDITOR"
+  c="$configEditList | xargs -r $EDITOR"
 
-if [ $OS = "Darwin" ]; then
-  alias c="find -L $XDG_CONFIG_HOME $XDG_SCRIPT_HOME -type f | fzf | xargs -I F $EDITOR \"F\""
+if [ $OS = $OS_MACOS ]; then
+  alias c="$configEditList | xargs -I F $EDITOR \"F\""
 fi
 
 # bookmarks
 function b() {
-  CONFIG=$XDG_CONFIG_HOME/bookmarks; touch $CONFIG
-  bpath=$(cat $CONFIG | fzf | cut -d',' -f2)
+  touch $BOOKMARK_CONFIG
+  bpath=$(cat $BOOKMARK_CONFIG | fzf | cut -d',' -f2)
   bpath=$(eval "echo $bpath")
+
   if [ ! -z $bpath ] && ! cd $bpath; then
     echo -e "${RED}Error: invalid bookmark.${NC}"
-    echo -e "${RED}Add new bookmarks to $CONFIG with the format 'identifier, path'${NC}"
+    echo -e "${RED}Add new bookmarks to $BOOKMARK_CONFIG with the format 'identifier, path'${NC}"
     sleep 1s
-    $EDITOR $CONFIG
+    $EDITOR $BOOKMARK_CONFIG
   fi
 }
 
@@ -158,7 +157,7 @@ alias \
   ytmp3="setopt noglob && dlLink -x --audio-format mp3" \
   feh="feh --scale-down --auto-zoom"
 
-# archives
+# archive extraction
 extract () {
   if [ -f $1 ] ; then
     case $1 in
@@ -184,6 +183,11 @@ extract () {
 }
 alias e="extract"
 
+# ffmpeg (WIP)
+alias ffmpeg-screenshot="ffmpeg -f x11grab -video_size 1920x1080 -i $DISPLAY -vframes 1 $HOME/Pictures/screen.png"
+alias ffmpeg-video="ffmpeg -f x11grab -video_size 1920x1080 -i $DISPLAY $HOME/Pictures/screen.mp4"
+alias ffmpeg-capture="ffmpeg -f x11grab -video_size 1920x1080 -framerate 25 -i $DISPLAY -f alsa -i default -c:v libx264 -preset ultrafast -c:a aac screen.mp4"
+
 # ----------------------------------------------------------------
 # miscellaneous
 # ----------------------------------------------------------------
@@ -192,29 +196,5 @@ alias clear-cache="sync; echo 1 | sudo tee /proc/sys/vm/drop_caches"
 clear-cached-files() {
   rm -rf /home/$USER/Downloads/*
   rm -rf /home/$USER/Pictures/*
-}
-
-alias ffmpeg-screenshot="ffmpeg -f x11grab -video_size 1920x1080 -i $DISPLAY -vframes 1 $HOME/Pictures/screen.png"
-alias ffmpeg-video="ffmpeg -f x11grab -video_size 1920x1080 -i $DISPLAY $HOME/Pictures/screen.mp4"
-alias ffmpeg-capture="ffmpeg -f x11grab -video_size 1920x1080 -framerate 25 -i $DISPLAY -f alsa -i default -c:v libx264 -preset ultrafast -c:a aac screen.mp4"
-
-# ----------------------------------------------------------------
-# work
-# ----------------------------------------------------------------
-
-segway () {
-  md $XDG_REPO_HOME/segway
-  cd $XDG_REPO_HOME/segway
-
-  dir=${1//\//-}
-
-  if [ -d "$dir" ]; then
-    cd $dir
-  else
-    git clone --branch "$1" https://github.com/shipt/segway.git $dir && cd $dir 2>/dev/null ||
-    \git clone https://github.com/shipt/segway.git $dir && cd $dir && git checkout -b $1
-  fi
-
-  yarn
 }
 
