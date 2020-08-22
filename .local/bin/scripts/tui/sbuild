@@ -1,0 +1,16 @@
+#!/bin/sh
+# builds a given suckless utility using template files
+
+[ -f $XDG_CONFIG_HOME/colorrc ] && source $XDG_CONFIG_HOME/colorrc
+
+dir=$XDG_CONFIG_HOME/$1
+
+[ -z $1 ] && \
+  echo -e "${RED}No suckless utility specified.${NC}" && exit 1
+[ ! -d $dir ] && \
+  echo -e "${RED}Invalid suckless utility.${NC}" && exit 1
+
+olddir=$(pwd)
+cd $dir
+$DETEMPLATE template.config.h && sudo make clean install
+cd $olddir

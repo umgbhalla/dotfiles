@@ -6,7 +6,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 # script directory
 export XDG_SCRIPT_HOME="$HOME/.local/bin/scripts"
-# data dirrectory
+# data directory
 export XDG_DATA_HOME="$HOME/.local/share"
 # repo directory
 export XDG_REPO_HOME="$HOME/Repos"
@@ -132,6 +132,8 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
 
 export DETEMPLATE=$XDG_SCRIPT_HOME/tui/detemplate
 export REDSHIFT=$XDG_SCRIPT_HOME/tui/redshift
+export SBUILD=$XDG_SCRIPT_HOME/tui/sbuild
+export SCREENSHOT=$XDG_SCRIPT_HOME/tui/screenshot
 
 #
 # path

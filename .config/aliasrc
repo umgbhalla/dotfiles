@@ -50,22 +50,8 @@ alias \
   s="$XDG_SCRIPT_HOME/bin/run.sh" \
   yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn" \
   m="cmus" \
-  ss="sc-im"
-
-# suckless building
-function sbuild() {
-  dir=$XDG_CONFIG_HOME/$1
-
-  [ -z $1 ] && \
-    echo -e "${RED}No suckless utility specified.${NC}" && return
-  [ ! -d $dir ] && \
-    echo -e "${RED}Invalid suckless utility.${NC}" && return
-
-  olddir=$(pwd)
-  cd $dir
-  $DETEMPLATE template.config.h && sudo make clean install
-  cd $olddir
-}
+  ss="sc-im" \
+  sbuild="$SBUILD"
 
 # ----------------------------------------------------------------
 # version control

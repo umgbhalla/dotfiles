@@ -6,6 +6,7 @@ if [ -f "$1" ] && [[ "$1" == *"template."* ]]; then
   filename=$(basename "$1" | sed -E 's/^template\.//')
   output="$(dirname "$1")/$filename"
   envsubst < $1 > $output
+  echo "envsubst < $1 > $output"
 else
   echo -e "${RED}template file does not exist or file name \"$1\" is invalid.${NC}"
   exit 1
