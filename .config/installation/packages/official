@@ -36,6 +36,7 @@ redshift
 
 # file explorer
 ranger
+w3m # required by ranger
 
 # -------------------------------------------------------------------
 # tools

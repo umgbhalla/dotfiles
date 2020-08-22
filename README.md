@@ -579,7 +579,4 @@ implemented or had the time to configure.
 + better calendar
 + better contact management
 + adding private repo markers in dotfiles (clone if available)
-+ reorganize installation scripts and remove unnecessary packages
-+ switch from feh to sxiv (compare bg image compatibility/performance)
-    + add .gif support in rifle conf
 + look into using fzf/ripgrep as a dmenu patch alternative
