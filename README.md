@@ -1,7 +1,9 @@
 # dotfiles
 
-![screenshot of desktop and vim](.config/installation/scr.png)
-![screenshot of lutris, scrcpy, and ranger](.config/installation/scr2.png)
+![terminal-based utilities](.config/installation/scr1.png)
+![development using my st build and nvim configuration](.config/installation/scr2.png)
+![system information tiled alongside my browser](.config/installation/scr3.png)
+![newsboat, nvim, a development server, and lutris](.config/installation/scr4.png)
 
 These are the dotfiles I use regularly in my school laptop and home desktop. I highly recommend 
 against copying these dotfiles blindly unless you know exactly what each file does to your 
