@@ -1,0 +1,121 @@
+# -------------------------------------------------------------------
+# essential dependencies
+# -------------------------------------------------------------------
+
+# window manager
+bspwm
+
+# key binding manager
+sxhkd
+
+# editor
+neovim
+nodejs # required by coc
+ripgrep # required for file-searching
+
+# xft is a header required for suckless st compilation
+libxft
+
+# java
+jre-openjdk-headless # required by Brave
+
+# fuzzy finder
+fzf
+
+# background
+feh
+
+# system fonts
+ttf-liberation # ttf lib required by Brave
+
+# notification server
+dunst
+
+# screen red light
+redshift
+
+# file explorer
+ranger
+
+# -------------------------------------------------------------------
+# tools
+# -------------------------------------------------------------------
+
+# mouse cursor pointer on desktop
+xorg-xsetroot
+
+# X11 automation tool
+xdotool
+
+# clipboard
+xclip
+
+# prints key names to the console
+xorg-xev
+
+# system profiling
+htop
+neofetch
+
+# user manuals
+man
+
+# ssh
+openssh
+
+# opening archives
+unrar
+unzip
+tar
+
+# laptop power saving
+tlp
+
+# reading windows-formatted usb drives
+ntfs-3g
+
+# mpris
+python-dbus
+python-gobject
+
+# video playback
+mpv
+
+# vim tags
+# ctags
+
+# brightness
+brightnessctl
+
+# image editing
+gimp
+inkscape
+
+# package manager
+yarn
+
+# chinese font
+wqy-zenhei
+
+# pdf viewer
+zathura
+zathura-pdf-mupdf
+
+# audio viewing/editing
+audacity
+ffmpeg
+
+
+# development languages
+typescript
+clang # required for clang-format
+
+## -------------------------------------------------------------------
+## extra
+## -------------------------------------------------------------------
+
+# conversation and work
+discord
+
+# music
+cmus

@@ -11,12 +11,24 @@ may encounter - that being said, if you come across a reproducible issue or woul
 me questions, feel free to open an issue or contact me privately and I would be more than 
 happy to help.
 
+There are two routes you can follow to reproduce the exact same setup I have, one being more 
+ tedious, but possibly less work in the long run.
+  - If you would like to wipe an entire machine and begin from scratch with my setup, I have 
+     outlined a clean installation according to my preferences in 
+     [manual installation](#manualinstall). This may be a bit more work but guarantees that 
+     the setup will work exactly the same as mine.
+  - If you would like to install the dotfiles on top of an existing OS or setup, you can 
+     follow the instructions below to clone my dotfiles into your setup. However, be 
+     forewarned - I can't guarantee anything will work. You will likely have to fiddle with 
+     the `.xinitrc` and `.profile` files a bit to get everything working properly, and it 
+     may cost you a considerable amount of time to get everything to work in the long run.
+
 I also have been working on compatibility with MacOS. While I cannot fix everything to work in 
 MacOS, basic utilities and command-line aliases are compatible. See [cloning](#cloning).
 
-I use to primarily use `Wayland` and have a setup specifically set up for use with `Sway`. If 
-you have interest, you can check it out in 
-[this release](https://github.com/bossley9/dotfiles/tree/2020.03.11).
+> I use to primarily use `Wayland` and have a setup specifically set up for use with `Sway`. If 
+> you have interest, you can check it out in 
+> [this release](https://github.com/bossley9/dotfiles/tree/2020.03.11).
 
 ## Table of Contents
 1. [What Are Dotfiles?](#what-are-dotfiles)
@@ -43,7 +55,7 @@ Theme: Nordic [GTK2/3]
 Icons: Adwaita [GTK2/3]
 Terminal: st
 Status Bar: polybar
-Launcher: dmenu
+Launcher: fzf/dmenu
 
 Editor: neovim
 Browser: brave (JSON Formatter, React Dev Tools, Redux Dev Tools), surf
@@ -53,28 +65,17 @@ System Profiler:  htop
 
 ## Cloning <a name="cloning"></a>
 
->There are two routes you can follow to reproduce the exact same setup I have, one being more 
-> tedious, but possibly less work in the long run.
->  - If you would like to wipe an entire machine and begin from scratch with my setup, I have 
->     outlined a clean installation according to my preferences in 
->     [manual installation](#manualinstall). This may be a bit more work but guarantees that 
->     the setup will work exactly the same as mine.
->  - If you would like to install the dotfiles on top of an existing OS or setup, you can 
->     follow the instructions below to clone my dotfiles into your setup. However, be 
->     forewarned - I can't guarantee anything will work. You will likely have to fiddle with 
->     the `.xinitrc` and `.profile` files a bit to get everything working properly, and it 
->     may cost you a considerable amount of time to get everything to work in the long run.
-
-1. Clone this repository to your home folder. If you followed the 
+1. Clone this repository to your home folder using the steps outlined below. 
+    If you followed my 
     [manual installation](#manualinstall), choose `zsh` here.
     - `zsh`:
-      ```zsh
+      ```sh
       git clone --recursive https://github.com/bossley9/dotfiles.git /tmp/dotfiles
       setopt -s glob_dots
       cp -rv /tmp/dotfiles/* $HOME/
       ```
     - `bash`:
-      ```bash
+      ```sh
         git clone --recursive https://github.com/bossley9/dotfiles.git /tmp/dotfiles
         shopt -s dotglob nullglob
         cp -rv /tmp/dotfiles/* $HOME/
@@ -88,7 +89,7 @@ System Profiler:  htop
     **GNU/Linux:**
     ```sh
     source $HOME/.profile
-    $HOME/.config/installation/setup.sh
+    $XDG_CONFIG_HOME/installation/setup.sh
     ```
     Restart and verify all packages are running properly.
     ```
@@ -110,9 +111,10 @@ System Profiler:  htop
 ## Manual Installation <a name="manualinstall"></a>
 
 For the best personalized installation experience I suggest reading the Arch Wiki. It's 
-surprisingly intuitive (and this is coming from a zoomer who hates reading documentation) and 
-goes into depth about customizing Arch to fit your standards. Note that the following settings 
-are all settings I prefer to use and may not fit your specific use case.
+surprisingly intuitive (coming from a zoomer who hates reading documentation) and 
+goes into depth about customizing Arch to fit your standards. The configuration files included
+in this project are all settings I prefer to use and may not fit your specific usage or 
+preferences.
 
 Another disclaimer - I am a strong advocate for the `vim` text editor, and as such, I will use 
 `vim` to edit files during installation. If you prefer `emacs` or the more user-friendly 
@@ -136,13 +138,14 @@ Another disclaimer - I am a strong advocate for the `vim` text editor, and as su
 
 #### Setup <a name="setup"></a>
 
-1. For this guide, you will need the following tools:
+1. For this guide you will need the following tools:
     - A computer that will be wiped to install a new OS
     - An internet connection (preferably ethernet)
-    - A usb drive that can be wiped
-2. Download [Archlinux](https://www.archlinux.org/download/) from their website. I downloaded 
-version `archlinux-2020.08.01-x86_64.iso`.
-3. Burn the downloaded cd image onto a usb. This can be done using a number of different tools:
+    - A disposable usb drive that can be wiped
+2. Download the latest [Archlinux](https://www.archlinux.org/download/) installation iso from 
+    their website. I downloaded version `archlinux-2020.08.01-x86_64.iso`.
+3. Burn the downloaded cd image onto the usb. 
+    This can be done using a number of different tools:
     - [Balena Etcher](https://www.balena.io/etcher/)
     - [Rufus](https://rufus.ie/)
     - [Mkusb](https://help.ubuntu.com/community/mkusb)
@@ -156,20 +159,25 @@ version `archlinux-2020.08.01-x86_64.iso`.
     usb hard drive). If you don't know how to do this, look up how to boot from a live usb
     and how to change the bios settings for your machine.
 
-Booting from the usb will open a menu. Choose to boot from the live usb. This will eventually 
-bring up a simple command prompt.
+Booting from the usb will open a menu. Choose to boot from the live usb.
+After loading screens you will eventually land on a simple command prompt.
 
 #### Preliminary Internet <a name="preliminternet"></a>
 
-1. After verifying the ethernet cable is plugged in (if applicable), test the internet with 
-    `ping archlinux.org`. If an internet connection has already been established, you will
-    see an incremental output displaying packet information. If internet has not yet been set 
-    up on the computer, it will likely provide the following error:
+1. After verifying the ethernet cable is plugged in (if applicable), test the internet by
+    typing the following command:
+    ```
+    ping archlinux.org
+    ```
+    If an internet connection has already been established, you will see an incremental 
+    output displaying packet information. If internet has not yet been set 
+    up on the machine, it will likely provide the following error:
     ```
     ping: archlinux.org: Name or service not known
     ```
     If a response appears, type `ctrl-c` to stop the ping and skip ahead to the next section.
-2. Since no internet is connect, we'll need to get the names of all network cards with 
+2. If you arrived at this step, we'll assume no internet is connected. 
+    We'll need to get the names of all network cards with 
     `ip link`. Remember the names of the cards that display. On most machines there are only
     three network cards:
     - `lo` represents a loopback device, which is kind of like a virtual network (this is how 
@@ -180,11 +188,13 @@ bring up a simple command prompt.
     - If your machine has a wifi card, it will be represented by `wlan0`. As with the 
         ethernet card, this is usually passes under a more specific name, like `wlp1s0`. 
         In this guide I will use `wlan0` to represent the wireless card name.
-3. This installation will use ethernet to download all packages and setup the machine.
+3. We will now establish an internet connection to download all necessary packages.
     It is definitely possible to install the OS on the machine using only wifi (using a utility
     such as [`iwctl`](https://wiki.archlinux.org/index.php/Iwd#iwctl)), but I recommend 
     against wifi if possible since it involves a lot more complication and will be subsequently 
-    slower during the install process. To set up a temporary ethernet internet:
+    slower during the install process.
+
+    **To install with ethernet:**
     1. Copy the netctl example ethernet configuration.
         ```
         cp /etc/netctl/examples/ethernet-static /etc/netctl
@@ -203,7 +213,7 @@ bring up a simple command prompt.
     4. Verify `ping archlinux.org` produces a response. Do not proceed and repeat this section 
         until a response appears.
 
-    To set up a temporary wifi connection:
+    **To install with wifi:**
     1. Enter the `iwctl` prompt by typing `iwctl` in the command line.
     2. Verify the computer's wifi card with `device list`. This should display the wifi 
     card(s) you saw earlier with `ip link`.
@@ -308,7 +318,8 @@ command. To be safe, we will make the swap partition to be twice the amount of t
     ```
 
 #### Locales and System Information <a name="locales"></a>
-1. `vim /etc/locale.gen` to enable locales.
+1. `vim /etc/locale.gen` to enable locales. I speak and use English as my system language,
+    but yours might be different. Adjust accordingly.
     ```
     en_US.UTF-8 UTF-8
     en_US ISO-8859-1
@@ -346,8 +357,10 @@ command. To be safe, we will make the swap partition to be twice the amount of t
     umount -R /mnt
     shutdown -h now
     ```
-2. Power on the machine. It should boot immediately into the login prompt. Then log in as the 
-    root user. If not, repeat the previous steps to install the OS.
+2. Power on the machine. It should boot immediately into a login prompt. Then log in as the 
+    root user using `root` as your username and the password you set earlier. 
+    If it does not display a login prompt, the OS was not set up correctly. 
+    Repeat the previous steps to install the OS.
 
 #### Wifi <a name="wifi"></a>
 1. A wifi network connection can be set up from the command line temporarily if needed. Run 
@@ -385,7 +398,7 @@ command. To be safe, we will make the swap partition to be twice the amount of t
     cd /tmp/yay && makepkg -si
     ```
 2. Install `zsh` and set it as the default shell. After these steps, I would suggest running the
-    last command as `root` in order to use the same shell for both users.
+    same command as the `root` user in order to use the same shell for both users.
     ```
     sudo pacman -S zsh
     chsh -s /bin/zsh
@@ -394,15 +407,21 @@ command. To be safe, we will make the swap partition to be twice the amount of t
     ```
     sudo pacman -S xorg-xinit xorg-server
     ```
-4. (Optional) If you choose to not use `st` as a terminal emulator, make sure you install one 
-    and change the `TERM` environment variable located in `.profile` and update the binding 
-    in `sxhkdrc`.
-5. Log out and log back in, then install my dotfiles. See [cloning](#cloning) for more details.
+    My dotfiles will automatically use `st` as the default terminal emulator.
+    If you choose to not use `st` as a terminal emulator, make sure you install at 
+    least one terminal emulator and change the `TERM` environment variable located in 
+    `.profile` and update the binding in `sxhkdrc`. If you do not have a terminal emulator
+    installed and properly setup, my dotfiles will not work.
+5. Log out and log back in.
     ```
     exit
     ```
     If prompted to create a `zsh` startup file, you can press `q` to quit and do nothing. My 
-    dotfiles contain necessary `zsh` startup files.
+    dotfiles contain necessary `zsh` startup files. You can then remove old `bash` files.
+    ```
+    rm .bash_history .bash_logout .bash_profile .bashrc
+    ```
+6. Finally, install my dotfiles. See [cloning](#cloning) for more details.
 
 ## Additional Configuration or Notes <a name="addconfig"></a>
 - [Mirrorlist](#mirrorlist)
@@ -558,4 +577,9 @@ implemented or had the time to configure.
 + switch completely to ALSA
 + centralize color definitions (`.profile`, `~/.config/colorrc`, `~/.config/Xresources`)
 + better calendar
-+ better contact manager
++ better contact management
++ adding private repo markers in dotfiles (clone if available)
++ reorganize installation scripts and remove unnecessary packages
++ switch from feh to sxiv (compare bg image compatibility/performance)
+    + add .gif support in rifle conf
++ look into using fzf/ripgrep as a dmenu patch alternative

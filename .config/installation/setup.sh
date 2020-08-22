@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DIR="$(dirname $0)"
+DIR="$(dirname $0)/packages"
 
 # unset git config to prevent yay errors
 gcfg="$GIT_CONFIG"
@@ -10,10 +10,8 @@ unset GIT_CONFIG
 # install official repository packages
 #
 
-PACKS="git"
-for file in $DIR/official/*; do
-  PACKS="$PACKS $(sed 's/#.*$//' $file)"
-done
+official="$DIR/official"
+PACKS="$(sed 's/#.*$//' $official)"
 
 echo "installing official repository packages..."
 sudo pacman -S --needed $PACKS
@@ -22,16 +20,8 @@ sudo pacman -S --needed $PACKS
 # install AUR packages
 #
 
-PACKS=""
-for file in $DIR/aur/*; do
-  PACKS="$PACKS $(sed 's/#.*$//' $file)"
-done
-
-# verify yay is installed
-if ! pacman -Qi yay > /dev/null; then
-  git clone https://aur.archlinux.org/yay.git /tmp/yay
-  cd /tmp/yay && makepkg -si
-fi
+aur="$DIR/aur"
+PACKS="$(sed 's/#.*$//' $aur)"
 
 echo "installing AUR packages..."
 yay -S --needed --batchinstall $PACKS
@@ -40,10 +30,8 @@ yay -S --needed --batchinstall $PACKS
 # enable any services
 #
 
-DAEMONS=""
-for file in $DIR/system/*; do
-  DAEMONS="$DAEMONS $(sed 's/#.*$//' $file)"
-done
+systemServices="$DIR/system"
+DAEMONS="$DAEMONS $(sed 's/#.*$//' $systemServices)"
 
 echo "enabling services..."
 for service in $DAEMONS; do
@@ -55,16 +43,12 @@ done
 # suckless utilities
 #
 
-SUCKLESS=""
-for file in $DIR/suckless/*; do
-  SUCKLESS="$SUCKLESS $(sed 's/#.*$//' $file)"
-done
+sucklessUtilities="$DIR/suckless"
+SUCKLESS="$(sed 's/#.*$//' $sucklessUtilities)"
 
 echo "building suckless utilities..."
 for utility in $SUCKLESS; do
-  cd "$HOME/.config/$utility"
-  envsubst < template.config.h > config.h
-  sudo make clean install
+  $SBUILD $utility
 done
 
 #

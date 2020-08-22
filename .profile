@@ -140,5 +140,4 @@ export SCREENSHOT=$XDG_SCRIPT_HOME/tui/screenshot
 #
 
 export PATH="$HOME/.local/bin/:$PATH"
-export PATH="$(yarn global bin):$PATH"
 

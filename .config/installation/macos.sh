@@ -53,11 +53,11 @@ ln $XDG_CONFIG_HOME/Code/User/settings.json $HOME/Library/Application\ Support/C
 # st build
 #
 
-sudo ln -s /usr/X11R6/include/freetype2/ft2build.h /usr/X11R6/include
-sudo ln -s /usr/X11R6/include/freetype2/freetype /usr/X11R6/include
+# sudo ln -s /usr/X11R6/include/freetype2/ft2build.h /usr/X11R6/include
+# sudo ln -s /usr/X11R6/include/freetype2/freetype /usr/X11R6/include
 
-cd $XDG_CONFIG_HOME/st
-sudo PKG_CONFIG_PATH="/opt/X11/lib/pkgconfig/" make osx
+# cd $XDG_CONFIG_HOME/st
+# sudo PKG_CONFIG_PATH="/opt/X11/lib/pkgconfig/" make osx
 
 # reset git config
 GIT_CONFIG="$gcfg"
