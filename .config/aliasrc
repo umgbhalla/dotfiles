@@ -128,6 +128,19 @@ function mnt() {
 }
 function umnt() { cd $HOME && sync && sudo umount $mntpt }
 
+# mtp devices
+mntdevpt="$HOME/Mount"
+function mntdev() {
+  mkdir -p $mntdevpt
+  jmtpfs $mntdevpt
+  cd $mntdevpt
+}
+function umntdev() {
+  cd $HOME
+  sync
+  fusermount -u $mntdevpt
+}
+
 function dlLink() {
   youtube-dl --add-metadata -i $@
   unsetopt noglob
@@ -139,6 +152,8 @@ function dav() { ffmpeg -i $1 -c:v dnxhd -profile:v 1 -pix_fmt yuv422p -c:a pcm_
 alias \
   mt="mnt" \
   umt="umnt" \
+  mtdev="mntdev" \
+  umtdev="umntdev" \
   ytmp4="setopt noglob && dlLink -f 22" \
   ytmp3="setopt noglob && dlLink -x --audio-format mp3" \
   feh="feh --scale-down --auto-zoom"
