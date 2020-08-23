@@ -435,6 +435,7 @@ command. To be safe, we will make the swap partition to be twice the amount of t
 - [WebGL in Brave](#webgl-brave)
 - [Time Out Of Sync](#time-out-of-sync)
 - [No dwm?](#no-dwm)
+- [Copying Repositories](#copying-repos)
 
 #### Mirrorlist <a name="mirrorlist"></a>
 > This section isn't very relevant anymore since Arch automatically runs Reflector now, but
@@ -567,6 +568,15 @@ maintaining window manager key bindings from within `sxhkd`.
 That being said, I've given this a lot of thought recently, and I may revisit `dwm` in the 
 future. As such, I am leaving my module build of `dwm` included in my dotfiles should I 
 ever switch to `dwm` down the road.
+
+#### Copying Repositories <a name="copying-repos"></a>
+Lately I've had to go through the trouble of copying repositories from device to device for 
+ease of access. Since most shells including zsh will not allow you to copy dotfiles without 
+copying them explicitly, you'll need to change some options.
+```
+setopt -s glob_dots
+cp -rv targetRepo/* destination
+```
 
 ## TODO <a name="todo"></a>
 Below are a list of things in no particular order that I plan to do but haven't yet 
