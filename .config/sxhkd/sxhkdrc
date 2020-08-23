@@ -49,7 +49,7 @@ super + e
 #
 
 super + w + i
-  $XDG_SCRIPT_HOME/networkmanager_dmenu
+  $TERM sh -c "nmtui"
 
 #
 # audio controls
