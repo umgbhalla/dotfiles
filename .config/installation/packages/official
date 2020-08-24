@@ -54,6 +54,9 @@ xclip
 # prints key names to the console
 xorg-xev
 
+# window management/testing
+wmctrl
+
 # system profiling
 htop
 neofetch
@@ -96,7 +99,7 @@ yarn
 wqy-zenhei
 
 # pdf viewer
-zathura
+# zathura
 zathura-pdf-mupdf
 
 # audio viewing/editing

@@ -6,6 +6,7 @@
 
 # template vars
 $DETEMPLATE $XDG_CONFIG_HOME/ranger/template.rc.conf
+$DETEMPLATE $XDG_CONFIG_HOME/zathura/template.zathurarc
 
 # set last redshift
 $REDSHIFT "$(cat $REDSHIFT_LAST)"

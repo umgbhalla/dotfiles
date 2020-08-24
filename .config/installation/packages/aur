@@ -25,6 +25,9 @@ pulseaudio-ctl
 # tools
 # -------------------------------------------------------------------
 
+# pdf viewer
+zathura-git # using zathura-git instead of zathura for alpha patch
+
 # download audio/video from various sources
 youtube-dl
 

@@ -16,8 +16,21 @@ map <C-J> zoom out
 map <C-k> scroll half-up
 map <C-j> scroll half-down
 
-# dark mode because I'm a chad
-map i recolor
-
 # copying to clipboard
 set selection-clipboard clipboard
+
+set guioptions "" # hide status by default
+
+set recolor # default dark mode bc I'm a chad
+
+set default-bg "$C_BLACK_0_A"
+set default-fg "$C_GRAY_0"
+
+set notification-bg "$C_BLACK_0_A"
+set notification-fg "$C_GRAY_0"
+
+# (should) make pdf bg transparent
+set recolor-lightcolor "$C_BLACK_0_A"
+
+map i recolor # toggle color mode
+
