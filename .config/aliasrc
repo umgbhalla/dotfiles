@@ -49,7 +49,7 @@ alias \
   n="newsboat -u $NEWSBOAT_CONFIG/urls -C $NEWSBOAT_CONFIG/config" \
   s="$XDG_SCRIPT_HOME/bin/run.sh" \
   yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn" \
-  m="rm $XDG_CONFIG_HOME/cmus/cache && cmus $HOME/Music" \
+  m="rm -f $XDG_CONFIG_HOME/cmus/cache && cmus $HOME/Music" \
   ss="sc-im" \
   sbuild="$SBUILD"
 
