@@ -13,6 +13,10 @@ picom-ibhagwan-git
 
 # system fonts
 adobe-source-code-pro-fonts
+adobe-source-sans-pro-fonts
+ttf-font-awesome-4
+otf-openmoji # emoji support
+
 
 # audio
 # usually on reboot everything will be muted,
@@ -30,10 +34,6 @@ zathura-git # using zathura-git instead of zathura for alpha patch
 
 # download audio/video from various sources
 youtube-dl
-
-# system font
-ttf-font-awesome-4
-otf-openmoji # emoji support
 
 # js/ts runtime
 deno-bin

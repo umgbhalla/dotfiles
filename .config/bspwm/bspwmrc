@@ -17,17 +17,14 @@ bspc config window_gap $WM_GAPS
 bspc config gapless_monocle true
 
 # default floating
-bspc rule -a '*' state=floating
+# bspc rule -a '*' state=floating
 
 # bspwm defaults
 bspc monitor -d I II III IV V VI VII VIII IX X
-
-# background
-feh --bg-fill --no-fehbg $XDG_CONFIG_HOME/wallpapers/$WALLPAPER.png
 
 #
 # custom rules
 #
 
-bspc rule -a st state=tiled
-bspc rule -a brave state=tiled
+# bspc rule -a st state=tiled
+# bspc rule -a brave state=tiled

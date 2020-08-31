@@ -127,7 +127,10 @@ export WALLPAPER=4
 export BACKGROUND="feh --bg-fill --no-fehbg $XDG_CONFIG_HOME/wallpapers/$WALLPAPER.png"
 
 # font
-export FONT="Source Code Pro Medium:pixelsize=15:antialias=true:autohint=true";
+export FONT_MONO="Source Code Pro Medium:pixelsize=15:antialias=true:autohint=true";
+export FONT_SANS="Source Sans Pro Medium:bold:pixelsize=15:antialias=true:autohint=true";
+
+export FONT="$FONT_MONO";
 
 export C_BLACK_0="#2e3440"
 # C_BLACK_0 with WM_TRANSPARENCY
