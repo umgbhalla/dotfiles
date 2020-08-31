@@ -5,14 +5,14 @@
 #
 
 # template vars
+$DETEMPLATE $XDG_CONFIG_HOME/dunst/template.dunstrc 
 $DETEMPLATE $XDG_CONFIG_HOME/ranger/template.rc.conf
 $DETEMPLATE $XDG_CONFIG_HOME/zathura/template.zathurarc
 
 # set last redshift
 $REDSHIFT "$(cat $REDSHIFT_LAST)"
 
-# notifications
-$DETEMPLATE $XDG_CONFIG_HOME/dunst/template.dunstrc && dunst &
+$NOTIFICATION_MANAGER &
 
 #
 # core programs 
@@ -21,12 +21,10 @@ $DETEMPLATE $XDG_CONFIG_HOME/dunst/template.dunstrc && dunst &
 # shortcut manager
 sxhkd &
 
-# compositor
-picom --experimental-backends &
+$COMPOSITOR_ARGS &
 
-# status bar
+$BACKGROUND &
+
 $BAR_ARGS &
 
-# window manager
-exec bspwm
-
+exec $WM

@@ -32,12 +32,19 @@ fi
 export BROWSER="brave"
 export BROWSER_INCOGNITO="brave"
 
-export BAR="polybar"
-export BAR_ARGS="$BAR -r main"
-
 export FILE_EXPLORER="ranger"
 
 export SYSTEM_PROFILER="htop"
+
+export NOTIFICATION_MANAGER="dunst"
+
+export BAR="polybar"
+export BAR_ARGS="$BAR -r main"
+
+export COMPOSITOR="picom"
+export COMPOSITOR_ARGS="$COMPOSITOR --experimental-backends"
+
+export WM="bspwm"
 
 #
 # variables
@@ -113,6 +120,9 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 
 # index indicating which wallpaper to display
 export WALLPAPER=4
+
+# background command
+export BACKGROUND="feh --bg-fill --no-fehbg $XDG_CONFIG_HOME/wallpapers/$WALLPAPER.png"
 
 export C_BLACK_0="#2e3440"
 # C_BLACK_0 with WM_TRANSPARENCY
