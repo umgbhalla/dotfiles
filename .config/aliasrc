@@ -43,7 +43,7 @@ alias \
   vim="nvim" \
   wifi="$XDG_SCRIPT_HOME/networkmanager_dmenu" \
   pk="ps aux | fzf | awk '{print $2}' | tr -d '\n' | xargs kill -9" \
-  zr="source $XDG_CONFIG_HOME/zsh/.zshrc" \
+  zr="clear && source $XDG_CONFIG_HOME/zsh/.zshrc" \
   date="cal -3 && date && echo" \
   surf="surf -g" \
   n="newsboat -u $NEWSBOAT_CONFIG/urls -C $NEWSBOAT_CONFIG/config" \
