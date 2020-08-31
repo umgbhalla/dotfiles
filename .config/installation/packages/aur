@@ -9,7 +9,7 @@ polybar
 brave-bin # brave requires compilation, brave-bin does not
 
 # compositor
-picom-tryone-git
+picom-ibhagwan-git
 
 # system fonts
 adobe-source-code-pro-fonts

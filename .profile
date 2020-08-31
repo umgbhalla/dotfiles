@@ -104,10 +104,12 @@ export PATH="$HOME/.local/bin/:$PATH"
 # display
 #
 
-export WM_GAPS=10
+export WM_GAPS=8
 export WM_BAR_HEIGHT=${$(( $WM_GAPS * 3 ))%.*}
 export WM_TOP_PADDING=$(( $WM_GAPS + $WM_BAR_HEIGHT ))
 export WM_TRANSPARENCY="0.95"
+
+export WINDOW_BORDER_RADIUS=8
 
 export NOTIF_WIDTH_OFFSET=-1000
 export NOTIF_HEIGHT=100
