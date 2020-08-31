@@ -126,6 +126,9 @@ export WALLPAPER=4
 # background command
 export BACKGROUND="feh --bg-fill --no-fehbg $XDG_CONFIG_HOME/wallpapers/$WALLPAPER.png"
 
+# font
+export FONT="Source Code Pro Medium:pixelsize=15:antialias=true:autohint=true";
+
 export C_BLACK_0="#2e3440"
 # C_BLACK_0 with WM_TRANSPARENCY
 export C_BLACK_0_A="$($HEX2RGB $C_BLACK_0 | sed -e s/b/ba/ -e s/\)/,$WM_TRANSPARENCY\)/)"
