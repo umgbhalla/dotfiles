@@ -107,7 +107,7 @@ export PATH="$HOME/.local/bin/:$PATH"
 export WM_GAPS=8
 export WM_BAR_HEIGHT=${$(( $WM_GAPS * 3.5 ))%.*}
 export WM_TOP_PADDING=$(( $WM_GAPS + $WM_BAR_HEIGHT ))
-export WM_TRANSPARENCY="0.95"
+export WM_TRANSPARENCY="0.9"
 
 export WINDOW_BORDER_RADIUS=8
 
