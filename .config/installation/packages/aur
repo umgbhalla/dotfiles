@@ -17,7 +17,6 @@ adobe-source-sans-pro-fonts
 ttf-font-awesome-4
 otf-openmoji # emoji support
 
-
 # audio
 # usually on reboot everything will be muted,
 # may need to unmute both source and sink

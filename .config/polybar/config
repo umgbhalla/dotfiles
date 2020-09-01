@@ -1,7 +1,7 @@
 ; polybar configuration
 
 [colors]
-background = ${env:COLOR_BG:#2e3440}
+background = ${env:COLOR_BG:#f02e3440}
 background-alt = ${env:COLOR_TERTIARY:#5d62ac}
 foreground = ${env:COLOR_FG:#eceff4}
 primary = ${env:COLOR_PRIMARY:#febdf7}
@@ -17,10 +17,12 @@ margin-bottom = 0
 width = 100%
 height = ${env:WM_BAR_HEIGHT:30}
 override-redirect = true
+wm-restack = bspwm ; always display below fullscreen windows
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
+radius = ${env:WINDOW_BORDER_RADIUS:8}
 border-size = ${env:WM_GAPS:16}
 border-color = ${colors.transparent}
 
@@ -29,7 +31,7 @@ font-1 = FontAwesome:style=Regular
 font-2 = Source Code Pro Medium:bold:pixelsize=12:antialias=true:autohint=true;1
 
 modules-left = bspwm
-modules-center = mpris
+modules-center = title mpris
 modules-right = wlan eth pulseaudio battery date
 
 cursor-click = pointer
@@ -63,6 +65,9 @@ tail = true
 format-background = ${colors.background}
 format-foreground = ${colors.primary}
 format-padding = 2
+
+[module/title]
+type = internal/xwindow
 
 [module/wlan]
 type = internal/network

@@ -105,7 +105,7 @@ export PATH="$HOME/.local/bin/:$PATH"
 #
 
 export WM_GAPS=8
-export WM_BAR_HEIGHT=${$(( $WM_GAPS * 3 ))%.*}
+export WM_BAR_HEIGHT=${$(( $WM_GAPS * 4 ))%.*}
 export WM_TOP_PADDING=$(( $WM_GAPS + $WM_BAR_HEIGHT ))
 export WM_TRANSPARENCY="0.95"
 
@@ -135,8 +135,6 @@ export FONT="$FONT_MONO";
 export C_BLACK_0="#2e3440"
 # C_BLACK_0 with WM_TRANSPARENCY
 export C_BLACK_0_A="$($HEX2RGB $C_BLACK_0 | sed -e s/b/ba/ -e s/\)/,$WM_TRANSPARENCY\)/)"
-# C_BLACK_0 with 0 transparency
-export C_BLACK_0_A_0="$($HEX2RGB $C_BLACK_0 | sed -e s/b/ba/ -e s/\)/,0\)/)"
 export C_BLACK_1="#4c566a"
 
 export C_RED_0="#bf616a"
@@ -162,7 +160,7 @@ export C_CYAN_1="#8fbcbb"
 export C_GRAY_0="#e5e9f0"
 export C_GRAY_1="#eceff4"
 
-export COLOR_BG="$C_BLACK_0"
+export COLOR_BG="#f0${C_BLACK_0:1}"
 export COLOR_FG="$C_GRAY_1"
 
 export COLOR_PRIMARY="$C_PINK_0"
