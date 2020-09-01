@@ -111,12 +111,15 @@ export WM_TRANSPARENCY="0.95"
 
 export WINDOW_BORDER_RADIUS=8
 
-export NOTIF_WIDTH_OFFSET=-1000
-export NOTIF_HEIGHT=100
-export NOTIF_X_OFFSET=$(( $NOTIF_WIDTH_OFFSET * -1 / 2 ))
-export NOTIF_Y_OFFSET=$(( $WM_GAPS + $WM_BAR_HEIGHT / 2 ))
-export NOTIF_FRAME_WIDTH=3
-export NOTIF_TRANSPARENCY=$(( 100 - ( $WM_TRANSPARENCY * 100 ) ))
+export NOTIF_WIDTH=400
+export NOTIF_HEIGHT=70
+export NOTIF_ICON_SIZE=$(( $NOTIF_HEIGHT * 0.8 ))
+export NOTIF_X_SYM="-"
+export NOTIF_X_OFFSET=$(( $WM_GAPS * 2 ))
+export NOTIF_Y_SYM="-"
+export NOTIF_Y_OFFSET=$(( $WM_GAPS * 2 ))
+# export NOTIF_TRANSPARENCY=$(( 100 - ( $WM_TRANSPARENCY * 100 ) ))
+# export NOTIF_TRANSPARENCY=$(( 100 - ( $WM_TRANSPARENCY * 100 ) ))
 
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 
@@ -127,8 +130,10 @@ export WALLPAPER=4
 export BACKGROUND="feh --bg-fill --no-fehbg $XDG_CONFIG_HOME/wallpapers/$WALLPAPER.png"
 
 # font
-export FONT_MONO="Source Code Pro Medium:pixelsize=15:antialias=true:autohint=true";
-export FONT_SANS="Source Sans Pro Medium:bold:pixelsize=15:antialias=true:autohint=true";
+export FONT_MONO="Source Code Pro Medium:pixelsize=15:antialias=true:autohint=true"
+export FONT_SANS="Source Sans Pro Medium:bold:pixelsize=15:antialias=true:autohint=true"
+
+export FONT_NOTIF="Source Code Pro Medium 12"
 
 export FONT="$FONT_MONO";
 
@@ -159,6 +164,8 @@ export C_CYAN_1="#8fbcbb"
 
 export C_GRAY_0="#e5e9f0"
 export C_GRAY_1="#eceff4"
+
+export NOTIF_BG="${C_BLACK_0}cc"
 
 export COLOR_BG="#dd${C_BLACK_0:1}"
 export COLOR_FG="$C_GRAY_1"
