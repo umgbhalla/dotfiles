@@ -26,5 +26,5 @@ bspc monitor -d I II III IV V VI VII VIII IX X
 # custom rules
 #
 
-# bspc rule -a st state=tiled
-# bspc rule -a brave state=tiled
+bspc rule -a feh state=floating
+bspc rule -a mpv state=floating
