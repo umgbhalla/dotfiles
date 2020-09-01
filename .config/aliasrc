@@ -161,7 +161,9 @@ alias \
 # archive extraction
 extract () {
   if [ -f $1 ] ; then
+    dir=$(echo "$1" | cut -d'.' -f1)
     case $1 in
+      *.asar)      asar e $1 $dir ;;
       *.tar.bz2)   tar xvjf $1    ;;
       *.tar.gz)    tar -xvf $1    ;;
       *.tar.xz)    tar xvJf $1    ;;
@@ -178,6 +180,7 @@ extract () {
       *.exe)       cabextract $1  ;;
       *)           echo "\`$1': unrecognized file compression" ;;
     esac
+    cd $dir
   else
     echo "\`$1' is not a valid file"
   fi
