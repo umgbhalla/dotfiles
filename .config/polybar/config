@@ -31,8 +31,10 @@ font-1 = FontAwesome:style=Regular
 font-2 = Source Code Pro Medium:bold:pixelsize=12:antialias=true:autohint=true;1
 
 modules-left = bspwm
-modules-center = title mpris
-modules-right = wlan eth pulseaudio battery date
+modules-center = title 
+; modules-center = mpris title 
+modules-right = pulseaudio battery date
+; modules-right = wlan eth pulseaudio battery date
 
 cursor-click = pointer
 
@@ -59,7 +61,7 @@ label-empty-padding = 2
 [module/mpris]
 type = custom/script
 format-font = 1
-exec = $XDG_CONFIG_HOME/polybar/mpris.py -f '{:artist:t20:{artist}:}{:artist: - :}{:t70:{title}:}'
+exec = $XDG_CONFIG_HOME/polybar/mpris.py -f '{:artist:t20:{artist}:}{:artist: - :}{:t60:{title}:}'
 tail = true
 
 format-background = ${colors.background}
@@ -68,6 +70,7 @@ format-padding = 2
 
 [module/title]
 type = internal/xwindow
+label-maxlen = 60
 
 [module/wlan]
 type = internal/network
@@ -101,11 +104,11 @@ format-disconnected =
 type = internal/pulseaudio
 
 format-volume = <label-volume>
-label-volume = %percentage%%
+label-volume =  %percentage%%
 label-volume-background = ${colors.background}
 label-volume-padding = 2
 
-label-muted = --%
+label-muted =  --%
 label-muted-foreground = ${colors.primary}
 label-muted-background = ${colors.background}
 label-muted-padding = 2
@@ -137,7 +140,7 @@ interval = 5
 
 date = %a %b %d
 time = %H:%M
-label = %date% %time%
+label =  %date% %time%
 
 format-background = ${colors.background-alt}
 format-foreground = ${colors.foreground}

@@ -105,7 +105,7 @@ export PATH="$HOME/.local/bin/:$PATH"
 #
 
 export WM_GAPS=8
-export WM_BAR_HEIGHT=${$(( $WM_GAPS * 4 ))%.*}
+export WM_BAR_HEIGHT=${$(( $WM_GAPS * 3.5 ))%.*}
 export WM_TOP_PADDING=$(( $WM_GAPS + $WM_BAR_HEIGHT ))
 export WM_TRANSPARENCY="0.95"
 
@@ -160,7 +160,7 @@ export C_CYAN_1="#8fbcbb"
 export C_GRAY_0="#e5e9f0"
 export C_GRAY_1="#eceff4"
 
-export COLOR_BG="#f0${C_BLACK_0:1}"
+export COLOR_BG="#dd${C_BLACK_0:1}"
 export COLOR_FG="$C_GRAY_1"
 
 export COLOR_PRIMARY="$C_PINK_0"
