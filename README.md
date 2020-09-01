@@ -426,6 +426,9 @@ command. To be safe, we will make the swap partition to be twice the amount of t
 6. Finally, install my dotfiles. See [cloning](#cloning) for more details.
 
 ## Additional Configuration or Notes <a name="addconfig"></a>
+This list of additional configuration options are in no particular order. I've just added or
+modified them when necessary.
+
 - [Mirrorlist](#mirrorlist)
 - [Touchpad Settings](#touchpad-settings)
 - [Disabling the Grub Menu](#disabling-grub-menu)
@@ -436,6 +439,7 @@ command. To be safe, we will make the swap partition to be twice the amount of t
 - [Time Out Of Sync](#time-out-of-sync)
 - [No dwm?](#no-dwm)
 - [Copying Repositories](#copying-repos)
+- [Glasscord](#glasscord)
 
 #### Mirrorlist <a name="mirrorlist"></a>
 > This section isn't very relevant anymore since Arch automatically runs Reflector now, but
@@ -577,6 +581,16 @@ copying them explicitly, you'll need to change some options.
 setopt -s glob_dots
 cp -rv targetRepo/* destination
 ```
+
+#### Glasscord <a name="glasscord"></a>
+I prefer using `ibhagwan`'s [picom blur and rounded corners fork](https://github.com/ibhagwan/picom)
+for as many applications as possible, and as such, I use [Glasscord](https://github.com/AryToNeX/Glasscord) 
+because it allows modification of all Electron-based applications to follow this pattern.
+Each installation is very similar, following [these steps](https://github.com/AryToNeX/Glasscord#how-do-i-install-it).
+
+Here are the paths to apps I have already modified with Glasscord:
+
+- Discord - `/opt/discord`
 
 ## TODO <a name="todo"></a>
 Below are a list of things in no particular order that I plan to do but haven't yet 

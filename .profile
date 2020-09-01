@@ -165,9 +165,9 @@ export C_CYAN_1="#8fbcbb"
 export C_GRAY_0="#e5e9f0"
 export C_GRAY_1="#eceff4"
 
-export NOTIF_BG="${C_BLACK_0}cc"
+export NOTIF_BG="${C_BLACK_0}cc" # higher hex means more transparent
 
-export COLOR_BG="#dd${C_BLACK_0:1}"
+export COLOR_BG="#dd${C_BLACK_0:1}" # higher hex means more opaque
 export COLOR_FG="$C_GRAY_1"
 
 export COLOR_PRIMARY="$C_PINK_0"
