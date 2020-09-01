@@ -43,7 +43,7 @@
 	/* Linux-specific properties */
 	/* Should Glasscord send a request to your window compositor to blur behind Discord's window? */
 	/* It currently supports KWin only */
-	--glasscord-linux-blur: true;
+	--glasscord-linux-blur: false; /* picom will already blur, no need to send an additional request */
 
 	/* Discord-specific properties */
 	/* Custom (forced) titlebar */
@@ -217,7 +217,7 @@
 .theme-dark{
 	--background-primary: transparent;
 	--background-primary-alt: #36393ff0;
-	--background-secondary: #2f313650;
+	--background-secondary: $DISCORD_BG;
 	--background-secondary-chat: #2f3136a0;
 	--background-secondary-alt: #292b2f00;
 	--background-tertiary: #20222570;

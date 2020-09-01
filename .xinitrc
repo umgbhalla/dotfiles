@@ -5,6 +5,7 @@
 #
 
 # template vars
+$DETEMPLATE $XDG_CONFIG_HOME/glasscord/themes/template.blur.css 
 $DETEMPLATE $XDG_CONFIG_HOME/picom/template.picom.conf 
 $DETEMPLATE $XDG_CONFIG_HOME/dunst/template.dunstrc 
 $DETEMPLATE $XDG_CONFIG_HOME/ranger/template.rc.conf
