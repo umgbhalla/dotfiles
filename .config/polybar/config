@@ -28,13 +28,12 @@ border-size = ${env:WM_GAPS:16}
 border-color = ${colors.transparent}
 
 font-0 = Source Code Pro Medium:pixelsize=12;10:antialias=true:autohint=true;2
-font-1 = FontAwesome:pixelsize=12;2
+font-1 = FontAwesome:pixelsize=14;3
 font-2 = Source Code Pro Medium:bold:pixelsize=12:antialias=true:autohint=true;2
-font-3 = WenQuanYi Zen Hei Mono:pixelsize=12;1
+font-3 = WenQuanYi Zen Hei Mono:pixelsize=14;2
 
 modules-left = bspwm
 modules-center = title 
-; modules-center = mpris title 
 modules-right = wlan eth pulseaudio battery date
 
 cursor-click = pointer
@@ -61,7 +60,7 @@ label-empty-padding = 2
 
 ws-icon-0 = "I;"
 ws-icon-1 = "II;"
-ws-icon-2 = "III;"
+ws-icon-2 = "III;"
 ws-icon-3 = "IV;"
 ws-icon-4 = "V;"
 ws-icon-5 = "VI;六"
@@ -70,16 +69,6 @@ ws-icon-7 = "VIII;八"
 ws-icon-8 = "IX;九"
 ws-icon-9 = "X;"
 ws-icon-default = ""
-
-[module/mpris]
-type = custom/script
-format-font = 1
-exec = $XDG_CONFIG_HOME/polybar/mpris.py -f '{:artist:t20:{artist}:}{:artist: - :}{:t60:{title}:}'
-tail = true
-
-format-background = ${colors.background}
-format-foreground = ${colors.primary}
-format-padding = 2
 
 [module/title]
 type = internal/xwindow
