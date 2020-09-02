@@ -30,7 +30,7 @@ set notification-bg "$C_BLACK_0_A"
 set notification-fg "$C_GRAY_0"
 
 # (should) make pdf bg transparent
-set recolor-lightcolor "$C_BLACK_0_A"
+set recolor-lightcolor "rgba(0,0,0,0)"
 
 map i recolor # toggle color mode
 

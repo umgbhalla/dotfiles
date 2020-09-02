@@ -170,6 +170,9 @@ export NOTIF_BG="${C_BLACK_0}cc"
 
 # higher hex means more opaque
 export DISCORD_BG="${C_BLACK_0}aa"
+export DISCORD_BG_DARK="${C_BLACK_0}22"
+export DISCORD_FG="${C_GRAY_0}22"
+export DISCORD_ACC_PRIMARY="${C_PINK_0}55"
 export POLYBAR_BG="#dd${C_BLACK_0:1}"
 
 export COLOR_BG="$POLYBAR_BG"

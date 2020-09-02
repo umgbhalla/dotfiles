@@ -220,18 +220,18 @@
 	--background-secondary: $DISCORD_BG;
 	--background-secondary-chat: #2f3136a0;
 	--background-secondary-alt: #292b2f00;
-	--background-tertiary: #20222570;
-	--background-logo: #36393fa0;
+	--background-tertiary: $DISCORD_BG;
+	--background-logo: $DISCORD_FG;
 	--deprecated-card-bg: #36393f4c;
 	--deprecated-store-bg: #36393f00;
 	--background-attachments: #2f313640;
-	--background-search-bar: #202225a0;
-	--background-switcher: #2f3136ff;
-	--background-chatbox: #20222550;
-	--background-lights-out: #000;
+	--background-search-bar: transparent;
+	--background-switcher: $DISCORD_ACC_PRIMARY;
+	--background-chatbox: $DISCORD_BG;
+	--background-lights-out: #000000aa;
 	--background-pinned: #2f3136ff;
-	--background-profile-expand: #2f3136ff;
-	--background-emoji: #2f3136ff;
+	--background-profile-expand: $DISCORD_BG;
+	--background-emoji: $DISCORD_BG;
 	--text-lights-out: #f0f0f0;
 	--background-titlebar: #2f313650;
 }
