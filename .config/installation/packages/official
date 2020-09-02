@@ -27,6 +27,7 @@ feh
 
 # system fonts
 ttf-liberation # ttf lib required by Brave
+wqy-zenhei # chinese font
 
 # notification server
 dunst
@@ -98,9 +99,6 @@ inkscape
 
 # package manager
 yarn
-
-# chinese font
-wqy-zenhei
 
 # pdf viewer
 # zathura
