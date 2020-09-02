@@ -34,3 +34,4 @@ set recolor-lightcolor "rgba(0,0,0,0)"
 
 map i recolor # toggle color mode
 
+set window-title-basename true # use file name as window title
