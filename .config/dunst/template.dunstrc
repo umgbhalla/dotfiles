@@ -289,7 +289,7 @@
     #icon = /path/to/icon
 
 [urgency_critical]
-    background = "$COLOR_ALERT"
+    background = "$NOTIF_BG_CRITICAL"
     foreground = "$COLOR_FG"
     #frame_color = "#ff0000"
     timeout = 0

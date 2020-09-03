@@ -104,6 +104,9 @@ export PATH="$HOME/.local/bin/:$PATH"
 # display
 #
 
+export RES_WIDTH=1920
+export RES_HEIGHT=1080
+
 export WM_GAPS=10
 export WM_BAR_HEIGHT=28
 export WM_BAR_WIDTH="100%:-$(( $WM_GAPS * 2 ))"
@@ -125,6 +128,9 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 # index indicating which wallpaper to display
 export WALLPAPER="synth"
 
+# full width of a window with gaps (dmenu_run)
+export WINDOW_WIDTH=$(( $RES_WIDTH - $WM_GAPS * 2 )) 
+
 # background command
 export BACKGROUND="feh --bg-fill --no-fehbg $XDG_CONFIG_HOME/wallpapers/$WALLPAPER.png"
 
@@ -140,8 +146,7 @@ export C_BLACK_0="#171520"
 export C_BLACK_1="#4c516a"
 
 export C_RED_0="#c83d65"
-export C_RED_1="$C_RED_0"
-# export C_RED_1="#f787a7"
+export C_RED_1="#f787a7"
 
 # export C_GREEN_0="#1a542d"
 # export C_GREEN_1="#369454"
@@ -168,7 +173,8 @@ export C_GRAY_1="#eceff4"
 export C_BLACK_0_A="$($HEX2RGB $C_BLACK_0 | sed -e s/b/ba/ -e s/\)/,$WM_TRANSPARENCY\)/)"
 
 # higher hex means higher transparency
-export NOTIF_BG="${C_RED_0}99"
+export NOTIF_BG="${C_CYAN_0}99"
+export NOTIF_BG_CRITICAL="${C_RED_0}99"
 
 # higher hex means more opaque
 export DISCORD_BG="${C_BLACK_0}aa"
