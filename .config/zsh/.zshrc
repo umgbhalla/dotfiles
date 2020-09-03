@@ -36,25 +36,35 @@ precmd() {
 zstyle ':vcs_info:git:*' formats '%b'
 setopt prompt_subst
 
+M=$MAGENTA
+C=$CYAN
+Y=$YELLOW
+R=$RED
+
 # just for fun
 if xset q &>/dev/null; then
 echo "$(tput cup "$LINES")${CYAN}\
-        /\\ \n\
-       /oo\\ \n\
-      /\\ooo\\    ${MAGENTA}oH yEAh iN cAsE${CYAN}\n\
-     /oooooo\\    ${MAGENTA}aNYoNe is WOnDeRInG${CYAN}\n\
-    /ooo,,ooo\\    ${MAGENTA}i uSe aRCh bTw${CYAN}\n\
-   /ooo|  |oo-\\ \n\
-  /L-''    ''-L\\ \n\
+ ┌―――――――――――――――――――――――――――――┬―――――――――┐
+ ├―――――――――――――――――――――――――――――┘ ${R}▀${C}  ${R}▀${C}  ${R}▀${C} │
+ │                                       │
+ │         ${Y}/\\ ${C}                           │\n\
+ │        ${Y}/  \\ ${C}                          │\n\
+ │       ${Y}/\\   \\ ${C}                         │\n\
+ │      ${Y}/      \\ ${C}                        │\n\
+ │     ${Y}/   ,,   \\     i use arch btw    ${C} │\n\
+ │    ${Y}/   |  |  -\\ ${C}                      │\n\
+ │   ${Y}/_-''    ''-_\\ ${C}                     │\n\
+ │                                       │
+ └―――――――――――――――――――――――――――――――――――――――┘
 ${NC}"
 fi
 
 # shell prompt
-export PROMPT="%F{cyan}┌—[%f%F{cyan}%m%f%F{cyan}]——[%f%F{cyan}%2~%f%F{cyan}]——[%f%F{magenta}%1v%f%F{cyan}]%f"$'\n'"%F{cyan}└——%f%F{magenta}>>%f "
+export PROMPT="%F{c} %1v %F{m}%2~%f %F{c}>>%f "
 
 # mode display
 function viMode {
-  RPS1="%F{cyan}${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}%f"
+  RPS1="%F{c}${${KEYMAP/vicmd/NORMAL}/(main|viins)/INSERT}%f"
   RPS2=$RPS1
 }
 function zle-line-init zle-keymap-select {
