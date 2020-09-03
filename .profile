@@ -140,24 +140,28 @@ export C_BLACK_0="#171520"
 export C_BLACK_1="#4c516a"
 
 export C_RED_0="#c83d65"
-export C_RED_1="#f787a7"
+export C_RED_1="$C_RED_0"
+# export C_RED_1="#f787a7"
 
-export C_GREEN_0="#1a542d"
-export C_GREEN_1="#369454"
+# export C_GREEN_0="#1a542d"
+# export C_GREEN_1="#369454"
+export C_GREEN_0="#729a50"
+export C_GREEN_1="$C_GREEN_0"
 
-export C_YELLOW_0="#e79751"
-export C_YELLOW_1="#f1c42c"
+export C_YELLOW_0="#e7852e"
+export C_YELLOW_1="#f1c944"
 
-export C_BLUE_0="#10385c"
+# export C_BLUE_0="#174f82"
+export C_BLUE_0="#519aba"
 export C_BLUE_1="#4079b7"
 
 export C_MAGENTA_0="#7d45aa"
 export C_MAGENTA_1="#a074c4"
 
-export C_CYAN_0="#519aba"
+export C_CYAN_0="$C_BLUE_0"
 export C_CYAN_1="#8dc9e4"
 
-export C_GRAY_0="#e5e9f0"
+export C_GRAY_0="#b3b7bf"
 export C_GRAY_1="#eceff4"
 
 # C_BLACK_0 with WM_TRANSPARENCY

@@ -59,9 +59,9 @@ label-empty-padding = 2
 
 ws-icon-0 = "I;"
 ws-icon-1 = "II;"
-ws-icon-2 = "III;"
-ws-icon-3 = "IV;"
-ws-icon-4 = "V;"
+ws-icon-2 = "III;"
+ws-icon-3 = "IV;"
+ws-icon-4 = "V;"
 ws-icon-5 = "VI;六"
 ws-icon-6 = "VII;七"
 ws-icon-7 = "VIII;八"
