@@ -29,8 +29,7 @@ if [ $OS != $OS_MACOS ]; then
   export TERMINAL="$TERM"
 fi
 
-export BROWSER="brave"
-export BROWSER_INCOGNITO="brave"
+export BROWSER="firefox"
 
 export FILE_EXPLORER="ranger"
 

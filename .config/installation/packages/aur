@@ -6,6 +6,7 @@
 polybar
 
 # browser
+firefox
 brave-bin # brave requires compilation, brave-bin does not
 
 # compositor

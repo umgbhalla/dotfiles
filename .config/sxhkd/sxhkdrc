@@ -15,7 +15,7 @@ super + space
 super + b
   $BROWSER
 super + shift + b
-  $BROWSER_INCOGNITO
+  $BROWSER --private-window
 
 # file explorer
 # super + y
