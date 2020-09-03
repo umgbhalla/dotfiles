@@ -33,6 +33,10 @@ super + u
 super + o
   slack
 
+# pdf viewer
+super + z
+  zathura
+
 #
 # general scripts
 #

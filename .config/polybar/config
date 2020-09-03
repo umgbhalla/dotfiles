@@ -1,12 +1,12 @@
 ; polybar configuration
 
 [colors]
-background = ${env:COLOR_BG:#f02e3440}
-background-alt = ${env:COLOR_TERTIARY:#5d62ac}
-foreground = ${env:COLOR_FG:#eceff4}
-primary = ${env:COLOR_PRIMARY:#febdf7}
-secondary = ${env:COLOR_SECONDARY:#81a1c1}
-alert = ${env:COLOR_ALERT:#bf616a}
+background = ${env:COLOR_BG}
+background-alt = ${env:COLOR_TERTIARY}
+foreground = ${env:COLOR_FG}
+primary = ${env:COLOR_SECONDARY}
+secondary = ${env:COLOR_SECONDARY}
+alert = ${env:COLOR_ALERT}
 transparent = #00000000
 
 [global/wm]
@@ -14,23 +14,22 @@ margin-top = 0
 margin-bottom = 0
 
 [bar/main]
-width = 100%
-height = ${env:WM_BAR_HEIGHT:30}
-override-redirect = true
+width = ${env:WM_BAR_WIDTH}
+height = ${env:WM_BAR_HEIGHT}
+offset-x = ${env:WM_GAPS}
+offset-y = ${env:WM_GAPS}
+
 ; always display below fullscreen windows
-wm-restack = "bspwm"
+override-redirect = true
+wm-restack = ${env:WM}
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-radius = ${env:WINDOW_BORDER_RADIUS:8}
-border-size = ${env:WM_GAPS:16}
-border-color = ${colors.transparent}
-
-font-0 = Source Code Pro Medium:pixelsize=12;10:antialias=true:autohint=true;2
+font-0 = Source Code Pro Medium:pixelsize=12;10:antialias=true:autohint=true;3
 font-1 = FontAwesome:pixelsize=14;3
-font-2 = Source Code Pro Medium:bold:pixelsize=12:antialias=true:autohint=true;2
-font-3 = WenQuanYi Zen Hei Mono:pixelsize=14;2
+font-2 = Source Code Pro Medium:bold:pixelsize=12:antialias=true:autohint=true;3
+font-3 = WenQuanYi Zen Hei Mono:pixelsize=14;3
 
 modules-left = bspwm
 modules-center = title 
@@ -43,7 +42,7 @@ type = internal/bspwm
 
 label-focused = %icon%
 label-focused-background = ${colors.primary}
-label-focused-foreground = ${colors.background}
+label-focused-foreground = ${colors.foreground}
 label-focused-padding = 2
 
 label-occupied = %icon%
@@ -74,7 +73,6 @@ ws-icon-default = ""
 type = internal/xwindow
 label-maxlen = 60
 format-font = 3
-format-foreground = ${colors.primary}
 
 [module/wlan]
 type = internal/network

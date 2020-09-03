@@ -51,7 +51,8 @@ alias \
   yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn" \
   m="rm -f $XDG_CONFIG_HOME/cmus/cache && cmus $HOME/Music" \
   ss="sc-im" \
-  sbuild="$SBUILD"
+  sbuild="$SBUILD" \
+  wi="nmtui"
 
 # ----------------------------------------------------------------
 # version control

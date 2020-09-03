@@ -104,10 +104,11 @@ export PATH="$HOME/.local/bin/:$PATH"
 # display
 #
 
-export WM_GAPS=8
-export WM_BAR_HEIGHT=${$(( $WM_GAPS * 3.5 ))%.*}
+export WM_GAPS=10
+export WM_BAR_HEIGHT=28
+export WM_BAR_WIDTH="100%:-$(( $WM_GAPS * 2 ))"
 export WM_TOP_PADDING=$(( $WM_GAPS + $WM_BAR_HEIGHT ))
-export WM_TRANSPARENCY="0.9"
+export WM_TRANSPARENCY="0.85"
 
 export WINDOW_BORDER_RADIUS=8
 
@@ -118,13 +119,11 @@ export NOTIF_X_SYM="-"
 export NOTIF_X_OFFSET=$(( $WM_GAPS * 2 ))
 export NOTIF_Y_SYM="-"
 export NOTIF_Y_OFFSET=$(( $WM_GAPS * 2 ))
-# export NOTIF_TRANSPARENCY=$(( 100 - ( $WM_TRANSPARENCY * 100 ) ))
-# export NOTIF_TRANSPARENCY=$(( 100 - ( $WM_TRANSPARENCY * 100 ) ))
 
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 
 # index indicating which wallpaper to display
-export WALLPAPER=4
+export WALLPAPER="synth"
 
 # background command
 export BACKGROUND="feh --bg-fill --no-fehbg $XDG_CONFIG_HOME/wallpapers/$WALLPAPER.png"
@@ -137,48 +136,47 @@ export FONT_NOTIF="Source Code Pro Medium 12"
 
 export FONT="$FONT_MONO";
 
-export C_BLACK_0="#2e3440"
-# C_BLACK_0 with WM_TRANSPARENCY
-export C_BLACK_0_A="$($HEX2RGB $C_BLACK_0 | sed -e s/b/ba/ -e s/\)/,$WM_TRANSPARENCY\)/)"
-export C_BLACK_1="#4c566a"
+export C_BLACK_0="#171520"
+export C_BLACK_1="#4c516a"
 
-export C_RED_0="#bf616a"
-export C_RED_1="$C_RED_0"
+export C_RED_0="#c83d65"
+export C_RED_1="#f787a7"
 
-export C_PINK_0="#febdf7"
+export C_GREEN_0="#1a542d"
+export C_GREEN_1="#369454"
 
-export C_GREEN_0="#a3bE8C"
-export C_GREEN_1="$C_GREEN_0"
+export C_YELLOW_0="#e79751"
+export C_YELLOW_1="#f1c42c"
 
-export C_YELLOW_0="#ebcb8b"
-export C_YELLOW_1="$C_YELLOW_0"
+export C_BLUE_0="#10385c"
+export C_BLUE_1="#4079b7"
 
-export C_BLUE_0="#81a1c1"
-export C_BLUE_1="$C_BLUE_0"
+export C_MAGENTA_0="#7d45aa"
+export C_MAGENTA_1="#a074c4"
 
-export C_MAGENTA_0="#5d62ac"
-export C_MAGENTA_1="#b48ead"
-
-export C_CYAN_0="#88c0d0"
-export C_CYAN_1="#8fbcbb"
+export C_CYAN_0="#519aba"
+export C_CYAN_1="#8dc9e4"
 
 export C_GRAY_0="#e5e9f0"
 export C_GRAY_1="#eceff4"
 
+# C_BLACK_0 with WM_TRANSPARENCY
+export C_BLACK_0_A="$($HEX2RGB $C_BLACK_0 | sed -e s/b/ba/ -e s/\)/,$WM_TRANSPARENCY\)/)"
+
 # higher hex means higher transparency
-export NOTIF_BG="${C_BLACK_0}cc"
+export NOTIF_BG="${C_RED_0}99"
 
 # higher hex means more opaque
 export DISCORD_BG="${C_BLACK_0}aa"
 export DISCORD_BG_DARK="${C_BLACK_0}22"
 export DISCORD_FG="${C_GRAY_0}22"
-export DISCORD_ACC_PRIMARY="${C_PINK_0}55"
+export DISCORD_ACC_PRIMARY="${C_RED_0}55"
 export POLYBAR_BG="#dd${C_BLACK_0:1}"
 
 export COLOR_BG="$POLYBAR_BG"
 export COLOR_FG="$C_GRAY_1"
 
-export COLOR_PRIMARY="$C_PINK_0"
-export COLOR_SECONDARY="$C_BLUE_0"
-export COLOR_TERTIARY="$C_MAGENTA_0"
+export COLOR_PRIMARY="$C_RED_0"
+export COLOR_SECONDARY="$C_CYAN_0"
+export COLOR_TERTIARY="$C_MAGENTA_1"
 export COLOR_ALERT="$C_RED_0"
