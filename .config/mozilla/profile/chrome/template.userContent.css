@@ -46,6 +46,10 @@
  * search bar
  */
 
+.search-wrapper .search-button {
+  display: none !important;
+}
+
 .search-wrapper input {
 
   /* hide search bar since address bar acts as search bar */

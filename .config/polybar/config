@@ -137,13 +137,13 @@ format-discharging-foreground = ${colors.background}
 format-discharging-padding = 2
 
 [module/date]
-type = custom/script
+type = internal/date
 interval = 5
-exec = $XDG_CONFIG_HOME/polybar/date
+
+date = %a %b %d
+time = %H:%M
+label =  %date% %time%
 
 format-background = ${colors.background-alt}
 format-foreground = ${colors.foreground}
 format-padding = 2
-
-click-left = $XDG_CONFIG_HOME/polybar/date calendar
-click-right = $XDG_CONFIG_HOME/polybar/date clock
