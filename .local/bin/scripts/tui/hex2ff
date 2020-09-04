@@ -1,0 +1,9 @@
+#!/bin/sh
+
+hex=$($HEX2RGB $1)
+
+r=$(echo $hex | cut -d',' -f1 | sed 's/^.*(//')
+g=$(echo $hex | cut -d',' -f2)
+b=$(echo $hex | cut -d',' -f3 | sed 's/.$//')
+
+echo $r, $g, $b

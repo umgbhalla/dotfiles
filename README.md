@@ -592,17 +592,30 @@ Here are the paths to apps I have already modified with Glasscord:
 
 - Discord - `/opt/discord`
 
+#### User Custom CSS <a name="user-custom-css"></a>
+Firefox and a few other browsers offer support for custom user stylesheets which override the
+default styles. This is mainly intended for accessibility purposes, but it can also be used
+to customize the appearance of the browser.
+
+To enable custom stylesheets on Firefox:
+- open `about:config` in the address bar and set 
+    `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`.
+- open your profile folder by opening `about:support` in the address bar and opening the 
+    folder next to the profile directory. I prefer keeping all configuration files in the
+    `$XDG_CONFIG_HOME` or `~/.config` directory, so my configuration is under 
+    `$XDG_CONFIG_HOME/mozilla/profile`.
+- to link my configuration to the Firefox profile:
+    ```
+    ln -s $XDG_CONFIG_HOME/mozilla/profile/chrome $FIREFOX_PROFILE_DIR/chrome
+    ```
+- restart Firefox to view the changes.
+
 ## TODO <a name="todo"></a>
 Below are a list of things in no particular order that I plan to do but haven't yet 
 implemented or had the time to configure.
 
 + dmenu pinyin input
-+ different wallpapers per workspace/monitor 
-    (_Note: there's plenty of ways to do this...
-    I just haven't found a solution that was efficient enough for the change to be worthwhile_)
 + switch completely to ALSA
 + centralize color definitions (`.profile`, `~/.config/colorrc`, `~/.config/Xresources`)
-+ better calendar
 + better contact management
-+ adding private repo markers in dotfiles (clone if available)
 + look into using fzf/ripgrep as a dmenu patch alternative

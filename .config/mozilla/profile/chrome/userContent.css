@@ -1,0 +1,120 @@
+/**
+ * Inspired by the Simplify Silver theme from dpcdpc11.gumroad.com
+ */
+
+:root,
+:root:-moz-lwtheme-brighttext {
+	/* --accent-color: 214, 233, 250; */
+	/* --secondary-accent-color: 255, 165, 138; */
+	/* --light-color: 255, 255, 255; */
+	/* --dark-color: 70, 82, 93; */
+	/* --main-bgcolor: var(--dark-color); */
+	/* --transparent-bgcolor: var(--dark-color); */
+  /* --color-test: #00ff00; */
+
+  --color-fg: #eceff4; /* gray 1 */
+  --color-fg-alt: #b3b7bf; /* gray 0 */
+  --color-bg: #171520; /* black 0 */
+	--color-bg-alt: #4c516a; /* black 1 */
+  --color-primary: #519aba; /* cyan 0 */
+  --color-secondary: #f787a7; /* red 1 */
+
+  --color-light-hover: rgba(255, 255, 255, 0.2);
+
+  --radius: 8px; /* window border radius */ 
+  --tab-margin-right: 5px;
+  --transition: all 0.2s ease;
+}
+
+/**
+ * ------------------------------------------------
+ * new tab page
+ * ------------------------------------------------
+ */
+
+/*
+ * bg color
+ */
+
+@media (prefers-color-scheme: dark) { 
+  @-moz-document url("about:newtab"), url("about:home"), url("about:blank") { 
+    body { 
+      background-color: var(--color-bg) !important; 
+    } 
+  } 
+} 
+
+/*
+ * logo
+ */
+
+.search-wrapper .logo-and-wordmark .wordmark {
+  /* branding text color */
+  fill: var(--color-primary) !important;
+}
+
+/*
+ * search bar
+ */
+
+.search-wrapper input {
+
+  /* hide search bar since address bar acts as search bar */
+  display: none;
+
+  transition: var(--transition) !important;
+
+  /* search engine icon */
+  background: var(--color-bg-alt) var(--newtab-search-icon) 9px center no-repeat !important;
+	background-size: 30px !important;
+  color: var(--color-fg) !important;
+  border: none !important;
+
+	box-shadow: none !important;
+}
+.search-wrapper .search-inner-wrapper:hover input,
+.search-wrapper .search-inner-wrapper:active input,
+.search-wrapper input:focus {
+  outline: none;
+  border: none !important;
+}
+
+.search-wrapper .search-inner-wrapper:active input,
+.search-wrapper input:focus {
+	box-shadow: 0 0 5px var(--color-bg-alt) !important;
+}
+
+.search-wrapper .search-button,
+.search-wrapper .search-button {
+	transition: var(--transition) !important;
+}
+.search-wrapper .search-button:focus,
+.search-wrapper .search-button:hover {
+  background-color: var(--color-primary) !important;
+}
+
+/*
+ * search bar results
+ */
+
+.contentSearchSuggestionTable .contentSearchSuggestionsContainer,
+.contentSearchSuggestionTable .contentSearchHeader {
+  background-color: var(--color-bg-alt) !important;
+}
+.contentSearchSuggestionTable .contentSearchSuggestionRow.selected,
+.contentSearchSuggestionTable .contentSearchOneOffItem.selected {
+	background-color: var(--color-light-hover) !important;
+  cursor: pointer !important;
+}
+
+.contentSearchSuggestionTable .contentSearchHeader,
+.contentSearchSuggestionTable .contentSearchSettingsButton,
+.contentSearchSuggestionTable .contentSearchOneOffsTable {
+	border-color: var(--color-bg) !important;
+}
+
+.contentSearchSuggestionTable {
+	box-shadow: none !important;
+  border: none;
+	border-radius: var(--radius) !important;
+}
