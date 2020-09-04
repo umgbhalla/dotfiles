@@ -41,7 +41,6 @@ alias \
   y="unset GIT_CONFIG && yay --norebuild --noredownload" \
   system="sudo systemctl" \
   vim="nvim" \
-  wifi="$XDG_SCRIPT_HOME/networkmanager_dmenu" \
   pk="ps aux | fzf | awk '{print $2}' | tr -d '\n' | xargs kill -9" \
   zr="clear && source $XDG_CONFIG_HOME/zsh/.zshrc" \
   date="cal -3 && date && echo" \
@@ -52,6 +51,7 @@ alias \
   m="rm -f $XDG_CONFIG_HOME/cmus/cache && cmus $HOME/Music" \
   ss="sc-im" \
   sbuild="$SBUILD" \
+  testwi="ping archlinux.org" \
   wi="nmtui"
 
 # ----------------------------------------------------------------

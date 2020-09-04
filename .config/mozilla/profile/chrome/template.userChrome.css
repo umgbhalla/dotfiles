@@ -6,14 +6,48 @@
 :root:-moz-lwtheme-brighttext {
   --color-fg: $C_GRAY_1;
   --color-fg-alt: $C_GRAY_0;
-  --color-bg: $C_BLACK_0;
-	--color-bg-alt: $C_BLACK_1;
+  --color-bg: $FIREFOX_BG;
+	--color-bg-alt: $FIREFOX_BG_ALT;
   --color-primary: $C_CYAN_0;
   --color-secondary: $C_RED_1;
 
   --radius: ${WINDOW_BORDER_RADIUS}px;
   --tab-margin-right: 5px;
-  --transition: all 0.2s ease;
+  --transition: $TRANSITION;
+}
+
+/**
+ * ------------------------------------------------
+ * transparency
+ * ------------------------------------------------
+ */
+
+#titlebar, 
+window, 
+toolbar,
+#main-window, 
+#toolbar-menubar, 
+#TabsToolbar, 
+#PersonalToolbar, 
+#navigator-toolbox {
+  background-color: transparent !important;
+  -moz-appearance: none !important;
+  background-image: none !important;
+  background-image: none !important;
+}
+
+#main-window {
+  background-color: var(--color-bg) !important;
+}
+
+/**
+ * ------------------------------------------------
+ * tab bar
+ * ------------------------------------------------
+ */
+
+#tabbrowser-tabs {
+  background-color: transparent !important;
 }
 
 #tabbrowser-tabs:not([movingtab]) > .tabbrowser-tab[beforeselected-visible]::after,
@@ -28,17 +62,19 @@
 .tabbrowser-tab {
   margin-right: var(--tab-margin-right) !important;
 }
+
 .tabbrowser-tab:not([visuallyselected="true"]), 
 .tabbrowser-tab:-moz-lwtheme {
   color: var(--color-fg) !important;
 }
 
- tab[selected="true"] .tab-content { 
-	 color: var(--color-fg) !important; 
- } 
- tab[selected="true"] .tab-background { 
-	 background: var(--color-primary) !important; 
- } 
+tab[selected="true"] .tab-content { 
+  color: var(--color-fg) !important; 
+} 
+
+tab[selected="true"] .tab-background { 
+  background: var(--color-primary) !important; 
+} 
 
 .tabbrowser-tab::after, .tabbrowser-tab::before {
   border-left: 0 !important;
@@ -50,7 +86,7 @@
 }
 .tabbrowser-tab > .tab-stack > .tab-background:not([selected="true"]) {
 	transition: var(--transition) !important;
-	background-color: var(--color-bg) !important;
+  background-color: transparent !important;
 }
 .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"]) {
   background-color: var(--color-bg-alt) !important;
@@ -64,7 +100,7 @@
   cursor: pointer !important;
 }
 .tab-close-button:hover {
-  background: var(--color-bg) !important;
+  background-color: transparent !important;
   color: var(--color-fg) !important;
 }
 
@@ -72,7 +108,7 @@
 
 toolbar#TabsToolbar {
   -moz-appearance: none !important;
-  background-color: var(--color-bg) !important;
+  background-color: transparent !important;
 }
 
 toolbar #tabs-newtab-button {
@@ -83,7 +119,6 @@ toolbar #tabs-newtab-button:not([disabled="true"]):-moz-any([open], [checked], :
 toolbar #tabs-newtab-button:not([disabled="true"]):-moz-any([open], [checked], :active) > .toolbarbutton-icon {
   transition: var(--transition) !important;
 	border-radius: var(--radius) !important;
-	background-color: var(--color-bg) !important;
 	fill: var(--color-fg) !important;
 }
 toolbar #tabs-newtab-button:not([disabled="true"]):not([checked]):not([open]):not(:active):hover > .toolbarbutton-icon {
@@ -97,13 +132,16 @@ toolbar #tabs-newtab-button:not([disabled="true"]):not([checked]):not([open]):no
  */
 
 toolbar#nav-bar {
-	background: var(--color-bg) !important;
 	box-shadow: none !important;
+}
+
+toolbar#nav-bar > * {
+  background-color: transparent !important;
 }
 
 /* nav buttons */
 
-toolbar#nav-bar toolbarbutton {
+toolbar#nav-bar toolbarbutton:not([disabled="true"]) {
   cursor: pointer !important;
 }
 
@@ -113,12 +151,12 @@ toolbar#nav-bar toolbarbutton #fxa-avatar-image {
 	fill: var(--color-fg) !important;
 }
 
-toolbar#nav-bar toolbarbutton:hover .toolbarbutton-icon,
-toolbar#nav-bar toolbarbutton:hover #fxa-avatar-image,
-toolbar#nav-bar toolbarbutton:active .toolbarbutton-icon,
-toolbar#nav-bar toolbarbutton:active #fxa-avatar-image,
-toolbar#nav-bar toolbarbutton:focus .toolbarbutton-icon,
-toolbar#nav-bar toolbarbutton:focus #fxa-avatar-image {
+toolbar#nav-bar toolbarbutton:not([disabled="true"]):hover .toolbarbutton-icon,
+toolbar#nav-bar toolbarbutton:not([disabled="true"]):hover #fxa-avatar-image,
+toolbar#nav-bar toolbarbutton:not([disabled="true"]):active .toolbarbutton-icon,
+toolbar#nav-bar toolbarbutton:not([disabled="true"]):active #fxa-avatar-image,
+toolbar#nav-bar toolbarbutton:not([disabled="true"]):focus .toolbarbutton-icon,
+toolbar#nav-bar toolbarbutton:not([disabled="true"]):focus #fxa-avatar-image {
 	fill: var(--color-secondary) !important;
 }
 
@@ -156,13 +194,11 @@ toolbar .toolbarbutton-1:not([disabled="true"]):-moz-any([open], [checked], :hov
 #urlbar > #urlbar-background {
 	border-radius: var(--radius) !important;
 	border: 0 !important;
-	background-color: var(--color-bg-alt) !important;
+	background-color: var(--color-primary) !important;
 }
-/* #urlbar:not([focused="true"]) > #urlbar-background, */
-/* #urlbar > #urlbar-input-container { */
 #urlbar:not([focused="true"]) > #urlbar-background {
 	border-radius: var(--radius) !important;
-	background-color: var(--color-bg) !important;
+	background-color: transparent !important;
 	color: var(--color-fg) !important;
 }
 
@@ -183,16 +219,19 @@ toolbar .toolbarbutton-1:not([disabled="true"]):-moz-any([open], [checked], :hov
 .sidebar-panel:not([lwt-sidebar-brighttext]),
 body:not([lwt-sidebar-brighttext]) .content-container,
 .content-container {
-	background-color: var(--color-bg) !important;
+	-moz-appearance: none !important;
+	background-color: transparent !important;
 	color: unset !important;
 }
 
 #sidebar-box,
 .sidebar-panel[lwt-sidebar-brighttext] {
-	background-color: var(--color-bg) !important;
+	-moz-appearance: none !important;
+	background-color: transparent !important;
 }
 
 #sidebar-header {
+  background-color: transparent !important;
 	border-color: var(--color-bg-alt) !important;
 }
 .sidebar-splitter {
@@ -208,13 +247,14 @@ body:not([lwt-sidebar-brighttext]) .content-container,
 }
 
 .sidebar-placesTreechildren {
+  background-color: transparent !important;
 	color: unset !important;
 }
 
 #search-box,
 .search-box {
 	-moz-appearance: none !important;
-	background-color: var(--color-bg) !important;
+	background-color: transparent !important;
 	border-radius: var(--radius) !important;
 	color: unset !important;
 }

@@ -610,6 +610,18 @@ To enable custom stylesheets on Firefox:
     ```
 - restart Firefox to view the changes.
 
+Firefox will not display transparency effects by default.
+To enable transparency in user stylesheets:
+
+- open `about:config` in the address bar and set the following properties to `true`:
+    - `gfx.webrender.all`
+    - ~~`gfx.webrender.compositor`~~
+    - ~~`gfx.webrender.compositor.force-enabled`~~
+    - ~~`layers.acceleration.force-enabled`~~
+- restart Firefox.
+- open `about:support` and verify that the `graphics` > `compositing` option has changed from `basic` to `opengl`.
+- restart Firefox to view transparency effects.
+
 ## TODO <a name="todo"></a>
 Below are a list of things in no particular order that I plan to do but haven't yet 
 implemented or had the time to configure.

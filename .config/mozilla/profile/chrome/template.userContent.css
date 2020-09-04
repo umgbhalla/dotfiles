@@ -12,7 +12,10 @@
   --color-secondary: $C_RED_1;
 
   --radius: ${WINDOW_BORDER_RADIUS}px;
-  --transition: all 0.2s ease;
+  --transition: $TRANSITION;
+  /* --newtab-background-color: transparent; */
+
+  --color-test: rgba(0,255,0,0.2);
 }
 
 /**

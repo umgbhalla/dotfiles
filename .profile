@@ -125,6 +125,8 @@ export NOTIF_Y_OFFSET=$(( $WM_GAPS * 2 ))
 
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 
+export TRANSITION="all 0.2s ease"
+
 # index indicating which wallpaper to display
 export WALLPAPER="synth"
 
@@ -182,6 +184,8 @@ export DISCORD_BG_DARK="${C_BLACK_0}22"
 export DISCORD_FG="${C_GRAY_0}22"
 export DISCORD_ACC_PRIMARY="${C_RED_0}55"
 export POLYBAR_BG="#dd${C_BLACK_0:1}"
+export FIREFOX_BG="rgba($($HEX2FF $C_BLACK_0), $WM_TRANSPARENCY)"
+export FIREFOX_BG_ALT="rgba($($HEX2FF $C_GRAY_0), $(printf "%.2f\n" $(( 1 - $WM_TRANSPARENCY ))))"
 
 export COLOR_BG="$POLYBAR_BG"
 export COLOR_FG="$C_GRAY_1"
