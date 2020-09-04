@@ -4,28 +4,12 @@
 
 :root,
 :root:-moz-lwtheme-brighttext {
-	/* --accent-color: 214, 233, 250; */
-	/* --secondary-accent-color: 255, 165, 138; */
-	/* --light-color: 255, 255, 255; */
-	/* --dark-color: 70, 82, 93; */
-	/* --main-bgcolor: var(--dark-color); */
-	/* --transparent-bgcolor: var(--dark-color); */
-  /* --color-test: #00ff00; */
-
-  /* --color-fg: #eceff4; /1* gray 1 *1/ */
-  /* --color-fg-alt: #b3b7bf; /1* gray 0 *1/ */
-  /* --color-bg: #171520; /1* black 0 *1/ */
-	/* --color-bg-alt: #4c516a; /1* black 1 *1/ */
-  /* --color-primary: #519aba; /1* cyan 0 *1/ */
-  /* --color-secondary: #f787a7; /1* red 1 *1/ */
   --color-fg: $C_GRAY_1;
   --color-fg-alt: $C_GRAY_0;
   --color-bg: $C_BLACK_0;
 	--color-bg-alt: $C_BLACK_1;
   --color-primary: $C_CYAN_0;
   --color-secondary: $C_RED_1;
-
-  /* --color-light-hover: rgba(255, 255, 255, 0.2); */
 
   --radius: ${WINDOW_BORDER_RADIUS}px;
   --transition: all 0.2s ease;
@@ -65,18 +49,23 @@
 .search-wrapper input {
 
   /* hide search bar since address bar acts as search bar */
-  display: none;
+  display: none !important;
 
+/*
   transition: var(--transition) !important;
+*/
 
   /* search engine icon */
+/*
   background: var(--color-bg-alt) var(--newtab-search-icon) 9px center no-repeat !important;
 	background-size: 30px !important;
   color: var(--color-fg) !important;
   border: none !important;
 
 	box-shadow: none !important;
+*/
 }
+/*
 .search-wrapper .search-inner-wrapper:hover input,
 .search-wrapper .search-inner-wrapper:active input,
 .search-wrapper input:focus {
@@ -93,22 +82,25 @@
 .search-wrapper .search-button {
 	transition: var(--transition) !important;
 }
+*/
 .search-wrapper .search-button:focus,
 .search-wrapper .search-button:hover {
-  background-color: var(--color-primary) !important;
+  /* background-color: var(--color-primary) !important; */
+  display: none !important;
+  cursor: default !important;
 }
 
 /*
  * search bar results
  */
 
+/*
 .contentSearchSuggestionTable .contentSearchSuggestionsContainer,
 .contentSearchSuggestionTable .contentSearchHeader {
   background-color: var(--color-bg-alt) !important;
 }
 .contentSearchSuggestionTable .contentSearchSuggestionRow.selected,
 .contentSearchSuggestionTable .contentSearchOneOffItem.selected {
-	/* background-color: var(--color-light-hover) !important; */
 	background-color: var(--color-bg-alt) !important;
   cursor: pointer !important;
 }
@@ -124,3 +116,4 @@
   border: none;
 	border-radius: var(--radius) !important;
 }
+*/
