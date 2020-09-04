@@ -1,17 +1,58 @@
 # dotfiles
 
-![terminal-based utilities](.config/installation/scr1.png)
-![development using my st build and nvim configuration](.config/installation/scr2.png)
-![system information tiled alongside my browser](.config/installation/scr3.png)
-![newsboat, nvim, a development server, and lutris](.config/installation/scr4.png)
+## Table of Contents
+1. [What The \**** Are Dotfiles?](#what-are-dotfiles)
+2. [Demonstration](#demonstration)
+2. [System Information](#sysinfo)
+3. [Cloning](#cloning)
+4. [Manual Installation](#manualinstall)
+5. [Additional Configuration or Notes](#addconfig)
+6. [TODO](#todo)
 
-These are the dotfiles I use regularly in my school laptop and home desktop. I highly recommend 
-against copying these dotfiles blindly unless you know exactly what each file does to your 
-system. Some of the features or packages I use in my system are experimental or built with 
-specific hardware in mind and I take no responsibility for any damages or system failures you 
-may encounter - that being said, if you come across a reproducible issue or would like to ask 
-me questions, feel free to open an issue or contact me privately and I would be more than 
-happy to help.
+## What The \**** Are Dotfiles? <a name="what-are-dotfiles"></a>
+According to Quora, dotfiles are _"text-based configuration files that store settings of almost every application, service and tool running on your system."_
+
+Essentially, the point of dotfiles is to have a centralized place to store all of your 
+application, OS, and system settings. This becomes especially useful when you switch between 
+one or two machines regularly (which I am forced to do via work and school). This is also 
+useful if you made changes that broke applications and you would like to revert changes.
+
+This introduces the concept of _ricing_, or optimizing a system for greater efficiency and
+visual appeal. All too often, I see my fellow engineers struggle to navigate their machine
+applications and interface quickly, which slows development and productivity. One of the most
+essential parts of being able to use a machine or device effectively is tweaking and 
+customizing the machine interfaces, keybindings, and programs to your needs.
+
+In my case, I keep a regular maintenance of these dotfiles in hopes that other people will 
+find use from my scripts and struggles to create an aesthetic and fully optimized system. 
+I use these same dotfiles for both work and school.
+
+#### Why Linux?
+
+I wanted a solution that protected my privacy from the major tech corporations (**cough cough
+Google Microsoft Apple**) while also providing wonderful shell tools like Unix's [9base](https://tools.suckless.org/9base/)
+utilities. Using Linux also gives me the opportunity to optimize my system to max efficiency,
+creating truly custom keybindings for every application, and freely tweak visual appearances
+for my own satisfaction (e.g. I guarantee it's extremely hard to add a transparent dual-kawese
+blur to all applications on Windows or MacOS).
+
+Am I completely sold on Linux?
+
+No.
+
+While Linux is free and open-source, I want to try using even more optimized systems such as
+the BSD family of systems. I plan to move in this direction and convert all my scripts to be 
+POSIX-compliant, but it will likely be a few months before this shift happens (especially 
+since I'm still attending school).
+
+#### Reproducing this setup
+
+I highly recommend against copying these dotfiles blindly unless you know exactly what each 
+file does to your system. Some of the features or packages I use in my system are 
+experimental, or built with specific hardware in mind. I take no responsibility for any 
+damages or system failures you may encounter - that being said, if you come across a 
+reproducible issue or would like to ask me questions, feel free to open an issue or contact 
+me privately and I would be more than happy to help.
 
 There are two routes you can follow to reproduce the exact same setup I have, one being more 
  tedious, but possibly less work in the long run.
@@ -32,25 +73,18 @@ MacOS, basic utilities and command-line aliases are compatible. See [cloning](#c
 > you have interest, you can check it out in 
 > [this release](https://github.com/bossley9/dotfiles/tree/2020.03.11).
 
-## Table of Contents
-1. [What Are Dotfiles?](#what-are-dotfiles)
-2. [System Information](#sysinfo)
-3. [Cloning](#cloning)
-4. [Manual Installation](#manualinstall)
-5. [Additional Configuration or Notes](#addconfig)
-6. [TODO](#todo)
-
-## What Are Dotfiles? <a name="what-are-dotfiles"></a>
-According to Quora, dotfiles are _"text-based configuration files that store settings of almost
-every application, service and tool running on your system"_. In my case, I keep a regular 
-maintenance of dotfiles in hopes that other people will find use from my scripts and struggles 
-to create a fully optimized system. It also helps me ease into using different machines.
+## Demonstration <a name="demonstration"></a>
+![basic status bar with background](.config/installation/scr1.png)
+![neofetch, a terminal instance, and blurry discord](.config/installation/scr2.png)
+![tiled browser, tty-clock, and pdf viewer](.config/installation/scr3.png)
+![a workspace with my nvim configuration](.config/installation/scr4.png)
+![music player and file explorer in separate terminal windows](.config/installation/scr5.png)
 
 ## System Information <a name="sysinfo"></a>
 Information taken from `neofetch` output.
 ```
 OS: Arch Linux x86_64
-Kernel: 5.7.12-arch1-1
+Kernel: 5.8.5-arch1-1
 Shell: zsh
 WM: bspwm
 Theme: Nordic [GTK2/3]
@@ -60,7 +94,7 @@ Status Bar: polybar
 Launcher: fzf/dmenu
 
 Editor: neovim
-Browser: brave (JSON Formatter, React Dev Tools, Redux Dev Tools), surf
+Browser: brave (JSON Formatter, React Dev Tools, Redux Dev Tools), firefox, surf
 File Exporer: ranger
 System Profiler:  htop
 ```
