@@ -224,16 +224,16 @@
 	--background-logo: $DISCORD_FG;
 	--deprecated-card-bg: #36393f4c;
 	--deprecated-store-bg: #36393f00;
-	--background-attachments: #2f313640;
+	--background-attachments: $DISCORD_BG;
 	--background-search-bar: transparent;
 	--background-switcher: $DISCORD_ACC_PRIMARY;
 	--background-chatbox: $DISCORD_BG;
-	--background-lights-out: #000000aa;
-	--background-pinned: #2f3136ff;
+	--background-lights-out: #000000aa; /* darken */
+	--background-pinned: $DISCORD_BG;
 	--background-profile-expand: $DISCORD_BG;
 	--background-emoji: $DISCORD_BG;
-	--text-lights-out: #f0f0f0;
-	--background-titlebar: #2f313650;
+	--text-lights-out: $C_GRAY_1;
+	--background-titlebar: $DISCORD_BG;
 }
 
 .theme-dark .scrollerThemed-2oenus.themedWithTrack-q8E3vB .scroller-2FKFPG::-webkit-scrollbar-track-piece {

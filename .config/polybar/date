@@ -19,7 +19,7 @@ case "$1" in
       ;;
 
   clock)
-      $TERM -g 36x9+$pos_x+$pos_y -n shellpopup -t clock sh -c "tty-clock"
+      $TERM -g 34x9+$pos_x+$pos_y -n shellpopup -t clock sh -c "tty-clock -C 1"
       ;;
 
   *)
