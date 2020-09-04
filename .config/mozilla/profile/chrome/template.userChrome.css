@@ -4,16 +4,16 @@
 
 :root,
 :root:-moz-lwtheme-brighttext {
-  --color-fg: #eceff4; /* gray 1 */
-  --color-fg-alt: #b3b7bf; /* gray 0 */
-  --color-bg: #171520; /* black 0 */
-	--color-bg-alt: #4c516a; /* black 1 */
-  --color-primary: #519aba; /* cyan 0 */
-  --color-secondary: #f787a7; /* red 1 */
+  --color-fg: $C_GRAY_1;
+  --color-fg-alt: $C_GRAY_0;
+  --color-bg: $C_BLACK_0;
+	--color-bg-alt: $C_BLACK_1;
+  --color-primary: $C_CYAN_0;
+  --color-secondary: $C_RED_1;
 
-  --color-light-hover: rgba(255, 255, 255, 0.2);
+  /* --color-light-hover: rgba(255, 255, 255, 0.2); */
 
-  --radius: 8px; /* window border radius */ 
+  --radius: ${WINDOW_BORDER_RADIUS}px;
   --tab-margin-right: 5px;
   --transition: all 0.2s ease;
 
@@ -83,7 +83,8 @@
 	background-color: var(--color-bg) !important;
 }
 .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"]) {
-  background-color: var(--color-light-hover) !important;
+  /* background-color: var(--color-light-hover) !important; */
+  background-color: var(--color-bg-alt) !important;
 }
 
 /* close tab button */
@@ -232,7 +233,8 @@ toolbarbutton.bookmark-item:not(.subviewbutton):hover:not([disabled="true"]):not
 toolbar .toolbarbutton-1:not([disabled="true"]):not([checked]):not([open]):not(:active):hover > .toolbarbutton-icon, 
 toolbar .toolbarbutton-1:not([disabled="true"]):not([checked]):not([open]):not(:active):hover > .toolbarbutton-text, 
 toolbar .toolbarbutton-1:not([disabled="true"]):not([checked]):not([open]):not(:active):hover > .toolbarbutton-badge-stack {
-	background-color: var(--color-light-hover) !important;
+	/* background-color: var(--color-light-hover) !important; */
+	background-color: var(--color-bg-alt) !important;
 }
 
 #PersonalToolbar .toolbarbutton-1:not([disabled="true"]):-moz-any([open], [checked], :hover:active), 
@@ -242,7 +244,8 @@ toolbarbutton.bookmark-item[open="true"],
 toolbar .toolbarbutton-1:not([disabled="true"]):-moz-any([open], [checked], :hover:active) > .toolbarbutton-icon, 
 toolbar .toolbarbutton-1:not([disabled="true"]):-moz-any([open], [checked], :hover:active) > .toolbarbutton-text, 
 toolbar .toolbarbutton-1:not([disabled="true"]):-moz-any([open], [checked], :hover:active) > .toolbarbutton-badge-stack {
-	background-color: var(--color-light-hover) !important;
+	/* background-color: var(--color-light-hover) !important; */
+	background-color: var(--color-bg-alt) !important;
 }
 
 :root:not([uidensity="compact"]) #back-button > .toolbarbutton-icon {
@@ -319,7 +322,8 @@ body:not([lwt-sidebar-brighttext]) .content-container,
 #sidebar-switcher-target.active,
 #viewButton:hover,
 #viewButton[open] {
-	background-color: var(--color-light-hover) !important;
+	/* background-color: var(--color-light-hover) !important; */
+	background-color: var(--color-bg-alt) !important;
 }
 
 .sidebar-placesTreechildren {

@@ -12,17 +12,22 @@
 	/* --transparent-bgcolor: var(--dark-color); */
   /* --color-test: #00ff00; */
 
-  --color-fg: #eceff4; /* gray 1 */
-  --color-fg-alt: #b3b7bf; /* gray 0 */
-  --color-bg: #171520; /* black 0 */
-	--color-bg-alt: #4c516a; /* black 1 */
-  --color-primary: #519aba; /* cyan 0 */
-  --color-secondary: #f787a7; /* red 1 */
+  /* --color-fg: #eceff4; /1* gray 1 *1/ */
+  /* --color-fg-alt: #b3b7bf; /1* gray 0 *1/ */
+  /* --color-bg: #171520; /1* black 0 *1/ */
+	/* --color-bg-alt: #4c516a; /1* black 1 *1/ */
+  /* --color-primary: #519aba; /1* cyan 0 *1/ */
+  /* --color-secondary: #f787a7; /1* red 1 *1/ */
+  --color-fg: $C_GRAY_1;
+  --color-fg-alt: $C_GRAY_0;
+  --color-bg: $C_BLACK_0;
+	--color-bg-alt: $C_BLACK_1;
+  --color-primary: $C_CYAN_0;
+  --color-secondary: $C_RED_1;
 
-  --color-light-hover: rgba(255, 255, 255, 0.2);
+  /* --color-light-hover: rgba(255, 255, 255, 0.2); */
 
-  --radius: 8px; /* window border radius */ 
-  --tab-margin-right: 5px;
+  --radius: ${WINDOW_BORDER_RADIUS}px;
   --transition: all 0.2s ease;
 }
 
@@ -103,7 +108,8 @@
 }
 .contentSearchSuggestionTable .contentSearchSuggestionRow.selected,
 .contentSearchSuggestionTable .contentSearchOneOffItem.selected {
-	background-color: var(--color-light-hover) !important;
+	/* background-color: var(--color-light-hover) !important; */
+	background-color: var(--color-bg-alt) !important;
   cursor: pointer !important;
 }
 
