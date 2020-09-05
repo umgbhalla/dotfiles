@@ -190,8 +190,8 @@ alias e="extract"
 
 # ffmpeg (WIP)
 alias ffmpeg-screenshot="ffmpeg -f x11grab -video_size 1920x1080 -i $DISPLAY -vframes 1 $HOME/Pictures/screen.png"
-alias ffmpeg-video="ffmpeg -f x11grab -video_size 1920x1080 -i $DISPLAY $HOME/Pictures/screen.mp4"
-alias ffmpeg-capture="ffmpeg -f x11grab -video_size 1920x1080 -framerate 25 -i $DISPLAY -f alsa -i default -c:v libx264 -preset ultrafast -c:a aac screen.mp4"
+alias ffmpeg-video="ffmpeg -f x11grab -i $DISPLAY $HOME/Pictures/screen.mp4"
+alias ffmpeg-capture="ffmpeg -f x11grab -i $DISPLAY -f alsa -i default -c:v libx264 -preset ultrafast -c:a aac screen.mp4"
 
 # ----------------------------------------------------------------
 # miscellaneous
@@ -203,3 +203,5 @@ clear-cached-files() {
   rm -rf /home/$USER/Pictures/*
 }
 
+# list all open windows
+alias windows="wmctrl -l"

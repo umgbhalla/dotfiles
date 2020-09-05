@@ -104,14 +104,16 @@ export PATH="$HOME/.local/bin/:$PATH"
 # display
 #
 
-export RES_WIDTH=1920
-export RES_HEIGHT=1080
+export RES_WIDTH=$(xrandr | awk '/*/ {print $1}' | cut -dx -f1)
+export RES_HEIGHT=$(xrandr | awk '/*/ {print $1}' | cut -dx -f2)
 
 export WM_GAPS=10
 export WM_BAR_HEIGHT=28
 export WM_BAR_WIDTH="100%:-$(( $WM_GAPS * 2 ))"
 export WM_TOP_PADDING=$(( $WM_GAPS + $WM_BAR_HEIGHT ))
 export WM_TRANSPARENCY="0.85"
+# WM_TRANSPARENCY as a whole number
+export WM_TRANSPARENCY_WHOLE="$(echo $(( $WM_TRANSPARENCY * 100 )) | sed -e 's/\.//g')"
 
 export WINDOW_BORDER_RADIUS=8
 
