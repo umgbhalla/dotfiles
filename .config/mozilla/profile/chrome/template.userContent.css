@@ -6,16 +6,26 @@
 :root:-moz-lwtheme-brighttext {
   --color-fg: $C_GRAY_1;
   --color-fg-alt: $C_GRAY_0;
-  --color-bg: $C_BLACK_0;
-	--color-bg-alt: $C_BLACK_1;
+  --color-bg: $FIREFOX_BG;
+  --color-bg-op: $FIREFOX_BG_OP;
+	--color-bg-alt: $FIREFOX_BG_ALT;
   --color-primary: $C_CYAN_0;
   --color-secondary: $C_RED_1;
 
   --radius: ${WINDOW_BORDER_RADIUS}px;
   --transition: $TRANSITION;
-  /* --newtab-background-color: transparent; */
+}
 
-  --color-test: rgba(0,255,0,0.2);
+
+/**
+ * ------------------------------------------------
+ * general
+ * ------------------------------------------------
+ */
+
+html,
+body {
+  scrollbar-color: var(--color-primary) var(--color-bg-op) !important;
 }
 
 /**
@@ -31,7 +41,7 @@
 @media (prefers-color-scheme: dark) { 
   @-moz-document url("about:newtab"), url("about:home"), url("about:blank") { 
     body { 
-      background-color: var(--color-bg) !important; 
+      background-color: var(--color-bg-op) !important; 
     } 
   } 
 } 
@@ -124,3 +134,54 @@
 	border-radius: var(--radius) !important;
 }
 */
+
+/**
+ * ------------------------------------------------
+ * duckduckgo
+ * ------------------------------------------------
+ */
+
+@-moz-document domain(duckduckgo.com) {
+  /* page bg */
+  .header-wrap, .vertical--map--sidebar-left .has-requery .vertical--map__sidebar__header, 
+  .map-requery-mobile, .footer, .footer--mobile {
+    background-color: var(--color-bg-op) !important;
+  }
+  .site-wrapper.js-site-wrapper {
+    background-color: var(--color-bg-op) !important;
+  }
+
+  /* search bar */
+  .search--home, .search--header {
+    background-color: var(--color-bg-alt) !important;
+  }
+
+  /* random search filters gradient */
+  .search-filters-wrap::before,
+  .search-filters-wrap::after {
+    background-image: none !important; 
+  }
+
+  /* feedback button */
+  .btn.feedback-btn, .btn.feedback-btn a, .btn.feedback-btn a:hover {
+    background: var(--color-bg-op) !important;
+  }
+
+  /* more info box */
+  .module:not(.module--carousel):not(.module--placeholder):not(.module--images), .modal--popout .modal__box, .modal__box, .sidebar-modules .module, .results--main .result:not(.result--ad).highlight, .module .module--carousel__item, .user-loc-cta, .address-detail, .modal--dropdown.modal--popout .modal__box, .tile--info, .place-detail, .badge-link, .is-atb-fullbleed .content-info__item, .atb-banner__bottom, .multi-step-mobile-onboarding__step__content, .is-mobile .results_links_deep, .is-mobile .results_links, .is-mobile .result--news, .is-mobile .related-searches, .most-visited__info-tt {
+    background: var(--color-bg-alt) !important;
+  }
+  .module__toggle, .tile__expand {
+    background-color: initial !important;
+  }
+}
+
+/**
+ * ------------------------------------------------
+ * github
+ * ------------------------------------------------
+ */
+
+/* .bg-gray-light { */
+/*   background: var(--color-bg-op) !important; */
+/* } */

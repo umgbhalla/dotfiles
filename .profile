@@ -185,6 +185,7 @@ export DISCORD_FG="${C_GRAY_0}22"
 export DISCORD_ACC_PRIMARY="${C_RED_0}55"
 export POLYBAR_BG="#dd${C_BLACK_0:1}"
 export FIREFOX_BG="rgba($($HEX2FF $C_BLACK_0), $WM_TRANSPARENCY)"
+export FIREFOX_BG_OP=$C_BLACK_0
 export FIREFOX_BG_ALT="rgba($($HEX2FF $C_GRAY_0), $(printf "%.2f\n" $(( 1 - $WM_TRANSPARENCY ))))"
 
 export COLOR_BG="$POLYBAR_BG"
