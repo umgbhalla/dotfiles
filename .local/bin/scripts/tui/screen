@@ -9,17 +9,21 @@ mkdir -p $outputDir
 
 case "$1" in
   capture)
-    dunstify -i dialog-information-symbolic.symbolic -t 500 "Screen capture starting."
-    sleep 0.5
+    if [ ! -f $pidFile ]; then
+      dunstify -i dialog-information-symbolic.symbolic -t 500 "Screen capture starting."
+      sleep 0.5
 
-    ffmpeg \
-      -f x11grab -i $DISPLAY \
-      -f alsa -i default -c:v libx264 -preset ultrafast -c:a aac \
-      "$outputDir/screencapture-$(\date +%y-%m-%d_%H:%M:%S).mp4" &
+      ffmpeg \
+        -f x11grab -i $DISPLAY \
+        -f alsa -i default -c:v libx264 -preset ultrafast -c:a aac \
+        "$outputDir/screencapture-$(\date +%y-%m-%d_%H:%M:%S).mp4" &
 
-      echo $! > $pidFile
-      # manual polybar refresh
-      touch -m $XDG_CONFIG_HOME/polybar/config
+        echo $! > $pidFile
+        # manual polybar refresh
+        touch -m $XDG_CONFIG_HOME/polybar/config
+    else
+      echo -e "${RED}Error: screen capture already in progress.${NC}"
+    fi
     ;;
   status)
     if [ -f $pidFile ]; then
@@ -29,13 +33,15 @@ case "$1" in
     fi
     ;;
   stop)
-    pid="$(cat $pidFile)"
-    kill -15 "$pid"
-    rm -f $pidFile
+    if [ -f $pidFile ]; then
+      pid="$(cat $pidFile)"
+      kill -15 "$pid"
+      rm -f $pidFile
 
-    dunstify -i dialog-information-symbolic.symbolic -t 500 "Screen capture complete."
-    # manual polybar refresh
-    touch -m $XDG_CONFIG_HOME/polybar/config
+      dunstify -i dialog-information-symbolic.symbolic -t 500 "Screen capture complete."
+      # manual polybar refresh
+      touch -m $XDG_CONFIG_HOME/polybar/config
+    fi
     ;;
   *)
     echo -e "${RED}Usage: ./screen [capture | stop]${NC}"

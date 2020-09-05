@@ -78,6 +78,9 @@ format-font = 3
 [module/capture]
 type = custom/script
 exec = $XDG_SCRIPT_HOME/tui/screen status
+
+click-left = $XDG_SCRIPT_HOME/tui/screen stop
+
 format-foreground = ${colors.tertiary}
 format-padding = 2
 
