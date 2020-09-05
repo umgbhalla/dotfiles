@@ -54,9 +54,6 @@ sc-im
 # mtp file transfer
 jmtpfs
 
-# tty clock display
-tty-clock
-
 # -------------------------------------------------------------------
 # extra
 # -------------------------------------------------------------------
@@ -68,7 +65,7 @@ lutris
 minecraft-launcher
 
 # messaging
-signal
+# signal
 
 # phone display
 scrcpy
@@ -81,3 +78,10 @@ zoom
 
 # required by ue4 for development
 code
+
+# tty clock display
+tty-clock
+
+# audio visualizer
+cava
+
