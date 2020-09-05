@@ -6,6 +6,7 @@ background-alt = ${env:COLOR_TERTIARY}
 foreground = ${env:COLOR_FG}
 primary = ${env:COLOR_SECONDARY}
 secondary = ${env:COLOR_SECONDARY}
+tertiary = ${env:COLOR_PRIMARY}
 alert = ${env:COLOR_ALERT}
 transparent = #00000000
 
@@ -33,7 +34,7 @@ font-3 = WenQuanYi Zen Hei Mono:pixelsize=14;3
 
 modules-left = bspwm
 modules-center = title 
-modules-right = wlan eth pulseaudio battery date
+modules-right = capture wlan eth pulseaudio battery date
 
 cursor-click = pointer
 
@@ -73,6 +74,12 @@ ws-icon-default = ""
 type = internal/xwindow
 label-maxlen = 60
 format-font = 3
+
+[module/capture]
+type = custom/script
+exec = $XDG_SCRIPT_HOME/tui/screen status
+format-foreground = ${colors.tertiary}
+format-padding = 2
 
 [module/wlan]
 type = internal/network

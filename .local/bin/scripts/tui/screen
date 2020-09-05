@@ -1,0 +1,43 @@
+#!/bin/sh
+
+[ -f $XDG_CONFIG_HOME/colorrc ] && source $XDG_CONFIG_HOME/colorrc
+
+pidFile=/tmp/ffmpegCapturePid
+outputDir=$HOME/Videos
+
+mkdir -p $outputDir
+
+case "$1" in
+  capture)
+    dunstify -i dialog-information-symbolic.symbolic -t 500 "Screen capture starting."
+    sleep 0.5
+
+    ffmpeg \
+      -f x11grab -i $DISPLAY \
+      -f alsa -i default -c:v libx264 -preset ultrafast -c:a aac \
+      "$outputDir/screencapture-$(\date +%y-%m-%d_%H:%M:%S).mp4" &
+
+      echo $! > $pidFile
+      # manual polybar refresh
+      touch -m $XDG_CONFIG_HOME/polybar/config
+    ;;
+  status)
+    if [ -f $pidFile ]; then
+      echo 
+    else
+      echo ""
+    fi
+    ;;
+  stop)
+    pid="$(cat $pidFile)"
+    kill -15 "$pid"
+    rm -f $pidFile
+
+    dunstify -i dialog-information-symbolic.symbolic -t 500 "Screen capture complete."
+    # manual polybar refresh
+    touch -m $XDG_CONFIG_HOME/polybar/config
+    ;;
+  *)
+    echo -e "${RED}Usage: ./screen [capture | stop]${NC}"
+    ;;
+esac
