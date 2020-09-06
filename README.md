@@ -665,7 +665,6 @@ implemented or had the time to configure.
 + switch completely to ALSA
 + centralize color definitions (`.profile`, `~/.config/colorrc`, `~/.config/Xresources`)
 + better contact management
-+ look into using fzf/ripgrep as a dmenu patch alternative
 + custom gtk theme
 + customize all main sites in `Firefox` `userContent.css`
 + general cleanup and installation cleanup (package minimization)

@@ -19,7 +19,7 @@ libxft
 # java
 jre-openjdk-headless # required by Brave
 
-# fuzzy finder
+# fuzzy finder and launcher
 fzf
 
 # background
