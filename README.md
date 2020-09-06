@@ -10,7 +10,8 @@
 6. [TODO](#todo)
 
 ## What The \**** Are Dotfiles? <a name="what-are-dotfiles"></a>
-According to Quora, dotfiles are _"text-based configuration files that store settings of almost every application, service and tool running on your system."_
+According to Quora, dotfiles are _"text-based configuration files that store settings of 
+almost every application, service and tool running on your system."_
 
 Essentially, the point of dotfiles is to have a centralized place to store all of your 
 application, OS, and system settings. This becomes especially useful when you switch between 
@@ -153,7 +154,7 @@ in this project are all settings I prefer to use and may not fit your specific u
 preferences.
 
 Another disclaimer - I am a strong advocate for the `vim` text editor, and as such, I will use 
-`vim` to edit files during installation. If you prefer `emacs` or the more user-friendly 
+`neovim` to edit files during installation. If you prefer `emacs` or the more user-friendly 
 `nano`, I encourage you to use such tools.
 
 #### Table of Contents
@@ -179,7 +180,7 @@ Another disclaimer - I am a strong advocate for the `vim` text editor, and as su
     - An internet connection (preferably ethernet)
     - A disposable usb drive that can be wiped
 2. Download the latest [Archlinux](https://www.archlinux.org/download/) installation iso from 
-    their website. I downloaded version `archlinux-2020.08.01-x86_64.iso`.
+    their website. I downloaded version `archlinux-2020.09.01-x86_64.iso`.
 3. Burn the downloaded cd image onto the usb. 
     This can be done using a number of different tools:
     - [Balena Etcher](https://www.balena.io/etcher/)
@@ -311,7 +312,7 @@ command. To be safe, we will make the swap partition to be twice the amount of t
 1. Install the linux kernel and base. This will take some time to complete. I also 
     recommended installing `base-devel` development tools and an editor like `vim`.
     ```
-    pacstrap /mnt base base-devel linux linux-firmware vim
+    pacstrap /mnt base base-devel linux linux-firmware neovim
     ```
 
 #### Mounting with Fstab <a name="fstabmount"></a>
@@ -354,17 +355,16 @@ command. To be safe, we will make the swap partition to be twice the amount of t
     ```
 
 #### Locales and System Information <a name="locales"></a>
-1. `vim /etc/locale.gen` to enable locales. I speak and use English as my system language,
+1. `nvim /etc/locale.gen` to enable locales. I speak and use English as my system language,
     but yours might be different. Adjust accordingly.
     ```
     en_US.UTF-8 UTF-8
-    en_US ISO-8859-1
     ```
 2. Then generate locales.
     ```
     locale-gen
     ```
-3. `vim /etc/locale.conf` to set the system language.
+3. `nvim /etc/locale.conf` to set the system language.
     ```
     LANG=en_US.UTF-8
     ```
@@ -374,15 +374,15 @@ command. To be safe, we will make the swap partition to be twice the amount of t
     ln -sf /usr/share/zoneinfo/[region]/[city] /etc/localtime
     hwclock --systohc
     ```
-5. `vim /etc/hostname` to name the machine. I named mine `diobrando` (for no reason whatsoever).
+5. `nvim /etc/hostname` to name the machine. I named mine `diobrando`.
     ```
     diobrando
     ```
-6. Then update `/etc/hosts` accordingly:
+6. Then `nvim /etc/hosts` to update the host list accordingly:
     ```
-    127.0.0.1 localhost
-    ::1 localhost
-    127.0.1.1 diobrando.localdomain diobrando 
+    127.0.0.1   localhost
+    ::1         localhost
+    127.0.1.1   diobrando.localdomain   diobrando 
     ```
 
 #### Installation Wrapup <a name="installwrap"></a>
@@ -408,13 +408,17 @@ command. To be safe, we will make the swap partition to be twice the amount of t
     The current network status can be displayed with the `nmcli radio` and `nmcli device` 
     commands.
 
+    More complicated networks may require more settings, and `nmtui` provides a more
+    comfortable user-interface for complex networks such as school networks, vpns, or hotel 
+    networks.
+
 #### Creating a User <a name="creatinguser"></a>
 1. Create a user. This is the user you will use to log in. I will create a user named `sam`.
     ```
     useradd -m -g wheel sam
     passwd sam
     ```
-2. `EDITOR=vim visudo` to grant the new user sudo permissions.
+2. `EDITOR=nvim visudo` to grant the new user sudo permissions.
     ```
     %wheel ALL=(ALL) ALL 
     ```
@@ -433,8 +437,7 @@ command. To be safe, we will make the swap partition to be twice the amount of t
     git clone https://aur.archlinux.org/yay.git /tmp/yay
     cd /tmp/yay && makepkg -si
     ```
-2. Install `zsh` and set it as the default shell. After these steps, I would suggest running the
-    same command as the `root` user in order to use the same shell for both users.
+2. Install `zsh` and set it as the default shell for the main user.
     ```
     sudo pacman -S zsh
     chsh -s /bin/zsh
@@ -455,7 +458,7 @@ command. To be safe, we will make the swap partition to be twice the amount of t
     If prompted to create a `zsh` startup file, you can press `q` to quit and do nothing. My 
     dotfiles contain necessary `zsh` startup files. You can then remove old `bash` files.
     ```
-    rm .bash_history .bash_logout .bash_profile .bashrc
+    rm .bash*
     ```
 6. Finally, install my dotfiles. See [cloning](#cloning) for more details.
 
