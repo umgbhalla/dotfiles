@@ -51,12 +51,5 @@ for utility in $SUCKLESS; do
   $SBUILD $utility
 done
 
-#
-# gtk theme
-#
-
-git clone https://github.com/EliverLara/Nordic.git /tmp/Nordic
-sudo cp -r /tmp/Nordic /usr/share/themes
-
 # reset git config
 GIT_CONFIG="$gcfg"
