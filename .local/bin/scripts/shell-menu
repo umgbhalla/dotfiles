@@ -1,0 +1,45 @@
+#!/bin/sh
+# This script is a dmenu alternative, designed to utilize fzf in 
+# a floating st terminal window. Usage is similar to fzf.
+
+[ -f $XDG_CONFIG_HOME/colorrc ] && source $XDG_CONFIG_HOME/colorrc
+
+name="shell-menu"
+tmpDataFileIn="/tmp/shell-menu-in"
+tmpDataFileOut="/tmp/shell-menu-out"
+
+c_bg=$C_CYAN_0
+c_fg=$C_GRAY_1
+c_match=$C_BLACK_0
+# c_sel=$C_MAGENTA_0
+c_sel=$C_RED_1
+c_arrow=$C_BLACK_0
+
+width=$(( $RES_WIDTH - $WM_GAPS * 2 ))
+height=300
+x=$WM_GAPS
+y=$WM_GAPS
+
+if [ -p /dev/stdin ]; then # if data was piped into script
+  if [ ! -f $tmpDataFileIn ]; then
+
+    cat /dev/stdin > $tmpDataFileIn
+
+    $TERM -A 1 -n shellpopup -G ${width}x${height}+${x}+${y} \
+      -C "$c_bg@0" -C "$c_fg@7" -C "$c_match@2" -C "$c_match@10" -C "$c_sel@11" \
+      -C "$c_arrow@9" -C "$c_arrow@12" sh -c \
+      "cat $tmpDataFileIn | \
+      fzf --reverse > $tmpDataFileOut"
+
+    output=$(cat $tmpDataFileOut)
+    rm $tmpDataFileIn $tmpDataFileOut
+    echo $output
+
+  else
+    echo -e "${RED}Another instance of $name already exists. Only one instance can exist at a given time.${NC}"
+    exit 1
+  fi
+else
+  echo -e "${RED}No command(s) or arguments supplied to menu. Usage: [command] | ./$name${NC}"
+  exit 1
+fi

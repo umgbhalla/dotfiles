@@ -96,6 +96,7 @@ export REDSHIFT=$TUI_DIR/redshift
 export SBUILD=$TUI_DIR/sbuild
 export SCREEN=$TUI_DIR/screen
 export SCREENSHOT=$TUI_DIR/screenshot
+export SHELLMENU=$XDG_SCRIPT_HOME/shell-menu
 
 #
 # path
