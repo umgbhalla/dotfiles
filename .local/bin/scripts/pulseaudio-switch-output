@@ -1,5 +1,6 @@
 #!/bin/sh
-output=$(pacmd list-sinks | awk '/name:/{print substr($2, 2, length($2)-2)}' | dmenu -l 10 -p "Output Sink:")
+# chooses the default pulseaudio output
+output=$(pacmd list-sinks | awk '/name:/{print substr($2, 2, length($2)-2)}' | $SHELLMENU --prompt="\>\ output\ sink\ ")
 
 if [ -z $output ]; then
   echo "No sink specified."

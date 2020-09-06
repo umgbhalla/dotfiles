@@ -25,11 +25,11 @@ if [ -p /dev/stdin ]; then # if data was piped into script
 
     cat /dev/stdin > $tmpDataFileIn
 
-    $TERM -A 1 -n shellpopup -G ${width}x${height}+${x}+${y} \
+    st -A 1 -n shellpopup -G ${width}x${height}+${x}+${y} \
       -C "$c_bg@0" -C "$c_fg@7" -C "$c_match@2" -C "$c_match@10" -C "$c_sel@11" \
       -C "$c_arrow@9" -C "$c_arrow@12" sh -c \
       "cat $tmpDataFileIn | \
-      fzf --reverse > $tmpDataFileOut"
+      fzf --reverse $@ > $tmpDataFileOut"
 
     output=$(cat $tmpDataFileOut)
     rm $tmpDataFileIn $tmpDataFileOut

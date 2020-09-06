@@ -121,7 +121,7 @@ function b() {
 # mounting
 mntpt="/mnt/usb"
 function mnt() {
-  drive="$(sudo fdisk -l | grep '^Disk.*sectors$' | dmenu -i -l 20 | awk '{print $2}')"
+  drive="$(sudo fdisk -l | grep '^Disk.*sectors$' | $SHELLMENU | awk '{print $2}')"
   drive=${drive:0:-1}
   sudo mkdir -p $mntpt
   sudo ntfs-3g "$drive" "$mntpt"

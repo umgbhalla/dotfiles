@@ -34,5 +34,5 @@ bspc rule -a feh state=floating
 bspc rule -a mpv state=floating
 
 # shell popup windows
-bspc rule -a '*:shellpopup' state=floating
+bspc rule -a '*:shellpopup' state=floating sticky="on"
 

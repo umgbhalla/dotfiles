@@ -9,8 +9,8 @@ super + Return
 
 # launcher
 super + space
-  dmenu_run
-
+  $LAUNCHER
+  
 # browser
 super + b
   $BROWSER
