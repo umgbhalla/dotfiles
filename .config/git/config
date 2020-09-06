@@ -25,6 +25,3 @@
 [submodule ".config/zsh/fsh"]
 	url = https://github.com/zdharma/fast-syntax-highlighting.git
 	active = true
-[submodule ".config/themes/Nordic"]
-	url = https://github.com/EliverLara/Nordic.git
-	active = true

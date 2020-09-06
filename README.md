@@ -665,4 +665,3 @@ implemented or had the time to configure.
 + centralize color definitions (`.profile`, `~/.config/colorrc`, `~/.config/Xresources`)
 + better contact management
 + look into using fzf/ripgrep as a dmenu patch alternative
-+ ffmpeg screen recording utility
