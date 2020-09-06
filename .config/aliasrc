@@ -188,8 +188,6 @@ extract () {
 }
 alias e="extract"
 
-alias ffmpeg-video="ffmpeg -f x11grab -i $DISPLAY $HOME/Pictures/screen.mp4"
-
 # ----------------------------------------------------------------
 # miscellaneous
 # ----------------------------------------------------------------

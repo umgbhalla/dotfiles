@@ -25,6 +25,7 @@ case "$1" in
       echo -e "${RED}Error: screen capture already in progress.${NC}"
     fi
     ;;
+
   status)
     if [ -f $pidFile ]; then
       echo 
@@ -32,18 +33,37 @@ case "$1" in
       echo ""
     fi
     ;;
+
   stop)
     if [ -f $pidFile ]; then
       pid="$(cat $pidFile)"
       kill -15 "$pid"
       rm -f $pidFile
 
-      dunstify -i dialog-information-symbolic.symbolic -t 500 "Screen capture complete."
+      dunstify -i dialog-information-symbolic.symbolic -t 500 "Capture complete."
       # manual polybar refresh
       touch -m $XDG_CONFIG_HOME/polybar/config
     fi
     ;;
+
+  video)
+    if [ ! -f $pidFile ]; then
+      dunstify -i dialog-information-symbolic.symbolic -t 500 "Video capture starting."
+      sleep 0.5
+
+      ffmpeg \
+        -f x11grab -i $DISPLAY \
+        "$outputDir/video-$(\date +%y-%m-%d_%H:%M:%S).mp4" &
+
+        echo $! > $pidFile
+        # manual polybar refresh
+        touch -m $XDG_CONFIG_HOME/polybar/config
+    else
+      echo -e "${RED}Error: video capture already in progress.${NC}"
+    fi
+    ;;
+
   *)
-    echo -e "${RED}Usage: ./screen [capture | stop]${NC}"
+    echo -e "${RED}Usage: ./screen [capture | status | stop | video]${NC}"
     ;;
 esac

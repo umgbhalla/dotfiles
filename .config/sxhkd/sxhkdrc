@@ -79,22 +79,22 @@ XF86AudioMicMute
 
 # for ease and alignment with macOS
 shift + alt + 3
-  $XDG_SCRIPT_HOME/tui/screenshot
+  $SCREENSHOT
 shift + alt + 4
-  $XDG_SCRIPT_HOME/tui/screenshot crop
+  $SCREENSHOT crop
 
 # for general compatibility keys
 Print
-  $XDG_SCRIPT_HOME/tui/screenshot
+  $SCREENSHOT
 shift + Print
-  $XDG_SCRIPT_HOME/tui/screenshot crop
+  $SCREENSHOT crop
 
 # capture
 
 F10
-  $XDG_SCRIPT_HOME/tui/screen capture
+  $SCREEN capture
 F9
-  $XDG_SCRIPT_HOME/tui/screen stop
+  $SCREEN stop
 
 #
 # brightness control

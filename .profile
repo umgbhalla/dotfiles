@@ -94,6 +94,7 @@ export HEX2FF=$TUI_DIR/hex2ff
 export HEX2RGB=$TUI_DIR/hex2rgb
 export REDSHIFT=$TUI_DIR/redshift
 export SBUILD=$TUI_DIR/sbuild
+export SCREEN=$TUI_DIR/screen
 export SCREENSHOT=$TUI_DIR/screenshot
 
 #
