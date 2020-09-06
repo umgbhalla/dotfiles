@@ -107,8 +107,8 @@ export PATH="$HOME/.local/bin/:$PATH"
 # display
 #
 
-export RES_WIDTH=$(xrandr | awk '/*/ {print $1}' | cut -dx -f1)
-export RES_HEIGHT=$(xrandr | awk '/*/ {print $1}' | cut -dx -f2)
+export RES_WIDTH=1920
+export RES_HEIGHT=1080
 
 export WM_GAPS=10
 export WM_BAR_HEIGHT=28
