@@ -2,8 +2,6 @@
 # given a hex code of form #xxxxxx, returns an rgb color of form rgb(x, x, x)
 # e.g. hex2rgb "#abc123" => "rgb(171,193,35)"
 
-[ -f $XDG_CONFIG_HOME/colorrc ] && source $XDG_CONFIG_HOME/colorrc
-
 if [ -z $1 ]; then
   echo -e "${RED}A hex string must be supplied as an argument.${NC}"
   exit 1

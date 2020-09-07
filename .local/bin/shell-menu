@@ -2,8 +2,6 @@
 # This script is a dmenu alternative, designed to utilize fzf in 
 # a floating st terminal window. Usage is similar to fzf.
 
-[ -f $XDG_CONFIG_HOME/colorrc ] && source $XDG_CONFIG_HOME/colorrc
-
 name="shell-menu"
 tmpDataFileIn="/tmp/shell-menu-in"
 tmpDataFileOut="/tmp/shell-menu-out"

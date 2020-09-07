@@ -1,7 +1,5 @@
 # collection of commonly used shell alias definitions
 
-[ -f $XDG_CONFIG_HOME/colorrc ] && source $XDG_CONFIG_HOME/colorrc
-
 # ----------------------------------------------------------------
 # defaults
 # ----------------------------------------------------------------

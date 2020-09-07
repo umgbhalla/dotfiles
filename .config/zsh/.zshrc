@@ -2,15 +2,10 @@
 
 bindkey -v # explicitly set vi keybindings to enabled
 
-# bindkey -M viins 'jj' vi-cmd-mode
 bindkey -M viins '<M-;>' vi-cmd-mode
-# bindkey -M viins '<M-h>' backward-delete-char
-# bindkey '<M-j>' accept-line
 typeset -g KEYTIMEOUT=25 # allow zsh to handle multichar bindings
 
 # include aliases
-# to reduce prompt appearing time you'll need to remove this line...
-# (but I don't want to)
 [ -f $XDG_CONFIG_HOME/aliasrc ] && source $XDG_CONFIG_HOME/aliasrc
 
 # syntax highlighting

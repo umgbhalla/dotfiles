@@ -1,7 +1,5 @@
 #!/bin/sh
 
-[ -f $XDG_CONFIG_HOME/colorrc ] && source $XDG_CONFIG_HOME/colorrc
-
 pidFile=/tmp/ffmpegCapturePid
 outputDir=$HOME/Videos
 
