@@ -666,8 +666,6 @@ implemented or had the time to configure.
 + dmenu pinyin input
 + try out BSD!!!
 + switch completely to ALSA
-+ centralize color definitions (`.profile`, `~/.config/colorrc`, `~/.config/Xresources`)
 + better contact management
 + custom gtk theme
 + customize all main sites in `Firefox` `userContent.css`
-+ general cleanup and installation cleanup (package minimization)

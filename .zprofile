@@ -117,11 +117,8 @@ export W_ALPHA="0.85"
 export W_CORNER_RADIUS=8
 export W_GAPS=10
 
-# index indicating which wallpaper to display
-export WALLPAPER="synth"
-
 # background command
-export BACKGROUND="feh --bg-fill --no-fehbg $XDG_CONFIG_HOME/wallpapers/$WALLPAPER.png"
+export BACKGROUND="feh --bg-fill --no-fehbg $XDG_CONFIG_HOME/wallpapers/1.png"
 
 # colors
 source $XDG_CONFIG_HOME/colorrc
@@ -130,4 +127,6 @@ source $XDG_CONFIG_HOME/colorrc
 source $XDG_CONFIG_HOME/apprc
 
 # startx automatically on tty1
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx -- -keeptty &> $XDG_CACHE_HOME/xorg.log
+[ "$(tty)" = "/dev/tty1" ] && \
+  ! pgrep -x Xorg >/dev/null && \
+  exec startx -- -keeptty &> $XDG_CACHE_HOME/xorg.log
