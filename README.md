@@ -613,6 +613,6 @@ implemented or had the time to configure.
 + dmenu pinyin input
 + try out BSD!!!
 + switch completely to ALSA
-+ better contact management
++ contact management application
 + custom gtk theme
-+ customize all main sites in `Firefox` `userContent.css`
++ find a good remote desktop client
