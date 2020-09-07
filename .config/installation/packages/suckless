@@ -10,7 +10,7 @@ st
 # -------------------------------------------------------------------
 
 # alternate browser
-surf # used by newsboat
+# surf
 
 # alternate window manager
 # dwm
