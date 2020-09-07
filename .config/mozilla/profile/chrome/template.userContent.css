@@ -16,13 +16,6 @@
   --transition: $FIREFOX_TRANSITION;
 }
 
-
-/**
- * ------------------------------------------------
- * general
- * ------------------------------------------------
- */
-
 /**
  * ------------------------------------------------
  * new tab page
@@ -59,76 +52,14 @@
 }
 
 .search-wrapper input {
-
   /* hide search bar since address bar acts as search bar */
   display: none !important;
-
-/*
-  transition: var(--transition) !important;
-*/
-
-  /* search engine icon */
-/*
-  background: var(--color-bg-alt) var(--newtab-search-icon) 9px center no-repeat !important;
-	background-size: 30px !important;
-  color: var(--color-fg) !important;
-  border: none !important;
-
-	box-shadow: none !important;
-*/
 }
-/*
-.search-wrapper .search-inner-wrapper:hover input,
-.search-wrapper .search-inner-wrapper:active input,
-.search-wrapper input:focus {
-  outline: none;
-  border: none !important;
-}
-
-.search-wrapper .search-inner-wrapper:active input,
-.search-wrapper input:focus {
-	box-shadow: 0 0 5px var(--color-bg-alt) !important;
-}
-
-.search-wrapper .search-button,
-.search-wrapper .search-button {
-	transition: var(--transition) !important;
-}
-*/
 .search-wrapper .search-button:focus,
 .search-wrapper .search-button:hover {
-  /* background-color: var(--color-primary) !important; */
   display: none !important;
   cursor: default !important;
 }
-
-/*
- * search bar results
- */
-
-/*
-.contentSearchSuggestionTable .contentSearchSuggestionsContainer,
-.contentSearchSuggestionTable .contentSearchHeader {
-  background-color: var(--color-bg-alt) !important;
-}
-.contentSearchSuggestionTable .contentSearchSuggestionRow.selected,
-.contentSearchSuggestionTable .contentSearchOneOffItem.selected {
-	background-color: var(--color-bg-alt) !important;
-  cursor: pointer !important;
-}
-
-.contentSearchSuggestionTable .contentSearchHeader,
-.contentSearchSuggestionTable .contentSearchSettingsButton,
-.contentSearchSuggestionTable .contentSearchOneOffsTable {
-	border-color: var(--color-bg) !important;
-}
-
-.contentSearchSuggestionTable {
-	box-shadow: none !important;
-  border: none;
-	border-radius: var(--radius) !important;
-}
-*/
 
 /**
  * ------------------------------------------------
@@ -156,6 +87,18 @@
   .search--home, .search--header {
     background-color: var(--color-bg-alt) !important;
   }
+	.search__button{
+    background-color: transparent !important;
+	}
+	.search__button:hover {
+    background-color: var(--color-bg-alt) !important;
+	}
+	.search__autocomplete {
+    background: var(--color-bg-op) !important;
+	}
+	.acp-wrap {
+		background-color: var(--color-bg-alt) !important;
+	}
 
   /* random search filters gradient */
   .search-filters-wrap::before,
@@ -163,18 +106,41 @@
     background-image: none !important; 
   }
 
+	/* modals */
+	.modal__box {
+		background: var(--color-bg-op) !important;
+		background-color: var(--color-bg-op) !important;
+		background-image: none !important;
+	}
+
   /* feedback button */
   .btn.feedback-btn, .btn.feedback-btn a, .btn.feedback-btn a:hover {
     background: var(--color-bg-op) !important;
   }
 
+	/* carousel */
+	.module--carousel__left, .module--carousel__right {
+    background-color: var(--color-primary) !important;
+		border-color: transparent !important;
+	}
+
+	/* more results buttons */
+	.btn.result--more__btn {
+    background-color: var(--color-bg-alt) !important;
+	}
+
   /* more info box */
-  .module:not(.module--carousel):not(.module--placeholder):not(.module--images), .modal--popout .modal__box, .modal__box, .sidebar-modules .module, .results--main .result:not(.result--ad).highlight, .module .module--carousel__item, .user-loc-cta, .address-detail, .modal--dropdown.modal--popout .modal__box, .tile--info, .place-detail, .badge-link, .is-atb-fullbleed .content-info__item, .atb-banner__bottom, .multi-step-mobile-onboarding__step__content, .is-mobile .results_links_deep, .is-mobile .results_links, .is-mobile .result--news, .is-mobile .related-searches, .most-visited__info-tt {
+  .module:not(.module--carousel):not(.module--placeholder):not(.module--images), .sidebar-modules .module, .results--main .result:not(.result--ad).highlight, .module .module--carousel__item, .user-loc-cta, .address-detail, .tile--info, .place-detail, .badge-link, .is-atb-fullbleed .content-info__item, .atb-banner__bottom, .multi-step-mobile-onboarding__step__content, .is-mobile .results_links_deep, .is-mobile .results_links, .is-mobile .result--news, .is-mobile .related-searches, .most-visited__info-tt {
     background: var(--color-bg-alt) !important;
   }
   .module__toggle, .tile__expand {
     background-color: initial !important;
   }
+
+	/* footer cards */
+	.footer__card {
+    background-color: var(--color-bg-alt) !important;
+	}
 }
 
 /**
@@ -183,36 +149,39 @@
  * ------------------------------------------------
  */
 
-/*
 @-moz-document domain(github.com) {
   html,
   body {
     scrollbar-color: var(--color-primary) var(--color-bg-op) !important;
-    background-color: var(--color-bg-op) !important;
-    color: var(--color-fg) !important;
   }
 
-  .Header,
-  .bg-gray-light {
-    background: var(--color-bg-op) !important;
-  }
+  /* body { */
+  /*   background-color: var(--color-bg-op) !important; */
+  /*   color: var(--color-fg) !important; */
+	/* } */
 
-  .text-gray,
-  .UnderlineNav-item {
-    color: var(--color-fg) !important;
-  }
+	/* header bar */
+	/* .Header { */
+	/* 	background-color: var(--color-bg-op) !important; */
+	/* } */
+	/* .header-search-current .header-search-wrapper { */
+	/* 	background-color: var(--color-bg-alt) !important; */
+	/* } */
+	/* .header-search-current .header-search-wrapper.focus { */
+	/* 	background-color: var(--color-primary) !important; */
+	/* } */
 
-  .header-search-current .header-search-wrapper,
-  .header-search-current .header-search-wrapper.focus {
-    background-color: var(--color-bg-alt) !important;
-  }
+	/* header area */
+	/* .bg-gray-light { */
+	/* 	background-color: var(--color-bg-op) !important; */
+	/* } */
 
-  a.url, a[data-pjax] {
-    color: var(--color-primary) !important;
-  }
-
-  .UnderlineNav-item {
-    border-bottom-color: var(--color-secondary) !important;
-  }
+	/* file browser */
+	/* .Box { */
+	/* 	background-color: var(--color-bg-alt) !important; */
+	/* 	border-color: var(--color-bg-alt) !important; */
+	/* } */
+	/* .navigation-focus { */
+	/* 	background-color: var(--color-bg-alt) !important; */
+	/* } */
 }
-*/

@@ -262,3 +262,66 @@ body:not([lwt-sidebar-brighttext]) .content-container,
 #viewButton {
 	color: unset !important;
 }
+
+/**
+ * ------------------------------------------------
+ * find
+ * ------------------------------------------------
+ */
+
+findbar, .findbar-container {
+	background-color: var(--color-bg) !important;
+	background-image: none !important;
+}
+
+.findbar-textbox {
+	background-color: var(--color-bg-alt) !important;
+	border: none !important;
+}
+
+.findbar-textbox:focus {
+	background-color: var(--color-primary) !important;
+	border: none !important;
+}
+
+.findbar-find-previous, .findbar-find-next {
+	background: var(--color-bg-alt) !important;
+	border: none !important;
+}
+
+/**
+ * ------------------------------------------------
+ * popups
+ * ------------------------------------------------
+ */
+
+.panel-arrowcontainer {
+	outline: none !important;
+}
+
+.panel-arrow {
+	fill: var(--color-bg) !important;
+}
+
+panelview {
+	outline: none !important;
+	background: var(--color-bg) !important;
+}
+
+.editBookmarkPanelBottomButton {
+	background-color: var(--color-primary) !important;
+}
+
+.panel-footer > xul|button:not([disabled]):hover {
+	background: var(--color-bg-alt) !important;
+}
+
+/**
+ * ------------------------------------------------
+ * various
+ * ------------------------------------------------
+ */
+
+#reader-mode-button[readeractive] {
+	fill: var(--color-primary) !important;
+}
