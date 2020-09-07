@@ -6,17 +6,16 @@ name="shell-menu"
 tmpDataFileIn="/tmp/shell-menu-in"
 tmpDataFileOut="/tmp/shell-menu-out"
 
-c_bg=$C_CYAN_0
-c_fg=$C_GRAY_1
-c_match=$C_BLACK_0
-# c_sel=$C_MAGENTA_0
-c_sel=$C_RED_1
-c_arrow=$C_BLACK_0
+c_bg=$SHELLMENU_BG
+c_fg=$SHELLMENU_FG
+c_match=$SHELLMENU_MATCH
+c_sel=$SHELLMENU_SEL
+c_arrow=$SHELLMENU_PROMPT
 
-width=$(( $RES_WIDTH - $WM_GAPS * 2 ))
-height=300
-x=$WM_GAPS
-y=$WM_GAPS
+width=$SHELLMENU_WIDTH
+height=$SHELLMENU_HEIGHT
+x=$SHELLMENU_X
+y=$SHELLMENU_Y
 
 if [ -p /dev/stdin ]; then # if data was piped into script
   if [ ! -f $tmpDataFileIn ]; then

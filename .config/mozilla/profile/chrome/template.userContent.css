@@ -4,16 +4,16 @@
 
 :root,
 :root:-moz-lwtheme-brighttext {
-  --color-fg: $C_GRAY_1;
-  --color-fg-alt: $C_GRAY_0;
+  --color-fg: $FIREFOX_FG;
+  --color-fg-alt: $FIREFOX_FG_ALT;
   --color-bg: $FIREFOX_BG;
   --color-bg-op: $FIREFOX_BG_OP;
 	--color-bg-alt: $FIREFOX_BG_ALT;
-  --color-primary: $C_CYAN_0;
-  --color-secondary: $C_RED_1;
+  --color-primary: $FIREFOX_PRIMARY;
+  --color-secondary: $FIREFOX_SECONDARY;
 
-  --radius: ${WINDOW_BORDER_RADIUS}px;
-  --transition: $TRANSITION;
+  --radius: $FIREFOX_RADIUS;
+  --transition: $FIREFOX_TRANSITION;
 }
 
 

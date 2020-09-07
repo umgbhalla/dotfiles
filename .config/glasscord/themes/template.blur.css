@@ -226,13 +226,13 @@
 	--deprecated-store-bg: #36393f00;
 	--background-attachments: $DISCORD_BG;
 	--background-search-bar: transparent;
-	--background-switcher: $DISCORD_ACC_PRIMARY;
+	--background-switcher: $DISCORD_PRIMARY;
 	--background-chatbox: $DISCORD_BG;
 	--background-lights-out: #000000aa; /* darken */
 	--background-pinned: $DISCORD_BG;
 	--background-profile-expand: $DISCORD_BG;
 	--background-emoji: $DISCORD_BG;
-	--text-lights-out: $C_GRAY_1;
+	--text-lights-out: $DISCORD_FG;
 	--background-titlebar: $DISCORD_BG;
 }
 

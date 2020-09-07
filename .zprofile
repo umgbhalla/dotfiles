@@ -1,4 +1,4 @@
-# environmental variables set on login
+# core environmental variables set on login
 
 #
 # directories
@@ -26,8 +26,8 @@ export EDITOR="nvim"
 
 if [ $OS != $OS_MACOS ]; then
   export TERM="st"
-  export TERMINAL="$TERM"
 fi
+export TERMINAL="$TERM"
 
 export BROWSER="firefox"
 
@@ -74,8 +74,7 @@ export VI_NAV_JUMP_LARGE="25"
 export BOOKMARK_CONFIG="$XDG_CONFIG_HOME/bookmarks"
 export GIT_CONFIG="$XDG_CONFIG_HOME/git/config"
 export GIT_TEMPLATE_DIR="$XDG_CONFIG_HOME/git/template"
-export GTK2_RC_FILES="$XDG_CONFIG_HOME/themes/Nordic/gtk-2.0/gtkrc"
-export GTK_PATH="$XDG_CONFIG_HOME/themes"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
 export NEWSBOAT_CONFIG="$XDG_CONFIG_HOME/newsboat"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
@@ -112,47 +111,23 @@ export PATH="$HOME/.local/bin/:$PATH"
 export RES_WIDTH=1920
 export RES_HEIGHT=1080
 
-export WM_GAPS=10
-export WM_BAR_HEIGHT=28
-export WM_BAR_WIDTH="100%:-$(( $WM_GAPS * 2 ))"
-export WM_TOP_PADDING=$(( $WM_GAPS + $WM_BAR_HEIGHT ))
-export WM_TRANSPARENCY="0.85"
-# WM_TRANSPARENCY as a whole number
-export WM_TRANSPARENCY_WHOLE="$(echo $(( $WM_TRANSPARENCY * 100 )) | sed -e 's/\.//g')"
+# window settings
 
-export WINDOW_BORDER_RADIUS=8
-
-export NOTIF_WIDTH=400
-export NOTIF_HEIGHT=70
-export NOTIF_ICON_SIZE=$(( $NOTIF_HEIGHT * 0.8 ))
-export NOTIF_X_SYM="-"
-export NOTIF_X_OFFSET=$(( $WM_GAPS * 2 ))
-export NOTIF_Y_SYM="-"
-export NOTIF_Y_OFFSET=$(( $WM_GAPS * 2 ))
-
-export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
-
-export TRANSITION="all 0.2s ease"
+export W_ALPHA="0.85"
+export W_CORNER_RADIUS=8
+export W_GAPS=10
 
 # index indicating which wallpaper to display
 export WALLPAPER="synth"
 
-# full width of a window with gaps (dmenu_run)
-export WINDOW_WIDTH=$(( $RES_WIDTH - $WM_GAPS * 2 )) 
-
 # background command
 export BACKGROUND="feh --bg-fill --no-fehbg $XDG_CONFIG_HOME/wallpapers/$WALLPAPER.png"
 
-# font
-export FONT_MONO="Source Code Pro Medium:pixelsize=15:antialias=true:autohint=true"
-export FONT_SANS="Source Sans Pro Medium:bold:pixelsize=15:antialias=true:autohint=true"
-
-export FONT_NOTIF="Source Code Pro Medium 12"
-
-export FONT="$FONT_MONO";
-
 # colors
 source $XDG_CONFIG_HOME/colorrc
+
+# app-specific environment variables
+source $XDG_CONFIG_HOME/apprc
 
 # startx automatically on tty1
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx -- -keeptty &> $XDG_CACHE_HOME/xorg.log

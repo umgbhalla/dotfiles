@@ -14,12 +14,6 @@ super + space
 # browser
 super + b
   $BROWSER
-super + shift + b
-  $BROWSER --private-window
-
-# file explorer
-# super + y
-#   $TERM sh -c "$FILE_EXPLORER"
 
 # system profiler
 super + p
@@ -30,12 +24,8 @@ super + u
   discord
 
 # slack (for actual productivity)
-super + o
-  slack
-
-# pdf viewer
-super + z
-  zathura
+# super + o
+#   slack
 
 #
 # general scripts

@@ -23,11 +23,11 @@ set guioptions "" # hide status by default
 
 set recolor # default dark mode bc I'm a chad
 
-set default-bg "$C_BLACK_0_A"
-set default-fg "$C_GRAY_0"
+set default-bg "$ZATHURA_BG"
+set default-fg "$ZATHURA_FG"
 
-set notification-bg "$C_BLACK_0_A"
-set notification-fg "$C_GRAY_0"
+set notification-bg "$ZATHURA_BG"
+set notification-fg "$ZATHURA_FG"
 
 # (should) make pdf bg transparent
 set recolor-lightcolor "rgba(0,0,0,0)"

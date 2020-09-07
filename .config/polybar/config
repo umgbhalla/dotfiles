@@ -1,13 +1,12 @@
 ; polybar configuration
 
 [colors]
-background = ${env:COLOR_BG}
-background-alt = ${env:COLOR_TERTIARY}
-foreground = ${env:COLOR_FG}
-primary = ${env:COLOR_SECONDARY}
-secondary = ${env:COLOR_SECONDARY}
-tertiary = ${env:COLOR_PRIMARY}
-alert = ${env:COLOR_ALERT}
+background = ${env:POLYBAR_BG}
+foreground = ${env:POLYBAR_FG}
+primary = ${env:POLYBAR_PRIMARY}
+secondary = ${env:POLYBAR_SECONDARY}
+tertiary = ${env:POLYBAR_TERTIARY}
+alert = ${env:POLYBAR_ALERT}
 transparent = #00000000
 
 [global/wm]
@@ -15,10 +14,10 @@ margin-top = 0
 margin-bottom = 0
 
 [bar/main]
-width = ${env:WM_BAR_WIDTH}
-height = ${env:WM_BAR_HEIGHT}
-offset-x = ${env:WM_GAPS}
-offset-y = ${env:WM_GAPS}
+width = ${env:POLYBAR_WIDTH}
+height = ${env:POLYBAR_HEIGHT}
+offset-x = ${env:W_GAPS}
+offset-y = ${env:W_GAPS}
 
 ; always display below fullscreen windows
 override-redirect = true
@@ -47,7 +46,7 @@ label-focused-foreground = ${colors.foreground}
 label-focused-padding = 2
 
 label-occupied = %icon%
-label-occupied-background = ${colors.background-alt}
+label-occupied-background = ${colors.secondary}
 label-occupied-padding = 2
 
 label-urgent = %icon%
@@ -81,7 +80,7 @@ exec = $SCREEN status
 
 click-left = $SCREEN stop
 
-format-foreground = ${colors.tertiary}
+format-foreground = ${colors.alert}
 format-padding = 2
 
 ; since script manually updates bar
@@ -92,14 +91,12 @@ type = internal/network
 interface = ${env:WIFI_INTERFACE:wlan0}
 interval = 3.0
 
-format-connected-background = ${colors.secondary}
+format-connected-background = ${colors.primary}
 format-connected-foreground = ${colors.foreground}
 format-connected-padding = 2
 label-connected =  %essid%
 
 format-disconnected-background = ${colors.background}
-format-disconnected-foreground = ${colors.primary}
-format-disconnected-padding = 2
 label-disconnected = 
 
 [module/eth]
@@ -107,7 +104,7 @@ type = internal/network
 interface = ${env:ETH_INTERFACE:wlan0}
 interval = 3.0
 
-format-connected-background = ${colors.secondary}
+format-connected-background = ${colors.primary}
 format-connected-foreground = ${colors.foreground}
 format-connected-padding = 2
 label-connected =  %local_ip%
@@ -120,12 +117,10 @@ type = internal/pulseaudio
 
 format-volume = <label-volume>
 label-volume =  %percentage%%
-label-volume-background = ${colors.background}
 label-volume-padding = 2
 
 label-muted =  --%
 label-muted-foreground = ${colors.primary}
-label-muted-background = ${colors.background}
 label-muted-padding = 2
 
 [module/battery]
@@ -145,7 +140,7 @@ format-charging-foreground = ${colors.background}
 format-charging-padding = 2
 
 format-discharging =  <label-discharging>
-format-discharging-background = ${colors.secondary}
+format-discharging-background = ${colors.tertiary}
 format-discharging-foreground = ${colors.background}
 format-discharging-padding = 2
 
@@ -157,6 +152,6 @@ date = %a %b %d
 time = %H:%M
 label =  %date% %time%
 
-format-background = ${colors.background-alt}
+format-background = ${colors.secondary}
 format-foreground = ${colors.foreground}
 format-padding = 2
