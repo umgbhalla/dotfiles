@@ -68,8 +68,9 @@ neofetch
 # user manuals
 man
 
-# screen capture utility
+# screen capturing
 maim
+slop
 
 # ssh
 openssh

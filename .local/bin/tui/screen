@@ -19,6 +19,11 @@ function notify() {
   dunstify -i camera-photo-symbolic.symbolic -t $notifyTimeMs "$1"
 }
 
+# manual polybar refresh
+function refreshBar() {
+  touch -m $XDG_CONFIG_HOME/polybar/config
+}
+
 case "$1" in
 
   # capture
@@ -33,18 +38,49 @@ case "$1" in
         "$captureOutputDir/screencapture-$date.mp4" &
 
         echo $! > $pidFile
-        # manual polybar refresh
-        touch -m $XDG_CONFIG_HOME/polybar/config
+        refreshBar
     else
-      echo -e "${RED}Error: screen capture already in progress.${NC}"
+      echo -e "${RED}Error: capture already in progress.${NC}"
     fi
     ;;
 
   # crop
   crop)
-    sleep 0.1
     maim -s "$snapOutputDir/snap-$date.png"
     notify "Screenshot taken."
+    ;;
+
+  # gif
+  gif)
+    geometry=$(slop)
+
+    if [ -z $geometry ]; then
+      echo -e "${RED}Error: invalid dimensions.${NC}"
+    else
+      dim=$(echo $geometry | cut -d+ -f1)
+      x="$(echo $geometry | cut -d+ -f2)"
+      y="$(echo $geometry | cut -d+ -f3)"
+
+      if [ ! -f $pidFile ]; then
+        notify "Gif capture starting."
+        sleep $notifyTime
+
+        # largest possible width
+        # (incentivize small area recordings!)
+        minRatio=1000
+
+        ffmpeg \
+          -f x11grab -video_size $dim -i $DISPLAY+$x,$y -c:v gif \
+          -r 5 \
+          -vf "scale='min($minRatio,iw)':-1" \
+          "$captureOutputDir/gif-$date.gif" &
+
+          echo $! > $pidFile
+          refreshBar
+      else
+        echo -e "${RED}Error: capture already in progress.${NC}"
+      fi
+    fi
     ;;
 
   # recording-status
@@ -70,8 +106,7 @@ case "$1" in
       rm -f $pidFile
 
       notify "Capture complete."
-      # manual polybar refresh
-      touch -m $XDG_CONFIG_HOME/polybar/config
+      refreshBar
     fi
     ;;
 
@@ -86,16 +121,15 @@ case "$1" in
         "$captureOutputDir/video-$date.mp4" &
 
         echo $! > $pidFile
-        # manual polybar refresh
-        touch -m $XDG_CONFIG_HOME/polybar/config
+        refreshBar
     else
-      echo -e "${RED}Error: video capture already in progress.${NC}"
+      echo -e "${RED}Error: capture already in progress.${NC}"
     fi
     ;;
 
   # usage
   *)
-    echo -e "${RED}Usage: ./screen [capture | crop | recording-status | snap | stop | video]${NC}"
+    echo -e "${RED}Usage: ./screen [capture | crop | gif | recording-status | snap | stop | video]${NC}"
     ;;
 
   esac
