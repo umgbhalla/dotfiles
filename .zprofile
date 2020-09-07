@@ -89,15 +89,15 @@ export TUI_DIR="$XDG_SCRIPT_HOME/tui"
 # scripts
 #
 
-export DETEMPLATE=$TUI_DIR/detemplate
-export HEX2FF=$TUI_DIR/hex2ff
-export HEX2RGB=$TUI_DIR/hex2rgb
-export LAUNCHER=$XDG_SCRIPT_HOME/launcher
-export REDSHIFT=$TUI_DIR/redshift
-export SBUILD=$TUI_DIR/sbuild
-export SCREEN=$TUI_DIR/screen
-export SCREENSHOT=$TUI_DIR/screenshot
-export SHELLMENU=$XDG_SCRIPT_HOME/shell-menu
+export DETEMPLATE="$TUI_DIR/detemplate"
+export HEX2FF="$TUI_DIR/hex2ff"
+export HEX2RGB="$TUI_DIR/hex2rgb"
+export LAUNCHER="$XDG_SCRIPT_HOME/launcher"
+export REDSHIFT="$TUI_DIR/redshift"
+export SBUILD="$TUI_DIR/sbuild"
+export SCREEN="$TUI_DIR/screen"
+export SCREENSHOT="$TUI_DIR/screenshot"
+export SHELLMENU="$XDG_SCRIPT_HOME/shell-menu"
 
 #
 # path

@@ -58,10 +58,10 @@ minecraft-launcher
 # signal
 
 # phone display
-scrcpy
+# scrcpy
 
 # slack
-slack-desktop
+# slack-desktop
 
 # I hate this but it's required by school...
 zoom
