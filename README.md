@@ -669,4 +669,3 @@ implemented or had the time to configure.
 + better contact management
 + custom gtk theme
 + customize all main sites in `Firefox` `userContent.css`
-+ replace peek gifs with ffmpeg gif recording
