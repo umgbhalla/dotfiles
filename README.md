@@ -466,31 +466,14 @@ command. To be safe, we will make the swap partition to be twice the amount of t
 This list of additional configuration options are in no particular order. I've just added or
 modified them when necessary.
 
-- [Mirrorlist](#mirrorlist)
 - [Touchpad Settings](#touchpad-settings)
 - [Disabling the Grub Menu](#disabling-grub-menu)
 - [DaVinci Resolve](#davinci-resolve)
 - [Gaming](#gaming)
 - [Login](#login)
-- [WebGL in Brave](#webgl-brave)
-- [Time Out Of Sync](#time-out-of-sync)
 - [No dwm?](#no-dwm)
-- [Copying Repositories](#copying-repos)
 - [Glasscord](#glasscord)
-
-#### Mirrorlist <a name="mirrorlist"></a>
-> This section isn't very relevant anymore since Arch automatically runs Reflector now, but
-> I'm keeping it here for consistency and for future reference.
-Sometimes downloading and installing packages takes longer than necessary because the package 
-manager is looking through outdated (out of sync) mirrors or geographically far away ones. 
-While there are many ways to organize the order in which mirrors are tried, I usually 
-use `Reflector` because it is fast and works very well.
-```
-sudo pacman -S reflector
-sudo reflector --latest 50 --sort rate --save /etc/pacman.d/mirrorlist
-```
-See the [Reflector site](https://xyne.archlinux.ca/projects/reflector) for additional 
-options and fine-tuning settings.
+- [User Custom CSS](#user-custom-css)
 
 #### Touchpad settings <a name="touchpad-settings"></a>
 By default, most linux distros disable natural scrolling and disable touchpad tapping. I 
@@ -571,25 +554,9 @@ any X server running for the purposes of an aesthetic login prompt is unnecessar
 an alternative, you can edit the `/etc/issue` file to modify what is displayed on the login 
 prompt. In my setup, I use `figlet` to create a fancy hostname title on the login prompt.
 ```
-yay -S --needed figlet
-echo "$(cat /etc/hostname | figlet -k)" | { sed 's/\\/\\\\/g'; echo "(\l) \\s \\\r\n" } | sudo tee /etc/issue > /dev/null
+cat /etc/hostname | figlet -k | { sed 's/\\/\\\\/g'; echo "(\l) \\s \\\r \\\t\n" } | sudo tee /etc/issue > /dev/null
 ```
 You'll have to log out and log back in to notice changes.
-
-#### WebGL in Brave <a name="webgl-brave"></a>
-Using Brave in Linux with an AMD card disabled my WebGL, even if it was physically possible 
-for Brave to use WebGL.
-
-To enable Brave to use WebGL, navigate to `brave://flags/` and `enable` the 
-`override software rendering list` option.
-
-#### Time Out Of Sync <a name="time-out-of-sync"></a>
-I recently encountered an issue where my internal clock went out of sync with the UTC 
-time. The only way to fix this is to reboot and set the time via boot settings.
-
-You can set the UTC time by verifying the time with the time on 
-[time.gov](https://time.gov) (Note that this only displays US times). Then on 
-reboot, the system time should match the timezone time displayed on the site.
 
 #### No dwm? <a name="no-dwm"></a>
 It might be surprising that I am such an advocate for suckless utilities and yet do not use
@@ -610,15 +577,6 @@ That being said, I've given this a lot of thought recently, and I may revisit `d
 future. As such, I am leaving my module build of `dwm` included in my dotfiles should I 
 ever switch to `dwm` down the road.
 
-#### Copying Repositories <a name="copying-repos"></a>
-Lately I've had to go through the trouble of copying repositories from device to device for 
-ease of access. Since most shells including zsh will not allow you to copy dotfiles without 
-copying them explicitly, you'll need to change some options.
-```
-setopt -s glob_dots
-cp -rv targetRepo/* destination
-```
-
 #### Glasscord <a name="glasscord"></a>
 I prefer using `ibhagwan`'s [picom blur and rounded corners fork](https://github.com/ibhagwan/picom)
 for as many applications as possible, and as such, I use [Glasscord](https://github.com/AryToNeX/Glasscord) 
@@ -635,8 +593,9 @@ default styles. This is mainly intended for accessibility purposes, but it can a
 to customize the appearance of the browser.
 
 To enable custom stylesheets on Firefox:
-- open `about:config` in the address bar and set 
-    `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`.
+- open `about:config` in the address bar and set the following properties to `true`:
+    - `gfx.webrender.all`
+    - `toolkit.legacyUserProfileCustomizations.stylesheets`
 - open your profile folder by opening `about:support` in the address bar and opening the 
     folder next to the profile directory. I prefer keeping all configuration files in the
     `$XDG_CONFIG_HOME` or `~/.config` directory, so my configuration is under 
@@ -645,19 +604,7 @@ To enable custom stylesheets on Firefox:
     ```
     ln -s $XDG_CONFIG_HOME/mozilla/profile/chrome $FIREFOX_PROFILE_DIR/chrome
     ```
-- restart Firefox to view the changes.
-
-Firefox will not display transparency effects by default.
-To enable transparency in user stylesheets:
-
-- open `about:config` in the address bar and set the following properties to `true`:
-    - `gfx.webrender.all`
-    - ~~`gfx.webrender.compositor`~~
-    - ~~`gfx.webrender.compositor.force-enabled`~~
-    - ~~`layers.acceleration.force-enabled`~~
-- restart Firefox.
-- open `about:support` and verify that the `graphics` > `compositing` option has changed from `basic` to `opengl`.
-- restart Firefox to view transparency effects.
+- restart Firefox and open `about:support` and verify that the `graphics` > `compositing` option has changed from `basic` to `opengl`. Styles and transparency effects should now be enabled.
 
 ## TODO <a name="todo"></a>
 Below are a list of things in no particular order that I plan to do but haven't yet 
