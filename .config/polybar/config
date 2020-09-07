@@ -84,6 +84,9 @@ click-left = $SCREEN stop
 format-foreground = ${colors.tertiary}
 format-padding = 2
 
+; since script manually updates bar
+tail = true
+
 [module/wlan]
 type = internal/network
 interface = ${env:WIFI_INTERFACE:wlan0}
@@ -141,7 +144,7 @@ format-charging-background = ${colors.primary}
 format-charging-foreground = ${colors.background}
 format-charging-padding = 2
 
-format-discharging =  <label-discharging>
+format-discharging =  <label-discharging>
 format-discharging-background = ${colors.secondary}
 format-discharging-foreground = ${colors.background}
 format-discharging-padding = 2
