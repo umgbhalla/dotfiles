@@ -5,10 +5,6 @@
 # system status bar
 polybar
 
-# browser
-firefox
-brave-bin # brave requires compilation, brave-bin does not
-
 # compositor
 picom-ibhagwan-git
 
@@ -21,9 +17,9 @@ otf-openmoji # emoji support
 # audio
 # usually on reboot everything will be muted,
 # may need to unmute both source and sink
-pulseaudio
-pulseaudio-alsa
-pulseaudio-ctl
+#pulseaudio
+#pulseaudio-alsa
+#pulseaudio-ctl
 
 # -------------------------------------------------------------------
 # tools
@@ -35,18 +31,12 @@ zathura-git # using zathura-git instead of zathura for alpha patch
 # download audio/video from various sources
 youtube-dl
 
-# js/ts runtime
-deno-bin
-
 # I know, it's disgusting.
 # but it's the best font viewer/installer.
 gnome-font-viewer
 
 # screen gif recording - not the best but functional
 peek-git
-
-# rss reader (rss ftw)
-newsboat
 
 # spreadsheet editor
 sc-im

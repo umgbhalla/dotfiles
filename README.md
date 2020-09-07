@@ -125,7 +125,7 @@ System Profiler:  htop
 
     **GNU/Linux:**
     ```sh
-    source $HOME/.profile
+    source $HOME/.zprofile
     $XDG_CONFIG_HOME/installation/setup.sh
     ```
     Restart and verify all packages are running properly.
@@ -138,7 +138,7 @@ System Profiler:  htop
 
     **MacOS:**
     ```sh
-    source $HOME/.profile
+    source $HOME/.zprofile
     $HOME/.config/installation/macos.sh
     ```
     I suggest changing the terminal background to a darker theme for the best experience.
