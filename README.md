@@ -495,7 +495,7 @@ options and fine-tuning settings.
 #### Touchpad settings <a name="touchpad-settings"></a>
 By default, most linux distros disable natural scrolling and disable touchpad tapping. I 
 personally find this very irritating. To change touchpad settings, 
-`sudo vim /etc/X11/xorg.conf.d/30-touchpad.conf` and add the following configuration:
+`sudo nvim /etc/X11/xorg.conf.d/30-touchpad.conf` and add the following configuration:
 ```
 Section "InputClass"
 	Identifier "touchpad"
@@ -509,7 +509,7 @@ Then reboot to verify changes.
 
 #### Disabling the Grub Menu <a name="disabling-grub-menu"></a>
 If, like me, you don't plan on dual-booting or adding boot entries, you can disable the grub 
-selection menu with `sudo vim /etc/default/grub`:
+selection menu with `sudo nvim /etc/default/grub`:
 ```
 GRUB_TIMEOUT=0
 ```
@@ -547,7 +547,7 @@ With these settings, I have been able to play every game I've tried.
 
 A lot of gaming applications (such as the Steam client and Wine client) are 32-bit 
 architecture and require the `multilib` repository to be enabled. To enable, 
-`sudo vim /etc/pacman.conf` and uncomment the following section:
+`sudo nvim /etc/pacman.conf` and uncomment the following section:
 ```
 [multilib]
 Include = /etc/pacman.d/mirrorlist
