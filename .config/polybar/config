@@ -76,7 +76,7 @@ format-font = 3
 
 [module/capture]
 type = custom/script
-exec = $SCREEN status
+exec = $SCREEN recording-status
 
 click-left = $SCREEN stop
 

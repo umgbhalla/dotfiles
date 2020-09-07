@@ -1,20 +1,36 @@
 #!/bin/sh
+# manages any form of screen capturing or recording, 
+# in addition to audio capturing and recording.
 
 pidFile=/tmp/ffmpegCapturePid
-outputDir=$HOME/Videos
 
-mkdir -p $outputDir
+snapOutputDir=$HOME/Pictures
+captureOutputDir=$HOME/Videos
+
+date="$(\date +%y-%m-%d_%H:%M:%S)"
+
+mkdir -p $snapOutputDir
+mkdir -p $captureOutputDir
+
+notifyTime=0.5
+notifyTimeMs=$(( $(echo $notifyTime | cut -d. -f2) * 100 ))
+
+function notify() {
+  dunstify -i camera-photo-symbolic.symbolic -t $notifyTimeMs "$1"
+}
 
 case "$1" in
+
+  # capture
   capture)
     if [ ! -f $pidFile ]; then
-      dunstify -i dialog-information-symbolic.symbolic -t 500 "Screen capture starting."
-      sleep 0.5
+      notify "Screen capture starting."
+      sleep $notifyTime
 
       ffmpeg \
         -f x11grab -i $DISPLAY \
         -f alsa -i default -c:v libx264 -preset ultrafast -c:a aac \
-        "$outputDir/screencapture-$(\date +%y-%m-%d_%H:%M:%S).mp4" &
+        "$captureOutputDir/screencapture-$date.mp4" &
 
         echo $! > $pidFile
         # manual polybar refresh
@@ -24,7 +40,15 @@ case "$1" in
     fi
     ;;
 
-  status)
+  # crop
+  crop)
+    sleep 0.1
+    maim -s "$snapOutputDir/snap-$date.png"
+    notify "Screenshot taken."
+    ;;
+
+  # recording-status
+  recording-status)
     if [ -f $pidFile ]; then
       echo 
     else
@@ -32,26 +56,34 @@ case "$1" in
     fi
     ;;
 
+  # snap
+  snap)
+    maim "$snapOutputDir/snap-$date.png"
+    notify "Screenshot taken."
+    ;;
+
+  # stop
   stop)
     if [ -f $pidFile ]; then
       pid="$(cat $pidFile)"
       kill -15 "$pid"
       rm -f $pidFile
 
-      dunstify -i dialog-information-symbolic.symbolic -t 500 "Capture complete."
+      notify "Capture complete."
       # manual polybar refresh
       touch -m $XDG_CONFIG_HOME/polybar/config
     fi
     ;;
 
+  # video
   video)
     if [ ! -f $pidFile ]; then
-      dunstify -i dialog-information-symbolic.symbolic -t 500 "Video capture starting."
-      sleep 0.5
+      notify "Video capture starting."
+      sleep $notifyTime
 
       ffmpeg \
         -f x11grab -i $DISPLAY \
-        "$outputDir/video-$(\date +%y-%m-%d_%H:%M:%S).mp4" &
+        "$captureOutputDir/video-$date.mp4" &
 
         echo $! > $pidFile
         # manual polybar refresh
@@ -61,7 +93,9 @@ case "$1" in
     fi
     ;;
 
+  # usage
   *)
-    echo -e "${RED}Usage: ./screen [capture | status | stop | video]${NC}"
+    echo -e "${RED}Usage: ./screen [capture | crop | recording-status | snap | stop | video]${NC}"
     ;;
-esac
+
+  esac

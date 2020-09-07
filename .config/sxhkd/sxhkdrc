@@ -69,15 +69,15 @@ XF86AudioMicMute
 
 # for ease and alignment with macOS
 shift + alt + 3
-  $SCREENSHOT
+  $SCREEN snap
 shift + alt + 4
-  $SCREENSHOT crop
+  $SCREEN crop
 
 # for general compatibility keys
 Print
-  $SCREENSHOT
+  $SCREEN snap
 shift + Print
-  $SCREENSHOT crop
+  $SCREEN crop
 
 # capture
 

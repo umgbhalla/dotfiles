@@ -95,7 +95,6 @@ export LAUNCHER="$XDG_SCRIPT_HOME/launcher"
 export REDSHIFT="$TUI_DIR/redshift"
 export SBUILD="$TUI_DIR/sbuild"
 export SCREEN="$TUI_DIR/screen"
-export SCREENSHOT="$TUI_DIR/screenshot"
 export SHELLMENU="$XDG_SCRIPT_HOME/shell-menu"
 
 #
@@ -112,7 +111,6 @@ export RES_WIDTH=1920
 export RES_HEIGHT=1080
 
 # window settings
-
 export W_ALPHA="0.85"
 export W_CORNER_RADIUS=8
 export W_GAPS=10
