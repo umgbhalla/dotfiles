@@ -1,0 +1,37 @@
+# remove extra padding
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+
+# padding between pages (px)
+set page-padding 1
+
+# view side by side first page on the left
+set first-page-column 1:1
+
+# mappings
+
+map <C-K> zoom in
+map <C-J> zoom out
+
+map <C-k> scroll half-up
+map <C-j> scroll half-down
+
+# copying to clipboard
+set selection-clipboard clipboard
+
+set guioptions "" # hide status by default
+
+set recolor # default dark mode bc I'm a chad
+
+set default-bg "$ZATHURA_BG"
+set default-fg "$ZATHURA_FG"
+
+set notification-bg "$ZATHURA_BG"
+set notification-fg "$ZATHURA_FG"
+
+# (should) make pdf bg transparent
+set recolor-lightcolor "rgba(0,0,0,0)"
+
+map i recolor # toggle color mode
+
+set window-title-basename true # use file name as window title

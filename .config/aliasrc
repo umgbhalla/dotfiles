@@ -1,7 +1,5 @@
 # collection of commonly used shell alias definitions
 
-[ -f $XDG_CONFIG_HOME/colorrc ] && source $XDG_CONFIG_HOME/colorrc
-
 # ----------------------------------------------------------------
 # defaults
 # ----------------------------------------------------------------
@@ -41,17 +39,18 @@ alias \
   y="unset GIT_CONFIG && yay --norebuild --noredownload" \
   system="sudo systemctl" \
   vim="nvim" \
-  wifi="$XDG_SCRIPT_HOME/networkmanager_dmenu" \
   pk="ps aux | fzf | awk '{print $2}' | tr -d '\n' | xargs kill -9" \
-  zr="source $XDG_CONFIG_HOME/zsh/.zshrc" \
+  zr="clear && source $XDG_CONFIG_HOME/zsh/.zshrc" \
   date="cal -3 && date && echo" \
   surf="surf -g" \
   n="newsboat -u $NEWSBOAT_CONFIG/urls -C $NEWSBOAT_CONFIG/config" \
   s="$XDG_SCRIPT_HOME/bin/run.sh" \
   yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn" \
-  m="rm $XDG_CONFIG_HOME/cmus/cache && cmus $HOME/Music" \
+  m="rm -f $XDG_CONFIG_HOME/cmus/cache && cmus $HOME/Music" \
   ss="sc-im" \
-  sbuild="$SBUILD"
+  sbuild="$SBUILD" \
+  testwi="ping archlinux.org" \
+  wi="nmtui"
 
 # ----------------------------------------------------------------
 # version control
@@ -120,7 +119,7 @@ function b() {
 # mounting
 mntpt="/mnt/usb"
 function mnt() {
-  drive="$(sudo fdisk -l | grep '^Disk.*sectors$' | dmenu -i -l 20 | awk '{print $2}')"
+  drive="$(sudo fdisk -l | grep '^Disk.*sectors$' | $SHELLMENU | awk '{print $2}')"
   drive=${drive:0:-1}
   sudo mkdir -p $mntpt
   sudo ntfs-3g "$drive" "$mntpt"
@@ -161,7 +160,9 @@ alias \
 # archive extraction
 extract () {
   if [ -f $1 ] ; then
+    dir=$(echo "$1" | cut -d'.' -f1)
     case $1 in
+      *.asar)      asar e $1 $dir ;;
       *.tar.bz2)   tar xvjf $1    ;;
       *.tar.gz)    tar -xvf $1    ;;
       *.tar.xz)    tar xvJf $1    ;;
@@ -178,16 +179,12 @@ extract () {
       *.exe)       cabextract $1  ;;
       *)           echo "\`$1': unrecognized file compression" ;;
     esac
+    cd $dir
   else
     echo "\`$1' is not a valid file"
   fi
 }
 alias e="extract"
-
-# ffmpeg (WIP)
-alias ffmpeg-screenshot="ffmpeg -f x11grab -video_size 1920x1080 -i $DISPLAY -vframes 1 $HOME/Pictures/screen.png"
-alias ffmpeg-video="ffmpeg -f x11grab -video_size 1920x1080 -i $DISPLAY $HOME/Pictures/screen.mp4"
-alias ffmpeg-capture="ffmpeg -f x11grab -video_size 1920x1080 -framerate 25 -i $DISPLAY -f alsa -i default -c:v libx264 -preset ultrafast -c:a aac screen.mp4"
 
 # ----------------------------------------------------------------
 # miscellaneous
@@ -199,3 +196,5 @@ clear-cached-files() {
   rm -rf /home/$USER/Pictures/*
 }
 
+# list all open windows
+alias windows="wmctrl -l"

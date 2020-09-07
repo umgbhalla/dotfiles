@@ -5,15 +5,12 @@
 # terminal emulator
 st
 
-# menu utility
-dmenu
-
 # -------------------------------------------------------------------
 # tools
 # -------------------------------------------------------------------
 
 # alternate browser
-surf # used by newsboat
+# surf
 
 # alternate window manager
 # dwm

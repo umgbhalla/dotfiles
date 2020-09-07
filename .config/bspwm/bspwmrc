@@ -8,26 +8,31 @@
 xsetroot -cursor_name left_ptr &
 
 # appearance
-bspc config top_padding $WM_TOP_PADDING
+bspc config top_padding $BSPWM_TOP_PADDING
 
 bspc config border_width 0
-bspc config window_gap $WM_GAPS
+bspc config window_gap $W_GAPS
+
+bspc config split_ratio 0.6
 
 # no fullscreen gaps
+bspc config borderless_monocle true
 bspc config gapless_monocle true
 
 # default floating
-bspc rule -a '*' state=floating
+# bspc rule -a '*' state=floating
 
 # bspwm defaults
 bspc monitor -d I II III IV V VI VII VIII IX X
-
-# background
-feh --bg-fill --no-fehbg $XDG_CONFIG_HOME/wallpapers/$WALLPAPER.png
 
 #
 # custom rules
 #
 
-bspc rule -a st state=tiled
-bspc rule -a brave state=tiled
+# media
+bspc rule -a feh state=floating
+bspc rule -a mpv state=floating
+
+# shell popup windows
+bspc rule -a '*:shellpopup' state=floating sticky="on"
+

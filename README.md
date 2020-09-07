@@ -1,17 +1,59 @@
 # dotfiles
 
-![terminal-based utilities](.config/installation/scr1.png)
-![development using my st build and nvim configuration](.config/installation/scr2.png)
-![system information tiled alongside my browser](.config/installation/scr3.png)
-![newsboat, nvim, a development server, and lutris](.config/installation/scr4.png)
+## Table of Contents
+1. [What The \**** Are Dotfiles?](#what-are-dotfiles)
+2. [Demonstration](#demonstration)
+2. [System Information](#sysinfo)
+3. [Cloning](#cloning)
+4. [Manual Installation](#manualinstall)
+5. [Additional Configuration or Notes](#addconfig)
+6. [TODO](#todo)
 
-These are the dotfiles I use regularly in my school laptop and home desktop. I highly recommend 
-against copying these dotfiles blindly unless you know exactly what each file does to your 
-system. Some of the features or packages I use in my system are experimental or built with 
-specific hardware in mind and I take no responsibility for any damages or system failures you 
-may encounter - that being said, if you come across a reproducible issue or would like to ask 
-me questions, feel free to open an issue or contact me privately and I would be more than 
-happy to help.
+## What The \**** Are Dotfiles? <a name="what-are-dotfiles"></a>
+According to Quora, dotfiles are _"text-based configuration files that store settings of 
+almost every application, service and tool running on your system."_
+
+Essentially, the point of dotfiles is to have a centralized place to store all of your 
+application, OS, and system settings. This becomes especially useful when you switch between 
+one or two machines regularly (which I am forced to do via work and school). This is also 
+useful if you made changes that broke applications and you would like to revert changes.
+
+This introduces the concept of _ricing_, or optimizing a system for greater efficiency and
+visual appeal. All too often, I see my fellow engineers struggle to navigate their machine
+applications and interface quickly, which slows development and productivity. One of the most
+essential parts of being able to use a machine or device effectively is tweaking and 
+customizing the machine interfaces, keybindings, and programs to your needs.
+
+In my case, I keep a regular maintenance of these dotfiles in hopes that other people will 
+find use from my scripts and struggles to create an aesthetic and fully optimized system. 
+I use these same dotfiles for both work and school.
+
+#### Why Linux?
+
+I wanted a solution that protected my privacy from the major tech corporations (**cough cough
+Google Microsoft Apple**) while also providing wonderful shell tools like Unix's [9base](https://tools.suckless.org/9base/)
+utilities. Using Linux also gives me the opportunity to optimize my system to max efficiency,
+creating truly custom keybindings for every application, and freely tweak visual appearances
+for my own satisfaction (e.g. I guarantee it's extremely hard to add a transparent dual-kawese
+blur to all applications on Windows or MacOS).
+
+Am I completely sold on Linux?
+
+No.
+
+While Linux is free and open-source, I want to try using even more optimized systems such as
+the BSD family of systems. I plan to move in this direction and convert all my scripts to be 
+POSIX-compliant, but it will likely be a few months before this shift happens (especially 
+since I'm still attending school).
+
+#### Reproducing this setup
+
+I highly recommend against copying these dotfiles blindly unless you know exactly what each 
+file does to your system. Some of the features or packages I use in my system are 
+experimental, or built with specific hardware in mind. I take no responsibility for any 
+damages or system failures you may encounter - that being said, if you come across a 
+reproducible issue or would like to ask me questions, feel free to open an issue or contact 
+me privately and I would be more than happy to help.
 
 There are two routes you can follow to reproduce the exact same setup I have, one being more 
  tedious, but possibly less work in the long run.
@@ -32,25 +74,18 @@ MacOS, basic utilities and command-line aliases are compatible. See [cloning](#c
 > you have interest, you can check it out in 
 > [this release](https://github.com/bossley9/dotfiles/tree/2020.03.11).
 
-## Table of Contents
-1. [What Are Dotfiles?](#what-are-dotfiles)
-2. [System Information](#sysinfo)
-3. [Cloning](#cloning)
-4. [Manual Installation](#manualinstall)
-5. [Additional Configuration or Notes](#addconfig)
-6. [TODO](#todo)
-
-## What Are Dotfiles? <a name="what-are-dotfiles"></a>
-According to Quora, dotfiles are _"text-based configuration files that store settings of almost
-every application, service and tool running on your system"_. In my case, I keep a regular 
-maintenance of dotfiles in hopes that other people will find use from my scripts and struggles 
-to create a fully optimized system. It also helps me ease into using different machines.
+## Demonstration <a name="demonstration"></a>
+![basic status bar with background](.config/installation/scr1.png)
+![neofetch, a terminal instance, and blurry discord](.config/installation/scr2.png)
+![tiled browser, tty-clock, and pdf viewer](.config/installation/scr3.png)
+![a workspace with my nvim configuration](.config/installation/scr4.png)
+![music player and file explorer in separate terminal windows](.config/installation/scr5.png)
 
 ## System Information <a name="sysinfo"></a>
 Information taken from `neofetch` output.
 ```
 OS: Arch Linux x86_64
-Kernel: 5.7.12-arch1-1
+Kernel: 5.8.5-arch1-1
 Shell: zsh
 WM: bspwm
 Theme: Nordic [GTK2/3]
@@ -60,7 +95,7 @@ Status Bar: polybar
 Launcher: fzf/dmenu
 
 Editor: neovim
-Browser: brave (JSON Formatter, React Dev Tools, Redux Dev Tools), surf
+Browser: brave (JSON Formatter, React Dev Tools, Redux Dev Tools), firefox, surf
 File Exporer: ranger
 System Profiler:  htop
 ```
@@ -119,7 +154,7 @@ in this project are all settings I prefer to use and may not fit your specific u
 preferences.
 
 Another disclaimer - I am a strong advocate for the `vim` text editor, and as such, I will use 
-`vim` to edit files during installation. If you prefer `emacs` or the more user-friendly 
+`neovim` to edit files during installation. If you prefer `emacs` or the more user-friendly 
 `nano`, I encourage you to use such tools.
 
 #### Table of Contents
@@ -145,7 +180,7 @@ Another disclaimer - I am a strong advocate for the `vim` text editor, and as su
     - An internet connection (preferably ethernet)
     - A disposable usb drive that can be wiped
 2. Download the latest [Archlinux](https://www.archlinux.org/download/) installation iso from 
-    their website. I downloaded version `archlinux-2020.08.01-x86_64.iso`.
+    their website. I downloaded version `archlinux-2020.09.01-x86_64.iso`.
 3. Burn the downloaded cd image onto the usb. 
     This can be done using a number of different tools:
     - [Balena Etcher](https://www.balena.io/etcher/)
@@ -277,7 +312,7 @@ command. To be safe, we will make the swap partition to be twice the amount of t
 1. Install the linux kernel and base. This will take some time to complete. I also 
     recommended installing `base-devel` development tools and an editor like `vim`.
     ```
-    pacstrap /mnt base base-devel linux linux-firmware vim
+    pacstrap /mnt base base-devel linux linux-firmware neovim
     ```
 
 #### Mounting with Fstab <a name="fstabmount"></a>
@@ -320,17 +355,16 @@ command. To be safe, we will make the swap partition to be twice the amount of t
     ```
 
 #### Locales and System Information <a name="locales"></a>
-1. `vim /etc/locale.gen` to enable locales. I speak and use English as my system language,
+1. `nvim /etc/locale.gen` to enable locales. I speak and use English as my system language,
     but yours might be different. Adjust accordingly.
     ```
     en_US.UTF-8 UTF-8
-    en_US ISO-8859-1
     ```
 2. Then generate locales.
     ```
     locale-gen
     ```
-3. `vim /etc/locale.conf` to set the system language.
+3. `nvim /etc/locale.conf` to set the system language.
     ```
     LANG=en_US.UTF-8
     ```
@@ -340,15 +374,15 @@ command. To be safe, we will make the swap partition to be twice the amount of t
     ln -sf /usr/share/zoneinfo/[region]/[city] /etc/localtime
     hwclock --systohc
     ```
-5. `vim /etc/hostname` to name the machine. I named mine `diobrando` (for no reason whatsoever).
+5. `nvim /etc/hostname` to name the machine. I named mine `diobrando`.
     ```
     diobrando
     ```
-6. Then update `/etc/hosts` accordingly:
+6. Then `nvim /etc/hosts` to update the host list accordingly:
     ```
-    127.0.0.1 localhost
-    ::1 localhost
-    127.0.1.1 diobrando.localdomain diobrando 
+    127.0.0.1   localhost
+    ::1         localhost
+    127.0.1.1   diobrando.localdomain   diobrando 
     ```
 
 #### Installation Wrapup <a name="installwrap"></a>
@@ -374,13 +408,17 @@ command. To be safe, we will make the swap partition to be twice the amount of t
     The current network status can be displayed with the `nmcli radio` and `nmcli device` 
     commands.
 
+    More complicated networks may require more settings, and `nmtui` provides a more
+    comfortable user-interface for complex networks such as school networks, vpns, or hotel 
+    networks.
+
 #### Creating a User <a name="creatinguser"></a>
 1. Create a user. This is the user you will use to log in. I will create a user named `sam`.
     ```
     useradd -m -g wheel sam
     passwd sam
     ```
-2. `EDITOR=vim visudo` to grant the new user sudo permissions.
+2. `EDITOR=nvim visudo` to grant the new user sudo permissions.
     ```
     %wheel ALL=(ALL) ALL 
     ```
@@ -399,8 +437,7 @@ command. To be safe, we will make the swap partition to be twice the amount of t
     git clone https://aur.archlinux.org/yay.git /tmp/yay
     cd /tmp/yay && makepkg -si
     ```
-2. Install `zsh` and set it as the default shell. After these steps, I would suggest running the
-    same command as the `root` user in order to use the same shell for both users.
+2. Install `zsh` and set it as the default shell for the main user.
     ```
     sudo pacman -S zsh
     chsh -s /bin/zsh
@@ -421,11 +458,14 @@ command. To be safe, we will make the swap partition to be twice the amount of t
     If prompted to create a `zsh` startup file, you can press `q` to quit and do nothing. My 
     dotfiles contain necessary `zsh` startup files. You can then remove old `bash` files.
     ```
-    rm .bash_history .bash_logout .bash_profile .bashrc
+    rm .bash*
     ```
 6. Finally, install my dotfiles. See [cloning](#cloning) for more details.
 
 ## Additional Configuration or Notes <a name="addconfig"></a>
+This list of additional configuration options are in no particular order. I've just added or
+modified them when necessary.
+
 - [Mirrorlist](#mirrorlist)
 - [Touchpad Settings](#touchpad-settings)
 - [Disabling the Grub Menu](#disabling-grub-menu)
@@ -435,6 +475,8 @@ command. To be safe, we will make the swap partition to be twice the amount of t
 - [WebGL in Brave](#webgl-brave)
 - [Time Out Of Sync](#time-out-of-sync)
 - [No dwm?](#no-dwm)
+- [Copying Repositories](#copying-repos)
+- [Glasscord](#glasscord)
 
 #### Mirrorlist <a name="mirrorlist"></a>
 > This section isn't very relevant anymore since Arch automatically runs Reflector now, but
@@ -453,7 +495,7 @@ options and fine-tuning settings.
 #### Touchpad settings <a name="touchpad-settings"></a>
 By default, most linux distros disable natural scrolling and disable touchpad tapping. I 
 personally find this very irritating. To change touchpad settings, 
-`sudo vim /etc/X11/xorg.conf.d/30-touchpad.conf` and add the following configuration:
+`sudo nvim /etc/X11/xorg.conf.d/30-touchpad.conf` and add the following configuration:
 ```
 Section "InputClass"
 	Identifier "touchpad"
@@ -467,7 +509,7 @@ Then reboot to verify changes.
 
 #### Disabling the Grub Menu <a name="disabling-grub-menu"></a>
 If, like me, you don't plan on dual-booting or adding boot entries, you can disable the grub 
-selection menu with `sudo vim /etc/default/grub`:
+selection menu with `sudo nvim /etc/default/grub`:
 ```
 GRUB_TIMEOUT=0
 ```
@@ -505,7 +547,7 @@ With these settings, I have been able to play every game I've tried.
 
 A lot of gaming applications (such as the Steam client and Wine client) are 32-bit 
 architecture and require the `multilib` repository to be enabled. To enable, 
-`sudo vim /etc/pacman.conf` and uncomment the following section:
+`sudo nvim /etc/pacman.conf` and uncomment the following section:
 ```
 [multilib]
 Include = /etc/pacman.d/mirrorlist
@@ -568,17 +610,62 @@ That being said, I've given this a lot of thought recently, and I may revisit `d
 future. As such, I am leaving my module build of `dwm` included in my dotfiles should I 
 ever switch to `dwm` down the road.
 
+#### Copying Repositories <a name="copying-repos"></a>
+Lately I've had to go through the trouble of copying repositories from device to device for 
+ease of access. Since most shells including zsh will not allow you to copy dotfiles without 
+copying them explicitly, you'll need to change some options.
+```
+setopt -s glob_dots
+cp -rv targetRepo/* destination
+```
+
+#### Glasscord <a name="glasscord"></a>
+I prefer using `ibhagwan`'s [picom blur and rounded corners fork](https://github.com/ibhagwan/picom)
+for as many applications as possible, and as such, I use [Glasscord](https://github.com/AryToNeX/Glasscord) 
+because it allows modification of all Electron-based applications to follow this pattern.
+Each installation is very similar, following [these steps](https://github.com/AryToNeX/Glasscord#how-do-i-install-it).
+
+Here are the paths to apps I have already modified with Glasscord:
+
+- Discord - `/opt/discord`
+
+#### User Custom CSS <a name="user-custom-css"></a>
+Firefox and a few other browsers offer support for custom user stylesheets which override the
+default styles. This is mainly intended for accessibility purposes, but it can also be used
+to customize the appearance of the browser.
+
+To enable custom stylesheets on Firefox:
+- open `about:config` in the address bar and set 
+    `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`.
+- open your profile folder by opening `about:support` in the address bar and opening the 
+    folder next to the profile directory. I prefer keeping all configuration files in the
+    `$XDG_CONFIG_HOME` or `~/.config` directory, so my configuration is under 
+    `$XDG_CONFIG_HOME/mozilla/profile`.
+- to link my configuration to the Firefox profile:
+    ```
+    ln -s $XDG_CONFIG_HOME/mozilla/profile/chrome $FIREFOX_PROFILE_DIR/chrome
+    ```
+- restart Firefox to view the changes.
+
+Firefox will not display transparency effects by default.
+To enable transparency in user stylesheets:
+
+- open `about:config` in the address bar and set the following properties to `true`:
+    - `gfx.webrender.all`
+    - ~~`gfx.webrender.compositor`~~
+    - ~~`gfx.webrender.compositor.force-enabled`~~
+    - ~~`layers.acceleration.force-enabled`~~
+- restart Firefox.
+- open `about:support` and verify that the `graphics` > `compositing` option has changed from `basic` to `opengl`.
+- restart Firefox to view transparency effects.
+
 ## TODO <a name="todo"></a>
 Below are a list of things in no particular order that I plan to do but haven't yet 
 implemented or had the time to configure.
 
 + dmenu pinyin input
-+ different wallpapers per workspace/monitor 
-    (_Note: there's plenty of ways to do this...
-    I just haven't found a solution that was efficient enough for the change to be worthwhile_)
++ try out BSD!!!
 + switch completely to ALSA
-+ centralize color definitions (`.profile`, `~/.config/colorrc`, `~/.config/Xresources`)
-+ better calendar
 + better contact management
-+ adding private repo markers in dotfiles (clone if available)
-+ look into using fzf/ripgrep as a dmenu patch alternative
++ custom gtk theme
++ customize all main sites in `Firefox` `userContent.css`

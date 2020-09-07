@@ -1,7 +1,5 @@
 #!/bin/sh
 
-[ -f $XDG_CONFIG_HOME/colorrc ] && source $XDG_CONFIG_HOME/colorrc
-
 if [ -f "$1" ] && [[ "$1" == *"template."* ]]; then
   filename=$(basename "$1" | sed -E 's/^template\.//')
   output="$(dirname "$1")/$filename"

@@ -1,0 +1,28 @@
+#!/bin/sh
+# given a hex code of form #xxxxxx, returns an rgb color of form rgb(x, x, x)
+# e.g. hex2rgb "#abc123" => "rgb(171,193,35)"
+
+if [ -z $1 ]; then
+  echo -e "${RED}A hex string must be supplied as an argument.${NC}"
+  exit 1
+fi
+
+hex=${1:1}
+
+if [ ${#hex} != 6 ]; then
+  echo -e "${RED}A hex string must be of the format #xxxxxx, where x represents an alphanumeric character within range 0-9a-fA-F.${NC}"
+  exit 1
+fi
+
+hex=${hex^^} # capitalize hex
+
+a=${hex:0:2}
+b=${hex:2:2}
+c=${hex:4}
+
+# r=$(echo "ibase=16; $a" | bc)
+r=$(printf "%d" $((16#$a)))
+g=$(printf "%d" $((16#$b)))
+b=$(printf "%d" $((16#$c)))
+
+echo "rgb($r,$g,$b)"

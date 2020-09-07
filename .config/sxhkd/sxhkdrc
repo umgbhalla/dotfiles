@@ -9,17 +9,11 @@ super + Return
 
 # launcher
 super + space
-  dmenu_run
-
+  $LAUNCHER
+  
 # browser
 super + b
   $BROWSER
-super + shift + b
-  $BROWSER_INCOGNITO
-
-# file explorer
-# super + y
-#   $TERM sh -c "$FILE_EXPLORER"
 
 # system profiler
 super + p
@@ -30,8 +24,8 @@ super + u
   discord
 
 # slack (for actual productivity)
-super + o
-  slack
+# super + o
+#   slack
 
 #
 # general scripts
@@ -71,17 +65,26 @@ XF86AudioMicMute
 # screen capture
 #
 
+# screenshot
+
 # for ease and alignment with macOS
 shift + alt + 3
-  $XDG_SCRIPT_HOME/tui/screenshot
+  $SCREEN snap
 shift + alt + 4
-  $XDG_SCRIPT_HOME/tui/screenshot crop
+  $SCREEN crop
 
 # for general compatibility keys
 Print
-  $XDG_SCRIPT_HOME/tui/screenshot
+  $SCREEN snap
 shift + Print
-  $XDG_SCRIPT_HOME/tui/screenshot crop
+  $SCREEN crop
+
+# capture
+
+F10
+  $SCREEN capture
+F9
+  $SCREEN stop
 
 #
 # brightness control

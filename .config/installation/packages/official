@@ -9,24 +9,25 @@ bspwm
 sxhkd
 
 # editor
-neovim
+neovim # in case it is not already installed
 nodejs # required by coc
 ripgrep # required for file-searching
 
 # xft is a header required for suckless st compilation
 libxft
 
-# java
-jre-openjdk-headless # required by Brave
+# browser
+firefox
 
-# fuzzy finder
+# fuzzy finder and launcher
 fzf
 
 # background
 feh
 
 # system fonts
-ttf-liberation # ttf lib required by Brave
+ttf-liberation # xft font required by browser
+wqy-zenhei # chinese font
 
 # notification server
 dunst
@@ -37,10 +38,14 @@ redshift
 # file explorer
 ranger
 w3m # required by ranger
+ueberzug # img previews
 
 # -------------------------------------------------------------------
 # tools
 # -------------------------------------------------------------------
+
+# java
+jre-openjdk-headless
 
 # mouse cursor pointer on desktop
 xorg-xsetroot
@@ -54,6 +59,9 @@ xclip
 # prints key names to the console
 xorg-xev
 
+# window management/testing
+wmctrl
+
 # system profiling
 htop
 neofetch
@@ -61,10 +69,15 @@ neofetch
 # user manuals
 man
 
+# screen capturing
+maim
+slop
+
 # ssh
 openssh
 
 # opening archives
+asar
 unrar
 unzip
 tar
@@ -75,15 +88,11 @@ tlp
 # reading windows-formatted usb drives
 ntfs-3g
 
-# mpris
-python-dbus
-python-gobject
-
 # video playback
 mpv
 
-# vim tags
-# ctags
+# rss reader (rss ftw)
+newsboat
 
 # brightness
 brightnessctl
@@ -95,25 +104,21 @@ inkscape
 # package manager
 yarn
 
-# chinese font
-wqy-zenhei
-
 # pdf viewer
-zathura
 zathura-pdf-mupdf
 
 # audio viewing/editing
 audacity
 ffmpeg
-
+beets # audio tag editor
 
 # development languages
 typescript
 clang # required for clang-format
 
-## -------------------------------------------------------------------
-## extra
-## -------------------------------------------------------------------
+# -------------------------------------------------------------------
+# extra
+# -------------------------------------------------------------------
 
 # conversation and work
 discord

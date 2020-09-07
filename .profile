@@ -1,11 +1,15 @@
-# environmental variables set on login
+# core environmental variables set on login
+
+#
+# directories
+#
 
 # config directory
 export XDG_CONFIG_HOME="$HOME/.config"
 # cache directory
 export XDG_CACHE_HOME="$HOME/.cache"
 # script directory
-export XDG_SCRIPT_HOME="$HOME/.local/bin/scripts"
+export XDG_SCRIPT_HOME="$HOME/.local/bin"
 # data directory
 export XDG_DATA_HOME="$HOME/.local/share"
 # repo directory
@@ -22,72 +26,24 @@ export EDITOR="nvim"
 
 if [ $OS != $OS_MACOS ]; then
   export TERM="st"
-  export TERMINAL="$TERM"
 fi
+export TERMINAL="$TERM"
 
-export BROWSER="brave"
-export BROWSER_INCOGNITO="brave"
-
-export BAR="polybar"
-export BAR_ARGS="$BAR -r main"
+export BROWSER="firefox"
 
 export FILE_EXPLORER="ranger"
 
 export SYSTEM_PROFILER="htop"
 
-#
-# display
-#
+export NOTIFICATION_MANAGER="dunst"
 
-export C_BLACK_0="#2e3440"
-export C_BLACK_1="#4c566a"
+export BAR="polybar"
+export BAR_ARGS="$BAR -r main"
 
-export C_RED_0="#bf616a"
-export C_RED_1="$C_RED_0"
+export COMPOSITOR="picom"
+export COMPOSITOR_ARGS="$COMPOSITOR --experimental-backends"
 
-export C_PINK_0="#febdf7"
-
-export C_GREEN_0="#a3bE8C"
-export C_GREEN_1="$C_GREEN_0"
-
-export C_YELLOW_0="#ebcb8b"
-export C_YELLOW_1="$C_YELLOW_0"
-
-export C_BLUE_0="#81a1c1"
-export C_BLUE_1="$C_BLUE_0"
-
-export C_MAGENTA_0="#5d62ac"
-export C_MAGENTA_1="#b48ead"
-
-export C_CYAN_0="#88c0d0"
-export C_CYAN_1="#8fbcbb"
-
-export C_GRAY_0="#e5e9f0"
-export C_GRAY_1="#eceff4"
-
-export COLOR_BG="$C_BLACK_0"
-export COLOR_FG="$C_GRAY_1"
-
-export COLOR_PRIMARY="$C_PINK_0"
-export COLOR_SECONDARY="$C_BLUE_0"
-export COLOR_TERTIARY="$C_MAGENTA_0"
-export COLOR_ALERT="$C_RED_0"
-
-export WM_GAPS=10
-export WM_BAR_HEIGHT=${$(( $WM_GAPS * 3 ))%.*}
-export WM_TOP_PADDING=$(( $WM_GAPS + $WM_BAR_HEIGHT ))
-export WM_TRANSPARENCY="0.95"
-
-export NOTIF_WIDTH_OFFSET=-1000
-export NOTIF_HEIGHT=100
-export NOTIF_X_OFFSET=$(( $NOTIF_WIDTH_OFFSET * -1 / 2 ))
-export NOTIF_Y_OFFSET=$(( $WM_GAPS + $WM_BAR_HEIGHT / 2 ))
-export NOTIF_FRAME_WIDTH=3
-export NOTIF_TRANSPARENCY=$(( 100 - ( $WM_TRANSPARENCY * 100 ) ))
-
-export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
-
-export WALLPAPER=4
+export WM="bspwm"
 
 #
 # variables
@@ -118,6 +74,7 @@ export VI_NAV_JUMP_LARGE="25"
 export BOOKMARK_CONFIG="$XDG_CONFIG_HOME/bookmarks"
 export GIT_CONFIG="$XDG_CONFIG_HOME/git/config"
 export GIT_TEMPLATE_DIR="$XDG_CONFIG_HOME/git/template"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
 export NEWSBOAT_CONFIG="$XDG_CONFIG_HOME/newsboat"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
@@ -125,15 +82,20 @@ export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
 export YARN_GLOBAL_DIR="$XDG_CACHE_HOME/yarn_global"
 export YARN_RC_DIR="$XDG_CACHE_HOME"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
+export TUI_DIR="$XDG_SCRIPT_HOME/tui"
 
 #
 # scripts
 #
 
-export DETEMPLATE=$XDG_SCRIPT_HOME/tui/detemplate
-export REDSHIFT=$XDG_SCRIPT_HOME/tui/redshift
-export SBUILD=$XDG_SCRIPT_HOME/tui/sbuild
-export SCREENSHOT=$XDG_SCRIPT_HOME/tui/screenshot
+export DETEMPLATE="$TUI_DIR/detemplate"
+export HEX2FF="$TUI_DIR/hex2ff"
+export HEX2RGB="$TUI_DIR/hex2rgb"
+export LAUNCHER="$XDG_SCRIPT_HOME/launcher"
+export REDSHIFT="$TUI_DIR/redshift"
+export SBUILD="$TUI_DIR/sbuild"
+export SCREEN="$TUI_DIR/screen"
+export SHELLMENU="$XDG_SCRIPT_HOME/shell-menu"
 
 #
 # path
@@ -141,3 +103,23 @@ export SCREENSHOT=$XDG_SCRIPT_HOME/tui/screenshot
 
 export PATH="$HOME/.local/bin/:$PATH"
 
+#
+# display
+#
+
+export RES_WIDTH=1920
+export RES_HEIGHT=1080
+
+# window settings
+export W_ALPHA="0.85"
+export W_CORNER_RADIUS=8
+export W_GAPS=10
+
+# background command
+export BACKGROUND="feh --bg-fill --no-fehbg $XDG_CONFIG_HOME/wallpapers/1.png"
+
+# colors
+source $XDG_CONFIG_HOME/colorrc
+
+# app-specific environment variables
+source $XDG_CONFIG_HOME/apprc

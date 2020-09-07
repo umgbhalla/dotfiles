@@ -1,0 +1,82 @@
+#!/bin/sh
+# app-specific environment variables
+
+BAR_HEIGHT=28
+W_WIDTH=$(( $RES_WIDTH - $W_GAPS * 2 )) 
+
+# bspwm
+
+export BSPWM_TOP_PADDING=$(( $W_GAPS + $BAR_HEIGHT ))
+
+# discord
+
+# higher hex means more opaque
+export DISCORD_BG="${C_BLACK_0}aa"
+export DISCORD_FG="$C_GRAY_1"
+export DISCORD_PRIMARY="${C_CYAN_0}55"
+
+# dunst
+
+export DUNST_WIDTH=400
+export DUNST_HEIGHT=70
+export DUNST_X="-$(( $W_GAPS * 2 ))"
+export DUNST_Y="$DUNST_X"
+export DUNST_ICON_SIZE=$(( $DUNST_HEIGHT * 0.8 ))
+
+export DUNST_FONT="Source Code Pro Medium 12"
+
+# higher hex means higher transparency
+export DUNST_BG="${C_CYAN_0}99"
+export DUNST_BG_CRITICAL="${C_RED_0}99"
+export DUNST_FG="$C_GRAY_1"
+
+# firefox
+
+export FIREFOX_BG_OP=$C_BLACK_0
+export FIREFOX_BG="rgba($($HEX2FF $C_BLACK_0), $W_ALPHA)"
+export FIREFOX_BG_ALT="rgba($($HEX2FF $C_GRAY_0), $(printf "%.2f\n" $(( 1 - $W_ALPHA ))))"
+export FIREFOX_FG="$C_GRAY_1"
+export FIREFOX_FG_ALT="$C_GRAY_0"
+export FIREFOX_PRIMARY="$C_CYAN_0"
+export FIREFOX_SECONDARY="$C_RED_1"
+
+export FIREFOX_TRANSITION="all 0.2s ease"
+export FIREFOX_RADIUS="${W_CORNER_RADIUS}px"
+
+# picom
+
+export PICOM_ALPHA="$(echo $(( $W_ALPHA * 100 )) | sed -e 's/\.//g')"
+
+# polybar
+
+export POLYBAR_WIDTH="100%:-$(( $W_GAPS * 2 ))"
+export POLYBAR_HEIGHT=$BAR_HEIGHT
+
+export POLYBAR_BG="#dd${C_BLACK_0:1}"
+export POLYBAR_FG="$C_GRAY_1"
+export POLYBAR_PRIMARY="$C_CYAN_0"
+export POLYBAR_SECONDARY="$C_MAGENTA_1"
+export POLYBAR_TERTIARY="$C_YELLOW_0"
+export POLYBAR_ALERT="$C_RED_0"
+
+# shellmenu
+
+export SHELLMENU_WIDTH="$W_WIDTH"
+export SHELLMENU_HEIGHT=300
+export SHELLMENU_X=$W_GAPS
+export SHELLMENU_Y=$W_GAPS
+
+export SHELLMENU_BG="$C_CYAN_0"
+export SHELLMENU_FG="$C_GRAY_1"
+export SHELLMENU_MATCH="$C_BLACK_0"
+export SHELLMENU_SEL="$C_RED_1"
+export SHELLMENU_PROMPT="$C_BLACK_0"
+
+# st
+
+export ST_FONT="Source Code Pro Medium:pixelsize=15:antialias=true:autohint=true"
+
+# zathura
+
+export ZATHURA_BG="$($HEX2RGB $C_BLACK_0 | sed -e s/b/ba/ -e s/\)/,$W_ALPHA\)/)"
+export ZATHURA_FG="$C_GRAY_0"

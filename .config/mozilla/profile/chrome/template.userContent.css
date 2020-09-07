@@ -1,0 +1,218 @@
+/**
+ * Inspired by the Simplify Silver theme from dpcdpc11.gumroad.com
+ */
+
+:root,
+:root:-moz-lwtheme-brighttext {
+  --color-fg: $FIREFOX_FG;
+  --color-fg-alt: $FIREFOX_FG_ALT;
+  --color-bg: $FIREFOX_BG;
+  --color-bg-op: $FIREFOX_BG_OP;
+	--color-bg-alt: $FIREFOX_BG_ALT;
+  --color-primary: $FIREFOX_PRIMARY;
+  --color-secondary: $FIREFOX_SECONDARY;
+
+  --radius: $FIREFOX_RADIUS;
+  --transition: $FIREFOX_TRANSITION;
+}
+
+
+/**
+ * ------------------------------------------------
+ * general
+ * ------------------------------------------------
+ */
+
+/**
+ * ------------------------------------------------
+ * new tab page
+ * ------------------------------------------------
+ */
+
+/*
+ * bg color
+ */
+
+@media (prefers-color-scheme: dark) { 
+  @-moz-document url("about:newtab"), url("about:home"), url("about:blank") { 
+    body { 
+      background-color: var(--color-bg-op) !important; 
+    } 
+  } 
+} 
+
+/*
+ * logo
+ */
+
+.search-wrapper .logo-and-wordmark .wordmark {
+  /* branding text color */
+  fill: var(--color-primary) !important;
+}
+
+/*
+ * search bar
+ */
+
+.search-wrapper .search-button {
+  display: none !important;
+}
+
+.search-wrapper input {
+
+  /* hide search bar since address bar acts as search bar */
+  display: none !important;
+
+/*
+  transition: var(--transition) !important;
+*/
+
+  /* search engine icon */
+/*
+  background: var(--color-bg-alt) var(--newtab-search-icon) 9px center no-repeat !important;
+	background-size: 30px !important;
+  color: var(--color-fg) !important;
+  border: none !important;
+
+	box-shadow: none !important;
+*/
+}
+/*
+.search-wrapper .search-inner-wrapper:hover input,
+.search-wrapper .search-inner-wrapper:active input,
+.search-wrapper input:focus {
+  outline: none;
+  border: none !important;
+}
+
+.search-wrapper .search-inner-wrapper:active input,
+.search-wrapper input:focus {
+	box-shadow: 0 0 5px var(--color-bg-alt) !important;
+}
+
+.search-wrapper .search-button,
+.search-wrapper .search-button {
+	transition: var(--transition) !important;
+}
+*/
+.search-wrapper .search-button:focus,
+.search-wrapper .search-button:hover {
+  /* background-color: var(--color-primary) !important; */
+  display: none !important;
+  cursor: default !important;
+}
+
+/*
+ * search bar results
+ */
+
+/*
+.contentSearchSuggestionTable .contentSearchSuggestionsContainer,
+.contentSearchSuggestionTable .contentSearchHeader {
+  background-color: var(--color-bg-alt) !important;
+}
+.contentSearchSuggestionTable .contentSearchSuggestionRow.selected,
+.contentSearchSuggestionTable .contentSearchOneOffItem.selected {
+	background-color: var(--color-bg-alt) !important;
+  cursor: pointer !important;
+}
+
+.contentSearchSuggestionTable .contentSearchHeader,
+.contentSearchSuggestionTable .contentSearchSettingsButton,
+.contentSearchSuggestionTable .contentSearchOneOffsTable {
+	border-color: var(--color-bg) !important;
+}
+
+.contentSearchSuggestionTable {
+	box-shadow: none !important;
+  border: none;
+	border-radius: var(--radius) !important;
+}
+*/
+
+/**
+ * ------------------------------------------------
+ * duckduckgo
+ * ------------------------------------------------
+ */
+
+@-moz-document domain(duckduckgo.com) {
+  html,
+  body {
+    scrollbar-color: var(--color-primary) var(--color-bg-op) !important;
+    background-color: var(--color-bg-op) !important;
+  }
+
+  /* page bg */
+  .header-wrap, .vertical--map--sidebar-left .has-requery .vertical--map__sidebar__header, 
+  .map-requery-mobile, .footer, .footer--mobile {
+    background-color: var(--color-bg-op) !important;
+  }
+  .site-wrapper.js-site-wrapper {
+    background-color: var(--color-bg-op) !important;
+  }
+
+  /* search bar */
+  .search--home, .search--header {
+    background-color: var(--color-bg-alt) !important;
+  }
+
+  /* random search filters gradient */
+  .search-filters-wrap::before,
+  .search-filters-wrap::after {
+    background-image: none !important; 
+  }
+
+  /* feedback button */
+  .btn.feedback-btn, .btn.feedback-btn a, .btn.feedback-btn a:hover {
+    background: var(--color-bg-op) !important;
+  }
+
+  /* more info box */
+  .module:not(.module--carousel):not(.module--placeholder):not(.module--images), .modal--popout .modal__box, .modal__box, .sidebar-modules .module, .results--main .result:not(.result--ad).highlight, .module .module--carousel__item, .user-loc-cta, .address-detail, .modal--dropdown.modal--popout .modal__box, .tile--info, .place-detail, .badge-link, .is-atb-fullbleed .content-info__item, .atb-banner__bottom, .multi-step-mobile-onboarding__step__content, .is-mobile .results_links_deep, .is-mobile .results_links, .is-mobile .result--news, .is-mobile .related-searches, .most-visited__info-tt {
+    background: var(--color-bg-alt) !important;
+  }
+  .module__toggle, .tile__expand {
+    background-color: initial !important;
+  }
+}
+
+/**
+ * ------------------------------------------------
+ * github
+ * ------------------------------------------------
+ */
+
+/*
+@-moz-document domain(github.com) {
+  html,
+  body {
+    scrollbar-color: var(--color-primary) var(--color-bg-op) !important;
+    background-color: var(--color-bg-op) !important;
+    color: var(--color-fg) !important;
+  }
+
+  .Header,
+  .bg-gray-light {
+    background: var(--color-bg-op) !important;
+  }
+
+  .text-gray,
+  .UnderlineNav-item {
+    color: var(--color-fg) !important;
+  }
+
+  .header-search-current .header-search-wrapper,
+  .header-search-current .header-search-wrapper.focus {
+    background-color: var(--color-bg-alt) !important;
+  }
+
+  a.url, a[data-pjax] {
+    color: var(--color-primary) !important;
+  }
+
+  .UnderlineNav-item {
+    border-bottom-color: var(--color-secondary) !important;
+  }
+}
+*/

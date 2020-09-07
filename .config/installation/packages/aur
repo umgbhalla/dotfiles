@@ -5,14 +5,14 @@
 # system status bar
 polybar
 
-# browser
-brave-bin # brave requires compilation, brave-bin does not
-
 # compositor
-picom-tryone-git
+picom-ibhagwan-git
 
 # system fonts
 adobe-source-code-pro-fonts
+adobe-source-sans-pro-fonts
+ttf-font-awesome-4
+otf-openmoji # emoji support
 
 # audio
 # usually on reboot everything will be muted,
@@ -25,28 +25,15 @@ pulseaudio-ctl
 # tools
 # -------------------------------------------------------------------
 
+# pdf viewer
+zathura-git # using zathura-git instead of zathura for alpha patch
+
 # download audio/video from various sources
 youtube-dl
-
-# system font
-ttf-font-awesome-4
-otf-openmoji # emoji support
-
-# js/ts runtime
-deno-bin
 
 # I know, it's disgusting.
 # but it's the best font viewer/installer.
 gnome-font-viewer
-
-# screenshot utility
-escrotum-git
-
-# screen gif recording - not the best but functional
-peek-git
-
-# rss reader (rss ftw)
-newsboat
 
 # spreadsheet editor
 sc-im
@@ -65,16 +52,23 @@ lutris
 minecraft-launcher
 
 # messaging
-signal
+# signal
 
 # phone display
-scrcpy
+# scrcpy
 
 # slack
-slack-desktop
+# slack-desktop
 
 # I hate this but it's required by school...
 zoom
 
 # required by ue4 for development
 code
+
+# tty clock display
+tty-clock
+
+# audio visualizer
+cava
+

@@ -1,0 +1,11 @@
+#!/bin/sh
+# chooses the default pulseaudio input
+
+input=$(pacmd list-sources | awk '/name:.*input/{print substr($2, 2, length($2)-2)}' | $SHELLMENU --prompt="\>\ input\ sink\ ")
+
+if [ -z $input ]; then
+  echo "No sink specified."
+else
+  pacmd set-default-source $input
+  echo "Default source set to $input."
+fi

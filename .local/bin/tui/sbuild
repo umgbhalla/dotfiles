@@ -1,8 +1,6 @@
 #!/bin/sh
 # builds a given suckless utility using template files
 
-[ -f $XDG_CONFIG_HOME/colorrc ] && source $XDG_CONFIG_HOME/colorrc
-
 dir=$XDG_CONFIG_HOME/$1
 
 [ -z $1 ] && \
