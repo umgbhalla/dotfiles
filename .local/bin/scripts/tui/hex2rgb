@@ -22,8 +22,9 @@ a=${hex:0:2}
 b=${hex:2:2}
 c=${hex:4}
 
-r=$(echo "ibase=16; $a" | bc)
-g=$(echo "ibase=16; $b" | bc)
-b=$(echo "ibase=16; $c" | bc)
+# r=$(echo "ibase=16; $a" | bc)
+r=$(printf "%d" $((16#$a)))
+g=$(printf "%d" $((16#$b)))
+b=$(printf "%d" $((16#$c)))
 
 echo "rgb($r,$g,$b)"
