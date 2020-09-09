@@ -612,7 +612,8 @@ implemented or had the time to configure.
 
 + dmenu pinyin input
 + try out BSD!!!
-+ switch completely to ALSA
++ switch completely to ALSA, or find alternatives to switch audio inputs
 + contact management application
-+ custom gtk theme
++ customize gtk theme
 + find a good remote desktop client
++ fix discord video streaming bug
