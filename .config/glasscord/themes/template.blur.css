@@ -221,7 +221,7 @@
 	--background-secondary-chat: #2f3136a0;
 	--background-secondary-alt: #292b2f00;
 	--background-tertiary: $DISCORD_BG;
-	--background-logo: $DISCORD_FG;
+	--background-logo: transparent;
 	--deprecated-card-bg: #36393f4c;
 	--deprecated-store-bg: #36393f00;
 	--background-attachments: $DISCORD_BG;
