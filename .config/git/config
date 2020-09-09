@@ -22,3 +22,6 @@
 [submodule ".config/zsh/fsh"]
 	url = https://github.com/zdharma/fast-syntax-highlighting.git
 	active = true
+[submodule ".themes/DotfilesGtk"]
+	url = git@github.com:bossley9/DotfilesGtk.git
+	active = true

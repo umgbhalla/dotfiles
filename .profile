@@ -74,8 +74,6 @@ export VI_NAV_JUMP_LARGE="25"
 export BOOKMARK_CONFIG="$XDG_CONFIG_HOME/bookmarks"
 export GIT_CONFIG="$XDG_CONFIG_HOME/git/config"
 export GIT_TEMPLATE_DIR="$XDG_CONFIG_HOME/git/template"
-export GTK_THEME="Nordic"
-export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
 export NEWSBOAT_CONFIG="$XDG_CONFIG_HOME/newsboat"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
@@ -110,6 +108,10 @@ export PATH="$HOME/.local/bin/:$PATH"
 
 export RES_WIDTH=1920
 export RES_HEIGHT=1080
+export THEME="DotfilesGtk"
+
+export GTK_THEME="$THEME"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 
 # window settings
 export W_ALPHA="0.85"

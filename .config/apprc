@@ -1,8 +1,17 @@
 #!/bin/sh
 # app-specific environment variables
 
+# general vars
+
 BAR_HEIGHT=28
 W_WIDTH=$(( $RES_WIDTH - $W_GAPS * 2 )) 
+
+# theme
+
+# export THEME_FG=$C_GRAY_1
+# export THEME_BG=$C_BLACK_0
+# export THEME_BG_1=$C_BLACK_1
+# export THEME_BG_2="#4c516a"
 
 # bspwm
 
