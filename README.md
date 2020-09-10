@@ -610,7 +610,7 @@ To enable custom stylesheets on Firefox:
 Below are a list of things in no particular order that I plan to do but haven't yet 
 implemented or had the time to configure.
 
-+ dmenu pinyin input
++ pinyin input (fcitx?)
 + try out BSD!!!
 + switch completely to ALSA, or find alternatives to switch audio inputs
 + contact management application
