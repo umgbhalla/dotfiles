@@ -617,3 +617,4 @@ implemented or had the time to configure.
 + customize gtk theme
 + find a good remote desktop client
 + fix discord video streaming bug
++ learn latex
