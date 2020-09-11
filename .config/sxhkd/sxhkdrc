@@ -27,6 +27,10 @@ super + u
 # super + o
 #   slack
 
+# spotify (I've been converted...)
+super + m
+  spotify
+
 #
 # general scripts
 #

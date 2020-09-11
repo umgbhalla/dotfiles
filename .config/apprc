@@ -81,6 +81,11 @@ export SHELLMENU_MATCH="$C_BLACK_0"
 export SHELLMENU_SEL="$C_RED_1"
 export SHELLMENU_PROMPT="$C_BLACK_0"
 
+# spicetify
+
+export SPICETIFY_BG="$C_BLACK_0"
+export SPICETIFY_FG="$C_GRAY_1"
+
 # st
 
 export ST_FONT="Source Code Pro Medium:pixelsize=15:antialias=true:autohint=true"

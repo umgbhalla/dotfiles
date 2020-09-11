@@ -69,5 +69,9 @@ code
 # tty clock display
 tty-clock
 
+# music player
+spotify
+spicetify-cli
+
 # audio visualizer
 cava
