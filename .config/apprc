@@ -83,8 +83,11 @@ export SHELLMENU_PROMPT="$C_BLACK_0"
 
 # spicetify
 
-export SPICETIFY_BG="$C_BLACK_0"
-export SPICETIFY_FG="$C_GRAY_1"
+export SPICETIFY_BG="${C_BLACK_0:1}"
+export SPICETIFY_FG="${C_GRAY_1:1}"
+export SPICETIFY_PRIMARY="${C_CYAN_0:1}"
+export SPICETIFY_SECONDARY="${C_MAGENTA_1:1}"
+export SPICETIFY_TERTIARY="${C_YELLOW_0:1}"
 
 # st
 

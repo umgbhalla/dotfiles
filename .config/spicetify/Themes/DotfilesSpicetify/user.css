@@ -1,28 +1,25 @@
 /* color vars */
-	:root {
-		--s-bg: #171520;
-		--s-fg: #eceff4;
+:root {
+	--s-g1: var(--modspotify_secondary);
+	--s-g2: var(--modspotify_primary);
 
-		--s-g1: #a074c4;
-		--s-g2: #519aba;
-
-		--s-red: #ed254e;
-		--s-green: #71f79f;
-		--s-yellow: #f9dc5c;
-		--s-blue: #7cb7ff;
-		--s-magenta: #c74ded;
-		--s-cyan: #00c1e4;
-		--s-lightgray: #F2EFEA;
-		--s-darkgray: #555753;
-	}
+	--s-red: #ed254e;
+	--s-green: #71f79f;
+	--s-yellow: #f9dc5c;
+	--s-blue: var(--modspotify_primary);
+	--s-magenta: var(--modspotify_secondary);
+	--s-cyan: #00c1e4;
+	--s-lightgray: #F2EFEA;
+	--s-darkgray: #555753;
+}
 
 body {
-	background: var(--s-bg);
-	color: var(--s-fg)
+	background: var(--modspotify_main_bg);
+	color: var(--modspotify_main_fg)
 }
 
 body, html, iframe {
-	background-color: var(--s-bg)
+	background-color: var(--modspotify_main_bg)
 }
 
 a {
@@ -34,12 +31,12 @@ a:hover, a:focus, a.contextmenu-active {
 }
 
 #view-content {
-	background-color: var(--s-bg) !important
+	background-color: var(--modspotify_main_bg) !important
 }
 
 textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-container .form-control {
-	background-color: var(--s-bg);
-	color: var(--s-fg);
+	background-color: var(--modspotify_main_bg);
+	color: var(--modspotify_main_fg);
 	border: 1px solid var(--s-magenta);
 	border-radius: 6px
 }
@@ -47,19 +44,19 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 /* alert message bar */
 	.alert {
 		background-color: var(--s-red);
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 
-/* bottom bar */
-	.view-player {
-		background: var(--s-bg);
-		border-top: none
-	}
+/* bottom bar player */
+.view-player {
+	background: var(--modspotify_main_bg);
+	border-top: none
+}
 
 	/* text */
 		/* normal */ .view-player .track a, .view-player .artist a, .view-player .player-controls-container .progress-container .elapsed, .view-player .player-controls-container .progress-container .remaining {
-			color: var(--s-fg)
+			color: var(--modspotify_main_fg)
 		}
 
 		/* hover */ .view-player .track a:hover, .view-player .artist a:hover {
@@ -72,11 +69,11 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 
 		/* stupid ass shadows */
 			.view-player .text-container .text-item-container .text-item .scroll-text-container:after {
-				background: linear-gradient(90deg,transparent,var(--s-bg))
+				background: linear-gradient(90deg,transparent,var(--modspotify_main_bg))
 			}
 
 			.view-player .text-container .text-item-container .text-item .scroll-text-container:before {
-				background: linear-gradient(270deg,transparent,var(--s-bg))
+				background: linear-gradient(270deg,transparent,var(--modspotify_main_bg))
 			}
 
 	/* progress & volume bars */
@@ -105,7 +102,7 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 
 	/* buttons */
 		/* normal */ .view-player .player-controls-container .controls .button-play, .view-player .player-controls-container .controls .button-repeat, .view-player .player-controls-container .controls .button-shuffle, .view-player .player-controls-container .controls .button-thumbs-down, .view-player .player-controls-container .controls .button-thumbs-up, .view-player .player-controls-container .controls .next, .view-player .player-controls-container .controls .previous, .view-player .extra-controls-container .button-devices, .view-player .extra-controls-container .button-lyrics, .view-player .extra-controls-container .button-queue, .view-player .extra-controls-container .button-subtitles, .button.button-icon-only, .view-player .now-playing-container .button-add, .view-player .now-playing-container .button-add:not(:disabled):hover, .view-player .now-playing-container .nowplaying-add-button, .view-player .now-playing-container .nowplaying-add-button:not(:disabled):hover, .view-player .now-playing-container .nowplaying-ban-button, .view-player .now-playing-container .nowplaying-ban-button:not(:disabled):hover {
-			color: var(--s-fg)
+			color: var(--modspotify_main_fg)
 		}
 
 		/* hover */ .view-player .player-controls-container .controls .next.contextmenu-active, .view-player .player-controls-container .controls .next:not(:disabled):hover, .view-player .player-controls-container .controls .previous.contextmenu-active, .view-player .player-controls-container .controls .previous:not(:disabled):hover, .view-player .player-controls-container .controls .button-repeat.contextmenu-active, .view-player .player-controls-container .controls .button-repeat:not(:disabled):hover, .view-player .player-controls-container .controls .button-shuffle.contextmenu-active, .view-player .player-controls-container .controls .button-shuffle:not(:disabled):hover, .view-player .player-controls-container .controls .button-thumbs-down.contextmenu-active, .view-player .player-controls-container .controls .button-thumbs-down:not(:disabled):hover, .view-player .player-controls-container .controls .button-thumbs-up.contextmenu-active, .view-player .player-controls-container .controls .button-thumbs-up:not(:disabled):hover, .view-player .player-controls-container .controls .button-play.contextmenu-active, .view-player .player-controls-container .controls .button-play:not(:disabled):hover, .view-player .extra-controls-container .button-devices.contextmenu-active, .view-player .extra-controls-container .button-devices:not(:disabled):hover, .view-player .extra-controls-container .button-lyrics.contextmenu-active, .view-player .extra-controls-container .button-lyrics:not(:disabled):hover, .view-player .extra-controls-container .button-queue.contextmenu-active, .view-player .extra-controls-container .button-queue:not(:disabled):hover, .view-player .extra-controls-container .button-subtitles.contextmenu-active, .view-player .extra-controls-container .button-subtitles:not(:disabled):hover, .button.button-icon-only.contextmenu-active, .button.button-icon-only:not(:disabled):hover {
@@ -126,34 +123,44 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 
 /* left sidebar */
 	/* backgrounds */ .sidebar, .sidebar .sidebar-navbar, .LeftSidebar__scroll-section {
-		background-color: var(--s-bg)
+		background-color: var(--modspotify_main_bg)
 	}
 
 	/* "new playlist" button border */
 		/* normal */ .LeftSidebarNewPlaylistButton__button {
 			border-top: none;
-			color: var(--s-fg)
+			color: var(--modspotify_main_fg)
 		}
 
 		/* hover */ .LeftSidebarNewPlaylistButton__button:focus, .LeftSidebarNewPlaylistButton__button:hover {
 			color: var(--s-lightgray)
 		}
 
-	/* links */ .SidebarListItemLink:link, .SidebarListItemLink:visited {
-		color: var(--s-fg)
-	}
+/* links */ 
+.SidebarListItemLink {
+	cursor: pointer !important;
+}
+
+.SidebarListItemLink--is-highlighted {
+	color: var(--modspotify_primary) !important;
+}
+
+.SidebarListItemLink:link, .SidebarListItemLink:visited {
+	color: var(--modspotify_main_fg)
+}
 
 	/* hover links */ .SidebarListItemLink:focus, .SidebarListItemLink:hover {
 		color: var(--s-lightgray)
 	}
 
 	/* titles */ html .SidebarList__title {
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
-	/* selected indicator */ .SidebarListItem--is-active:after, .RootlistItem--is-active:before {
-		background-color: var(--s-magenta)
-	}
+/* selected link indicator */ 
+.SidebarListItem--is-active:after, .RootlistItem--is-active:before {
+	background-image: linear-gradient(var(--modspotify_primary), var(--modspotify_secondary)) !important;
+}
 
 	/* downloaded indicator */ .OfflineIndicator--is-downloaded {
 		color: var(--s-magenta)
@@ -161,12 +168,12 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 
 /* right sidebar */
 	/* element background */ .buddy-card, #view-buddy-list, .section-divider-sticky-wrapper, .button.button-with-stroke {
-		background-color: var(--s-bg)
+		background-color: var(--modspotify_main_bg)
 	}
 
 	/* "find friends" button */
 		/* hover background */ .button.button-with-stroke.contextmenu-active, .button.button-with-stroke:not(:disabled):hover {
-			background-color: var(--s-bg)
+			background-color: var(--modspotify_main_bg)
 		}
 
 		/* shadow fuckery */ .button.button-with-stroke.contextmenu-active, .button.button-with-stroke:not(:disabled):hover {
@@ -175,7 +182,7 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 		}
 
 		/* text */ .button.button-with-stroke {
-			color: var(--s-fg)
+			color: var(--modspotify_main_fg)
 		}
 
 	/* header border */ .section-divider, .glue-page-header--with-active-sticky-header .glue-page-header__background, .Header--with-active-sticky-header .Header__background {
@@ -184,7 +191,7 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 
 	/* links */
 		/* normal */ .friend .user .name, .friend .context, .friend .context a, .friend .song-artist, .friend .song-artist a, .friend .song-title, .friend .song-title a {
-			color: var(--s-fg)
+			color: var(--modspotify_main_fg)
 		}
 
 		/* hover */ .friend .context a:focus, .friend .context a:hover, .friend .song-artist a:focus, .friend .song-artist a:hover, .friend .song-title a:focus, .friend .song-title a:hover {
@@ -194,12 +201,12 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 /* top bar */
 
 	/* background */ .body-container--mac .content-top-bar, .body-container--windows .content-top-bar, .body-container--windows .content-top-bar:after {
-		background: var(--s-bg)
+		background: var(--modspotify_main_bg)
 	}
 
 	/* username link */
 		/* normal */ .profile {
-			color: var(--s-fg)
+			color: var(--modspotify_main_fg)
 		}
 
 		/* hover */ .profile:hover {
@@ -208,22 +215,22 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 		}
 
 	/* dropdown toggle */ .content-top-bar__profile-menu-button .dropdown>button, .content-top-bar__profile-menu-button .dropdown>button.contextmenu-active, .content-top-bar__profile-menu-button .dropdown>button:not(:disabled):hover {
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 	/* search bar */
 		/* background */ input[type=search] {
 			background: var(--s-darkgray);
-			color: var(--s-fg)
+			color: var(--modspotify_main_fg)
 		}
 
 		/* search icon */ .spoticon-search-16::before {
-			color: var(--s-fg)
+			color: var(--modspotify_main_fg)
 		}
 
 /* context menu */
 	/* background */ .context-menu, .MenuItem, .Menu {
-		background-color: var(--s-bg)
+		background-color: var(--modspotify_main_bg)
 	}
 
 	/* separator */ .context-menu .sep {
@@ -231,7 +238,7 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 	}
 
 	/* item link */ .context-menu .item .text, .MenuItem, .Menu {
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 	/* item background hover */ .context-menu .item.hover:not(.disabled) {
@@ -245,8 +252,8 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 
 	/* header gradient garbage */
 		/* gradient */ .glue-page-header__background-color, .GlueHeader__background-overlay {
-			background-color: var(--s-bg);
-			background-image: linear-gradient(to bottom, transparent, var(--s-bg));
+			background-color: var(--modspotify_main_bg);
+			background-image: linear-gradient(to bottom, transparent, var(--modspotify_main_bg));
 		}
 
 		/* overlay */ .glue-page-header__background-overlay {
@@ -254,11 +261,11 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 		}
 
 		/* scrolling overlay */ .glue-page-header__background-scroll-overlay-ellipse {
-			background-image: radial-gradient(circle farthest-corner, transparent, var(--s-bg) 50%)
+			background-image: radial-gradient(circle farthest-corner, transparent, var(--modspotify_main_bg) 50%)
 		}
 
 		/* backdrop */ .glue-page-header__background-scroll-overlay-ellipse-backdrop, .Header__background-overlay, .Header__background-scroll-overlay {
-			background: var(--s-bg)
+			background: var(--modspotify_main_bg)
 		}
 
 	/* album page header border */ .h-search-bar {
@@ -271,19 +278,19 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 	}
 
 	/* more header shit (?) */ #view-content>.embedded-app, #view-content>iframe, .Header__background .Header__background-color, .glue-page-header--with-active-sticky-header .glue-page-header__background-scroll-overlay-ellipse {
-		background-color: var(--s-bg)
+		background-color: var(--modspotify_main_bg)
 	}
 
 	/* header text shit */ .Header__label, .Header__content .Header__title-text, .glue-page-header__content .glue-page-header__count-label-text, .glue-page-header__content .glue-page-header__count-label-number, .glue-page-header__content .glue-page-header__label, .glue-page-header__content .glue-page-header__title {
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 	/* absolutely retarded header gradient */ .glue-page-header__top-bar, .Header__top-bar {
-		background: linear-gradient(var(--s-bg), var(--s-bg) 48px, transparent)
+		background: linear-gradient(var(--modspotify_main_bg), var(--modspotify_main_bg) 48px, transparent)
 	}
 
 	/* artist link under album */ .card-info-subtitle-links a {
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 	/* artist link hover */ .card-info-subtitle-links a:hover {
@@ -296,11 +303,11 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 		}
 
 		/* background */ .Table__sticky-header, .sticky-clone .tl-header {
-			background-color: var(--s-bg)
+			background-color: var(--modspotify_main_bg)
 		}
 
 		/* text/icons */ .TableHeaderCell {
-			color: var(--s-fg)
+			color: var(--modspotify_main_fg)
 		}
 
 	/* header buttons */
@@ -314,8 +321,8 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 		}
 
 		/* love/more */ .Button--style-icon-stroke, .button.button-icon-with-stroke {
-			box-shadow: inset 0 0 0 1px var(--s-fg);
-			color: var(--s-fg);
+			box-shadow: inset 0 0 0 1px var(--modspotify_main_fg);
+			color: var(--modspotify_main_fg);
 			background: none
 		}
 
@@ -327,8 +334,8 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 
 	/* stupid fucking button */
 		/* background of the stupid fucking button itself */ .Button--style-stroke, .button.button-white, .Button__alt-text--is-active, .Button__text--is-active, .Button--style-stroke, .button.button-white, .Button--style-stroke:not(:disabled):hover, .button.button-white.contextmenu-active, .button.button-white:not(:disabled):hover, .button.button-white.contextmenu-active, .button.button-white:not(:disabled):hover, button[data-button=add-recommendation] {
-			background: var(--s-bg);
-			box-shadow: inset 0 0 0 1px var(--s-fg)
+			background: var(--modspotify_main_bg);
+			box-shadow: inset 0 0 0 1px var(--modspotify_main_fg)
 		}
 
 		/* background of the stupid fucking button itself on hover */ .Button--style-stroke:not(:disabled):hover, .button.button-white.contextmenu-active, .button.button-white:not(:disabled):hover, .button.button-white.contextmenu-active, .button.button-white:not(:disabled):hover, button[data-button=add-recommendation].contextmenu-active, button[data-button=add-recommendation]:not(:disabled):hover {
@@ -336,23 +343,23 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 		}
 
 		/* text */ .Button__alt-text--is-active, .Button__text--is-active, .Button--style-stroke, .button.button-white, .Button--style-stroke:not(:disabled):hover, .button.button-white.contextmenu-active, .button.button-white:not(:disabled):hover, .button.button-white.contextmenu-active, .button.button-white:not(:disabled):hover, button[data-button=add-recommendation] {
-			color: var(--s-fg)
+			color: var(--modspotify_main_fg)
 		}
 
 		/* veeeeery special button hover background */ button[data-button=add-recommendation].contextmenu-active, button[data-button=add-recommendation]:not(:disabled):hover {
-			background-color: var(--s-bg)
+			background-color: var(--modspotify_main_bg)
 		}
 
 	/* tracklist */
 		/* explicit sign */ .TableCellSong__label, .tl-explicit .label, .tl-premium .label, .tl-row:hover .tl-explicit .label, .tl-row:hover .tl-premium .label, .tl-row.selection-focus .tl-explicit .label, .tl-row.selection-focus .tl-premium .label {
-			border: 1px solid var(--s-fg);
-			color: var(--s-fg);
-			border-color: var(--s-fg) !important;
+			border: 1px solid var(--modspotify_main_fg);
+			color: var(--modspotify_main_fg);
+			border-color: var(--modspotify_main_fg) !important;
 		}
 
 		/* fucking AWFUL border + bunch of text */ .TableCell, .tracklist-album, .tracklist-chart, .tracklist-basic, .tracklist-playlist, .tracklist-podcast, .tracklist-popular, .tracklist-station, .tracklist-queue, .tracklist-search, .tl-header th, .tl-cell, .tl-highlight, .added .button.button-icon-only.button-add, .Button--style-icon-background, .TrackListDiscRow__cell {
 			border-top: none;
-			color: var(--s-fg)
+			color: var(--modspotify_main_fg)
 		}
 
 		/* featured artist link */ .TableCellSong__featuredArtist {
@@ -368,7 +375,7 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 		}
 
 		/* disc */ .TrackListDiscRow__cell {
-			color: var(--s-fg)
+			color: var(--modspotify_main_fg)
 		}
 
 		/* now playing title */ .TableCellSong--track-is-playing .TableCellSong__featuredArtist, .TableCellSong--track-is-playing .TableCellSong__text-truncator, .TableCellSong--track-is-playing .TableCellSong__track-name, .tl-row.current .tl-cell:not(.tl-number), .tl-row.current .tl-cell a:link, .tl-row.current .tl-highlight {
@@ -377,7 +384,7 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 
 	/* "more by" */
 		/* text */ .GlueSectionDivider__title {
-			color: var(--s-fg)
+			color: var(--modspotify_main_fg)
 		}
 
 		/* border */ .GlueSectionDivider__container {
@@ -385,20 +392,20 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 		}
 
 		/* album name */ .Card__info-title a {
-			color: var(--s-fg)
+			color: var(--modspotify_main_fg)
 		}
 
 		/* album year */ .Card__info-subtitle-metadata {
-			color: var(--s-fg)
+			color: var(--modspotify_main_fg)
 		}
 
 	/* copyright */ .AlbumFooter__copyrights-list {
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 	/* search bar */ .h-search, .focus .h-search, .h-search:focus {
 		background: none;
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 	/* filtered shit? */ .empty-filtered-content {
@@ -411,23 +418,23 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 		}
 
 		/* handle */ .slider.enabled div, .slider div {
-			background: var(--s-fg);
-			box-shadow: 0 0 1px var(--s-fg), 0 0 3px var(--s-fg)
+			background: var(--modspotify_main_fg);
+			box-shadow: 0 0 1px var(--modspotify_main_fg), 0 0 3px var(--modspotify_main_fg)
 		}
 
 		/* off */ .slider {
 			background: var(--s-darkgray);
-			border: 2px solid var(--s-fg)
+			border: 2px solid var(--modspotify_main_fg)
 		}
 
 	/* album art hover overlay */ .card-overlay {
-	    background: var(--s-bg);
+	    background: var(--modspotify_main_bg);
 	    opacity: 0.5;
 	}
 
 	/* charts */
 		/* unchanged */ .trend-mark.trend-equal::before {
-			background-color: var(--s-fg)
+			background-color: var(--modspotify_main_fg)
 		}
 
 		/* up */ .trend-mark.trend-up {
@@ -440,11 +447,11 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 
 /* artist page */
 	/* album header background in list view */ .header {
-		background: var(--s-bg)
+		background: var(--modspotify_main_bg)
 	}
 
 	/* motherfucking header shadow */ .glue-page-header__background-image-overlay-gradient {
-		background: linear-gradient(to bottom, transparent, var(--s-bg))
+		background: linear-gradient(to bottom, transparent, var(--modspotify_main_bg))
 	}
 
 	/* follow button */
@@ -453,11 +460,11 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 		}
 
 		/* background */ .button.button-with-stroke.added, .button.button-with-stroke.active, .button.button-with-stroke.added.contextmenu-active, .button.button-with-stroke.added:not(:disabled):hover, .button.button-with-stroke.active.contextmenu-active, .button.button-with-stroke.active:not(:disabled):hover {
-			background: var(--s-bg)
+			background: var(--modspotify_main_bg)
 		}
 
 		/* shadow fuckery */ .button.button-with-stroke.added, .button.button-with-stroke.active {
-			box-shadow: inset 0 0 0 1px var(--s-fg)
+			box-shadow: inset 0 0 0 1px var(--modspotify_main_fg)
 		}
 
 	/* verified mark */ .header-verified-check {
@@ -466,7 +473,7 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 	}
 
 	/* list view album shit */ .h-title a, .h-label, .card-info-title a {
-		color: var(--s-fg) !important;
+		color: var(--modspotify_main_fg) !important;
 	}
 
 	/* view toggle */ .button.button-icon-only.active, .button.button-icon-only.active.contextmenu-active, .button.button-icon-only.active:not(:disabled):hover {
@@ -474,16 +481,16 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 	}
 
 	/* album year */ .card-info-subtitle-metadata {
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 	/* section title */ .section-divider > *, .rankings__title, .rankings__discovered-container, .rankings__topcities.title {
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 	/* sticky header */
 		/* link color */ .navbar-nav > li > a {
-			color: var(--s-fg)
+			color: var(--modspotify_main_fg)
 		}
 
 		/* hover link color */ .nav > li > a:hover, .nav > li > a:focus {
@@ -499,7 +506,7 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 		}
 
 		/* in-between (?) background */ .glue-page-header--with-active-sticky-header .navbar.sticky-top {
-			background-color: var(--s-bg)
+			background-color: var(--modspotify_main_bg)
 		}
 
 		/* navbar background */ .navbar {
@@ -507,11 +514,11 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 		} /* NOTE: this is complete utter bullshit. i hate this. */
 
 	/* latest release & "fans also like" links */ .card-horizontal .card-info-title {
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 	/* image carousel */ .image-carousel__count, .image-carousel__count .current-slide {
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 	/* image carousel background */ .full-screen-modal--container>div:not(.modal-backdrop--hidden) {
@@ -519,18 +526,18 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 	}
 
 	/* stats */ .rankings__topcities.city, .rankings__topcities.listeners, .listening .monthly__data h2 {
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 /* modal */
 	/* background */ .Modal__content, .PlaylistAnnotationModal__img, .popover-title, .popover-footer, .modal-generic .modal-generic-title, .popover-addendum, .modal .popover-content {
-		background-color: var(--s-bg);
+		background-color: var(--modspotify_main_bg);
 		border-bottom: none;
 		border-top: none
 	}
 
 	/* title */ .PlaylistAnnotationModal__title, .Button--style-icon:not(.Button--is-drop-target-active), .popover-title {
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 	/* close button hover */ .Button--style-icon:not(.Button--is-drop-target-active):not(:disabled).Button--is-strong-style, .Button--style-icon:not(.Button--is-drop-target-active):not(:disabled):focus.Button--with-focus, .Button--style-icon:not(.Button--is-drop-target-active):not(:disabled):hover {
@@ -538,18 +545,18 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 	}
 
 	/* merch text */ .merch-popup-description, .popover-addendum {
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 /* dropdown menu */
 	/* background */ .dropdown-menu, .GlueDropdown {
-		background-color: var(--s-bg);
+		background-color: var(--modspotify_main_bg);
 		border: none
 	}
 
 	/* dangerous as fuck button */ .button.button-red, .button.button-red.contextmenu-active, .button.button-red:not(:disabled):hover {
 		background: var(--s-red);
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 /* podcast */
@@ -570,26 +577,26 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 	}
 
 	/* "about" text */ .App__description-title {
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 /* settings */
 	/* text */ .setting-row, .account-info__profile-info-name {
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 	/* facebook button */ .button.button-facebook, .button.button-facebook.contextmenu-active, .button.button-facebook:not(:disabled):hover {
 		background: var(--s-magenta);
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 /* devices menu */
 	/* popup */ .ConnectPopup, .ConnectPopup__content {
-		background: var(--s-bg)
+		background: var(--modspotify_main_bg)
 	}
 
 	/* text */ .ConnectPopup__header-title, .ConnectPopup__info, .ConnectPopup__header-help {
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 	/* help button hover */ .ConnectPopup__header-help:focus, .ConnectPopup__header-help:hover {
@@ -598,11 +605,11 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 
 	/* "learn more" button */ .button.button-blue, .button.button-blue.contextmenu-active, .button.button-blue:not(:disabled):hover {
 		background: var(--s-magenta);
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 	/* popup arrow */ .ConnectPopup:after {
-		border-top-color: var(--s-bg)
+		border-top-color: var(--modspotify_main_bg)
 	}
 
 	/* dot */ .ConnectDevicePicker__button--with-badge:after, .ConnectDevicePicker__button--with-badge.active:after, .view-player .remote-playback-bar {
@@ -610,7 +617,7 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 	}
 
 	/* available device */ .ConnectPopup__device--available, .ConnectPopup__device-info, .view-player .remote-playback-bar p {
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 	/* listening on this device */ .ConnectPopup__device--active, .ConnectPopup__device--active .ConnectPopup__device-info, .ConnectPopup__device--active .ConnectPopup__device-title, .view-player .extra-controls-container .button-devices.active, .view-player .extra-controls-container .button-lyrics.active, .view-player .extra-controls-container .button-queue.active, .view-player .extra-controls-container .button-subtitles.active, .view-player .remote-playback-bar, .view-player .extra-controls-container .button-devices.active.contextmenu-active, .view-player .extra-controls-container .button-devices.active:not(:disabled):hover, .view-player .extra-controls-container .button-lyrics.active.contextmenu-active, .view-player .extra-controls-container .button-lyrics.active:not(:disabled):hover, .view-player .extra-controls-container .button-queue.active.contextmenu-active, .view-player .extra-controls-container .button-queue.active:not(:disabled):hover, .view-player .extra-controls-container .button-subtitles.active.contextmenu-active, .view-player .extra-controls-container .button-subtitles.active:not(:disabled):hover {
@@ -623,7 +630,7 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 
 /* "find friends" */
 	/* background */ .sections {
-		background: var(--s-bg)
+		background: var(--modspotify_main_bg)
 	}
 
 	/* item */ .user-container .user {
@@ -632,11 +639,11 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 
 /* user page */
 	/* followers count */ .list-group-item.list-group-item-social .list-group-item-text-wrapper {
-		color: var(--s-fg)
+		color: var(--modspotify_main_fg)
 	}
 
 /* playlist extender */ .playlist-extender-content .toggle-recommendations-arrow, .playlist-extender-content .playlist-extender-title-wrapper, .playlist-extender-content.hide-recommendations .playlist-extender-title-wrapper, .playlist-extender-content.hiding-recommendations .playlist-extender-title-wrapper {
-	color: var(--s-fg)
+	color: var(--modspotify_main_fg)
 }
 
 /* playlist extender hover */ .playlist-extender-content.hide-recommendations .playlist-extender-title-wrapper:hover, .playlist-extender-content.hiding-recommendations .playlist-extender-title-wrapper:hover, .playlist-extender-content .playlist-extender-title-wrapper:hover>.toggle-recommendations-arrow {
@@ -648,3 +655,11 @@ textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-con
 	width: 0px !important;
 	background-color: transparent;
 }
+
+/* profile and settings */
+
+#view-profile-menu,
+#profile-menu-toggle {
+	cursor: pointer !important;
+}
+
