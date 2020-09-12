@@ -33,6 +33,8 @@ export BROWSER="firefox"
 
 export FILE_EXPLORER="ranger"
 
+export PDF_VIEWER="zathura"
+
 export SYSTEM_PROFILER="htop"
 
 export NOTIFICATION_MANAGER="dunst"
