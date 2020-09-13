@@ -58,6 +58,8 @@ done
 # git clone https://github.com/EliverLara/Nordic.git /tmp/Nordic
 # sudo cp -r /tmp/Nordic /usr/share/themes
 
+cd .themes/$THEME && yarn && yarn build
+
 #
 # music player
 #

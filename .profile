@@ -113,8 +113,8 @@ export PATH="$HOME/.local/bin/:$PATH"
 
 export RES_WIDTH=1920
 export RES_HEIGHT=1080
-export THEME="DotfilesGtk"
 
+export THEME="DotfilesGtk"
 export GTK_THEME="$THEME"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 
