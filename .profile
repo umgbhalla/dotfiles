@@ -33,6 +33,9 @@ export BROWSER="firefox"
 
 export FILE_EXPLORER="ranger"
 
+export MUSIC_PLAYER="spotify"
+export MUSIC_PLAYER_ARGS="spicetify config current_theme DotfilesSpicetify && spicetify apply"
+
 export PDF_VIEWER="zathura"
 
 export SYSTEM_PROFILER="htop"

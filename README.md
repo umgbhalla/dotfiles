@@ -614,7 +614,7 @@ implemented or had the time to configure.
 + try out BSD!!!
 + switch completely to ALSA, or find alternatives to switch audio inputs
 + contact management application
-+ customize gtk theme
++ customize gtk/spotify/firefox theming
 + find a good remote desktop client
 + fix discord video streaming bug
-+ learn latex
++ pcie single-gpu passthrough (this will take a while...)

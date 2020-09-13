@@ -27,9 +27,9 @@ super + u
 # super + o
 #   slack
 
-# spotify (I've been converted...)
+# music
 super + m
-  spotify
+  eval $MUSIC_PLAYER_ARGS
 
 #
 # general scripts

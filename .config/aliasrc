@@ -47,7 +47,7 @@ alias \
   s="$XDG_SCRIPT_HOME/bin/run.sh" \
   yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn" \
   m="rm -f $XDG_CONFIG_HOME/cmus/cache && cmus $HOME/Music" \
-  msr="spicetify config current_theme DotfilesSpicetify && spicetify apply" \
+  msr="$MUSIC_PLAYER_ARGS" \
   pdf="pdflatex" \
   ss="sc-im" \
   sbuild="$SBUILD" \
