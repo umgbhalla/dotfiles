@@ -98,4 +98,6 @@ export ST_FONT="Source Code Pro Medium:pixelsize=15:antialias=true:autohint=true
 # zathura
 
 export ZATHURA_BG="$($HEX2RGB $C_BLACK_0 | sed -e s/b/ba/ -e s/\)/,$W_ALPHA\)/)"
+export ZATHURA_BG_ALT="$($HEX2RGB $C_BLACK_1 | sed -e s/b/ba/ -e s/\)/,$W_ALPHA\)/)"
 export ZATHURA_FG="$C_GRAY_0"
+export ZATHURA_PRIMARY="$C_CYAN_0"

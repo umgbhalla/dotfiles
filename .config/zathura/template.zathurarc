@@ -29,6 +29,22 @@ set default-fg "$ZATHURA_FG"
 set notification-bg "$ZATHURA_BG"
 set notification-fg "$ZATHURA_FG"
 
+set completion-bg "$ZATHURA_BG_ALT"
+set completion-fg "$ZATHURA_FG"
+set completion-group-bg "$ZATHURA_BG_ALT"
+set completion-group-fg "$ZATHURA_FG"
+
+set completion-highlight-bg "$ZATHURA_PRIMARY"
+set completion-highlight-fg "$ZATHURA_FG"
+set highlight-color "$ZATHURA_FG"
+set highlight-active-color "$ZATHURA_PRIMARY"
+set highlight-transparency 0.7
+
+set inputbar-bg "$ZATHURA_BG"
+set inputbar-fg "$ZATHURA_FG"
+set statusbar-bg "$ZATHURA_BG"
+set statusbar-fg "$ZATHURA_FG"
+
 # (should) make pdf bg transparent
 set recolor-lightcolor "rgba(0,0,0,0)"
 
