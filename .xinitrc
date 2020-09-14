@@ -1,27 +1,14 @@
 #!/bin/sh
 
-#
-# environment
-#
-
 # template vars
-$DETEMPLATE $XDG_CONFIG_HOME/dunst/template.dunstrc 
-$DETEMPLATE $XDG_CONFIG_HOME/glasscord/themes/template.blur.css 
-$DETEMPLATE $XDG_CONFIG_HOME/mozilla/profile/chrome/template.userChrome.css
-$DETEMPLATE $XDG_CONFIG_HOME/mozilla/profile/chrome/template.userContent.css
-$DETEMPLATE $XDG_CONFIG_HOME/picom/template.picom.conf 
-$DETEMPLATE $XDG_CONFIG_HOME/ranger/template.rc.conf
-$DETEMPLATE $XDG_CONFIG_HOME/spicetify/template.config.ini
-$DETEMPLATE $XDG_CONFIG_HOME/zathura/template.zathurarc
+while read -r template; do
+  eval $DETEMPLATE $template
+done < $XDG_CONFIG_HOME/templaterc
 
 # set last redshift
 $REDSHIFT "$(cat $REDSHIFT_LAST)"
 
 $NOTIFICATION_MANAGER &
-
-#
-# core programs 
-#
 
 # shortcut manager
 sxhkd &
