@@ -36,3 +36,4 @@ bspc rule -a mpv state=floating
 # shell popup windows
 bspc rule -a '*:shellpopup' state=floating sticky="on"
 
+bspc rule -a Zathura state=tiled
