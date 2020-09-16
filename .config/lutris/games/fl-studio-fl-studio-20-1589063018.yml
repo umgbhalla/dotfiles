@@ -1,8 +1,0 @@
-game:
-  arch: win64
-  exe: drive_c/Program Files/Image-Line/FL Studio 20/FL64.exe
-  prefix: /home/sam/.games/fl-studio
-wine:
-  overrides:
-    d2d1: disabled
-  version: lutris-5.6-2-x86_64

@@ -33,10 +33,11 @@ button {
 
 /* text inputs */
 textarea, input, select, .form-group input[disabled], .GlueDropdown, .filter-container .form-control {
-	background-color: var(--modspotify_main_bg) !important;
+	/* background-color: var(--modspotify_main_bg) !important; */
+	background-color: transparent;
 	color: var(--modspotify_main_fg);
 	border: 1px solid var(--s-magenta);
-	border-radius: 6px
+	border-radius: 6px;
 }
 
 /* alert message bar */
@@ -851,4 +852,24 @@ button[data-button=add-recommendation].contextmenu-active, button[data-button=ad
 .added,
 .added .button.button-icon-only.button-add {
   color: var(--modspotify_primary) !important;
+}
+
+/* border arrows */
+.tooltip-arrow-top, .tooltip-arrow-bottom,
+.dropdown-menu:not(.no-arrow).arrow-left::before {
+  border-right: 10px solid var(--modspotify_main_bg);
+}
+
+/* following button */
+.button.button-with-stroke.added,
+.button.button-with-stroke,
+.button.button-with-stroke.added:not(:disabled):hover,
+.button.button-with-stroke:not(:disabled):hover,
+.button.button-with-stroke.added:hover {
+  background: none;
+}
+
+/* context menu items */
+.context-menu .item {
+  cursor: pointer !important;
 }

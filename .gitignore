@@ -16,3 +16,6 @@ Videos/
 
 # constantly changing files
 .config/gtk-2.0/gtkfilechooser.ini
+
+# scrub credentials
+.config/zoomus.conf
