@@ -65,6 +65,7 @@ wmctrl
 # system profiling
 htop
 neofetch
+strace
 
 # user manuals
 man
@@ -118,6 +119,9 @@ clang # required for clang-format
 
 # tty text manipulation
 figlet
+
+# emulation
+qemu
 
 # -------------------------------------------------------------------
 # extra
