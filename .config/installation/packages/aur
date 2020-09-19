@@ -44,6 +44,7 @@ jmtpfs
 # latex because I'm a chad
 texlive-most
 texlive-lang
+biber
 
 # -------------------------------------------------------------------
 # extra
