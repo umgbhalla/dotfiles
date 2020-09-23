@@ -40,6 +40,9 @@ ranger
 w3m # required by ranger
 ueberzug # img previews
 
+# networking
+nm-connection-editor
+
 # -------------------------------------------------------------------
 # tools
 # -------------------------------------------------------------------
