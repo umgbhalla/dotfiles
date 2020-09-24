@@ -16,8 +16,8 @@ margin-bottom = 0
 [bar/main]
 width = ${env:POLYBAR_WIDTH}
 height = ${env:POLYBAR_HEIGHT}
-offset-x = ${env:W_GAPS}
-offset-y = ${env:W_GAPS}
+offset-x = ${env:POLYBAR_X}
+offset-y = ${env:POLYBAR_Y}
 
 ; always display below fullscreen windows
 override-redirect = true
@@ -41,27 +41,25 @@ cursor-click = pointer
 type = internal/bspwm
 
 label-focused = %icon%
-label-focused-background = ${colors.primary}
-label-focused-foreground = ${colors.foreground}
+label-focused-foreground = ${colors.alert}
 label-focused-padding = 2
 
 label-occupied = %icon%
-label-occupied-background = ${colors.secondary}
+label-occupied-foreground = ${colors.primary}
 label-occupied-padding = 2
 
 label-urgent = %icon%
-label-urgent-background = ${colors.alert}
+label-urgent-foreground = ${colors.primary}
 label-urgent-padding = 2
 
 label-empty = %icon%
-label-empty-background = ${colors.background}
 label-empty-padding = 2
 
-ws-icon-0 = "I;"
+ws-icon-0 = "I;"
 ws-icon-1 = "II;"
 ws-icon-2 = "III;"
 ws-icon-3 = "IV;"
-ws-icon-4 = "V;"
+ws-icon-4 = "V;"
 ws-icon-5 = "VI;六"
 ws-icon-6 = "VII;七"
 ws-icon-7 = "VIII;八"
@@ -91,7 +89,6 @@ type = internal/network
 interface = ${env:WIFI_INTERFACE:wlan0}
 interval = 3.0
 
-format-connected-background = ${colors.primary}
 format-connected-foreground = ${colors.foreground}
 format-connected-padding = 2
 label-connected =  %essid%
@@ -104,7 +101,6 @@ type = internal/network
 interface = ${env:ETH_INTERFACE:wlan0}
 interval = 3.0
 
-format-connected-background = ${colors.primary}
 format-connected-foreground = ${colors.foreground}
 format-connected-padding = 2
 label-connected =  %local_ip%
@@ -152,6 +148,5 @@ date = %a %b %d
 time = %H:%M
 label =  %date% %time%
 
-format-background = ${colors.secondary}
 format-foreground = ${colors.foreground}
 format-padding = 2

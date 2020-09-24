@@ -27,7 +27,7 @@ G_ALERT=$C_RED_0
 
 # bspwm
 
-export BSPWM_TOP_PADDING=$(( $W_GAPS + $BAR_HEIGHT ))
+export BSPWM_TOP_PADDING=$(( $BAR_HEIGHT ))
 export BSPWM_BORDER_ACTIVE=$G_BG
 export BSPWM_BORDER_NORMAL=$BSPWM_BORDER_ACTIVE
 export BSPWM_BORDER_FOCUSED=$BSPWM_BORDER_ACTIVE
@@ -72,12 +72,14 @@ export PICOM_ALPHA="$(echo $(( $W_ALPHA * 100 )) | sed -e 's/\.//g')"
 
 # polybar
 
+export POLYBAR_X="$W_GAPS"
+export POLYBAR_Y="$(( $W_GAPS / 2 ))"
 export POLYBAR_WIDTH="100%:-$(( $W_GAPS * 2 ))"
 export POLYBAR_HEIGHT=$BAR_HEIGHT
 
-export POLYBAR_BG="#$W_ALPHA_HEX${G_BG:1}"
+export POLYBAR_BG="#00${G_BG:1}"
 export POLYBAR_FG="$G_FG"
-export POLYBAR_PRIMARY="$G_PRIMARY"
+export POLYBAR_PRIMARY="$G_BG"
 export POLYBAR_SECONDARY="$G_SECONDARY"
 export POLYBAR_TERTIARY="$G_TERTIARY"
 export POLYBAR_ALERT="$G_ALERT"

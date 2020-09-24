@@ -52,6 +52,8 @@ jre-openjdk-headless
 
 # mouse cursor pointer on desktop
 xorg-xsetroot
+# solid bg color
+hsetroot
 
 # X11 automation tool
 xdotool
