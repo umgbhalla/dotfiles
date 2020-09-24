@@ -16,6 +16,42 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_REPO_HOME="$HOME/Repos"
 
 #
+# display
+#
+
+export RES_WIDTH=1920
+export RES_HEIGHT=1080
+
+export THEME_LIGHT="light"
+export THEME_DARK="dark"
+
+export CURRENT_THEME_MODE="$THEME_DARK"
+
+export GTK_THEME="DotfilesGtk"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
+
+# background command
+export BACKGROUND="feh --bg-fill --no-fehbg $XDG_CONFIG_HOME/wallpapers/$CURRENT_THEME_MODE.jpg"
+
+# window settings
+
+export W_ALPHA=1
+export W_ALPHA_HEX="FF" # higher value means more opaque
+
+export W_BORDER_WIDTH=0
+export W_CORNER_RADIUS=0
+export W_GAPS=12
+
+if [ $CURRENT_THEME_MODE = $THEME_DARK ]; then
+  export W_ALPHA=0.85
+  export W_ALPHA_HEX="AA" # higher value means more opaque
+
+  export W_BORDER_WIDTH=0
+  export W_CORNER_RADIUS=8
+  export W_GAPS=10
+fi
+
+#
 # default programs
 #
 
@@ -26,6 +62,7 @@ export EDITOR="nvim"
 
 if [ $OS != $OS_MACOS ]; then
   export TERM="st"
+  export TERM_ARGS="$TERM -A $W_ALPHA"
 fi
 export TERMINAL="$TERM"
 
@@ -108,26 +145,12 @@ export SHELLMENU="$XDG_SCRIPT_HOME/shell-menu"
 export PATH="$HOME/.local/bin/:$PATH"
 
 #
-# display
+# includes
 #
-
-export RES_WIDTH=1920
-export RES_HEIGHT=1080
-
-export THEME="DotfilesGtk"
-export GTK_THEME="$THEME"
-export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
-
-# window settings
-export W_ALPHA="0.85"
-export W_CORNER_RADIUS=8
-export W_GAPS=10
-
-# background command
-export BACKGROUND="feh --bg-fill --no-fehbg $XDG_CONFIG_HOME/wallpapers/1.png"
 
 # colors
 source $XDG_CONFIG_HOME/colorrc
 
 # app-specific environment variables
 source $XDG_CONFIG_HOME/apprc
+

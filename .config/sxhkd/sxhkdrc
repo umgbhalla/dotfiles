@@ -5,7 +5,7 @@
 
 # terminal emulator
 super + Return
-  $TERM
+  eval $TERM_ARGS
 
 # launcher
 super + space
@@ -17,7 +17,7 @@ super + b
 
 # system profiler
 super + p
-  $TERM sh -c "$SYSTEM_PROFILER"
+  eval $TERM_ARGS sh -c "$SYSTEM_PROFILER"
 
 # discord (for the meme, of course)
 super + u
@@ -47,7 +47,7 @@ super + e
 #
 
 super + w + i
-  $TERM sh -c "nmtui"
+  eval $TERM_ARGS sh -c "nmtui"
 
 #
 # audio controls

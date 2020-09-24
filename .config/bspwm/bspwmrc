@@ -10,17 +10,18 @@ xsetroot -cursor_name left_ptr &
 # appearance
 bspc config top_padding $BSPWM_TOP_PADDING
 
-bspc config border_width 0
+bspc config border_width $W_BORDER_WIDTH
 bspc config window_gap $W_GAPS
+
+bspc config active_border_color $BSPWM_BORDER_ACTIVE
+bspc config normal_border_color $BSPWM_BORDER_NORMAL
+bspc config focused_border_color $BSPWM_BORDER_FOCUSED
 
 bspc config split_ratio 0.6
 
 # no fullscreen gaps
 bspc config borderless_monocle true
 bspc config gapless_monocle true
-
-# default floating
-# bspc rule -a '*' state=floating
 
 # bspwm defaults
 bspc monitor -d I II III IV V VI VII VIII IX X
