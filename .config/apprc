@@ -49,7 +49,7 @@ export DUNST_ICON_SIZE=$(( $DUNST_HEIGHT * 0.8 ))
 export DUNST_FONT="Source Code Pro Medium 12"
 
 # higher hex means higher transparency
-export DUNST_BG="$G_BG$W_ALPHA_HEX"
+export DUNST_BG="$G_PRIMARY$W_ALPHA_HEX"
 export DUNST_BG_CRITICAL="$G_ALERT$W_ALPHA_HEX"
 export DUNST_FG="$G_FG"
 
@@ -110,6 +110,7 @@ export SPICETIFY_ALERT="${G_ALERT:1}"
 # st
 
 export ST_FONT="Source Code Pro Medium:pixelsize=15:antialias=true:autohint=true"
+export ST_PADDING="$(( $W_GAPS * 1.5 ))"
 
 # zathura
 
