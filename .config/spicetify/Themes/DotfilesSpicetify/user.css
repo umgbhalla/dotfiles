@@ -873,3 +873,8 @@ button[data-button=add-recommendation].contextmenu-active, button[data-button=ad
 .context-menu .item {
   cursor: pointer !important;
 }
+
+/* repeat corner cut off */
+.view-player .player-controls-container .controls .button-repeat {
+  border-radius: 0px;
+}
