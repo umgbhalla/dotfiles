@@ -10,10 +10,12 @@ if [ $CURRENT_THEME_MODE = $THEME_DARK ]; then
   G_BG=$C_BLACK_0
   G_BG_ALT=$C_BLACK_1
   G_FG=$C_GRAY_1
+  G_FG_ALT=$C_GRAY_0
 else
   G_BG=$C_BLACK_0
   G_BG_ALT=$C_BLACK_1
   G_FG=$C_GRAY_1
+  G_FG_ALT=$C_GRAY_0
 fi
 
 G_PRIMARY=$C_CYAN_0
@@ -56,6 +58,15 @@ export DUNST_FG="$G_FG"
 
 # firefox
 
+export FF_BG=$G_BG
+export FF_BG_ALT=$G_BG_ALT
+export FF_FG=$G_FG
+export FF_FG_ALT=$G_FG_ALT
+export FF_PRIMARY=$G_PRIMARY
+export FF_DISABLED=$G_FG_ALT
+
+export FIREFOX_TRANSITION="all 0.2s ease"
+export FIREFOX_RADIUS="${W_CORNER_RADIUS}px"
 export FIREFOX_BG_OP=$G_BG
 export FIREFOX_BG="rgba($($HEX2FF $G_BG), $W_ALPHA)"
 export FIREFOX_BG_ALT="rgba($($HEX2FF $C_GRAY_0), $(printf "%.2f\n" $(( 1 - $W_ALPHA ))))"

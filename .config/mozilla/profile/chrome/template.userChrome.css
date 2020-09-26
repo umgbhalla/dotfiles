@@ -1,10 +1,10 @@
 :root {
-    --color-bg: #171520;
-    --color-bg-alt: #2e2d38;
-    --color-fg: #eceff4;
-    --color-fg-alt: #b3b7bf;
-    --color-primary: #519aba;
-    --disabled: #b3b7bf;
+    --color-bg: $FF_BG;
+    --color-bg-alt: $FF_BG_ALT;
+    --color-fg: $FF_FG;
+    --color-fg-alt: $FF_FG_ALT;
+    --color-primary: $FF_PRIMARY;
+    --disabled: $FF_DISABLED;
 
     --lwt-accent-color: var(--color-bg-alt) !important;
     --lwt-text-color: var(--color-fg) !important;
@@ -26,13 +26,10 @@
     --panel-separator-color: var(--color-bg-alt) !important;
 
     --panel-disabled-color: var(--disabled) !important;
-    --arrowpanel-background: var(--color-bg) !important;
-    --arrowpanel-color: var(--color-fg) !important;
-    --arrowpanel-border-color: var(--color-bg) !important;
     --autocomplete-popup-color: var(--color-fg) !important;
-    --arrowpanel-dimmed: var(--color-bg-alt) !important;
-    --arrowpanel-dimmed-further: var(--color-bg) !important;
-    --arrowpanel-dimmed-even-further: var(--color-bg) !important;
+    --arrowpanel-dimmed: var(--color-bg) !important;
+    --arrowpanel-dimmed-further: var(--color-bg-alt) !important;
+    --arrowpanel-dimmed-even-further: var(--color-bg-alt) !important;
 
     --avatar-image-url: none !important;
 }
@@ -45,7 +42,7 @@ toolbar {
 }
 
 tab {
-    --tab-line-color: var(--color-primary) !important;
+    --tab-line-color: var(--color-bg-alt) !important;
     --tab-min-width: 110px !important;
 }
 
@@ -95,6 +92,14 @@ tabs {
     --tab-min-height: 38px;
 }
 
+:root,
+.panel-arrowcontainer,
+#confirmation-hint {
+    --arrowpanel-background: var(--color-bg) !important;
+    --arrowpanel-color: var(--color-fg) !important;
+    --arrowpanel-border-color: var(--color-bg) !important;
+}
+
 #navigator-toolbox {
     --tabs-border-color: var(--color-bg-alt) !important;
     border: 0px !important;
@@ -106,12 +111,6 @@ tabs {
 
 #urlbar-input {
     outline: none !important;
-}
-
-#confirmation-hint {
-    --arrowpanel-background: var(--color-bg) !important;
-    --arrowpanel-color: var(--color-fg) !important;
-    --arrowpanel-border-color: var(--color-bg) !important;
 }
 
 #editBookmarkPanelDoneButton {
@@ -158,12 +157,16 @@ tabs {
 #back-button,
 #forward-button,
 #reload-button,
+#home-button,
+#fxa-toolbar-menu-button,
+#sidebar-button,
 .tab-close-button {
     display: none;
 }
 
 #PanelUI-button {
     border: none !important;
+    padding: 0 !important;
 }
 
 /* extension-specific */
@@ -176,10 +179,4 @@ tabs {
 #_testpilot-containers-browser-action, 
 .toolbarbutton-1 {
     fill: var(--color-fg-alt) !important;
-}
-
-.panel-arrowcontainer {
-    --arrowpanel-background: var(--color-bg) !important;
-    --arrowpanel-color: var(--color-fg) !important;
-    --arrowpanel-border-color: var(--color-bg) !important;
 }

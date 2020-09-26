@@ -14,6 +14,13 @@
 
   --radius: $FIREFOX_RADIUS;
   --transition: $FIREFOX_TRANSITION;
+
+  --color-bg: $FF_BG;
+  --color-bg-alt: $FF_BG_ALT;
+  --color-fg: $FF_FG;
+  --color-fg-alt: $FF_FG_ALT;
+  --color-primary: $FF_PRIMARY;
+  --disabled: $FF_DISABLED;
 }
 
 /**
@@ -70,8 +77,7 @@
 @-moz-document domain(duckduckgo.com) {
   html,
   body {
-    scrollbar-color: var(--color-primary) var(--color-bg-op) !important;
-    background-color: var(--color-bg-op) !important;
+    background-color: var(--color-bg) !important;
   }
 
   /* page bg */
@@ -150,11 +156,6 @@
  */
 
 @-moz-document domain(github.com) {
-  html,
-  body {
-    scrollbar-color: var(--color-primary) var(--color-bg-op) !important;
-  }
-
   /* body { */
   /*   background-color: var(--color-bg-op) !important; */
   /*   color: var(--color-fg) !important; */
