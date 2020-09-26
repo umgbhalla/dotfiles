@@ -46,7 +46,7 @@ if [ $CURRENT_THEME_MODE = $THEME_DARK ]; then
   export W_ALPHA_HEX="FF" # higher value means more opaque
 
   export W_BORDER_WIDTH=0
-  export W_CORNER_RADIUS=0
+  export W_CORNER_RADIUS=2
   export W_GAPS=16
 fi
 
