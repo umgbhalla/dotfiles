@@ -2,23 +2,24 @@
     --color-bg: #171520;
     --color-bg-alt: #2e2d38;
     --color-fg: #eceff4;
+    --color-fg-alt: #b3b7bf;
     --color-primary: #519aba;
     --disabled: #b3b7bf;
 
-    --lwt-accent-color: var(--color-bg) !important;
+    --lwt-accent-color: var(--color-bg-alt) !important;
     --lwt-text-color: var(--color-fg) !important;
-    --lwt-toolbar-field-focus: var(--color-primary) !important;
+    --lwt-toolbar-field-focus: var(--color-bg-alt) !important;
     --lwt-toolbar-field-focus-color: var(--color-fg) !important;
 
-    --toolbar-bgcolor: var(--color-bg) !important;
+    --toolbar-bgcolor: var(--color-bg-alt) !important;
 
-    --urlbar-separator-color: var(--color-bg) !important;
-    --chrome-content-separator-color: var(--color-bg) !important;
-    --lwt-toolbar-field-background-color: var(--color-bg) !important;
+    --urlbar-separator-color: var(--color-bg-alt) !important;
+    --chrome-content-separator-color: var(--color-bg-alt) !important;
+    --lwt-toolbar-field-background-color: var(--color-bg-alt) !important;
     --lwt-toolbar-field-color: var(--color-fg) !important;
-    --lwt-toolbar-field-border-color: var(--color-bg) !important;
+    --lwt-toolbar-field-border-color: var(--color-bg-alt) !important;
 
-    --lwt-toolbarbutton-icon-fill: var(--color-fg) !important;
+    --lwt-toolbarbutton-icon-fill: var(--color-fg-alt) !important;
     --urlbar-popup-url-color: var(--color-fg) !important;
     --urlbar-popup-action-color: var(--color-fg) !important;
 
@@ -49,11 +50,7 @@ tab {
 }
 
 tab[selected="true"] .tab-background-inner {
-    background-color: var(--color-bg-alt);
-}
-
-tab[selected="true"] {
-    color: var(--color-primary) !important;
+    background-color: var(--color-bg);
 }
 
 .tab-background {
@@ -100,6 +97,7 @@ tabs {
 
 #navigator-toolbox {
     --tabs-border-color: var(--color-bg-alt) !important;
+    border: 0px !important;
 }
 
 #urlbar-background, #searchbar {
@@ -132,10 +130,52 @@ tabs {
     fill: var(--color-primary) !important;
 }
 
+#navigator-toolbox {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#titlebar, #nav-bar {
+    flex: 1;
+}
+
+.toolbar-items {
+    display: flex;
+}
+
+#TabsToolbar-customization-target {
+    flex: 1;
+}
+
+#tabs-newtab-button,
+#new-tab-button,
+#alltabs-button,
+#pageActionButton,
+#tracking-protection-icon-container,
+#scrollbutton-down,
+#scrollbutton-up,
+#library-button,
+#back-button,
+#forward-button,
+#reload-button,
+.tab-close-button {
+    display: none;
+}
+
+#PanelUI-button {
+    border: none !important;
+}
+
 /* extension-specific */
 
+#adblockultimate_adblockultimate_net-browser-action,
 .toolbarbutton-badge {
   display: none;
+}
+
+#_testpilot-containers-browser-action, 
+.toolbarbutton-1 {
+    fill: var(--color-fg-alt) !important;
 }
 
 .panel-arrowcontainer {
