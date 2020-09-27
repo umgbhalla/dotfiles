@@ -5,6 +5,7 @@
     --color-fg-alt: $FF_FG_ALT;
     --color-primary: $FF_PRIMARY;
     --disabled: $FF_DISABLED;
+    --corner-radius: ${W_CORNER_RADIUS}px;
 
     --lwt-accent-color: var(--color-bg-alt) !important;
     --lwt-text-color: var(--color-fg) !important;
@@ -48,6 +49,7 @@ tab {
 
 tab[selected="true"] .tab-background-inner {
     background-color: var(--color-bg);
+    border-radius: var(--corner-radius) var(--corner-radius) 0 0;
 }
 
 .tab-background {

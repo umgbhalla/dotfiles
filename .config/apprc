@@ -65,19 +65,6 @@ export FF_FG_ALT=$G_FG_ALT
 export FF_PRIMARY=$G_PRIMARY
 export FF_DISABLED=$G_FG_ALT
 
-export FIREFOX_TRANSITION="all 0.2s ease"
-export FIREFOX_RADIUS="${W_CORNER_RADIUS}px"
-export FIREFOX_BG_OP=$G_BG
-export FIREFOX_BG="rgba($($HEX2FF $G_BG), $W_ALPHA)"
-export FIREFOX_BG_ALT="rgba($($HEX2FF $C_GRAY_0), $(printf "%.2f\n" $(( 1 - $W_ALPHA ))))"
-export FIREFOX_FG="$C_GRAY_1"
-export FIREFOX_FG_ALT="$C_GRAY_0"
-export FIREFOX_PRIMARY="$C_CYAN_0"
-export FIREFOX_SECONDARY="$C_RED_1"
-
-export FIREFOX_TRANSITION="all 0.2s ease"
-export FIREFOX_RADIUS="${W_CORNER_RADIUS}px"
-
 # picom
 
 export PICOM_ALPHA="$(echo $(( $W_ALPHA * 100 )) | sed -e 's/\.//g')"

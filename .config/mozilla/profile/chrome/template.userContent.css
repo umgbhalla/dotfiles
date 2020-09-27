@@ -1,72 +1,22 @@
-/**
- * Inspired by the Simplify Silver theme from dpcdpc11.gumroad.com
- */
-
-:root,
-:root:-moz-lwtheme-brighttext {
-  --color-fg: $FIREFOX_FG;
-  --color-fg-alt: $FIREFOX_FG_ALT;
-  --color-bg: $FIREFOX_BG;
-  --color-bg-op: $FIREFOX_BG_OP;
-	--color-bg-alt: $FIREFOX_BG_ALT;
-  --color-primary: $FIREFOX_PRIMARY;
-  --color-secondary: $FIREFOX_SECONDARY;
-
-  --radius: $FIREFOX_RADIUS;
-  --transition: $FIREFOX_TRANSITION;
-
-  --color-bg: $FF_BG;
-  --color-bg-alt: $FF_BG_ALT;
-  --color-fg: $FF_FG;
-  --color-fg-alt: $FF_FG_ALT;
-  --color-primary: $FF_PRIMARY;
-  --disabled: $FF_DISABLED;
+:root {
+    --color-bg: $FF_BG;
+    --color-bg-alt: $FF_BG_ALT;
+    --color-fg: $FF_FG;
+    --color-fg-alt: $FF_FG_ALT;
+    --color-primary: $FF_PRIMARY;
+    --disabled: $FF_DISABLED;
+    --corner-radius: ${W_CORNER_RADIUS}px;
 }
 
 /**
  * ------------------------------------------------
- * new tab page
+ * FF pages
  * ------------------------------------------------
  */
 
-/*
- * bg color
- */
-
-@media (prefers-color-scheme: dark) { 
-  @-moz-document url("about:newtab"), url("about:home"), url("about:blank") { 
-    body { 
-      background-color: var(--color-bg-op) !important; 
-    } 
-  } 
+@-moz-document url("about:newtab"), url("about:home"), url("about:blank"), url("about:preferences") { 
+    body { background-color: var(--color-bg) !important; } 
 } 
-
-/*
- * logo
- */
-
-.search-wrapper .logo-and-wordmark .wordmark {
-  /* branding text color */
-  fill: var(--color-primary) !important;
-}
-
-/*
- * search bar
- */
-
-.search-wrapper .search-button {
-  display: none !important;
-}
-
-.search-wrapper input {
-  /* hide search bar since address bar acts as search bar */
-  display: none !important;
-}
-.search-wrapper .search-button:focus,
-.search-wrapper .search-button:hover {
-  display: none !important;
-  cursor: default !important;
-}
 
 /**
  * ------------------------------------------------
@@ -75,78 +25,93 @@
  */
 
 @-moz-document domain(duckduckgo.com) {
-  html,
-  body {
-    background-color: var(--color-bg) !important;
-  }
+    .site-wrapper, .header-wrap { background-color: var(--color-bg) !important; }
+    /* hide duckduckgo logo - not because I hate it but because I think it's more aesthetic without it*/
+    .header__logo { background-image: none !important; }
 
-  /* page bg */
-  .header-wrap, .vertical--map--sidebar-left .has-requery .vertical--map__sidebar__header, 
-  .map-requery-mobile, .footer, .footer--mobile {
-    background-color: var(--color-bg-op) !important;
-  }
-  .site-wrapper.js-site-wrapper {
-    background-color: var(--color-bg-op) !important;
-  }
+    .search--home, .search--header { background-color: var(--color-bg) !important; }
+    .search--focus .search__button,
+    .search--hover .search__button,
+    .acp--highlight {
+        background-color: var(--color-bg-alt) !important;
+    }
 
-  /* search bar */
-  .search--home, .search--header {
-    background-color: var(--color-bg-alt) !important;
-  }
-	.search__button{
-    background-color: transparent !important;
-	}
-	.search__button:hover {
-    background-color: var(--color-bg-alt) !important;
-	}
-	.search__autocomplete {
-    background: var(--color-bg-op) !important;
-	}
-	.acp-wrap {
-		background-color: var(--color-bg-alt) !important;
-	}
+    .tileview .metabar--fixed { background-color: var(--color-bg) !important; }
+    .tile .tile__body { background: var(--color-bg-alt) !important; }
 
-  /* random search filters gradient */
-  .search-filters-wrap::before,
-  .search-filters-wrap::after {
-    background-image: none !important; 
-  }
+    .results--main .highlight { background-color: var(--color-bg-alt) !important; }
 
-	/* modals */
-	.modal__box {
-		background: var(--color-bg-op) !important;
-		background-color: var(--color-bg-op) !important;
-		background-image: none !important;
-	}
+    .module, .module--carousel__item { background: var(--color-bg-alt) !important; }
+    .module.module--carousel { background: var(--color-bg) !important; }
+    .module--carousel__left,
+    .module--carousel__right {
+        background-color: var(--color-bg) !important;
+        border-color: var(--color-bg-alt) !important;
+    }
+    .module--carousel__left:hover,
+    .module--carousel__right:hover {
+        background-color: var(--color-bg-alt) !important;
+    }
+    .module__toggle { background-color: var(--color-bg-alt) !important; }
 
-  /* feedback button */
-  .btn.feedback-btn, .btn.feedback-btn a, .btn.feedback-btn a:hover {
-    background: var(--color-bg-op) !important;
-  }
+    .feedback-btn, .feedback-btn a { background: var(--color-bg-alt) !important; }
 
-	/* carousel */
-	.module--carousel__left, .module--carousel__right {
-    background-color: var(--color-primary) !important;
-		border-color: transparent !important;
-	}
+    .btn {
+        background-color: var(--color-bg) !important;
+        border: 1px solid var(--color-bg-alt) !important;
+    }
+    .btn:hover { background-color: var(--color-bg-alt) !important; }
 
-	/* more results buttons */
-	.btn.result--more__btn {
-    background-color: var(--color-bg-alt) !important;
-	}
+    .vertical--map__sidebar__wrapper, .place-detail { background: var(--color-bg) !important; }
 
-  /* more info box */
-  .module:not(.module--carousel):not(.module--placeholder):not(.module--images), .sidebar-modules .module, .results--main .result:not(.result--ad).highlight, .module .module--carousel__item, .user-loc-cta, .address-detail, .tile--info, .place-detail, .badge-link, .is-atb-fullbleed .content-info__item, .atb-banner__bottom, .multi-step-mobile-onboarding__step__content, .is-mobile .results_links_deep, .is-mobile .results_links, .is-mobile .result--news, .is-mobile .related-searches, .most-visited__info-tt {
-    background: var(--color-bg-alt) !important;
-  }
-  .module__toggle, .tile__expand {
-    background-color: initial !important;
-  }
+    .acp-wrap, .zci { background-color: var(--color-bg) !important; }
+    .zci--videos .metabar,
+    .zci--images .metabar {
+        background-color: var(--color-bg) !important;
+    }
 
-	/* footer cards */
-	.footer__card {
-    background-color: var(--color-bg-alt) !important;
-	}
+    .footer { background-color: var(--color-bg) !important; }
+    .footer__card { background-color: var(--color-bg-alt) !important; }
+
+    .modal__box,
+    .modal__box__header,
+    .modal .frm__text,
+    .modal .frm__input {
+        border: 1px solid var(--color-bg-alt) !important;
+        background: var(--color-bg) !important;
+    }
+
+    .modal__list__link:hover { background-color: var(--color-bg-alt) !important; }
+
+    .showcase__dropdown-bottom { background-color: var(--color-bg) !important; }
+
+    .nav-menu, .nav-menu--slideout { background-color: var(--color-bg) !important; }
+
+    /* styles */
+
+    .acp-wrap { padding: 0 !important; }
+
+    .search-filters-wrap::before,
+    .search-filters-wrap::after,
+    .metabar__dropdowns-wrap::before,
+    .metabar__dropdowns-wrap::after {
+        background-image: none !important;
+    }
+
+    .module--carousel__item { box-shadow: none !important; }
+}
+
+/**
+ * ------------------------------------------------
+ * youtube
+ * ------------------------------------------------
+ */
+
+@-moz-document domain(youtube.com) {
+    :root { 
+        --yt-spec-general-background-a: var(--color-bg) !important;
+    }
+    /* TODO */
 }
 
 /**
@@ -156,33 +121,20 @@
  */
 
 @-moz-document domain(github.com) {
-  /* body { */
-  /*   background-color: var(--color-bg-op) !important; */
-  /*   color: var(--color-fg) !important; */
-	/* } */
-
-	/* header bar */
-	/* .Header { */
-	/* 	background-color: var(--color-bg-op) !important; */
-	/* } */
-	/* .header-search-current .header-search-wrapper { */
-	/* 	background-color: var(--color-bg-alt) !important; */
-	/* } */
-	/* .header-search-current .header-search-wrapper.focus { */
-	/* 	background-color: var(--color-primary) !important; */
-	/* } */
-
-	/* header area */
-	/* .bg-gray-light { */
-	/* 	background-color: var(--color-bg-op) !important; */
-	/* } */
-
-	/* file browser */
-	/* .Box { */
-	/* 	background-color: var(--color-bg-alt) !important; */
-	/* 	border-color: var(--color-bg-alt) !important; */
-	/* } */
-	/* .navigation-focus { */
-	/* 	background-color: var(--color-bg-alt) !important; */
-	/* } */
+    /* TODO */
 }
+
+/**
+ * ------------------------------------------------
+ * messenger
+ * ------------------------------------------------
+ */
+
+@-moz-document domain(messenger.com) {
+    /* body > div > div > div, */
+    /* ._4sp8 { */
+    /*       background-color: var(--color-bg) !important; */
+    /* } */
+    /* TODO */
+}
+
