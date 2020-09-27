@@ -52,17 +52,9 @@ tab[selected="true"] .tab-background-inner {
     border-radius: var(--corner-radius) var(--corner-radius) 0 0;
 }
 
-.tab-background {
-    border-width: 0px !important;
-}
-
-.tab-line {
-    height: 0 !important;
-}
-
-tab::after {
-    border: none !important;
-}
+.tab-background { border-width: 0px !important; }
+.tab-line { height: 0 !important; }
+tab::after { border: none !important; }
 
 image#pocket-button,
 #appMenu-library-pocket-button,
@@ -70,29 +62,18 @@ toolbarbutton#pageAction-panel-pocket {
     display: none; /* get rekt Mozilla */
 }
 
-button,
-toolbarbutton,
-#pageActionButton {
-    cursor: pointer !important;
-}
+button, toolbarbutton, #pageActionButton { cursor: pointer !important; }
 
-#fxa-avatar-image,
-#fxa-menu-avatar {
-    background-color: var(--color-primary);
-}
+#fxa-avatar-image, #fxa-menu-avatar { background-color: var(--color-primary); }
 
 #sidebar-box {
     --sidebar-border-color: var(--color-bg) !important;
     --sidebar-background-color: var(--color-bg) !important;
 }
 
-#bookmarksPanel {
-    --lwt-sidebar-background-color: var(--color-bg) !important;
-}
+#bookmarksPanel { --lwt-sidebar-background-color: var(--color-bg) !important; }
 
-tabs {
-    --tab-min-height: 38px;
-}
+tabs { --tab-min-height: 38px; }
 
 :root,
 .panel-arrowcontainer,
@@ -107,46 +88,21 @@ tabs {
     border: 0px !important;
 }
 
-#urlbar-background, #searchbar {
-    box-shadow: none !important;
-}
-
-#urlbar-input {
-    outline: none !important;
-}
-
-#editBookmarkPanelDoneButton {
-    background-color: var(--color-primary) !important;
-}
-
-#back-button > .toolbarbutton-icon {
-    border: none !important;
-}
-
-#urlbar-background, #searchbar {
-    border: none !important;
-}
-
-#reader-mode-button[readeractive] {
-    fill: var(--color-primary) !important;
-}
+#urlbar-background, #searchbar { box-shadow: none !important; }
+#urlbar-input { outline: none !important; }
+#editBookmarkPanelDoneButton { background-color: var(--color-primary) !important; }
+#back-button > .toolbarbutton-icon { border: none !important; }
+#urlbar-background, #searchbar { border: none !important; }
+#reader-mode-button[readeractive] { fill: var(--color-primary) !important; }
 
 #navigator-toolbox {
     display: flex;
     flex-direction: column-reverse;
 }
 
-#titlebar, #nav-bar {
-    flex: 1;
-}
-
-.toolbar-items {
-    display: flex;
-}
-
-#TabsToolbar-customization-target {
-    flex: 1;
-}
+#titlebar, #nav-bar { flex: 1; } 
+.toolbar-items { display: flex; } 
+#TabsToolbar-customization-target { flex: 1; }
 
 #tabs-newtab-button,
 #new-tab-button,

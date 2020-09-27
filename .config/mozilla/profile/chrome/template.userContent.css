@@ -63,7 +63,6 @@
     .btn:hover { background-color: var(--color-bg-alt) !important; }
 
     .vertical--map__sidebar__wrapper, .place-detail { background: var(--color-bg) !important; }
-
     .acp-wrap, .zci { background-color: var(--color-bg) !important; }
     .zci--videos .metabar,
     .zci--images .metabar {
@@ -82,22 +81,18 @@
     }
 
     .modal__list__link:hover { background-color: var(--color-bg-alt) !important; }
-
     .showcase__dropdown-bottom { background-color: var(--color-bg) !important; }
-
     .nav-menu, .nav-menu--slideout { background-color: var(--color-bg) !important; }
 
     /* styles */
 
     .acp-wrap { padding: 0 !important; }
-
     .search-filters-wrap::before,
     .search-filters-wrap::after,
     .metabar__dropdowns-wrap::before,
     .metabar__dropdowns-wrap::after {
         background-image: none !important;
     }
-
     .module--carousel__item { box-shadow: none !important; }
 }
 
@@ -110,8 +105,22 @@
 @-moz-document domain(youtube.com) {
     :root { 
         --yt-spec-general-background-a: var(--color-bg) !important;
+        --yt-spec-general-background-b: var(--color-bg) !important;
+        --yt-spec-brand-background-solid: var(--color-bg) !important;
+        --yt-spec-10-percent-layer: var(--color-bg-alt) !important;
+        --yt-spec-badge-chip-background: var(--color-bg-alt) !important;
+        --yt-spec-brand-background-primary: var(--color-bg) !important;
+        --yt-spec-brand-button-background: var(--color-primary) !important;
+        --yt-spec-call-to-action: var(--color-primary) !important;
     }
-    /* TODO */
+
+    #masthead { background-color: var(--color-bg) !important; }
+    #logo-icon-container { display: none !important; } /* lel kek */
+    .ytp-swatch-background-color { background-color: var(--color-primary) !important; }
+    .ytp-cued-thumbnail-overlay:hover .ytp-large-play-button-bg { 
+        fill: var(--color-primary) !important; 
+    }
+    #contents { background-color: var(--color-bg) !important; }
 }
 
 /**
