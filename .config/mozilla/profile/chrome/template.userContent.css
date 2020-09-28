@@ -112,6 +112,8 @@
         --yt-spec-brand-background-primary: var(--color-bg) !important;
         --yt-spec-brand-button-background: var(--color-primary) !important;
         --yt-spec-call-to-action: var(--color-primary) !important;
+        --yt-spec-static-brand-red: var(--color-primary) !important;
+        --yt-spec-brand-link-text: var(--color-primary) !important;
     }
 
     #masthead { background-color: var(--color-bg) !important; }
@@ -125,6 +127,19 @@
 
 /**
  * ------------------------------------------------
+ * reddit
+ * ------------------------------------------------
+ */
+
+@-moz-document domain(reddit.com) {
+    .SubredditVars-r-unixporn > header > div { background-color: var(--color-bg) !important; } 
+    .ListingLayout-backgroundContainer::before { background-color: var(--color-bg) !important; } 
+    .uI_hDmU5GSiudtABRz_37 { background: transparent !important; }
+    /* TODO */
+}
+
+/**
+ * ------------------------------------------------
  * github
  * ------------------------------------------------
  */
@@ -132,18 +147,3 @@
 @-moz-document domain(github.com) {
     /* TODO */
 }
-
-/**
- * ------------------------------------------------
- * messenger
- * ------------------------------------------------
- */
-
-@-moz-document domain(messenger.com) {
-    /* body > div > div > div, */
-    /* ._4sp8 { */
-    /*       background-color: var(--color-bg) !important; */
-    /* } */
-    /* TODO */
-}
-
