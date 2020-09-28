@@ -119,8 +119,14 @@
     #masthead { background-color: var(--color-bg) !important; }
     #logo-icon-container { display: none !important; } /* lel kek */
     .ytp-swatch-background-color { background-color: var(--color-primary) !important; }
+    .ytp-progress-list { background: rgba(255,255,255,0.1) !important; }
+    .ytp-load-progress { background: rgba(255,255,255,0.1) !important; }
+    .ytp-hover-progress { background: rgba(255,255,255,0.1) !important; }
     .ytp-cued-thumbnail-overlay:hover .ytp-large-play-button-bg { 
         fill: var(--color-primary) !important; 
+    }
+    .ytp-chrome-controls .ytp-button[aria-pressed]::after {
+        background-color: var(--color-primary) !important;
     }
     #contents { background-color: var(--color-bg) !important; }
 }
@@ -144,6 +150,13 @@
  * ------------------------------------------------
  */
 
+/* @-moz-document regexp("^https?://((education|gist|graphql|guides|docs|raw|resources|status|developer|support|vscode-auth)\\.)?github\\.com/((?!generated_pages/preview).)*$"), regexp("^https?://www\.zuora\.com.*github\.com.*"), domain("githubusercontent.com"), domain("www.githubstatus.com"), domain("stylishthemes.github.io") { */
+
 @-moz-document domain(github.com) {
+    /* body { color: var(--color-fg) !important; } */
+    /* .bg-white, .bg-gray { background-color: var(--color-bg) !important; } */
+    /* .border-bottom { border-bottom: 1px solid var(--color-bg-alt) !important; } */
+    /* .border-right { border-right: 1px solid var(--color-bg-alt) !important; } */
+    /* .text-gray-dark { color: var(--color-fg) !important; } */
     /* TODO */
 }

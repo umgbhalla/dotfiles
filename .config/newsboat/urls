@@ -2,19 +2,30 @@
 "query:Unread Articles:unread = \"yes\""
 
 # my own feeds
-https://sam.bossley.us/feeds/thoughts.xml
-https://sam.bossley.us/feeds/log.xml
+# https://sam.bossley.us/feeds/thoughts.xml
+# https://sam.bossley.us/feeds/log.xml
+https://github.com/bossley9.private.atom?token=AIN6CHZBZEXJQVI6WOCX34F5PVO5W
 
 # news sources
 # http://rss.cnn.com/rss/cnn_topstories.rss
 # http://newsrss.bbc.co.uk/rss/newsonline_world_edition/front_page/rss.xml
-https://www.pewresearch.org/feed/
+# https://www.pewresearch.org/feed/
 
 # independent projects
-https://suckless.org/atom.xml
+# https://suckless.org/atom.xml
 
 # independent creators
-https://lukesmith.xyz/rss.xml
+https://lukesmith.xyz/rss.xml # luke smith
 https://notrelated.libsyn.com/rss
 
-https://allisonlcj.wordpress.com/feed/atom
+https://allisonlcj.wordpress.com/feed/atom # allison lee
+
+# youtube
+https://www.youtube.com/feeds/videos.xml?channel_id=UC9q4FW3t7AasK7o49C-Mq6w # gus and eddy
+https://www.youtube.com/feeds/videos.xml?channel_id=UCAPR27YUyxmgwm3Wc2WSHLw # chris were
+https://www.youtube.com/feeds/videos.xml?channel_id=UCpIafFPGutTAKOBHMtGen7g # gus johnson
+https://www.youtube.com/feeds/videos.xml?channel_id=UCTSRIY3GLFYIpkR2QwyeklA # drew gooden
+https://www.youtube.com/feeds/videos.xml?channel_id=UCuo9VyowIT-ljA5G2ZuC6Yw # eddy burback
+https://www.youtube.com/feeds/videos.xml?channel_id=UCSdma21fnJzgmPodhC9SJ3g # nakey jakey
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsvn_Po0SmunchJYOWpOxMg # dunkey
+https://www.youtube.com/feeds/videos.xml?channel_id=UCRC6cNamj9tYAO6h_RXd5xA # rt
