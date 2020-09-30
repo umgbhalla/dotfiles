@@ -46,7 +46,9 @@ case "$1" in
 
   # crop
   crop)
-    maim -s "$snapOutputDir/snap-$date.png"
+    output="$snapOutputDir/snap-$date.png"
+    maim -s $output
+    xclip -selection clip -t image/png $output
     notify "Screenshot taken."
     ;;
 
@@ -94,7 +96,9 @@ case "$1" in
 
   # snap
   snap)
-    maim "$snapOutputDir/snap-$date.png"
+    output="$snapOutputDir/snap-$date.png"
+    maim $output
+    xclip -selection clip -t image/png $output
     notify "Screenshot taken."
     ;;
 
