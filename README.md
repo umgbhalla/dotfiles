@@ -31,7 +31,8 @@ I use these same dotfiles for both work and school.
 #### Why Linux?
 
 I wanted a solution that protected my privacy from the major tech corporations (**cough cough
-Google Microsoft Apple**) while also providing wonderful shell tools like Unix's [9base](https://tools.suckless.org/9base/)
+Google Microsoft Apple**) while also providing wonderful shell tools like Unix's 
+[9base](https://tools.suckless.org/9base/)
 utilities. Using Linux also gives me the opportunity to optimize my system to max efficiency,
 creating truly custom keybindings for every application, and freely tweak visual appearances
 for my own satisfaction (e.g. I guarantee it's extremely hard to add a transparent dual-kawese
@@ -273,7 +274,10 @@ We will be creating a main partition for all files and a swap partition for susp
 hibernation. To view the GB amount of memory installed in the system, run the `free -g` 
 command. To be safe, we will make the swap partition to be twice the amount of total RAM.
 
-1. To view the disks to partition, use `fdisk -l` to display all drives and note the drive you wish to install Arch on. Make sure this drive is not the usb drive. Mine is `/dev/sda`, and as such, I will be using this drive for the purposes of this guide. Run the following command to open the partitioning editor for that disk:
+1. To view the disks to partition, use `fdisk -l` to display all drives and note the drive 
+you wish to install Arch on. Make sure this drive is not the usb drive. Mine is `/dev/sda`, 
+and as such, I will be using this drive for the purposes of this guide. Run the following 
+command to open the partitioning editor for that disk:
     ```
     fdisk /dev/sda
     ```
@@ -579,13 +583,14 @@ ever switch to `dwm` down the road.
 
 #### Glasscord <a name="glasscord"></a>
 I prefer using `ibhagwan`'s [picom blur and rounded corners fork](https://github.com/ibhagwan/picom)
-for as many applications as possible, and as such, I use [Glasscord](https://github.com/AryToNeX/Glasscord) 
-because it allows modification of all Electron-based applications to follow this pattern.
-Each installation is very similar, following [these steps](https://github.com/AryToNeX/Glasscord#how-do-i-install-it).
+for as many applications as possible, and as such, I used to use
+[Glasscord](https://github.com/AryToNeX/Glasscord) by [AryToNeX](https://github.com/AryToNeX)
+to style Discord because it allows modification of all Electron-based applications to 
+follow this pattern. Each installation is very similar, following 
+[these steps](https://github.com/AryToNeX/Glasscord#how-do-i-install-it).
 
-Here are the paths to apps I have already modified with Glasscord:
-
-- Discord - `/opt/discord`
+**However, modifications such as these are against Discord's [Terms of Service](), and as such,
+I have stopped using them. Use them at your own risk.**
 
 #### User Custom CSS <a name="user-custom-css"></a>
 Firefox and a few other browsers offer support for custom user stylesheets which override the
@@ -604,10 +609,11 @@ To enable custom stylesheets on Firefox:
     ```
     ln -s $XDG_CONFIG_HOME/mozilla/profile/chrome $FIREFOX_PROFILE_DIR/chrome
     ```
-- restart Firefox and open `about:support` and verify that the `graphics` > `compositing` option has changed from `basic` to `opengl`. Styles and transparency effects should now be enabled.
+- restart Firefox and open `about:support` and verify that the `graphics` > `compositing` option 
+    has changed from `basic` to `opengl`. Styles and transparency effects should now be enabled.
 
 ## TODO <a name="todo"></a>
-Below are a list of things in no particular order that I plan to do but haven't yet 
+Below are a list of things in no particular order that I plan to do but haven't yet
 implemented or had the time to configure.
 
 + pinyin input (fcitx?)
@@ -616,5 +622,4 @@ implemented or had the time to configure.
 + contact management application
 + customize gtk theming
 + find a good remote desktop client
-+ fix discord video streaming bug
 + pcie single-gpu passthrough (this will take a while...)
