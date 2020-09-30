@@ -157,6 +157,7 @@ source $XDG_CONFIG_HOME/apprc
 # misc color (order)
 
 # background command
-# export BACKGROUND="feh --bg-fill --no-fehbg $XDG_CONFIG_HOME/wallpapers/$CURRENT_THEME_MODE.jpg"
-export BACKGROUND="hsetroot -solid $C_CYAN_0"
+# xsetroot doesn't work here because the compositor overrides background changes
+# export BACKGROUND="hsetroot -full $XDG_CONFIG_HOME/wallpapers/$CURRENT_THEME_MODE.jpg"
+export BACKGROUND="hsetroot -solid $G_PRIMARY"
 
