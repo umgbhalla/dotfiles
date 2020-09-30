@@ -32,10 +32,12 @@ font-2 = Source Code Pro Medium:bold:pixelsize=12:antialias=true:autohint=true;3
 font-3 = WenQuanYi Zen Hei Mono:pixelsize=14;3
 
 modules-left = bspwm
-modules-center = title 
+modules-center = title
 modules-right = capture wlan eth pulseaudio battery date
 
 cursor-click = pointer
+
+tray-position = right
 
 [module/bspwm]
 type = internal/bspwm
