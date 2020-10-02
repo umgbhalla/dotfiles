@@ -55,7 +55,7 @@ ${NC}"
 fi
 
 # shell prompt
-export PROMPT="%F{c} %1v %F{m}%2~%f %F{c}>>%f "
+export PROMPT="%F{c} %1v %F{y}%2~%f %F{c}>>%f "
 
 # mode display
 function viMode {

@@ -9,7 +9,8 @@ export C_BLACK_0="#171520"
 export C_BLACK_1="#2e2d38"
 
 export C_RED_0="#c83d65"
-export C_RED_1="#f787a7"
+export C_RED_1="$C_RED_0"
+# export C_RED_1="#f787a7"
 
 export C_GREEN_0="#729a50"
 export C_GREEN_1="$C_GREEN_0"
