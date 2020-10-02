@@ -89,6 +89,8 @@ F10
   $SCREEN capture
 F9
   $SCREEN stop
+F8
+  $SCREEN gif
 
 #
 # brightness control

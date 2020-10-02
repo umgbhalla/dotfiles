@@ -43,15 +43,15 @@ tray-position = right
 type = internal/bspwm
 
 label-focused = %icon%
-label-focused-foreground = ${colors.alert}
+label-focused-foreground = ${colors.primary}
 label-focused-padding = 2
 
 label-occupied = %icon%
-label-occupied-foreground = ${colors.primary}
+label-occupied-foreground = ${colors.secondary}
 label-occupied-padding = 2
 
 label-urgent = %icon%
-label-urgent-foreground = ${colors.primary}
+label-urgent-foreground = ${colors.alert}
 label-urgent-padding = 2
 
 label-empty = %icon%
@@ -61,11 +61,11 @@ ws-icon-0 = "I;"
 ws-icon-1 = "II;"
 ws-icon-2 = "III;"
 ws-icon-3 = "IV;"
-ws-icon-4 = "V;"
-ws-icon-5 = "VI;六"
-ws-icon-6 = "VII;七"
-ws-icon-7 = "VIII;八"
-ws-icon-8 = "IX;九"
+ws-icon-4 = "V;"
+ws-icon-5 = "VI;"
+ws-icon-6 = "VII;"
+ws-icon-7 = "VIII;"
+ws-icon-8 = "IX;"
 ws-icon-9 = "X;"
 ws-icon-default = ""
 
@@ -118,7 +118,7 @@ label-volume =  %percentage%%
 label-volume-padding = 2
 
 label-muted =  --%
-label-muted-foreground = ${colors.primary}
+label-muted-foreground = ${colors.secondary}
 label-muted-padding = 2
 
 [module/battery]
