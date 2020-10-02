@@ -122,15 +122,15 @@ beets # audio tag editor
 typescript
 clang # required for clang-format
 
-# tty text manipulation
-figlet
-
-# emulation
-qemu
-
 # -------------------------------------------------------------------
 # extra
 # -------------------------------------------------------------------
+
+# tty text manipulation
+# figlet
+
+# emulation
+# qemu
 
 # conversation and work
 discord

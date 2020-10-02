@@ -33,8 +33,7 @@ bspc monitor -d I II III IV V VI VII VIII IX X
 # media
 bspc rule -a feh state=floating
 bspc rule -a mpv state=floating
+bspc rule -a Zathura state=tiled
 
 # shell popup windows
 bspc rule -a '*:shellpopup' state=floating sticky="on"
-
-bspc rule -a Zathura state=tiled

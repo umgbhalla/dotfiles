@@ -73,14 +73,17 @@ minecraft-launcher
 zoom
 
 # required by ue4 for development
-code
+# code
 
 # tty clock display
-tty-clock
+# tty-clock
 
 # music player
 spotify
 spicetify-cli
 
 # audio visualizer
-cava
+# cava
+
+# terminal image display
+# viu
