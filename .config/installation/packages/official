@@ -136,4 +136,5 @@ clang # required for clang-format
 discord
 
 # music
+# ncmpcpp
 cmus
