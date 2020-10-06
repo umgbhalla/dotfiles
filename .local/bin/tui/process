@@ -1,0 +1,4 @@
+#!/bin/sh
+
+nohup "$@" > /dev/null &
+disown %1

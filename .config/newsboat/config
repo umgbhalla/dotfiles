@@ -1,9 +1,9 @@
 auto-reload yes
 # show-read-feeds no
-reload-threads 30
+reload-threads 40
 
 browser "$BROWSER %u"
-macro , set browser "mpv %u" ; open-in-browser ; set browser "$BROWSER %u"
+macro , set browser "$PROCESS mpv %u" ; open-in-browser ; set browser "$BROWSER %u"
 
 # vim bindings
 unbind-key j

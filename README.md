@@ -478,6 +478,7 @@ modified them when necessary.
 - [No dwm?](#no-dwm)
 - [Glasscord](#glasscord)
 - [User Custom CSS](#user-custom-css)
+- [Fine-Tuning Package Installation](fine-tuning-package-installation)
 
 #### Touchpad settings <a name="touchpad-settings"></a>
 By default, most linux distros disable natural scrolling and disable touchpad tapping. I 
@@ -611,6 +612,16 @@ To enable custom stylesheets on Firefox:
     ```
 - restart Firefox and open `about:support` and verify that the `graphics` > `compositing` option 
     has changed from `basic` to `opengl`. Styles and transparency effects should now be enabled.
+
+#### Fine-Tuning Package Installation <a name="fine-tuning-package-installation"></a>
+
+There are a few configuration options that can be set to make package browsing and installation
+more user-friendly in Pacman and Yay.
+
+1. Add color support via `/etc/pacman.conf`:
+```
+Color
+```
 
 ## TODO <a name="todo"></a>
 Below are a list of things in no particular order that I plan to do but haven't yet

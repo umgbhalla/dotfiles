@@ -10,13 +10,13 @@ https://github.com/bossley9.private.atom?token=AIN6CHZBZEXJQVI6WOCX34F5PVO5W tec
 https://www.pewresearch.org/feed/ news # pew center
 
 # independent creators
-https://lukesmith.xyz/rss.xml independent tech writing # luke smith
+https://lukesmith.xyz/rss.xml independent tech commentary # luke smith
 https://notrelated.libsyn.com/rss independent podcast # not related
-https://allisonlcj.wordpress.com/feed/atom independent writing # allison lee
+https://allisonlcj.wordpress.com/feed/atom independent commentary # allison lee
 
 # youtube
-https://www.youtube.com/feeds/videos.xml?channel_id=UC9q4FW3t7AasK7o49C-Mq6w  youtube meme podcast # gus and eddy
-https://www.youtube.com/feeds/videos.xml?channel_id=UCAPR27YUyxmgwm3Wc2WSHLw  youtube tech # chris were
+https://www.youtube.com/feeds/videos.xml?channel_id=UC9q4FW3t7AasK7o49C-Mq6w youtube meme podcast # gus and eddy
+https://www.youtube.com/feeds/videos.xml?channel_id=UCAPR27YUyxmgwm3Wc2WSHLw youtube tech # chris were
 https://www.youtube.com/feeds/videos.xml?channel_id=UCpIafFPGutTAKOBHMtGen7g youtube meme # gus johnson
 https://www.youtube.com/feeds/videos.xml?channel_id=UCTSRIY3GLFYIpkR2QwyeklA youtube meme # drew gooden
 https://www.youtube.com/feeds/videos.xml?channel_id=UCuo9VyowIT-ljA5G2ZuC6Yw youtube meme # eddy burback
@@ -36,6 +36,13 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UC_fvAVmQ3aQ4zpuvzGPZP3w you
 https://www.youtube.com/feeds/videos.xml?channel_id=UCw-kw9V9aE0c6y1fJm6e2IA youtube tech # nerd on a budget
 https://www.youtube.com/feeds/videos.xml?channel_id=UCIdVOofoUN2rWQPLHX6xmJw youtube meme # nathan fielder
 https://www.youtube.com/feeds/videos.xml?channel_id=UCamvct0fdKsWoR5DuYdFzww youtube meme # abelina sabrina
+https://www.youtube.com/feeds/videos.xml?channel_id=UCveuCkTaxr5cDc60eaf4dmQ youtube commentary # drawpinion dump
+https://www.youtube.com/feeds/videos.xml?channel_id=UC6VBSriBtTgTXohF15Yo9sQ youtube meme # curtis robert
+
+# twitch
+https://twitchrss.appspot.com/vod/rtgamecrowd "~RTGameCrowd Stream" twitch meme game
+https://twitchrss.appspot.com/vod/eddyburback "~Eddy Burback Stream" twitch meme game
+https://twitchrss.appspot.com/vod/gusjohnson "~Gus Johnson Stream" twitch meme game
 
 # reddit
 https://www.reddit.com/r/archlinux.rss ~r/archlinux reddit tech
@@ -64,3 +71,4 @@ https://www.reddit.com/r/suckless.rss ~r/suckless reddit tech
 https://www.reddit.com/r/unix.rss ~r/unix reddit tech
 https://www.reddit.com/r/unixporn.rss ~r/unixporn reddit tech visual
 https://www.reddit.com/r/ZeldaMemes.rss ~r/zeldamemes reddit meme
+https://www.reddit.com/r/mechanicalkeyboards.rss ~r/mechanicalkeyboards reddit tech
