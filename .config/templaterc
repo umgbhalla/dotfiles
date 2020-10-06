@@ -1,3 +1,4 @@
+$HOME/.themes/DotfilesGtk/gtk-3.0/template._colors.scss
 $XDG_CONFIG_HOME/dunst/template.dunstrc
 $XDG_CONFIG_HOME/glasscord/themes/template.blur.css
 $XDG_CONFIG_HOME/gtk-3.0/template.bookmarks

@@ -25,7 +25,12 @@ export G_ALERT=$C_RED_0
 
 # theme
 
-# TODO
+export THEME_FG="$G_FG"
+export THEME_FG_ALT="$G_FG_ALT"
+export THEME_BG="$G_BG"
+export THEME_PRIMARY="$G_PRIMARY"
+export THEME_WARNING="$C_YELLOW_0"
+export THEME_ERROR="$G_ALERT"
 
 # bspwm
 
