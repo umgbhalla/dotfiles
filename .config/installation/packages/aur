@@ -63,6 +63,7 @@ minecraft-launcher
 
 # messaging
 # signal
+signal-desktop-beta-bin
 
 # phone display
 # scrcpy
@@ -74,7 +75,7 @@ minecraft-launcher
 zoom
 
 # required by ue4 for development
-# code
+code
 
 # tty clock display
 # tty-clock
