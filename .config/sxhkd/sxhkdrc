@@ -112,10 +112,10 @@ super + shift + braceleft
 super + shift + plus
   $XDG_SCRIPT_HOME/tui/redshift
 
-super + ctrl + shift + braceright
+super + ctrl + shift + braceleft
   brightnessctl s 5%-
 
-super + ctrl + shift + braceleft
+super + ctrl + shift + braceright
   brightnessctl s +5%
 
 # legacy
