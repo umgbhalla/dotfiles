@@ -47,8 +47,12 @@ texlive-most
 texlive-lang
 biber
 
-# modeling
-blender
+# 3D modeling
+# blender
+
+# live usb writing (because windows live usbs don't seem to work
+# with big brain commands like dd)
+# balena-etcher
 
 # -------------------------------------------------------------------
 # extra
@@ -63,7 +67,7 @@ minecraft-launcher
 
 # messaging
 # signal
-signal-desktop-beta-bin
+# signal-desktop-beta-bin
 
 # phone display
 # scrcpy

@@ -67,8 +67,11 @@ export FF_BG=$G_BG
 export FF_BG_ALT=$G_BG_ALT
 export FF_FG=$G_FG
 export FF_FG_ALT=$G_FG_ALT
-export FF_PRIMARY=$G_PRIMARY
 export FF_DISABLED=$G_FG_ALT
+export FF_PRIMARY=$G_PRIMARY
+export FF_SECONDARY=$G_SECONDARY
+export FF_WARNING=$G_TERTIARY
+export FF_ALERT=$G_ALERT
 
 # picom
 

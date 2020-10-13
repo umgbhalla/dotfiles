@@ -3,8 +3,13 @@
     --color-bg-alt: $FF_BG_ALT;
     --color-fg: $FF_FG;
     --color-fg-alt: $FF_FG_ALT;
-    --color-primary: $FF_PRIMARY;
     --disabled: $FF_DISABLED;
+
+    --color-primary: $FF_PRIMARY;
+    --color-secondary: $FF_SECONDARY;
+    --color-warning: $FF_WARNING;
+    --color-alert: $FF_ALERT;
+
     --corner-radius: ${W_CORNER_RADIUS}px;
 }
 
@@ -185,6 +190,9 @@
         background-color: var(--color-bg) !important;
         color: var(--color-fg) !important;
     }
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--color-fg) !important;
+    }
     #archnavbar {
         background: var(--color-bg) !important;
         border-bottom: 1px solid var(--color-bg-alt) !important;
@@ -202,6 +210,42 @@
         background: var(--color-primary) !important;
         border: none !important;
     }
-    code { background: var(--color-bg-alt) !important; }
-    pre { border: none !important; background: none !important; }
+    #mw-panel .portal h3 { color: var(--color-fg) !important; }
+    #toc {
+        background-color: var(--color-bg-alt) !important;
+        border: none !important;
+    }
+    .tocnumber {
+        color: var(--color-fg) !important;
+    }
+    li.selected {
+        background-color: var(--color-bg-alt) !important;
+        border: none !important;
+    }
+    code, pre {
+        background: var(--color-bg-alt) !important;
+        color: var(--color-fg) !important;
+    }
+    pre { border: none !important; }
+    #content {
+        background: var(--color-bg) !important;
+        color: var(--color-fg) !important;
+    }
+    #content table, #content h1, #content h2, #content h3, #content h4, #content h5, #content pre, #content code, #content tt {
+        color: var(--color-fg) !important;
+    }
+    .archwiki-template-box-warning {
+        background: var(--color-warning) !important;
+        border-color: var(--color-warning) !important;
+    }
+    .archwiki-template-message,
+    .archwiki-template-box-note,
+    .archwiki-template-box-tip {
+        background: var(--color-bg-alt) !important;
+        border-color: var(--color-bg-alt) !important;
+    }
+    .catlinks {
+       background-color: var(--color-bg-alt) !important;
+       border-color: var(--color-bg-alt) !important;
+    }
 }
