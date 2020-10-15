@@ -234,6 +234,14 @@
     #content table, #content h1, #content h2, #content h3, #content h4, #content h5, #content pre, #content code, #content tt {
         color: var(--color-fg) !important;
     }
+    .wikitable,
+    .wikitable > tr > th,
+    .wikitable > * > tr > th {
+        background-color: var(--color-bg-alt) !important;
+    }
+    td {
+        border: 1px solid var(--color-bg);
+    }
     .archwiki-template-box-warning {
         background: var(--color-warning) !important;
         border-color: var(--color-warning) !important;
