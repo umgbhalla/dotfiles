@@ -6,17 +6,10 @@
 BAR_HEIGHT=28
 W_WIDTH=$(( $RES_WIDTH - $(( $W_GAPS + $W_BORDER_WIDTH )) * 2 )) 
 
-if [ $CURRENT_THEME_MODE = $THEME_DARK ]; then
-  export G_BG=$C_BLACK_0
-  export G_BG_ALT=$C_BLACK_1
-  export G_FG=$C_GRAY_1
-  export G_FG_ALT=$C_GRAY_0
-else
-  export G_BG=$C_BLACK_0
-  export G_BG_ALT=$C_BLACK_1
-  export G_FG=$C_GRAY_1
-  export G_FG_ALT=$C_GRAY_0
-fi
+export G_BG=$C_BLACK_0
+export G_BG_ALT=$C_BLACK_1
+export G_FG=$C_GRAY_1
+export G_FG_ALT=$C_GRAY_0
 
 export G_PRIMARY=$C_BLUE_0
 export G_SECONDARY=$C_MAGENTA_0
@@ -96,7 +89,7 @@ export POLYBAR_ALERT="$G_ALERT"
 export SHELLMENU_WIDTH="$W_WIDTH"
 export SHELLMENU_HEIGHT=300
 export SHELLMENU_X=$W_GAPS
-export SHELLMENU_Y=$BSPWM_TOP_Y
+export SHELLMENU_Y=$W_GAPS
 
 export SHELLMENU_BG="$G_BG"
 export SHELLMENU_FG="$G_FG"
