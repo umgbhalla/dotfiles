@@ -10,9 +10,6 @@
 [submodule ".config/surf"]
 	path = .config/surf
 	url = https://github.com/bossley9/surf.git
-[submodule ".config/zsh/fsh"]
-	path = .config/zsh/fsh
-	url = https://github.com/zdharma/fast-syntax-highlighting.git
 [submodule ".themes/DotfilesGtk"]
 	path = .themes/DotfilesGtk
 	url = https://github.com/bossley9/DotfilesGtk.git

@@ -8,9 +8,6 @@ typeset -g KEYTIMEOUT=25 # allow zsh to handle multichar bindings
 # include aliases
 [ -f $XDG_CONFIG_HOME/aliasrc ] && source $XDG_CONFIG_HOME/aliasrc
 
-# syntax highlighting
-source $XDG_CONFIG_HOME/zsh/fsh/fast-syntax-highlighting.plugin.zsh
-
 # history
 HISTFILE="$XDG_CACHE_HOME/zsh_history"
 HISTSIZE=10000000
