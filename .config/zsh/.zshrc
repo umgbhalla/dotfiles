@@ -28,19 +28,14 @@ precmd() {
 zstyle ':vcs_info:git:*' formats '%b'
 setopt prompt_subst
 
-M=$MAGENTA
-C=$CYAN
-Y=$YELLOW
-R=$RED
-
 FG=$WHITE
-P=$MAGENTA
+P=$RED
 
 # just for fun
 if xset q &>/dev/null; then
 echo "$(tput cup "$LINES")${FG}\
  ┌―――――――――――――――――――――――――――――┬―――――――――┐
- ├―――――――――――――――――――――――――――――┘ ${R}▀${FG}  ${R}▀${FG}  ${R}▀${FG} │
+ ├―――――――――――――――――――――――――――――┘ ${P}▀${FG}  ${P}▀${FG}  ${P}▀${FG} │
  │                                       │
  │         ${P}/\\ ${FG}                           │\n\
  │        ${P}/  \\ ${FG}                          │\n\

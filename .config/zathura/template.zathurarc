@@ -48,6 +48,7 @@ set statusbar-fg "$ZATHURA_FG"
 # (should) make pdf bg transparent
 set recolor-lightcolor "rgba(0,0,0,0)"
 
+set recolor-darkcolor "$ZATHURA_FG"
 map i recolor # toggle color mode
 
 set window-title-basename true # use file name as window title

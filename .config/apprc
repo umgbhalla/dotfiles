@@ -11,8 +11,8 @@ export G_BG_ALT=$C_BLACK_1
 export G_FG=$C_GRAY_1
 export G_FG_ALT=$C_GRAY_0
 
-export G_PRIMARY=$C_BLUE_0
-export G_SECONDARY=$C_MAGENTA_0
+export G_PRIMARY=$C_RED_0
+export G_SECONDARY=$C_BLUE_0
 export G_TERTIARY=$C_GREEN_0
 export G_ALERT=$C_RED_0
 
@@ -33,12 +33,6 @@ export BSPWM_BORDER_ACTIVE=$G_FG
 export BSPWM_BORDER_NORMAL=$BSPWM_BORDER_ACTIVE
 export BSPWM_BORDER_FOCUSED=$BSPWM_BORDER_ACTIVE
 
-# discord
-
-export DISCORD_BG="$G_BG$W_ALPHA_HEX"
-export DISCORD_FG="$G_FG"
-export DISCORD_PRIMARY="$G_BG"
-
 # dunst
 
 export DUNST_WIDTH=400
@@ -50,9 +44,10 @@ export DUNST_ICON_SIZE=$(( $DUNST_HEIGHT * 0.8 ))
 export DUNST_FONT="Source Code Pro Medium 12"
 
 # higher hex means higher transparency
-export DUNST_BG="$G_PRIMARY$W_ALPHA_HEX"
+export DUNST_BG="$G_BG$W_ALPHA_HEX"
 export DUNST_BG_CRITICAL="$G_ALERT$W_ALPHA_HEX"
 export DUNST_FG="$G_FG"
+export DUNST_FRAME="$G_FG"
 
 # firefox
 
@@ -79,8 +74,8 @@ export POLYBAR_HEIGHT=$BAR_HEIGHT
 
 export POLYBAR_BG="#00${G_BG:1}"
 export POLYBAR_FG="$G_FG"
-export POLYBAR_PRIMARY="$G_SECONDARY"
-export POLYBAR_SECONDARY="$G_PRIMARY"
+export POLYBAR_PRIMARY="$G_PRIMARY"
+export POLYBAR_SECONDARY="$G_SECONDARY"
 export POLYBAR_TERTIARY="$G_TERTIARY"
 export POLYBAR_ALERT="$G_ALERT"
 
@@ -94,8 +89,8 @@ export SHELLMENU_Y=$W_GAPS
 export SHELLMENU_BG="$G_BG"
 export SHELLMENU_FG="$G_FG"
 export SHELLMENU_MATCH="$G_PRIMARY"
-export SHELLMENU_SEL="$C_RED_1"
-export SHELLMENU_PROMPT="$G_PRIMARY"
+export SHELLMENU_CURRENT="$G_SECONDARY"
+export SHELLMENU_PROMPT="$G_TERTIARY"
 
 # spicetify
 

@@ -8,14 +8,14 @@
 export C_BLACK_0="#c6c1aa"
 export C_BLACK_1="#b0ab97"
 
-export C_RED_0="#a54242"
-export C_RED_1="#cc6666"
+export C_RED_0="#ba795c"
+export C_RED_1="#ba9a81"
 
 export C_GREEN_0="#626e39"
 export C_GREEN_1="#8c9440"
 
-export C_YELLOW_0="#de935f"
-export C_YELLOW_1="#f0c674"
+export C_YELLOW_0="#eacc79"
+export C_YELLOW_1="#eadfb1"
 
 export C_BLUE_0="#5f819d"
 export C_BLUE_1="#81a2be"

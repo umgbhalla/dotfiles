@@ -61,10 +61,10 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 0
+    frame_width = $W_BORDER_WIDTH
 
     # Defines color of the frame around the notification window.
-    # frame_color = 
+    frame_color = $DUNST_FRAME
 
     # Define a color for the separator.
     # possible values are:
