@@ -1,7 +1,7 @@
 ! special
-*.foreground:   #c1c6aa
-*.background:   #47443c
-*.cursorColor:  #c6c1aa
+*.foreground:   $C_BLACK_0
+*.background:   $C_GRAY_0
+*.cursorColor:  $C_GRAY_0
 
 ! black
 *.color0:       $C_BLACK_0

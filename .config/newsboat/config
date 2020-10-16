@@ -22,7 +22,7 @@ bind-key u pageup
 bind-key SPACE open-in-browser
 
 color listfocus black blue standout bold
-color listfocus_unread black yellow standout bold
+color listfocus_unread black red standout bold
 color info blue black
 
 highlight all "---.*---" yellow
