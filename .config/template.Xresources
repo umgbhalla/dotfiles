@@ -1,0 +1,36 @@
+! special
+*.foreground:   #c1c6aa
+*.background:   #47443c
+*.cursorColor:  #c6c1aa
+
+! black
+*.color0:       $C_BLACK_0
+*.color8:       $C_BLACK_1
+
+! red
+*.color1:       $C_RED_0
+*.color9:       $C_RED_1
+
+! green
+*.color2:       $C_GREEN_0
+*.color10:      $C_GREEN_1
+
+! yellow
+*.color3:       $C_YELLOW_0
+*.color11:      $C_YELLOW_1
+
+! blue
+*.color4:       $C_BLUE_0
+*.color12:      $C_BLUE_1
+
+! magenta
+*.color5:       $C_MAGENTA_0
+*.color13:      $C_MAGENTA_1
+
+! cyan
+*.color6:       $C_CYAN_0
+*.color14:      $C_CYAN_1
+
+! white
+*.color7:       $C_GRAY_0
+*.color15:      $C_GRAY_1
