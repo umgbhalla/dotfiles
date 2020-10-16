@@ -59,14 +59,13 @@ biber
 # -------------------------------------------------------------------
 
 # game launcher
-lutris
+# lutris
 # legendary
 
 # minecraft is for the bois
-minecraft-launcher
+# minecraft-launcher
 
 # messaging
-# signal
 # signal-desktop-beta-bin
 
 # phone display
@@ -79,7 +78,7 @@ minecraft-launcher
 zoom
 
 # required by ue4 for development
-code
+# code
 
 # tty clock display
 # tty-clock
