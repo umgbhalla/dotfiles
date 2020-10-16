@@ -150,4 +150,4 @@ source $XDG_CONFIG_HOME/apprc
 
 # background command
 # xsetroot doesn't work here because the compositor overrides background changes
-export BACKGROUND="hsetroot -solid $G_BG -tile $XDG_CONFIG_HOME/wallpapers/tile.jpg"
+export BACKGROUND="hsetroot -solid $G_BG -tile $XDG_CONFIG_HOME/wallpapers/tile-$CURRENT_THEME_MODE.jpg"

@@ -7,6 +7,10 @@
 
 export C_BLACK_0="#c6c1aa"
 export C_BLACK_1="#b0ab97"
+if [ $CURRENT_THEME_MODE = $THEME_DARK ]; then
+  export C_BLACK_0="#47443c"
+  export C_BLACK_1="#636155"
+fi
 
 export C_RED_0="#ba795c"
 export C_RED_1="#ba9a81"
@@ -28,6 +32,10 @@ export C_CYAN_1="#5e8d87"
 
 export C_GRAY_0="#47443c"
 export C_GRAY_1="#636155"
+if [ $CURRENT_THEME_MODE = $THEME_DARK ]; then
+  export C_GRAY_0="#c6c1aa"
+  export C_GRAY_1="#b0ab97"
+fi
 
 #
 # terminal colors
