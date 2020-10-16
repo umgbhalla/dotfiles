@@ -25,7 +25,7 @@ export RES_HEIGHT=1080
 export THEME_LIGHT="light"
 export THEME_DARK="dark"
 
-export CURRENT_THEME_MODE="$THEME_DARK"
+export CURRENT_THEME_MODE="$THEME_LIGHT"
 
 export THEME="DotfilesGtk"
 
@@ -37,8 +37,8 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export W_ALPHA=1
 export W_ALPHA_HEX="FF" # higher value means more opaque
 
-export W_BORDER_WIDTH=0
-export W_CORNER_RADIUS=2
+export W_BORDER_WIDTH=3
+export W_CORNER_RADIUS=0
 export W_GAPS=16
 
 if [ $CURRENT_THEME_MODE = $THEME_DARK ]; then
@@ -159,5 +159,4 @@ source $XDG_CONFIG_HOME/apprc
 
 # background command
 # xsetroot doesn't work here because the compositor overrides background changes
-# export BACKGROUND="hsetroot -full $XDG_CONFIG_HOME/wallpapers/$CURRENT_THEME_MODE.jpg"
-export BACKGROUND="hsetroot -solid $G_PRIMARY -tile $XDG_CONFIG_HOME/wallpapers/tile-dark.png"
+export BACKGROUND="hsetroot -solid $G_BG -tile $XDG_CONFIG_HOME/wallpapers/tile.jpg"

@@ -36,30 +36,33 @@ C=$CYAN
 Y=$YELLOW
 R=$RED
 
+FG=$WHITE
+P=$MAGENTA
+
 # just for fun
 if xset q &>/dev/null; then
-echo "$(tput cup "$LINES")${CYAN}\
+echo "$(tput cup "$LINES")${FG}\
  ┌―――――――――――――――――――――――――――――┬―――――――――┐
- ├―――――――――――――――――――――――――――――┘ ${R}▀${C}  ${R}▀${C}  ${R}▀${C} │
+ ├―――――――――――――――――――――――――――――┘ ${R}▀${FG}  ${R}▀${FG}  ${R}▀${FG} │
  │                                       │
- │         ${Y}/\\ ${C}                           │\n\
- │        ${Y}/  \\ ${C}                          │\n\
- │       ${Y}/\\   \\ ${C}                         │\n\
- │      ${Y}/      \\ ${C}                        │\n\
- │     ${Y}/   ,,   \\     i use arch btw ~  ${C} │\n\
- │    ${Y}/   |  |  -\\ ${C}                      │\n\
- │   ${Y}/_-''    ''-_\\ ${C}                     │\n\
+ │         ${P}/\\ ${FG}                           │\n\
+ │        ${P}/  \\ ${FG}                          │\n\
+ │       ${P}/\\   \\ ${FG}                         │\n\
+ │      ${P}/      \\ ${FG}                        │\n\
+ │     ${P}/   ,,   \\     i use arch btw ~  ${FG} │\n\
+ │    ${P}/   |  |  -\\ ${FG}                      │\n\
+ │   ${P}/_-''    ''-_\\ ${FG}                     │\n\
  │                                       │
  └―――――――――――――――――――――――――――――――――――――――┘
 ${NC}"
 fi
 
 # shell prompt
-export PROMPT="%F{c} %1v %F{y}%2~%f %F{c}>>%f "
+export PROMPT="%F{BG} %1v %F{BG}%2~%f %F{BG}>>%f "
 
 # mode display
 function viMode {
-  RPS1="%F{c}${${KEYMAP/vicmd/NORMAL}/(main|viins)/INSERT}%f"
+  RPS1="%F{BG}${${KEYMAP/vicmd/NORMAL}/(main|viins)/INSERT}%f"
   RPS2=$RPS1
 }
 function zle-line-init zle-keymap-select {
