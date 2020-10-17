@@ -636,3 +636,5 @@ implemented or had the time to configure.
 + pcie single-gpu passthrough (this will take a while...)
 + update color/styling for ff
 + switch from cmus to ncmpcpp
++ switch to uefi
++ fix ffmpeg screen capture quality and audio

@@ -1,20 +1,25 @@
 #!/bin/sh
-# manages any form of screen capturing or recording, 
+# manages any form of screen capturing or recording
 # in addition to audio capturing and recording.
 
-pidFile=/tmp/ffmpegCapturePid
+# --------------------------------------------------------------------------
+# environment
+# --------------------------------------------------------------------------
 
+# output directories
 snapOutputDir=$HOME/Pictures
 captureOutputDir=$HOME/Videos
-
-date="$(\date +%y-%m-%d_%H:%M:%S)"
-
 mkdir -p $snapOutputDir
 mkdir -p $captureOutputDir
 
+# filename date format
+date="$(\date +%y-%m-%d_%H:%M:%S)"
+
+# recording status temporary file path
+pidFile=/tmp/ffmpegCapturePid
+
 notifyTime=0.5
 notifyTimeMs=$(( $(echo $notifyTime | cut -d. -f2) * 100 ))
-
 function notify() {
   dunstify -i camera-photo-symbolic.symbolic -t $notifyTimeMs "$1"
 }
@@ -24,9 +29,16 @@ function refreshBar() {
   touch -m $XDG_CONFIG_HOME/polybar/config
 }
 
+# --------------------------------------------------------------------------
+# script
+# --------------------------------------------------------------------------
+
 case "$1" in
 
-  # capture
+# --------------------------------------------------------------------------
+# capture
+# --------------------------------------------------------------------------
+
   capture)
     if [ ! -f $pidFile ]; then
       notify "Screen capture starting."
@@ -44,15 +56,31 @@ case "$1" in
     fi
     ;;
 
-  # crop
+# --------------------------------------------------------------------------
+# crop
+# --------------------------------------------------------------------------
+
   crop)
     output="$snapOutputDir/snap-$date.png"
-    maim -s $output
-    xclip -selection clip -t image/png $output
-    notify "Screenshot taken."
+    geometry=$(slop)
+
+    if [ -z $geometry ]; then
+      echo -e "${RED}Error: invalid dimensions.${NC}"
+    else
+      dim=$(echo $geometry | cut -d+ -f1)
+      x="$(echo $geometry | cut -d+ -f2)"
+      y="$(echo $geometry | cut -d+ -f3)"
+
+      ffmpeg -f x11grab -video_size $dim -i $DISPLAY+$x,$y -vframes 1 $output
+      xclip -selection clip -t image/png $output
+      notify "Screenshot taken."
+    fi
     ;;
 
-  # gif
+# --------------------------------------------------------------------------
+# gif
+# --------------------------------------------------------------------------
+
   gif)
     geometry=$(slop)
 
@@ -85,7 +113,10 @@ case "$1" in
     fi
     ;;
 
-  # recording-status
+# --------------------------------------------------------------------------
+# recording-status
+# --------------------------------------------------------------------------
+
   recording-status)
     if [ -f $pidFile ]; then
       echo 
@@ -94,15 +125,21 @@ case "$1" in
     fi
     ;;
 
-  # snap
+# --------------------------------------------------------------------------
+# snap
+# --------------------------------------------------------------------------
+
   snap)
     output="$snapOutputDir/snap-$date.png"
-    maim $output
+    ffmpeg -f x11grab -video_size ${RES_WIDTH}x${RES_HEIGHT} -i $DISPLAY -vframes 1 $output
     xclip -selection clip -t image/png $output
     notify "Screenshot taken."
     ;;
 
-  # stop
+# --------------------------------------------------------------------------
+# stop
+# --------------------------------------------------------------------------
+
   stop)
     if [ -f $pidFile ]; then
       pid="$(cat $pidFile)"
@@ -114,7 +151,10 @@ case "$1" in
     fi
     ;;
 
-  # video
+# --------------------------------------------------------------------------
+# video
+# --------------------------------------------------------------------------
+
   video)
     if [ ! -f $pidFile ]; then
       notify "Video capture starting."
@@ -131,7 +171,10 @@ case "$1" in
     fi
     ;;
 
-  # usage
+# --------------------------------------------------------------------------
+# usage
+# --------------------------------------------------------------------------
+
   *)
     echo -e "${RED}Usage: ./screen [capture | crop | gif | recording-status | snap | stop | video]${NC}"
     ;;

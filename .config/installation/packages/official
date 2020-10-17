@@ -75,8 +75,8 @@ strace
 # user manuals
 man
 
-# screen capturing
-maim
+# screen cropping
+# (for screen capture)
 slop
 
 # ssh

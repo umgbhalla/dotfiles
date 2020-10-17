@@ -54,6 +54,9 @@ biber
 # with big brain commands like dd)
 # balena-etcher
 
+# screen recording and capturing because ffmpeg is buggy
+# obs-studio-git
+
 # -------------------------------------------------------------------
 # extra
 # -------------------------------------------------------------------
