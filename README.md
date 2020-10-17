@@ -634,5 +634,5 @@ implemented or had the time to configure.
 + customize gtk theming
 + find a good remote desktop client
 + pcie single-gpu passthrough (this will take a while...)
-+ update color/styling for ff, nvim
++ update color/styling for ff
 + switch from cmus to ncmpcpp

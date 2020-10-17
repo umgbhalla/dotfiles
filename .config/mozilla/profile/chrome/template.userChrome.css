@@ -134,7 +134,7 @@ tabs { --tab-min-height: 38px; }
   display: none;
 }
 
-#_testpilot-containers-browser-action, 
+#_testpilot-containers-browser-action,
 .toolbarbutton-1 {
     fill: var(--color-fg-alt) !important;
 }
