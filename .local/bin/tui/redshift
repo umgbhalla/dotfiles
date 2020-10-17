@@ -2,6 +2,9 @@
 TEMP="$REDSHIFT_LAST"
 DEFAULT_TEMP=6500
 
+# create directories if necessary
+mkdir -p "$(dirname $TEMP)"
+
 # if cache is not set yet, set it!
 if [ ! -e $TEMP ]; then
   echo $DEFAULT_TEMP > $TEMP
