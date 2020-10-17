@@ -143,7 +143,10 @@
  */
 
 @-moz-document domain(reddit.com) {
-    .ListingLayout-backgroundContainer::before { background-color: var(--color-bg) !important; }
+    .ListingLayout-backgroundContainer::before {
+        background-color: var(--color-bg) !important;
+        color: var(--color-fg) !important;
+    }
     [role=button] {
         color: var(--color-fg) !important;
         background: var(--color-bg) !important;

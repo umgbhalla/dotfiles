@@ -1,6 +1,6 @@
 ! special
-*.foreground:   $C_BLACK_0
-*.background:   $C_GRAY_0
+*.foreground:   $C_GRAY_0
+*.background:   $C_BLACK_0
 *.cursorColor:  $C_GRAY_0
 
 ! black
