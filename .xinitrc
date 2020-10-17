@@ -6,13 +6,13 @@ while read -r template; do
 done < $XDG_CONFIG_HOME/templaterc
 
 # Gtk theme
-cd $HOME/.themes/DotfilesGtk && yarn build && cd
+cd $HOME/.themes/DotfilesGtk && yarn build &
 
 # Xresource colors
-xrdb -merge $XDG_CONFIG_HOME/Xresources
+xrdb -merge $XDG_CONFIG_HOME/Xresources &
 
 # set last redshift
-$REDSHIFT "$(cat $REDSHIFT_LAST)"
+$REDSHIFT "$(cat $REDSHIFT_LAST)" &
 
 $NOTIFICATION_MANAGER &
 
