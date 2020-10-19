@@ -89,12 +89,6 @@ export RANGER_LOAD_DEFAULT_RC="FALSE"
 export REDSHIFT_LAST="$XDG_CACHE_HOME/redshift_last"
 export SHELL="/bin/zsh"
 
-# eth0 and wlan0 interfaces
-if [ $OS != $OS_MACOS ]; then
-  export ETH_INTERFACE="$(ip -o link show | awk -F': ' '{print $2}' | grep e)"
-  export WIFI_INTERFACE="$(ip -o link show | awk -F': ' '{print $2}' | grep w)"
-fi
-
 # vertical line jumping
 export VI_NAV_JUMP="5"
 export VI_NAV_JUMP_LARGE="25"
