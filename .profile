@@ -62,7 +62,7 @@ export TERMINAL="$TERM"
 
 export BROWSER="firefox"
 
-export FILE_EXPLORER="ranger"
+export FILE_EXPLORER="vifm"
 
 export MUSIC_PLAYER="spotify"
 export MUSIC_PLAYER_ARGS="spicetify config current_theme DotfilesSpicetify && spicetify apply"
