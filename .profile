@@ -54,7 +54,7 @@ export OS_FREEBSD="FreeBSD"
 export EDITOR="nvim"
 
 export TERM_ARGS="$TERM"
-if [ $OS == $OS_LINUX ]; then
+if [ $OS = $OS_LINUX ]; then
   export TERM="st"
   export TERM_ARGS="$TERM -A $W_ALPHA"
 fi
@@ -91,7 +91,7 @@ export KEYTIMEOUT=1 # reduce delay in zsh vi-mode change
 export PROMPT_EOL_MARK="" # prevent partial line % from appearing
 export RANGER_LOAD_DEFAULT_RC="FALSE"
 export REDSHIFT_LAST="$XDG_CACHE_HOME/redshift_last"
-export SHELL="/bin/sh" # explicit shell declaration
+export SHELL="/bin/zsh" # explicit shell declaration
 
 # vertical line jumping
 export VI_NAV_JUMP="5"

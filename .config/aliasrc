@@ -4,7 +4,7 @@
 # defaults
 # ----------------------------------------------------------------
 
-if [ $OS == $OS_LINUX ]; then
+if [ $OS = $OS_LINUX ]; then
   alias ls="ls --color=auto --group-directories-first"
 else
   alias ls="ls -GF"
@@ -36,10 +36,10 @@ alias \
 # ----------------------------------------------------------------
 
 # package manager
-if [ $OS == $OS_LINUX ]; then
+if [ $OS = $OS_LINUX ]; then
   alias p="sudo pacman"
   alias y="unset GIT_CONFIG && yay --norebuild --noredownload"
-elif [ $OS == $OS_FREEBSD ]; then
+elif [ $OS = $OS_FREEBSD ]; then
   alias p="sudo pkg"
 fi
 
