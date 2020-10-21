@@ -47,10 +47,12 @@ export W_GAPS=16
 
 export OS="$(uname)"
 export OS_MACOS="Darwin"
+export OS_LINUX="Linux"
+export OS_FREEBSD="FreeBSD"
 
 export EDITOR="nvim"
 
-if [ $OS != $OS_MACOS ]; then
+if [ $OS == $OS_LINUX ]; then
   export TERM="st"
   export TERM_ARGS="$TERM -A $W_ALPHA"
 fi

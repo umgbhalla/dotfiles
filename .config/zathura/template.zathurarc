@@ -54,3 +54,6 @@ map i recolor # toggle color mode
 set window-title-basename true # use file name as window title
 
 set selection-notification false # hide copy to clipboard status
+
+
+map r rotate # rotate document
