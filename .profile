@@ -1,3 +1,4 @@
+#!/bin/sh
 # core environmental variables set on login
 
 #
@@ -89,7 +90,7 @@ export KEYTIMEOUT=1 # reduce delay in zsh vi-mode change
 export PROMPT_EOL_MARK="" # prevent partial line % from appearing
 export RANGER_LOAD_DEFAULT_RC="FALSE"
 export REDSHIFT_LAST="$XDG_CACHE_HOME/redshift_last"
-export SHELL="/bin/zsh"
+export SHELL="/bin/sh" # explicit shell declaration
 
 # vertical line jumping
 export VI_NAV_JUMP="5"
@@ -100,6 +101,7 @@ export VI_NAV_JUMP_LARGE="25"
 #
 
 export BOOKMARK_CONFIG="$XDG_CONFIG_HOME/bookmarks"
+export ENV="$XDG_CONFIG_HOME/sh/shrc"
 export GIT_CONFIG="$XDG_CONFIG_HOME/git/config"
 export GIT_TEMPLATE_DIR="$XDG_CONFIG_HOME/git/template"
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
@@ -108,8 +110,10 @@ export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
 export YARN_GLOBAL_DIR="$XDG_CACHE_HOME/yarn_global"
 export YARN_RC_DIR="$XDG_CACHE_HOME"
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
 export TUI_DIR="$XDG_SCRIPT_HOME/tui"
+
+# TODO remove
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
 
 #
 # scripts
@@ -136,13 +140,14 @@ export PATH="$HOME/.local/bin/:$PATH"
 #
 
 # colors
-source $XDG_CONFIG_HOME/colorrc
+. $XDG_CONFIG_HOME/colorrc
 
 # app-specific environment variables
-source $XDG_CONFIG_HOME/apprc
+. $XDG_CONFIG_HOME/apprc
 
 #
-# misc color (order)
+# misc color (ordered after main color declarations)
+#
 
 # background command
 # xsetroot doesn't work here because the compositor overrides background changes
