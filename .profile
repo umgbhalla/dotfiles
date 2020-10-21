@@ -53,6 +53,7 @@ export OS_FREEBSD="FreeBSD"
 
 export EDITOR="nvim"
 
+export TERM_ARGS="$TERM"
 if [ $OS == $OS_LINUX ]; then
   export TERM="st"
   export TERM_ARGS="$TERM -A $W_ALPHA"

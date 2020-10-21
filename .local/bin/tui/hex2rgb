@@ -7,22 +7,22 @@ if [ -z $1 ]; then
   exit 1
 fi
 
-hex=${1:1}
+hex=$(echo $1 | tail -c +2)
+len=$(echo -n $hex | wc -m)
 
-if [ ${#hex} != 6 ]; then
+if [ $len != 6 ]; then
   echo -e "${RED}A hex string must be of the format #xxxxxx, where x represents an alphanumeric character within range 0-9a-fA-F.${NC}"
   exit 1
 fi
 
-hex=${hex^^} # capitalize hex
+hex=$(echo $hex | tr '[:lower:]' '[:upper:]') # capitalize hex
 
-a=${hex:0:2}
-b=${hex:2:2}
-c=${hex:4}
+a=$(echo $hex | head -c +2)
+b=$(echo $hex | tail -c +3 | head -c +2)
+c=$(echo $hex | tail -c +5)
 
-# r=$(echo "ibase=16; $a" | bc)
-r=$(printf "%d" $((16#$a)))
-g=$(printf "%d" $((16#$b)))
-b=$(printf "%d" $((16#$c)))
+r=$(echo "ibase=16; $a" | bc)
+g=$(echo "ibase=16; $b" | bc)
+b=$(echo "ibase=16; $c" | bc)
 
 echo "rgb($r,$g,$b)"
