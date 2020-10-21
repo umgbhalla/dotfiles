@@ -8,4 +8,5 @@ $XDG_CONFIG_HOME/picom/template.picom.conf
 $XDG_CONFIG_HOME/ranger/template.rc.conf
 $XDG_CONFIG_HOME/spicetify/template.config.ini
 $XDG_CONFIG_HOME/template.Xresources
+$XDG_CONFIG_HOME/vifm/template.vifmrc
 $XDG_CONFIG_HOME/zathura/template.zathurarc

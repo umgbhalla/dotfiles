@@ -102,7 +102,7 @@ export VI_NAV_JUMP_LARGE="25"
 #
 
 export BOOKMARK_CONFIG="$XDG_CONFIG_HOME/bookmarks"
-export ENV="$XDG_CONFIG_HOME/sh/shrc"
+# export ENV="$XDG_CONFIG_HOME/sh/shrc"
 export GIT_CONFIG="$XDG_CONFIG_HOME/git/config"
 export GIT_TEMPLATE_DIR="$XDG_CONFIG_HOME/git/template"
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"

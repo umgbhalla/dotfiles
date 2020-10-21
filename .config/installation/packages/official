@@ -36,12 +36,13 @@ dunst
 redshift
 
 # file explorer
-ranger
-w3m # required by ranger
-ueberzug # img previews
+vifm
+# ranger
+# w3m # required by ranger
+# ueberzug # img previews
 
 # networking
-nm-connection-editor
+# nm-connection-editor
 
 # -------------------------------------------------------------------
 # tools

@@ -97,16 +97,9 @@ rp() {
     cd $XDG_REPO_HOME/$repo
 }
 
-rangerDir=$XDG_CACHE_HOME/ranger_last_dir
-configEditList="find -L $XDG_CONFIG_HOME $XDG_SCRIPT_HOME -type f | fzf"
-
-alias \
-  r='ranger --choosedir=$rangerDir; LASTDIR=`cat $rangerDir`; cd $LASTDIR' \
-  c="$configEditList | xargs -r $EDITOR"
-
-if [ $OS = $OS_MACOS ]; then
-  alias c="$configEditList | xargs -I F $EDITOR \"F\""
-fi
+# file manager directory setting
+fmDir=$XDG_CACHE_HOME/fm_last_dir
+alias r='vifm --choose-dir=$fmDir; LASTDIR=`cat $fmDir`; cd $LASTDIR'
 
 # bookmarks
 b() {
