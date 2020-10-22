@@ -39,7 +39,7 @@ export DUNST_WIDTH=400
 export DUNST_HEIGHT=70
 export DUNST_X="-$(( $W_GAPS * 2 ))"
 export DUNST_Y="$DUNST_X"
-export DUNST_ICON_SIZE=$(( $DUNST_HEIGHT * 0.8 ))
+export DUNST_ICON_SIZE=$(echo "$DUNST_HEIGHT * 0.8 / 1" | bc) # dividing by 1 removes the decimal
 
 export DUNST_FONT="Source Code Pro Medium 12"
 
@@ -72,7 +72,7 @@ export POLYBAR_Y="$BSPWM_TOP_Y"
 export POLYBAR_WIDTH="100%:-$(( $W_GAPS * 2 ))"
 export POLYBAR_HEIGHT=$BAR_HEIGHT
 
-export POLYBAR_BG="#00${G_BG:1}"
+export POLYBAR_BG="#00$(echo $G_BG | tail -c +2)"
 export POLYBAR_FG="$G_FG"
 export POLYBAR_PRIMARY="$G_PRIMARY"
 export POLYBAR_SECONDARY="$G_SECONDARY"
@@ -94,18 +94,18 @@ export SHELLMENU_PROMPT="$G_TERTIARY"
 
 # spicetify
 
-export SPICETIFY_BG="${G_BG:1}"
-export SPICETIFY_BG_ALT="${G_BG_ALT:1}"
-export SPICETIFY_FG="${G_FG:1}"
-export SPICETIFY_PRIMARY="${G_PRIMARY:1}"
-export SPICETIFY_SECONDARY="${G_SECONDARY:1}"
-export SPICETIFY_TERTIARY="${G_TERTIARY:1}"
-export SPICETIFY_ALERT="${G_ALERT:1}"
+export SPICETIFY_BG="$(echo $G_BG | tail -c +2)"
+export SPICETIFY_BG_ALT="$(echo $G_BG_ALT | tail -c +2)"
+export SPICETIFY_FG="$(echo $G_FG | tail -c +2)"
+export SPICETIFY_PRIMARY="$(echo $G_PRIMARY | tail -c +2)"
+export SPICETIFY_SECONDARY="$(echo $G_SECONDARY | tail -c +2)"
+export SPICETIFY_TERTIARY="$(echo $G_TERTIARY | tail -c +2)"
+export SPICETIFY_ALERT="$(echo $G_ALERT | tail -c +2)"
 
 # st
 
 export ST_FONT="Source Code Pro Medium:pixelsize=15:antialias=true:autohint=true"
-export ST_PADDING="$(( $W_GAPS * 1.5 ))"
+export ST_PADDING=$(echo "$W_GAPS * 1.5 / 1" | bc)
 
 # zathura
 

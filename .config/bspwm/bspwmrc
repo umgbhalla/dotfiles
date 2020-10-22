@@ -1,4 +1,8 @@
 #!/bin/sh
+# to prevent errors, make sure this file is executable!
+
+# run sxhkd if not already running
+pgrep -x sxhkd > /dev/null || sxhkd &
 
 #
 # general settings

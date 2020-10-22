@@ -91,7 +91,12 @@ export KEYTIMEOUT=1 # reduce delay in zsh vi-mode change
 export PROMPT_EOL_MARK="" # prevent partial line % from appearing
 export RANGER_LOAD_DEFAULT_RC="FALSE"
 export REDSHIFT_LAST="$XDG_CACHE_HOME/redshift_last"
-export SHELL="/bin/zsh" # explicit shell declaration
+export SHELL="/bin/sh" # explicit shell declaration
+
+# TODO remove
+if [ $OS = $OS_LINUX ]; then
+  export SHELL="/bin/zsh"
+fi
 
 # vertical line jumping
 export VI_NAV_JUMP="5"
@@ -102,7 +107,7 @@ export VI_NAV_JUMP_LARGE="25"
 #
 
 export BOOKMARK_CONFIG="$XDG_CONFIG_HOME/bookmarks"
-# export ENV="$XDG_CONFIG_HOME/sh/shrc"
+export ENV="$XDG_CONFIG_HOME/sh/shrc"
 export GIT_CONFIG="$XDG_CONFIG_HOME/git/config"
 export GIT_TEMPLATE_DIR="$XDG_CONFIG_HOME/git/template"
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
