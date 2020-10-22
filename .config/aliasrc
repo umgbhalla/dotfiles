@@ -14,7 +14,7 @@ fi
 alias \
   cp="cp -v" \
   mv="mv -v" \
-  rm="rm -v" \
+  rm="rm -vi" \
   md="mkdir -pv" \
   grep="grep --color=auto"
 
@@ -111,7 +111,7 @@ b() {
   if [ ! -z $bpath ] && ! cd $bpath; then
     echo -e "${RED}Error: invalid bookmark.${NC}"
     echo -e "${RED}Add new bookmarks to $BOOKMARK_CONFIG with the format 'identifier, path'${NC}"
-    sleep 1s
+    sleep 1
     $EDITOR $BOOKMARK_CONFIG
   fi
 }

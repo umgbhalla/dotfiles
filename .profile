@@ -86,11 +86,29 @@ export SYSTEM_PROFILER="htop"
 
 export NOTIFICATION_MANAGER="dunst"
 
-export BAR="polybar"
-export BAR_ARGS="$BAR -r main"
+# panel/bar
+case $OS in
+  $OS_LINUX)
+    export BAR="polybar"
+    export BAR_ARGS="$BAR -r main"
+    ;;
+  *)
+    export BAR=""
+    export BAR_ARGS="$BAR"
+    ;;
+esac
 
-export COMPOSITOR="picom"
-export COMPOSITOR_ARGS="$COMPOSITOR --experimental-backends"
+# compositor
+case $OS in
+  $OS_LINUX)
+    export COMPOSITOR="picom"
+    export COMPOSITOR_ARGS="$COMPOSITOR --experimental-backends"
+    ;;
+  *)
+    export COMPOSITOR=""
+    export COMPOSITOR_ARGS="$COMPOSITOR"
+    ;;
+esac
 
 export WM="bspwm"
 
@@ -130,6 +148,7 @@ export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
 export YARN_GLOBAL_DIR="$XDG_CACHE_HOME/yarn_global"
 export YARN_RC_DIR="$XDG_CACHE_HOME"
 export TUI_DIR="$XDG_SCRIPT_HOME/tui"
+export XAUTHORITY="$XDG_CONFIG_HOME/Xauthority"
 
 # TODO remove
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
@@ -171,3 +190,17 @@ export PATH="$HOME/.local/bin/:$PATH"
 # background command
 # xsetroot doesn't work here because the compositor overrides background changes
 export BACKGROUND="hsetroot -solid $G_BG -tile $XDG_CONFIG_HOME/wallpapers/tile-$CURRENT_THEME_MODE.jpg"
+
+# startx
+case $(tty) in
+  "/dev/ttyv0" | "/dev/tty1")
+    case $OS in
+      $OS_FREEBSD)
+        ! pgrep -x Xorg >/dev/null && exec startx -- -nocursor
+        ;;
+      *)
+        ! pgrep -x Xorg >/dev/null && exec startx
+        ;;
+    esac
+    ;;
+esac
