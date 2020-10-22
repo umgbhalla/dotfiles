@@ -12,7 +12,7 @@ cd $HOME/.themes/DotfilesGtk && yarn build &
 xrdb -merge $XDG_CONFIG_HOME/Xresources &
 
 # set last redshift
-$REDSHIFT "$(cat $REDSHIFT_LAST)" &
+$REDSHIFT set "$(cat $REDSHIFT_LAST)" &
 
 $NOTIFICATION_MANAGER &
 

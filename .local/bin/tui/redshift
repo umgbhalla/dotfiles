@@ -5,31 +5,31 @@ DEFAULT_TEMP=6500
 # create directories if necessary
 mkdir -p $(dirname $TEMP)
 
-# if cache is not set yet, set it!
 if [ ! -e $TEMP ]; then
+  # if cache is not set yet, set it!
   echo $DEFAULT_TEMP > $TEMP
+else
+  case $1 in
+    add)
+      temperature=$(echo "$(cat $TEMP)+$2" | bc)
+      echo $temperature > $TEMP
+      redshift -P -O $temperature
+      ;;
+    subtract)
+      temperature=$(echo "$(cat $TEMP)-$2" | bc)
+      echo $temperature > $TEMP
+      redshift -P -O $temperature
+      ;;
+    reset)
+      echo $DEFAULT_TEMP > $TEMP
+      redshift -x
+      ;;
+    set)
+      echo $2 > $TEMP
+      redshift -P -O $2
+      ;;
+    *)
+      echo -e "${RED}USAGE: $REDSHIFT [add [int] | subtract [int] | set [int] | reset]${NC}"
+      ;;
+  esac
 fi
-
-case $1 in
-  add)
-    temperature=$(echo "$(cat $TEMP)+$2" | bc)
-    echo $temperature > $TEMP
-    redshift -P -O $temperature
-    ;;
-  subtract)
-    temperature=$(echo "$(cat $TEMP)-$2" | bc)
-    echo $temperature > $TEMP
-    redshift -P -O $temperature
-    ;;
-  reset)
-    redshift -x
-    echo $DEFAULT_TEMP > $TEMP
-    ;;
-  set)
-    echo $1 > $TEMP
-    redshift -P -O $1
-    ;;
-  *)
-    echo -e "${RED}USAGE: $REDSHIFT [add [int] | subtract [int] | set [int] | reset]${NC}"
-    ;;
-esac

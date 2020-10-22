@@ -130,9 +130,8 @@ XF86MonBrightnessDown
 # bspwm core
 #
 
-# reload sxhkd, bspwm and other configuration files
+# reload bspwm
 super + shift + r
-  pkill -USR1 -x sxhkd && \
   bspc wm -r
 
 # quit bspwm/logout
