@@ -1,28 +1,35 @@
 #!/bin/sh
-TEMP="$REDSHIFT_LAST"
+TEMP=$REDSHIFT_LAST
 DEFAULT_TEMP=6500
 
 # create directories if necessary
-mkdir -p "$(dirname $TEMP)"
+mkdir -p $(dirname $TEMP)
 
 # if cache is not set yet, set it!
 if [ ! -e $TEMP ]; then
   echo $DEFAULT_TEMP > $TEMP
 fi
 
-# if no argument is supplied, reset to default
-if [ $# == 0 ]; then
-  redshift -x
-  echo $DEFAULT_TEMP > $TEMP
-# if integer is supplied, set temp to value
-elif [[ $1 =~ ^[0-9]+$ ]]; then
-  echo $1 > $TEMP
-  redshift -P -O $1
-# if + or - is appended to the argument,
-# increment or decrement by amount
-else
-  temperature=$(( $(cat $TEMP) ${1::1} ${1:1} ))
-  echo $temperature > $TEMP
-  redshift -P -O $temperature
-fi
-
+case $1 in
+  add)
+    temperature=$(echo "$(cat $TEMP)+$2" | bc)
+    echo $temperature > $TEMP
+    redshift -P -O $temperature
+    ;;
+  subtract)
+    temperature=$(echo "$(cat $TEMP)-$2" | bc)
+    echo $temperature > $TEMP
+    redshift -P -O $temperature
+    ;;
+  reset)
+    redshift -x
+    echo $DEFAULT_TEMP > $TEMP
+    ;;
+  set)
+    echo $1 > $TEMP
+    redshift -P -O $1
+    ;;
+  *)
+    echo -e "${RED}USAGE: $REDSHIFT [add [int] | subtract [int] | set [int] | reset]${NC}"
+    ;;
+esac

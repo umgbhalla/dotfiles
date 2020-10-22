@@ -104,13 +104,13 @@ F8
 #
 
 super + shift + braceright
-  $XDG_SCRIPT_HOME/tui/redshift -300
+  $XDG_SCRIPT_HOME/tui/redshift subtract 300
 
 super + shift + braceleft
-  $XDG_SCRIPT_HOME/tui/redshift +300
+  $XDG_SCRIPT_HOME/tui/redshift add 300
 
 super + shift + plus
-  $XDG_SCRIPT_HOME/tui/redshift
+  $XDG_SCRIPT_HOME/tui/redshift reset
 
 super + ctrl + shift + braceleft
   brightnessctl s 5%-
@@ -120,14 +120,11 @@ super + ctrl + shift + braceright
 
 # legacy
 
-XF86MonBrightnessUp { , shift }
-  {brightnessctl s +5%, $XDG_SCRIPT_HOME/tui/redshift -300}
+XF86MonBrightnessUp
+  brightnessctl s +5%
 
-XF86MonBrightnessDown { , shift }
-  {brightnessctl s 5%-, $XDG_SCRIPT_HOME/tui/redshift +300}
-
-ctrl + XF86MonBrightnessUp
-  $XDG_SCRIPT_HOME/tui/redshift
+XF86MonBrightnessDown
+  brightnessctl s 5%-
 
 #
 # bspwm core
