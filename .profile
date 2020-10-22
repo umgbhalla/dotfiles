@@ -46,22 +46,35 @@ export W_GAPS=16
 # default programs
 #
 
+# operating systems
+
 export OS="$(uname)"
 export OS_MACOS="Darwin"
 export OS_LINUX="Linux"
 export OS_FREEBSD="FreeBSD"
 
+# editor
 export EDITOR="nvim"
 
-export TERM_ARGS="$TERM"
-if [ $OS = $OS_LINUX ]; then
-  export TERM="st"
-  export TERM_ARGS="$TERM -A $W_ALPHA"
-fi
+# terminal
+case $OS in
+  $OS_LINUX)
+    export TERM="st"
+    export TERM_ARGS="$TERM -A $W_ALPHA"
+    ;;
+  $OS_FREEBSD)
+    export TERM="st"
+    export TERM_ARGS="$TERM"
+    ;;
+  *)
+    export TERM_ARGS="$TERM"
+esac
 export TERMINAL="$TERM"
 
+# browser
 export BROWSER="firefox"
 
+# file explorer
 export FILE_EXPLORER="vifm"
 
 export MUSIC_PLAYER="spotify"
