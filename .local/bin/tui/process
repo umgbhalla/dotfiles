@@ -1,4 +1,4 @@
 #!/bin/sh
+# a script to create a fully isolated child process
 
 nohup "$@" > /dev/null &
-disown %1

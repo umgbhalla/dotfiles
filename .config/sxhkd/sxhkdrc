@@ -46,30 +46,16 @@ super + e
 #
 
 super + bracketleft
-  pulseaudio-ctl down
+  $AUDIO vol down 5
 
 super + bracketright
-  pulseaudio-ctl up
+  $AUDIO vol up 5
 
 super + backslash
-  pulseaudio-ctl mute
+  $AUDIO vol toggle
 
 super + apostrophe
-  pulseaudio-ctl mute-input
-
-# legacy
-
-XF86AudioLowerVolume
-  pulseaudio-ctl down
-
-XF86AudioRaiseVolume
-  pulseaudio-ctl up
-
-XF86AudioMute
-  pulseaudio-ctl mute
-
-XF86AudioMicMute
-  pulseaudio-ctl mute-input
+  $AUDIO mic toggle
 
 #
 # screen capture

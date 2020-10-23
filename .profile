@@ -69,8 +69,7 @@ case $OS in
     export TERM="st"
     export TERM_ARGS="$TERM"
     ;;
-  *)
-    export TERM_ARGS="$TERM"
+  *) export TERM_ARGS="$TERM" ;;
 esac
 export TERMINAL="$TERM"
 
@@ -87,7 +86,11 @@ export PDF_VIEWER="zathura"
 
 export SYSTEM_PROFILER="htop"
 
-export NOTIFICATION_MANAGER="dunst"
+# notifications
+case $OS in
+  $OS_LINUX) export NOTIFICATION_MANAGER="dunst" ;;
+  *) export NOTIFICATION_MANAGER="" ;;
+esac
 
 # panel/bar
 case $OS in

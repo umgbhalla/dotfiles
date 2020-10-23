@@ -1,0 +1,115 @@
+#!/bin/sh
+# a script to uniformly alter sound cards, volume, and mixing
+
+tmpVolMute="$XDG_RUNTIME_DIR/audio_volMute"
+touch $tmpVolMute
+tmpMicMute="$XDG_RUNTIME_DIR/audio_micMute"
+touch $tmpMicMute
+
+# volume up
+
+vol_up() {
+  case $OS in
+    $OS_FREEBSD) mixer vol +$1 ;;
+    *) pulseaudio-ctl up ;;
+  esac
+}
+
+# volume down
+
+vol_down() {
+  case $OS in
+    $OS_FREEBSD) mixer vol -$1 ;;
+    *) pulseaudio-ctl down ;;
+  esac
+}
+
+# volume mute toggle
+
+vol_toggle() {
+  case $OS in
+    $OS_FREEBSD)
+      volMute=$(cat $tmpVolMute)
+      interface="vol"
+
+      # never muted before
+      if [ -z $volMute ]; then
+        vol=$(mixer $interface | awk '{print $NF}')
+        echo "1,$vol" > $tmpVolMute
+        mixer $interface 0
+      else
+        isMuted=$(cut -d, -f1 $tmpVolMute)
+        vol=$(cut -d, -f2 $tmpVolMute)
+        if [ $isMuted = 1 ]; then
+          # unmute
+          mixer $interface $vol
+          echo "0,0" > $tmpVolMute
+        else
+          # mute
+          vol=$(mixer $interface | awk '{print $NF}')
+          echo "1,$vol" > $tmpVolMute
+          mixer $interface 0
+        fi
+      fi
+      ;;
+    *) pulseaudio-ctl mute ;;
+  esac
+}
+
+# input mic mute toggle
+
+mic_toggle() {
+  case $OS in
+    $OS_FREEBSD)
+      micMute=$(cat $tmpMicMute)
+      interface="ogain"
+
+      # never muted before
+      if [ -z $micMute ]; then
+        vol=$(mixer $interface | awk '{print $NF}')
+        echo "1,$vol" > $tmpMicMute
+        mixer $interface 0
+      else
+        isMuted=$(cut -d, -f1 $tmpMicMute)
+        vol=$(cut -d, -f2 $tmpMicMute)
+        if [ $isMuted = 1 ]; then
+          # unmute
+          mixer $interface $vol
+          echo "0,0" > $tmpMicMute
+        else
+          # mute
+          vol=$(mixer $interface | awk '{print $NF}')
+          echo "1,$vol" > $tmpMicMute
+          mixer $interface 0
+        fi
+      fi
+      ;;
+    *) pulseaudio-ctl mute-input ;;
+  esac
+}
+
+# control logic
+
+case $1 in
+  vol)
+    case $2 in
+      up)
+        if [ -z $3 ]; then echo -e "${RED}USAGE: AUDIO vol up [amount]${NC}";
+        else vol_up $3; fi
+        ;;
+      down)
+        if [ -z $3 ]; then echo -e "${RED}USAGE: AUDIO vol down [amount]${NC}";
+        else vol_down $3; fi
+        ;;
+      toggle) vol_toggle ;;
+      *) echo -e "${RED}USAGE: AUDIO vol [up | down | toggle]${NC}" ;;
+    esac
+    ;;
+  mic)
+    case $2 in
+      toggle) mic_toggle ;;
+      *) echo -e "${RED}USAGE: AUDIO mic [toggle]${NC}" ;;
+    esac
+    ;;
+  *) echo -e "${RED}USAGE: AUDIO [vol mic]${NC}" ;;
+esac
