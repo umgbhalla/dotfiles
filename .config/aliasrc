@@ -14,7 +14,7 @@ fi
 alias \
   cp="cp -v" \
   mv="mv -v" \
-  rm="rm -vi" \
+  rm="rm -v" \
   md="mkdir -pv" \
   grep="grep --color=auto"
 
@@ -42,6 +42,7 @@ if [ $OS = $OS_LINUX ]; then
   alias y="unset GIT_CONFIG && yay --norebuild --noredownload"
 elif [ $OS = $OS_FREEBSD ]; then
   alias p="sudo pkg"
+  alias y="sudo portsnap"
 fi
 
 # core

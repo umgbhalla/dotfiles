@@ -16,6 +16,9 @@ export XDG_DATA_HOME="$HOME/.local/share"
 # repo directory
 export XDG_REPO_HOME="$HOME/Repos"
 
+# runtime directory
+export XDG_RUNTIME_DIR="/tmp"
+
 #
 # display
 #
@@ -157,6 +160,7 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
 # scripts
 #
 
+export AUDIO="$TUI_DIR/audio"
 export DETEMPLATE="$TUI_DIR/detemplate"
 export HEX2FF="$TUI_DIR/hex2ff"
 export HEX2RGB="$TUI_DIR/hex2rgb"
@@ -196,7 +200,9 @@ case $(tty) in
   "/dev/ttyv0" | "/dev/tty1")
     case $OS in
       $OS_FREEBSD)
-        ! pgrep -x Xorg >/dev/null && exec startx -- -nocursor
+        # ! pgrep -x Xorg >/dev/null && exec startx -- -nocursor
+        sudo moused -p /dev/psm0
+        ! pgrep -x Xorg >/dev/null && exec startx
         ;;
       *)
         ! pgrep -x Xorg >/dev/null && exec startx

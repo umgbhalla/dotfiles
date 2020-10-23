@@ -1,7 +1,9 @@
-music, $HOME/Music
 config, $XDG_CONFIG_HOME
+cache, $XDG_CACHE_HOME
 scripts, $XDG_SCRIPT_HOME
+local, $XDG_DATA_HOME
+data, $HOME/data
+repos, $XDG_REPO_HOME
 downloads, $HOME/Downloads
-unreal-projects, $HOME/Games/epic-games-store/drive_c/users/sam/My\ Documents/Unreal\ Projects/
-data, $HOME/Data
-local-data, $XDG_DATA_HOME
+music, $HOME/Music
+ports, /usr/ports
