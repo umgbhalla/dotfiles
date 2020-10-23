@@ -1,6 +1,13 @@
 #!/bin/sh
 # core environmental variables set on login
 
+# operating systems
+
+export OS="$(uname)"
+export OS_MACOS="Darwin"
+export OS_LINUX="Linux"
+export OS_FREEBSD="FreeBSD"
+
 #
 # directories
 #
@@ -16,8 +23,11 @@ export XDG_DATA_HOME="$HOME/.local/share"
 # repo directory
 export XDG_REPO_HOME="$HOME/Repos"
 
+
 # runtime directory
-export XDG_RUNTIME_DIR="/tmp"
+if [ $OS = $OS_FREEBSD ]; then
+  export XDG_RUNTIME_DIR="/tmp"
+fi
 
 #
 # display
@@ -48,13 +58,6 @@ export W_GAPS=16
 #
 # default programs
 #
-
-# operating systems
-
-export OS="$(uname)"
-export OS_MACOS="Darwin"
-export OS_LINUX="Linux"
-export OS_FREEBSD="FreeBSD"
 
 # editor
 export EDITOR="nvim"
