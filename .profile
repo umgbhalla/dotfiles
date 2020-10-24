@@ -213,7 +213,6 @@ case $(tty) in
         # ! pgrep -x Xorg >/dev/null && exec startx -- -nocursor
         sudo moused -p /dev/psm0
         ! pgrep -x Xorg >/dev/null && exec startx
-        xinput set-prop "System mouse" "libinput Natural Scrolling Enabled" 1
         ;;
       *)
         ! pgrep -x Xorg >/dev/null && exec startx

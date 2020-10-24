@@ -208,3 +208,6 @@ clear-cached-files() {
 
 # list all open windows
 alias windows="wmctrl -l"
+
+# xinput natural scrolling
+alias nat="xinput set-prop \"System mouse\" \"libinput Natural Scrolling Enabled\" 1"
