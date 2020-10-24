@@ -1,46 +1,31 @@
-# $FreeBSD: releng/12.1/share/skel/dot.shrc 327420 2017-12-31 06:58:58Z eadler $
-#
-# .shrc - bourne shell startup file 
-#
-# This file will be used if the shell is invoked for interactive use and
-# the environment variable ENV is set to this file.
-#
-# see also sh(1), environ(7).
-#
+#!/bin/sh
 
-echo hello this is a test of the start of the SH ENV file
+# enable builtin vi command line editor in sh
+set -o vi
 
+# aliases
 [ -f $XDG_CONFIG_HOME/aliasrc ] && . $XDG_CONFIG_HOME/aliasrc
 
-# file permissions: rwxr-xr-x
-#
-# umask	022
+# terminal ascii
+FG=$WHITE
+P=$RED
+echo -e "${FG}\
+ ┌―――――――――――――――――――――――――――――┬―――――――――┐
+ ├―――――――――――――――――――――――――――――┘ ${P}▀${FG}  ${P}▀${FG}  ${P}▀${FG} │
+ │                                       │
+ │                                       │
+ │    ${P}/\\,-'''''-,/\\ ${FG}                     │\n\
+ │    ${P}\\_)       (_/${FG}                      │\n\
+ │    ${P}|           |${FG}                      │\n\
+ │    ${P}|           | ${FG}                     │\n\
+ │     ${P};         ;     i use bsd btw ~  ${FG} │\n\
+ │      ${P}'-_____-' ${FG}                       │\n\
+ │                                       │
+ └―――――――――――――――――――――――――――――――――――――――┘
+${NC}"
 
-# Uncomment this to enable the builtin vi(1) command line editor in sh(1),
-# e.g. ESC to go into visual mode.
-# set -o vi
+# scrollback
+HISTSIZE=1000000
 
-
-# some useful aliases
-#alias h='fc -l'
-#alias j=jobs
-#alias m="$PAGER"
-#alias ll='ls -laFo'
-#alias l='ls -l'
-#alias g='egrep -i'
- 
-# # be paranoid
-# alias cp='cp -ip'
-# alias mv='mv -i'
-# alias rm='rm -i'
-
-
-# # set prompt: ``username@hostname$ '' 
-# PS1="`whoami`@`hostname | sed 's/\..*//'`"
-# case `id -u` in
-# 	0) PS1="${PS1}# ";;
-# 	*) PS1="${PS1}$ ";;
-# esac
-
-# search path for cd(1)
-# CDPATH=:$HOME
+# prompt
+export PS1="\W >> "
