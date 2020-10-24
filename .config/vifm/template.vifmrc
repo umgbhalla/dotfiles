@@ -208,6 +208,8 @@ filetype {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
   \*.as[fx]},
   \<video/*>
   \ mpv %f
+filetype {*.gif}
+  \ mpv %f,
 
 " web
 filextype {*.html,*.htm},<text/html> $BROWSER %f
@@ -221,7 +223,7 @@ filetype {*.[1-8]},<text/troff> man ./%c
 fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 
 " image
-filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
+filextype {*.bmp,*.jpg,*.jpeg,*.png,*.xpm},<image/*>
   \ feh %f,
 " TODO image previews with ueberzug
 " fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>

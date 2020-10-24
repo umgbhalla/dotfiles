@@ -20,12 +20,17 @@ pidFile=/tmp/ffmpegCapturePid
 
 notifyTime=0.5
 notifyTimeMs=$(( $(echo $notifyTime | cut -d. -f2) * 100 ))
-function notify() {
-  dunstify -i camera-photo-symbolic.symbolic -t $notifyTimeMs "$1"
+notify() {
+  case $OS in
+    $OS_LINUX)
+      dunstify -i camera-photo-symbolic.symbolic -t $notifyTimeMs "$1"
+      sleep $notifyTime
+      ;;
+  esac
 }
 
 # manual polybar refresh
-function refreshBar() {
+refreshBar() {
   touch -m $XDG_CONFIG_HOME/polybar/config
 }
 
@@ -42,15 +47,24 @@ case "$1" in
   capture)
     if [ ! -f $pidFile ]; then
       notify "Screen capture starting."
-      sleep $notifyTime
 
-      ffmpeg \
-        -f x11grab -i $DISPLAY \
-        -f alsa -i default -c:v libx264 -preset ultrafast -c:a aac \
-        "$captureOutputDir/screencapture-$date.mp4" &
+      case $OS in
+        $OS_LINUX)
+          ffmpeg \
+            -f x11grab -i $DISPLAY \
+            -f alsa -i default -c:v libx264 -preset ultrafast -c:a aac \
+            "$captureOutputDir/screencapture-$date.mp4" &
+          ;;
+        *)
+          ffmpeg \
+            -f x11grab -i $DISPLAY \
+            -c:v libx264 -preset ultrafast -c:a aac \
+            "$captureOutputDir/screencapture-$date.mp4" &
+          ;;
+      esac
 
-        echo $! > $pidFile
-        refreshBar
+      echo $! > $pidFile
+      refreshBar
     else
       echo -e "${RED}Error: capture already in progress.${NC}"
     fi
@@ -93,7 +107,6 @@ case "$1" in
 
       if [ ! -f $pidFile ]; then
         notify "Gif capture starting."
-        sleep $notifyTime
 
         # largest possible width
         # (incentivize small area recordings!)
@@ -158,7 +171,6 @@ case "$1" in
   video)
     if [ ! -f $pidFile ]; then
       notify "Video capture starting."
-      sleep $notifyTime
 
       ffmpeg \
         -f x11grab -i $DISPLAY \
