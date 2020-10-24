@@ -156,7 +156,6 @@ export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
 export YARN_GLOBAL_DIR="$XDG_CACHE_HOME/yarn_global"
 export YARN_RC_DIR="$XDG_CACHE_HOME"
-export TUI_DIR="$XDG_SCRIPT_HOME/tui"
 export XAUTHORITY="$XDG_CONFIG_HOME/Xauthority"
 
 # TODO remove
@@ -166,16 +165,19 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
 # scripts
 #
 
+export GUI_DIR="$XDG_SCRIPT_HOME/gui"
+export TUI_DIR="$XDG_SCRIPT_HOME/tui"
+
 export AUDIO="$TUI_DIR/audio"
 export DETEMPLATE="$TUI_DIR/detemplate"
 export HEX2FF="$TUI_DIR/hex2ff"
 export HEX2RGB="$TUI_DIR/hex2rgb"
-export LAUNCHER="$XDG_SCRIPT_HOME/launcher"
+export LAUNCHER="$GUI_DIR/launcher"
 export REDSHIFT="$TUI_DIR/redshift"
 export PROCESS="$TUI_DIR/process"
 export SBUILD="$TUI_DIR/sbuild"
 export SCREEN="$TUI_DIR/screen"
-export SHELLMENU="$XDG_SCRIPT_HOME/shell-menu"
+export SHELLMENU="$GUI_DIR/shell-menu"
 
 #
 # path

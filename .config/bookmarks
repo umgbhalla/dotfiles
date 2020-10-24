@@ -1,7 +1,7 @@
 config, $XDG_CONFIG_HOME
 cache, $XDG_CACHE_HOME
 scripts, $XDG_SCRIPT_HOME
-local, $XDG_DATA_HOME
+local, $HOME/.local
 data, $HOME/data
 repos, $XDG_REPO_HOME
 downloads, $HOME/Downloads

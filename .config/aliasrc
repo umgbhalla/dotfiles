@@ -53,7 +53,7 @@ alias \
   n="newsboat -u $NEWSBOAT_CONFIG/urls -C $NEWSBOAT_CONFIG/config" \
   pdf="pdflatex" \
   pk="ps aux | fzf | awk '{print $2}' | tr -d '\n' | xargs kill -9" \
-  s="$XDG_SCRIPT_HOME/bin/run.sh" \
+  s="$XDG_SCRIPT_HOME/run_script.sh" \
   sbuild="$SBUILD" \
   ss="sc-im" \
   surf="surf -g" \
