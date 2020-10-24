@@ -1,4 +1,9 @@
 #!/bin/sh
 
-# echo $PATH | tr ':' '\n' | xargs -I {} find {} -type f -executable | $SHELLMENU
-$(ls /bin | $SHELLMENU)
+$(\
+  echo $PATH \
+  | tr ':' '\n' \
+  | xargs -I {} find {} -type f \
+  | xargs basename \
+  | $SHELLMENU \
+)
