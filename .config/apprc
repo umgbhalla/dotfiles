@@ -81,8 +81,8 @@ export POLYBAR_ALERT="$G_ALERT"
 
 # shellmenu
 
-export SHELLMENU_WIDTH="$W_WIDTH"
-export SHELLMENU_HEIGHT=300
+export SHELLMENU_WIDTH=$W_WIDTH
+export SHELLMENU_HEIGHT=$( echo "$RES_HEIGHT / 2" | bc)
 export SHELLMENU_X=$W_GAPS
 export SHELLMENU_Y=$W_GAPS
 
