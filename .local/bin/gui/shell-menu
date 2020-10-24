@@ -19,15 +19,9 @@ y=$SHELLMENU_Y
 if [ ! -f $tmpDataFileIn ]; then
   cat /dev/stdin > $tmpDataFileIn
 
-  color="bg:$SHELLMENU_BG"
-  color="$color,fg:$SHELLMENU_FG,prompt:$SHELLMENU_FG,pointer:$SHELLMENU_FG"
-  color="$color,hl:$SHELLMENU_MATCH,hl+:$SHELLMENU_MATCH"
-  color="$color,fg+:$SHELLMENU_CURRENT,bg+:$SHELLMENU_BG"
-  color="$color,info:$SHELLMENU_MATCH"
-
   st -n shellpopup -G ${width}x${height}+${x}+${y} sh -c \
     "cat $tmpDataFileIn | \
-    fzf --reverse --color="$color" \
+    fzf --reverse \
     $@ > $tmpDataFileOut"
 
   output=$(cat $tmpDataFileOut)

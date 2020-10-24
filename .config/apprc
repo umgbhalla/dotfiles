@@ -61,6 +61,20 @@ export FF_SECONDARY=$G_SECONDARY
 export FF_WARNING=$G_TERTIARY
 export FF_ALERT=$G_ALERT
 
+# fzf
+
+export FZF_BG="$G_BG"
+export FZF_FG="$G_FG"
+export FZF_MATCH="$G_PRIMARY"
+export FZF_CURRENT="$G_SECONDARY"
+export FZF_PROMPT="$G_TERTIARY"
+
+export FZF_COLORS="bg:$FZF_BG\
+,fg:$FZF_FG,prompt:$FZF_FG,pointer:$FZF_FG\
+,hl:$FZF_MATCH,hl+:$FZF_MATCH\
+,fg+:$FZF_CURRENT,bg+:$FZF_BG\
+,info:$FZF_MATCH"
+
 # picom
 
 export PICOM_ALPHA="$(echo $(( $W_ALPHA * 100 )) | sed -e 's/\.//g')"
@@ -85,12 +99,6 @@ export SHELLMENU_WIDTH=$W_WIDTH
 export SHELLMENU_HEIGHT=$( echo "$RES_HEIGHT / 2" | bc)
 export SHELLMENU_X=$W_GAPS
 export SHELLMENU_Y=$W_GAPS
-
-export SHELLMENU_BG="$G_BG"
-export SHELLMENU_FG="$G_FG"
-export SHELLMENU_MATCH="$G_PRIMARY"
-export SHELLMENU_CURRENT="$G_SECONDARY"
-export SHELLMENU_PROMPT="$G_TERTIARY"
 
 # spicetify
 
