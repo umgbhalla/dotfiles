@@ -1,9 +1,14 @@
-" vim: filetype=vifm :
+" vim: filetype=vim
 " Sample configuration file for vifm (last updated: 9 September, 2020)
 " You can edit this file by hand.
 " The " character at the beginning of a line comments out the line.
 " Blank lines are ignored.
 " The basic format for each item is shown with an example.
+
+" only open one pane
+" only
+vsplit
+view
 
 " ------------------------------------------------------------------------------
 
@@ -11,7 +16,7 @@
 " If you would like to use another vi clone such as Elvis or Vile
 " you will need to change this setting.
 
-set vicmd=vim
+set vicmd=nvim
 " set vicmd=elvis\ -G\ termcap
 " set vicmd=vile
 
@@ -102,7 +107,7 @@ set incsearch
 
 " Try to leave some space from cursor to upper/lower border in lists
 
-set scrolloff=5
+set scrolloff=${VI_NAV_JUMP}
 
 " Don't do too many requests to slow file systems
 
@@ -121,7 +126,7 @@ set statusline="  %A %7u:%g %= %d  "
 
 mark h $HOME/
 mark c $XDG_CONFIG_HOME/
-mark d $HOME/Downloads/
+mark b $HOME/Downloads/
 
 " ------------------------------------------------------------------------------
 
@@ -196,17 +201,9 @@ filextype {*.djvu},<image/vnd.djvu>
 filetype {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus},
   \<audio/*>
   \ mpv %f
-fileviewer {*.mp3,*.flac},
-  \<audio/mpeg>,<audio/flac>
-  \ mpv %f
 
 " video
 filetype {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
-  \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
-  \*.as[fx]},
-  \<video/*>
-  \ mpv %f
-fileviewer {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
   \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
   \*.as[fx]},
   \<video/*>
@@ -226,8 +223,9 @@ fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 " image
 filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
   \ feh %f,
-fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-  \ feh %f
+" TODO image previews with ueberzug
+" fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
+  " \ feh %f
 
 " OpenRaster
 filextype *.ora
@@ -376,7 +374,7 @@ filextype */
 " value if you don't want vifm to remember last visited directories for you.
 " set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
 "     \phistory,fhistory,dirstack,registers,bookmarks,bmarks
-set vifminfo=dhistory,chistory,state,tui,shistory,
+set vifminfo=dhistory,chistory,state,shistory,
     \phistory,fhistory,dirstack,registers,bookmarks,bmarks
 
 " ------------------------------------------------------------------------------
@@ -395,26 +393,33 @@ set vifminfo=dhistory,chistory,state,tui,shistory,
 
 " Sample mappings
 
+" fast navigation
+nnoremap <M-j> ${VI_NAV_JUMP}j
+nnoremap <M-k> ${VI_NAV_JUMP}k
+
+nnoremap <M-d> ${VI_NAV_JUMP_LARGE}j
+nnoremap <M-u> ${VI_NAV_JUMP_LARGE}k
+
 " quit on q
 nnoremap q :quit<cr>
 
-" Start shell in current directory
-nnoremap s :shell<cr>
-
-" Display sorting dialog
-nnoremap S :sort<cr>
+" sort
+nnoremap s :sort<cr>
 
 " Toggle visibility of preview window
 nnoremap w :view<cr>
 vnoremap w :view<cr>gv
 
+" create soft links
+command link ln -s %d/%f %d/%f2
+
 " Open file in existing instance of gvim
-nnoremap o :!gvim --remote-tab-silent %f<cr>
+" nnoremap o :!gvim --remote-tab-silent %f<cr>
 " Open file in new instance of gvim
-nnoremap O :!gvim %f<cr>
+" nnoremap O :!gvim %f<cr>
 
 " Open file in the background using its default program
-nnoremap gb :file &<cr>l
+" nnoremap gb :file &<cr>l
 
 " Interaction with system clipboard
 if has('win')
@@ -427,6 +432,8 @@ elseif executable('xclip')
     nnoremap yd :!echo %d | xclip %i<cr>
     " Yank current file path into the clipboard
     nnoremap yf :!echo %c:p | xclip %i<cr>
+    " Yank current file path into the clipboard
+    nmap yy :!echo %c:p | xclip -selection clipboard<cr>
 elseif executable('xsel')
     " Yank current directory path into primary and selection clipboards
     nnoremap yd :!echo -n %d | xsel --input --primary %i &&
@@ -437,36 +444,36 @@ elseif executable('xsel')
 endif
 
 " Mappings for faster renaming
-nnoremap I cw<c-a>
-nnoremap cc cw<c-u>
-nnoremap A cw
+" nnoremap I cw<c-a>
+" nnoremap cc cw<c-u>
+" nnoremap A cw
 
 " Open console in current directory
-nnoremap ,t :!xterm &<cr>
+" nnoremap ,t :!xterm &<cr>
 
 " Open editor to edit vifmrc and apply settings after returning to vifm
-nnoremap ,c :write | edit $MYVIFMRC | restart full<cr>
+" nnoremap ,c :write | edit $MYVIFMRC | restart full<cr>
 " Open gvim to edit vifmrc
-nnoremap ,C :!gvim --remote-tab-silent $MYVIFMRC &<cr>
+" nnoremap ,C :!gvim --remote-tab-silent $MYVIFMRC &<cr>
 
 " Toggle wrap setting on ,w key
-nnoremap ,w :set wrap!<cr>
+" nnoremap ,w :set wrap!<cr>
 
 " Example of standard two-panel file managers mappings
-nnoremap <f3> :!less %f<cr>
-nnoremap <f4> :edit<cr>
-nnoremap <f5> :copy<cr>
-nnoremap <f6> :move<cr>
-nnoremap <f7> :mkdir<space>
-nnoremap <f8> :delete<cr>
+" nnoremap <f3> :!less %f<cr>
+" nnoremap <f4> :edit<cr>
+" nnoremap <f5> :copy<cr>
+" nnoremap <f6> :move<cr>
+" nnoremap <f7> :mkdir<space>
+" nnoremap <f8> :delete<cr>
 
 " Midnight commander alike mappings
 " Open current directory in the other pane
-nnoremap <a-i> :sync<cr>
+" nnoremap <a-i> :sync<cr>
 " Open directory under cursor in the other pane
-nnoremap <a-o> :sync %c<cr>
+" nnoremap <a-o> :sync %c<cr>
 " Swap panes
-nnoremap <c-u> <c-w>x
+" nnoremap <c-u> <c-w>x
 
 " ------------------------------------------------------------------------------
 
