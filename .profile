@@ -183,7 +183,7 @@ export SHELLMENU="$GUI_DIR/shell-menu"
 # path
 #
 
-export PATH="$HOME/.local/bin/:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 #
 # includes

@@ -1,9 +1,19 @@
 #!/bin/sh
 
-$(\
-  echo $PATH \
-  | tr ':' '\n' \
-  | xargs -I {} find {} -type f \
-  | xargs basename \
-  | $SHELLMENU \
-)
+case $OS in
+  $OS_FREEBSD)
+    $(\
+      echo $PATH \
+      | tr ':' '\n' \
+      | xargs -I {} find {} -type f \
+      | xargs basename \
+      | $SHELLMENU \
+    )
+    ;;
+  *)
+    $(\
+      ls /bin \
+      | $SHELLMENU \
+    )
+    ;;
+esac
