@@ -37,7 +37,6 @@ redshift
 
 # file explorer
 vifm
-# ranger
 # w3m # required by ranger
 # ueberzug # img previews
 
