@@ -376,8 +376,9 @@ filextype */
 " value if you don't want vifm to remember last visited directories for you.
 " set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
 "     \phistory,fhistory,dirstack,registers,bookmarks,bmarks
-set vifminfo=dhistory,chistory,state,shistory,
-    \phistory,fhistory,dirstack,registers,bookmarks,bmarks
+" set vifminfo=dhistory,chistory,state,shistory,
+"     \phistory,fhistory,dirstack,registers,bookmarks,bmarks
+set vifminfo=
 
 " ------------------------------------------------------------------------------
 
@@ -401,6 +402,10 @@ nnoremap <M-k> ${VI_NAV_JUMP}k
 
 nnoremap <M-d> ${VI_NAV_JUMP_LARGE}j
 nnoremap <M-u> ${VI_NAV_JUMP_LARGE}k
+
+" toggle hidden files
+nnoremap <C-h> za
+nnoremap <M-h> za
 
 " quit on q
 nnoremap q :quit<cr>
