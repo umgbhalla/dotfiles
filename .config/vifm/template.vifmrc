@@ -150,6 +150,9 @@ mark b $HOME/Downloads/
 command! md mkdir -p %a
 " command! vgrep vim "+grep %a"
 command! reload :write | restart full
+" create soft links
+command link ln -s %d/%f %d/%f2
+
 
 " ------------------------------------------------------------------------------
 
@@ -403,6 +406,9 @@ nnoremap <M-k> ${VI_NAV_JUMP}k
 nnoremap <M-d> ${VI_NAV_JUMP_LARGE}j
 nnoremap <M-u> ${VI_NAV_JUMP_LARGE}k
 
+" disable irritating pane switching
+nnoremap <Space> <Esc>
+
 " toggle hidden files
 nnoremap <C-h> za
 nnoremap <M-h> za
@@ -416,9 +422,6 @@ nnoremap s :sort<cr>
 " Toggle visibility of preview window
 nnoremap w :view<cr>
 vnoremap w :view<cr>gv
-
-" create soft links
-command link ln -s %d/%f %d/%f2
 
 " Open file in existing instance of gvim
 " nnoremap o :!gvim --remote-tab-silent %f<cr>
