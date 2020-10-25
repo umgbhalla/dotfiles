@@ -23,12 +23,6 @@ export XDG_DATA_HOME="$HOME/.local/share"
 # repo directory
 export XDG_REPO_HOME="$HOME/Repos"
 
-
-# runtime directory
-if [ $OS = $OS_FREEBSD ]; then
-  export XDG_RUNTIME_DIR="/tmp"
-fi
-
 #
 # display
 #
@@ -97,7 +91,7 @@ esac
 
 # panel/bar
 case $OS in
-  $OS_LINUX)
+  $OS_LINUX|$OS_FREEBSD)
     export BAR="polybar"
     export BAR_ARGS="$BAR -r main"
     ;;
@@ -114,7 +108,8 @@ case $OS in
     export COMPOSITOR_ARGS="$COMPOSITOR --experimental-backends"
     ;;
   *)
-    export COMPOSITOR=""
+    # export COMPOSITOR=""
+    export COMPOSITOR="picom"
     export COMPOSITOR_ARGS="$COMPOSITOR"
     ;;
 esac

@@ -4,6 +4,10 @@
 # run sxhkd if not already running
 pgrep -x sxhkd > /dev/null || sxhkd &
 
+if [ $OS = $OS_FREEBSD ]; then
+  xinput set-prop "System mouse" "libinput Natural Scrolling Enabled" 1
+fi
+
 #
 # general settings
 #
