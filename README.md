@@ -104,8 +104,9 @@ System Profiler:  htop
 ## Cloning <a name="cloning"></a>
 
 1. Clone this repository to your home folder using the steps outlined below.
-    If you followed my [manual installation](#manual-installation), choose `zsh`.
-    - `sh`:
+    If you followed my [manual installation](#manual-installation),
+    choose either `zsh` or `sh`.
+    - `dash/sh`:
       ```sh
       git clone --recursive https://github.com/bossley9/dotfiles.git /tmp/dotfiles
       cd /tmp/dotfiles
@@ -130,6 +131,19 @@ System Profiler:  htop
     automatically. This script can be rerun to install any additional packages after an update 
     to this repository, and you can even add your own packages to the files to install them. 
     It will also enable system packages and build my `suckless` utilities.
+
+    **FreeBSD:**
+    ```sh
+    . $HOME/.profile
+    $XDG_CONFIG_HOME/installation/bsd.sh
+    ```
+    Restart and verify all packages are running properly.
+    ```
+    sudo reboot
+    ```
+    You may need to install certain packages or run certain commands in order to tweak
+    everything accordingly. I've tried to include comments at the top of most relevant config
+    files.
 
     **GNU/Linux:**
     ```sh
@@ -157,6 +171,11 @@ System Profiler:  htop
 
 This section serves to aid those who would like to fully replicate my current working system,
 including software/architecture specifics.
+
+1. [Installation with Archlinux](#installation-with-archlinux)
+2. [Installation with FreeBSD](#installation-with-freebsd) (WIP)
+
+### Installation with Archlinux <a name="installation-with-archlinux"></a>
 
 For the best personalized installation experience I suggest reading the Arch Wiki. It's 
 surprisingly intuitive (for a _zoomer_ who hates reading documentation) and
@@ -204,11 +223,11 @@ This setup guide assumes you understand the basics of Unix systems
       ```
       sudo dd bs=4M if=/path/to/iso of=/dev/sdx status=progress
       ```
-      where `/dev/sdx` is the root partition of the usb (do not include specific partition 
+      where `/dev/sdx` is the root partition of the usb (do not include specific partition
       numbers). You may want to run `sudo fdisk -l` first to double check the partition name.
-4. Boot the machine from the live usb (you may need to modify BIOS settings to boot from a 
+4. Boot the machine from the live usb (you may need to modify BIOS settings to boot from a
     usb hard drive). If you don't know how to do this, look up how to boot from a live usb
-    and how to change the bios settings for your machine.
+    and how to change the bios settings for your machine. Make sure you boot with UEFI.
 
 Booting from the usb will open a menu. Choose to boot from the live usb.
 After loading screens you will eventually land on a simple command prompt.
@@ -508,6 +527,174 @@ customizeable appearance.
   ```
 - Finally, install my dotfiles. See [cloning](#cloning) for more details.
 
+### Installation with FreeBSD <a name="installation-with-freebsd"></a>
+If you are new to Unix systems, or are new to dotfiles, shells, scripting, and systems, I
+highly recommend following the [Archlinux installation guide](#installation-with-archlinux)
+instead of this one. This FreeBSD installation is more geared towards Unix regulars and
+minimalistic power-users who are looking for a fully customizeable/extendable system.
+
+In other words: _if you're new to the Linux/Unix utopia, this is probably not for you._
+
+#### Table of Contents
+1. [Setup](#setup-freebsd)
+2. [Boot Start](#boot-start-freebsd)
+3. [Hostname](#hostname-freebsd)
+4. [Components](#components-freebsd)
+5. [Disk Partitioning](#disk-partitioning-freebsd)
+6. [Password](#password-freebsd)
+7. [Network Prompt](#network-prompt-freebsd)
+8. [Clock and Localization](#clock-and-localization-freebsd)
+9. [System Configuration](#system-configuration-freebsd)
+10. [System Hardening](#system-hardening-freebsd)
+11. [Adding a User](#adding-a-user-freebsd)
+12. [Basic Networking](#basic-networking-freebsd)
+13. [Core Setup](#core-setup-freebsd)
+
+#### Setup <a name="setup-freebsd"></a>
+1. For this guide you will need the following tools:
+    - A computer that will be wiped to install the new operating system
+    - An internet connection (preferably ethernet)
+    - A disposable usb drive that can be wiped
+2. Download the latest [FreeBSD](https://www.freebsd.org/where.html) installation image
+  from their website. I chose `amd64` architecture release `12.1`. When given the option, I
+  selected the memstick image instead of a standard iso since it does not require an
+  internet connection for the base installation, and wifi was difficult to set up
+  without proper command line access.
+3. Burn the downloaded cd image onto the usb.
+4. Boot the machine from the live usb. This may require BIOS tweaking depending on your
+  machine. Be sure to boot with UEFI if you plan on dual booting with Windows in the
+  future.
+
+Booting from the image will open the standard FreeBSD boot menu. You can either wait a
+few seconds or press `ENTER` to select the multi-user boot.
+
+#### Boot Start <a name="boot-start-freebsd"></a>
+When prompted between `Install`, `Shell`, and `Live CD`, select `Install`. Then select
+the keymap best suited for you. Generally the default selection is the best choice.
+
+#### Hostname <a name="hostname-freebsd"></a>
+Name your system.
+
+#### Components <a name="components-freebsd"></a>
+When choosing which components to install, select `kernel-dbg`, `lib32`, and `ports`.
+`lib32` enables support for 32-bit libraries (like... the Steam client...) and the ports
+tree is FreeBSD's software management system (the only time you should _not_ install this
+is if your machine is intended to be used as a server).
+
+#### Disk Partitioning <a name="disk-partitioning-freebsd"></a>
+We will be partitioning our disk with ZFS. Select `Auto (ZFS)` to partition with ZFS.
+
+- Change the swap size to be twice the size of ram. In my case, this is 64GB.
+  ```
+  64g
+  ```
+- Verify that the partition scheme is `GPT`, and either `(BIOS + UEFI)` or `(UEFI)`.
+- Change the pool type to stripe, and select your disk you want FreeBSD to be installed on
+  (usually this is named `ada0`).
+- Proceed with installation to begin the base system installation process, as well as
+  the ports tree.
+
+#### Password <a name="password-freebsd"></a>
+When prompted, type in the root password.
+
+#### Network Prompt <a name="network-prompt-freebsd"></a>
+Eventually the installation process will prompt you to select a network configuration.
+As I mentioned earlier, it is much easier to set up a proper network configuration after
+the installation process has finished. You can select `cancel`, and the installation process
+will continue without a network connection.
+
+#### Clock and Localization <a name="clock-and-localization-freebsd"></a>
+- The installation will prompt if your CMOS clock is set to UTC. If you are switching
+  from Windows to FreeBSD, it is highly likely that Windows reset your CMOS clock to
+  the local timezone. If that is the case, select `No`.
+
+  In most other cases you can select `Yes`. If you are unsure, you can verify the CMOS time
+  in the system BIOS.
+- Next, choose your country and region. This is used for timezone/localization settings.
+- Set the system time. Generally this is very accurate and you can set the default time
+  and date it provides.
+
+#### System Configuration <a name="system-configuration-freebsd"></a>
+You are now able to choose the types of services you would like to have run at boot time.
+I have never had a need to enable any additional services other than the default `sshd` and
+`dumpdev`.
+
+#### System Hardening <a name="system-hardening-freebsd"></a>
+FreeBSD has a wide variety of security features it offers (as opposed to Linux systems) out
+of the box. I usually select `random_pid`, `clear_tmp`, and `disable_sendmail`.
+
+#### Adding a User <a name="adding-a-user-freebsd"></a>
+When prompted, select `Yes` to add a new user to the system. This will be the main user.
+- Set the username and full name. I usually keep both the username and full name the same.
+- Press `ENTER` to keep Uid and Login group as default.
+- When prompted, be sure to add your user to the additional group `wheel`
+  for sudo privileges.
+- Press `ENTER` to keep Login class as default.
+- Choose your system shell. I default to the Bourne `sh` shell because I find that I never
+  need the additional bloat features csh and tcsh provide (and I am personally not a fan
+  of the way they set environment variables).
+- Use the default settings for the rest of the prompts regarding Home directory and
+  password authentication, and when prompted, enter the password for the new user.
+- Do _not_ lock out the account after creation. This is selected by default.
+- Confirm the user settings you have provided.
+
+After creating the user, you can exit the installation and reboot the system.
+
+Instead of logging in as the system user, login as root with the password you
+created earlier.
+
+#### Basic Networking <a name="basic-networking-freebsd"></a>
+- Use `sysctl net.wlan.devices` to determine your wifi device name. Mine is `iwm0`.
+  Then enable the device in your `/etc/rc.conf`. In this example I will use `iwm0`.
+  You will additionally need to use `vi` since it is the only editor installed by
+  default.
+  ```
+  # wifi
+  wlans_iwm0="wlan0"
+  ifconfig_wlan0="WPA SYNCDHCP"
+  ```
+  Next, in `/etc/wpa_supplicant.conf`, list your network configuration and settings.
+  ```
+  network={
+    ssid="YOUR SSID"
+    psd="YOUR PSK"
+  }
+  ```
+  Reboot, login to root, and verify that a network connection has been established
+  with `ping freebsd.org`.
+  ```
+  reboot
+  ```
+
+#### Core Setup <a name="core-setup-freebsd"></a>
+- Update the main package repositories and install core utilities.
+  Install `pkg` when prompted.
+  ```
+  pkg update
+  pkg install sudo git vim
+  pkg install xorg pkgconf sourcecodepro-ttf
+  ```
+- Enable the `wheel` group with `visudo`:
+  ```
+  %wheel ALL=(ALL) ALL
+  ```
+- Logout and log back in as the main user.
+  You will now be able to install packages using sudo.
+- Set up graphics for X. I use an intel-based vga - if you are looking for a better
+  general-purpose driver, try `drm-kmod`.
+  ```
+  sudo pkg install xf86-video-intel
+  ```
+  Then enable the module in your `/etc/rc.conf`:
+  ```
+  kld_list="/boot/modules/i915kms.ko"
+  ```
+  To prevent screen tearing and lag, add yourself to the video group.
+  ```
+  sudo pw groupmod video -m $USER
+  ```
+- Finally, install my dotfiles. See [cloning](#cloning) for more details.
+
 ## Additional Configuration or Notes <a name="addconfig"></a>
 This list of additional configuration options are in no particular order. I've just added or
 modified them when necessary.
@@ -691,13 +878,10 @@ Below are a list of things in no particular order that I plan to do but haven't 
 implemented or had the time to configure.
 
 + pinyin input (fcitx?)
-+ try out BSD!!!
 + switch completely to ALSA, or find alternatives to switch audio inputs
 + contact management application
 + customize gtk theming
 + find a good remote desktop client
-+ pcie single-gpu passthrough (this will take a while...)
 + update color/styling for ff
 + switch from cmus to ncmpcpp
-+ switch to uefi
 + fix ffmpeg screen capture quality and audio
