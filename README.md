@@ -126,10 +126,13 @@ System Profiler:  htop
       setopt -s glob_dots
       cp -rv /tmp/dotfiles/* $HOME/
       ```
-2. Install required core packages for the configuration to work, as well as my preferred 
-    programs. I've written a script in my dotfiles that installs all necessary packages 
-    automatically. This script can be rerun to install any additional packages after an update 
-    to this repository, and you can even add your own packages to the files to install them. 
+2. Switch to a different virtual terminal. This is so that `x` does not begin running before
+  all core programs are installed. On most distributions/operating systems, you can do this
+  by typing `ctrl + alt + F2`.
+3. Install required core packages for the configuration to work, as well as my preferred
+    programs. I've written scripts in my dotfiles that install all necessary packages
+    automatically. This script can be rerun to install any additional packages after an update
+    to this repository, and you can even add your own packages to the files to install them.
     It will also enable system packages and build my `suckless` utilities.
 
     **FreeBSD:**
