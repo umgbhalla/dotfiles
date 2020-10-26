@@ -2,6 +2,9 @@
 # essential dependencies
 # -------------------------------------------------------------------
 
+# system utilities
+bc
+
 # system status bar
 polybar
 

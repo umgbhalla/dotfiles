@@ -5,7 +5,7 @@
 2. [Demonstration](#demonstration)
 2. [System Information](#sysinfo)
 3. [Cloning](#cloning)
-4. [Manual Installation](#manualinstall)
+4. [Manual Installation](#manual-installation)
 5. [Additional Configuration or Notes](#addconfig)
 6. [TODO](#todo)
 
@@ -60,7 +60,7 @@ There are two routes you can follow to reproduce the exact same setup I have, on
  tedious, but possibly less work in the long run.
   - If you would like to wipe an entire machine and begin from scratch with my setup, I have 
      outlined a clean installation according to my preferences in 
-     [manual installation](#manualinstall). This may be a bit more work but guarantees that 
+     [manual installation](#manual-installation). This may be a bit more work but guarantees that 
      the setup will work exactly the same as mine.
   - If you would like to install the dotfiles on top of an existing OS or setup, you can 
      follow the instructions below to clone my dotfiles into your setup. However, be 
@@ -103,20 +103,27 @@ System Profiler:  htop
 
 ## Cloning <a name="cloning"></a>
 
-1. Clone this repository to your home folder using the steps outlined below. 
-    If you followed my 
-    [manual installation](#manualinstall), choose `zsh` here.
+1. Clone this repository to your home folder using the steps outlined below.
+    If you followed my [manual installation](#manual-installation), choose `zsh`.
+    - `sh`:
+      ```sh
+      git clone --recursive https://github.com/bossley9/dotfiles.git /tmp/dotfiles
+      cd /tmp/dotfiles
+
+      # you will need to manually copy every file (including dots) individually from
+      # /tmp/dotfiles to $HOME/ since dash does not offer extended glob patterns.
+      ```
+    - `bash`:
+      ```sh
+      git clone --recursive https://github.com/bossley9/dotfiles.git /tmp/dotfiles
+      shopt -s dotglob nullglob
+      cp -rv /tmp/dotfiles/* $HOME/
+      ```
     - `zsh`:
       ```sh
       git clone --recursive https://github.com/bossley9/dotfiles.git /tmp/dotfiles
       setopt -s glob_dots
       cp -rv /tmp/dotfiles/* $HOME/
-      ```
-    - `bash`:
-      ```sh
-        git clone --recursive https://github.com/bossley9/dotfiles.git /tmp/dotfiles
-        shopt -s dotglob nullglob
-        cp -rv /tmp/dotfiles/* $HOME/
       ```
 2. Install required core packages for the configuration to work, as well as my preferred 
     programs. I've written a script in my dotfiles that installs all necessary packages 
@@ -126,7 +133,7 @@ System Profiler:  htop
 
     **GNU/Linux:**
     ```sh
-    source $HOME/.profile
+    . $HOME/.profile
     $XDG_CONFIG_HOME/installation/setup.sh
     ```
     Restart and verify all packages are running properly.
@@ -146,46 +153,52 @@ System Profiler:  htop
     In order to use the terminal buffer keymap(s) in `nvim`, make sure to set the `use option 
     as meta key` option in the profile keyboard settings.
 
-## Manual Installation <a name="manualinstall"></a>
+## Manual Installation <a name="manual-installation"></a>
+
+This section serves to aid those who would like to fully replicate my current working system,
+including software/architecture specifics.
 
 For the best personalized installation experience I suggest reading the Arch Wiki. It's 
-surprisingly intuitive (coming from a zoomer who hates reading documentation) and 
+surprisingly intuitive (for a _zoomer_ who hates reading documentation) and
 goes into depth about customizing Arch to fit your standards. The configuration files included
-in this project are all settings I prefer to use and may not fit your specific usage or 
+in this project are all settings I prefer to use and may not fit your specific usage or
 preferences.
 
-Another disclaimer - I am a strong advocate for the `vim` text editor, and as such, I will use 
-`neovim` to edit files during installation. If you prefer `emacs` or the more user-friendly 
-`nano`, I encourage you to use such tools.
+Another disclaimer - I am a strong advocate for the `vim` text editor, and as such, I will use
+`neovim` to edit files during installation. If you prefer clunky `emacs` or the more user-friendly
+`nano`, feel free to use such.
 
 #### Table of Contents
 1. [Setup](#setup)
-2. [Preliminary Internet](#preliminternet)
-3. [System Time](#systime)
-4. [Disk Partitioning](#diskpartition)
-5. [Distro Installation](#distroinstall)
-6. [Mounting with Fstab](#fstabmount)
-7. [System Network Manager](#networkmanager)
-8. [Grub Bootloader](#grubboot)
+2. [Preliminary Internet](#preliminary-internet)
+3. [System Time](#system-time)
+4. [Disk Partitioning](#disk-partitioning)
+5. [Distro Installation](#base-installation)
+6. [Mounted Drives with Fstab](#mounted-drives-with-fstab)
+7. [Time Zone and Localization](#time-zone-and-localization)
+8. [Network Manager](#network-manager)
 9. [Password](#password)
-10. [Locales and System Information](#locales)
-11. [Installation Wrapup](#installwrap)
+10. [Bootloader](#bootloader)
+11. [Installation Wrapup](#installation-wrapup)
 12. [Wifi](#wifi)
-13. [Creating a User](#creatinguser)
-14. [Core Packages](#corepackages)
+13. [Creating a User](#creating-a-user)
+14. [Core Setup](#core-setup)
 
 #### Setup <a name="setup"></a>
 
+This setup guide assumes you understand the basics of Unix systems
+(core utilities, command structure, shells, etc).
+
 1. For this guide you will need the following tools:
-    - A computer that will be wiped to install a new OS
+    - A computer that will be wiped to install the new operating system
     - An internet connection (preferably ethernet)
     - A disposable usb drive that can be wiped
-2. Download the latest [Archlinux](https://www.archlinux.org/download/) installation iso from 
-    their website. I downloaded version `archlinux-2020.09.01-x86_64.iso`.
-3. Burn the downloaded cd image onto the usb. 
+2. Download the latest [Archlinux](https://www.archlinux.org/download) installation iso from
+    their website. I downloaded version `archlinux-2020.10.01-x86_64.iso`.
+3. Burn the downloaded cd image onto the usb.
     This can be done using a number of different tools:
-    - [Balena Etcher](https://www.balena.io/etcher/)
-    - [Rufus](https://rufus.ie/)
+    - [Balena Etcher](https://www.balena.io/etcher)
+    - [Rufus](https://rufus.ie)
     - [Mkusb](https://help.ubuntu.com/community/mkusb)
     - Or, if you prefer command line like me:
       ```
@@ -200,36 +213,36 @@ Another disclaimer - I am a strong advocate for the `vim` text editor, and as su
 Booting from the usb will open a menu. Choose to boot from the live usb.
 After loading screens you will eventually land on a simple command prompt.
 
-#### Preliminary Internet <a name="preliminternet"></a>
+#### Preliminary Internet <a name="preliminary-internet"></a>
 
 1. After verifying the ethernet cable is plugged in (if applicable), test the internet by
     typing the following command:
     ```
     ping archlinux.org
     ```
-    If an internet connection has already been established, you will see an incremental 
-    output displaying packet information. If internet has not yet been set 
+    If an internet connection has already been established, you will see an incremental
+    output displaying packet information. If internet has not yet been set
     up on the machine, it will likely provide the following error:
     ```
     ping: archlinux.org: Name or service not known
     ```
     If a response appears, type `ctrl-c` to stop the ping and skip ahead to the next section.
-2. If you arrived at this step, we'll assume no internet is connected. 
-    We'll need to get the names of all network cards with 
+2. If you arrived at this step, we'll assume no internet is connected.
+    We'll need to get the names of all network cards with
     `ip link`. Remember the names of the cards that display. On most machines there are only
     three network cards:
-    - `lo` represents a loopback device, which is kind of like a virtual network (this is how 
+    - `lo` represents a loopback device, which is kind of like a virtual network (this is how
         we access `127.0.0.1` and other localhost ports).
-    - `eth0` represents an ethernet adapter. Usually the interface is given a more specific 
-        name, such as `enp34s0`. In this guide I will use `eth0` to represent the ethernet 
+    - `eth0` represents an ethernet adapter. Usually the interface is given a more specific
+        name, such as `enp34s0`. In this guide I will use `eth0` to represent the ethernet
         card name.
     - If your machine has a wifi card, it will be represented by `wlan0`. As with the 
-        ethernet card, this is usually passes under a more specific name, like `wlp1s0`. 
+        ethernet card, this is usually passes under a more specific name, like `wlp1s0`.
         In this guide I will use `wlan0` to represent the wireless card name.
 3. We will now establish an internet connection to download all necessary packages.
     It is definitely possible to install the OS on the machine using only wifi (using a utility
-    such as [`iwctl`](https://wiki.archlinux.org/index.php/Iwd#iwctl)), but I recommend 
-    against wifi if possible since it involves a lot more complication and will be subsequently 
+    such as [`iwctl`](https://wiki.archlinux.org/index.php/Iwd#iwctl)), but I recommend
+    against wifi if possible since it involves a lot more complication and will be subsequently
     slower during the install process.
 
     **To install with ethernet:**
@@ -248,19 +261,19 @@ After loading screens you will eventually land on a simple command prompt.
         systemctl disable dhcpcd
         sudo reboot
         ```
-    4. Verify `ping archlinux.org` produces a response. Do not proceed and repeat this section 
-        until a response appears.
+    4. Verify `ping archlinux.org` produces a response.
+      Do not proceed and repeat this section until a response appears.
 
     **To install with wifi:**
     1. Enter the `iwctl` prompt by typing `iwctl` in the command line.
-    2. Verify the computer's wifi card with `device list`. This should display the wifi 
+    2. Verify the computer's wifi card with `device list`. This should display the wifi
     card(s) you saw earlier with `ip link`.
     3. Scan for networks using `station wlan0 scan`, where `wlan0` is the network card name.
         This command will not display any output and instead silently scan.
     4. List all scanned networks with `station wlan0 get-networks`.
     5. Connect to the internet network with `station wlan0 connect SSID`. This will prompt
         a password if required. Then type `exit` to return to the original prompt.
-    6. Verify `ping archlinux.org` produces a response. Do not proceed and repeat this section 
+    6. Verify `ping archlinux.org` produces a response. Do not proceed and repeat this section
         until a response appears.
 
 #### System Time <a name="systime"></a>
@@ -269,70 +282,124 @@ After loading screens you will eventually land on a simple command prompt.
     timedatectl set-ntp true
     ```
 
-#### Disk Partitioning <a name="diskpartition"></a>
-We will be creating a main partition for all files and a swap partition for suspending and 
-hibernation. To view the GB amount of memory installed in the system, run the `free -g` 
-command. To be safe, we will make the swap partition to be twice the amount of total RAM.
+#### Disk Partitioning <a name="disk-partitioning"></a>
+In this guide, we will be creating three partitions: a main partition for all files, a swap
+partition for physical memory, and a FAT UEFI boot partition.
 
-1. To view the disks to partition, use `fdisk -l` to display all drives and note the drive 
+Run the `free -g` command to view the GB amount of memory installed in the system.
+To be safe, we will make the swap partition to be twice the size amount of total RAM.
+
+- To view the disks to partition, use `fdisk -l` to display all drives and note the drive 
 you wish to install Arch on. Make sure this drive is not the usb drive. Mine is `/dev/sda`, 
 and as such, I will be using this drive for the purposes of this guide. Run the following 
 command to open the partitioning editor for that disk:
     ```
     fdisk /dev/sda
     ```
-    You can list any existing partitions in this prompt using `p`.
-2. Delete all existing partitions on this drive by typing `d` consecutively and selecting 
+    You can list any existing partitions in this prompt (as well as disk size) using `p`.
+- Delete all existing partitions on this drive by typing `d` consecutively and selecting
     existing partitions until it states that no partitions are defined.
-3. Type `p` to display the disk size.
-3. Type `n` to create a new partition, and `p` to make this a primary partition. Partition 
-    number and first sector can both be left at default. You can press `ENTER` to use the 
+- Type `g` to format the disk to use a GPT (GUID Partition Table). This is preferable on
+    newer systems since it is more accurate than a label-based system, and is much more
+    flexible when working with other operating systems in dual boot, such as Windows or
+    the various BSDs.
+- Type `n` to create a new partition, and `p` to make this a primary partition. Partition
+    number and first sector can both be left at default. You can press `ENTER` to use the
     default for both of these prompts.
-4. This partition will be the swap partition, which will be twice the size of RAM. My system 
-    uses 16Gb of RAM, so the partition created will be 2 x 16Gb = 32Gb.
+- The first partition will be the boot partition for our UEFI boot record. A reasonable size
+    for this partition is 200MB.
     ```
-    +32G
+    +200M
     ```
-    Press `ENTER` again to allocate the entire disk for the partition, and `y` to remove any 
-    existing signatures.
-5. The rest of the space will be used for the main partition. Using the same commands, create 
-    a partition which uses the rest of the disk. When prompted for the last sector, type 
-    `ENTER` to use the rest of the space, and remove any existing signatures.
-6. Type `w` to write the changes to the hard drive (this is permanent). You will be able to 
-    use `fdisk -l` to view the changes to the disk.
-7. Change the partition extensions. In my case, my swap partition is `/dev/sda1` and my root 
-    partition is `/dev/sda2`.
+    If prompted to remove a signature, select `y`.
+- The second partition is the swap partition, which will be twice the size of RAM.
+    Using the same commands as before, create a new partition. My system has 32GB of RAM,
+    so the partition created will be 2 x 32GB = 64GB.
     ```
-    mkfs.ext4 /dev/sda2
-    mkswap /dev/sda1
-    swapon /dev/sda1
+    +64G
     ```
-8. Mount the created root file partition.
+    Again, remove any existing signatures.
+- The rest of the space will be used for the main partition (this may be different if you plan
+    on dual-booting your system). Using the same commands, create a partition which uses the
+    rest of the disk. When prompted for the last sector, type `ENTER` to use the rest of the
+    space, and remove any existing signatures.
+- Type `w` to write the changes to the hard drive (this is permanent). You will then be able
+    to use `fdisk -l` to view the changes to the disk.
+7. Change the partition extensions. In my case, my boot partition is `/dev/sda1`, swap is
+    `/dev/sda2`, and my root partition is `/dev/sda2`.
     ```
-    mount /dev/sda2 /mnt
+    mkfs.fat -F32 /dev/sda1
+
+    mkswap /dev/sda2
+    swapon /dev/sda2
+
+    mkfs.ext4 /dev/sda3
+    ```
+8. Mount the file partitions (the boot and root partitions).
+    ```
+    mount /dev/sda3 /mnt
+    mkdir /mnt/efi
+    mount /dev/sda1 /mnt/efi
     ```
 
-#### Distro Installation <a name="distroinstall"></a>
-1. Install the linux kernel and base. This will take some time to complete. I also 
-    recommended installing `base-devel` development tools and an editor like `vim`.
+#### Distro Installation <a name="distro-installation"></a>
+1. Install the linux kernel and base. This will take some time to complete. I also
+    recommend installing development tools (`base-devel`) and an editor (`vim`).
     ```
-    pacstrap /mnt base base-devel linux linux-firmware neovim
+    pacstrap /mnt base base-devel linux linux-firmware vim
     ```
 
-#### Mounting with Fstab <a name="fstabmount"></a>
-`fstab` is used to mount drives to the system.
+#### Mounted Drives with Fstab <a name="mounted-drives-with-fstab"></a>
+`fstab` is used to record mounted (mountable) drives to the system.
 
 1. Generate an `fstab` file.
     ```
     genfstab -U /mnt >> /mnt/etc/fstab
     ```
-2. Then log into the system. This should change your prompt.
+2. Then log into the system. This will change your prompt.
     ```
     arch-chroot /mnt
     ```
 
-#### System Network Manager <a name="networkmanager"></a>
-1. Install `networkmanager`.
+#### Time Zone and Localization <a name="time-zone-and-localization"></a>
+- Set the time zone.
+  ```
+  ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+  ```
+  for example, since I currently live in the general EST Midwest area:
+  ```
+  ln -sf /usr/share/zoneinfo/America/Louisville /etc/localtime
+  ```
+- Sync the hardware clock.
+  ```
+  hwclock --systohc
+  ```
+- Edit `/etc/locale.gen` to enable locales. I speak and use English as my system language,
+  but yours might be different. Adjust accordingly.
+  ```
+  en_US.UTF-8 UTF-8
+  ```
+  Then generate locales.
+  ```
+  locale-gen
+  ```
+- Edit `/etc/locale.conf` to set the system language.
+  ```
+  LANG=en_US.UTF-8
+  ```
+- Edit `/etc/hostname` to name the machine. I named mine `whitesnake`.
+  ```
+  whitesnake
+  ```
+- Edit `/etc/hosts` to update the host list accordingly:
+  ```
+  127.0.0.1   localhost
+  ::1         localhost
+  127.0.1.1   whitesnake.localdomain    whitesnake
+  ```
+#### Network Manager <a name="network-manager"></a>
+1. Install a network manager. This is vital - without a network manager,
+  you will not be able to use any network.
     ```
     pacman -S networkmanager
     ```
@@ -341,130 +408,105 @@ command to open the partitioning editor for that disk:
     systemctl enable NetworkManager
     ```
 
-#### Grub Bootloader <a name="grubboot"></a>
-1. Install `grub`.
-    ```
-    pacman -S grub
-    grub-install --target=i386-pc /dev/sda
-    ```
-2. Generate the `grub` configuration.
-    ```
-    grub-mkconfig -o /boot/grub/grub.cfg
-    ```
-
 #### Password <a name="password"></a>
 1. Set a password for the root user.
     ```
     passwd
     ```
 
-#### Locales and System Information <a name="locales"></a>
-1. `nvim /etc/locale.gen` to enable locales. I speak and use English as my system language,
-    but yours might be different. Adjust accordingly.
+#### Bootloader <a name="bootloader"></a>
+I use GRUB as a bootloader because it is simple, quick,
+and works on both UEFI/BIOS systems. It also has a
+customizeable appearance.
+1. Install `grub` and `efibootmgr` for UEFI.
     ```
-    en_US.UTF-8 UTF-8
+    pacman -S grub efibootmgr
+    grub-install --target=x86_64-efi --efi-directory=/efi booloader-id=GRUB
     ```
-2. Then generate locales.
+2. Generate the `grub` configuration.
     ```
-    locale-gen
-    ```
-3. `nvim /etc/locale.conf` to set the system language.
-    ```
-    LANG=en_US.UTF-8
-    ```
-4. Synchronize the local time and hardware clock, where [region] is your region and [city] 
-    is your city:
-    ``` 
-    ln -sf /usr/share/zoneinfo/[region]/[city] /etc/localtime
-    hwclock --systohc
-    ```
-5. `nvim /etc/hostname` to name the machine. I named mine `diobrando`.
-    ```
-    diobrando
-    ```
-6. Then `nvim /etc/hosts` to update the host list accordingly:
-    ```
-    127.0.0.1   localhost
-    ::1         localhost
-    127.0.1.1   diobrando.localdomain   diobrando 
+    grub-mkconfig -o /boot/grub/grub.cfg
     ```
 
-#### Installation Wrapup <a name="installwrap"></a>
-1. Exit, unmount the filesystem, and shutdown. Safely remove the usb after the machine is 
+#### Installation Wrapup <a name="installation-wrapup"></a>
+1. Exit, unmount the filesystem, and shutdown. Safely remove the usb after the machine is
     powered off.
     ```
     exit
     umount -R /mnt
     shutdown -h now
     ```
-2. Power on the machine. It should boot immediately into a login prompt. Then log in as the 
-    root user using `root` as your username and the password you set earlier. 
-    If it does not display a login prompt, the OS was not set up correctly. 
-    Repeat the previous steps to install the OS.
+2. Power on the machine. It should boot immediately into a login prompt.
+    If no bootable devices are found, you may need to tweak BIOS settings in order to boot
+    from UEFI. Then log in as the root user using `root` as your username and the password
+    you set earlier. If it does not display a login prompt, the operating system was not set
+    up correctly. Repeat the previous steps to install the operating system.
+
+    Anddd we're done! Have fun with your system!
+
+    ...kidding. We still have a bit of manual installation to do.
 
 #### Wifi <a name="wifi"></a>
-1. A wifi network connection can be set up from the command line temporarily if needed. Run 
-    `nmcli d wifi list` to display all networks. Then connect with the appropriate SSID and 
-    password.
+1. A wifi network connection can be set up from a terminal interface. Use `nmtui` to display
+    and connect to the appropriate network. Alternatively, the command line utility exists.
+    Run `nmcli d wifi list` to display all networks.
+    Then connect with the appropriate SSID and password.
     ```
     nmcli d wifi connect SSID password PASSWORD
     ```
     The current network status can be displayed with the `nmcli radio` and `nmcli device` 
     commands.
 
-    More complicated networks may require more settings, and `nmtui` provides a more
-    comfortable user-interface for complex networks such as school networks, vpns, or hotel 
-    networks.
-
-#### Creating a User <a name="creatinguser"></a>
+#### Creating a User <a name="creating-a-user"></a>
 1. Create a user. This is the user you will use to log in. I will create a user named `sam`.
     ```
     useradd -m -g wheel sam
     passwd sam
     ```
-2. `EDITOR=nvim visudo` to grant the new user sudo permissions.
+2. `EDITOR=vim visudo` to grant the new user sudo permissions.
     ```
-    %wheel ALL=(ALL) ALL 
+    %wheel ALL=(ALL) ALL
     ```
 3. Log out and log back in as the user.
     ```
     exit
     ```
 
-#### Core Packages <a name="corepackages"></a>
-1. Install a system upgrade. It's good to do this on a clean install. Additionally, install 
-    useful package helpers like `git` and `yay`.
-    ```
-    sudo pacman -Syyuu
-    sudo pacman -S git
+#### Core Setup <a name="core-setup"></a>
+- Install a system upgrade. It's good to do this on a clean install. Additionally, install
+  useful package helpers like `git` and `yay`.
+  ```
+  sudo pacman -Syu
+  sudo pacman -S git
 
-    git clone https://aur.archlinux.org/yay.git /tmp/yay
-    cd /tmp/yay && makepkg -si
-    ```
-2. Install `zsh` and set it as the default shell for the main user.
-    ```
-    sudo pacman -S zsh
-    chsh -s /bin/zsh
-    ```
-3. Install `X` server packages.
-    ```
-    sudo pacman -S xorg-xinit xorg-server
-    ```
-    My dotfiles will automatically use `st` as the default terminal emulator.
-    If you choose to not use `st` as a terminal emulator, make sure you install at 
-    least one terminal emulator and change the `TERM` environment variable located in 
-    `.profile` and update the binding in `sxhkdrc`. If you do not have a terminal emulator
-    installed and properly setup, my dotfiles will not work.
-5. Log out and log back in.
-    ```
-    exit
-    ```
-    If prompted to create a `zsh` startup file, you can press `q` to quit and do nothing. My 
-    dotfiles contain necessary `zsh` startup files. You can then remove old `bash` files.
-    ```
-    rm .bash*
-    ```
-6. Finally, install my dotfiles. See [cloning](#cloning) for more details.
+  git clone https://aur.archlinux.org/yay.git /tmp/yay
+  cd /tmp/yay && makepkg -si
+  ```
+- Setup the default shell. I currenly use `zsh`, but have considered switching to
+  [dash](#using-the-dash-shell). set it as the default shell for the main user.
+  ```
+  sudo pacman -S zsh
+  chsh -s /bin/zsh
+  ```
+- Install `X` server packages.
+  ```
+  sudo pacman -S xorg-server xorg-xinit
+  ```
+  My dotfiles will automatically use `st` as the default terminal emulator.
+  If you choose to not use `st` as a terminal emulator, make sure you install at
+  least one terminal emulator and change the `TERM` environment variable located in
+  `.profile` and update the binding in `sxhkdrc`. If you do not have a terminal emulator
+  installed and properly setup, my dotfiles will not work.
+- Log out and log back in.
+  ```
+  exit
+  ```
+  If prompted to create a `zsh` startup file, you can press `q` to quit and do nothing. My
+  dotfiles contain necessary `zsh` startup files. You can then remove old `bash` files.
+  ```
+  rm .bash*
+  ```
+- Finally, install my dotfiles. See [cloning](#cloning) for more details.
 
 ## Additional Configuration or Notes <a name="addconfig"></a>
 This list of additional configuration options are in no particular order. I've just added or
@@ -478,7 +520,8 @@ modified them when necessary.
 - [No dwm?](#no-dwm)
 - [Glasscord](#glasscord)
 - [User Custom CSS](#user-custom-css)
-- [Fine-Tuning Package Installation](fine-tuning-package-installation)
+- [Fine-Tuning Package Installation](#fine-tuning-package-installation)
+- [Using the Dash Shell](#using-the-dash-shell)
 
 #### Touchpad settings <a name="touchpad-settings"></a>
 By default, most linux distros disable natural scrolling and disable touchpad tapping. I 
@@ -622,6 +665,26 @@ more user-friendly in Pacman and Yay.
 ```
 Color
 ```
+
+## Using the Dash Shell <a name="using-the-dash-shell"></a>
+
+Dash is the Debian Almquist implementation of the original Bourne shell.
+It is lightweight and POSIX-compliant by nature (and I find that in most
+cases, you will never need Bash/Zsh-specific tools). Since `/bin/sh` is
+also symlinked to `/bin/bash` by default on most Linux systems, we will redirect
+it to dash and simply use `/bin/sh`.
+```
+sudo pacman -S dash
+sudo ln -sfT dash /usr/bin/sh
+chsh -s /bin/sh
+```
+To verify `/bin/sh` is never overwritten by bash on system updates, we need to add
+a pacman hook.
+```
+git clone https://aur.archlinux.org/dashbinsh.git /tmp/dashbinsh
+cd /tmp/dashbinsh && makepkg -si
+```
+Logout and log back in to verify the shell has succesfully changed.
 
 ## TODO <a name="todo"></a>
 Below are a list of things in no particular order that I plan to do but haven't yet
