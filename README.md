@@ -683,9 +683,10 @@ created earlier.
   ```
 - Logout and log back in as the main user.
   You will now be able to install packages using sudo.
-- Set up graphics for X. I use an intel-based vga - if you are looking for a better
-  general-purpose driver, try `drm-kmod`.
+- Set up graphics for X. I use an intel-based vga, so I additionally installed
+  an intel video package.
   ```
+  sudo pkg install drm-kmod
   sudo pkg install xf86-video-intel
   ```
   Then enable the module in your `/etc/rc.conf`:
@@ -695,6 +696,14 @@ created earlier.
   To prevent screen tearing and lag, add yourself to the video group.
   ```
   sudo pw groupmod video -m $USER
+  ```
+  Allow X to access devices. Edit `/etc/devfs.rules` as follows:
+  ```
+  add path 'dri/*' mode 0666 group operator
+  ```
+  Then add the user to the operator group:
+  ```
+  sudo pw groupmod operator -m $USER
   ```
 - Finally, install my dotfiles. See [cloning](#cloning) for more details.
 
