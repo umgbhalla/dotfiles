@@ -69,13 +69,6 @@ shift + alt + 3
 shift + alt + 4
   $SCREEN crop
 
-# legacy
-
-Print
-  $SCREEN snap
-shift + Print
-  $SCREEN crop
-
 # capture
 
 F10
@@ -103,14 +96,6 @@ super + ctrl + shift + braceleft
 
 super + ctrl + shift + braceright
   brightnessctl s +5%
-
-# legacy
-
-XF86MonBrightnessUp
-  brightnessctl s +5%
-
-XF86MonBrightnessDown
-  brightnessctl s 5%-
 
 #
 # bspwm core

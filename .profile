@@ -91,9 +91,14 @@ esac
 
 # panel/bar
 case $OS in
-  $OS_LINUX|$OS_FREEBSD)
+  $OS_LINUX)
     export BAR="polybar"
     export BAR_ARGS="$BAR -r main"
+    ;;
+  $OS_FREEBSD)
+    export BAR="lemonbar"
+    export BAR_ARGS="$XDG_CONFIG_HOME/lemonbar/main.sh"
+    export BAR_UPDATE="$XDG_CONFIG_HOME/lemonbar/signal.sh"
     ;;
   *)
     export BAR=""

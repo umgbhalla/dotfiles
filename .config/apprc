@@ -25,6 +25,10 @@ export THEME_PRIMARY="$G_PRIMARY"
 export THEME_WARNING="$C_YELLOW_0"
 export THEME_ERROR="$G_ALERT"
 
+# bar
+
+export BAR_FG="$G_FG"
+
 # bspwm
 
 export BSPWM_TOP_Y="$(( $W_GAPS / 2 ))"

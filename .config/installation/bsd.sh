@@ -4,7 +4,8 @@
 # install official repository packages
 #
 
-sudo pkg install bspwm sxhkd polybar
+sudo pkg install bspwm sxhkd
+sudo pkg install lemonbar
 sudo pkg install picom
 sudo pkg install hsetroot
 
