@@ -19,6 +19,9 @@ sudo pkg install redshift
 sudo pkg install dunst
 # sudo pkg install sourcecodepro-ttf
 
+sudo pkg install xclip
+sudo pkg install fzf
+
 #
 # suckless utilities
 #

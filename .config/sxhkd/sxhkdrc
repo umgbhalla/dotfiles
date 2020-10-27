@@ -39,7 +39,7 @@ super + s
 
 # emojis
 super + e
-  $XDG_SCRIPT_HOME/emoji
+  $GUI_DIR/emoji
 
 #
 # audio controls
