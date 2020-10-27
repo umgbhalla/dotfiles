@@ -126,9 +126,7 @@ export KEYTIMEOUT=1 # reduce delay in zsh vi-mode change
 export PROMPT_EOL_MARK="" # prevent partial line % from appearing
 export RANGER_LOAD_DEFAULT_RC="FALSE"
 export REDSHIFT_LAST="$XDG_CACHE_HOME/redshift_last"
-export SHELL="/bin/sh" # explicit shell declaration
-
-# TODO remove
+export SHELL="/bin/sh"
 if [ $OS = $OS_LINUX ]; then
   export SHELL="/bin/zsh"
 fi
@@ -152,8 +150,6 @@ export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
 export YARN_GLOBAL_DIR="$XDG_CACHE_HOME/yarn_global"
 export YARN_RC_DIR="$XDG_CACHE_HOME"
 export XAUTHORITY="$XDG_CONFIG_HOME/Xauthority"
-
-# TODO remove
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
 
 #
@@ -205,12 +201,12 @@ case $(tty) in
   "/dev/ttyv0" | "/dev/tty1")
     case $OS in
       $OS_FREEBSD)
-        # ! pgrep -x Xorg >/dev/null && exec startx -- -nocursor
+        # exec startx -- -nocursor
         sudo moused -p /dev/psm0
-        ! pgrep -x Xorg >/dev/null && exec startx
+        exec startx
         ;;
       *)
-        ! pgrep -x Xorg >/dev/null && exec startx
+        exec startx
         ;;
     esac
     ;;

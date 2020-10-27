@@ -42,10 +42,13 @@ Am I completely sold on Linux?
 
 No.
 
-While Linux is free and open-source, I want to try using even more optimized systems such as
-the BSD family of systems. I plan to move in this direction and convert all my scripts to be 
-POSIX-compliant, but it will likely be a few months before this shift happens (especially 
-since I'm still attending school).
+While Linux is free and open-source, I want to switch to using even more optimized systems
+such as the BSD family of systems. I plan to move in this direction and convert all my
+scripts to be POSIX-compliant, but it will likely be a few months before this shift
+happens (especially since I'm still attending school).
+
+> EDIT: Regardless of my student status, I am still actively seeking to convert all my
+> scripts over. Stay tuned :3
 
 #### Reproducing this setup
 
@@ -721,6 +724,7 @@ modified them when necessary.
 - [User Custom CSS](#user-custom-css)
 - [Fine-Tuning Package Installation](#fine-tuning-package-installation)
 - [Using the Dash Shell](#using-the-dash-shell)
+- [Serverauth Files](#serverauth-files)
 
 #### Touchpad settings <a name="touchpad-settings"></a>
 By default, most linux distros disable natural scrolling and disable touchpad tapping. I 
@@ -884,6 +888,14 @@ git clone https://aur.archlinux.org/dashbinsh.git /tmp/dashbinsh
 cd /tmp/dashbinsh && makepkg -si
 ```
 Logout and log back in to verify the shell has succesfully changed.
+
+## Serverauth Files <a name="serverauth-files"></a>
+Xorg likes to populate the `$HOME` directory with `.serverauth.####` files. These files
+simply save the session of X (similar to Xauthority) and can be redirected to Xauthority.
+Edit `/usr/bin/startx` or `/usr/local/bin/startx` depending on your machine:
+```
+xserverauthfile=$XAUTHORITY
+```
 
 ## TODO <a name="todo"></a>
 Below are a list of things in no particular order that I plan to do but haven't yet
