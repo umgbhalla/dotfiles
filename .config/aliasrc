@@ -58,7 +58,8 @@ alias \
   ss="sc-im" \
   surf="surf -g" \
   system="sudo systemctl" \
-  vim="nvim" \
+  vi="$EDITOR" \
+  vim="$EDITOR" \
   wi="nmtui" \
   yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn" \
   zr="clear && . $ENV"

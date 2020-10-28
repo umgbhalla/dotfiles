@@ -94,6 +94,7 @@ case $OS in
   $OS_LINUX)
     export BAR="polybar"
     export BAR_ARGS="$BAR -r main"
+    export BAR_UPDATE=""
     ;;
   $OS_FREEBSD)
     export BAR="lemonbar"
@@ -103,6 +104,7 @@ case $OS in
   *)
     export BAR=""
     export BAR_ARGS="$BAR"
+    export BAR_UPDATE=""
     ;;
 esac
 
@@ -113,7 +115,6 @@ case $OS in
     export COMPOSITOR_ARGS="$COMPOSITOR --experimental-backends"
     ;;
   *)
-    # export COMPOSITOR=""
     export COMPOSITOR="picom"
     export COMPOSITOR_ARGS="$COMPOSITOR"
     ;;

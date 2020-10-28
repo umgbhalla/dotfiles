@@ -725,6 +725,7 @@ modified them when necessary.
 - [Fine-Tuning Package Installation](#fine-tuning-package-installation)
 - [Using the Dash Shell](#using-the-dash-shell)
 - [Serverauth Files](#serverauth-files)
+- [MOTD](#motd)
 
 #### Touchpad settings <a name="touchpad-settings"></a>
 By default, most linux distros disable natural scrolling and disable touchpad tapping. I 
@@ -895,6 +896,13 @@ simply save the session of X (similar to Xauthority) and can be redirected to Xa
 Edit `/usr/bin/startx` or `/usr/local/bin/startx` depending on your machine:
 ```
 xserverauthfile=$XAUTHORITY
+```
+
+## MOTD <a name="motd"></a>
+Most unix systems display a Message of the Day on login. Generally, the motd will be
+located in `/etc/motd`. To remove the motd:
+```
+echo "" | sudo tee /etc/motd
 ```
 
 ## TODO <a name="todo"></a>

@@ -26,6 +26,7 @@ ${NC}"
 
 # scrollback
 HISTSIZE=1000000
+set +o nolog
 
 # prompt
 export PS1="\W >> "
