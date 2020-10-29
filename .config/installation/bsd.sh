@@ -28,6 +28,7 @@ sudo pkg install dunst
 
 sudo pkg install xclip
 sudo pkg install fzf
+sudo pkg install feh
 
 #
 # suckless utilities

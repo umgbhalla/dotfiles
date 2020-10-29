@@ -45,7 +45,7 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export W_ALPHA=1
 export W_ALPHA_HEX="FF" # higher value means more opaque
 
-export W_BORDER_WIDTH=3
+export W_BORDER_WIDTH=1
 export W_CORNER_RADIUS=0
 export W_GAPS=16
 
@@ -114,8 +114,12 @@ case $OS in
     export COMPOSITOR="picom"
     export COMPOSITOR_ARGS="$COMPOSITOR --experimental-backends"
     ;;
-  *)
+  $OS_FREEBSD)
     export COMPOSITOR="picom"
+    export COMPOSITOR_ARGS="$COMPOSITOR"
+    ;;
+  *)
+    export COMPOSITOR=""
     export COMPOSITOR_ARGS="$COMPOSITOR"
     ;;
 esac
