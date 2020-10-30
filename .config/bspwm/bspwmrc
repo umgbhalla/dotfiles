@@ -45,3 +45,10 @@ bspc rule -a Zathura state=tiled
 
 # shell popup windows
 bspc rule -a '*:shellpopup' state=floating sticky="on"
+
+#
+# misc
+#
+
+# update bar with latest wm info
+$BAR_UPDATE
