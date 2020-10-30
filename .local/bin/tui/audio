@@ -1,9 +1,9 @@
 #!/bin/sh
 # a script to uniformly alter sound cards, volume, and mixing
 
-tmpVolMute="$XDG_RUNTIME_DIR/audio_volMute"
+tmpVolMute="/tmp/audio_volMute"
 touch $tmpVolMute
-tmpMicMute="$XDG_RUNTIME_DIR/audio_micMute"
+tmpMicMute="/tmp/audio_micMute"
 touch $tmpMicMute
 
 # volume up
@@ -113,3 +113,6 @@ case $1 in
     ;;
   *) echo -e "${RED}USAGE: AUDIO [vol mic]${NC}" ;;
 esac
+
+# propogate changes to status bar
+$BAR_UPDATE
