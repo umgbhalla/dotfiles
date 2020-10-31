@@ -20,6 +20,12 @@ bspwm() {
 
 network() {
   case $OS in
+    $OS_FREEBSD)
+      wifi=$(ifconfig | awk '/ssid/ {print $2}')
+      if [ -n $wifi ]; then
+        echo -e "net ${wifi}"
+      fi
+      ;;
     *) echo -e "net not yet implemented" ;;
   esac
 }
@@ -51,7 +57,7 @@ volume() {
         n=$(( n + 1 ))
       done
 
-      echo -e "vol ${vol}"
+      echo -e "${vol}"
       ;;
     *) echo -e "vol not yet implemented" ;;
   esac
@@ -60,7 +66,14 @@ volume() {
 battery() {
   case $OS in
     $OS_FREEBSD)
-      echo -e "bat $(apm | awk '/Remaining battery/ {print $4;exit}')"
+      bat=$(apm | awk '/Remaining battery/ {print $4;exit}')
+
+      status=$(apm | awk '/Battery Status/ {print $3;exit}')
+      if [ $status = "charging" ]; then status="c"
+      else status="d"
+      fi
+
+      echo -e "${status} ${bat}"
       ;;
     *) echo -e "bat not yet implemented" ;;
   esac
