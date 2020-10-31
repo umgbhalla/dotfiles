@@ -6,6 +6,9 @@ TMP_DIR=/tmp
 # install official repository packages
 #
 
+# devel
+sudo pkg install cmake meson
+
 sudo pkg install bspwm sxhkd
 
 git clone https://github.com/krypt-n/bar.git $TMP_DIR/lemonbar-xft
@@ -25,7 +28,24 @@ sudo pkg install hsetroot
 sudo pkg install neovim node ripgrep
 sudo pkg install vifm
 sudo pkg install firefox
-sudo pkg install zathura zathura-pdf-mupdf
+
+sudo pkg install gettext # required by zathura
+git clone https://git.pwmt.org/pwmt/girara.git $TMP_DIR/girara/
+cd $TMP_DIR/girara
+git checkout 1b60a46481f6ba37e7515ca80d6f627583f7100f
+meson build
+cd build
+ninja
+sudo ninja install
+git clone https://git.pwmt.org/pwmt/zathura.git $TMP_DIR/zathura-git
+cd $TMP_DIR/zathura-git
+git checkout 02a8877f771b3af4c5a8758ded756aae7f469dcb
+meson build
+cd build
+ninja
+sudo ninja install
+sudo pkg install zathura-pdf-mupdf # required for any document viewing
+
 sudo pkg install htop
 sudo pkg install neofetch
 
