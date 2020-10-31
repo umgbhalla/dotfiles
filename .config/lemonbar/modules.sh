@@ -28,8 +28,30 @@ volume() {
   case $OS in
     $OS_FREEBSD)
       # just using the left channel
-      vol=$(mixer vol | awk '{print $NF}' | cut -d: -f1)
-      echo -e "vol ${vol}%"
+      volNum=$(mixer vol | awk '{print $NF}' | cut -d: -f1)
+
+      unit=5
+
+      fullNum=$(echo "$volNum/$unit" | bc)
+      emptyNum=$(echo "100/$unit - $fullNum" | bc)
+
+      vol=""
+
+      n=0
+      while [ "$n" -lt $fullNum ]; do
+        vol="${vol}x"
+        n=$(( n + 1 ))
+      done
+
+      vol="${vol}l"
+
+      n=0
+      while [ "$n" -lt $emptyNum ]; do
+        vol="${vol}-"
+        n=$(( n + 1 ))
+      done
+
+      echo -e "vol ${vol}"
       ;;
     *) echo -e "vol not yet implemented" ;;
   esac
