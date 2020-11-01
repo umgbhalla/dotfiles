@@ -11,6 +11,13 @@ sudo pkg install cmake meson
 
 sudo pkg install bspwm sxhkd
 
+# required for lemonbar to render under bspwm
+git clone https://github.com/baskerville/xdo.git $TMP_DIR/xdo
+cd $TMP_DIR/xdo
+git checkout 688f10fda07ec36a3295b15c3191b6a203738c09
+cp -f $XDG_CONFIG_HOME/xdo/Makefile $TMP_DIR/xdo/
+sudo make clean install
+
 git clone https://github.com/krypt-n/bar.git $TMP_DIR/lemonbar-xft
 cp -f $XDG_CONFIG_HOME/lemonbar/Makefile $TMP_DIR/lemonbar-xft/
 cd $TMP_DIR/lemonbar-xft
