@@ -16,18 +16,6 @@ bspwm() {
   esac
 }
 
-network() {
-  case "$OS" in
-    "$OS_FREEBSD")
-      wifi="$(ifconfig | awk '/ssid/ {print $2}')"
-      if [ -n "$wifi" ]; then
-        echo "net ${wifi}"
-      fi
-      ;;
-    *) echo "net not yet implemented" ;;
-  esac
-}
-
 volume() {
   case $OS in
     $OS_FREEBSD)
