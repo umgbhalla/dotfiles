@@ -6,7 +6,8 @@
 bc
 
 # system status bar
-polybar
+# polybar
+lemonbar-xft-git
 
 # compositor
 picom-ibhagwan-git

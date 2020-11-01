@@ -90,13 +90,14 @@ case $OS in
 esac
 
 # panel/bar
-case $OS in
-  $OS_LINUX)
-    export BAR="polybar"
-    export BAR_ARGS="$BAR -r main"
+case "$OS" in
+  "$OS_LINUX")
+    # updated further in apprc file
+    export BAR="lemonbar"
+    export BAR_ARGS=""
     export BAR_UPDATE=""
     ;;
-  $OS_FREEBSD)
+  "$OS_FREEBSD")
     # updated further in apprc file
     export BAR="lemonbar"
     export BAR_ARGS=""

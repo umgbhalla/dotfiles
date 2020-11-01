@@ -29,9 +29,16 @@ export THEME_ERROR="$G_ALERT"
 # bar
 
 export BAR_FG="$G_FG"
-export BAR_FIFO="/tmp/${BAR}fifo"
-export BAR_ARGS="$XDG_CONFIG_HOME/$BAR/main.sh"
-export BAR_UPDATE="$XDG_CONFIG_HOME/$BAR/signal.sh"
+if [ "$OS" = "$OS_LINUX" ]; then
+  export BAR_FIFO="/tmp/${BAR}fifo"
+  export BAR_ARGS="$XDG_CONFIG_HOME/$BAR/main.sh"
+  export BAR_UPDATE="$XDG_CONFIG_HOME/$BAR/signal.sh"
+fi
+if [ "$OS" = "$OS_FREEEBSD" ]; then
+  export BAR_FIFO="/tmp/${BAR}fifo"
+  export BAR_ARGS="$XDG_CONFIG_HOME/$BAR/main.sh"
+  export BAR_UPDATE="$XDG_CONFIG_HOME/$BAR/signal.sh"
+fi
 
 # bspwm
 

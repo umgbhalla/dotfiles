@@ -4,25 +4,30 @@ bspwm() {
   ws=$(bspc query -D --names -d)
   case $ws in
     # TODO replace with icons
-    I) echo -e "I Development" ;;
-    II) echo -e "II Browsing" ;;
-    III) echo -e "III Gaming" ;;
-    IV) echo -e "IV Chat" ;;
-    V) echo -e "V Media" ;;
+    I) echo " Development" ;;
+    II) echo " Browsing" ;;
+    III) echo " Gaming" ;;
+    IV) echo -e " Chat" ;;
+    V) echo -e " Media" ;;
     # ...
-    IX) echo -e "IX News" ;;
-    X) echo -e "X Music" ;;
+    IX) echo -e " News" ;;
+    X) echo -e " Music" ;;
     # *) ;;
   esac
 }
 
 volume() {
-  case $OS in
-    $OS_FREEBSD)
+  unit="5"
+
+  full=""
+  active=""
+  empty=""
+
+  case "$OS" in
+    "$OS_FREEBSD")
       # just using the left channel
       volNum=$(mixer vol | awk '{print $NF}' | cut -d: -f1)
 
-      unit=5
 
       fullNum=$(echo "$volNum/$unit" | bc)
       emptyNum=$(echo "100/$unit - $fullNum" | bc)
@@ -45,13 +50,37 @@ volume() {
 
       echo -e "${vol}"
       ;;
+    "$OS_LINUX")
+      volNum="$(pulseaudio-ctl full-status | awk '{print $1}')"
+
+      fullNum="$(echo "$volNum/$unit" | bc)"
+      emptyNum="$(echo "100/$unit - $fullNum" | bc)"
+
+      vol=""
+
+      n=0
+      while [ "$n" -lt "$fullNum" ]; do
+        vol="${vol}${full}"
+        n=$(( n + 1 ))
+      done
+
+      vol="${vol}${active}"
+
+      n=0
+      while [ "$n" -lt "$emptyNum" ]; do
+        vol="${vol}${empty}"
+        n=$(( n + 1 ))
+      done
+
+      echo "${vol}"
+      ;;
     *) echo -e "vol not yet implemented" ;;
   esac
 }
 
 battery() {
-  case $OS in
-    $OS_FREEBSD)
+  case "$OS" in
+    "$OS_FREEBSD")
       bat=$(apm | awk '/Remaining battery/ {print $4;exit}')
 
       status=$(apm | awk '/Battery Status/ {print $3;exit}')
@@ -61,12 +90,13 @@ battery() {
 
       echo -e "${status} ${bat}"
       ;;
+    "$OS_LINUX") ;;
     *) echo -e "bat not yet implemented" ;;
   esac
 }
 
 clock() {
-  echo -e $(date "+%a %h %d %H:%M")
+  echo " $(date "+%a %h %d %H:%M")"
 }
 
 LEFT="$(bspwm)"

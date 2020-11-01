@@ -22,6 +22,12 @@ cat /usr/local/share/fonts/SourceCodePro/fonts.dir | sudo tee -a /usr/local/shar
 cat /usr/local/share/fonts/SourceCodePro/fonts.scale | sudo tee -a /usr/local/share/fonts/TTF/fonts.scale
 xset fp rehash
 
+FONT_DIR=$XDG_DATA_HOME/fonts
+
+mkdir -p $FONT_DIR
+cp -v $XDG_CONFIG_HOME/fonts/* $FONT_DIR/
+fc-cache -f -v
+
 sudo pkg install picom
 sudo pkg install hsetroot
 

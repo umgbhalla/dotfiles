@@ -19,9 +19,10 @@ while :; do
 done &
 
 # start bar and listen to input pipe
-while cat "$BAR_FIFO"; do done | \
+while cat "$BAR_FIFO"; do :; done | \
   $BAR \
   -p \
   -g "${W_WIDTH}x14+${W_GAPS}+${W_GAPS}" \
   -f "Source Code Pro" \
+  -f "Automata" \
   &

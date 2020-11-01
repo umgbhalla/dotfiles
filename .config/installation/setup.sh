@@ -66,5 +66,15 @@ cd $HOME/.themes/$THEME && yarn && yarn build
 
 sudo chown -Rv ${USER}:wheel /opt/spotify
 
+#
+# fonts
+#
+
+FONT_DIR=$XDG_DATA_HOME/fonts
+
+mkdir -p $FONT_DIR
+cp -v $XDG_CONFIG_HOME/fonts/* $FONT_DIR/
+fc-cache -f -v
+
 # reset git config
 GIT_CONFIG="$gcfg"
