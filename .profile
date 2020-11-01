@@ -97,9 +97,10 @@ case $OS in
     export BAR_UPDATE=""
     ;;
   $OS_FREEBSD)
+    # updated further in apprc file
     export BAR="lemonbar"
-    export BAR_ARGS="$XDG_CONFIG_HOME/lemonbar/main.sh"
-    export BAR_UPDATE="$XDG_CONFIG_HOME/lemonbar/signal.sh"
+    export BAR_ARGS=""
+    export BAR_UPDATE=""
     ;;
   *)
     export BAR=""

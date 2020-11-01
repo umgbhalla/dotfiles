@@ -29,6 +29,9 @@ export THEME_ERROR="$G_ALERT"
 # bar
 
 export BAR_FG="$G_FG"
+export BAR_FIFO="/tmp/${BAR}fifo"
+export BAR_ARGS="$XDG_CONFIG_HOME/$BAR/main.sh"
+export BAR_UPDATE="$XDG_CONFIG_HOME/$BAR/signal.sh"
 
 # bspwm
 

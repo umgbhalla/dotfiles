@@ -1,7 +1,5 @@
 #!/bin/sh
 
-SLEEP_TIME=30
-
 bspwm() {
   ws=$(bspc query -D --names -d)
   case $ws in
@@ -19,14 +17,14 @@ bspwm() {
 }
 
 network() {
-  case $OS in
-    $OS_FREEBSD)
-      wifi=$(ifconfig | awk '/ssid/ {print $2}')
-      if [ -n $wifi ]; then
-        echo -e "net ${wifi}"
+  case "$OS" in
+    "$OS_FREEBSD")
+      wifi="$(ifconfig | awk '/ssid/ {print $2}')"
+      if [ -n "$wifi" ]; then
+        echo "net ${wifi}"
       fi
       ;;
-    *) echo -e "net not yet implemented" ;;
+    *) echo "net not yet implemented" ;;
   esac
 }
 
@@ -83,12 +81,8 @@ clock() {
   echo -e $(date "+%a %h %d %H:%M")
 }
 
-while :; do
-  LEFT="$(bspwm)"
-  CENTER=""
-  RIGHT="$(network) $(volume) $(battery) $(clock)"
+LEFT="$(bspwm)"
+CENTER=""
+RIGHT="$(volume) $(battery) $(clock)"
 
-  echo -e "%{F$BAR_FG}%{l}$LEFT%{c}$CENTER%{r}$RIGHT"
-  sleep $SLEEP_TIME &
-  wait
-done
+echo "%{F$BAR_FG}%{l}$LEFT%{c}$CENTER%{r}$RIGHT"
