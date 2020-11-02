@@ -6,7 +6,6 @@
 bc
 
 # system status bar
-# polybar
 lemonbar-xft-git
 
 # compositor
@@ -15,7 +14,6 @@ picom-ibhagwan-git
 # system fonts
 adobe-source-code-pro-fonts
 adobe-source-sans-pro-fonts
-ttf-font-awesome-4
 otf-openmoji # emoji support
 
 # audio
