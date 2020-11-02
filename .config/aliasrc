@@ -106,7 +106,7 @@ rp() {
 
 # file manager directory setting
 fmDir=$XDG_CACHE_HOME/fm_last_dir
-alias r='vifm --choose-dir=$fmDir; LASTDIR=`cat $fmDir`; cd $LASTDIR'
+alias r='fmDir=$fmDir $XDG_CONFIG_HOME/vifm/init; LASTDIR=`cat $fmDir`; cd $LASTDIR'
 
 # bookmarks
 b() {

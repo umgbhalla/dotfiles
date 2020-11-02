@@ -37,8 +37,7 @@ redshift
 
 # file explorer
 vifm
-# w3m # required by ranger
-# ueberzug # img previews
+ueberzug # img previews
 
 # networking
 # nm-connection-editor

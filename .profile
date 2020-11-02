@@ -58,12 +58,8 @@ export W_GAPS=16
 export EDITOR="nvim"
 
 # terminal
-case $OS in
-  $OS_LINUX)
-    export TERM="st"
-    export TERM_ARGS="$TERM -A $W_ALPHA"
-    ;;
-  $OS_FREEBSD)
+case "$OS" in
+  "$OS_LINUX"|$OS_FREEBSD)
     export TERM="st"
     export TERM_ARGS="$TERM"
     ;;
@@ -76,6 +72,7 @@ export BROWSER="firefox"
 
 # file explorer
 export FILE_EXPLORER="vifm"
+export FILE_EXPLORER_ARGS="$XDG_CONFIG_HOME/$FILE_EXPLORER/init"
 
 export MUSIC_PLAYER="spotify"
 export MUSIC_PLAYER_ARGS="spicetify config current_theme DotfilesSpicetify && spicetify apply"
