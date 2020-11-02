@@ -22,7 +22,7 @@ done &
 while cat "$BAR_FIFO"; do :; done | \
   $BAR \
   -p \
-  -g "${W_WIDTH}x14+${W_GAPS}+${W_GAPS}" \
-  -f "Source Code Pro" \
-  -f "Automata" \
+  -g "${W_WIDTH}x${BAR_HEIGHT}+${W_GAPS}+${W_GAPS}" \
+  -f "Source Code Pro:pixelsize=24" \
+  -f "Automata:pixelsize=28" \
   &

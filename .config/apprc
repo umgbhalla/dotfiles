@@ -3,7 +3,7 @@
 
 # general vars
 
-export BAR_HEIGHT=28
+export BAR_HEIGHT=36
 export BAR_HALF_HEIGHT=$(echo "$BAR_HEIGHT/2" | bc)
 export W_WIDTH=$(echo "$RES_WIDTH-($W_GAPS+$W_BORDER_WIDTH)*2" | bc)
 
@@ -29,6 +29,7 @@ export THEME_ERROR="$G_ALERT"
 # bar
 
 export BAR_FG="$G_FG"
+export BAR_BG="$G_BG_ALT"
 if [ "$OS" = "$OS_LINUX" ]; then
   export BAR_FIFO="/tmp/${BAR}fifo"
   export BAR_ARGS="$XDG_CONFIG_HOME/$BAR/main.sh"
@@ -42,8 +43,7 @@ fi
 
 # bspwm
 
-export BSPWM_TOP_Y="$(( $W_GAPS / 2 ))"
-export BSPWM_TOP_PADDING=$(( $BAR_HEIGHT ))
+export BSPWM_TOP_PADDING="$(echo "$BAR_HEIGHT+$W_GAPS" | bc)"
 export BSPWM_BORDER_ACTIVE=$G_BG_ALT
 export BSPWM_BORDER_NORMAL=$BSPWM_BORDER_ACTIVE
 export BSPWM_BORDER_FOCUSED=$BSPWM_BORDER_ACTIVE

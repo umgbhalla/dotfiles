@@ -34,6 +34,7 @@ export THEME_LIGHT="light"
 export THEME_DARK="dark"
 
 export CURRENT_THEME_MODE="$THEME_LIGHT"
+# export CURRENT_THEME_MODE="$THEME_DARK"
 
 export THEME="DotfilesGtk"
 

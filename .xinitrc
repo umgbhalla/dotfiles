@@ -25,4 +25,6 @@ $BACKGROUND &
 
 $BAR_ARGS &
 
+# pulseaudio -D
+
 exec $WM

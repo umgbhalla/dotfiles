@@ -1,19 +1,23 @@
 #!/bin/sh
 
+ICON_PADDING="7"
+
 bspwm() {
   ws=$(bspc query -D --names -d)
+  title=""
+
   case $ws in
-    # TODO replace with icons
-    I) echo " Development" ;;
-    II) echo " Browsing" ;;
-    III) echo " Gaming" ;;
-    IV) echo -e " Chat" ;;
-    V) echo -e " Media" ;;
-    # ...
-    IX) echo -e " News" ;;
-    X) echo -e " Music" ;;
-    # *) ;;
+    I) title="%{O$ICON_PADDING}develop" ;;
+    II) title="%{O$ICON_PADDING}browse " ;;
+    III) title="%{O$ICON_PADDING}game   " ;;
+    IV) title="%{O$ICON_PADDING}chat   " ;;
+    V) title="%{O$ICON_PADDING}media  " ;;
+    IX) title="%{O$ICON_PADDING}news   " ;;
+    X) title="%{O$ICON_PADDING}music  " ;;
   esac
+
+  title="$(echo "$title" | sed 's/[a-z]/\U&/g')"
+  echo "%{B$BAR_BG} ${title} %{B-}"
 }
 
 volume() {
@@ -23,59 +27,36 @@ volume() {
   active=""
   empty=""
 
+  v_padding="4"
+
+  volNum=0
+
   case "$OS" in
-    "$OS_FREEBSD")
-      # just using the left channel
-      volNum=$(mixer vol | awk '{print $NF}' | cut -d: -f1)
-
-
-      fullNum=$(echo "$volNum/$unit" | bc)
-      emptyNum=$(echo "100/$unit - $fullNum" | bc)
-
-      vol=""
-
-      n=0
-      while [ "$n" -lt $fullNum ]; do
-        vol="${vol}x"
-        n=$(( n + 1 ))
-      done
-
-      vol="${vol}l"
-
-      n=0
-      while [ "$n" -lt $emptyNum ]; do
-        vol="${vol}-"
-        n=$(( n + 1 ))
-      done
-
-      echo -e "${vol}"
-      ;;
-    "$OS_LINUX")
-      volNum="$(pulseaudio-ctl full-status | awk '{print $1}')"
-
-      fullNum="$(echo "$volNum/$unit" | bc)"
-      emptyNum="$(echo "100/$unit - $fullNum" | bc)"
-
-      vol=""
-
-      n=0
-      while [ "$n" -lt "$fullNum" ]; do
-        vol="${vol}${full}"
-        n=$(( n + 1 ))
-      done
-
-      vol="${vol}${active}"
-
-      n=0
-      while [ "$n" -lt "$emptyNum" ]; do
-        vol="${vol}${empty}"
-        n=$(( n + 1 ))
-      done
-
-      echo "${vol}"
-      ;;
-    *) echo -e "vol not yet implemented" ;;
+    # just using the left channel
+    "$OS_FREEBSD") volNum=$(mixer vol | awk '{print $NF}' | cut -d: -f1) ;;
+    "$OS_LINUX") volNum="$(pulseaudio-ctl full-status | awk '{print $1}')" ;;
   esac
+
+  fullNum="$(echo "$volNum/$unit" | bc)"
+  emptyNum="$(echo "100/$unit - $fullNum" | bc)"
+
+  vol=""
+
+  n=0
+  while [ "$n" -lt "$fullNum" ]; do
+    vol="${vol}${full}%{O$v_padding}"
+    n=$(( n + 1 ))
+  done
+
+  vol="${vol}${active}%{O$v_padding}"
+
+  n=0
+  while [ "$n" -lt "$emptyNum" ]; do
+    vol="${vol}${empty}%{O$v_padding}"
+    n=$(( n + 1 ))
+  done
+
+  echo "%{B$BAR_BG} ${vol} %{B-}"
 }
 
 battery() {
@@ -96,11 +77,18 @@ battery() {
 }
 
 clock() {
-  echo " $(date "+%a %h %d %H:%M")"
+  datefmt="$(date "+%m.%d %a %H:%M")"
+  capdatefmt="$(echo "$datefmt" | sed 's/[a-z]/\U&/g')"
+  echo "%{B$BAR_BG} %{O$ICON_PADDING}${capdatefmt} %{B-}"
 }
 
 LEFT="$(bspwm)"
 CENTER=""
 RIGHT="$(volume) $(battery) $(clock)"
 
-echo "%{F$BAR_FG}%{l}$LEFT%{c}$CENTER%{r}$RIGHT"
+spaceLeft="%{B$BAR_BG}%{O$ICON_PADDING}%{O$ICON_PADDING}%{B-}\
+%{O$ICON_PADDING}%{B$BAR_BG}%{O$ICON_PADDING}%{B-} "
+spaceRight=" %{B$BAR_BG}%{O$ICON_PADDING}%{B-}\
+%{O$ICON_PADDING}%{B$BAR_BG}%{O$ICON_PADDING}%{O$ICON_PADDING}%{B-}"
+
+echo "%{F$BAR_FG}%{l}${spaceLeft}$LEFT%{c}$CENTER%{r}$RIGHT${spaceRight}"
