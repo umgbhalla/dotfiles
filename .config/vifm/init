@@ -1,5 +1,5 @@
 #!/bin/sh
-FIFO_UEBERZUG="/tmp/vifm-ueberzug-${PPID}"
+export FIFO_UEBERZUG="/tmp/vifm-ueberzug-${PPID}"
 
 cleanup() {
   rm "$FIFO_UEBERZUG" 2>/dev/null

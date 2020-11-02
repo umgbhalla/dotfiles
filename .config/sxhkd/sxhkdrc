@@ -51,11 +51,11 @@ super + bracketleft
 super + bracketright
   $AUDIO vol up 5
 
-super + backslash
-  $AUDIO vol toggle
+# super + backslash
+#   $AUDIO vol toggle
 
-super + apostrophe
-  $AUDIO mic toggle
+# super + apostrophe
+#   $AUDIO mic toggle
 
 #
 # screen capture
