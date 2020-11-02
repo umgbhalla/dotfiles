@@ -92,13 +92,7 @@ esac
 
 # panel/bar
 case "$OS" in
-  "$OS_LINUX")
-    # updated further in apprc file
-    export BAR="lemonbar"
-    export BAR_ARGS=""
-    export BAR_UPDATE=""
-    ;;
-  "$OS_FREEBSD")
+  "$OS_LINUX"|"$OS_FREEBSD")
     # updated further in apprc file
     export BAR="lemonbar"
     export BAR_ARGS=""
@@ -164,6 +158,7 @@ export YARN_GLOBAL_DIR="$XDG_CACHE_HOME/yarn_global"
 export YARN_RC_DIR="$XDG_CACHE_HOME"
 export XAUTHORITY="$XDG_CONFIG_HOME/Xauthority"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
+export ZSH_HISTFILE="$XDG_CACHE_HOME/zsh_history"
 
 #
 # scripts

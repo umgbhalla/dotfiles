@@ -1,39 +1,14 @@
-# zsh configuration
+#!/bin/env zsh
 
-bindkey -v # explicitly set vi keybindings to enabled
+bindkey -v # vi keybindings
 
-bindkey -M viins '<M-;>' vi-cmd-mode
-typeset -g KEYTIMEOUT=25 # allow zsh to handle multichar bindings
+# aliases
+[ -f $XDG_CONFIG_HOME/aliasrc ] && . $XDG_CONFIG_HOME/aliasrc
 
-# include aliases
-[ -f $XDG_CONFIG_HOME/aliasrc ] && source $XDG_CONFIG_HOME/aliasrc
-
-# history
-HISTFILE="$XDG_CACHE_HOME/zsh_history"
-HISTSIZE=10000000
-SAVEHIST=10000000
-setopt BANG_HIST EXTENDED_HISTORY INC_APPEND_HISTORY SHARE_HISTORY HIST_IGNORE_SPACE HIST_REDUCE_BLANKS HIST_VERIFY
-setopt HIST_EXPIRE_DUPS_FIRST HIST_IGNORE_DUPS HIST_IGNORE_ALL_DUPS HIST_FIND_NO_DUPS HIST_SAVE_NO_DUPS
-
-# disable ctrl+s and ctrl+q 
-stty -ixon
-
-# vcs info
-autoload -Uz vcs_info
-precmd() {
-  psvar=()
-  vcs_info
-  [[ -n $vcs_info_msg_0_ ]] && psvar[1]="$vcs_info_msg_0_"
-}
-zstyle ':vcs_info:git:*' formats '%b'
-setopt prompt_subst
-
+# terminal ascii
 FG=$WHITE
 P=$RED
-
-# just for fun
-if xset q &>/dev/null; then
-echo "$(tput cup "$LINES")${FG}\
+echo "${FG}\
  ┌―――――――――――――――――――――――――――――┬―――――――――┐
  ├―――――――――――――――――――――――――――――┘ ${P}▀${FG}  ${P}▀${FG}  ${P}▀${FG} │
  │                                       │
@@ -47,20 +22,16 @@ echo "$(tput cup "$LINES")${FG}\
  │                                       │
  └―――――――――――――――――――――――――――――――――――――――┘
 ${NC}"
-fi
 
-# shell prompt
-export PROMPT="%F{BG} %1v %F{BG}%2~%f %F{BG}>>%f "
+# scrollback
+HISTFILE="$ZSH_HISTFILE"
+HISTSIZE=1000000
+SAVEHIST=1000000
+setopt BANG_HIST EXTENDED_HISTORY INC_APPEND_HISTORY SHARE_HISTORY HIST_IGNORE_SPACE HIST_REDUCE_BLANKS HIST_VERIFY
+setopt HIST_EXPIRE_DUPS_FIRST HIST_IGNORE_DUPS HIST_IGNORE_ALL_DUPS HIST_FIND_NO_DUPS HIST_SAVE_NO_DUPS
 
-# mode display
-function viMode {
-  RPS1="%F{BG}${${KEYMAP/vicmd/NORMAL}/(main|viins)/INSERT}%f"
-  RPS2=$RPS1
-}
-function zle-line-init zle-keymap-select {
-  viMode
-  zle reset-prompt
-}
-zle -N zle-line-init
-zle -N zle-keymap-select
-viMode
+# disable ctrl+s and ctrl+q
+stty -ixon
+
+# prompt
+export PROMPT="%2~ >> "
