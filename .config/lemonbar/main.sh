@@ -1,6 +1,6 @@
 #!/bin/sh
 
-MAX_SLEEP_TIME=30
+MAX_SLEEP_TIME="30"
 
 # prevent multiple instances
 if [ $(pgrep "$BAR") ]; then
@@ -20,7 +20,7 @@ done &
 
 # start bar and listen to input pipe
 while cat "$BAR_FIFO"; do :; done | \
-  $BAR \
+  "$BAR" \
   -p \
   -g "${W_WIDTH}x${BAR_HEIGHT}+${W_GAPS}+${W_GAPS}" \
   -f "Source Code Pro:pixelsize=24" \

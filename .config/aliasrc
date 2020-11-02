@@ -5,7 +5,7 @@
 # defaults
 # ----------------------------------------------------------------
 
-if [ $OS = $OS_LINUX ]; then
+if [ "$OS" = "$OS_LINUX" ]; then
   alias ls="ls --color=auto --group-directories-first"
 else
   alias ls="ls -GF"
@@ -37,10 +37,10 @@ alias \
 # ----------------------------------------------------------------
 
 # package manager
-if [ $OS = $OS_LINUX ]; then
+if [ "$OS" = "$OS_LINUX" ]; then
   alias p="sudo pacman"
   alias y="unset GIT_CONFIG && yay --norebuild --noredownload"
-elif [ $OS = $OS_FREEBSD ]; then
+elif [ "$OS" = "$OS_FREEBSD" ]; then
   alias p="sudo pkg"
   alias y="sudo portsnap"
 fi
@@ -79,19 +79,6 @@ fi
 # git rebase -i origin/b~n b
 # git push origin +b
 alias g="git"
-#g() {
-#  case "$1" in
-#    clone)
-#      # if repo is not renamed
-#      if [ -z "$3" ]; then 
-#        git clone --recursive "$2" && cd "$(basename "$2" .git)"
-#      else
-#        git clone --recursive "${@:2}" && cd "$3"
-#      fi
-#      ;;
-#    *) git $@;
-#  esac
-#}
 
 # ----------------------------------------------------------------
 # navigation
@@ -99,26 +86,26 @@ alias g="git"
 
 # repo browser
 rp() {
-    mkdir -p $XDG_REPO_HOME
-    repo="$(ls $XDG_REPO_HOME | fzf)"
-    cd $XDG_REPO_HOME/$repo
+    mkdir -p "$XDG_REPO_HOME"
+    repo="$(ls "$XDG_REPO_HOME" | fzf)"
+    cd "$XDG_REPO_HOME/$repo"
 }
 
 # file manager directory setting
-fmDir=$XDG_CACHE_HOME/fm_last_dir
+fmDir="$XDG_CACHE_HOME/fm_last_dir"
 alias r='fmDir=$fmDir $FILE_EXPLORER_ARGS; LASTDIR=`cat $fmDir`; cd $LASTDIR'
 
 # bookmarks
 b() {
-  touch $BOOKMARK_CONFIG
-  bpath=$(cat $BOOKMARK_CONFIG | fzf | cut -d',' -f2)
-  bpath=$(eval "echo $bpath")
+  touch "$BOOKMARK_CONFIG"
+  bpath="$(cat "$BOOKMARK_CONFIG" | fzf | cut -d',' -f2)"
+  bpath="$(eval "echo $bpath")"
 
-  if [ ! -z $bpath ] && ! cd $bpath; then
-    echo -e "${RED}Error: invalid bookmark.${NC}"
-    echo -e "${RED}Add new bookmarks to $BOOKMARK_CONFIG with the format 'identifier, path'${NC}"
+  if [ -z "$bpath" ]; then
+    echo "${RED}Error: invalid bookmark.${NC}"
+    echo "${RED}Add new bookmarks to $BOOKMARK_CONFIG with the format 'identifier, path'${NC}"
     sleep 1
-    $EDITOR $BOOKMARK_CONFIG
+    "$EDITOR" "$BOOKMARK_CONFIG"
   fi
 }
 
@@ -126,91 +113,60 @@ b() {
 # media
 # ----------------------------------------------------------------
 
-# mounting
-mntpt="/mnt/usb"
-mnt() {
-  drive="$(sudo fdisk -l | grep '^Disk.*sectors$' | $SHELLMENU | awk '{print $2}')"
-  drive=${drive:0:-1}
-  sudo mkdir -p $mntpt
-  sudo ntfs-3g "$drive" "$mntpt"
-  cd "$mntpt"
-}
-umnt() {
-  cd $HOME && sync && sudo umount $mntpt
-}
-alias ntfs="sudo ntfs-3g"
-
-# mtp devices
-mntdevpt="$HOME/Mount"
-mntdev() {
-  mkdir -p $mntdevpt
-  jmtpfs $mntdevpt
-  cd $mntdevpt
-}
-umntdev() {
-  cd $HOME
-  sync
-  fusermount -u $mntdevpt
-}
-
 dlLink() {
-  youtube-dl --add-metadata -i $@
+  youtube-dl --add-metadata -i "$@"
   unsetopt noglob
 }
 
 # davinci resolve codec converter
 dav() {
-  ffmpeg -i $1 -c:v dnxhd -profile:v 1 -pix_fmt yuv422p -c:a pcm_s16le -f mov $2
+  ffmpeg -i "$1" -c:v dnxhd -profile:v 1 -pix_fmt yuv422p -c:a pcm_s16le -f mov "$2"
 }
 
 alias \
-  mt="mnt" \
-  umt="umnt" \
-  mtdev="mntdev" \
-  umtdev="umntdev" \
+  ntfs="sudo ntfs-3g" \
   ytmp4="setopt noglob && dlLink -f 22" \
   ytmp3="setopt noglob && dlLink -x --audio-format mp3" \
   feh="feh --scale-down --auto-zoom"
 
 # archive extraction
-extract () {
-  if [ -f $1 ] ; then
-    dir=$(echo "$1" | cut -d'.' -f1)
-    mkdir -p $dir
-    case $1 in
-      *.asar)      asar e $1 $dir ;;
-      *.tar.bz2)   tar xvjf $1    ;;
-      *.tar.gz)    tar -xvf $1    ;;
-      *.tar.xz)    tar xvJf $1    ;;
-      *.bz2)       bunzip2 $1     ;;
-      *.rar)       unrar x $1     ;;
-      *.gz)        gunzip $1      ;;
-      *.tar)       tar xvf $1     ;;
-      *.tbz2)      tar xvjf $1    ;;
-      *.tgz)       tar xvzf $1    ;;
-      *.zip)       unzip $1 -d $dir      ;;
-      *.Z)         uncompress $1  ;;
-      *.7z)        7z x $1        ;;
-      *.xz)        unxz $1        ;;
-      *.exe)       cabextract $1  ;;
-      *)           echo "\`$1': unrecognized file compression" ;;
+e() {
+  if [ -z "$1" ]; then
+    echo "${RED}USAGE: e [archive]${NC}"
+    return
+  fi
+  if [ -f "$1" ]; then
+    dir="$(echo "$1" | cut -d'.' -f1)"
+    mkdir -p "$dir"
+    case "$1" in
+      *.asar)      asar e "$1" "$dir" ;;
+      *.tar.bz2)   tar xvjf "$1"    ;;
+      *.tar.gz)    tar -xvf "$1"    ;;
+      *.tar.xz)    tar xvJf "$1"    ;;
+      *.bz2)       bunzip2 "$1"     ;;
+      *.rar)       unrar x "$1"     ;;
+      *.gz)        gunzip "$1"      ;;
+      *.tar)       tar xvf "$1"     ;;
+      *.tbz2)      tar xvjf "$1"    ;;
+      *.tgz)       tar xvzf "$1"    ;;
+      *.zip)       unzip "$1" -d "$dir"      ;;
+      *.Z)         uncompress "$1"  ;;
+      *.7z)        7z x "$1"        ;;
+      *.xz)        unxz "$1"        ;;
+      *.exe)       cabextract "$1"  ;;
+      *)           echo "${RED}${1}: unrecognized file compression${NC}" ;;
     esac
-    cd $dir
+    cd "$dir"
   else
-    echo "\`$1' is not a valid file"
+    echo "${RED}${1} is not a valid file${NC}"
   fi
 }
-alias e="extract"
 
 # ----------------------------------------------------------------
 # miscellaneous
 # ----------------------------------------------------------------
 
 alias clear-cache="sync; echo 1 | sudo tee /proc/sys/vm/drop_caches"
-# clear-cached-files() {
-#   rm -rf /home/$USER/Downloads/*
-#   rm -rf /home/$USER/Pictures/*
-# }
 
 # list all open windows
 alias windows="wmctrl -l"

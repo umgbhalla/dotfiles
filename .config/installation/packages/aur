@@ -31,18 +31,16 @@ pulseaudio-ctl
 zathura-git # using zathura-git instead of zathura for alpha patch
 
 # download audio/video from various sources
+# required by newsboat
 youtube-dl
 
 # I know, it's disgusting.
 # but it's the best font viewer/installer.
-gnome-font-viewer
+# gnome-font-viewer
 # fontpreview-ueberzug-git
 
 # spreadsheet editor
 sc-im
-
-# mtp file transfer
-jmtpfs
 
 # latex because I'm a chad
 texlive-most

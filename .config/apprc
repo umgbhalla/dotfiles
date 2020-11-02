@@ -3,19 +3,19 @@
 
 # general vars
 
-export BAR_HEIGHT=36
-export BAR_HALF_HEIGHT=$(echo "$BAR_HEIGHT/2" | bc)
-export W_WIDTH=$(echo "$RES_WIDTH-($W_GAPS+$W_BORDER_WIDTH)*2" | bc)
+export BAR_HEIGHT="36"
+export BAR_HALF_HEIGHT="$(echo "$BAR_HEIGHT/2" | bc)"
+export W_WIDTH="$(echo "$RES_WIDTH-($W_GAPS+$W_BORDER_WIDTH)*2" | bc)"
 
-export G_BG=$C_BLACK_0
-export G_BG_ALT=$C_BLACK_1
-export G_FG=$C_GRAY_1
-export G_FG_ALT=$C_GRAY_0
+export G_BG="$C_BLACK_0"
+export G_BG_ALT="$C_BLACK_1"
+export G_FG="$C_GRAY_1"
+export G_FG_ALT="$C_GRAY_0"
 
-export G_PRIMARY=$C_RED_0
-export G_SECONDARY=$C_BLUE_0
-export G_TERTIARY=$C_GREEN_0
-export G_ALERT=$C_RED_0
+export G_PRIMARY="$C_RED_0"
+export G_SECONDARY="$C_BLUE_0"
+export G_TERTIARY="$C_GREEN_0"
+export G_ALERT="$C_RED_0"
 
 # theme
 
@@ -44,17 +44,17 @@ fi
 # bspwm
 
 export BSPWM_TOP_PADDING="$(echo "$BAR_HEIGHT+$W_GAPS" | bc)"
-export BSPWM_BORDER_ACTIVE=$G_BG_ALT
-export BSPWM_BORDER_NORMAL=$BSPWM_BORDER_ACTIVE
-export BSPWM_BORDER_FOCUSED=$BSPWM_BORDER_ACTIVE
+export BSPWM_BORDER_ACTIVE="$G_BG_ALT"
+export BSPWM_BORDER_NORMAL="$BSPWM_BORDER_ACTIVE"
+export BSPWM_BORDER_FOCUSED="$BSPWM_BORDER_ACTIVE"
 
 # dunst
 
-export DUNST_WIDTH=400
-export DUNST_HEIGHT=70
+export DUNST_WIDTH="400"
+export DUNST_HEIGHT="70"
 export DUNST_X="-$(( $W_GAPS * 2 ))"
 export DUNST_Y="$DUNST_X"
-export DUNST_ICON_SIZE=$(echo "$DUNST_HEIGHT * 0.8 / 1" | bc) # dividing by 1 removes the decimal
+export DUNST_ICON_SIZE="$(echo "$DUNST_HEIGHT * 0.8 / 1" | bc)" # dividing by 1 removes the decimal
 
 export DUNST_FONT="Source Code Pro Medium 12"
 
@@ -66,15 +66,15 @@ export DUNST_FRAME="$G_FG"
 
 # firefox
 
-export FF_BG=$G_BG
-export FF_BG_ALT=$G_BG_ALT
-export FF_FG=$G_FG
-export FF_FG_ALT=$G_FG_ALT
-export FF_DISABLED=$G_FG_ALT
-export FF_PRIMARY=$G_PRIMARY
-export FF_SECONDARY=$G_SECONDARY
-export FF_WARNING=$G_TERTIARY
-export FF_ALERT=$G_ALERT
+export FF_BG="$G_BG"
+export FF_BG_ALT="$G_BG_ALT"
+export FF_FG="$G_FG"
+export FF_FG_ALT="$G_FG_ALT"
+export FF_DISABLED="$G_FG_ALT"
+export FF_PRIMARY="$G_PRIMARY"
+export FF_SECONDARY="$G_SECONDARY"
+export FF_WARNING="$G_TERTIARY"
+export FF_ALERT="$G_ALERT"
 
 # fzf
 
@@ -99,7 +99,7 @@ export PICOM_ALPHA="$(echo $(( $W_ALPHA * 100 )) | sed -e 's/\.//g')"
 export POLYBAR_X="$W_GAPS"
 export POLYBAR_Y="$BSPWM_TOP_Y"
 export POLYBAR_WIDTH="100%:-$(( $W_GAPS * 2 ))"
-export POLYBAR_HEIGHT=$BAR_HEIGHT
+export POLYBAR_HEIGHT="$BAR_HEIGHT"
 
 export POLYBAR_BG="#00$(echo $G_BG | tail -c +2)"
 export POLYBAR_FG="$G_FG"
@@ -110,10 +110,10 @@ export POLYBAR_ALERT="$G_ALERT"
 
 # shellmenu
 
-export SHELLMENU_WIDTH=$W_WIDTH
-export SHELLMENU_HEIGHT=$( echo "$RES_HEIGHT / 2" | bc)
-export SHELLMENU_X=$W_GAPS
-export SHELLMENU_Y=$W_GAPS
+export SHELLMENU_WIDTH="$W_WIDTH"
+export SHELLMENU_HEIGHT="$( echo "$RES_HEIGHT / 2" | bc)"
+export SHELLMENU_X="$W_GAPS"
+export SHELLMENU_Y="$W_GAPS"
 
 # spicetify
 
@@ -128,7 +128,7 @@ export SPICETIFY_ALERT="$(echo $G_ALERT | tail -c +2)"
 # st
 
 export ST_FONT="Source Code Pro:pixelsize=15:antialias=true:autohint=true"
-export ST_PADDING=$(echo "$W_GAPS * 1.5 / 1" | bc)
+export ST_PADDING="$(echo "$W_GAPS * 1.5 / 1" | bc)"
 
 # zathura
 

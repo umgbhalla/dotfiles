@@ -3,7 +3,7 @@
 ICON_PADDING="7"
 
 bspwm() {
-  ws=$(bspc query -D --names -d)
+  ws="$(bspc query -D --names -d)"
   title=""
 
   case $ws in
@@ -29,11 +29,11 @@ volume() {
 
   v_padding="4"
 
-  volNum=0
+  volNum="0"
 
   case "$OS" in
     # just using the left channel
-    "$OS_FREEBSD") volNum=$(mixer vol | awk '{print $NF}' | cut -d: -f1) ;;
+    "$OS_FREEBSD") volNum="$(mixer vol | awk '{print $NF}' | cut -d: -f1)" ;;
     "$OS_LINUX") volNum="$(pulseaudio-ctl full-status | awk '{print $1}')" ;;
   esac
 
@@ -42,18 +42,18 @@ volume() {
 
   vol=""
 
-  n=0
+  n="0"
   while [ "$n" -lt "$fullNum" ]; do
     vol="${vol}${full}%{O$v_padding}"
-    n=$(( n + 1 ))
+    n="$(( n + 1 ))"
   done
 
   vol="${vol}${active}%{O$v_padding}"
 
-  n=0
+  n="0"
   while [ "$n" -lt "$emptyNum" ]; do
     vol="${vol}${empty}%{O$v_padding}"
-    n=$(( n + 1 ))
+    n="$(( n + 1 ))"
   done
 
   echo "%{B$BAR_BG} ${vol} %{B-}"
@@ -65,10 +65,10 @@ battery() {
 
   case "$OS" in
     "$OS_FREEBSD")
-      bat=$(apm | awk '/Remaining battery/ {gsub("%","");print $4;exit}')
+      bat="$(apm | awk '/Remaining battery/ {gsub("%","");print $4;exit}')"
 
-      status=$(apm | awk '/Battery Status/ {print $3;exit}')
-      if [ $status = "charging" ]; then status="$charging"
+      status="$(apm | awk '/Battery Status/ {print $3;exit}')"
+      if [ "$status" = "charging" ]; then status="$charging"
       else status="$discharging"
       fi
 

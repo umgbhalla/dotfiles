@@ -27,8 +27,8 @@ export XDG_REPO_HOME="$HOME/Repos"
 # display
 #
 
-export RES_WIDTH=1920
-export RES_HEIGHT=1080
+export RES_WIDTH="1920"
+export RES_HEIGHT="1080"
 
 export THEME_LIGHT="light"
 export THEME_DARK="dark"
@@ -38,17 +38,17 @@ export CURRENT_THEME_MODE="$THEME_LIGHT"
 
 export THEME="DotfilesGtk"
 
-export GTK_THEME="$THEME"
+export GTK_THEME="${THEME}:${CURRENT_THEME_MODE}"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 
 # window settings
 
-export W_ALPHA=1
+export W_ALPHA="1"
 export W_ALPHA_HEX="FF" # higher value means more opaque
 
-export W_BORDER_WIDTH=1
-export W_CORNER_RADIUS=0
-export W_GAPS=16
+export W_BORDER_WIDTH="1"
+export W_CORNER_RADIUS="0"
+export W_GAPS="16"
 
 #
 # default programs
@@ -59,7 +59,7 @@ export EDITOR="nvim"
 
 # terminal
 case "$OS" in
-  "$OS_LINUX"|$OS_FREEBSD)
+  "$OS_LINUX"|"$OS_FREEBSD")
     export TERM="st"
     export TERM_ARGS="$TERM"
     ;;
@@ -82,8 +82,8 @@ export PDF_VIEWER="zathura"
 export SYSTEM_PROFILER="htop"
 
 # notifications
-case $OS in
-  $OS_LINUX) export NOTIFICATION_MANAGER="dunst" ;;
+case "$OS" in
+  "$OS_LINUX") export NOTIFICATION_MANAGER="dunst" ;;
   *) export NOTIFICATION_MANAGER="" ;;
 esac
 
@@ -103,12 +103,12 @@ case "$OS" in
 esac
 
 # compositor
-case $OS in
-  $OS_LINUX)
+case "$OS" in
+  "$OS_LINUX")
     export COMPOSITOR="picom"
     export COMPOSITOR_ARGS="$COMPOSITOR --experimental-backends"
     ;;
-  $OS_FREEBSD)
+  "$OS_FREEBSD")
     export COMPOSITOR="picom"
     export COMPOSITOR_ARGS="$COMPOSITOR"
     ;;
@@ -124,14 +124,14 @@ export WM="bspwm"
 # variables
 #
 
-export DOLLAR='$' # vital for envsubst escaping
+export DOLLAR="$" # vital for envsubst escaping
 
-export KEYTIMEOUT=1 # reduce delay in zsh vi-mode change
+export KEYTIMEOUT="1" # reduce delay in zsh vi-mode change
 export PROMPT_EOL_MARK="" # prevent partial line % from appearing
 export RANGER_LOAD_DEFAULT_RC="FALSE"
 export REDSHIFT_LAST="$XDG_CACHE_HOME/redshift_last"
 export SHELL="/bin/sh"
-if [ $OS = $OS_LINUX ]; then
+if [ "$OS" = "$OS_LINUX" ]; then
   export SHELL="/bin/zsh"
 fi
 
@@ -185,10 +185,10 @@ export PATH="$HOME/.local/bin:$PATH"
 #
 
 # colors
-. $XDG_CONFIG_HOME/colorrc
+. "$XDG_CONFIG_HOME/colorrc"
 
 # app-specific environment variables
-. $XDG_CONFIG_HOME/apprc
+. "$XDG_CONFIG_HOME/apprc"
 
 #
 # misc color (ordered after main color declarations)
@@ -201,10 +201,10 @@ export FZF_DEFAULT_OPTS="--color=\"$FZF_COLORS\""
 export BACKGROUND="hsetroot -solid $G_BG -tile $XDG_CONFIG_HOME/wallpapers/tile-$CURRENT_THEME_MODE.jpg"
 
 # startx
-case $(tty) in
+case "$(tty)" in
   "/dev/ttyv0" | "/dev/tty1")
-    case $OS in
-      $OS_FREEBSD)
+    case "$OS" in
+      "$OS_FREEBSD")
         # exec startx -- -nocursor
         sudo moused -p /dev/psm0
         exec startx

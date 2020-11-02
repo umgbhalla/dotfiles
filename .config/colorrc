@@ -29,7 +29,7 @@ export C_CYAN_1="#5e8d87"
 export C_GRAY_0="#4d4a41"
 export C_GRAY_1="#666357"
 
-if [ $CURRENT_THEME_MODE = $THEME_DARK ]; then
+if [ "$CURRENT_THEME_MODE" = "$THEME_DARK" ]; then
   export C_BLACK_0="#1d1a16"
   export C_BLACK_1="#34312a"
 

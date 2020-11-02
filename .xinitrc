@@ -2,19 +2,19 @@
 
 # template vars
 while read -r template; do
-  eval $DETEMPLATE $template
-done < $XDG_CONFIG_HOME/templaterc
+  eval "$DETEMPLATE $template"
+done < "$XDG_CONFIG_HOME/templaterc"
 
 # Gtk theme
-cd $HOME/.themes/DotfilesGtk && yarn build &
+cd "$HOME/.themes/DotfilesGtk" && yarn build &
 
 # Xresource colors
-xrdb -merge $XDG_CONFIG_HOME/Xresources &
+xrdb -merge "$XDG_CONFIG_HOME/Xresources" &
 
 # set last redshift
-$REDSHIFT set $(cat $REDSHIFT_LAST) &
+"$REDSHIFT" set "$(cat $REDSHIFT_LAST)" &
 
-$NOTIFICATION_MANAGER &
+"$NOTIFICATION_MANAGER" &
 
 # shortcut manager
 sxhkd &
@@ -23,8 +23,8 @@ $COMPOSITOR_ARGS &
 
 $BACKGROUND &
 
-$BAR_ARGS &
+"$BAR_ARGS" &
 
 # pulseaudio -D
 
-exec $WM
+exec "$WM"
