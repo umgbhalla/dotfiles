@@ -35,7 +35,7 @@ if [ "$OS" = "$OS_LINUX" ]; then
   export BAR_ARGS="$XDG_CONFIG_HOME/$BAR/main.sh"
   export BAR_UPDATE="$XDG_CONFIG_HOME/$BAR/signal.sh"
 fi
-if [ "$OS" = "$OS_FREEEBSD" ]; then
+if [ "$OS" = "$OS_FREEBSD" ]; then
   export BAR_FIFO="/tmp/${BAR}fifo"
   export BAR_ARGS="$XDG_CONFIG_HOME/$BAR/main.sh"
   export BAR_UPDATE="$XDG_CONFIG_HOME/$BAR/signal.sh"

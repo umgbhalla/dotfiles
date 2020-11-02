@@ -16,7 +16,7 @@ bspwm() {
     X) title="%{O$ICON_PADDING}music  " ;;
   esac
 
-  title="$(echo "$title" | sed 's/[a-z]/\U&/g')"
+  title="$(echo "$title" | awk '{print toupper($0)}')"
   echo "%{B$BAR_BG} ${title} %{B-}"
 }
 
@@ -60,25 +60,28 @@ volume() {
 }
 
 battery() {
+  charging=""
+  discharging=""
+
   case "$OS" in
     "$OS_FREEBSD")
-      bat=$(apm | awk '/Remaining battery/ {print $4;exit}')
+      bat=$(apm | awk '/Remaining battery/ {gsub("%","");print $4;exit}')
 
       status=$(apm | awk '/Battery Status/ {print $3;exit}')
-      if [ $status = "charging" ]; then status="c"
-      else status="d"
+      if [ $status = "charging" ]; then status="$charging"
+      else status="$discharging"
       fi
 
-      echo -e "${status} ${bat}"
+      echo "%{B$BAR_BG} ${status}%{O$ICON_PADDING}${bat} %{B-}"
       ;;
     "$OS_LINUX") ;;
-    *) echo -e "bat not yet implemented" ;;
+    *) echo "bat not yet implemented" ;;
   esac
 }
 
 clock() {
   datefmt="$(date "+%m.%d %a %H:%M")"
-  capdatefmt="$(echo "$datefmt" | sed 's/[a-z]/\U&/g')"
+  capdatefmt="$(echo "$datefmt" | awk '{print toupper($0)}')"
   echo "%{B$BAR_BG} %{O$ICON_PADDING}${capdatefmt} %{B-}"
 }
 
