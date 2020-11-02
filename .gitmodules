@@ -1,15 +1,9 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = https://github.com/bossley9/nvim.git
-[submodule ".config/dwm"]
-	path = .config/dwm
-	url = https://github.com/bossley9/dwm.git
 [submodule ".config/st"]
 	path = .config/st
 	url = https://github.com/bossley9/st.git
-[submodule ".config/surf"]
-	path = .config/surf
-	url = https://github.com/bossley9/surf.git
 [submodule ".themes/DotfilesGtk"]
 	path = .themes/DotfilesGtk
 	url = https://github.com/bossley9/DotfilesGtk.git

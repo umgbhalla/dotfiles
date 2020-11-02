@@ -10,17 +10,8 @@
 [submodule ".config/nvim"]
 	url = git@github.com:bossley9/nvim.git
 	active = true
-[submodule ".config/dwm"]
-	url = git@github.com:bossley9/dwm.git
-	active = true
 [submodule ".config/st"]
 	url = git@github.com:bossley9/st.git
-	active = true
-[submodule ".config/surf"]
-	url = git@github.com:bossley9/surf.git
-	active = true
-[submodule ".config/zsh/fsh"]
-	url = https://github.com/zdharma/fast-syntax-highlighting.git
 	active = true
 [submodule ".themes/DotfilesGtk"]
 	url = git@github.com:bossley9/DotfilesGtk.git
