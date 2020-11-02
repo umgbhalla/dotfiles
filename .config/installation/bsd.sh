@@ -7,7 +7,7 @@ TMP_DIR=/tmp
 #
 
 # devel
-sudo pkg install cmake meson
+sudo pkg install cmake meson python
 
 sudo pkg install bspwm sxhkd
 
@@ -17,10 +17,10 @@ cd $TMP_DIR/lemonbar-xft
 sudo gmake clean install
 
 sudo pkg install sourcecodepro-ttf
-sudo cp /usr/local/share/fonts/SourceCodePro/*.ttf /usr/local/share/fonts/TTF/
-cat /usr/local/share/fonts/SourceCodePro/fonts.dir | sudo tee -a /usr/local/share/fonts/TTF/fonts.dir
-cat /usr/local/share/fonts/SourceCodePro/fonts.scale | sudo tee -a /usr/local/share/fonts/TTF/fonts.scale
-xset fp rehash
+# sudo cp /usr/local/share/fonts/SourceCodePro/*.ttf /usr/local/share/fonts/TTF/
+# cat /usr/local/share/fonts/SourceCodePro/fonts.dir | sudo tee -a /usr/local/share/fonts/TTF/fonts.dir
+# cat /usr/local/share/fonts/SourceCodePro/fonts.scale | sudo tee -a /usr/local/share/fonts/TTF/fonts.scale
+# xset fp rehash
 
 FONT_DIR=$XDG_DATA_HOME/fonts
 
