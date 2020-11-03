@@ -1,0 +1,35 @@
+# text box color, text box bg
+gtk-color-scheme = "text_color:#eceff4"
+gtk-color-scheme = "base_color:#2e2d38"
+# main/menu/button text, main background
+gtk-color-scheme = "fg_color:#eceff4"
+gtk-color-scheme = "bg_color:#171520"
+# selected colors
+gtk-color-scheme = "selected_fg_color:#eceff4"
+gtk-color-scheme = "selected_bg_color:#519aba"
+# tooltip colors
+gtk-color-scheme = "tooltip_fg_color:#eceff4"
+gtk-color-scheme = "tooltip_bg_color:#2e2d38"
+# window colors
+gtk-color-scheme = "wm_color:#ff0000"
+gtk-color-scheme = "unfocused_wm_color:#ff0000"
+# panel colors
+gtk-color-scheme = "panel_bg_color:#ff0000"
+gtk-color-scheme = "panel_fg_color:#ff0000"
+# sidebar colors
+gtk-color-scheme = "sidebar_bg:#ff0000"
+gtk-color-scheme = "sidebar_fg:#ff0000"
+
+# dark theme
+gtk-color-scheme = "dark_text_color:#ff0000"
+gtk-color-scheme = "dark_base_color:#ff0000"
+# dark_bg_color colors file menu bar
+gtk-color-scheme = "dark_fg_color:#ff0000"
+gtk-color-scheme = "dark_bg_color:#171520"
+
+gtk-auto-mnemonics = 1
+gtk-primary-button-warps-slider = 1
+
+include "main.rc"
+
+include "app/gimp.rc"

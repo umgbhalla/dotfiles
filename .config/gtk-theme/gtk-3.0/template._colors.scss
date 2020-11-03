@@ -1,0 +1,23 @@
+// this is a template file designed for usage in my dotfiles
+
+${DOLLAR}fg_color: $THEME_FG;
+${DOLLAR}text_color: $THEME_FG;
+${DOLLAR}bg_color: $THEME_BG;
+${DOLLAR}base_color: $THEME_BG;
+${DOLLAR}selected_bg_color: $THEME_PRIMARY;
+${DOLLAR}selected_fg_color: $THEME_FG;
+${DOLLAR}insensitive_bg_color: $THEME_BG;
+${DOLLAR}insensitive_fg_color: $THEME_FG_ALT;
+${DOLLAR}insensitive_base_color: $THEME_BG;
+${DOLLAR}unfocused_fg_color: $THEME_FG;
+${DOLLAR}unfocused_text_color: $THEME_FG;
+${DOLLAR}unfocused_bg_color: $THEME_BG;
+${DOLLAR}unfocused_base_color: $THEME_BG;
+${DOLLAR}unfocused_selected_bg_color: $THEME_PRIMARY;
+${DOLLAR}unfocused_selected_fg_color: $THEME_BG;
+${DOLLAR}borders: $THEME_BG;
+${DOLLAR}unfocused_borders: $THEME_BG;
+
+${DOLLAR}warning_color: $THEME_WARNING;
+${DOLLAR}error_color: $THEME_ERROR;
+${DOLLAR}success_color: $THEME_PRIMARY;

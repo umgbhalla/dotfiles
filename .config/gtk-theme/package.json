@@ -1,0 +1,11 @@
+{
+  "name": "dotfilesgtk",
+  "description": "A GTK 2/3+ theme for Sam's dotfiles",
+  "license": "ISC",
+  "scripts": {
+    "build": "make"
+  },
+  "dependencies": {
+    "sass": "^1.26.10"
+  }
+}

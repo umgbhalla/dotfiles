@@ -4,6 +4,3 @@
 [submodule ".config/st"]
 	path = .config/st
 	url = https://github.com/bossley9/st.git
-[submodule ".themes/DotfilesGtk"]
-	path = .themes/DotfilesGtk
-	url = https://github.com/bossley9/DotfilesGtk.git

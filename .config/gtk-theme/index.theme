@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=DotfilesGtk
+Comment=Gtk theme for Sam's dotfiles
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=DotfilesGtk
+MetacityTheme=DotfilesGtk
+IconTheme=Adwaita
+CursorTheme=Adwaita
+CursorSize=24
+Encoding=UTF-8

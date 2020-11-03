@@ -5,8 +5,8 @@ while read -r template; do
   eval "$DETEMPLATE $template"
 done < "$XDG_CONFIG_HOME/templaterc"
 
-# Gtk theme
-cd "$HOME/.themes/DotfilesGtk" && yarn build &
+# gtk theme
+cd "$GTK_THEME_DIR/$THEME" && yarn && yarn build &
 
 # Xresource colors
 xrdb -merge "$XDG_CONFIG_HOME/Xresources" &

@@ -1,4 +1,4 @@
 gtk-icon-theme-name = "Adwaita"
-gtk-theme-name = "DotfilesGtk"
+gtk-theme-name = "gtk-theme"
 gtk-font-name = "Source Sans Pro Regular 11"
 gtk-recent-files-max-age=0

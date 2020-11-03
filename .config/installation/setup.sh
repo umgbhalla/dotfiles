@@ -30,41 +30,30 @@ yay -S --needed --batchinstall $PACKS
 # enable any services
 #
 
-systemServices="$DIR/system"
-DAEMONS="$DAEMONS $(sed 's/#.*$//' $systemServices)"
-
 echo "enabling services..."
-for service in $DAEMONS; do
-  sudo systemctl enable $service
-  sudo systemctl start $service
-done
+sudo systemctl enable tlp
+sudo systemctl start tlp
 
 #
 # suckless utilities
 #
 
-sucklessUtilities="$DIR/suckless"
-SUCKLESS="$(sed 's/#.*$//' $sucklessUtilities)"
-
 echo "building suckless utilities..."
-for utility in $SUCKLESS; do
-  $SBUILD $utility
-done
+
+$SBUILD st
 
 #
 # gtk theme
 #
 
-# git clone https://github.com/EliverLara/Nordic.git /tmp/Nordic
-# sudo cp -r /tmp/Nordic /usr/share/themes
-
-cd $HOME/.themes/$THEME && yarn && yarn build
+sudo ln -sf "$XDG_CONFIG_HOME/$THEME" "$GTK_THEME_DIR/$THEME"
+cd "$GTK_THEME_DIR/$THEME" && yarn && yarn build &
 
 #
 # music player
 #
 
-sudo chown -Rv ${USER}:wheel /opt/spotify
+# sudo chown -Rv ${USER}:wheel /opt/spotify
 
 #
 # fonts

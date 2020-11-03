@@ -36,7 +36,8 @@ export THEME_DARK="dark"
 export CURRENT_THEME_MODE="$THEME_LIGHT"
 # export CURRENT_THEME_MODE="$THEME_DARK"
 
-export THEME="DotfilesGtk"
+export THEME="gtk-theme"
+export GTK_THEME_DIR="/usr/share/themes"
 
 export GTK_THEME="${THEME}:${CURRENT_THEME_MODE}"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"

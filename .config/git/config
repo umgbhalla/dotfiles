@@ -13,6 +13,3 @@
 [submodule ".config/st"]
 	url = git@github.com:bossley9/st.git
 	active = true
-[submodule ".themes/DotfilesGtk"]
-	url = git@github.com:bossley9/DotfilesGtk.git
-	active = true
