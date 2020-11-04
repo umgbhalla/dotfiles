@@ -30,7 +30,7 @@ PACKS="$PACKS newsboat"
 PACKS="$PACKS yarn"
 PACKS="$PACKS zathura-pdf-mupdf"
 PACKS="$PACKS ffmpeg"
-AUR="$AUR pulseaudio pulseaudio-alsa pamixer pavucontrol"
+PACKS="$PACKS pulseaudio pulseaudio-alsa pamixer pavucontrol"
 
 sudo pacman -S --needed $PACKS # cannot be quoted
 
@@ -56,6 +56,17 @@ FONT_DIR="$XDG_DATA_HOME/fonts"
 mkdir -p "$FONT_DIR"
 cp -v $XDG_CONFIG_HOME/fonts/* "$FONT_DIR/"
 fc-cache -f -v
+
+# touchpad
+sudo ln -sf "$XDG_CONFIG_HOME/xorg.conf.d/30-touchpad.conf" "/etc/X11/xorg.conf.d/30-touchpad.conf"
+
+# login prompt
+if command -v "figlet"; then
+  issue="$(cat "/etc/hostname" | figlet -k | sed 's/\\/\\\\/g')"
+  issuestatus="(\\l) \\s \\\r \\\t"
+  # -e interprets \n as a new line character
+  echo -e "${issue}\n${issuestatus}" | sudo tee "/etc/issue" > /dev/null
+fi
 
 # reset git config
 GIT_CONFIG="$gcfg"

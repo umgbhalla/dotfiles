@@ -710,11 +710,9 @@ created earlier.
 This list of additional configuration options are in no particular order. I've just added or
 modified them when necessary.
 
-- [Touchpad Settings](#touchpad-settings)
 - [Disabling the Grub Menu](#disabling-grub-menu)
 - [DaVinci Resolve](#davinci-resolve)
 - [Gaming](#gaming)
-- [Login](#login)
 - [No dwm?](#no-dwm)
 - [Glasscord](#glasscord)
 - [User Custom CSS](#user-custom-css)
@@ -723,28 +721,13 @@ modified them when necessary.
 - [Serverauth Files](#serverauth-files)
 - [MOTD](#motd)
 
-#### Touchpad settings <a name="touchpad-settings"></a>
-By default, most linux distros disable natural scrolling and disable touchpad tapping. I 
-personally find this very irritating. To change touchpad settings, 
-`sudo nvim /etc/X11/xorg.conf.d/30-touchpad.conf` and add the following configuration:
-```
-Section "InputClass"
-	Identifier "touchpad"
-	Driver "libinput"
-	MatchIsTouchpad "on"
-	Option "Tapping" "on"
-	Option "NaturalScrolling" "true"
-EndSection
-```
-Then reboot to verify changes.
-
 #### Disabling the Grub Menu <a name="disabling-grub-menu"></a>
-If, like me, you don't plan on dual-booting or adding boot entries, you can disable the grub 
-selection menu with `sudo nvim /etc/default/grub`:
+If you don't plan on dual-booting or adding boot entries, you can disable the grub
+selection menu at boot time with `sudo nvim /etc/default/grub`:
 ```
 GRUB_TIMEOUT=0
 ```
-Update the grub, then reboot.
+Update the grub configuration, then reboot.
 ```
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo reboot
@@ -793,18 +776,6 @@ games of any kind.
 sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader
 ```
 [Lutris also recommended that I install drivers specific to my GPU](https://github.com/lutris/docs/blob/master/InstallingDrivers.md).
-
-#### Login <a name="login"></a>
-
-The default login prompt is generic and simple. If you would like to modify it, you can use 
-different X-run interfaces to beautify the login prompt. I aim for minimalism, and think that 
-any X server running for the purposes of an aesthetic login prompt is unnecessary bloat. As 
-an alternative, you can edit the `/etc/issue` file to modify what is displayed on the login 
-prompt. In my setup, I use `figlet` to create a fancy hostname title on the login prompt.
-```
-cat /etc/hostname | figlet -k | { sed 's/\\/\\\\/g'; echo "(\l) \\s \\\r \\\t\n" } | sudo tee /etc/issue > /dev/null
-```
-You'll have to log out and log back in to notice changes.
 
 #### No dwm? <a name="no-dwm"></a>
 It might be surprising that I am such an advocate for suckless utilities and yet do not use
