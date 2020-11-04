@@ -218,8 +218,12 @@
         background-color: var(--color-bg-alt) !important;
         border: none !important;
     }
-    .tocnumber {
+    .tocnumber { color: var(--color-fg) !important; }
+    .toctogglelabel { color: var(--color-fg) !important; }
+    .archwiki-template-meta-related-articles-start > p {
+        background: var(--color-bg-alt) !important;
         color: var(--color-fg) !important;
+        border-bottom: none !important;
     }
     li.selected {
         background-color: var(--color-bg-alt) !important;
@@ -242,13 +246,12 @@
     .wikitable > * > tr > th {
         background-color: var(--color-bg-alt) !important;
     }
-    td {
-        border: 1px solid var(--color-bg);
-    }
+    td { border: 1px solid var(--color-bg); }
     .archwiki-template-box-warning {
-        background: var(--color-warning) !important;
+        background-color: var(--color-warning) !important;
         border-color: var(--color-warning) !important;
     }
+    .archwiki-template-box-warning a { color: var(--color-fg) !important; }
     .archwiki-template-message,
     .archwiki-template-box-note,
     .archwiki-template-box-tip {

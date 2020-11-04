@@ -73,7 +73,7 @@ export FF_FG_ALT="$G_FG_ALT"
 export FF_DISABLED="$G_FG_ALT"
 export FF_PRIMARY="$G_PRIMARY"
 export FF_SECONDARY="$G_SECONDARY"
-export FF_WARNING="$G_TERTIARY"
+export FF_WARNING="$G_ALERT"
 export FF_ALERT="$G_ALERT"
 
 # fzf

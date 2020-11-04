@@ -2,7 +2,7 @@
 
 ICON_PADDING="7"
 
-bspwm() {
+wm() {
   ws="$(bspc query -D --names -d)"
   title=""
 
@@ -85,13 +85,13 @@ clock() {
   echo "%{B$BAR_BG} %{O$ICON_PADDING}${capdatefmt} %{B-}"
 }
 
-LEFT="$(bspwm)"
+LEFT="$(wm)"
 CENTER=""
 RIGHT="$(volume) $(battery) $(clock)"
 
-spaceLeft="%{B$BAR_BG}%{O$ICON_PADDING}%{O$ICON_PADDING}%{B-}\
+SPACE_LEFT="%{B$BAR_BG}%{O$ICON_PADDING}%{O$ICON_PADDING}%{B-}\
 %{O$ICON_PADDING}%{B$BAR_BG}%{O$ICON_PADDING}%{B-} "
-spaceRight=" %{B$BAR_BG}%{O$ICON_PADDING}%{B-}\
+SPACE_RIGHT=" %{B$BAR_BG}%{O$ICON_PADDING}%{B-}\
 %{O$ICON_PADDING}%{B$BAR_BG}%{O$ICON_PADDING}%{O$ICON_PADDING}%{B-}"
 
-echo "%{F$BAR_FG}%{l}${spaceLeft}$LEFT%{c}$CENTER%{r}$RIGHT${spaceRight}"
+echo "%{F$BAR_FG}%{l}${SPACE_LEFT}$LEFT%{c}$CENTER%{r}$RIGHT${SPACE_RIGHT}"
