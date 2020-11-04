@@ -6,7 +6,11 @@ TMP_DIR="/tmp"
 gcfg="$GIT_CONFIG"
 unset GIT_CONFIG
 
-PACKS="bspwm sxhkd"
+git clone "https://aur.archlinux.org/yay.git" "$TMP_DIR/yay"
+cd "$TMP_DIR/yay" && makepkg -si
+
+PACKS="xorg-server xorg-xinit"
+PACKS="$PACKS bspwm sxhkd"
 PACKS="$PACKS libxft"
 PACKS="$PACKS neovim nodejs ripgrep"
 PACKS="$PACKS firefox"

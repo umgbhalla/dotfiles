@@ -503,28 +503,17 @@ customizeable appearance.
 
 #### Core Setup <a name="core-setup"></a>
 - Install a system upgrade. It's good to do this on a clean install. Additionally, install
-  useful package helpers like `git` and `yay`.
+  `git` so you can install my dotfiles and other packages from source.
   ```
   sudo pacman -Syu
   sudo pacman -S git
-
-  git clone https://aur.archlinux.org/yay.git /tmp/yay
-  cd /tmp/yay && makepkg -si
   ```
 - Setup the default shell. I currenly use `mksh`. set it as the default shell for the main user.
   ```
   sudo pacman -S mksh
   chsh -s /bin/mksh
   ```
-- Install `X` server packages.
-  ```
-  sudo pacman -S xorg-server xorg-xinit
-  ```
   My dotfiles will automatically use `st` as the default terminal emulator.
-  If you choose to not use `st` as a terminal emulator, make sure you install at
-  least one terminal emulator and change the `TERM` environment variable located in
-  `.profile` and update the binding in `sxhkdrc`. If you do not have a terminal emulator
-  installed and properly setup, my dotfiles will not work.
 - Log out and log back in.
   ```
   exit
