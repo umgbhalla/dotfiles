@@ -503,10 +503,12 @@ customizeable appearance.
 
 #### Core Setup <a name="core-setup"></a>
 - Install a system upgrade. It's good to do this on a clean install. Additionally, install
-  `git` so you can install my dotfiles and other packages from source.
+  `git` and other necessary core utilities so you can install my dotfiles and other packages
+  from source.
   ```
   sudo pacman -Syu
   sudo pacman -S git
+  sudo pacman -S bc
   ```
 - Setup the default shell. I currenly use `mksh`. set it as the default shell for the main user.
   ```
