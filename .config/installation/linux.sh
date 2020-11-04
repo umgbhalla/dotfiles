@@ -30,13 +30,13 @@ PACKS="$PACKS newsboat"
 PACKS="$PACKS yarn"
 PACKS="$PACKS zathura-pdf-mupdf"
 PACKS="$PACKS ffmpeg"
+AUR="$AUR pulseaudio pulseaudio-alsa pamixer pavucontrol"
 
 sudo pacman -S --needed $PACKS # cannot be quoted
 
 AUR="bc"
 AUR="$AUR picom-ibhagwan-git"
 AUR="$AUR adobe-source-code-pro-fonts"
-AUR="$AUR pulseaudio pulseaudio-alsa pulseaudio-ctl"
 AUR="$AUR zathura-git"
 AUR="$AUR youtube-dl"
 AUR="$AUR dunst"

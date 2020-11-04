@@ -11,7 +11,7 @@ touch $tmpMicMute
 vol_up() {
   case $OS in
     $OS_FREEBSD) mixer vol +$1 ;;
-    *) pulseaudio-ctl up ;;
+    *) pamixer --increase "$1" ;;
   esac
 }
 
@@ -20,7 +20,7 @@ vol_up() {
 vol_down() {
   case $OS in
     $OS_FREEBSD) mixer vol -$1 ;;
-    *) pulseaudio-ctl down ;;
+    *) pamixer --decrease "$1";;
   esac
 }
 
@@ -52,7 +52,7 @@ vol_toggle() {
         fi
       fi
       ;;
-    *) pulseaudio-ctl mute ;;
+    *) pamixer --toggle-mute ;;
   esac
 }
 
@@ -84,7 +84,6 @@ mic_toggle() {
         fi
       fi
       ;;
-    *) pulseaudio-ctl mute-input ;;
   esac
 }
 

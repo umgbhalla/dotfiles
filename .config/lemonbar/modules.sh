@@ -34,7 +34,7 @@ volume() {
   case "$OS" in
     # just using the left channel
     "$OS_FREEBSD") volNum="$(mixer vol | awk '{print $NF}' | cut -d: -f1)" ;;
-    "$OS_LINUX") volNum="$(pulseaudio-ctl full-status | awk '{print $1}')" ;;
+    "$OS_LINUX") volNum="$(pamixer --get-volume)" ;;
   esac
 
   fullNum="$(echo "$volNum/$unit" | bc)"
