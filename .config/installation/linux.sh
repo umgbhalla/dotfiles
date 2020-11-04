@@ -25,13 +25,13 @@ PACKS="$PACKS htop"
 PACKS="$PACKS man"
 PACKS="$PACKS slop"
 PACKS="$PACKS openssh"
-PACKS="$PACKS mpy"
+PACKS="$PACKS mpv"
 PACKS="$PACKS newsboat"
 PACKS="$PACKS yarn"
 PACKS="$PACKS zathura-pdf-mupdf"
 PACKS="$PACKS ffmpeg"
 
-sudo pacman -S --needed "$PACKS"
+sudo pacman -S --needed $PACKS # cannot be quoted
 
 AUR="bc"
 AUR="$AUR picom-ibhagwan-git"
@@ -41,13 +41,14 @@ AUR="$AUR zathura-git"
 AUR="$AUR youtube-dl"
 AUR="$AUR dunst"
 
-yay -S --needed --batchinstall "$AUR"
+yay -S --needed --batchinstall $AUR # cannot be quoted
 
 git clone "https://github.com/krypt-n/bar.git" "$TMP_DIR/lemonbar-xft"
 sudo make clean install
 
 $SBUILD "st"
 
+sudo mkdir -p "$GTK_THEME_DIR"
 sudo ln -sf "$XDG_CONFIG_HOME/$THEME" "$GTK_THEME_DIR/$THEME"
 cd "$GTK_THEME_DIR/$THEME" && yarn && yarn build &
 
