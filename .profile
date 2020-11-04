@@ -133,7 +133,7 @@ export RANGER_LOAD_DEFAULT_RC="FALSE"
 export REDSHIFT_LAST="$XDG_CACHE_HOME/redshift_last"
 export SHELL="/bin/sh"
 if [ "$OS" = "$OS_LINUX" ]; then
-  export SHELL="/bin/zsh"
+  export SHELL="/bin/mksh"
 fi
 
 # vertical line jumping
@@ -145,7 +145,11 @@ export VI_NAV_JUMP_LARGE="25"
 #
 
 export BOOKMARK_CONFIG="$XDG_CONFIG_HOME/bookmarks"
-export ENV="$XDG_CONFIG_HOME/sh/shrc"
+case "$OS" in
+  "$OS_FREEBSD") export ENV="$XDG_CONFIG_HOME/sh/shrc" ;;
+  "$OS_LINUX") export ENV="$XDG_CONFIG_HOME/mksh/mkshrc" ;;
+  *) export ENV="" ;;
+esac
 export GIT_CONFIG="$XDG_CONFIG_HOME/git/config"
 export GIT_TEMPLATE_DIR="$XDG_CONFIG_HOME/git/template"
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"

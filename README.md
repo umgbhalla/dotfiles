@@ -89,7 +89,7 @@ MacOS, basic utilities and command-line aliases are compatible. See [cloning](#c
 Information taken from `neofetch` output.
 ```
 OS: Arch Linux x86_64
-Kernel: 5.8.5-arch1-1
+Kernel: 5.9.3-arch1-1
 Shell: mksh
 WM: bspwm
 Theme: custom [GTK2/3]
@@ -157,8 +157,8 @@ System Profiler:  htop
 
     **GNU/Linux:**
     ```sh
-    . $HOME/.profile
-    $XDG_CONFIG_HOME/installation/setup.sh
+    . "$HOME/.profile"
+    $XDG_CONFIG_HOME/installation/linux.sh
     ```
     Restart and verify all packages are running properly.
     ```
