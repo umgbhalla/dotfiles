@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-  eval $TERM_ARGS
+  $TERM_ARGS
 
 # launcher
 super + space
