@@ -68,5 +68,8 @@ if command -v "figlet"; then
   echo -e "${issue}\n${issuestatus}" | sudo tee "/etc/issue" > /dev/null
 fi
 
+# motd
+echo "" | sudo tee "/etc/motd"
+
 # reset git config
 GIT_CONFIG="$gcfg"

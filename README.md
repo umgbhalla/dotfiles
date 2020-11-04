@@ -95,7 +95,7 @@ WM: bspwm
 Theme: custom [GTK2/3]
 Icons: Adwaita [GTK2/3]
 Terminal: st
-Status Bar: lemonbar
+Status Bar: lemonbar-xft
 Launcher: fzf
 
 Editor: neovim
@@ -717,9 +717,7 @@ modified them when necessary.
 - [Glasscord](#glasscord)
 - [User Custom CSS](#user-custom-css)
 - [Fine-Tuning Package Installation](#fine-tuning-package-installation)
-- [Using the Dash Shell](#using-the-dash-shell)
 - [Serverauth Files](#serverauth-files)
-- [MOTD](#motd)
 
 #### Disabling the Grub Menu <a name="disabling-grub-menu"></a>
 If you don't plan on dual-booting or adding boot entries, you can disable the grub
@@ -837,39 +835,12 @@ more user-friendly in Pacman and Yay.
 Color
 ```
 
-## Using the Dash Shell <a name="using-the-dash-shell"></a>
-
-Dash is the Debian Almquist implementation of the original Bourne shell.
-It is lightweight and POSIX-compliant by nature (and I find that in most
-cases, you will never need Bash/Zsh-specific tools). Since `/bin/sh` is
-also symlinked to `/bin/bash` by default on most Linux systems, we will redirect
-it to dash and simply use `/bin/sh`.
-```
-sudo pacman -S dash
-sudo ln -sfT dash /usr/bin/sh
-chsh -s /bin/sh
-```
-To verify `/bin/sh` is never overwritten by bash on system updates, we need to add
-a pacman hook.
-```
-git clone https://aur.archlinux.org/dashbinsh.git /tmp/dashbinsh
-cd /tmp/dashbinsh && makepkg -si
-```
-Logout and log back in to verify the shell has succesfully changed.
-
 ## Serverauth Files <a name="serverauth-files"></a>
 Xorg likes to populate the `$HOME` directory with `.serverauth.####` files. These files
 simply save the session of X (similar to Xauthority) and can be redirected to Xauthority.
 Edit `/usr/bin/startx` or `/usr/local/bin/startx` depending on your machine:
 ```
 xserverauthfile=$XAUTHORITY
-```
-
-## MOTD <a name="motd"></a>
-Most unix systems display a Message of the Day on login. Generally, the motd will be
-located in `/etc/motd`. To remove the motd:
-```
-echo "" | sudo tee /etc/motd
 ```
 
 ## TODO <a name="todo"></a>
