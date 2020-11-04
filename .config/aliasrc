@@ -64,9 +64,6 @@ alias \
   yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn"
 
 alias zr="clear && . $ENV"
-if [ "$OS" = "$OS_LINUX" ]; then
-  alias zr="clear && . $XDG_CONFIG_HOME/zsh/.zshrc"
-fi
 
 # ----------------------------------------------------------------
 # version control

@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# enable builtin vi command line editor in sh
+set -o vi
+
+# aliases
+[ -f $XDG_CONFIG_HOME/aliasrc ] && . $XDG_CONFIG_HOME/aliasrc
+
+# terminal ascii
+FG=$WHITE
+P=$RED
+echo -e "${FG}\
+ ┌―――――――――――――――――――――――――――――┬―――――――――┐
+ ├―――――――――――――――――――――――――――――┘ ${P}▀${FG}  ${P}▀${FG}  ${P}▀${FG} │
+ │                                       │
+ │                                       │
+ │    ${P}/\\,-'''''-,/\\ ${FG}                     │\n\
+ │    ${P}\\_)       (_/${FG}                      │\n\
+ │    ${P}|           |${FG}                      │\n\
+ │    ${P}|           | ${FG}                     │\n\
+ │     ${P};         ;     ${FG}i use *nix btw    │\n\
+ │      ${P}'-_____-' ${FG}     ...               │\n\
+ │                                       │
+ └―――――――――――――――――――――――――――――――――――――――┘
+${NC}"
+
+# scrollback
+HISTFILE="$SH_HISTFILE"
+HISTSIZE="1000000"
+
+# prompt
+export PS1="> "

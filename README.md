@@ -90,17 +90,17 @@ Information taken from `neofetch` output.
 ```
 OS: Arch Linux x86_64
 Kernel: 5.8.5-arch1-1
-Shell: zsh
+Shell: mksh
 WM: bspwm
-Theme: Nordic [GTK2/3]
+Theme: custom [GTK2/3]
 Icons: Adwaita [GTK2/3]
 Terminal: st
-Status Bar: polybar
-Launcher: fzf/dmenu
+Status Bar: lemonbar
+Launcher: fzf
 
 Editor: neovim
-Browser: brave (JSON Formatter, React Dev Tools, Redux Dev Tools), firefox, surf
-File Exporer: ranger
+Browser: firefox
+File Exporer: vifm
 System Profiler:  htop
 ```
 
@@ -108,7 +108,11 @@ System Profiler:  htop
 
 1. Clone this repository to your home folder using the steps outlined below.
     If you followed my [manual installation](#manual-installation),
-    choose either `zsh` or `sh`.
+    choose either `mksh` or `sh`.
+    - `mksh`:
+      ```mksh
+      git clone --recursive https://github.com/bossley9/dotfiles.git .
+      ```
     - `dash/sh`:
       ```sh
       git clone --recursive https://github.com/bossley9/dotfiles.git /tmp/dotfiles
@@ -219,7 +223,7 @@ This setup guide assumes you understand the basics of Unix systems
     - An internet connection (preferably ethernet)
     - A disposable usb drive that can be wiped
 2. Download the latest [Archlinux](https://www.archlinux.org/download) installation iso from
-    their website. I downloaded version `archlinux-2020.10.01-x86_64.iso`.
+    their website. I downloaded version `archlinux-2020.11.01-x86_64.iso`.
 3. Burn the downloaded cd image onto the usb.
     This can be done using a number of different tools:
     - [Balena Etcher](https://www.balena.io/etcher)
@@ -462,8 +466,8 @@ customizeable appearance.
     shutdown -h now
     ```
 2. Power on the machine. It should boot immediately into a login prompt.
-    If no bootable devices are found, you may need to tweak BIOS settings in order to boot
-    from UEFI. Then log in as the root user using `root` as your username and the password
+    If no bootable devices are found, **you may need to tweak BIOS settings in order to boot
+    from UEFI**. Then log in as the root user using `root` as your username and the password
     you set earlier. If it does not display a login prompt, the operating system was not set
     up correctly. Repeat the previous steps to install the operating system.
 
@@ -507,11 +511,10 @@ customizeable appearance.
   git clone https://aur.archlinux.org/yay.git /tmp/yay
   cd /tmp/yay && makepkg -si
   ```
-- Setup the default shell. I currenly use `zsh`, but have considered switching to
-  [dash](#using-the-dash-shell). set it as the default shell for the main user.
+- Setup the default shell. I currenly use `mksh`. set it as the default shell for the main user.
   ```
-  sudo pacman -S zsh
-  chsh -s /bin/zsh
+  sudo pacman -S mksh
+  chsh -s /bin/mksh
   ```
 - Install `X` server packages.
   ```
@@ -526,10 +529,11 @@ customizeable appearance.
   ```
   exit
   ```
-  If prompted to create a `zsh` startup file, you can press `q` to quit and do nothing. My
-  dotfiles contain necessary `zsh` startup files. You can then remove old `bash` files.
+  In order to properly clone my dotfiles you will need to empty the user home directory. Because
+  `mksh` does not support globbing (or, a limited version), we will need to remove all dotfiles
+  to clone directly into the directory.
   ```
-  rm .bash*
+  rm -r .*
   ```
 - Finally, install my dotfiles. See [cloning](#cloning) for more details.
 
@@ -562,11 +566,12 @@ In other words: _if you're new to the Linux/Unix utopia, this is probably not fo
     - An internet connection (preferably ethernet)
     - A disposable usb drive that can be wiped
 2. Download the latest [FreeBSD](https://www.freebsd.org/where.html) installation image
-  from their website. I chose `amd64` architecture release `12.1`. When given the option, I
-  selected the memstick image instead of a standard iso since it does not require an
-  internet connection for the base installation, and wifi was difficult to set up
+  from their website. I chose `amd64` architecture release `12.2`. When given the option,
+  select the `memstick.img` instead of a standard iso since it does not require an
+  internet connection for the base installation, and wifi is difficult to set up
   without proper command line access.
-3. Burn the downloaded cd image onto the usb.
+    > because the disk image contains the both the necessary system files _and_ the ports collection, it will be larger than many standard Linux distribution isos (but still _much_ smaller than any Windows iso).
+3. Burn the downloaded disk image onto the usb.
 4. Boot the machine from the live usb. This may require BIOS tweaking depending on your
   machine. Be sure to boot with UEFI if you plan on dual booting with Windows in the
   future.
@@ -576,23 +581,23 @@ few seconds or press `ENTER` to select the multi-user boot.
 
 #### Boot Start <a name="boot-start-freebsd"></a>
 When prompted between `Install`, `Shell`, and `Live CD`, select `Install`. Then select
-the keymap best suited for you. Generally the default selection is the best choice.
+the keymap best suited for you. Generally you can continue with the default selection, but I always like to choose the `United States of America` keyboard (`us.kbd`) just to be safe - you don't want to boot into a system and be unable to use certain keys on the keyboard.
 
 #### Hostname <a name="hostname-freebsd"></a>
-Name your system.
+Name your system. I will name mine `automata`.
 
 #### Components <a name="components-freebsd"></a>
 When choosing which components to install, select `kernel-dbg`, `lib32`, and `ports`.
-`lib32` enables support for 32-bit libraries (like... the Steam client...) and the ports
+`lib32` enables support for 32-bit libraries (such as the Steam client) and the ports
 tree is FreeBSD's software management system (the only time you should _not_ install this
 is if your machine is intended to be used as a server).
 
 #### Disk Partitioning <a name="disk-partitioning-freebsd"></a>
 We will be partitioning our disk with ZFS. Select `Auto (ZFS)` to partition with ZFS.
 
-- Change the swap size to be twice the size of ram. In my case, this is 64GB.
+- Change the swap size to be twice the size of ram. For example, if I have 16 GB, this will be 32GB.
   ```
-  64g
+  32g
   ```
 - Verify that the partition scheme is `GPT`, and either `(BIOS + UEFI)` or `(UEFI)`.
 - Change the pool type to stripe, and select your disk you want FreeBSD to be installed on
@@ -601,12 +606,12 @@ We will be partitioning our disk with ZFS. Select `Auto (ZFS)` to partition with
   the ports tree.
 
 #### Password <a name="password-freebsd"></a>
-When prompted, type in the root password.
+When prompted, create a root password.
 
 #### Network Prompt <a name="network-prompt-freebsd"></a>
 Eventually the installation process will prompt you to select a network configuration.
 As I mentioned earlier, it is much easier to set up a proper network configuration after
-the installation process has finished. You can select `cancel`, and the installation process
+the installation process has finished. You can select `cancel` and the installation process
 will continue without a network connection.
 
 #### Clock and Localization <a name="clock-and-localization-freebsd"></a>
@@ -678,17 +683,17 @@ created earlier.
   ```
   pkg update
   pkg install sudo git vim
-  pkg install xorg pkgconf sourcecodepro-ttf
   ```
-- Enable the `wheel` group with `visudo`:
+- Enable root sudo permissions for the `wheel` group with `visudo` command:
   ```
   %wheel ALL=(ALL) ALL
   ```
-- Logout and log back in as the main user.
+- Logout and log back in as the main user created earlier.
   You will now be able to install packages using sudo.
 - Set up graphics for X. I use an intel-based vga, so I additionally installed
   an intel video package.
   ```
+  sudo pkg install xorg pkgconf sourcecodepro-ttf
   sudo pkg install drm-kmod
   sudo pkg install xf86-video-intel
   ```
