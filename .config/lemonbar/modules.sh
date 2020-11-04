@@ -74,7 +74,17 @@ battery() {
 
       echo "%{B$BAR_BG} ${status}%{O$ICON_PADDING}${bat} %{B-}"
       ;;
-    "$OS_LINUX") ;;
+    "$OS_LINUX")
+      bat="$(cat "/sys/class/power_supply/BAT0/capacity")"
+
+      if [ -n "$bat" ]; then
+        status="$(cat "/sys/class/power_supply/BAT0/status")"
+        if [ "$status" = "Charging" ]; then status="$charging"
+        else status="$discharging"
+        fi
+        echo "%{B$BAR_BG} ${status}%{O$ICON_PADDING}${bat} %{B-}"
+      fi
+      ;;
     *) echo "bat not yet implemented" ;;
   esac
 }
