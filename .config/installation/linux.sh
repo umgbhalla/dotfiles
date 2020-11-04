@@ -62,7 +62,7 @@ sudo ln -sf "$XDG_CONFIG_HOME/xorg.conf.d/30-touchpad.conf" "/etc/X11/xorg.conf.
 
 # login prompt
 if command -v "figlet"; then
-  issue="$(cat "/etc/hostname" | figlet -k | sed 's/\\/\\\\/g')"
+  issue="$(cat "/etc/hostname" | figlet -k | sed 's/\\/\\\\\\/g')"
   issuestatus="(\\l) \\s \\\r \\\t"
   # -e interprets \n as a new line character
   echo -e "${issue}\n${issuestatus}" | sudo tee "/etc/issue" > /dev/null
