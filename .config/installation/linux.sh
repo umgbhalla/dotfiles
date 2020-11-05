@@ -39,7 +39,8 @@ AUR="$AUR picom-ibhagwan-git"
 AUR="$AUR adobe-source-code-pro-fonts"
 AUR="$AUR zathura-git"
 AUR="$AUR youtube-dl"
-AUR="$AUR dunst"
+# TODO remove
+# AUR="$AUR dunst"
 
 yay -S --needed --batchinstall $AUR # cannot be quoted
 

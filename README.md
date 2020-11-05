@@ -101,6 +101,7 @@ Launcher: fzf
 Editor: neovim
 Browser: firefox
 File Exporer: vifm
+Notifications: herbe
 System Profiler:  htop
 ```
 

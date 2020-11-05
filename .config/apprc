@@ -48,7 +48,7 @@ export BSPWM_BORDER_ACTIVE="$G_BG_ALT"
 export BSPWM_BORDER_NORMAL="$BSPWM_BORDER_ACTIVE"
 export BSPWM_BORDER_FOCUSED="$BSPWM_BORDER_ACTIVE"
 
-# dunst
+# dunst (TODO remove)
 
 export DUNST_WIDTH="400"
 export DUNST_HEIGHT="70"
@@ -89,6 +89,21 @@ export FZF_COLORS="bg:$FZF_BG\
 ,hl:$FZF_MATCH,hl+:$FZF_MATCH\
 ,fg+:$FZF_CURRENT,bg+:$FZF_BG\
 ,info:$FZF_MATCH"
+
+# herbe
+
+export HERBE_HEIGHT="100" # not actually used; just for reference
+export HERBE_WIDTH="$(echo "${W_WIDTH} / 2" | bc)"
+export HERBE_X="$(echo "(${RES_WIDTH} - ${HERBE_WIDTH})/ 2" | bc)"
+export HERBE_Y="$(echo "(${RES_HEIGHT} - ${HERBE_HEIGHT})/ 2" | bc)"
+
+export HERBE_FONT="Source Code Pro Medium 12"
+export HERBE_DURATION="1"
+
+export HERBE_FONT="Source Code Pro Medium 12"
+export HERBE_FG="$G_FG"
+export HERBE_BG="$G_BG"
+export HERBE_BG_ALT="$G_BG_ALT"
 
 # picom
 
