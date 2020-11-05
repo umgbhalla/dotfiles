@@ -49,22 +49,6 @@ export BSPWM_BORDER_ACTIVE="$G_BG_ALT"
 export BSPWM_BORDER_NORMAL="$BSPWM_BORDER_ACTIVE"
 export BSPWM_BORDER_FOCUSED="$BSPWM_BORDER_ACTIVE"
 
-# dunst (TODO remove)
-
-export DUNST_WIDTH="400"
-export DUNST_HEIGHT="70"
-export DUNST_X="-$(( $W_GAPS * 2 ))"
-export DUNST_Y="$DUNST_X"
-export DUNST_ICON_SIZE="$(echo "$DUNST_HEIGHT * 0.8 / 1" | bc)" # dividing by 1 removes the decimal
-
-export DUNST_FONT="Source Code Pro Medium 12"
-
-# higher hex means higher transparency
-export DUNST_BG="$G_BG$W_ALPHA_HEX"
-export DUNST_BG_CRITICAL="$G_ALERT$W_ALPHA_HEX"
-export DUNST_FG="$G_FG"
-export DUNST_FRAME="$G_FG"
-
 # firefox
 
 export FF_BG="$G_BG"

@@ -18,12 +18,12 @@ date="$(\date +%y-%m-%d_%H:%M:%S)"
 # recording status temporary file path
 pidFile=/tmp/ffmpegCapturePid
 
-notifyTime=0.5
+notifyTime="$HERBE_DURATION"
 notifyTimeMs=$(( $(echo $notifyTime | cut -d. -f2) * 100 ))
 notify() {
   case $OS in
     $OS_LINUX)
-      dunstify -i camera-photo-symbolic.symbolic -t $notifyTimeMs "$1"
+      herbe "$1"
       sleep $notifyTime
       ;;
   esac

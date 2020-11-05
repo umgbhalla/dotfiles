@@ -1,10 +1,11 @@
 $XDG_CONFIG_HOME/$THEME/gtk-3.0/template._colors.scss
-$XDG_CONFIG_HOME/dunst/template.dunstrc
 $XDG_CONFIG_HOME/gtk-3.0/template.bookmarks
+$XDG_CONFIG_HOME/herbe/template.config.h
 $XDG_CONFIG_HOME/mozilla/profile/chrome/template.userChrome.css
 $XDG_CONFIG_HOME/mozilla/profile/chrome/template.userContent.css
 $XDG_CONFIG_HOME/picom/template.picom.conf
 $XDG_CONFIG_HOME/spicetify/template.config.ini
+$XDG_CONFIG_HOME/st/template.config.h
 $XDG_CONFIG_HOME/template.Xresources
 $XDG_CONFIG_HOME/vifm/template.vifmrc
 $XDG_CONFIG_HOME/zathura/template.zathurarc

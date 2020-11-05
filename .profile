@@ -84,7 +84,7 @@ export SYSTEM_PROFILER="htop"
 
 # notifications
 case "$OS" in
-  "$OS_LINUX") export NOTIFICATION_MANAGER="dunst" ;;
+  "$OS_LINUX") export NOTIFICATION_MANAGER="herbe" ;;
   *) export NOTIFICATION_MANAGER="" ;;
 esac
 
