@@ -6,6 +6,7 @@
 export BAR_HEIGHT="36"
 export BAR_HALF_HEIGHT="$(echo "$BAR_HEIGHT/2" | bc)"
 export W_WIDTH="$(echo "$RES_WIDTH-($W_GAPS+$W_BORDER_WIDTH)*2" | bc)"
+export W_FONT="Source Code Pro:pixelsize=24"
 
 export G_BG="$C_BLACK_0"
 export G_BG_ALT="$C_BLACK_1"
@@ -92,18 +93,21 @@ export FZF_COLORS="bg:$FZF_BG\
 
 # herbe
 
-export HERBE_HEIGHT="100" # not actually used; just for reference
-export HERBE_WIDTH="$(echo "${W_WIDTH} / 2" | bc)"
-export HERBE_X="$(echo "(${RES_WIDTH} - ${HERBE_WIDTH})/ 2" | bc)"
-export HERBE_Y="$(echo "(${RES_HEIGHT} - ${HERBE_HEIGHT})/ 2" | bc)"
+export HERBE_WIDTH="${W_WIDTH}"
+export HERBE_X="${W_GAPS}"
+export HERBE_Y="${W_GAPS}"
 
-export HERBE_FONT="Source Code Pro Medium 12"
-export HERBE_DURATION="1"
+export HERBE_FONT="${W_FONT}"
+export HERBE_DURATION="2"
+export HERBE_PADDING="8"
 
-export HERBE_FONT="Source Code Pro Medium 12"
 export HERBE_FG="$G_FG"
-export HERBE_BG="$G_BG"
-export HERBE_BG_ALT="$G_BG_ALT"
+export HERBE_BG="$G_BG_ALT"
+export HERBE_BORDER_BG="$G_BG_ALT"
+
+# lemonbar
+
+export LEMONBAR_FONT="${W_FONT}"
 
 # picom
 
