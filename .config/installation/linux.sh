@@ -39,8 +39,6 @@ AUR="$AUR picom-ibhagwan-git"
 AUR="$AUR adobe-source-code-pro-fonts"
 AUR="$AUR zathura-git"
 AUR="$AUR youtube-dl"
-# TODO remove
-# AUR="$AUR dunst"
 
 yay -S --needed --batchinstall $AUR # cannot be quoted
 
@@ -50,8 +48,9 @@ cd "$TMP_DIR/lemonbar-xft" && sudo make clean install
 # relink /bin/sh
 sudo ln -sfT mksh /bin/sh
 
-# suckless st
+# suckless
 $SBUILD "st"
+$SBUILD "herbe"
 
 # gtk theme
 sudo mkdir -p "$GTK_THEME_DIR"
