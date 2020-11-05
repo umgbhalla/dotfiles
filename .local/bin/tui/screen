@@ -7,31 +7,165 @@
 # --------------------------------------------------------------------------
 
 # output directories
-snapOutputDir=$HOME/Pictures
-captureOutputDir=$HOME/Videos
-mkdir -p $snapOutputDir
-mkdir -p $captureOutputDir
+snapOutputDir="$HOME/Pictures"
+captureOutputDir="$HOME/Videos"
+mkdir -p "$snapOutputDir"
+mkdir -p "$captureOutputDir"
 
 # filename date format
-date="$(\date +%y-%m-%d_%H:%M:%S)"
+datefmt="$(\date +%y-%m-%d_%H:%M:%S)"
 
 # recording status temporary file path
 pidFile=/tmp/ffmpegCapturePid
 
 notifyTime="$HERBE_DURATION"
-notifyTimeMs=$(( $(echo $notifyTime | cut -d. -f2) * 100 ))
 notify() {
-  case $OS in
-    $OS_LINUX)
-      herbe "$1"
-      sleep $notifyTime
-      ;;
+  case "$OS" in
+    "$OS_LINUX") $NOTIFICATION_MANAGER "$1"; sleep "$notifyTime" ;;
   esac
 }
 
-# manual polybar refresh
-refreshBar() {
-  touch -m $XDG_CONFIG_HOME/polybar/config
+# --------------------------------------------------------------------------
+# capture
+# --------------------------------------------------------------------------
+
+screenCapture() {
+  if [ ! -f $pidFile ]; then
+    notify "Screen capture starting."
+
+    case $OS in
+      $OS_LINUX)
+        ffmpeg \
+          -f x11grab -i $DISPLAY \
+          -f alsa -i default -c:v libx264 -preset ultrafast -c:a aac \
+          "$captureOutputDir/screencapture-${datefmt}.mp4" &
+        ;;
+      *)
+        ffmpeg \
+          -f x11grab -i $DISPLAY \
+          -c:v libx264 -preset ultrafast -c:a aac \
+          "$captureOutputDir/screencapture-${datefmt}.mp4" &
+        ;;
+    esac
+
+    echo $! > $pidFile
+    $BAR_UPDATE
+  else
+    echo -e "${RED}Error: capture already in progress.${NC}"
+  fi
+}
+
+# --------------------------------------------------------------------------
+# crop
+# --------------------------------------------------------------------------
+
+screenCrop() {
+  output="${snapOutputDir}/snap-${datefmt}.png"
+  geometry="$(slop)"
+
+  if [ -z "${geometry}" ]; then
+    echo "${RED}Error: invalid dimensions.${NC}"
+  else
+    dim="$(echo "${geometry}" | cut -d"+" -f1)"
+    x="$(echo "${geometry}" | cut -d"+" -f2)"
+    y="$(echo "${geometry}" | cut -d"+" -f3)"
+
+    ffmpeg -f x11grab -video_size "${dim}" -i "${DISPLAY}+${x},${y}" -vframes 1 "${output}"
+    xclip -selection clip -t image/png "${output}"
+    notify "Cropped screenshot taken."
+  fi
+}
+
+# --------------------------------------------------------------------------
+# gif
+# --------------------------------------------------------------------------
+
+screenGif() {
+  if [ ! -f "${pidFile}" ]; then
+    output="${captureOutputDir}/gif-${datefmt}.gif"
+    geometry="$(slop)"
+    fps="7"
+    # largest possible width to incentivize small area recordings
+    maxRatio="900"
+
+    if [ -z ${geometry} ]; then
+      echo "${RED}Error: invalid dimensions.${NC}"
+    else
+      dim="$(echo "${geometry}" | cut -d"+" -f1)"
+      x="$(echo "${geometry}" | cut -d"+" -f2)"
+      y="$(echo "${geometry}" | cut -d"+" -f3)"
+
+      notify "Gif capture starting."
+
+      ffmpeg \
+        -f x11grab -video_size "${dim}" -i "${DISPLAY}+${x},${y}" -c:v gif \
+        -r "${fps}" \
+        -vf "scale='min(${maxRatio},iw)':-1" \
+        "${output}" &
+
+      echo $! > "${pidFile}"
+      $BAR_UPDATE
+    fi
+  else
+    echo "${RED}Error: capture already in progress.${NC}"
+  fi
+}
+
+# --------------------------------------------------------------------------
+# recording-status
+# --------------------------------------------------------------------------
+
+screenRecordingStatus() {
+  if [ -f $pidFile ]; then
+    echo 
+  else
+    echo ""
+  fi
+}
+
+# --------------------------------------------------------------------------
+# snap
+# --------------------------------------------------------------------------
+
+screenSnap() {
+  output="${snapOutputDir}/snap-${datefmt}.png"
+  ffmpeg -f x11grab -video_size "${RES_WIDTH}x${RES_HEIGHT}" -i "${DISPLAY}" -vframes 1 "${output}"
+  xclip -selection clip -t image/png "${output}"
+  notify "Screenshot taken."
+}
+
+# --------------------------------------------------------------------------
+# stop
+# --------------------------------------------------------------------------
+
+screenStop() {
+  if [ -f $pidFile ]; then
+    pid="$(cat $pidFile)"
+    kill -15 "$pid"
+    rm -f $pidFile
+
+    notify "Capture complete."
+    $BAR_UPDATE
+  fi
+}
+
+# --------------------------------------------------------------------------
+# video
+# --------------------------------------------------------------------------
+
+screenVideo() {
+  if [ ! -f $pidFile ]; then
+    notify "Video capture starting."
+
+    ffmpeg \
+      -f x11grab -i $DISPLAY \
+      "$captureOutputDir/video-${datefmt}.mp4" &
+
+      echo $! > $pidFile
+      $BAR_UPDATE
+  else
+    echo -e "${RED}Error: capture already in progress.${NC}"
+  fi
 }
 
 # --------------------------------------------------------------------------
@@ -39,156 +173,12 @@ refreshBar() {
 # --------------------------------------------------------------------------
 
 case "$1" in
-
-# --------------------------------------------------------------------------
-# capture
-# --------------------------------------------------------------------------
-
-  capture)
-    if [ ! -f $pidFile ]; then
-      notify "Screen capture starting."
-
-      case $OS in
-        $OS_LINUX)
-          ffmpeg \
-            -f x11grab -i $DISPLAY \
-            -f alsa -i default -c:v libx264 -preset ultrafast -c:a aac \
-            "$captureOutputDir/screencapture-$date.mp4" &
-          ;;
-        *)
-          ffmpeg \
-            -f x11grab -i $DISPLAY \
-            -c:v libx264 -preset ultrafast -c:a aac \
-            "$captureOutputDir/screencapture-$date.mp4" &
-          ;;
-      esac
-
-      echo $! > $pidFile
-      refreshBar
-    else
-      echo -e "${RED}Error: capture already in progress.${NC}"
-    fi
-    ;;
-
-# --------------------------------------------------------------------------
-# crop
-# --------------------------------------------------------------------------
-
-  crop)
-    output="$snapOutputDir/snap-$date.png"
-    geometry=$(slop)
-
-    if [ -z $geometry ]; then
-      echo -e "${RED}Error: invalid dimensions.${NC}"
-    else
-      dim=$(echo $geometry | cut -d+ -f1)
-      x="$(echo $geometry | cut -d+ -f2)"
-      y="$(echo $geometry | cut -d+ -f3)"
-
-      ffmpeg -f x11grab -video_size $dim -i $DISPLAY+$x,$y -vframes 1 $output
-      xclip -selection clip -t image/png $output
-      notify "Screenshot taken."
-    fi
-    ;;
-
-# --------------------------------------------------------------------------
-# gif
-# --------------------------------------------------------------------------
-
-  gif)
-    geometry=$(slop)
-
-    if [ -z $geometry ]; then
-      echo -e "${RED}Error: invalid dimensions.${NC}"
-    else
-      dim=$(echo $geometry | cut -d+ -f1)
-      x="$(echo $geometry | cut -d+ -f2)"
-      y="$(echo $geometry | cut -d+ -f3)"
-
-      if [ ! -f $pidFile ]; then
-        notify "Gif capture starting."
-
-        # largest possible width
-        # (incentivize small area recordings!)
-        minRatio=800
-
-        ffmpeg \
-          -f x11grab -video_size $dim -i $DISPLAY+$x,$y -c:v gif \
-          -r 5 \
-          -vf "scale='min($minRatio,iw)':-1" \
-          "$captureOutputDir/gif-$date.gif" &
-
-          echo $! > $pidFile
-          refreshBar
-      else
-        echo -e "${RED}Error: capture already in progress.${NC}"
-      fi
-    fi
-    ;;
-
-# --------------------------------------------------------------------------
-# recording-status
-# --------------------------------------------------------------------------
-
-  recording-status)
-    if [ -f $pidFile ]; then
-      echo 
-    else
-      echo ""
-    fi
-    ;;
-
-# --------------------------------------------------------------------------
-# snap
-# --------------------------------------------------------------------------
-
-  snap)
-    output="$snapOutputDir/snap-$date.png"
-    ffmpeg -f x11grab -video_size ${RES_WIDTH}x${RES_HEIGHT} -i $DISPLAY -vframes 1 $output
-    xclip -selection clip -t image/png $output
-    notify "Screenshot taken."
-    ;;
-
-# --------------------------------------------------------------------------
-# stop
-# --------------------------------------------------------------------------
-
-  stop)
-    if [ -f $pidFile ]; then
-      pid="$(cat $pidFile)"
-      kill -15 "$pid"
-      rm -f $pidFile
-
-      notify "Capture complete."
-      refreshBar
-    fi
-    ;;
-
-# --------------------------------------------------------------------------
-# video
-# --------------------------------------------------------------------------
-
-  video)
-    if [ ! -f $pidFile ]; then
-      notify "Video capture starting."
-
-      ffmpeg \
-        -f x11grab -i $DISPLAY \
-        "$captureOutputDir/video-$date.mp4" &
-
-        echo $! > $pidFile
-        refreshBar
-    else
-      echo -e "${RED}Error: capture already in progress.${NC}"
-    fi
-    ;;
-
-# --------------------------------------------------------------------------
-# usage
-# --------------------------------------------------------------------------
-
-  *)
-    echo -e "${RED}Usage: ./screen [capture | crop | gif | recording-status | snap | stop | video]${NC}"
-    ;;
-
-  esac
+  capture) screenCapture ;;
+  crop) screenCrop ;;
+  gif) screenGif ;;
+  recording-status) screenRecordingStatus ;;
+  snap) screenSnap ;;
+  stop) screenStop ;;
+  video) screenVideo ;;
+  *) echo "${RED}USAGE: SCREEN [capture | crop | gif | recording-status | snap | stop | video]${NC}" ;;
+esac
