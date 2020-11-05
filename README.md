@@ -855,3 +855,5 @@ implemented or had the time to configure.
 + update color/styling for ff
 + switch from cmus to ncmpcpp
 + fix ffmpeg screen capture quality and audio
++ fix pulse sounds? switching? idek what's wrong but it's buggy
++ change theme via crontab and time of day

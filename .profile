@@ -127,7 +127,6 @@ export WM="bspwm"
 
 export DOLLAR="$" # vital for envsubst escaping
 
-export KEYTIMEOUT="1" # reduce delay in zsh vi-mode change
 export PROMPT_EOL_MARK="" # prevent partial line % from appearing
 export RANGER_LOAD_DEFAULT_RC="FALSE"
 export REDSHIFT_LAST="$XDG_CACHE_HOME/redshift_last"
@@ -145,11 +144,7 @@ export VI_NAV_JUMP_LARGE="25"
 #
 
 export BOOKMARK_CONFIG="$XDG_CONFIG_HOME/bookmarks"
-case "$OS" in
-  "$OS_FREEBSD") export ENV="$XDG_CONFIG_HOME/sh/shrc" ;;
-  "$OS_LINUX") export ENV="$XDG_CONFIG_HOME/mksh/mkshrc" ;;
-  *) export ENV="" ;;
-esac
+export ENV="$XDG_CONFIG_HOME/sh/shrc"
 export GIT_CONFIG="$XDG_CONFIG_HOME/git/config"
 export GIT_TEMPLATE_DIR="$XDG_CONFIG_HOME/git/template"
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
@@ -160,8 +155,6 @@ export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
 export YARN_GLOBAL_DIR="$XDG_CACHE_HOME/yarn_global"
 export YARN_RC_DIR="$XDG_CACHE_HOME"
 export XAUTHORITY="$XDG_CONFIG_HOME/Xauthority"
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
-export ZSH_HISTFILE="$XDG_CACHE_HOME/zsh_history"
 
 #
 # scripts

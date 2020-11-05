@@ -18,15 +18,15 @@ echo -e "${FG}\
  │    ${P}\\_)       (_/${FG}                      │\n\
  │    ${P}|           |${FG}                      │\n\
  │    ${P}|           | ${FG}                     │\n\
- │     ${P};         ;     i use bsd btw ~  ${FG} │\n\
- │      ${P}'-_____-' ${FG}                       │\n\
+ │     ${P};         ;     ${FG}i use *nix btw    │\n\
+ │      ${P}'-_____-' ${FG}     ...               │\n\
  │                                       │
  └―――――――――――――――――――――――――――――――――――――――┘
 ${NC}"
 
 # scrollback
-HISTSIZE=1000000
-set +o nolog
+HISTFILE="$SH_HISTFILE"
+HISTSIZE="1000000"
 
 # prompt
-export PS1="\W >> "
+export PS1=">> "

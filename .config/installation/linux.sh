@@ -46,12 +46,18 @@ yay -S --needed --batchinstall $AUR # cannot be quoted
 git clone "https://github.com/krypt-n/bar.git" "$TMP_DIR/lemonbar-xft"
 cd "$TMP_DIR/lemonbar-xft" && sudo make clean install
 
+# relink /bin/sh
+sudo ln -sfT mksh /bin/sh
+
+# suckless st
 $SBUILD "st"
 
+# gtk theme
 sudo mkdir -p "$GTK_THEME_DIR"
 sudo ln -sf "$XDG_CONFIG_HOME/$THEME" "$GTK_THEME_DIR/$THEME"
 cd "$GTK_THEME_DIR/$THEME" && yarn && yarn build &
 
+# font(s)
 FONT_DIR="$XDG_DATA_HOME/fonts"
 mkdir -p "$FONT_DIR"
 cp -v $XDG_CONFIG_HOME/fonts/* "$FONT_DIR/"
