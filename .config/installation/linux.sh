@@ -32,6 +32,8 @@ PACKS="$PACKS zathura-pdf-mupdf"
 PACKS="$PACKS ffmpeg"
 PACKS="$PACKS pulseaudio pulseaudio-alsa pamixer pavucontrol"
 
+PACKS="$PACKS mpd ncmpcpp"
+
 sudo pacman -S --needed $PACKS # cannot be quoted
 
 AUR="bc"

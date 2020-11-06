@@ -17,6 +17,9 @@ xrdb -merge "$XDG_CONFIG_HOME/Xresources" &
 # shortcut manager
 sxhkd &
 
+# music server
+mpd &
+
 $COMPOSITOR_ARGS &
 
 $BACKGROUND &

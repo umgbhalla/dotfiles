@@ -48,7 +48,7 @@ fi
 # core
 alias \
   cal="cal -3" \
-  m="rm -f $XDG_CONFIG_HOME/cmus/cache && cmus $HOME/Music" \
+  m="ncmpcpp" \
   msr="$MUSIC_PLAYER_ARGS" \
   n="newsboat -u $NEWSBOAT_CONFIG/urls -C $NEWSBOAT_CONFIG/config" \
   pdf="pdflatex" \
