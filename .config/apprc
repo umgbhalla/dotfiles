@@ -86,7 +86,7 @@ export HERBE_X="${W_GAPS}"
 export HERBE_Y="${W_GAPS}"
 
 export HERBE_FONT="${W_FONT}"
-export HERBE_DURATION="2"
+export HERBE_DURATION="1"
 export HERBE_PADDING="8"
 
 export HERBE_FG="$G_FG"

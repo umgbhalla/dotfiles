@@ -20,6 +20,13 @@ wm() {
   echo "%{B$BAR_BG} ${title} %{B-}"
 }
 
+capture() {
+  if [ -n "${SCREEN}" ] && \
+  [ "$(${SCREEN} recording-status)" = "recording" ]; then
+    echo "%{B$BAR_BG}  %{B-}"
+  fi
+}
+
 volume() {
   unit="5"
 
@@ -75,7 +82,7 @@ battery() {
       echo "%{B$BAR_BG} ${status}%{O$ICON_PADDING}${bat} %{B-}"
       ;;
     "$OS_LINUX")
-      bat="$(cat "/sys/class/power_supply/BAT0/capacity")"
+      bat="$(cat "/sys/class/power_supply/BAT0/capacity" 2>/dev/null)"
 
       if [ -n "$bat" ]; then
         status="$(cat "/sys/class/power_supply/BAT0/status")"
@@ -97,7 +104,7 @@ clock() {
 
 LEFT="$(wm)"
 CENTER=""
-RIGHT="$(volume) $(battery) $(clock)"
+RIGHT="$(capture) $(volume) $(battery) $(clock)"
 
 SPACE_LEFT="%{B$BAR_BG}%{O$ICON_PADDING}%{O$ICON_PADDING}%{B-}\
 %{O$ICON_PADDING}%{B$BAR_BG}%{O$ICON_PADDING}%{B-} "

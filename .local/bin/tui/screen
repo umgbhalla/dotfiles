@@ -16,7 +16,7 @@ mkdir -p "$captureOutputDir"
 datefmt="$(\date +%y-%m-%d_%H:%M:%S)"
 
 # recording status temporary file path
-pidFile=/tmp/ffmpegCapturePid
+screenPid="${TMP_DIR}/screenPid"
 
 notifyTime="$HERBE_DURATION"
 notify() {
@@ -30,7 +30,7 @@ notify() {
 # --------------------------------------------------------------------------
 
 screenCapture() {
-  if [ ! -f $pidFile ]; then
+  if [ ! -f "${screenPid}" ]; then
     notify "Screen capture starting."
 
     case $OS in
@@ -48,7 +48,7 @@ screenCapture() {
         ;;
     esac
 
-    echo $! > $pidFile
+    echo $! > "${screenPid}"
     $BAR_UPDATE
   else
     echo -e "${RED}Error: capture already in progress.${NC}"
@@ -81,7 +81,7 @@ screenCrop() {
 # --------------------------------------------------------------------------
 
 screenGif() {
-  if [ ! -f "${pidFile}" ]; then
+  if [ ! -f "${screenPid}" ]; then
     output="${captureOutputDir}/gif-${datefmt}.gif"
     geometry="$(slop)"
     fps="7"
@@ -103,7 +103,7 @@ screenGif() {
         -vf "scale='min(${maxRatio},iw)':-1" \
         "${output}" &
 
-      echo $! > "${pidFile}"
+      echo $! > "${screenPid}"
       $BAR_UPDATE
     fi
   else
@@ -116,10 +116,10 @@ screenGif() {
 # --------------------------------------------------------------------------
 
 screenRecordingStatus() {
-  if [ -f $pidFile ]; then
-    echo 
+  if [ -e "${screenPid}" ]; then
+    echo "recording"
   else
-    echo ""
+    echo "inactive"
   fi
 }
 
@@ -130,7 +130,6 @@ screenRecordingStatus() {
 screenSnap() {
   output="${snapOutputDir}/snap-${datefmt}.png"
   ffmpeg -f x11grab -video_size "${RES_WIDTH}x${RES_HEIGHT}" -i "${DISPLAY}" -vframes 1 "${output}"
-  xclip -selection clip -t image/png "${output}"
   notify "Screenshot taken."
 }
 
@@ -139,13 +138,14 @@ screenSnap() {
 # --------------------------------------------------------------------------
 
 screenStop() {
-  if [ -f $pidFile ]; then
-    pid="$(cat $pidFile)"
-    kill -15 "$pid"
-    rm -f $pidFile
+  if [ -e "${screenPid}" ]; then
+    pid="$(cat "${screenPid}")"
 
-    notify "Capture complete."
+    kill -15 "$pid"
+    rm -f "${screenPid}"
+
     $BAR_UPDATE
+    notify "Capture complete."
   fi
 }
 
@@ -154,17 +154,17 @@ screenStop() {
 # --------------------------------------------------------------------------
 
 screenVideo() {
-  if [ ! -f $pidFile ]; then
+  if [ -e "${screenPid}" ]; then
+    echo "${RED}Error: capture already in progress.${NC}"
+  else
     notify "Video capture starting."
 
     ffmpeg \
-      -f x11grab -i $DISPLAY \
-      "$captureOutputDir/video-${datefmt}.mp4" &
+      -f x11grab -i "${DISPLAY}" \
+      "${captureOutputDir}/video-${datefmt}.mp4" &
 
-      echo $! > $pidFile
-      $BAR_UPDATE
-  else
-    echo -e "${RED}Error: capture already in progress.${NC}"
+    echo $! > "${screenPid}"
+    $BAR_UPDATE
   fi
 }
 
