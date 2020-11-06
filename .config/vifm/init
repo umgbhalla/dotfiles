@@ -1,18 +1,27 @@
 #!/bin/sh
-export FIFO_UEBERZUG="/tmp/vifm-ueberzug-${PPID}"
+export FILE_EXPLORER_FIFO_PID="${FILE_EXPLORER_FIFO}-${PPID}"
 
 cleanup() {
-  rm "$FIFO_UEBERZUG" 2>/dev/null
+  [ -e "$FILE_EXPLORER_FIFO_PID" ] && rm "$FILE_EXPLORER_FIFO_PID"
   pkill -P $$ 2>/dev/null
 }
 
-rm "$FIFO_UEBERZUG" 2>/dev/null
-mkfifo "$FIFO_UEBERZUG"
-trap cleanup EXIT
+# create named pipe for input
+[ -e "$FILE_EXPLORER_FIFO_PID" ] && rm "$FILE_EXPLORER_FIFO_PID"
+mkfifo "$FILE_EXPLORER_FIFO_PID"
+trap cleanup EXIT KILL TERM INT
 
-if [ -n "$(which ueberzug)" ]; then
-  tail --follow "$FIFO_UEBERZUG" | ueberzug layer --silent --parser bash &
+if command -v "ueberzug"; then
+  # must tail follow instead of cat to stay connected to pipe
+  tail -f "$FILE_EXPLORER_FIFO_PID" | ueberzug layer --parser bash &
 fi
 
 vifm --choose-dir=$fmDir
 cleanup
+
+
+# if [ -n "$(which ueberzug)" ]; then
+#   tail --follow "$FIFO_UEBERZUG" | ueberzug layer --silent --parser bash &
+# fi
+
+# vifm --choose-dir=$fmDir

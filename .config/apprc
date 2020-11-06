@@ -49,6 +49,10 @@ export BSPWM_BORDER_ACTIVE="$G_BG_ALT"
 export BSPWM_BORDER_NORMAL="$BSPWM_BORDER_ACTIVE"
 export BSPWM_BORDER_FOCUSED="$BSPWM_BORDER_ACTIVE"
 
+# file explorer
+
+export FILE_EXPLORER_FIFO="${TMP_DIR}/${FILE_EXPLORER}fifo"
+
 # firefox
 
 export FF_BG="$G_BG"

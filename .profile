@@ -22,6 +22,8 @@ export XDG_SCRIPT_HOME="$HOME/.local/bin"
 export XDG_DATA_HOME="$HOME/.local/share"
 # repo directory
 export XDG_REPO_HOME="$HOME/Repos"
+# tmp directory
+export TMP_DIR="/tmp"
 
 #
 # display
