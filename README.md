@@ -71,13 +71,6 @@ There are two routes you can follow to reproduce the exact same setup I have, on
      the `.xinitrc` and `.profile` files a bit to get everything working properly, and it 
      may cost you a considerable amount of time to get everything to work in the long run.
 
-I also have been working on compatibility with MacOS. While I cannot fix everything to work in 
-MacOS, basic utilities and command-line aliases are compatible. See [cloning](#cloning).
-
-> I use to primarily use `Wayland` and have a setup specifically set up for use with `Sway`. If 
-> you have interest, you can check it out in 
-> [this release](https://github.com/bossley9/dotfiles/tree/2020.03.11).
-
 ## Demonstration <a name="demonstration"></a>
 ![basic status bar with background](.config/installation/scr1.png)
 ![neofetch, a terminal instance, and blurry discord](.config/installation/scr2.png)
