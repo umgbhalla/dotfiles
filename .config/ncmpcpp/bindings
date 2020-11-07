@@ -155,7 +155,7 @@ def_key "alt-k"
   scroll_up
 def_key "K"
   select_item
-  scroll_up
+  move_selected_items_up
 
 def_key "j"
   scroll_down
@@ -167,7 +167,7 @@ def_key "alt-j"
   scroll_down
 def_key "J"
   select_item
-  scroll_down
+  move_selected_items_down
 
 # def_key "["
 #   scroll_up_album

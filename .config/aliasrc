@@ -112,7 +112,7 @@ b() {
 
 dlLink() {
   youtube-dl --add-metadata -i "$@"
-  unsetopt noglob
+  set +o noglob
 }
 
 # davinci resolve codec converter
@@ -122,8 +122,8 @@ dav() {
 
 alias \
   ntfs="sudo ntfs-3g" \
-  ytmp4="setopt noglob && dlLink -f 22" \
-  ytmp3="setopt noglob && dlLink -x --audio-format mp3" \
+  ytmp4="set -o noglob && dlLink -f 22" \
+  ytmp3="set -o noglob && dlLink -x --audio-format mp3" \
   feh="feh --scale-down --auto-zoom"
 
 # archive extraction
