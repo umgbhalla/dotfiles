@@ -7,15 +7,14 @@ unset GIT_CONFIG
 git clone "https://aur.archlinux.org/yay.git" "$TMP_DIR/yay"
 cd "$TMP_DIR/yay" && makepkg -si
 
-PACKS="bc"
-PACKS="${PACKS} xorg-server xorg-xinit"
+PACKS="xorg-server xorg-xinit"
 PACKS="${PACKS} bspwm sxhkd"
 PACKS="${PACKS} libxft"
 PACKS="${PACKS} neovim nodejs ripgrep"
 PACKS="${PACKS} firefox"
 PACKS="${PACKS} fzf"
 PACKS="${PACKS} feh"
-PACKS="${PACKS} ttf-liberation"
+PACKS="${PACKS} ttf-liberation wqy-zenhei"
 PACKS="${PACKS} redshift"
 PACKS="${PACKS} vifm ueberzug"
 PACKS="${PACKS} xorg-xsetroot hsetroot"

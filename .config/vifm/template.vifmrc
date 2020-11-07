@@ -226,7 +226,7 @@ fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 
 " image
 filextype {*.bmp,*.jpg,*.jpeg,*.png,*.xpm,*.svg},<image/*>
-  \ feh -FZ %d --start-at %d/%c 2>/dev/null
+  \ feh --start-at %f
 fileviewer *.jpg,*.jpeg,*.png
   \ $XDG_CONFIG_HOME/vifm/vifmimg draw %px %py %pw %ph %c
   \ %pc

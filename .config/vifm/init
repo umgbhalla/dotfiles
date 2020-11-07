@@ -13,7 +13,7 @@ trap cleanup EXIT KILL TERM INT
 
 if command -v "ueberzug"; then
   # must tail follow instead of cat to stay connected to pipe
-  tail -f "$FILE_EXPLORER_FIFO_PID" | ueberzug layer --parser --silent bash &
+  tail -f "$FILE_EXPLORER_FIFO_PID" | ueberzug layer --silent --parser bash &
 fi
 
 vifm --choose-dir=$fmDir

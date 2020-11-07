@@ -203,7 +203,7 @@ Another disclaimer - I am a strong advocate for the `vim` text editor, and as su
 2. [Preliminary Internet](#preliminary-internet)
 3. [System Time](#system-time)
 4. [Disk Partitioning](#disk-partitioning)
-5. [Distro Installation](#base-installation)
+5. [Distro Installation](#distro-installation)
 6. [Mounted Drives with Fstab](#mounted-drives-with-fstab)
 7. [Time Zone and Localization](#time-zone-and-localization)
 8. [Network Manager](#network-manager)
@@ -451,7 +451,7 @@ customizeable appearance.
 1. Install `grub` and `efibootmgr` for UEFI.
     ```
     pacman -S grub efibootmgr
-    grub-install --target=x86_64-efi --efi-directory=/efi booloader-id=GRUB
+    grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
     ```
 2. Generate the `grub` configuration.
     ```
