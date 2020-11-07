@@ -95,6 +95,7 @@ export HERBE_BORDER_BG="$G_BG_ALT"
 
 # lemonbar
 
+export LEMONBAR_ALERT="${G_ALERT}"
 export LEMONBAR_FONT="${W_FONT}"
 
 # picom

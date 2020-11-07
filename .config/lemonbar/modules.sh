@@ -23,7 +23,7 @@ wm() {
 capture() {
   if [ -n "${SCREEN}" ] && \
   [ "$(${SCREEN} recording-status)" = "recording" ]; then
-    echo "%{B$BAR_BG}  %{B-}"
+    echo "%{B$BAR_BG} %{F$LEMONBAR_ALERT}%{F$BAR_FG} %{B-}"
   fi
 }
 

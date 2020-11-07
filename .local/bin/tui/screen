@@ -18,10 +18,9 @@ datefmt="$(\date +%y-%m-%d_%H:%M:%S)"
 # recording status temporary file path
 screenPid="${TMP_DIR}/screenPid"
 
-notifyTime="$HERBE_DURATION"
 notify() {
   case "$OS" in
-    "$OS_LINUX") $NOTIFICATION_MANAGER "$1"; sleep "$notifyTime" ;;
+    "$OS_LINUX") $NOTIFICATION_MANAGER "$1"; ;;
   esac
 }
 
