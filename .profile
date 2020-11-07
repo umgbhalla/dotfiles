@@ -132,10 +132,16 @@ export DOLLAR="$" # vital for envsubst escaping
 export PROMPT_EOL_MARK="" # prevent partial line % from appearing
 export RANGER_LOAD_DEFAULT_RC="FALSE"
 export REDSHIFT_LAST="$XDG_CACHE_HOME/redshift_last"
-export SHELL="/bin/sh"
-if [ "$OS" = "$OS_LINUX" ]; then
-  export SHELL="/bin/mksh"
-fi
+case "${OS}" in
+  "${OS_LINUX}"|"${OS_FREEBSD}")
+    export SHELL_NAME="mksh"
+    export SHELL="/bin/${SHELL_NAME}"
+    ;;
+  *)
+    export SHELL_NAME="sh"
+    export SHELL="/bin/${SHELL_NAME}"
+    ;;
+esac
 
 # vertical line jumping
 export VI_NAV_JUMP="5"
