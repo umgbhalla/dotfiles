@@ -22,28 +22,44 @@ cd() {
   builtin cd "$@" && ls
 }
 
+if [ "${OS}" = "${OS_FREEBSD}" ]; then
+  alias sudo="doas"
+fi
+
 # ----------------------------------------------------------------
 # system session
 # ----------------------------------------------------------------
 
-alias \
-  reboot="sudo reboot" \
-  shutdown="sudo poweroff" \
-  suspend="sudo systemctl suspend" \
-  hibernate="sudo systemctl hibernate"
+case "${OS}" in
+  "${OS_LINUX}")
+    alias \
+      reboot="sudo reboot" \
+      shutdown="sudo poweroff" \
+      suspend="sudo systemctl suspend" \
+      hibernate="sudo systemctl hibernate"
+    ;;
+  "${OS_FREEBSD}")
+    alias \
+      reboot="doas reboot" \
+      shutdown="doas poweroff"
+    ;;
+esac
 
 # ----------------------------------------------------------------
 # programs
 # ----------------------------------------------------------------
 
 # package manager
-if [ "$OS" = "$OS_LINUX" ]; then
-  alias p="sudo pacman"
-  alias y="unset GIT_CONFIG && yay --norebuild --noredownload"
-elif [ "$OS" = "$OS_FREEBSD" ]; then
-  alias p="sudo pkg"
-  alias y="sudo portsnap"
-fi
+case "${OS}" in
+  "${OS_LINUX}")
+    alias p="sudo pacman"
+    alias y="unset GIT_CONFIG && yay --norebuild --noredownload"
+    ;;
+  "${OS_FREEBSD}")
+    alias p="doas pkg"
+    alias y="doas portsnap"
+    ;;
+esac
 
 # core
 alias \

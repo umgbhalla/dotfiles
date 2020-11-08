@@ -1,7 +1,5 @@
 #!/bin/sh
 
-TMP_DIR=/tmp
-
 #
 # install official repository packages
 #

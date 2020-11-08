@@ -667,11 +667,11 @@ created earlier.
   Install `pkg` when prompted.
   ```
   pkg update
-  pkg install sudo git vim
+  pkg install doas git vim
   ```
-- Enable root sudo permissions for the `wheel` group with `visudo` command:
+- Enable root permissions for the `wheel` group via `/usr/local/etc/doas.conf`:
   ```
-  %wheel ALL=(ALL) ALL
+  permit keepenv :wheel
   ```
 - Logout and log back in as the main user created earlier.
   You will now be able to install packages using sudo.
