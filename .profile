@@ -215,17 +215,19 @@ export FZF_DEFAULT_OPTS="--color=\"$FZF_COLORS\""
 export BACKGROUND="hsetroot -solid $G_BG -tile $XDG_CONFIG_HOME/wallpapers/tile-$CURRENT_THEME_MODE.jpg"
 
 # startx
-case "$(tty)" in
-  "/dev/ttyv0" | "/dev/tty1")
-    case "$OS" in
-      "$OS_FREEBSD")
-        # exec startx -- -nocursor
-        sudo moused -p /dev/psm0
-        exec startx
-        ;;
-      *)
-        exec startx
-        ;;
-    esac
-    ;;
-esac
+if command -v "startx" >/dev/null; then
+  case "$(tty)" in
+    "/dev/ttyv0" | "/dev/tty1")
+      case "$OS" in
+        "$OS_FREEBSD")
+          # exec startx -- -nocursor
+          sudo moused -p /dev/psm0
+          exec startx
+          ;;
+        *)
+          exec startx
+          ;;
+      esac
+      ;;
+  esac
+fi

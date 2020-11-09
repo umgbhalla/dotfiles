@@ -671,20 +671,18 @@ created earlier.
   Install `pkg` when prompted.
   ```
   pkg update
-  pkg install doas git vim
+  pkg install sudo git vim
   ```
-- Enable root permissions for the `wheel` group via `/usr/local/etc/doas.conf`:
+- Enable root permissions for the `wheel` group via `visudo`:
   ```
-  permit :wheel
+  %wheel ALL=(ALL) ALL
   ```
-  > It's not recommended to enable `keepenv` because passing 
-  > environment variables to root is dangerous!
 - Logout and log back in as the main user created earlier.
-  You will now be able to install packages using doas.
+  You will now be able to install packages.
 - Set up graphics for X. I use an intel-based vga, so installed
   an intel video package.
   ```
-  doas pkg install xf86-video-intel
+  sudo pkg install xf86-video-intel
   ```
   Then enable the module in your `/etc/rc.conf`:
   ```
@@ -701,6 +699,21 @@ created earlier.
   Then add the user to the operator group:
   ```
   sudo pw groupmod operator -m $USER
+  ```
+- Setup the default shell. I currenly use `mksh`. set it as the default shell for the main user.
+  ```
+  sudo pacman -S mksh
+  chsh -s /bin/mksh
+  ```
+- Log out and log back in.
+  ```
+  exit
+  ```
+  In order to properly clone my dotfiles you will need to empty the user home directory. Because
+  `mksh` does not support globbing (or, a limited version), we will need to remove all dotfiles
+  to clone directly into the directory.
+  ```
+  rm -r .*
   ```
 - Finally, install my dotfiles. See [cloning](#cloning) for more details.
 

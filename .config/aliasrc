@@ -22,10 +22,6 @@ cd() {
   builtin cd "$@" && ls
 }
 
-if [ "${OS}" = "${OS_FREEBSD}" ]; then
-  alias sudo="doas"
-fi
-
 # ----------------------------------------------------------------
 # system session
 # ----------------------------------------------------------------
@@ -40,8 +36,8 @@ case "${OS}" in
     ;;
   "${OS_FREEBSD}")
     alias \
-      reboot="doas reboot" \
-      shutdown="doas poweroff"
+      reboot="sudo reboot" \
+      shutdown="sudo poweroff"
     ;;
 esac
 

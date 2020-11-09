@@ -12,9 +12,6 @@ olddir="$(pwd)"
 cd "${dir}"
 
 $DETEMPLATE "template.config.h"
-case "${OS}" in
-  "${OS_FREEBSD}") doas make clean install ;;
-  *) sudo make clean install ;;
-esac
+sudo make clean install
 
 cd "${olddir}"
