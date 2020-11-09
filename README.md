@@ -551,11 +551,13 @@ In other words: _if you're new to the Linux/Unix utopia, this is probably not fo
     - An internet connection (preferably ethernet)
     - A disposable usb drive that can be wiped
 2. Download the latest [FreeBSD](https://www.freebsd.org/where.html) installation image
-  from their website. I chose `amd64` architecture release `12.2`. When given the option,
+  from their website. I chose `amd64` architecture release `12.1`. When given the option,
   select the `memstick.img` instead of a standard iso since it does not require an
   internet connection for the base installation, and wifi is difficult to set up
   without proper command line access.
-    > because the disk image contains the both the necessary system files _and_ the ports collection, it will be larger than many standard Linux distribution isos (but still _much_ smaller than any Windows iso).
+    > because the disk image contains the both the necessary system files _and_ the ports
+    > collection, it will be larger than many standard Linux distribution isos (but still
+    > _much_ smaller than any Windows iso).
 3. Burn the downloaded disk image onto the usb.
 4. Boot the machine from the live usb. This may require BIOS tweaking depending on your
   machine. Be sure to boot with UEFI if you plan on dual booting with Windows in the
@@ -566,7 +568,9 @@ few seconds or press `ENTER` to select the multi-user boot.
 
 #### Boot Start <a name="boot-start-freebsd"></a>
 When prompted between `Install`, `Shell`, and `Live CD`, select `Install`. Then select
-the keymap best suited for you. Generally you can continue with the default selection, but I always like to choose the `United States of America` keyboard (`us.kbd`) just to be safe - you don't want to boot into a system and be unable to use certain keys on the keyboard.
+the keymap best suited for you. Generally you can continue with the default selection,
+but I always like to choose the `United States of America` keyboard (`us.kbd`) just to
+be safe - you never want to boot into a system with the wrong keymapping.
 
 #### Hostname <a name="hostname-freebsd"></a>
 Name your system. I will name mine `automata`.
@@ -575,7 +579,7 @@ Name your system. I will name mine `automata`.
 When choosing which components to install, select `kernel-dbg`, `lib32`, and `ports`.
 `lib32` enables support for 32-bit libraries (such as the Steam client) and the ports
 tree is FreeBSD's software management system (the only time you should _not_ install this
-is if your machine is intended to be used as a server).
+is if your machine is intended for use as a server).
 
 #### Disk Partitioning <a name="disk-partitioning-freebsd"></a>
 We will be partitioning our disk with ZFS. Select `Auto (ZFS)` to partition with ZFS.
@@ -617,7 +621,7 @@ I have never had a need to enable any additional services other than the default
 
 #### System Hardening <a name="system-hardening-freebsd"></a>
 FreeBSD has a wide variety of security features it offers (as opposed to Linux systems) out
-of the box. I usually select `random_pid`, `clear_tmp`, and `disable_sendmail`.
+of the box. I select `random_pid`, `clear_tmp`, `disable_syslogd`, and `disable_sendmail`.
 
 #### Adding a User <a name="adding-a-user-freebsd"></a>
 When prompted, select `Yes` to add a new user to the system. This will be the main user.
@@ -642,8 +646,8 @@ created earlier.
 #### Basic Networking <a name="basic-networking-freebsd"></a>
 - Use `sysctl net.wlan.devices` to determine your wifi device name. Mine is `iwm0`.
   Then enable the device in your `/etc/rc.conf`. In this example I will use `iwm0`.
-  You will additionally need to use `vi` since it is the only editor installed by
-  default.
+  You will additionally need to use either `ee` or `vi` text editors since they are
+  the only editors installed by default.
   ```
   # wifi
   wlans_iwm0="wlan0"
@@ -671,16 +675,16 @@ created earlier.
   ```
 - Enable root permissions for the `wheel` group via `/usr/local/etc/doas.conf`:
   ```
-  permit keepenv :wheel
+  permit :wheel
   ```
+  > It's not recommended to enable `keepenv` because passing 
+  > environment variables to root is dangerous!
 - Logout and log back in as the main user created earlier.
-  You will now be able to install packages using sudo.
-- Set up graphics for X. I use an intel-based vga, so I additionally installed
+  You will now be able to install packages using doas.
+- Set up graphics for X. I use an intel-based vga, so installed
   an intel video package.
   ```
-  sudo pkg install xorg pkgconf sourcecodepro-ttf
-  sudo pkg install drm-kmod
-  sudo pkg install xf86-video-intel
+  doas pkg install xf86-video-intel
   ```
   Then enable the module in your `/etc/rc.conf`:
   ```

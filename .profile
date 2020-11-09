@@ -22,8 +22,11 @@ export XDG_SCRIPT_HOME="$HOME/.local/bin"
 export XDG_DATA_HOME="$HOME/.local/share"
 # repo directory
 export XDG_REPO_HOME="$HOME/Repos"
+
 # tmp directory
 export TMP_DIR="/tmp"
+# local font directory
+export FONT_DIR="${XDG_DATA_HOME}/fonts"
 
 #
 # display
@@ -133,9 +136,13 @@ export PROMPT_EOL_MARK="" # prevent partial line % from appearing
 export RANGER_LOAD_DEFAULT_RC="FALSE"
 export REDSHIFT_LAST="$XDG_CACHE_HOME/redshift_last"
 case "${OS}" in
-  "${OS_LINUX}"|"${OS_FREEBSD}")
+  "${OS_LINUX}")
     export SHELL_NAME="mksh"
     export SHELL="/bin/${SHELL_NAME}"
+    ;;
+  "${OS_FREEBSD}")
+    export SHELL_NAME="mksh"
+    export SHELL="/usr/local/bin/${SHELL_NAME}"
     ;;
   *)
     export SHELL_NAME="sh"

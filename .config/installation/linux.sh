@@ -57,7 +57,6 @@ sudo ln -sf "$XDG_CONFIG_HOME/$THEME" "$GTK_THEME_DIR/$THEME"
 cd "$GTK_THEME_DIR/$THEME" && yarn && yarn build &
 
 # font(s)
-FONT_DIR="$XDG_DATA_HOME/fonts"
 mkdir -p "$FONT_DIR"
 cp -v $XDG_CONFIG_HOME/fonts/* "$FONT_DIR/"
 fc-cache -f -v
