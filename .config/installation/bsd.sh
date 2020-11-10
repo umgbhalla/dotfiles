@@ -44,6 +44,7 @@ PACKS="${PACKS} redshift"
 PACKS="${PACKS} xclip"
 PACKS="${PACKS} fzf"
 PACKS="${PACKS} feh"
+PACKS="${PACKS} slop"
 PACKS="${PACKS} yarn"
 
 sudo pkg install $PACKS

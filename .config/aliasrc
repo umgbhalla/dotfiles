@@ -52,8 +52,8 @@ case "${OS}" in
     alias y="unset GIT_CONFIG && yay --norebuild --noredownload"
     ;;
   "${OS_FREEBSD}")
-    alias p="doas pkg"
-    alias y="doas portsnap"
+    alias p="sudo pkg"
+    alias y="sudo portsnap"
     ;;
 esac
 

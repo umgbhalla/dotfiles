@@ -88,10 +88,7 @@ export PDF_VIEWER="zathura"
 export SYSTEM_PROFILER="htop"
 
 # notifications
-case "$OS" in
-  "$OS_LINUX") export NOTIFICATION_MANAGER="herbe" ;;
-  *) export NOTIFICATION_MANAGER="" ;;
-esac
+export NOTIFICATION_MANAGER="herbe"
 
 # panel/bar
 case "$OS" in
