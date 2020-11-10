@@ -106,14 +106,10 @@ case "$OS" in
 esac
 
 # compositor
-case "$OS" in
-  "$OS_LINUX")
+case "${OS}" in
+  "${OS_LINUX}"|"${OS_FREEBSD}")
     export COMPOSITOR="picom"
-    export COMPOSITOR_ARGS="$COMPOSITOR --experimental-backends"
-    ;;
-  "$OS_FREEBSD")
-    export COMPOSITOR="picom"
-    export COMPOSITOR_ARGS="$COMPOSITOR"
+    export COMPOSITOR_ARGS="$COMPOSITOR -CG"
     ;;
   *)
     export COMPOSITOR=""
@@ -130,7 +126,6 @@ export WM="bspwm"
 export DOLLAR="$" # vital for envsubst escaping
 
 export PROMPT_EOL_MARK="" # prevent partial line % from appearing
-export RANGER_LOAD_DEFAULT_RC="FALSE"
 export REDSHIFT_LAST="$XDG_CACHE_HOME/redshift_last"
 case "${OS}" in
   "${OS_LINUX}")
