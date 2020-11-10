@@ -2,6 +2,9 @@
 
 sudo pkg install cmake gmake meson pkgconf python
 
+sudo portsnap fetch
+sudo portsnap extract
+
 PACKS=""
 PACKS="${PACKS} xorg drm-kmod"
 PACKS="${PACKS} bspwm sxhkd"
@@ -66,3 +69,5 @@ mkdir -p "${FONT_DIR}"
 cp -v ${XDG_CONFIG_HOME}/fonts/* "${FONT_DIR}/"
 fc-cache -f -v
 
+# motd
+echo "" | sudo tee "/etc/motd"

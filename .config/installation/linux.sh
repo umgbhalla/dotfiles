@@ -28,9 +28,13 @@ PACKS="${PACKS} newsboat"
 PACKS="${PACKS} yarn"
 PACKS="${PACKS} zathura-pdf-mupdf"
 PACKS="${PACKS} ffmpeg"
+
 PACKS="${PACKS} pulseaudio pulseaudio-alsa pamixer pavucontrol"
 PACKS="${PACKS} mpd ncmpcpp"
+
 PACKS="${PACKS} texlive-most biber"
+
+PACKS="${PACKS} figlet"
 
 sudo pacman -S --needed $PACKS # cannot be quoted
 
