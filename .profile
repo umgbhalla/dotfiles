@@ -212,7 +212,7 @@ export FZF_DEFAULT_OPTS="--color=\"$FZF_COLORS\""
 
 # background command
 # xsetroot doesn't work here because the compositor overrides background changes
-export BACKGROUND="hsetroot -solid $G_BG -tile $XDG_CONFIG_HOME/wallpapers/tile-$CURRENT_THEME_MODE.jpg"
+export BACKGROUND="hsetroot -solid ${G_BG} -cover ${XDG_CONFIG_HOME}/wallpapers/cover-${CURRENT_THEME_MODE}.jpg"
 
 # startx
 if command -v "startx" >/dev/null; then
