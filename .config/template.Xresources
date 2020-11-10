@@ -1,9 +1,3 @@
-! special
-*.foreground:   $C_GRAY_0
-! st uses this to determin the cursor color
-*.background:   $C_GRAY_0
-*.cursorColor:  $C_GRAY_0
-
 ! black
 *.color0:       $C_BLACK_0
 *.color8:       $C_BLACK_1
@@ -35,3 +29,10 @@
 ! white
 *.color7:       $C_GRAY_0
 *.color15:      $C_GRAY_1
+
+! st
+
+st.foreground:   $C_GRAY_0
+! st uses this to determine the cursor color
+st.background:   $C_GRAY_0
+st.cursorColor:  $C_GRAY_0
