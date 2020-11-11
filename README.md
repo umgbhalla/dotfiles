@@ -730,6 +730,7 @@ modified them when necessary.
 - [Fine-Tuning Package Installation](#fine-tuning-package-installation)
 - [Serverauth Files](#serverauth-files)
 - [Laptop Lid Suspension](#laptop-lid-suspension)
+- [Remote Desktop](#remote-desktop)
 
 #### Disabling the Grub Menu <a name="disabling-grub-menu"></a>
 If you don't plan on dual-booting or adding boot entries, you can disable the grub
@@ -863,6 +864,14 @@ hw.acpi.lid_switch_state=S3
 ```
 To view all state options, try `sysctl hw.acpi`.
 
+# Remote Desktop <a name="remote-desktop"></a>
+While I haven't had the opportunity (or need) to spend much time using remote desktop
+between my laptop and desktop, I have found that `x11vnc` is a lightweight server and
+`tigervnc` is a good client. A server can be started with:
+```
+x11vnc -display :0 -passwd PASSWD_HERE
+```
+
 ## TODO <a name="todo"></a>
 Below are a list of things in no particular order that I plan to do but haven't yet
 implemented or had the time to configure.
@@ -871,7 +880,6 @@ implemented or had the time to configure.
 + switch completely to ALSA, or find alternatives to switch audio inputs
 + contact management application
 + customize gtk theming
-+ find a good remote desktop client
 + update color/styling for ff
 + fix ffmpeg screen capture quality and audio
 + fix pulse sounds? switching? idek what's wrong but it's buggy
