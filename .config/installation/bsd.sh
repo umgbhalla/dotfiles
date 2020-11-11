@@ -52,6 +52,12 @@ PACKS="${PACKS} yarn"
 
 sudo pkg install $PACKS
 
+# get Xresources
+git clone "https://github.com/tamirzb/xgetres.git" "${TMP_DIR}/xgetres"
+cd "${TMP_DIR}/xgetres"
+git checkout 2505f065e0c7ed990d8d71c0d8bd7106c8ab16f2
+sudo make clean install
+
 # relink /bin/sh
 # sudo ln -sf mksh /bin/sh
 

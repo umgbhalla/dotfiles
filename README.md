@@ -886,5 +886,4 @@ implemented or had the time to configure.
 + change theme via crontab and time of day
 + add multple xft font support to herbe (open patch?)
 + improve previews and icons in vifm for FreeBSD
-+ Add spotify support in mpd/ncmpcpp
 + spice up GRUB boot menu

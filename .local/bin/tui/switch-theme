@@ -1,0 +1,38 @@
+#!/bin/sh
+# Dynamically update all application colors and theming
+
+if [ -z "${1}" ]; then
+  echo "${RED}USAGE: SWITCHTHEME [light | dark | time]"
+  exit 1
+fi
+
+THEME=""
+case "${1}" in
+  "time")
+    hour="$(date +%H)"
+    if [ hour >= 9 ] && [ hour <= 20 ]; then
+      THEME="light"
+    else
+      THEME="dark"
+    fi
+    ;;
+  *) THEME="${1}" ;;
+esac
+
+CURRENT_THEME_MODE="${THEME}" . $HOME/.profile
+
+while read -r template; do
+  eval "$DETEMPLATE $template"
+done < "$XDG_CONFIG_HOME/templaterc"
+
+# Xresources
+$XRDB_UPDATE
+
+# gtk theme
+cd "$GTK_THEME_DIR/$THEME" && yarn && yarn build &
+
+# bar
+$BAR_UPDATE &
+
+# background
+$BACKGROUND &

@@ -30,9 +30,18 @@
 *.color7:       $C_GRAY_0
 *.color15:      $C_GRAY_1
 
+! theme
+
+theme.mode:     $CURRENT_THEME_MODE
+
 ! st
 
-st.foreground:   $C_GRAY_0
+st.foreground:  $C_GRAY_0
 ! st uses this to determine the cursor color
-st.background:   $C_GRAY_0
-st.cursorColor:  $C_GRAY_0
+st.background:  $C_GRAY_0
+st.cursorColor: $C_GRAY_0
+
+! bar
+
+bar.foreground: $BAR_FG
+bar.background: $BAR_BG

@@ -1,15 +1,16 @@
 #!/bin/sh
 
 # template vars
-while read -r template; do
-  eval "$DETEMPLATE $template"
-done < "$XDG_CONFIG_HOME/templaterc"
+# while read -r template; do
+#   eval "$DETEMPLATE $template"
+# done < "$XDG_CONFIG_HOME/templaterc"
 
 # gtk theme
-cd "$GTK_THEME_DIR/$THEME" && yarn && yarn build &
+# cd "$GTK_THEME_DIR/$THEME" && yarn && yarn build &
 
 # Xresource colors
-xrdb -merge "$XDG_CONFIG_HOME/Xresources" &
+# do NOT background; apps may not get updated resources
+# $XRDB_UPDATE
 
 # set last redshift
 "$REDSHIFT" set "$(cat $REDSHIFT_LAST)" &
@@ -22,10 +23,12 @@ killall mpd; mpd &
 
 $COMPOSITOR_ARGS &
 
-$BACKGROUND &
+# $BACKGROUND &
 
-"$BAR_ARGS" &
+$BAR_ARGS &
 
 # pulseaudio -D
+
+$SWITCHTHEME "time" &
 
 exec "$WM"

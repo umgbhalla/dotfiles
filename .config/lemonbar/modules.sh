@@ -1,6 +1,8 @@
 #!/bin/sh
 
 ICON_PADDING="7"
+FG="$(xgetres bar.foreground || "${BAR_FG}")"
+BG="$(xgetres bar.background || "${BAR_BG}")"
 
 wm() {
   ws="$(bspc query -D --names -d)"
@@ -17,13 +19,13 @@ wm() {
   esac
 
   title="$(echo "$title" | awk '{print toupper($0)}')"
-  echo "%{B$BAR_BG} ${title} %{B-}"
+  echo "%{B$BG} ${title} %{B-}"
 }
 
 capture() {
   if [ -n "${SCREEN}" ] && \
   [ "$(${SCREEN} recording-status)" = "recording" ]; then
-    echo "%{B$BAR_BG} %{F$LEMONBAR_ALERT}%{F$BAR_FG} %{B-}"
+    echo "%{B$BG} %{F$LEMONBAR_ALERT}%{F$FG} %{B-}"
   fi
 }
 
@@ -63,7 +65,7 @@ volume() {
     n="$(( n + 1 ))"
   done
 
-  echo "%{B$BAR_BG} ${vol} %{B-}"
+  echo "%{B$BG} ${vol} %{B-}"
 }
 
 battery() {
@@ -79,7 +81,7 @@ battery() {
       else status="$discharging"
       fi
 
-      echo "%{B$BAR_BG} ${status}%{O$ICON_PADDING}${bat} %{B-}"
+      echo "%{B$BG} ${status}%{O$ICON_PADDING}${bat} %{B-}"
       ;;
     "$OS_LINUX")
       bat="$(cat "/sys/class/power_supply/BAT0/capacity" 2>/dev/null)"
@@ -89,7 +91,7 @@ battery() {
         if [ "$status" = "Charging" ]; then status="$charging"
         else status="$discharging"
         fi
-        echo "%{B$BAR_BG} ${status}%{O$ICON_PADDING}${bat} %{B-}"
+        echo "%{B$BG} ${status}%{O$ICON_PADDING}${bat} %{B-}"
       fi
       ;;
     *) echo "bat not yet implemented" ;;
@@ -99,16 +101,16 @@ battery() {
 clock() {
   datefmt="$(date "+%m.%d %a %H:%M")"
   capdatefmt="$(echo "$datefmt" | awk '{print toupper($0)}')"
-  echo "%{B$BAR_BG} %{O$ICON_PADDING}${capdatefmt} %{B-}"
+  echo "%{B$BG} %{O$ICON_PADDING}${capdatefmt} %{B-}"
 }
 
 LEFT="$(wm)"
 CENTER=""
 RIGHT="$(capture) $(volume) $(battery) $(clock)"
 
-SPACE_LEFT="%{B$BAR_BG}%{O$ICON_PADDING}%{O$ICON_PADDING}%{B-}\
-%{O$ICON_PADDING}%{B$BAR_BG}%{O$ICON_PADDING}%{B-} "
-SPACE_RIGHT=" %{B$BAR_BG}%{O$ICON_PADDING}%{B-}\
-%{O$ICON_PADDING}%{B$BAR_BG}%{O$ICON_PADDING}%{O$ICON_PADDING}%{B-}"
+SPACE_LEFT="%{B$BG}%{O$ICON_PADDING}%{O$ICON_PADDING}%{B-}\
+%{O$ICON_PADDING}%{B$BG}%{O$ICON_PADDING}%{B-} "
+SPACE_RIGHT=" %{B$BG}%{O$ICON_PADDING}%{B-}\
+%{O$ICON_PADDING}%{B$BG}%{O$ICON_PADDING}%{O$ICON_PADDING}%{B-}"
 
-echo "%{F$BAR_FG}%{l}${SPACE_LEFT}$LEFT%{c}$CENTER%{r}$RIGHT${SPACE_RIGHT}"
+echo "%{F$FG}%{l}${SPACE_LEFT}$LEFT%{c}$CENTER%{r}$RIGHT${SPACE_RIGHT}"

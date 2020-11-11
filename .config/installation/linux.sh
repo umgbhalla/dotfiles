@@ -43,6 +43,8 @@ AUR="$AUR adobe-source-code-pro-fonts"
 AUR="$AUR zathura-git"
 AUR="$AUR youtube-dl"
 
+AUR="$AUR xgetres"
+
 yay -S --needed --batchinstall $AUR # cannot be quoted
 
 git clone "https://github.com/krypt-n/bar.git" "$TMP_DIR/lemonbar-xft"

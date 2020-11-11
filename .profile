@@ -38,8 +38,10 @@ export RES_HEIGHT="1080"
 export THEME_LIGHT="light"
 export THEME_DARK="dark"
 
-export CURRENT_THEME_MODE="$THEME_LIGHT"
-# export CURRENT_THEME_MODE="$THEME_DARK"
+if [ -z "${CURRENT_THEME_MODE}" ]; then
+  export CURRENT_THEME_MODE="${THEME_LIGHT}"
+  # export CURRENT_THEME_MODE="${THEME_DARK}"
+fi
 
 export THEME="gtk-theme"
 export GTK_THEME_DIR="/usr/share/themes"
@@ -141,6 +143,7 @@ case "${OS}" in
     export SHELL="/bin/${SHELL_NAME}"
     ;;
 esac
+export XRDB_UPDATE="xrdb -merge ${XDG_CONFIG_HOME}/Xresources"
 
 # vertical line jumping
 export VI_NAV_JUMP="5"
@@ -179,6 +182,7 @@ export REDSHIFT="$TUI_DIR/redshift"
 export SBUILD="$TUI_DIR/sbuild"
 export SCREEN="$TUI_DIR/screen"
 export SHELLMENU="$GUI_DIR/shell-menu"
+export SWITCHTHEME="$TUI_DIR/switch-theme"
 
 #
 # path
