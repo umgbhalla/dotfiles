@@ -50,7 +50,13 @@ PACKS="${PACKS} feh"
 PACKS="${PACKS} slop"
 PACKS="${PACKS} yarn"
 
+PACKS="${PACKS} textlive-full"
+
 sudo pkg install $PACKS
+
+# grub (optional) - TODO
+# cd /usr/ports/sysutils/grub2-bhyve
+# sudo make clean install
 
 # get Xresources
 git clone "https://github.com/tamirzb/xgetres.git" "${TMP_DIR}/xgetres"
