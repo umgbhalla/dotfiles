@@ -18,7 +18,7 @@ xrdb -merge "$XDG_CONFIG_HOME/Xresources" &
 sxhkd &
 
 # music server
-mpd &
+killall mpd; mpd &
 
 $COMPOSITOR_ARGS &
 
