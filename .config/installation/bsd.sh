@@ -57,6 +57,7 @@ sudo pkg install $PACKS
 
 $SBUILD st
 $SBUILD herbe
+$SBUILD slock
 
 # gtk theme
 $DETEMPLATE "${XDG_CONFIG_HOME}/${THEME}/gtk-3.0/template._colors.scss"

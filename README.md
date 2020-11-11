@@ -729,6 +729,7 @@ modified them when necessary.
 - [User Custom CSS](#user-custom-css)
 - [Fine-Tuning Package Installation](#fine-tuning-package-installation)
 - [Serverauth Files](#serverauth-files)
+- [Laptop Lid Suspension](#laptop-lid-suspension)
 
 #### Disabling the Grub Menu <a name="disabling-grub-menu"></a>
 If you don't plan on dual-booting or adding boot entries, you can disable the grub
@@ -854,6 +855,14 @@ Edit `/usr/bin/startx` or `/usr/local/bin/startx` depending on your machine:
 xserverauthfile=$XAUTHORITY
 ```
 
+## Laptop Lid Suspension <a name="laptop-lid-suspension"></a>
+By default, FreeBSD does not enable suspension on laptop lid close. To enable it, set the acpi
+lid switch state in `/etc/sysctl.conf`:
+```
+hw.acpi.lid_switch_state=S3
+```
+To view all state options, try `sysctl hw.acpi`.
+
 ## TODO <a name="todo"></a>
 Below are a list of things in no particular order that I plan to do but haven't yet
 implemented or had the time to configure.
@@ -867,7 +876,7 @@ implemented or had the time to configure.
 + fix ffmpeg screen capture quality and audio
 + fix pulse sounds? switching? idek what's wrong but it's buggy
 + change theme via crontab and time of day
-+ screen lock mechanism
 + add multple xft font support to herbe (open patch?)
 + improve previews and icons in vifm for FreeBSD
 + Add spotify support in mpd/ncmpcpp
++ spice up GRUB boot menu
