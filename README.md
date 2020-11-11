@@ -883,7 +883,6 @@ implemented or had the time to configure.
 + update color/styling for ff
 + fix ffmpeg screen capture quality and audio
 + fix pulse sounds? switching? idek what's wrong but it's buggy
-+ change theme via crontab and time of day
 + add multple xft font support to herbe (open patch?)
 + improve previews and icons in vifm for FreeBSD
 + spice up GRUB boot menu

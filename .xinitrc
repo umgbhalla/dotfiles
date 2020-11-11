@@ -29,6 +29,6 @@ $BAR_ARGS &
 
 # pulseaudio -D
 
-# $SWITCHTHEME "time" &
+$SWITCHTHEME "time" &
 
 exec "$WM"
