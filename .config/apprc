@@ -77,14 +77,14 @@ export FZF_COLORS="bg:$FZF_BG\
 
 export HERBE_WIDTH="400"
 export HERBE_X="$(echo "${W_GAPS}*2" | bc)"
-export HERBE_Y="$(echo "${BSPWM_TOP_PADDING}+2*${W_GAPS}" | bc)"
+export HERBE_Y="${HERBE_X}"
 
 export HERBE_FONT="${BAR_FONT}"
 export HERBE_DURATION="1"
-export HERBE_PADDING="8"
+export HERBE_PADDING="${W_GAPS}"
 
 export HERBE_FG="$G_FG"
-export HERBE_BG="$G_BG_ALT"
+export HERBE_BG="$G_BG"
 export HERBE_BORDER_BG="$G_BG_ALT"
 
 # lemonbar

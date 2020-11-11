@@ -40,7 +40,6 @@ export THEME_DARK="dark"
 
 if [ -z "${CURRENT_THEME_MODE}" ]; then
   export CURRENT_THEME_MODE="${THEME_LIGHT}"
-  # export CURRENT_THEME_MODE="${THEME_DARK}"
 fi
 
 export THEME="gtk-theme"

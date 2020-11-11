@@ -45,3 +45,19 @@ st.cursorColor: $C_GRAY_0
 
 bar.foreground: $BAR_FG
 bar.background: $BAR_BG
+
+! herbe
+
+herbe.background_color: $HERBE_BG
+herbe.border_color: $HERBE_BORDER_BG
+herbe.font_color: $HERBE_FG
+herbe.font_pattern: $HERBE_FONT
+herbe.line_spacing: $W_GAPS
+herbe.padding: $HERBE_PADDING
+herbe.width: $HERBE_WIDTH
+herbe.border_size: $W_BORDER_WIDTH
+herbe.pos_x: $HERBE_X
+herbe.pos_y: $HERBE_Y
+! 0 = TOP_LEFT, 1 = TOP_RIGHT, 2 = BOTTOM_LEFT, 3 = BOTTOM_RIGHT
+herbe.corner: 3
+herbe.duration: $HERBE_DURATION
