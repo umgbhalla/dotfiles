@@ -42,7 +42,7 @@ case "${OS}" in
 esac
 
 if [ "${OS}" = "${OS_FREEBSD}" ]; then
-  alias lk="slock"
+  alias sl="slock"
 fi
 
 # ----------------------------------------------------------------

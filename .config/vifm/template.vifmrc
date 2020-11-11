@@ -5,9 +5,14 @@
 " Blank lines are ignored.
 " The basic format for each item is shown with an example.
 
-" only open one pane
 vsplit
 view
+
+" only open one pane
+" only
+" display three columns of before and after directories
+" set millerview
+" set milleroptions=csize:2,rsize:1
 
 " ------------------------------------------------------------------------------
 
@@ -16,8 +21,6 @@ view
 " you will need to change this setting.
 
 set vicmd=nvim
-" set vicmd=elvis\ -G\ termcap
-" set vicmd=vile
 
 " This makes vifm perform file operations on its own instead of relying on
 " standard utilities like `cp`.  While using `cp` and alike is a more universal
@@ -121,6 +124,9 @@ set dotdirs=
 " set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 set statusline="  %A %7u:%g %= %d  "
 
+" prevent directory previews from wrapping file names and creating jumbled text
+set invwrap
+
 " ------------------------------------------------------------------------------
 
 " :mark mark /full/directory/path [filename]
@@ -143,13 +149,7 @@ mark b $HOME/Downloads/
 " %D the other window directory name.
 " %m run the command in a menu window
 
-" command! df df -h %m 2> /dev/null
-" command! diff vim -d %f %F
-" command! zip zip -r %f.zip %f
-" command! run !! ./%f
-" command! make !!make %a
 command! md mkdir -p %a
-" command! vgrep vim "+grep %a"
 command! reload :write | restart full
 " create soft links
 command link ln -s %d/%f %d/%f2
@@ -227,7 +227,7 @@ fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 " image
 filextype {*.bmp,*.jpg,*.jpeg,*.png,*.xpm,*.svg},<image/*>
   \ feh --start-at %f
-fileviewer *.jpg,*.jpeg,*.png
+fileviewer {*.jpg,*.jpeg,*.png}
   \ $XDG_CONFIG_HOME/vifm/vifmimg draw %px %py %pw %ph %c
   \ %pc
   \ $XDG_CONFIG_HOME/vifm/vifmimg clear
@@ -492,9 +492,8 @@ nnoremap _ <C-w>5>
 
 " Various customization examples
 
-" Use ag (the silver searcher) instead of grep
-"
-" set grepprg='ag --line-numbers %i %a %s'
+" Use rg instead of grep
+set grepprg='rg %a %s'
 
 " Add additional place to look for executables
 "
