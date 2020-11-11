@@ -56,6 +56,7 @@ sudo pkg install $PACKS
 git clone "https://github.com/tamirzb/xgetres.git" "${TMP_DIR}/xgetres"
 cd "${TMP_DIR}/xgetres"
 git checkout 2505f065e0c7ed990d8d71c0d8bd7106c8ab16f2
+cp "${XDG_CONFIG_HOME}/xgetres/Makefile" "${TMP_DIR}/xgetres/"
 sudo make clean install
 
 # relink /bin/sh
