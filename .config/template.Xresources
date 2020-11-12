@@ -1,3 +1,5 @@
+! vim: set filetype=xdefaults :
+
 ! black
 *.color0:       $C_BLACK_0
 *.color8:       $C_BLACK_1

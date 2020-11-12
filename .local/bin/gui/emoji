@@ -5,5 +5,5 @@ emoji=$(cat $XDG_DATA_HOME/emojis | $SHELLMENU | \
 
 if [ -n "$emoji" ]; then
   echo $emoji | tr -d '\n' | xclip -selection clipboard
-  dunstify -i network-transmit-receive-symbolic.symbolic -t 1000 "Copied to clipboard."
+  $NOTIFICATION_MANAGER "Copied to clipboard."
 fi
