@@ -104,9 +104,8 @@ rp() {
     cd "$XDG_REPO_HOME/$repo"
 }
 
-# file manager directory setting
-fmDir="$XDG_CACHE_HOME/fm_last_dir"
-alias r='fmDir=$fmDir $FILE_EXPLORER_ARGS; LASTDIR=`cat $fmDir`; cd $LASTDIR'
+# file explorer directory setting
+alias r="${FILE_EXPLORER_ARGS} && . ${NNN_TMPFILE}"
 
 # bookmarks
 b() {

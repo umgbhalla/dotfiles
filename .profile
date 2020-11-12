@@ -63,6 +63,7 @@ export W_GAPS="16"
 
 # editor
 export EDITOR="nvim"
+export VISUAL="${EDITOR}"
 
 # terminal
 case "$OS" in
@@ -78,8 +79,8 @@ export TERMINAL="$TERM"
 export BROWSER="firefox"
 
 # file explorer
-export FILE_EXPLORER="vifm"
-export FILE_EXPLORER_ARGS="$XDG_CONFIG_HOME/$FILE_EXPLORER/init"
+export FILE_EXPLORER="nnn"
+export FILE_EXPLORER_ARGS="${FILE_EXPLORER}"
 
 export MUSIC_PLAYER="spotify"
 export MUSIC_PLAYER_ARGS="spicetify config current_theme DotfilesSpicetify && spicetify apply"
@@ -118,14 +119,21 @@ case "${OS}" in
     ;;
 esac
 
+export PAGER="less"
+
 export WM="bspwm"
 
 #
 # variables
 #
 
-export DOLLAR="$" # vital for envsubst escaping
 
+export DOLLAR="$" # vital for envsubst escaping
+export NNN_BMS="b:${HOME};d:${HOME}/Downloads;c:${XDG_CONFIG_HOME}"
+export NNN_COLORS="1111"
+export NNN_FCOLORS="0c04010a070d0b07010b0b01"
+export NNN_OPTS="degHQ"
+export NNN_TMPFILE="${XDG_CONFIG_HOME}/nnn/.lastd" # cannot be changed
 export PROMPT_EOL_MARK="" # prevent partial line % from appearing
 export REDSHIFT_LAST="$XDG_CACHE_HOME/redshift_last"
 case "${OS}" in

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo pkg install cmake gmake meson pkgconf python
+sudo pkg install cmake gmake meson ncurses pkgconf python
 
 sudo portsnap fetch
 sudo portsnap extract
@@ -20,7 +20,12 @@ PACKS="${PACKS} picom"
 PACKS="${PACKS} hsetroot"
 
 PACKS="${PACKS} neovim node ripgrep"
-PACKS="${PACKS} vifm"
+
+git clone "https://github.com/jarun/nnn.git" "${TMP_DIR}/nnn"
+cd "${TMP_DIR}/nnn"
+g checkout 52b87a24925708aaa0ab57821386358136db48bd
+sudo gmake O_NORL=1 O_NOMOUSE=1 O_NOBATCH=1 O_NOFIFO=1 O_NOSSN=1 clean install
+
 PACKS="${PACKS} firefox"
 
 PACKS="${PACKS} gettext zathura-pdf-mupdf" # required for any document viewing
@@ -64,9 +69,6 @@ cd "${TMP_DIR}/xgetres"
 git checkout 2505f065e0c7ed990d8d71c0d8bd7106c8ab16f2
 cp "${XDG_CONFIG_HOME}/xgetres/Makefile" "${TMP_DIR}/xgetres/"
 sudo make clean install
-
-# relink /bin/sh
-# sudo ln -sf mksh /bin/sh
 
 $SBUILD st
 $SBUILD herbe
