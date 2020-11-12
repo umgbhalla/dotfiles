@@ -357,6 +357,136 @@
     .Popover-message--bottom::after {
       border-top-color: var(--color-bg) !important;
     }
+    /* issue page */
+    .gh-header { background-color: var(--color-bg) !important; }
+    .gh-header-meta { border-bottom: 1px solid var(--color-bg-alt) !important; }
+    .discussion-sidebar-item + .discussion-sidebar-item { border-top: 1px solid var(--color-bg-alt) !important; }
+    .gh-header .gh-header-sticky.is-stuck + .gh-header-shadow { background-color: var(--color-bg-alt) !important; }
+    .thread-subscription-status { background-color: var(--color-bg) !important; }
+    .discussion-sidebar-toggle:hover { color: var(--color-primary) !important; }
+    .timeline-comment-header { background-color: var(--color-bg-alt) !important; }
+    .timeline-comment, .timeline-comment-header { border-color: var(--color-bg-alt) !important; }
+    .timeline-comment--caret::before,
+    .timeline-comment--caret::after { border-right-color: var(--color-bg-alt) !important; }
+    .edit-comment-hide { background-color: var(--color-bg) !important; }
+    .TimelineItem::before { background-color: var(--color-bg-alt) !important; }
+    .TimelineItem-badge {
+      border: 2px solid var(--color-bg-alt) !important;
+      background-color: var(--color-bg) !important;
+    }
+    .timeline-comment-label { border-color: var(--color-bg-alt) !important; }
+    .TimelineItem-break {
+      background-color: var(--color-bg) !important;
+      border-top: 4px solid var(--color-bg-alt) !important;
+    }
+    .markdown-body kbd {
+      background-color: var(--color-bg-alt) !important;
+      border: 1px solid var(--color-bg-alt) !important;
+      color: var(--color-fg) !important;
+    }
+    .ellipsis-expander, .hidden-text-expander a {
+      background: var(--color-bg) !important;
+      color: var(--color-fg) !important;
+    }
+    .text-white { color: var(--color-fg) !important; }
+    .discussion-timeline-actions {
+      background-color: var(--color-bg) !important;
+      border-top: 2px solid var(--color-bg) !important;
+    }
+    .page-responsive .previewable-comment-form .comment-form-head.tabnav {
+      background: var(--color-bg-alt) !important;
+    }
+    .border-md { border: 1px solid var(--color-bg-alt) !important; }
+    .timeline-comment { background-color: var(--color-bg) !important; }
+    .write-content { background: var(--color-bg) !important; }
+    .border-lg-bottom { border-bottom: 1px solid var(--color-bg) !important; }
+    .tabnav-tab.selected, .tabnav-tab[aria-current]:not([aria-current="false"]),
+    .tabnav-tab[aria-selected="true"] {
+      background-color: var(--color-bg) !important;
+      border-color: var(--color-bg) !important;
+    }
+    .toolbar-item .menu-target:hover, .toolbar-item:hover { color: var(--color-primary) !important; }
+    .select-menu-modal {
+      border-color: var(--color-bg-alt) !important;
+      color: var(--color-fg) !important;
+    }
+    .select-menu-filters, .select-menu-header { background: var(--color-bg-alt) !important; }
+    .select-menu-divider, .select-menu-header { border-bottom: 1px solid var(--color-bg) !important; }
+    .select-menu-divider {
+      background: var(--color-bg-alt) !important;
+      border-top: 1px solid var(--color-bg) !important;
+    }
+    .select-menu-item {
+      background-color: var(--color-bg-alt) !important;
+      border-bottom: 1px solid var(--color-bg) !important;
+    }
+    .select-menu-item:hover, .select-menu-item:hover .description { color: var(--color-primary) !important; }
+    .suggester {
+      background: var(--color-bg-alt) !important;
+      border: 1px solid var(--color-bg) !important;
+    }
+    .suggester li { border-bottom: 1px solid var(--color-bg-alt) !important; }
+    .suggester li.navigation-focus, .suggester li[aria-selected="true"],
+    .suggester li:hover {
+      color: var(--color-bg) !important;
+      background: var(--color-fg) !important;
+    }
+    .suggester li.navigation-focus small, .suggester li[aria-selected="true"] small,
+    .suggester li:hover small { color: var(--color-bg) !important; }
+    .timeline-new-comment .previewable-comment-form .comment-body { border-bottom: 1px solid var(--color-bg-alt) !important; }
+    .drag-and-drop {
+      border-color: var(--color-bg-alt) !important;
+      background-color: var(--color-bg) !important;
+    }
+    .navigation-focus .AvatarStack-body, [aria-selected="true"] .AvatarStack-body { background: var(--color-bg) !important; }
+    .flash-warn {
+      background-image: none !important;
+      background-color: var(--color-warning) !important;
+      border-color: var(--color-warning) !important;
+      color: var(--color-fg) !important;
+    }
+    .commit-ref { background-color: var(--color-bg-alt) !important; }
+    .color-yellow-7 { color: var(--color-warning) !important; }
+    .select-menu-text-filter:first-child:last-child { border-bottom: 1px solid var(--color-bg) !important; }
+    .select-menu-item:hover > .octicon,
+    .select-menu-item[aria-checked="true"]:hover > .octicon { color: var(--color-primary) !important; }
+    .tabnav { border-bottom: 1px solid var(--color-bg-alt) !important; }
+    /* pull requests */
+    .branch-action-body { background-color: var(--color-bg) !important; }
+    .btn-link { color: var(--color-primary) !important; }
+    .merge-status-list { border: solid var(--color-bg-alt) !important; }
+    .merge-status-item {
+      background-color: var(--color-bg) !important;
+      border-bottom: 1px solid var(--color-bg-alt) !important;
+    }
+    .branch-action-body .merge-branch-form, .branch-action-body .merge-message,
+    .branch-action-body .queue-branch-form {
+      background-color: var(--color-bg) !important;
+      border-top: 1px solid var(--color-bg-alt) !important;
+    }
+    .branch-action-item + .branch-action-item,
+    .branch-action-item + .mergeability-details {
+      border-top: 1px solid var(--color-bg-alt) !important;
+    }
+    /* review */
+    .commit-ref a { color: var(--color-fg) !important; }
+    .diffbar { background-color: var(--color-bg) !important; }
+    .file-header {
+      background-color: var(--color-bg-alt) !important;
+      border-bottom: 1px solid var(--color-bg) !important;
+    }
+    .file { border: 1px solid var(--color-bg-alt) !important; }
+    .Progress { background-color: var(--color-bg-alt) !important; }
+    .diffstat-block-neutral {
+      background-color: var(--color-bg-alt) !important;
+      outline: 1px solid var(--color-bg-alt) !important;
+    }
+    .pr-toolbar.is-stuck { background-color: var(--color-bg) !important; }
+    .file-diff-split .empty-cell {
+      background-color: var(--color-bg) !important;
+      border-right-color: var(--color-bg-alt) !important;
+    }
+    /* TODO */
 }
 
 /**
