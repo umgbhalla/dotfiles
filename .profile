@@ -129,7 +129,7 @@ export WM="bspwm"
 
 
 export DOLLAR="$" # vital for envsubst escaping
-export NNN_BMS="b:${HOME};d:${HOME}/Downloads;c:${XDG_CONFIG_HOME}"
+export NNN_BMS="b:${HOME};h:${HOME};d:${HOME}/Downloads;c:${XDG_CONFIG_HOME}"
 export NNN_COLORS="1111"
 export NNN_FCOLORS="0c04010a070d0b07010b0b01"
 export NNN_OPTS="degHQ"
