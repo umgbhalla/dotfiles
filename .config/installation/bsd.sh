@@ -55,6 +55,16 @@ PACKS="${PACKS} feh mpv"
 PACKS="${PACKS} slop"
 PACKS="${PACKS} yarn"
 
+PACKS="${PACKS} ncmpcpp"
+
+# mpd
+git clone "https://github.com/MusicPlayerDaemon/MPD.git" "${TMP_DIR}/mpd"
+cd "${TMP_DIR}/mpd"
+git checkout eb9f5339b683d037ab3224e362071e22991e0e83
+meson . output/release
+meson configure output/release -Dcpp_args="-I/usr/local/include"
+sudo ninja -C output/release install
+
 PACKS="${PACKS} newsboat"
 
 PACKS="${PACKS} textlive-full"
