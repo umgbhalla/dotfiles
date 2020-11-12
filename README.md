@@ -721,41 +721,38 @@ created earlier.
 This list of additional configuration options are in no particular order. I've just added or
 modified them when necessary.
 
-- [Disabling the Grub Menu](#disabling-grub-menu)
-- [DaVinci Resolve](#davinci-resolve)
+- [Grub Customization](#grub-customization)
 - [Gaming](#gaming)
 - [Fine-Tuning Package Installation](#fine-tuning-package-installation)
 - [Serverauth Files](#serverauth-files)
 - [Laptop Lid Suspension](#laptop-lid-suspension)
 - [Remote Desktop](#remote-desktop)
 
-#### Disabling the Grub Menu <a name="disabling-grub-menu"></a>
-If you don't plan on dual-booting or adding boot entries, you can disable the grub
-selection menu at boot time with `sudo nvim /etc/default/grub`:
-```
-GRUB_TIMEOUT=0
-```
-Update the grub configuration, then reboot.
+#### Grub Customization <a name="grub-customization"></a>
+After each configuration, be sure to update the grub configuration,
+then reboot to view changes.
 ```
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo reboot
 ```
 
-#### DaVinci Resolve <a name="davinci-resolve"></a>
-`DaVinci Resolve` can be quite cumbersome to get working on a Linux system, especially for one 
-using an AMD gpu. These are the steps I took to install it on my machine, being very 
-particular on drivers.
+If you don't plan on dual-booting or adding boot entries, you can disable the grub
+selection menu at boot time with `sudo nvim /etc/default/grub`:
 ```
-sudo pacman -S xf86-video-amdgpu vulkan-radeon libva-mesa-driver
-yay -S amdgpu-pro-libgl opencl-amd
-sudo reboot
---------------------------------------------
-yay -S davinci-resolve
+GRUB_TIMEOUT=0
 ```
-It's also important that the free version that comes with Linux does not have `mp3/4` or 
-`h.264` support.
-I have a simple shell function written in `.config/aliasrc` which converts to the right 
-codecs.
+
+You can add a background (such as the one I have provided under
+`.config/wallpapers/grub.png`) by moving it to the `/boot/grub/` folder.
+Be sure that the image is a png - grub is very particular about file formats and
+png is the easiest format to use.
+```
+sudo cp "${XDG_CONFIG_HOME}/wallpapers/grub.png" "/boot/grub/"
+```
+Then, change the background option in `/etc/default/grub`.
+```
+GRUB_BACKGROUND="/boot/grub/grub.png"
+```
 
 #### Gaming <a name="gaming"></a>
 With these settings, I have been able to play every game I've tried.
@@ -823,13 +820,9 @@ x11vnc -display :0 -passwd PASSWD_HERE
 Below are a list of things in no particular order that I plan to do but haven't yet
 implemented or had the time to configure.
 
-+ pinyin input (fcitx?)
-+ switch completely to ALSA, or find alternatives to switch audio inputs
++ [pinyin input (fcitx?)](https://forums.freebsd.org/threads/installing-chinese-input-method-in-freebsd-10-1.52314/)
++ fix pulse sound switching (idek what's wrong but it's buggy) and needs to be OSS/ALSA compatible
+  + fix ffmpeg screen capture quality and audio
 + contact management application
-+ customize gtk theming
-+ update color/styling for ff
-+ fix ffmpeg screen capture quality and audio
-+ fix pulse sounds? switching? idek what's wrong but it's buggy
 + add multple xft font support to herbe (open patch?)
-+ spice up GRUB boot menu
 + Add mpd and ncmpcpp to FreeBSD

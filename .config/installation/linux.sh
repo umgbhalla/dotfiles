@@ -27,7 +27,9 @@ PACKS="${PACKS} mpv"
 PACKS="${PACKS} newsboat"
 PACKS="${PACKS} yarn"
 PACKS="${PACKS} zathura-pdf-mupdf"
+
 PACKS="${PACKS} ffmpeg"
+# PACKS="${PACKS} kdenlive"
 
 PACKS="${PACKS} pulseaudio pulseaudio-alsa pamixer pavucontrol"
 PACKS="${PACKS} mpd ncmpcpp"
