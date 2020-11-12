@@ -724,9 +724,6 @@ modified them when necessary.
 - [Disabling the Grub Menu](#disabling-grub-menu)
 - [DaVinci Resolve](#davinci-resolve)
 - [Gaming](#gaming)
-- [No dwm?](#no-dwm)
-- [Glasscord](#glasscord)
-- [User Custom CSS](#user-custom-css)
 - [Fine-Tuning Package Installation](#fine-tuning-package-installation)
 - [Serverauth Files](#serverauth-files)
 - [Laptop Lid Suspension](#laptop-lid-suspension)
@@ -788,56 +785,6 @@ sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib3
 ```
 [Lutris also recommended that I install drivers specific to my GPU](https://github.com/lutris/docs/blob/master/InstallingDrivers.md).
 
-#### No dwm? <a name="no-dwm"></a>
-It might be surprising that I am such an advocate for suckless utilities and yet do not use
-`dwm`, and to that statement I have a few reasons.
-
-Conceptually, `dwm` is fantastic, and more tiling window managers should be formatted using
-tags. 
-
-However, a large deal-breaker for me is that `dwm` integrates mostly with status bars such as
-`slstatus` or `i3blocks`. I have grown more than comfortable with `polybar`, its capabilities,
-and modularity, and until a 
-[`dwm` module is built into `polybar`](https://github.com/polybar/polybar/pull/2151), I have 
-less reason to use it. Additionally, I have grown accustomed to managing key bindings in 
-`sxhkd`. While other suckless utilities use application-specific key bindings, I prefer 
-maintaining window manager key bindings from within `sxhkd`.
-
-That being said, I've given this a lot of thought recently, and I may revisit `dwm` in the 
-future. As such, I am leaving my module build of `dwm` included in my dotfiles should I 
-ever switch to `dwm` down the road.
-
-#### Glasscord <a name="glasscord"></a>
-I prefer using `ibhagwan`'s [picom blur and rounded corners fork](https://github.com/ibhagwan/picom)
-for as many applications as possible, and as such, I used to use
-[Glasscord](https://github.com/AryToNeX/Glasscord) by [AryToNeX](https://github.com/AryToNeX)
-to style Discord because it allows modification of all Electron-based applications to 
-follow this pattern. Each installation is very similar, following 
-[these steps](https://github.com/AryToNeX/Glasscord#how-do-i-install-it).
-
-**However, modifications such as these are against Discord's [Terms of Service](), and as such,
-I have stopped using them. Use them at your own risk.**
-
-#### User Custom CSS <a name="user-custom-css"></a>
-Firefox and a few other browsers offer support for custom user stylesheets which override the
-default styles. This is mainly intended for accessibility purposes, but it can also be used
-to customize the appearance of the browser.
-
-To enable custom stylesheets on Firefox:
-- open `about:config` in the address bar and set the following properties to `true`:
-    - `gfx.webrender.all`
-    - `toolkit.legacyUserProfileCustomizations.stylesheets`
-- open your profile folder by opening `about:support` in the address bar and opening the 
-    folder next to the profile directory. I prefer keeping all configuration files in the
-    `$XDG_CONFIG_HOME` or `~/.config` directory, so my configuration is under 
-    `$XDG_CONFIG_HOME/mozilla/profile`.
-- to link my configuration to the Firefox profile:
-    ```
-    ln -s $XDG_CONFIG_HOME/mozilla/profile/chrome $FIREFOX_PROFILE_DIR/chrome
-    ```
-- restart Firefox and open `about:support` and verify that the `graphics` > `compositing` option 
-    has changed from `basic` to `opengl`. Styles and transparency effects should now be enabled.
-
 #### Fine-Tuning Package Installation <a name="fine-tuning-package-installation"></a>
 
 There are a few configuration options that can be set to make package browsing and installation
@@ -864,7 +811,7 @@ hw.acpi.lid_switch_state=S3
 ```
 To view all state options, try `sysctl hw.acpi`.
 
-# Remote Desktop <a name="remote-desktop"></a>
+## Remote Desktop <a name="remote-desktop"></a>
 While I haven't had the opportunity (or need) to spend much time using remote desktop
 between my laptop and desktop, I have found that `x11vnc` is a lightweight server and
 `tigervnc` is a good client. A server can be started with:
@@ -885,3 +832,4 @@ implemented or had the time to configure.
 + fix pulse sounds? switching? idek what's wrong but it's buggy
 + add multple xft font support to herbe (open patch?)
 + spice up GRUB boot menu
++ Add mpd and ncmpcpp to FreeBSD

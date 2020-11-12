@@ -77,6 +77,8 @@ export TERMINAL="$TERM"
 
 # browser
 export BROWSER="firefox"
+export BROWSER_ARGS="${BROWSER}" # set below
+export BROWSER_INCOGNITO="${BROWSER} -private-window"
 
 # file explorer
 export FILE_EXPLORER="nnn"
@@ -129,6 +131,7 @@ export WM="bspwm"
 
 
 export DOLLAR="$" # vital for envsubst escaping
+export FF_PROFILE="main"
 export NNN_BMS="b:${HOME};h:${HOME};d:${HOME}/Downloads;c:${XDG_CONFIG_HOME}"
 export NNN_COLORS="1111"
 export NNN_FCOLORS="0c04010a070d0b07010b0b01"
@@ -212,6 +215,7 @@ export PATH="$HOME/.local/bin:$PATH"
 #
 
 export FZF_DEFAULT_OPTS="--color=\"$FZF_COLORS\""
+export BROWSER_ARGS="HOME=${XDG_CACHE_HOME} ${BROWSER} -P \"${FF_PROFILE}\""
 
 # background command
 # xsetroot doesn't work here because the compositor overrides background changes

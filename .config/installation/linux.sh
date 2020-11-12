@@ -47,8 +47,19 @@ AUR="$AUR xgetres"
 
 yay -S --needed --batchinstall $AUR # cannot be quoted
 
-git clone "https://github.com/krypt-n/bar.git" "$TMP_DIR/lemonbar-xft"
-cd "$TMP_DIR/lemonbar-xft" && sudo make clean install
+# firefox setup
+HOME="${XDG_CACHE_HOME}" firefox -CreateProfile "${FF_PROFILE}"
+baseDir="${XDG_CACHE_HOME}/.mozilla/firefox"
+profileDir="$(ls "${baseDir}" | grep ".${FF_PROFILE}")"
+ffDir="${baseDir}/${profileDir}"
+rm -f "${ffDir}/chrome" >/dev/null
+rm -f "${ffDir}/user.js" >/dev/null
+ln -sf "${XDG_CONFIG_HOME}/mozilla/profile/chrome" "${ffDir}/chrome"
+ln -sf "${XDG_CONFIG_HOME}/mozilla/user.js" "${ffDir}/user.js"
+
+# lemonbar
+git clone "https://github.com/krypt-n/bar.git" "${TMP_DIR}/lemonbar-xft"
+cd "${TMP_DIR}/lemonbar-xft" && sudo make clean install
 
 # relink /bin/sh
 sudo ln -sfT mksh /bin/sh

@@ -12,7 +12,9 @@ super + space
 
 # browser
 super + b
-  $BROWSER
+  eval $BROWSER_ARGS
+super + shift + b
+  eval $BROWSER_INCOGNITO
 
 # system profiler
 super + p

@@ -55,15 +55,23 @@ PACKS="${PACKS} feh mpv"
 PACKS="${PACKS} slop"
 PACKS="${PACKS} yarn"
 
+PACKS="${PACKS} newsboat"
+
 PACKS="${PACKS} textlive-full"
 
 sudo pkg install $PACKS
 
-# grub (optional) - TODO
-# cd /usr/ports/sysutils/grub2-bhyve
-# sudo make clean install
+# firefox profile setup
+HOME="${XDG_CACHE_HOME}" firefox -CreateProfile "${FF_PROFILE}"
+baseDir="${XDG_CACHE_HOME}/.mozilla/firefox"
+profileDir="$(ls "${baseDir}" | grep ".${FF_PROFILE}")"
+ffDir="${baseDir}/${profileDir}"
+rm -f "${ffDir}/chrome" >/dev/null
+rm -f "${ffDir}/user.js" >/dev/null
+ln -sf "${XDG_CONFIG_HOME}/mozilla/profile/chrome" "${ffDir}/chrome"
+ln -sf "${XDG_CONFIG_HOME}/mozilla/user.js" "${ffDir}/user.js"
 
-# get Xresources
+# get Xresources script
 git clone "https://github.com/tamirzb/xgetres.git" "${TMP_DIR}/xgetres"
 cd "${TMP_DIR}/xgetres"
 git checkout 2505f065e0c7ed990d8d71c0d8bd7106c8ab16f2
