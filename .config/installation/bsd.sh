@@ -8,7 +8,7 @@ sudo portsnap extract
 PACKS=""
 PACKS="${PACKS} xorg drm-kmod"
 PACKS="${PACKS} bspwm sxhkd"
-PACKS="${PACKS} sourcecodepro-ttf"
+PACKS="${PACKS} sourcecodepro-ttf wqy-fonts"
 
 # bar
 git clone "https://github.com/krypt-n/bar.git" "${TMP_DIR}/lemonbar-xft"
