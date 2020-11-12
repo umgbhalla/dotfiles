@@ -825,4 +825,3 @@ implemented or had the time to configure.
   + fix ffmpeg screen capture quality and audio
 + contact management application
 + add multple xft font support to herbe (open patch?)
-+ Add mpd and ncmpcpp to FreeBSD
