@@ -20,7 +20,7 @@ screenPid="${TMP_DIR}/screenPid"
 
 notify() {
   case "$OS" in
-    "$OS_LINUX") $NOTIFICATION_MANAGER "$1"; ;;
+    "$OS_LINUX"|"$OS_FREEBSD") $NOTIFICATION_MANAGER "$1"; ;;
   esac
 }
 

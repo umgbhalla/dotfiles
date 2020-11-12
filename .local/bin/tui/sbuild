@@ -4,9 +4,9 @@
 dir="${XDG_CONFIG_HOME}/${1}"
 
 [ -z "${1}" ] && \
-  echo "${RED}No suckless utility specified.${NC}" && exit 1
+  echo -e "${RED}No suckless utility specified.${NC}" && exit 1
 [ ! -d "${dir}" ] && \
-  echo "${RED}Invalid suckless utility.${NC}" && exit 1
+  echo -e "${RED}Invalid suckless utility.${NC}" && exit 1
 
 olddir="$(pwd)"
 cd "${dir}"

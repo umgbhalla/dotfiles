@@ -884,5 +884,4 @@ implemented or had the time to configure.
 + fix ffmpeg screen capture quality and audio
 + fix pulse sounds? switching? idek what's wrong but it's buggy
 + add multple xft font support to herbe (open patch?)
-+ improve previews and icons in vifm for FreeBSD
 + spice up GRUB boot menu
