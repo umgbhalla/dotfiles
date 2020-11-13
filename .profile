@@ -84,6 +84,16 @@ export BROWSER_INCOGNITO="${BROWSER} -private-window"
 export FILE_EXPLORER="nnn"
 export FILE_EXPLORER_ARGS="${FILE_EXPLORER}"
 
+case "${OS}" in
+  "${OS_FREEBSD}")
+    export AUDIO_ARCH="oss"
+    export AUDIO_OUTPUT="${AUDIO_ARCH}"
+    ;;
+  *)
+    export AUDIO_ARCH="alsa"
+    export AUDIO_OUTPUT="pulse"
+    ;;
+esac
 export MUSIC_PLAYER="spotify"
 export MUSIC_PLAYER_ARGS="spicetify config current_theme DotfilesSpicetify && spicetify apply"
 
