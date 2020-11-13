@@ -342,10 +342,6 @@
       background-color: var(--color-bg) !important;
       border-bottom: 1px solid var(--color-bg-alt) !important;
     }
-    g-emoji img {
-      width: 2em !important;
-      height: 2em !important;
-    }
     .reaction-sort-item:focus, .reaction-sort-item:hover { background-color: var(--color-fg) !important; }
     .Popover-message--bottom-left::before,
     .Popover-message--bottom-right::before,
