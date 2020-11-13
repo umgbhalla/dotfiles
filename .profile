@@ -153,7 +153,7 @@ case "${OS}" in
     export SHELL="/bin/${SHELL_NAME}"
     ;;
 esac
-export XRDB_UPDATE="xrdb -merge ${XDG_CONFIG_HOME}/Xresources"
+export XRDB_UPDATE="xrdb -merge ${XDG_CONFIG_HOME}/Xdefaults/Xresources"
 
 # vertical line jumping
 export VI_NAV_JUMP="5"
@@ -174,7 +174,7 @@ export SH_HISTFILE="$XDG_CACHE_HOME/sh_history"
 export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
 export YARN_GLOBAL_DIR="$XDG_CACHE_HOME/yarn_global"
 export YARN_RC_DIR="$XDG_CACHE_HOME"
-export XAUTHORITY="$XDG_CONFIG_HOME/Xauthority"
+export XAUTHORITY="${XDG_CONFIG_HOME}/Xdefaults/Xauthority"
 
 #
 # scripts

@@ -9,5 +9,5 @@ $XDG_CONFIG_HOME/ncmpcpp/template.config
 $XDG_CONFIG_HOME/picom/template.picom.conf
 $XDG_CONFIG_HOME/spicetify/template.config.ini
 $XDG_CONFIG_HOME/st/template.config.h
-$XDG_CONFIG_HOME/template.Xresources
+$XDG_CONFIG_HOME/Xdefaults/template.Xresources
 $XDG_CONFIG_HOME/zathura/template.zathurarc
