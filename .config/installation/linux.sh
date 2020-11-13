@@ -7,7 +7,7 @@ unset GIT_CONFIG
 git clone "https://aur.archlinux.org/yay.git" "$TMP_DIR/yay"
 cd "$TMP_DIR/yay" && makepkg -si
 
-PACKS="mmv"
+PACKS=""
 
 PACKS="${PACKS} xorg-server xorg-xinit"
 PACKS="${PACKS} bspwm sxhkd"
@@ -42,7 +42,9 @@ PACKS="${PACKS} figlet"
 
 sudo pacman -S --needed $PACKS # cannot be quoted
 
-AUR="picom-ibhagwan-git"
+AUR="mmv"
+
+AUR="$AUR picom-ibhagwan-git"
 AUR="$AUR adobe-source-code-pro-fonts"
 AUR="$AUR zathura-git"
 AUR="$AUR youtube-dl"
