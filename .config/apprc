@@ -61,16 +61,14 @@ export FF_ALERT="$G_ALERT"
 
 # fzf
 
-export FZF_BG="$G_BG"
-export FZF_FG="$G_FG"
 export FZF_MATCH="$G_PRIMARY"
 export FZF_CURRENT="$G_SECONDARY"
 export FZF_PROMPT="$G_TERTIARY"
 
-export FZF_COLORS="bg:$FZF_BG\
-,fg:$FZF_FG,prompt:$FZF_FG,pointer:$FZF_FG\
+export FZF_COLORS="bg:0\
+,pointer:$FZF_MATCH\
 ,hl:$FZF_MATCH,hl+:$FZF_MATCH\
-,fg+:$FZF_CURRENT,bg+:$FZF_BG\
+,fg+:$FZF_CURRENT,bg+:0\
 ,info:$FZF_MATCH"
 
 # herbe
@@ -95,20 +93,6 @@ export LEMONBAR_FONT="${BAR_FONT}"
 # picom
 
 export PICOM_ALPHA="$(echo $(( $W_ALPHA * 100 )) | sed -e 's/\.//g')"
-
-# polybar
-
-export POLYBAR_X="$W_GAPS"
-export POLYBAR_Y="$BSPWM_TOP_Y"
-export POLYBAR_WIDTH="100%:-$(( $W_GAPS * 2 ))"
-export POLYBAR_HEIGHT="$BAR_HEIGHT"
-
-export POLYBAR_BG="#00$(echo $G_BG | tail -c +2)"
-export POLYBAR_FG="$G_FG"
-export POLYBAR_PRIMARY="$G_PRIMARY"
-export POLYBAR_SECONDARY="$G_SECONDARY"
-export POLYBAR_TERTIARY="$G_TERTIARY"
-export POLYBAR_ALERT="$G_ALERT"
 
 # shellmenu
 
