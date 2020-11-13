@@ -5,7 +5,8 @@ sudo pkg install cmake gmake meson ncurses pkgconf python
 sudo portsnap fetch
 sudo portsnap extract
 
-PACKS=""
+PACKS="mmv" # what a god-tier utility
+
 PACKS="${PACKS} xorg drm-kmod"
 PACKS="${PACKS} bspwm sxhkd"
 PACKS="${PACKS} sourcecodepro-ttf wqy-fonts"
