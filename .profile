@@ -225,7 +225,7 @@ export PATH="$HOME/.local/bin:$PATH"
 #
 
 export FZF_DEFAULT_OPTS="--color=\"$FZF_COLORS\""
-export BROWSER_ARGS="HOME=${XDG_CACHE_HOME} ${BROWSER} -P \"${FF_PROFILE}\""
+export BROWSER_ARGS="${BROWSER} -P \"${FF_PROFILE}\""
 
 # background command
 # xsetroot doesn't work here because the compositor overrides background changes

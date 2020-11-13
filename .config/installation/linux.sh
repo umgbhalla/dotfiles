@@ -54,8 +54,9 @@ AUR="$AUR xgetres"
 yay -S --needed --batchinstall $AUR # cannot be quoted
 
 # firefox setup
-HOME="${XDG_CACHE_HOME}" firefox -CreateProfile "${FF_PROFILE}"
-baseDir="${XDG_CACHE_HOME}/.mozilla/firefox"
+$DETEMPLATE "${XDG_CONFIG_HOME}/mozilla/template.user.js"
+firefox -CreateProfile "${FF_PROFILE}"
+baseDir="${HOME}/.mozilla/firefox"
 profileDir="$(ls "${baseDir}" | grep ".${FF_PROFILE}")"
 ffDir="${baseDir}/${profileDir}"
 rm -f "${ffDir}/chrome" >/dev/null

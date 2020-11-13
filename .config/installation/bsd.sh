@@ -13,7 +13,7 @@ PACKS="${PACKS} sourcecodepro-ttf wqy-fonts"
 
 # bar
 git clone "https://github.com/krypt-n/bar.git" "${TMP_DIR}/lemonbar-xft"
-cp -f "${XDG_CONFIG_HOME}/lemonbar/Makefile" "${TMP_DIR}/lemonbar-xft/"
+cp -f "${XDG_CONFIG_HOME}/lemonbar/Makefele" "${TMP_DIR}/lemonbar-xft/"
 cd "${TMP_DIR}/lemonbar-xft"
 sudo gmake clean install
 
@@ -73,8 +73,9 @@ PACKS="${PACKS} textlive-full"
 sudo pkg install $PACKS
 
 # firefox profile setup
-HOME="${XDG_CACHE_HOME}" firefox -CreateProfile "${FF_PROFILE}"
-baseDir="${XDG_CACHE_HOME}/.mozilla/firefox"
+$DETEMPLATE "${XDG_CONFIG_HOME}/mozilla/template.user.js"
+firefox -CreateProfile "${FF_PROFILE}"
+baseDir="${HOME}/.mozilla/firefox"
 profileDir="$(ls "${baseDir}" | grep ".${FF_PROFILE}")"
 ffDir="${baseDir}/${profileDir}"
 rm -f "${ffDir}/chrome" >/dev/null
