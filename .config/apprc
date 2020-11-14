@@ -77,13 +77,13 @@ export HERBE_WIDTH="400"
 export HERBE_X="$(echo "${W_GAPS}*2" | bc)"
 export HERBE_Y="${HERBE_X}"
 
-export HERBE_FONT="${BAR_FONT}"
+export HERBE_FONT="Source Code Pro:pixelsize=16"
 export HERBE_DURATION="1"
-export HERBE_PADDING="${W_GAPS}"
+export HERBE_PADDING="$(echo "${W_GAPS}*1.5" | bc)"
 
 export HERBE_FG="$G_FG"
 export HERBE_BG="$G_BG"
-export HERBE_BORDER_BG="$G_BG_ALT"
+export HERBE_BORDER_BG="$G_FG_ALT"
 
 # lemonbar
 
