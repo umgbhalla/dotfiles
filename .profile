@@ -237,9 +237,9 @@ if command -v "startx" >/dev/null; then
     "/dev/ttyv0" | "/dev/tty1")
       case "$OS" in
         "$OS_FREEBSD")
-          # exec startx -- -nocursor
-          sudo moused -p /dev/psm0
-          exec startx
+          exec startx -- -nocursor
+          # sudo moused -p /dev/psm0
+          # exec startx
           ;;
         *)
           exec startx
