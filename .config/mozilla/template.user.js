@@ -28,6 +28,7 @@ user_pref("extensions.formautofill.creditCards.enabled", false);
 // UI customization
 user_pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"home-button\",\"urlbar-container\",\"downloads-button\",\"library-button\",\"sidebar-button\",\"fxa-toolbar-menu-button\",\"_testpilot-containers-browser-action\",\"adblockultimate_adblockultimate_net-browser-action\",\"_react-devtools-browser-action\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"managed-bookmarks\",\"personal-bookmarks\"]},\"seen\":[\"developer-button\",\"_testpilot-containers-browser-action\",\"adblockultimate_adblockultimate_net-browser-action\",\"_react-devtools-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"toolbar-menubar\",\"TabsToolbar\",\"PersonalToolbar\"],\"currentVersion\":16,\"newElementCount\":3}");
 user_pref("browser.display.background_color", "${FF_BG}");
+user_pref("browser.display.foreground_color", "${FF_FG}");
 
 // devtools
 user_pref("devtools.toolbox.host", "right");
