@@ -241,9 +241,7 @@ if command -v "startx" >/dev/null; then
           # sudo moused -p /dev/psm0
           # exec startx
           ;;
-        *)
-          exec startx
-          ;;
+        *) exec startx ;;
       esac
       ;;
   esac

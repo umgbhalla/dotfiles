@@ -143,6 +143,22 @@ alias \
   ytmp3="set -o noglob && dlLink -x --audio-format mp3" \
   feh="feh --scale-down --auto-zoom"
 
+if [ "${OS}" = "${OS_FREEBSD}" ]; then
+  getusbdevs() {
+    echo "$(sudo usbconfig | grep -o "^.*:" | tr -d ":")"
+  }
+
+  usboff() {
+    getusbdevs | xargs -I {} sudo usbconfig -d {} power_save
+    echo "usbs off"
+  }
+
+  usbon(){
+    getusbdevs | xargs -I {} sudo usbconfig -d {} power_on
+    echo "usbs on"
+  }
+fi
+
 # archive extraction
 e() {
   if [ -z "$1" ]; then

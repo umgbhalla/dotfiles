@@ -28,6 +28,7 @@ g checkout 52b87a24925708aaa0ab57821386358136db48bd
 sudo gmake O_NORL=1 O_NOMOUSE=1 O_NOBATCH=1 O_NOFIFO=1 O_NOSSN=1 clean install
 
 PACKS="${PACKS} firefox"
+# PACKS="${PACKS} vimb"
 
 PACKS="${PACKS} gettext zathura-pdf-mupdf" # required for any document viewing
 git clone "https://git.pwmt.org/pwmt/girara.git" "${TMP_DIR}/girara/"
