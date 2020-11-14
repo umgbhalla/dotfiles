@@ -828,16 +828,8 @@ a FreeBSD](https://wiki.freebsd.org/TuningPowerConsumption) laptop.
   ```
 
 - Disable bluetooth if you don't use it. This is tricky since it is enabled by default in the
-  kernel and cannot easily be disabled at boot time. You can choose between two options:
-  - Disable bluetooth at login time:
-
-    Run `kldunload ng_ubt.ko` in `$HOME/.profile` to unload the module on login. However, I
-    recommend against this solution because it runs the module before the any user has logged
-    in, causing unnecessary power consumption and scanning.
-  - Disable bluetooth at boot by moving the module:
-
-    This is a more "hacky" approach but I prefer this approach because it ensures that the
-    kernel will never be loaded unless you intentionally choose for it to be loaded.
+  kernel and cannot easily be disabled at boot time. However, there is a hacky solution for
+  kernel module loading:
     ```
     mv /boot/kernel/ng_ubt.ko /boot/kernel/ng_ubt.ko.blacklisted
     ```
@@ -850,4 +842,3 @@ implemented or had the time to configure.
 + fix pulse sound switching (idek what's wrong but it's buggy) and needs to be OSS/ALSA compatible
   + fix ffmpeg screen capture quality and audio
 + contact management application
-+ add multple xft font support to herbe (open patch?)

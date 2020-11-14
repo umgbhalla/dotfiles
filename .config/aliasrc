@@ -149,7 +149,7 @@ if [ "${OS}" = "${OS_FREEBSD}" ]; then
   }
 
   usboff() {
-    getusbdevs | xargs -I {} sudo usbconfig -d {} power_save
+    getusbdevs | xargs -I {} sudo usbconfig -d {} power_off
     echo "usbs off"
   }
 

@@ -6,6 +6,7 @@ sudo portsnap fetch
 sudo portsnap extract
 
 PACKS="mmv" # what a god-tier utility
+# PACKS="${PACKS} groff"
 
 PACKS="${PACKS} xorg drm-kmod"
 PACKS="${PACKS} bspwm sxhkd"
