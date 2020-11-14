@@ -727,6 +727,7 @@ modified them when necessary.
 - [Serverauth Files](#serverauth-files)
 - [Laptop Lid Suspension](#laptop-lid-suspension)
 - [Remote Desktop](#remote-desktop)
+- [Power Management in FreeBSD](#power-management-in-freebsd)
 
 #### Grub Customization <a name="grub-customization"></a>
 After each configuration, be sure to update the grub configuration,
@@ -815,6 +816,31 @@ between my laptop and desktop, I have found that `x11vnc` is a lightweight serve
 ```
 x11vnc -display :0 -passwd PASSWD_HERE
 ```
+
+## Power Management in FreeBSD <a name="power-management-in-freebsd"></a>
+Power saving is essential to any laptop. Here are a few tips to reduce [power consumption on
+a FreeBSD](https://wiki.freebsd.org/TuningPowerConsumption) laptop.
+
+- Enable `powerd` in `/etc/rc.conf`. This reduces power consumption by scaling cpu
+  according to workload:
+  ```
+  powerd_enable="YES"
+  ```
+
+- Disable bluetooth if you don't use it. This is tricky since it is enabled by default in the
+  kernel and cannot easily be disabled at boot time. You can choose between two options:
+  - Disable bluetooth at login time:
+
+    Run `kldunload ng_ubt.ko` in `$HOME/.profile` to unload the module on login. However, I
+    recommend against this solution because it runs the module before the any user has logged
+    in, causing unnecessary power consumption and scanning.
+  - Disable bluetooth at boot by moving the module:
+
+    This is a more "hacky" approach but I prefer this approach because it ensures that the
+    kernel will never be loaded unless you intentionally choose for it to be loaded.
+    ```
+    mv /boot/kernel/ng_ubt.ko /boot/kernel/ng_ubt.ko.blacklisted
+    ```
 
 ## TODO <a name="todo"></a>
 Below are a list of things in no particular order that I plan to do but haven't yet
