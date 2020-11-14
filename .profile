@@ -141,6 +141,8 @@ export WM="bspwm"
 
 
 export DOLLAR="$" # vital for envsubst escaping
+export ELINKS_CONFDIR="${XDG_CONFIG_HOME}/elinks"
+export ELINKS_XTERM="st -e"
 export FF_PROFILE="main"
 export NNN_BMS="b:${HOME};h:${HOME};d:${HOME}/Downloads;c:${XDG_CONFIG_HOME}"
 export NNN_COLORS="1111"
