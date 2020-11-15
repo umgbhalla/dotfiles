@@ -826,13 +826,26 @@ a FreeBSD](https://wiki.freebsd.org/TuningPowerConsumption) laptop.
   ```
   powerd_enable="YES"
   ```
-
-- Disable bluetooth if you don't use it. This is tricky since it is enabled by default in the
-  kernel and cannot easily be disabled at boot time. However, there is a hacky solution for
-  kernel module loading:
-    ```
-    mv /boot/kernel/ng_ubt.ko /boot/kernel/ng_ubt.ko.blacklisted
-    ```
+- Allow the CPU to turn off core clocks on idle. By default, the system runs CPUs at
+  all times unless specified. Add to `/etc/rc.conf`:
+  ```
+  performance_cx_lowest="Cmax"
+  economy_cx_lowest="Cmax"
+  ```
+- If you happen to use an Intel CPU with `drm-kmod`, adding the
+  following to `/boot/loader.conf` will improve CPU efficiency:
+  ```
+  compat.linuxkpi.i915_fastboot=1
+  compat.linuxkpi.i915_enable_fbc=1
+  compat.linuxkpi.i915_enable_dc=2
+  compat.linuxkpi.i915_disable_power_well=1
+  ```
+- Disable bluetooth if you don't use it. This is tricky since it is enabled by default in
+  the kernel and cannot easily be disabled at boot time. However, there is a hacky
+  solution for kernel module loading:
+  ```
+  mv /boot/kernel/ng_ubt.ko /boot/kernel/ng_ubt.ko.blacklisted
+  ```
 
 ## TODO <a name="todo"></a>
 Below are a list of things in no particular order that I plan to do but haven't yet
