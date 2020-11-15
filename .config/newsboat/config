@@ -1,9 +1,18 @@
+# vim: set filetype=sh :
+# vim: set syntax=dosini :
+
 auto-reload yes
 # show-read-feeds no
 reload-threads 40
 
-browser "$BROWSER %u"
-macro , set browser "mpv %u" ; open-in-browser ; set browser "$BROWSER %u"
+define-filter "unread" "unread_count > 0"
+define-filter "this week" "age between 0:7"
+
+# determines prefix for all other macros
+# macro-prefix ,
+
+browser "eval $BROWSER_ARGS %u"
+macro , set browser "mpv %u" ; open-in-browser ; set browser "eval $BROWSER_ARGS %u"
 
 # vim bindings
 unbind-key j
@@ -17,9 +26,21 @@ bind-key l open
 bind-key G end
 bind-key g home
 bind-key d pagedown
+bind-key ^D pagedown
 bind-key u pageup
+bind-key ^U pageup
 
 bind-key SPACE open-in-browser
+
+show-keymap-hint no
+scrolloff 5
+
+feedlist-title-format "Feeds (%u unread, %t total)%?F? matching filter `%F'&?%?T? - tag `%T'&?"
+articlelist-title-format "%T (%u unread, %t total)%?F? matching filter `%F'&?%?T? - tag `%T'&?"
+searchresult-title-format "Search (%u unread, %t total)%?F? matching filter `%F'&?"
+selecttag-title-format "Select Tag"
+selectfilter-title-format "Select Filter"
+itemview-title-format "-- %T --"
 
 color listfocus black blue standout bold
 color listfocus_unread black red standout bold
