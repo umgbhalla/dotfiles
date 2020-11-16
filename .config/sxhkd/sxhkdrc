@@ -4,11 +4,11 @@
 
 # terminal emulator
 super + Return
-  $TERM_ARGS
+  exec $TERM_ARGS
 
 # launcher
 super + space
-  $LAUNCHER
+  exec $LAUNCHER
 
 # browser
 super + b
@@ -18,11 +18,11 @@ super + shift + b
 
 # system profiler
 super + p
-  eval $TERM_ARGS sh -c "$SYSTEM_PROFILER"
+  exec eval $TERM_ARGS sh -c "$SYSTEM_PROFILER"
 
 # discord (for the meme, of course)
 super + u
-  discord
+  exec discord
 
 # slack (for actual productivity)
 # super + o
@@ -30,18 +30,16 @@ super + u
 
 # music
 super + m
-  eval $MUSIC_PLAYER_ARGS
+  exec eval $MUSIC_PLAYER_ARGS
 
 #
 # general scripts
 #
 
 super + s
-  $XDG_SCRIPT_HOME/run_script.sh
-
-# emojis
+  exec $XDG_SCRIPT_HOME/run_script.sh
 super + e
-  $GUI_DIR/emoji
+  exec $GUI_DIR/emoji
 
 #
 # audio controls

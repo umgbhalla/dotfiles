@@ -37,7 +37,9 @@ case "${OS}" in
   "${OS_FREEBSD}")
     alias \
       reboot="sudo reboot" \
-      shutdown="sudo poweroff"
+      shutdown="sudo poweroff" \
+      suspend="sudo acpiconf -s 3" \
+      hibernate="sudo acpiconf -s 5"
     ;;
 esac
 
