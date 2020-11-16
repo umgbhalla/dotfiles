@@ -846,6 +846,16 @@ a FreeBSD](https://wiki.freebsd.org/TuningPowerConsumption) laptop.
   ```
   mv /boot/kernel/ng_ubt.ko /boot/kernel/ng_ubt.ko.blacklisted
   ```
+- Set the current wifi adapter to powersave mode to decrease radio time and increase
+  power. This may reduce link latency, but in most cases, the effect is negligible. In
+  `/etc/rc.conf` (make sure to choose the correct wifi adapter):
+  ```
+  ifconfig_wlan0="... powersave"
+  ```
+- Reduce sound interrupts to increae performance. In `/boot/loader.conf`:
+  ```
+  hw.snd.latency=7
+  ```
 
 ## TODO <a name="todo"></a>
 Below are a list of things in no particular order that I plan to do but haven't yet

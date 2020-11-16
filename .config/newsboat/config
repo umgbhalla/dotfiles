@@ -33,7 +33,6 @@ bind-key ^U pageup
 bind-key SPACE open-in-browser
 
 show-keymap-hint no
-scrolloff 5
 
 feedlist-title-format "Feeds (%u unread, %t total)%?F? matching filter `%F'&?%?T? - tag `%T'&?"
 articlelist-title-format "%T (%u unread, %t total)%?F? matching filter `%F'&?%?T? - tag `%T'&?"
