@@ -68,7 +68,6 @@ alias \
   msr="$MUSIC_PLAYER_ARGS" \
   n="newsboat -u $NEWSBOAT_CONFIG/urls -C $NEWSBOAT_CONFIG/config" \
   pdf="pdflatex" \
-  pk="ps aux | fzf | awk '{print $2}' | tr -d '\n' | xargs kill -9" \
   s="$XDG_SCRIPT_HOME/run_script.sh" \
   sbuild="$SBUILD" \
   ss="sc-im" \
@@ -78,6 +77,21 @@ alias \
   vim="$EDITOR" \
   wi="nmtui" \
   yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn"
+
+pk() {
+  proc="$(ps aux | \
+    sed 1d | \
+    tr -s " " | \
+    cut -d " " -f1-2,11- | \
+    fzf)"
+
+  if [ -n "${proc}" ]; then
+    pid="$(echo "${proc}" | cut -d " " -f 2)"
+    kill -9 "$pid"
+  else
+    echo "${RED}No process specified.${NC}"
+  fi
+}
 
 alias zr="clear && . $ENV"
 
