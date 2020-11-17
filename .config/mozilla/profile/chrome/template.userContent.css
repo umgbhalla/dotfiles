@@ -566,3 +566,25 @@
        border-color: var(--color-bg-alt) !important;
     }
 }
+
+/**
+ * ------------------------------------------------
+ * FreeBSD man
+ * ------------------------------------------------
+ */
+
+@-moz-document domain(unix.com) {
+  .page {
+    background: var(--color-bg) !important;
+    color: var(--color-fg) !important;
+  }
+  /* hide all junk */
+  form,
+  #main-navbar,
+  #neo_navbar_divs_center_menu_bar,
+  .neo-table-border,
+  .man-h1-wrap,
+  .flex-posts-ads,
+  .man-h1-article
+  { display: none !important; }
+}

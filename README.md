@@ -172,416 +172,80 @@ System Profiler:  htop
     as meta key` option in the profile keyboard settings.
 
 ## Manual Installation <a name="manual-installation"></a>
+This section serves to aid those who would like to fully replicate my current working system
+_including_ operating system, packages, and software/architecture specifics.
 
-This section serves to aid those who would like to fully replicate my current working system,
-including software/architecture specifics.
+If you are new to Unix systems, dotfiles, shells, scripting, and systems, I
+highly recommend installing and following the
+[Archlinux installation guide](#installation-with-archlinux) instead of this one. This
+installation is more geared towards Unix regulars and minimalistic power-users looking for a
+fully customizeable/extendable system. I do not recommend people follow this section since
+it's mostly just here for my own benefit, but it may be helpful to advanced Unix users.
 
-1. [Installation with Archlinux](#installation-with-archlinux)
-2. [Installation with FreeBSD](#installation-with-freebsd) (WIP)
-
-### Installation with Archlinux <a name="installation-with-archlinux"></a>
-
-For the best personalized installation experience I suggest reading the Arch Wiki. It's 
-surprisingly intuitive (for a _zoomer_ who hates reading documentation) and
-goes into depth about customizing Arch to fit your standards. The configuration files included
-in this project are all settings I prefer to use and may not fit your specific usage or
-preferences.
-
-Another disclaimer - I am a strong advocate for the `vim` text editor, and as such, I will use
-`neovim` to edit files during installation. If you prefer clunky `emacs` or the more user-friendly
-`nano`, feel free to use such.
+In other words: _if you're new to the non-proprietary Unix utopia, this installation is
+probably not for you._
 
 #### Table of Contents
-1. [Setup](#setup)
-2. [Preliminary Internet](#preliminary-internet)
-3. [System Time](#system-time)
-4. [Disk Partitioning](#disk-partitioning)
-5. [Distro Installation](#distro-installation)
-6. [Mounted Drives with Fstab](#mounted-drives-with-fstab)
-7. [Time Zone and Localization](#time-zone-and-localization)
-8. [Network Manager](#network-manager)
-9. [Password](#password)
-10. [Bootloader](#bootloader)
-11. [Installation Wrapup](#installation-wrapup)
-12. [Wifi](#wifi)
-13. [Creating a User](#creating-a-user)
-14. [Core Setup](#core-setup)
+- [Setup](#setup)
+- [Boot Start](#boot-start)
+- [Hostname](#hostname)
+- [Distribution Select](#distribution-select)
+- [Disk Partitioning](#disk-partitioning)
+- [Password](#password)
+- [Network Prompt](#network-prompt)
+- [Clock and Localization](#clock-and-localization)
+- [System Configuration](#system-configuration)
+- [System Hardening](#system-hardening)
+- [Adding a User](#adding-a-user)
+- [Basic Networking](#basic-networking)
+- [Core Setup](#core-setup)
 
 #### Setup <a name="setup"></a>
-
-This setup guide assumes you understand the basics of Unix systems
-(core utilities, command structure, shells, etc).
-
 1. For this guide you will need the following tools:
     - A computer that will be wiped to install the new operating system
-    - An internet connection (preferably ethernet)
-    - A disposable usb drive that can be wiped
-2. Download the latest [Archlinux](https://www.archlinux.org/download) installation iso from
-    their website. I downloaded version `archlinux-2020.11.01-x86_64.iso`.
-3. Burn the downloaded cd image onto the usb.
-    This can be done using a number of different tools:
-    - [Balena Etcher](https://www.balena.io/etcher)
-    - [Rufus](https://rufus.ie)
-    - [Mkusb](https://help.ubuntu.com/community/mkusb)
-    - Or, if you prefer command line like me:
-      ```
-      sudo dd bs=4M if=/path/to/iso of=/dev/sdx status=progress
-      ```
-      where `/dev/sdx` is the root partition of the usb (do not include specific partition
-      numbers). You may want to run `sudo fdisk -l` first to double check the partition name.
-4. Boot the machine from the live usb (you may need to modify BIOS settings to boot from a
-    usb hard drive). If you don't know how to do this, look up how to boot from a live usb
-    and how to change the bios settings for your machine. Make sure you boot with UEFI.
-
-Booting from the usb will open a menu. Choose to boot from the live usb.
-After loading screens you will eventually land on a simple command prompt.
-
-#### Preliminary Internet <a name="preliminary-internet"></a>
-
-1. After verifying the ethernet cable is plugged in (if applicable), test the internet by
-    typing the following command:
-    ```
-    ping archlinux.org
-    ```
-    If an internet connection has already been established, you will see an incremental
-    output displaying packet information. If internet has not yet been set
-    up on the machine, it will likely provide the following error:
-    ```
-    ping: archlinux.org: Name or service not known
-    ```
-    If a response appears, type `ctrl-c` to stop the ping and skip ahead to the next section.
-2. If you arrived at this step, we'll assume no internet is connected.
-    We'll need to get the names of all network cards with
-    `ip link`. Remember the names of the cards that display. On most machines there are only
-    three network cards:
-    - `lo` represents a loopback device, which is kind of like a virtual network (this is how
-        we access `127.0.0.1` and other localhost ports).
-    - `eth0` represents an ethernet adapter. Usually the interface is given a more specific
-        name, such as `enp34s0`. In this guide I will use `eth0` to represent the ethernet
-        card name.
-    - If your machine has a wifi card, it will be represented by `wlan0`. As with the 
-        ethernet card, this is usually passes under a more specific name, like `wlp1s0`.
-        In this guide I will use `wlan0` to represent the wireless card name.
-3. We will now establish an internet connection to download all necessary packages.
-    It is definitely possible to install the OS on the machine using only wifi (using a utility
-    such as [`iwctl`](https://wiki.archlinux.org/index.php/Iwd#iwctl)), but I recommend
-    against wifi if possible since it involves a lot more complication and will be subsequently
-    slower during the install process.
-
-    **To install with ethernet:**
-    1. Copy the netctl example ethernet configuration.
-        ```
-        cp /etc/netctl/examples/ethernet-static /etc/netctl
-        ```
-    2. `vim /etc/netctl/ethernet-static` to change the interface to the interface found earlier.
-        ```
-        Interface=eth0
-        ```
-    3. Enable the configuration and reboot.
-        ```
-        netctl enable ethernet-static
-        systemctl stop dhcpcd
-        systemctl disable dhcpcd
-        sudo reboot
-        ```
-    4. Verify `ping archlinux.org` produces a response.
-      Do not proceed and repeat this section until a response appears.
-
-    **To install with wifi:**
-    1. Enter the `iwctl` prompt by typing `iwctl` in the command line.
-    2. Verify the computer's wifi card with `device list`. This should display the wifi
-    card(s) you saw earlier with `ip link`.
-    3. Scan for networks using `station wlan0 scan`, where `wlan0` is the network card name.
-        This command will not display any output and instead silently scan.
-    4. List all scanned networks with `station wlan0 get-networks`.
-    5. Connect to the internet network with `station wlan0 connect SSID`. This will prompt
-        a password if required. Then type `exit` to return to the original prompt.
-    6. Verify `ping archlinux.org` produces a response. Do not proceed and repeat this section
-        until a response appears.
-
-#### System Time <a name="systime"></a>
-1. Update the system time.
-    ```
-    timedatectl set-ntp true
-    ```
-
-#### Disk Partitioning <a name="disk-partitioning"></a>
-In this guide, we will be creating three partitions: a main partition for all files, a swap
-partition for physical memory, and a FAT UEFI boot partition.
-
-Run the `free -g` command to view the GB amount of memory installed in the system.
-To be safe, we will make the swap partition to be twice the size amount of total RAM.
-
-- To view the disks to partition, use `fdisk -l` to display all drives and note the drive 
-you wish to install Arch on. Make sure this drive is not the usb drive. Mine is `/dev/sda`, 
-and as such, I will be using this drive for the purposes of this guide. Run the following 
-command to open the partitioning editor for that disk:
-    ```
-    fdisk /dev/sda
-    ```
-    You can list any existing partitions in this prompt (as well as disk size) using `p`.
-- Delete all existing partitions on this drive by typing `d` consecutively and selecting
-    existing partitions until it states that no partitions are defined.
-- Type `g` to format the disk to use a GPT (GUID Partition Table). This is preferable on
-    newer systems since it is more accurate than a label-based system, and is much more
-    flexible when working with other operating systems in dual boot, such as Windows or
-    the various BSDs.
-- Type `n` to create a new partition, and `p` to make this a primary partition. Partition
-    number and first sector can both be left at default. You can press `ENTER` to use the
-    default for both of these prompts.
-- The first partition will be the boot partition for our UEFI boot record. A reasonable size
-    for this partition is 200MB.
-    ```
-    +200M
-    ```
-    If prompted to remove a signature, select `y`.
-- The second partition is the swap partition, which will be twice the size of RAM.
-    Using the same commands as before, create a new partition. My system has 32GB of RAM,
-    so the partition created will be 2 x 32GB = 64GB.
-    ```
-    +64G
-    ```
-    Again, remove any existing signatures.
-- The rest of the space will be used for the main partition (this may be different if you plan
-    on dual-booting your system). Using the same commands, create a partition which uses the
-    rest of the disk. When prompted for the last sector, type `ENTER` to use the rest of the
-    space, and remove any existing signatures.
-- Type `w` to write the changes to the hard drive (this is permanent). You will then be able
-    to use `fdisk -l` to view the changes to the disk.
-7. Change the partition extensions. In my case, my boot partition is `/dev/sda1`, swap is
-    `/dev/sda2`, and my root partition is `/dev/sda2`.
-    ```
-    mkfs.fat -F32 /dev/sda1
-
-    mkswap /dev/sda2
-    swapon /dev/sda2
-
-    mkfs.ext4 /dev/sda3
-    ```
-8. Mount the file partitions (the boot and root partitions).
-    ```
-    mount /dev/sda3 /mnt
-    mkdir /mnt/efi
-    mount /dev/sda1 /mnt/efi
-    ```
-
-#### Distro Installation <a name="distro-installation"></a>
-1. Install the linux kernel and base. This will take some time to complete. I also
-    recommend installing development tools (`base-devel`) and an editor (`vim`).
-    ```
-    pacstrap /mnt base base-devel linux linux-firmware vim
-    ```
-
-#### Mounted Drives with Fstab <a name="mounted-drives-with-fstab"></a>
-`fstab` is used to record mounted (mountable) drives to the system.
-
-1. Generate an `fstab` file.
-    ```
-    genfstab -U /mnt >> /mnt/etc/fstab
-    ```
-2. Then log into the system. This will change your prompt.
-    ```
-    arch-chroot /mnt
-    ```
-
-#### Time Zone and Localization <a name="time-zone-and-localization"></a>
-- Set the time zone.
-  ```
-  ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
-  ```
-  for example, since I currently live in the general EST Midwest area:
-  ```
-  ln -sf /usr/share/zoneinfo/America/Louisville /etc/localtime
-  ```
-- Sync the hardware clock.
-  ```
-  hwclock --systohc
-  ```
-- Edit `/etc/locale.gen` to enable locales. I speak and use English as my system language,
-  but yours might be different. Adjust accordingly.
-  ```
-  en_US.UTF-8 UTF-8
-  ```
-  Then generate locales.
-  ```
-  locale-gen
-  ```
-- Edit `/etc/locale.conf` to set the system language.
-  ```
-  LANG=en_US.UTF-8
-  ```
-- Edit `/etc/hostname` to name the machine. I named mine `whitesnake`.
-  ```
-  whitesnake
-  ```
-- Edit `/etc/hosts` to update the host list accordingly:
-  ```
-  127.0.0.1   localhost
-  ::1         localhost
-  127.0.1.1   whitesnake.localdomain    whitesnake
-  ```
-#### Network Manager <a name="network-manager"></a>
-1. Install a network manager. This is vital - without a network manager,
-  you will not be able to use any network.
-    ```
-    pacman -S networkmanager
-    ```
-2. Enable `networkmanager` on boot.
-    ```
-    systemctl enable NetworkManager
-    ```
-
-#### Password <a name="password"></a>
-1. Set a password for the root user.
-    ```
-    passwd
-    ```
-
-#### Bootloader <a name="bootloader"></a>
-I use GRUB as a bootloader because it is simple, quick,
-and works on both UEFI/BIOS systems. It also has a
-customizeable appearance.
-1. Install `grub` and `efibootmgr` for UEFI.
-    ```
-    pacman -S grub efibootmgr
-    grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
-    ```
-2. Generate the `grub` configuration.
-    ```
-    grub-mkconfig -o /boot/grub/grub.cfg
-    ```
-
-#### Installation Wrapup <a name="installation-wrapup"></a>
-1. Exit, unmount the filesystem, and shutdown. Safely remove the usb after the machine is
-    powered off.
-    ```
-    exit
-    umount -R /mnt
-    shutdown -h now
-    ```
-2. Power on the machine. It should boot immediately into a login prompt.
-    If no bootable devices are found, **you may need to tweak BIOS settings in order to boot
-    from UEFI**. Then log in as the root user using `root` as your username and the password
-    you set earlier. If it does not display a login prompt, the operating system was not set
-    up correctly. Repeat the previous steps to install the operating system.
-
-    Anddd we're done! Have fun with your system!
-
-    ...kidding. We still have a bit of manual installation to do.
-
-#### Wifi <a name="wifi"></a>
-1. A wifi network connection can be set up from a terminal interface. Use `nmtui` to display
-    and connect to the appropriate network. Alternatively, the command line utility exists.
-    Run `nmcli d wifi list` to display all networks.
-    Then connect with the appropriate SSID and password.
-    ```
-    nmcli d wifi connect SSID password PASSWORD
-    ```
-    The current network status can be displayed with the `nmcli radio` and `nmcli device` 
-    commands.
-
-#### Creating a User <a name="creating-a-user"></a>
-1. Create a user. This is the user you will use to log in. I will create a user named `sam`.
-    ```
-    useradd -m -g wheel sam
-    passwd sam
-    ```
-2. `EDITOR=vim visudo` to grant the new user sudo permissions.
-    ```
-    %wheel ALL=(ALL) ALL
-    ```
-3. Log out and log back in as the user.
-    ```
-    exit
-    ```
-
-#### Core Setup <a name="core-setup"></a>
-- Install a system upgrade. It's good to do this on a clean install. Additionally, install
-  `git` and other necessary core utilities so you can install my dotfiles and other packages
-  from source.
-  ```
-  sudo pacman -Syu
-  sudo pacman -S git
-  sudo pacman -S bc
-  ```
-- Setup the default shell. I currenly use `mksh`. set it as the default shell for the main user.
-  ```
-  sudo pacman -S mksh
-  chsh -s /bin/mksh
-  ```
-  My dotfiles will automatically use `st` as the default terminal emulator.
-- Log out and log back in.
-  ```
-  exit
-  ```
-  In order to properly clone my dotfiles you will need to empty the user home directory. Because
-  `mksh` does not support globbing (or, a limited version), we will need to remove all dotfiles
-  to clone directly into the directory.
-  ```
-  rm -r .*
-  ```
-- Finally, install my dotfiles. See [cloning](#cloning) for more details.
-
-### Installation with FreeBSD <a name="installation-with-freebsd"></a>
-If you are new to Unix systems, or are new to dotfiles, shells, scripting, and systems, I
-highly recommend following the [Archlinux installation guide](#installation-with-archlinux)
-instead of this one. This FreeBSD installation is more geared towards Unix regulars and
-minimalistic power-users who are looking for a fully customizeable/extendable system.
-
-In other words: _if you're new to the Linux/Unix utopia, this is probably not for you._
-
-#### Table of Contents
-1. [Setup](#setup-freebsd)
-2. [Boot Start](#boot-start-freebsd)
-3. [Hostname](#hostname-freebsd)
-4. [Components](#components-freebsd)
-5. [Disk Partitioning](#disk-partitioning-freebsd)
-6. [Password](#password-freebsd)
-7. [Network Prompt](#network-prompt-freebsd)
-8. [Clock and Localization](#clock-and-localization-freebsd)
-9. [System Configuration](#system-configuration-freebsd)
-10. [System Hardening](#system-hardening-freebsd)
-11. [Adding a User](#adding-a-user-freebsd)
-12. [Basic Networking](#basic-networking-freebsd)
-13. [Core Setup](#core-setup-freebsd)
-
-#### Setup <a name="setup-freebsd"></a>
-1. For this guide you will need the following tools:
-    - A computer that will be wiped to install the new operating system
-    - An internet connection (preferably ethernet)
+    - An internet connection (preferably ethernet - wireless is a pain)
     - A disposable usb drive that can be wiped
 2. Download the latest [FreeBSD](https://www.freebsd.org/where.html) installation image
   from their website. I chose `amd64` architecture release `12.1`. When given the option,
   select the `memstick.img` instead of a standard iso since it does not require an
   internet connection for the base installation, and wifi is difficult to set up
   without proper command line access.
-    > because the disk image contains the both the necessary system files _and_ the ports
-    > collection, it will be larger than many standard Linux distribution isos (but still
-    > _much_ smaller than any Windows iso).
+  > because the disk image contains the both the necessary system files _and_ the ports
+  > collection, it will be larger than many standard Unix distribution images (but still
+  > _much_ smaller than any Windows iso).
 3. Burn the downloaded disk image onto the usb.
+  This can be done using a number of different tools:
+  - [Balena Etcher](https://www.balena.io/etcher)
+  - [Rufus](https://rufus.ie)
+  - [Mkusb](https://help.ubuntu.com/community/mkusb)
+  - Or, if you prefer command line like me:
+    ```
+    sudo dd bs=4M if=/path/to/img of=/dev/sdx status=progress
+    ```
+    where `/dev/sdx` is the root partition of the usb (do not include specific partition
+    numbers). You may want to run `sudo fdisk -l` (depending on your distribution)
+    first to double check the partition name.
 4. Boot the machine from the live usb. This may require BIOS tweaking depending on your
-  machine. Be sure to boot with UEFI if you plan on dual booting with Windows in the
-  future.
+  machine. Be sure to boot with UEFI if you plan on dual booting with Windows, GNU/Linux,
+  or some other operating system in the future.
 
-Booting from the image will open the standard FreeBSD boot menu. You can either wait a
-few seconds or press `ENTER` to select the multi-user boot.
-
-#### Boot Start <a name="boot-start-freebsd"></a>
+#### Boot Start <a name="boot-start"></a>
 When prompted between `Install`, `Shell`, and `Live CD`, select `Install`. Then select
 the keymap best suited for you. Generally you can continue with the default selection,
 but I always like to choose the `United States of America` keyboard (`us.kbd`) just to
-be safe - you never want to boot into a system with the wrong keymapping.
+be safe.
 
-#### Hostname <a name="hostname-freebsd"></a>
+#### Hostname <a name="hostname"></a>
 Name your system. I will name mine `automata`.
 
-#### Components <a name="components-freebsd"></a>
+#### Distribution Select <a name="distribution-select"></a>
 When choosing which components to install, select `kernel-dbg`, `lib32`, and `ports`.
 `lib32` enables support for 32-bit libraries (such as the Steam client) and the ports
-tree is FreeBSD's software management system (the only time you should _not_ install this
-is if your machine is intended for use as a server).
+tree is FreeBSD's external software management system (the only time you should _not_
+install this is if your machine is intended for use as a server - in which case you
+should try [OpenBSD](https://www.openbsd.org)).
 
-#### Disk Partitioning <a name="disk-partitioning-freebsd"></a>
+#### Disk Partitioning <a name="disk-partitioning"></a>
 We will be partitioning our disk with ZFS. Select `Auto (ZFS)` to partition with ZFS.
 
 - Change the swap size to be twice the size of ram. For example, if I have 16 GB, this will be 32GB.
@@ -594,16 +258,16 @@ We will be partitioning our disk with ZFS. Select `Auto (ZFS)` to partition with
 - Proceed with installation to begin the base system installation process, as well as
   the ports tree.
 
-#### Password <a name="password-freebsd"></a>
+#### Password <a name="password"></a>
 When prompted, create a root password.
 
-#### Network Prompt <a name="network-prompt-freebsd"></a>
+#### Network Prompt <a name="network-prompt"></a>
 Eventually the installation process will prompt you to select a network configuration.
 As I mentioned earlier, it is much easier to set up a proper network configuration after
 the installation process has finished. You can select `cancel` and the installation process
 will continue without a network connection.
 
-#### Clock and Localization <a name="clock-and-localization-freebsd"></a>
+#### Clock and Localization <a name="clock-and-localization"></a>
 - The installation will prompt if your CMOS clock is set to UTC. If you are switching
   from Windows to FreeBSD, it is highly likely that Windows reset your CMOS clock to
   the local timezone. If that is the case, select `No`.
@@ -614,16 +278,16 @@ will continue without a network connection.
 - Set the system time. Generally this is very accurate and you can set the default time
   and date it provides.
 
-#### System Configuration <a name="system-configuration-freebsd"></a>
+#### System Configuration <a name="system-configuration"></a>
 You are now able to choose the types of services you would like to have run at boot time.
 I have never had a need to enable any additional services other than the default `sshd` and
 `dumpdev`.
 
-#### System Hardening <a name="system-hardening-freebsd"></a>
+#### System Hardening <a name="system-hardening"></a>
 FreeBSD has a wide variety of security features it offers (as opposed to Linux systems) out
 of the box. I select `random_pid`, `clear_tmp`, `disable_syslogd`, and `disable_sendmail`.
 
-#### Adding a User <a name="adding-a-user-freebsd"></a>
+#### Adding a User <a name="adding-a-user"></a>
 When prompted, select `Yes` to add a new user to the system. This will be the main user.
 - Set the username and full name. I usually keep both the username and full name the same.
 - Press `ENTER` to keep Uid and Login group as default.
@@ -643,7 +307,7 @@ After creating the user, you can exit the installation and reboot the system.
 Instead of logging in as the system user, login as root with the password you
 created earlier.
 
-#### Basic Networking <a name="basic-networking-freebsd"></a>
+#### Basic Networking <a name="basic-networking"></a>
 - Use `sysctl net.wlan.devices` to determine your wifi device name. Mine is `iwm0`.
   Then enable the device in your `/etc/rc.conf`. In this example I will use `iwm0`.
   You will additionally need to use either `ee` or `vi` text editors since they are
@@ -666,7 +330,7 @@ created earlier.
   reboot
   ```
 
-#### Core Setup <a name="core-setup-freebsd"></a>
+#### Core Setup <a name="core-setup"></a>
 - Update the main package repositories and install core utilities.
   Install `pkg` when prompted.
   ```
