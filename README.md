@@ -366,8 +366,8 @@ created earlier.
   ```
 - Setup the default shell. I currenly use `mksh`. set it as the default shell for the main user.
   ```
-  sudo pacman -S mksh
-  chsh -s /bin/mksh
+  sudo pkg install mksh
+  chsh -s /usr/local/bin/mksh
   ```
 - Log out and log back in.
   ```

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo pkg install cmake gmake meson ncurses pkgconf python
+sudo pkg install cmake gettext gmake meson ncurses pkgconf python
 
 sudo portsnap fetch
 sudo portsnap extract
@@ -14,7 +14,7 @@ PACKS="${PACKS} sourcecodepro-ttf wqy-fonts"
 
 # bar
 git clone "https://github.com/krypt-n/bar.git" "${TMP_DIR}/lemonbar-xft"
-cp -f "${XDG_CONFIG_HOME}/lemonbar/Makefele" "${TMP_DIR}/lemonbar-xft/"
+cp -f "${XDG_CONFIG_HOME}/lemonbar/Makefile" "${TMP_DIR}/lemonbar-xft/"
 cd "${TMP_DIR}/lemonbar-xft"
 sudo gmake clean install
 
@@ -32,7 +32,7 @@ PACKS="${PACKS} firefox"
 # PACKS="${PACKS} vimb"
 # PACKS="${PACKS} elinks"
 
-PACKS="${PACKS} gettext zathura-pdf-mupdf" # required for any document viewing
+PACKS="${PACKS} zathura-pdf-mupdf" # required for any document viewing
 git clone "https://git.pwmt.org/pwmt/girara.git" "${TMP_DIR}/girara/"
 cd "${TMP_DIR}/girara"
 git checkout 1b60a46481f6ba37e7515ca80d6f627583f7100f
@@ -71,13 +71,13 @@ sudo ninja -C output/release install
 
 PACKS="${PACKS} newsboat"
 
-PACKS="${PACKS} textlive-full"
+PACKS="${PACKS} texlive-full"
 
 sudo pkg install $PACKS
 
 # firefox profile setup
 $DETEMPLATE "${XDG_CONFIG_HOME}/mozilla/template.user.js"
-firefox -CreateProfile "${FF_PROFILE}"
+DISPLAY=:0 firefox -CreateProfile "${FF_PROFILE}"
 baseDir="${HOME}/.mozilla/firefox"
 profileDir="$(ls "${baseDir}" | grep ".${FF_PROFILE}")"
 ffDir="${baseDir}/${profileDir}"
@@ -105,7 +105,7 @@ cd "${GTK_THEME_DIR}/${THEME}" && yarn && yarn build &
 
 # fonts
 mkdir -p "${FONT_DIR}"
-cp -v ${XDG_CONFIG_HOME}/fonts/* "${FONT_DIR}/"
+sudo cp -v ${XDG_CONFIG_HOME}/fonts/* "${FONT_DIR}/"
 fc-cache -f -v
 
 # motd
