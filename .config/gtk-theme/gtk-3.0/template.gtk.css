@@ -1,77 +1,72 @@
 /* main GTK3+ theme file */
-/* see _colors.scss for configurable colors */
-
-@import url('colors.css');
-
-/* sass interpolation required to properly insert the variables */
 
 /* widget foreground color */
-@define-color theme_fg_color $fg_color;
+@define-color theme_fg_color $THEME_FG;
 
 /* text color for entries, views and general content */
-@define-color theme_text_color $text_color;
+@define-color theme_text_color $THEME_FG;
 
 /* widget base background color */
-@define-color theme_bg_color $bg_color;
+@define-color theme_bg_color $THEME_BG;
 
 /* text widgets and the like base background color */
-@define-color theme_base_color $base_color;
+@define-color theme_base_color $THEME_BG;
 
 /* base background color of selections */
-@define-color theme_selected_bg_color $selected_bg_color;
+@define-color theme_selected_bg_color $THEME_PRIMARY;
 
 /* text/foreground color of selections */
-@define-color theme_selected_fg_color $selected_fg_color;
+@define-color theme_selected_fg_color $THEME_FG;
 
 /* base background color of disabled widgets */
-@define-color insensitive_bg_color $insensitive_bg_color;
+@define-color insensitive_bg_color $THEME_BG;
 
 /* text foreground color of disabled widgets */
-@define-color insensitive_fg_color $insensitive_fg_color;
+@define-color insensitive_fg_color $THEME_FG_ALT;
 
 /* disabled text widgets and the like base background color */
 /* eslint-disable-next-line */
-@define-color insensitive_base_color $insensitive_base_color;
+@define-color insensitive_base_color $THEME_BG;
 
 /* widget text/foreground color on backdrop windows */
-@define-color theme_unfocused_fg_color $unfocused_fg_color;
+@define-color theme_unfocused_fg_color $THEME_FG;
 
 /* text color for entries, views and content in general on backdrop windows */
-@define-color theme_unfocused_text_color $unfocused_text_color;
+@define-color theme_unfocused_text_color $THEME_FG;
 
 /* widget base background color on backdrop windows */
-@define-color theme_unfocused_bg_color $unfocused_bg_color;
+@define-color theme_unfocused_bg_color $THEME_BG;
 
 /* text widgets and the like base background color on backdrop windows */
-@define-color theme_unfocused_base_color $unfocused_base_color;
+@define-color theme_unfocused_base_color $THEME_BG;
 
 /* base background color of selections on backdrop windows */
-@define-color theme_unfocused_selected_bg_color $unfocused_selected_bg_color;
+@define-color theme_unfocused_selected_bg_color $THEME_PRIMARY;
 
 /* text/foreground color of selections on backdrop windows */
-@define-color theme_unfocused_selected_fg_color $unfocused_selected_fg_color;
+@define-color theme_unfocused_selected_fg_color $THEME_BG;
 
 /* widgets main borders color */
-@define-color borders $borders;
+@define-color borders $THEME_BG;
 
 /* widgets main borders color on backdrop windows */
-@define-color unfocused_borders $unfocused_borders;
+@define-color unfocused_borders $THEME_BG;
 
-@define-color warning_color $warning_color;
-@define-color error_color $error_color;
-@define-color success_color $success_color;
-@define-color fg_color $fg_color;
-@define-color text_color $fg_color;
-@define-color bg_color $bg_color;
-@define-color base_color $base_color;
-@define-color selected_bg_color $selected_bg_color;
-@define-color selected_fg_color $selected_fg_color;
-@define-color unfocused_fg_color $unfocused_fg_color;
-@define-color unfocused_text_color $unfocused_text_color;
-@define-color unfocused_bg_color $unfocused_bg_color;
-@define-color unfocused_base_color $unfocused_base_color;
-@define-color unfocused_selected_bg_color $unfocused_selected_bg_color;
-@define-color unfocused_selected_fg_color $unfocused_selected_fg_color;
+@define-color warning_color $THEME_WARNING;
+@define-color error_color $THEME_ERROR;
+@define-color success_color $THEME_PRIMARY;
+@define-color fg_color $THEME_FG;
+@define-color text_color $THEME_FG;
+@define-color bg_color $THEME_BG;
+@define-color base_color $THEME_BGF;
+@define-color selected_bg_color $THEME_PRIMARY ;
+@define-color selected_fg_color $THEME_FG;
+@define-color unfocused_fg_color $THEME_FG;
+@define-color unfocused_text_color $THEME_FG;
+@define-color unfocused_bg_color $THEME_BG;
+@define-color unfocused_base_color $THEME_BG;
+@define-color unfocused_selected_bg_color $THEME_PRIMARY;
+@define-color unfocused_selected_fg_color $THEME_BG;
 
 /* window manager */
 /* shouldn't be used or tampered with for the most part */
