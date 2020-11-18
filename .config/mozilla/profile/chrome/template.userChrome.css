@@ -56,10 +56,16 @@ tab[selected="true"] .tab-background-inner {
 .tab-line { height: 0 !important; }
 tab::after { border: none !important; }
 
+scrollbox {
+    background-color: var(--color-bg-alt);
+}
+
+#pageActionButton,
+#star-button,
 image#pocket-button,
 #appMenu-library-pocket-button,
 toolbarbutton#pageAction-panel-pocket {
-    display: none; /* get rekt Mozilla */
+    display: none !important;
 }
 
 button, toolbarbutton, #pageActionButton { cursor: pointer !important; }
@@ -100,24 +106,26 @@ tabs { --tab-min-height: 38px; }
     flex-direction: column-reverse;
 }
 
-#titlebar, #nav-bar { flex: 1; } 
-.toolbar-items { display: flex; } 
+#nav-bar {
+  background-color: var(--color-bg-alt) !important;
+  background-image: none !important;
+}
+
+#urlbar-background, #searchbar {
+  background-color: var(--color-bg-alt) !important;
+}
+
+#titlebar, #nav-bar { flex: 1; }
+.toolbar-items { display: flex; }
 #TabsToolbar-customization-target { flex: 1; }
 
 #tabs-newtab-button,
 #new-tab-button,
 #alltabs-button,
-#pageActionButton,
-#tracking-protection-icon-container,
 #scrollbutton-down,
 #scrollbutton-up,
-#library-button,
 #back-button,
 #forward-button,
-#reload-button,
-#home-button,
-#fxa-toolbar-menu-button,
-#sidebar-button,
 .tab-close-button {
     display: none;
 }
@@ -125,16 +133,4 @@ tabs { --tab-min-height: 38px; }
 #PanelUI-button {
     border: none !important;
     padding: 0 !important;
-}
-
-/* extension-specific */
-
-#adblockultimate_adblockultimate_net-browser-action,
-.toolbarbutton-badge {
-  display: none;
-}
-
-#_testpilot-containers-browser-action,
-.toolbarbutton-1 {
-    fill: var(--color-fg-alt) !important;
 }
