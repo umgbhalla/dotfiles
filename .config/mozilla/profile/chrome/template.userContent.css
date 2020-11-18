@@ -386,7 +386,7 @@
       background-color: var(--color-bg) !important;
       border-top: 4px solid var(--color-bg-alt) !important;
     }
-    .markdown-body kbd {
+    kbd {
       background-color: var(--color-bg-alt) !important;
       border: 1px solid var(--color-bg-alt) !important;
       color: var(--color-fg) !important;
@@ -493,6 +493,39 @@
       background-color: var(--color-bg) !important;
       border-right-color: var(--color-bg-alt) !important;
     }
+    .notifications-list-item.notification-archived,
+    .notifications-list-item.notification-read {
+      background-color: var(--color-bg) !important;
+    }
+    .filter-item.selected, .filter-item[aria-selected="true"],
+    .filter-item:hover, .filter-item[aria-current]:not([aria-current="false"]) {
+      background-color: var(--color-fg) !important;
+      color: var(--color-bg) !important;
+    }
+    .rule, hr { border-bottom: 1px solid var(--color-fg) !important; }
+    .notifications-list-item:hover { box-shadow: 2px 0 0 var(--color-fg) inset !important; }
+    .notifications-list-item:hover .AvatarStack-body { background: none !important; }
+    .notifications-list-item .notification-list-item-link { color: var(--color-fg) !important; }
+    .filter-item { color: var(--color-fg) !important; }
+    .flash-banner, .flash-full { background-color: var(--color-primary) !important; }
+    .flash { background-image: none !important; }
+    .comment-body a { color: var(--color-fg) !important; }
+    .Link--secondary, .link-gray { color: var(--color-fg) !important; }
+    .text-gray-light { color: var(--color-fg) !important; }
+    details summary.text-gray { color: var(--color-fg) !important; }
+    .js-comment-edit-history-menu .dropdown-item { color: var(--color-fg) !important; }
+    .js-comment-edit-history-menu .dropdown-item:hover { color: var(--color-bg) !important; }
+    .select-menu-merge-method .select-menu-item:hover,
+    .select-menu-merge-method .select-menu-item:hover .octicon,
+    .select-menu-merge-method .select-menu-item:hover .select-menu-item-text {
+      color: var(--color-bg) !important;
+      background-color: var(--color-fg) !important;
+    }
+    .select-menu-item.selected, details-menu .select-menu-item[aria-checked="true"],
+    details-menu .select-menu-item[aria-selected="true"] { color: var(--color-fg) !important; }
+    .select-menu-merge-method .select-menu-item:hover .description { color: var(--color-bg) !important; }
+    .tabnav-tab.selected, .tabnav-tab[aria-current]:not([aria-current="false"]),
+    .tabnav-tab[aria-selected="true"] { border-color: var(--color-bg-alt) !important; }
     /* TODO */
 }
 
