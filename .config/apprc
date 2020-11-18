@@ -116,6 +116,33 @@ export SPICETIFY_ALERT="$(echo $G_ALERT | tail -c +2)"
 export ST_FONT="Source Code Pro:pixelsize=15:antialias=true:autohint=true"
 export ST_PADDING="$(echo "$W_GAPS * 1.5 / 1" | bc)"
 
+# vifm
+
+case "$OS" in
+  "$OS_FREEBSD")
+    export VIFM_ICON_DIR=""
+    export VIFM_ICON_EXE="#!"
+    export VIFM_ICON_AUDIO=""
+    export VIFM_ICON_IMAGE=""
+    export VIFM_ICON_VIDEO=""
+    export VIFM_ICON_ARCHIVE=""
+    export VIFM_ICON_DOC=""
+    export VIFM_ICON_DISK_IMAGE=""
+    export VIFM_ICON_LINK=""
+    ;;
+  "$OS_LINUX")
+    export VIFM_ICON_DIR=""
+    export VIFM_ICON_EXE=""
+    export VIFM_ICON_AUDIO=""
+    export VIFM_ICON_IMAGE=""
+    export VIFM_ICON_VIDEO=""
+    export VIFM_ICON_ARCHIVE=""
+    export VIFM_ICON_DOC=""
+    export VIFM_ICON_DISK_IMAGE=""
+    export VIFM_ICON_LINK=""
+    ;;
+esac
+
 # zathura
 
 export ZATHURA_BG="$($HEX2RGB $G_BG | sed -e s/b/ba/ -e s/\)/,$W_ALPHA\)/)"
