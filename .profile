@@ -81,7 +81,7 @@ export BROWSER_ARGS="${BROWSER}" # set below
 export BROWSER_INCOGNITO="${BROWSER} -private-window"
 
 # file explorer
-export FILE_EXPLORER="nnn"
+export FILE_EXPLORER="vifm"
 export FILE_EXPLORER_ARGS="${FILE_EXPLORER}"
 
 case "${OS}" in
@@ -144,11 +144,6 @@ export DOLLAR="$" # vital for envsubst escaping
 export ELINKS_CONFDIR="${XDG_CONFIG_HOME}/elinks"
 export ELINKS_XTERM="st -e"
 export FF_PROFILE="main"
-export NNN_BMS="b:${HOME};h:${HOME};d:${HOME}/Downloads;c:${XDG_CONFIG_HOME}"
-export NNN_COLORS="1111"
-export NNN_FCOLORS="0c04010a070d0b07010b0b01"
-export NNN_OPTS="degHQ"
-export NNN_TMPFILE="${XDG_CONFIG_HOME}/nnn/.lastd" # cannot be changed
 export PROMPT_EOL_MARK="" # prevent partial line % from appearing
 export REDSHIFT_LAST="$XDG_CACHE_HOME/redshift_last"
 case "${OS}" in

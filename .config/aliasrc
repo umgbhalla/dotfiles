@@ -121,7 +121,12 @@ rp() {
 }
 
 # file explorer directory setting
-alias r="${FILE_EXPLORER_ARGS} && . ${NNN_TMPFILE}"
+fm() {
+  fmDir="${XDG_CACHE_HOME}/fm_last_dir"
+  $FILE_EXPLORER_ARGS --choose-dir="$fmDir"
+  cd $(cat "$fmDir")
+}
+alias r="fm"
 
 # bookmarks
 b() {

@@ -1,0 +1,6 @@
+[Default Applications]
+application/pdf=org.pwmt.zathura.desktop
+audio/mpeg=mpv.desktop
+image/gif=mpv.desktop
+text/html=firefox.desktop
+text/plain=nvim.desktop

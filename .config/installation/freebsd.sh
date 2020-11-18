@@ -23,10 +23,7 @@ PACKS="${PACKS} hsetroot"
 
 PACKS="${PACKS} neovim node ripgrep"
 
-git clone "https://github.com/jarun/nnn.git" "${TMP_DIR}/nnn"
-cd "${TMP_DIR}/nnn"
-g checkout 52b87a24925708aaa0ab57821386358136db48bd
-sudo gmake O_NORL=1 O_NOMOUSE=1 O_NOBATCH=1 O_NOFIFO=1 O_NOSSN=1 clean install
+PACKS="${PACKS} vifm"
 
 PACKS="${PACKS} firefox"
 # PACKS="${PACKS} vimb"
