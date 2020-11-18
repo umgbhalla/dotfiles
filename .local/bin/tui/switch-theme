@@ -28,9 +28,6 @@ done < "$XDG_CONFIG_HOME/templaterc"
 # Xresources
 $XRDB_UPDATE
 
-# gtk theme
-cd "$GTK_THEME_DIR/$THEME" && yarn && yarn build &
-
 # bar
 $BAR_UPDATE &
 

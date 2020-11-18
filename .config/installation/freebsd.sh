@@ -98,10 +98,9 @@ $SBUILD herbe
 $SBUILD slock
 
 # gtk theme
-$DETEMPLATE "${XDG_CONFIG_HOME}/${THEME}/gtk-3.0/template._colors.scss"
+$DETEMPLATE "${XDG_CONFIG_HOME}/${THEME}/gtk-3.0/template.colors.css"
 sudo mkdir -p "${GTK_THEME_DIR}"
 sudo ln -sf "${XDG_CONFIG_HOME}/${THEME}" "${GTK_THEME_DIR}/${THEME}"
-cd "${GTK_THEME_DIR}/${THEME}" && yarn && yarn build &
 
 # fonts
 mkdir -p "${FONT_DIR}"

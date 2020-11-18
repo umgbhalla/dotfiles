@@ -1,5 +1,3 @@
-// this is a template file designed for usage in my dotfiles
-
 ${DOLLAR}fg_color: $THEME_FG;
 ${DOLLAR}text_color: $THEME_FG;
 ${DOLLAR}bg_color: $THEME_BG;
