@@ -4,7 +4,7 @@
 "$REDSHIFT" set "$(cat $REDSHIFT_LAST)" &
 
 # init compositor
-$COMPOSITOR_ARGS &
+$COMPOSITOR_ARGS
 
 # init bar
 $BAR_ARGS &

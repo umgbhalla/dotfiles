@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo pkg install cmake gettext gmake meson ncurses pkgconf python
+sudo pkg install cmake gettext gmake meson ncurses pkgconf python uthash
 
 sudo portsnap fetch
 sudo portsnap extract
@@ -18,7 +18,15 @@ cp -f "${XDG_CONFIG_HOME}/lemonbar/Makefile" "${TMP_DIR}/lemonbar-xft/"
 cd "${TMP_DIR}/lemonbar-xft"
 sudo gmake clean install
 
-PACKS="${PACKS} picom"
+# compositor
+git clone "https://github.com/yshui/picom" "${TMP_DIR}/picom"
+cd "${TMP_DIR}/picom"
+git checkout 248bffede73e520a4929dd7751667d29d4169d59
+git submodule update --init --recursive
+CPPFLAGS="-I/usr/local/include" LDFLAGS="-L/usr/local/lib" meson . build
+meson configure build -Dcompton="false" -Ddbus="false" -Db_colorout="never" -Dbuildtype="minsize" -Dauto_features="disabled"
+sudo ninja -C build install
+
 PACKS="${PACKS} hsetroot"
 
 PACKS="${PACKS} neovim node ripgrep"
