@@ -139,7 +139,7 @@ System Profiler:  htop
     **FreeBSD:**
     ```sh
     . $HOME/.profile
-    sudo $XDG_CONFIG_HOME/install/freebsd.sh
+    $XDG_CONFIG_HOME/install/freebsd.sh
     ```
     Restart and verify all packages are running properly.
     ```
@@ -490,6 +490,14 @@ a FreeBSD](https://wiki.freebsd.org/TuningPowerConsumption) laptop.
   ```
   powerd_enable="YES"
   ```
+- Throttle the CPU. FreeBSD does not automatically throttle the CPU and forcefully shuts down if the
+  CPU core temperature reaches a dangerous limit. To prevent this, we can set a CPU frequency
+  limit in `/etc/rc.conf`:
+  ```
+  powerd_flags="-M 1600"
+  ```
+  You can use `sysctl dev.cpu.0.freq_levels` to view all possible CPU frequencies.
+
 - Allow the CPU to turn off core clocks on idle. By default, the system runs CPUs at
   all times unless specified. Add to `/etc/rc.conf`:
   ```
