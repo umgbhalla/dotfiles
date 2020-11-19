@@ -14,6 +14,9 @@ only
 set millerview
 set milleroptions=csize:2,rsize:1
 
+" display hidden files on startup
+set dotfiles
+
 " ------------------------------------------------------------------------------
 
 " Command used to edit files in various contexts.  The default is vim.

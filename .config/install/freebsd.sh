@@ -103,7 +103,7 @@ $SBUILD herbe
 $SBUILD slock
 
 # gtk theme
-$DETEMPLATE "${XDG_CONFIG_HOME}/${THEME}/gtk-3.0/template.colors.css"
+$DETEMPLATE "${XDG_CONFIG_HOME}/${THEME}/gtk-3.0/template.gtk.css"
 sudo mkdir -p "${GTK_THEME_DIR}"
 sudo ln -sf "${XDG_CONFIG_HOME}/${THEME}" "${GTK_THEME_DIR}/${THEME}"
 

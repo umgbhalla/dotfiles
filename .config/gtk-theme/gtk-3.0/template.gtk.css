@@ -58,8 +58,8 @@
 @define-color fg_color $THEME_FG;
 @define-color text_color $THEME_FG;
 @define-color bg_color $THEME_BG;
-@define-color base_color $THEME_BGF;
-@define-color selected_bg_color $THEME_PRIMARY ;
+@define-color base_color $THEME_BG;
+@define-color selected_bg_color $THEME_PRIMARY;
 @define-color selected_fg_color $THEME_FG;
 @define-color unfocused_fg_color $THEME_FG;
 @define-color unfocused_text_color $THEME_FG;

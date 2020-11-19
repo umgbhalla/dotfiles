@@ -19,7 +19,7 @@
   outline-offset: -3px;
   outline-width: 1px;
   -gtk-outline-radius: 2px;
-  -gtk-secondary-caret-color: @theme_selected_bg_color; 
+  -gtk-secondary-caret-color: @theme_selected_bg_color;
 }
 
 /***********
@@ -1084,7 +1084,7 @@ calendar {
     calendar.button:disabled {
       color: rgba(142, 149, 164, 0.45); }
   calendar:indeterminate, calendar:indeterminate:backdrop {
-    color: #{"alpha(currentColor,0.55); }
+    color: alpha(currentColor,0.55); }
   calendar.highlight, calendar.highlight:backdrop {
     font-size: smaller;
     color: @theme_fg_color; }
@@ -2986,7 +2986,7 @@ menu,
       border-color: transparent; }
 
 menuitem accelerator {
-  color: #{"alpha(currentColor,0.55); }
+  color: alpha(currentColor,0.55); }
 
 menuitem check,
 menuitem radio {
@@ -3183,7 +3183,7 @@ notebook > header {
       notebook > header tab button.flat, notebook > header tab button.flat:backdrop {
         background: transparent;
         border: none;
-        color: #{"alpha(currentColor,0.3); }
+        color: alpha(currentColor,0.3); }
       notebook > header tab button.flat:last-child {
         margin-left: 4px;
         margin-right: -4px; }
@@ -3513,9 +3513,9 @@ scale {
         .osd scale slider:backdrop:disabled {
           background-color: #f1f1f1; }
   scale value {
-    color: #{"alpha(currentColor,0.4); }
+    color: alpha(currentColor,0.4); }
   scale marks {
-    color: #{"alpha(currentColor,0.4); }
+    color: alpha(currentColor,0.4); }
     scale marks.top {
       margin-bottom: 6px;
       margin-top: -12px; }
@@ -4931,7 +4931,7 @@ button.raven-trigger {
 .places-menu .places-section-header {
   padding: 0px;
   border-bottom: 1px solid rgba(35, 40, 49, 0.95);
-  box-shadow: 0px 1px 1px #{"alpha(@theme_fg_color, 0.03); }
+  box-shadow: 0px 1px 1px alpha(@theme_fg_color, 0.03); }
 
 .places-menu .places-section-header > button {
   padding: 8px;
@@ -4970,16 +4970,16 @@ button.raven-trigger {
 .night-light-indicator .view-header {
   font-size: 14px;
   padding: 10px;
-  border-bottom: 1px solid #{"mix(@theme_base_color, #000000, 0.35);
-  box-shadow: 0px 1px 1px #{"alpha(@theme_fg_color, 0.04); }
+  border-bottom: 1px solid mix(@theme_base_color, #000000, 0.35);
+  box-shadow: 0px 1px 1px alpha(@theme_fg_color, 0.04); }
 
 .night-light-indicator .display-settings-button {
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   border: none;
   padding: 3px;
-  border-top: 1px solid #{"mix(@theme_base_color, #000000, 0.35);
-  box-shadow: inset 0px 1px 1px #{"alpha(@theme_fg_color, 0.04); }
+  border-top: 1px solid mix(@theme_base_color, #000000, 0.35);
+  box-shadow: inset 0px 1px 1px alpha(@theme_fg_color, 0.04); }
 
 .budgie-panel {
   color: @theme_fg_color;
@@ -5313,7 +5313,7 @@ calendar.raven-calendar {
   background: transparent;
   border-color: transparent; }
   calendar.raven-calendar:indeterminate {
-    color: #{"alpha(currentColor,0.3); }
+    color: alpha(currentColor,0.3); }
   calendar.raven-calendar:selected {
     background: transparent;
     color: #82b4b3;
@@ -5326,7 +5326,7 @@ calendar.raven-calendar {
     border-radius: 0;
     background-color: transparent; }
   calendar.raven-calendar button, calendar.raven-calendar button:focus {
-    color: #{"alpha(currentColor,0.5);
+    color: alpha(currentColor,0.5);
     background-color: transparent; }
     calendar.raven-calendar button:hover, calendar.raven-calendar button:focus:hover {
       color: @theme_fg_color;
