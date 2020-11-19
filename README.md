@@ -72,11 +72,11 @@ There are two routes you can follow to reproduce the exact same setup I have, on
      may cost you a considerable amount of time to get everything to work in the long run.
 
 ## Demonstration <a name="demonstration"></a>
-![basic status bar with background](.config/installation/scr1.png)
-![neofetch, a terminal instance, and blurry discord](.config/installation/scr2.png)
-![tiled browser, tty-clock, and pdf viewer](.config/installation/scr3.png)
-![a workspace with my nvim configuration](.config/installation/scr4.png)
-![music player and file explorer in separate terminal windows](.config/installation/scr5.png)
+![basic status bar with background](.config/install/scr1.png)
+![neofetch, a terminal instance, and blurry discord](.config/install/scr2.png)
+![tiled browser, tty-clock, and pdf viewer](.config/install/scr3.png)
+![a workspace with my nvim configuration](.config/install/scr4.png)
+![music player and file explorer in separate terminal windows](.config/install/scr5.png)
 
 ## System Information <a name="sysinfo"></a>
 Information taken from `neofetch` output.
@@ -139,7 +139,7 @@ System Profiler:  htop
     **FreeBSD:**
     ```sh
     . $HOME/.profile
-    $XDG_CONFIG_HOME/installation/freebsd.sh
+    $XDG_CONFIG_HOME/install/freebsd.sh
     ```
     Restart and verify all packages are running properly.
     ```
@@ -152,7 +152,7 @@ System Profiler:  htop
     **GNU/Linux:**
     ```sh
     . "$HOME/.profile"
-    $XDG_CONFIG_HOME/installation/linux.sh
+    $XDG_CONFIG_HOME/install/linux.sh
     ```
     Restart and verify all packages are running properly.
     ```
@@ -165,7 +165,7 @@ System Profiler:  htop
     **MacOS:**
     ```sh
     source $HOME/.profile
-    $HOME/.config/installation/macos.sh
+    $HOME/.config/install/macos.sh
     ```
     I suggest changing the terminal background to a darker theme for the best experience.
     In order to use the terminal buffer keymap(s) in `nvim`, make sure to set the `use option 
