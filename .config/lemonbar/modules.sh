@@ -1,32 +1,30 @@
 #!/bin/sh
 
 ICON_PADDING="7"
-FG="$(xgetres bar.foreground || "${BAR_FG}")"
-BG="$(xgetres bar.background || "${BAR_BG}")"
+FG="$(xgetres "bar.foreground")"
+BG="$(xgetres "bar.background")"
 
 wm() {
   ws="$(bspc query -D --names -d)"
   title=""
 
-  case $ws in
-    I) title="%{O$ICON_PADDING}develop" ;;
-    II) title="%{O$ICON_PADDING}browse " ;;
-    III) title="%{O$ICON_PADDING}game   " ;;
-    IV) title="%{O$ICON_PADDING}chat   " ;;
-    V) title="%{O$ICON_PADDING}media  " ;;
-    IX) title="%{O$ICON_PADDING}news   " ;;
-    X) title="%{O$ICON_PADDING}music  " ;;
+  case "$ws" in
+    "I")    title="%{O$ICON_PADDING}develop" ;;
+    "II")   title="%{O$ICON_PADDING}browse " ;;
+    "III")  title="%{O$ICON_PADDING}game   " ;;
+    "IV")   title="%{O$ICON_PADDING}chat   " ;;
+    "V")    title="%{O$ICON_PADDING}media  " ;;
+    "IX")   title="%{O$ICON_PADDING}news   " ;;
+    "X")    title="%{O$ICON_PADDING}music  " ;;
   esac
 
-  title="$(echo "$title" | awk '{print toupper($0)}')"
+  title="$(echo "$title" | tr "[a-z]" "[A-Z]")"
   echo "%{B$BG} ${title} %{B-}"
 }
 
 capture() {
-  if [ -n "${SCREEN}" ] && \
-  [ "$(${SCREEN} recording-status)" = "recording" ]; then
+  [ -e "${TMP_DIR}/screenPid" ] && \
     echo "%{B$BG} %{F$LEMONBAR_ALERT}%{F$FG} %{B-}"
-  fi
 }
 
 volume() {
@@ -36,36 +34,23 @@ volume() {
   active=""
   empty=""
 
-  v_padding="4"
+  h_padding="4"
 
   volNum="0"
 
   case "$OS" in
     # just using the left channel
-    "$OS_FREEBSD") volNum="$(mixer vol | awk '{print $NF}' | cut -d: -f1)" ;;
+    "$OS_FREEBSD") volNum="$(mixer vol | grep -o '[^:]*$')" ;;
     "$OS_LINUX") volNum="$(pamixer --get-volume)" ;;
   esac
 
   fullNum="$(echo "$volNum/$unit" | bc)"
   emptyNum="$(echo "100/$unit - $fullNum" | bc)"
 
-  vol=""
+  volFull="$(printf "%${fullNum}s" | awk "{gsub(/\ /, \"${full}%{O$h_padding}\")};1")"
+  volEmpty="$(printf "%${emptyNum}s" | awk "{gsub(/\ /, \"${empty}%{O$h_padding}\")};1")"
 
-  n="0"
-  while [ "$n" -lt "$fullNum" ]; do
-    vol="${vol}${full}%{O$v_padding}"
-    n="$(( n + 1 ))"
-  done
-
-  vol="${vol}${active}%{O$v_padding}"
-
-  n="0"
-  while [ "$n" -lt "$emptyNum" ]; do
-    vol="${vol}${empty}%{O$v_padding}"
-    n="$(( n + 1 ))"
-  done
-
-  echo "%{B$BG} ${vol} %{B-}"
+  echo "%{B$BG} ${volFull}${active}%{O$h_padding}${volEmpty} %{B-}"
 }
 
 battery() {
@@ -74,9 +59,11 @@ battery() {
 
   case "$OS" in
     "$OS_FREEBSD")
-      bat="$(apm | awk '/Remaining battery/ {gsub("%","");print $4;exit}')"
+      pow="$(apm)"
 
-      status="$(apm | awk '/Battery Status/ {print $3;exit}')"
+      bat="$(echo "$pow" | awk '/Remaining battery life/ {gsub("%","");print $4;exit}')"
+
+      status="$(echo "$pow" | awk '/Battery Status/ {print $3;exit}')"
       if [ "$status" = "charging" ]; then status="$charging"
       else status="$discharging"
       fi
@@ -100,7 +87,7 @@ battery() {
 
 clock() {
   datefmt="$(date "+%m.%d %a %H:%M")"
-  capdatefmt="$(echo "$datefmt" | awk '{print toupper($0)}')"
+  capdatefmt="$(echo "$datefmt" | tr "[a-z]" "[A-Z]")"
   echo "%{B$BG} %{O$ICON_PADDING}${capdatefmt} %{B-}"
 }
 
