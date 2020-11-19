@@ -200,7 +200,7 @@ export REDSHIFT="$TUI_DIR/redshift"
 export SBUILD="$TUI_DIR/sbuild"
 export SCREEN="$TUI_DIR/screen"
 export SHELLMENU="$GUI_DIR/shell-menu"
-export SWITCHTHEME="$TUI_DIR/switch-theme"
+export SETTHEME="$TUI_DIR/set-theme"
 
 #
 # path
