@@ -2,10 +2,10 @@
 
 sudo pkg install cmake gettext gmake meson ncurses pkgconf python uthash
 
-sudo portsnap fetch
-sudo portsnap extract
+# sudo portsnap fetch
+# sudo portsnap extract
 
-PACKS="mmv" # what a god-tier utility
+PACKS="mmv" # god-tier utilities
 # PACKS="${PACKS} groff"
 
 PACKS="${PACKS} xorg drm-kmod"

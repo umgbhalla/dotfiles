@@ -139,7 +139,7 @@ System Profiler:  htop
     **FreeBSD:**
     ```sh
     . $HOME/.profile
-    $XDG_CONFIG_HOME/install/freebsd.sh
+    sudo $XDG_CONFIG_HOME/install/freebsd.sh
     ```
     Restart and verify all packages are running properly.
     ```
