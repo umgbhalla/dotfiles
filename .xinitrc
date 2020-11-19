@@ -15,9 +15,6 @@ $XRDB_UPDATE
 # shortcut manager
 sxhkd &
 
-# music server
-killall mpd; mpd &
-
 $COMPOSITOR_ARGS &
 
 $BACKGROUND &

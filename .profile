@@ -192,6 +192,7 @@ export TUI_DIR="$XDG_SCRIPT_HOME/tui"
 
 export AUDIO="$TUI_DIR/audio"
 export DETEMPLATE="$TUI_DIR/detemplate"
+export DET="$DETEMPLATE"
 export HEX2FF="$TUI_DIR/hex2ff"
 export HEX2RGB="$TUI_DIR/hex2rgb"
 export LAUNCHER="$GUI_DIR/launcher"
