@@ -182,10 +182,13 @@ _including_ operating system, packages, and software/architecture specifics.
 
 If you are new to Unix systems, dotfiles, shells, scripting, and systems, I
 highly recommend installing and following the
-[official Archlinux installation guide](https://wiki.archlinux.org/index.php/Installation_guide) instead of this one. This
-installation is more geared towards Unix regulars and minimalistic power-users looking for a
-fully customizeable/extendable system that is POSIX-compliant and follows the [Unix philosophy](https://en.wikipedia.org/wiki/Unix_philosophy). I do not necessarily recommend people to follow this section since
-it's mostly just here for my own benefit, but it may be helpful to advanced Unix users.
+[official Archlinux installation guide](https://wiki.archlinux.org/index.php/Installation_guide)
+instead of this one. This installation is more geared towards Unix regulars and
+minimalistic power-users looking for a fully customizeable/extendable system that is
+POSIX-compliant and follows the
+[Unix philosophy](https://en.wikipedia.org/wiki/Unix_philosophy).
+I do not necessarily recommend people to follow this section since it's mostly just here
+for my own benefit, but it may be helpful to some Unix users.
 
 In other words: _if you're new to the non-proprietary Unix utopia, this installation is
 probably not for you._
@@ -195,18 +198,15 @@ probably not for you._
 - [Boot Start](#boot-start)
 - [Internet](#internet)
 - [Update the System Clock](#update-the-system-clock)
-
-- [Hostname](#hostname)
-- [Distribution Select](#distribution-select)
 - [Disk Partitioning](#disk-partitioning)
+- [Operating System Installation](#operating-system-installation)
+- [Fstab](#fstab)
+- [Chroot](#chroot)
+- [Localization](#localization)
+- [Network Configuration](#network-configuration)
 - [Password](#password)
-- [Network Prompt](#network-prompt)
-- [Clock and Localization](#clock-and-localization)
-- [System Configuration](#system-configuration)
-- [System Hardening](#system-hardening)
-- [Adding a User](#adding-a-user)
-- [Basic Networking](#basic-networking)
-- [Core Setup](#core-setup)
+- [Boot Loader](#boot-loader)
+- [Installation Wrapup](#installation-wrapup)
 
 #### Setup <a name="setup"></a>
 1. For this guide you will need the following tools:
@@ -225,10 +225,11 @@ probably not for you._
     sudo dd bs=4M if=/path/to/img of=/dev/sdx status=progress
     ```
     where `/dev/sdx` is the root partition of the usb (do not include specific partition
-    numbers). You may want to run `sudo fdisk -l` or `geom disk list` (depending on your operating system)
+    numbers). You may want to run `sudo fdisk -l` or `geom disk list`
+    (depending on your operating system).
     first to double check the partition name.
-4. Boot the computer from the live usb. This may require manual BIOS tweaking depending on your
-  machine. Be sure to boot with UEFI if you plan on dual booting with Windows
+4. Boot the computer from the live usb. This may require manual BIOS tweaking depending
+  on your machine. Be sure to boot with UEFI if you plan on dual booting with Windows
   in the future.
 
 #### Boot Start <a name="boot-start"></a>
@@ -240,16 +241,24 @@ The boot process should eventually land on a virtual terminal prompt.
   ```
   ping archlinux.org
   ```
-  If an internet connection has already been established, you will see an incremental output of packets. If not, a DNS error will return.
+  If an internet connection has already been established, you will see an incremental
+  output of packets. If not, a DNS error will return.
   ```
   ping: archlinux.org: Name or service not known
   ```
-  Type `ctrl+c` to stop the program. If an internet connection has been established, you can skip ahead to the next step.
-- Assuming no internet connection exists, use `ip link` to retrieve the names of all network cards. Remember the names of the cards that display. On most machines there are at least three types of network cards:
+  Type `ctrl+c` to stop the program. If an internet connection has been established,
+  you can skip ahead to the next step.
+- Assuming no internet connection exists, use `ip link` to retrieve the names of all
+  network cards. Remember the names of the cards that display.
+  On most machines there are at least three types of network cards:
 
-  - `lo` represents a loopback device, which is kind of like a virtual network (this is how 127.0.0.1 and other localhost ports are accessed).
-  - `eth0` represents an ethernet (wired) network card. Usually the interface is given a more specific name, such as `enp34s0`.
-  - `wlan0` represents a wireless network card. As with the ethernet card, this is usually passes under a more specific name, like `wlp1s0`. In this guide I will use wlan0 to represent the wireless card name.
+  - `lo` represents a loopback device, which is kind of like a virtual network
+    (this is how 127.0.0.1 and other localhost ports are accessed).
+  - `eth0` represents an ethernet (wired) network card. Usually the interface is given a
+    more specific name, such as `enp34s0`.
+  - `wlan0` represents a wireless network card. As with the ethernet card, this is
+    usually passes under a more specific name, like `wlp1s0`. In this guide I use
+    wlan0 to represent the wireless card name.
 
 - Establish an internet connection to download all base operating system packages.
   - Ethernet:
@@ -257,7 +266,8 @@ The boot process should eventually land on a virtual terminal prompt.
       ```sh
       cp /etc/netctl/examples/ethernet-static /etc/netctl
       ```
-    - `vim /etc/netctl/ethernet-static` to change the name of the interface card to the name of your network card.
+    - `vim /etc/netctl/ethernet-static` to change the name of the interface card to
+      the name of your network card.
       ```
       Interface=eth0
       ```
@@ -268,17 +278,20 @@ The boot process should eventually land on a virtual terminal prompt.
       systemctl disable dhcpcd
       sudo reboot
       ```
-    - Verify `ping archlinux.org` produces a response. Do not proceed and repeat this section until a response appears.
+    - Verify `ping archlinux.org` produces a response. Do not proceed and repeat this
+        section until a response appears.
   - Wireless:
     - Enter the iwctl prompt.
       ```sh
       iwctl
       ```
-    - Verify the computer's wifi card. This should display the wifi card(s) you saw earlier with ip link.
+    - Verify the computer's wifi card. This should display the wifi card(s) you saw
+      earlier with ip link.
       ```
       device list
       ```
-    - Scan for local networks. This command does not display any output and instead silently scans.
+    - Scan for local networks. This command does not display any output and instead
+      silently scans.
       ``` 
       station wlan0 scan
       ```
@@ -286,12 +299,14 @@ The boot process should eventually land on a virtual terminal prompt.
       ```
       station wlan0 get-networks
       ```
-    - Connect to an internet network, where SSID is the name of the network. This will prompt for a password if required.
+    - Connect to an internet network, where SSID is the name of the network.
+      This will prompt for a password if required.
       ```
       station wlan0 connect SSID
       ```
     - Type `exit` to return to the original terminal prompt.
-    - Verify `ping archlinux.org` produces a response. Do not proceed and repeat this section until a response appears.
+    - Verify `ping archlinux.org` produces a response. Do not proceed and repeat this
+      section until a response appears.
 
 #### Update the System Clock <a name="update-the-system-clock"></a>
 - Update the system clock.
@@ -299,153 +314,238 @@ The boot process should eventually land on a virtual terminal prompt.
   timedatectl set-ntp true
   ```
 
-  WIP
-
-#### Hostname <a name="hostname"></a>
-Name your system. I will name mine `automata`.
-
-#### Distribution Select <a name="distribution-select"></a>
-When choosing which components to install, select `kernel-dbg`, `lib32`, and `ports`.
-`lib32` enables support for 32-bit libraries (such as the Steam client) and the ports
-tree is FreeBSD's external software management system (the only time you should _not_
-install this is if your machine is intended for use as a server - in which case you
-should try [OpenBSD](https://www.openbsd.org)).
-
 #### Disk Partitioning <a name="disk-partitioning"></a>
-We will be partitioning our disk with ZFS. Select `Auto (ZFS)` to partition with ZFS.
+In this guide I assume that you only want to install to one disk, and that the full
+disk is being utilized. I will also be using `ext4` for my filesystem (yes, I've heard
+all about the
+[wonders of root-on-ZFS](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/zfs.html#zfs-differences)
+and I've actually used it with my BSD build, but sadly, Archlinux doesn't quite support
+it yet). I'm also assuming you have _at least_ 128 GB of disk space.
 
-- Change the swap size to be twice the size of ram. For example, if I have 16 GB, this will be 32GB.
+My parition scheme will be as follows:
+```
+[SWAP] - 2 * RAM
+/efi - 200 MB
+/ - 8 GB
+/tmp - 1 GB
+/var/tmp - (bind to /tmp)
+/usr/local - 60 GB
+/var - 4 GB
+/home - Remainder of space
+```
+This scheme is to provide the utmost security, modularity, and performance
+for a personal computer. The separate partitions prevents system corruptions and allows
+end-users to easily swap operating systems without affecting home files.
+Additionally, it provides options for UEFI as well as tmpfs.
+
+- Determine the size of the disk and the size of RAM memory.
+  I will be using and referencing `/dev/sda` as my disk.
   ```
-  32g
+  # disk partition and size
+  fdisk -l
+
+  # memory
+  free -h
   ```
-- Verify that the partition scheme is `GPT`, and either `(BIOS + UEFI)` or `(UEFI)`.
-- Change the pool type to stripe, and select your disk you want FreeBSD to be installed on
-  (usually this is named `ada0`).
-- Proceed with installation to begin the base system installation process, as well as
-  the ports tree.
+- Use `fdisk /dev/sda` to enter a command-line disk partition editor.
+  In this prompt you may type `p` to view the pending partition table.
+- Type `g` to create a new GPT partition scheme. This will also erase the old partition
+  table along with any old partitions.
+- Create a SWAP partition. Type `n` to create a new partition, press `enter` to use the
+  default partition number and first sector, and make the partition size twice the size
+  of your RAM capacity. My RAM is 15 GB:
+  ```
+  n
+  enter
+  enter
+  +30G
+  ```
+  If prompted to remove an existing filesystem signature, say `yes`.
+  New signatures will be established for the new partitions.
+
+  Additionally, if you accidentally create a bad partition, you can always delete
+  the partition using the `d` key.
+- Create an efi `/efi` partition.
+  ```
+  n
+  enter
+  enter
+  +200M
+  ```
+- Create a root `/` partition.
+  ```
+  n
+  enter
+  enter
+  +8G
+  ```
+- Create a `/tmp` partition.
+  ```
+  n
+  enter
+  enter
+  +1G
+  ```
+- Create a `/usr/local` partition.
+  ```
+  n
+  enter
+  enter
+  +60G
+  ```
+- Create a `/var` partition.
+  ```
+  n
+  enter
+  enter
+  +4G
+  ```
+- Create a `/home` home partition. This partition will use the remainder of the disk space.
+  ```
+  n
+  enter
+  enter
+  enter
+  ```
+- Type `p` to view your partitions. Once you are satisfied with your partitioning, type
+  `w` to permanently write the partitioning scheme to the disk. You will be returned to
+  the virtual terminal prompt, where you will be able to run `fdisk -l` to view your
+  newly created partitions.
+- Change all partition signatures.
+  ```
+  mkswap /dev/sda1
+  swapon /dev/sda1
+
+  mkfs.fat -F32 /dev/sda2
+
+  mkfs.ext4 /dev/sda3
+  mkfs.ext4 /dev/sda4
+  mkfs.ext4 /dev/sda5
+  mkfs.ext4 /dev/sda6
+  mkfs.ext4 /dev/sda7
+  ```
+- Mount the partitions.
+  ```
+  mount /dev/sda3 /mnt
+
+  mkdir /mnt/efi
+  mount /dev/sda2 /mnt/efi
+
+  mkdir /mnt/tmp
+  mount /dev/sda4 /mnt/tmp -o nodev,nosuid,noexec
+
+  mkdir -p /mnt/usr/local
+  mount /dev/sda5 /mnt/usr/local
+
+  mkdir /mnt/var
+  mount /dev/sda6 /mnt/var
+
+  mkdir /mnt/home
+  mount /dev/sda7 /mnt/home -o nodev
+  ```
+
+#### Operating System Installation <a name="operating-system-installation"></a>
+- Install the Linux kernel and Archlinux base. This usually takes some time to
+  complete depending on your internet stability. I also recommend installing a
+  text editor (`vim`).
+  ```
+  pacstrap /mnt base base-devel linux linux-firmware vim
+  ```
+
+#### Fstab <a name="fstab"></a>
+- Generate an Fstab file. This is a file that dictates how partitions are mounted
+  when the system boots.
+  ```
+  genfstab -U /mnt >> /mnt/etc/fstab
+  ```
+
+#### Chroot <a name="chroot"></a>
+- Change root into the new system. You will now be within your newly-formatted disk.
+  ```
+  arch-chroot /mnt
+  ```
+
+#### Localization <a name="localization"></a>
+- Set the time zone, where REGION and CITY pertain to your local area.
+  These values can be tab-completed.
+  ```
+  ln -sf /usr/share/zoneinfo/REGION/CITY /etc/localtime
+  ```
+- Sync the clock to the time zone specified.
+  ```
+  hwclock --systohc
+  ```
+- `vim /etc/locale.gen` to enable necessary locales. I use English as my system language,
+  but yours may differ:
+  ```
+  en_US.UTF-8 UTF-8
+  ```
+  Then generate locales.
+  ```
+  locale-gen
+  ```
+- `vim /etc/locale.conf` to set the system language:
+  ```
+  LANG=en_US.UTF-8
+  ```
+
+#### Network Configuration <a name="network-configuration"></a>
+- Name your system in `/etc/hostname`. I will name mine `automata`.
+  ```
+  automata
+  ```
+- Create the corresponding host entries in `/etc/hosts`:
+  ```
+  127.0.0.1     localhost
+  ::1           localhost
+  127.0.1.1     automata.localdomain    automata
+  ```
+- Install a network manager. I use `NetworkManager`:
+  ```
+  pacman -S networkmanager
+  systemctl enable NetworkManager
+  ```
 
 #### Password <a name="password"></a>
-When prompted, create a root password.
-
-#### Network Prompt <a name="network-prompt"></a>
-Eventually the installation process will prompt you to select a network configuration.
-As I mentioned earlier, it is much easier to set up a proper network configuration after
-the installation process has finished. You can select `cancel` and the installation process
-will continue without a network connection.
-
-#### Clock and Localization <a name="clock-and-localization"></a>
-- The installation will prompt if your CMOS clock is set to UTC. If you are switching
-  from Windows to FreeBSD, it is highly likely that Windows reset your CMOS clock to
-  the local timezone. If that is the case, select `No`.
-
-  In most other cases you can select `Yes`. If you are unsure, you can verify the CMOS time
-  in the system BIOS.
-- Next, choose your country and region. This is used for timezone/localization settings.
-- Set the system time. Generally this is very accurate and you can set the default time
-  and date it provides.
-
-#### System Configuration <a name="system-configuration"></a>
-You are now able to choose the types of services you would like to have run at boot time.
-I have never had a need to enable any additional services other than the default `sshd` and
-`dumpdev`.
-
-#### System Hardening <a name="system-hardening"></a>
-FreeBSD has a wide variety of security features it offers (as opposed to Linux systems) out
-of the box. I select `random_pid`, `clear_tmp`, `disable_syslogd`, and `disable_sendmail`.
-
-#### Adding a User <a name="adding-a-user"></a>
-When prompted, select `Yes` to add a new user to the system. This will be the main user.
-- Set the username and full name. I usually keep both the username and full name the same.
-- Press `ENTER` to keep Uid and Login group as default.
-- When prompted, be sure to add your user to the additional group `wheel`
-  for sudo privileges.
-- Press `ENTER` to keep Login class as default.
-- Choose your system shell. I default to the Bourne `sh` shell because I find that I never
-  need the additional bloat features csh and tcsh provide (and I am personally not a fan
-  of the way they set environment variables).
-- Use the default settings for the rest of the prompts regarding Home directory and
-  password authentication, and when prompted, enter the password for the new user.
-- Do _not_ lock out the account after creation. This is selected by default.
-- Confirm the user settings you have provided.
-
-After creating the user, you can exit the installation and reboot the system.
-
-Instead of logging in as the system user, login as root with the password you
-created earlier.
-
-#### Basic Networking <a name="basic-networking"></a>
-- Use `sysctl net.wlan.devices` to determine your wifi device name. Mine is `iwm0`.
-  Then enable the device in your `/etc/rc.conf`. In this example I will use `iwm0`.
-  You will additionally need to use either `ee` or `vi` text editors since they are
-  the only editors installed by default.
+- Set the root password.
   ```
-  # wifi
-  wlans_iwm0="wlan0"
-  ifconfig_wlan0="WPA SYNCDHCP"
-  ```
-  Next, in `/etc/wpa_supplicant.conf`, list your network configuration and settings.
-  ```
-  network={
-    ssid="YOUR SSID"
-    psd="YOUR PSK"
-  }
-  ```
-  Reboot, login to root, and verify that a network connection has been established
-  with `ping freebsd.org`.
-  ```
-  reboot
+  passwd
   ```
 
-#### Core Setup <a name="core-setup"></a>
-- Update the main package repositories and install core utilities.
-  Install `pkg` when prompted.
+#### Boot Loader <a name="boot-loader"></a>
+I use Grub as a bootloader because it is simple, quick, and works on both UEFI/BIOS systems. It also has a customizeable appearance.
+
+- Install GRUB and efibootmgr for UEFI.
   ```
-  pkg update
-  pkg install sudo git vim
+  pacman -S grub efibootmgr
+  grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
   ```
-- Enable root permissions for the `wheel` group via `visudo`:
+- Generate the GRUB configuration file.
   ```
-  %wheel ALL=(ALL) ALL
+  grub-mkconfig -o /boot/grub/grub.cfg
   ```
-- Logout and log back in as the main user created earlier.
-  You will now be able to install packages.
-- Set up graphics for X. I use an intel-based vga, so installed
-  an intel video package.
-  ```
-  sudo pkg install xf86-video-intel
-  ```
-  Then enable the module in your `/etc/rc.conf`:
-  ```
-  kld_list="/boot/modules/i915kms.ko"
-  ```
-  To prevent screen tearing and lag, add yourself to the video group.
-  ```
-  sudo pw groupmod video -m $USER
-  ```
-  Allow X to access devices. Edit `/etc/devfs.rules` as follows:
-  ```
-  add path 'dri/*' mode 0666 group operator
-  ```
-  Then add the user to the operator group:
-  ```
-  sudo pw groupmod operator -m $USER
-  ```
-- Setup the default shell. I currenly use `mksh`. set it as the default shell for the main user.
-  ```
-  sudo pkg install mksh
-  chsh -s /usr/local/bin/mksh
-  ```
-- Log out and log back in.
+
+#### Installation Wrapup <a name="installation-wrapup"></a>
+At this point, we have completely installed everything needed for a fully functional
+Archlinux system.
+- Exit chroot and umount the partitions.
   ```
   exit
+  umount -R /mnt
   ```
-  In order to properly clone my dotfiles you will need to empty the user home directory. Because
-  `mksh` does not support globbing (or, a limited version), we will need to remove all dotfiles
-  to clone directly into the directory.
+- Shutdown the system.
   ```
-  rm -r .*
+  shutdown -h now
   ```
-- Finally, install my dotfiles. See [cloning](#cloning) for more details.
+  Then safely remove the usb drive.
+- Power on the machine. You may need to change the BIOS/UEFI settings of your machine in order to tell your motherboard the location of the efi boot partition.
+
+   If it boots into a GRUB menu, then stops at a login prompt, you've just successfully
+   completed a standard Archlinux installation! However, this specific installation is
+   anything but standard - we still have some work to do.
+- Log in to root using `root` as the username and the password you created earlier.
+
+  WIP
 
 ## Additional Configuration or Notes <a name="addconfig"></a>
 This list of additional configuration options are in no particular order. I've just added or
@@ -602,4 +702,8 @@ implemented or had the time to configure.
 + [pinyin input (fcitx?)](https://forums.freebsd.org/threads/installing-chinese-input-method-in-freebsd-10-1.52314/)
 + fix pulse sound switching (idek what's wrong but it's buggy) and needs to be OSS/ALSA compatible
   + fix ffmpeg screen capture quality and audio
-+ contact management application
++ contact management application (abook?)
++ Upgrade firefox (to 83 for performance) and change config (no search suggestions, enable https only)
++ Remove mouse cursor from screen script
++ Switch to plan9/Remove gmake as dependency
++ Switch to terminal email (Mutt?)

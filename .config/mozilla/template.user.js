@@ -135,6 +135,8 @@ user_pref("devtools.editor.keymap", "vim"); // bindings for all devtools file ed
 
 // media
 user_pref("dom.media.autoplay.autoplay-policy-api", false);
+// play drm-controlled content
+user_pref("media.eme.enabled", true);
 
 // pocket
 user_pref("extensions.pocket.enabled", false);
@@ -145,6 +147,7 @@ user_pref("extensions.pocket.onSaveRecs", false);
 user_pref("browser.download.panel.shown", true);
 // always display download icon in bar
 user_pref("browser.download.autohideButton", false);
+
 
 // extensions
 user_pref("extensions.update.enabled", false);
