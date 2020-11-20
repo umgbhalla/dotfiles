@@ -3,8 +3,7 @@
 ## Table of Contents
 1. [What The \**** Are Dotfiles?](#what-are-dotfiles)
 2. [Demonstration](#demonstration)
-2. [System Information](#sysinfo)
-3. [Cloning](#cloning)
+3. [System Information](#sysinfo)
 4. [Manual Installation](#manual-installation)
 5. [Additional Configuration or Notes](#addconfig)
 6. [TODO](#todo)
@@ -100,82 +99,6 @@ Notifications: herbe
 System Profiler:  htop
 ```
 
-## Cloning <a name="cloning"></a>
-
-1. Clone this repository to your home folder using the steps outlined below.
-    If you followed my [manual installation](#manual-installation),
-    choose either `mksh` or `sh`.
-    - `mksh`:
-      ```sh
-      cd $HOME
-      # this is an irreversible action!
-      rm -r .*
-      git clone --recursive https://github.com/bossley9/dotfiles.git .
-      ```
-    - `dash/sh`:
-      ```sh
-      git clone --recursive https://github.com/bossley9/dotfiles.git /tmp/dotfiles
-      cd /tmp/dotfiles
-
-      # you will need to manually copy every file (including dots) individually from
-      # /tmp/dotfiles to $HOME/ since dash does not offer extended glob patterns.
-      ```
-    - `bash`:
-      ```sh
-      git clone --recursive https://github.com/bossley9/dotfiles.git /tmp/dotfiles
-      shopt -s dotglob nullglob
-      cp -rv /tmp/dotfiles/* $HOME/
-      ```
-    - `zsh`:
-      ```sh
-      git clone --recursive https://github.com/bossley9/dotfiles.git /tmp/dotfiles
-      setopt -s glob_dots
-      cp -rv /tmp/dotfiles/* $HOME/
-      ```
-2. Switch to a different virtual terminal. This is so that `x` does not begin running before
-  all core programs are installed. On most distributions/operating systems, you can do this
-  by typing `ctrl + alt + F2`.
-3. Install required core packages for the configuration to work, as well as my preferred
-    programs. I've written scripts in my dotfiles that install all necessary packages
-    automatically. This script can be rerun to install any additional packages after an update
-    to this repository, and you can even add your own packages to the files to install them.
-    It will also enable system packages and build my `suckless` utilities.
-
-    **FreeBSD:**
-    ```sh
-    . $HOME/.profile
-    $XDG_CONFIG_HOME/install/freebsd.sh
-    ```
-    Restart and verify all packages are running properly.
-    ```
-    sudo reboot
-    ```
-    You may need to install certain packages or run certain commands in order to tweak
-    everything accordingly. I've tried to include comments at the top of most relevant config
-    files.
-
-    **GNU/Linux (Archlinux):**
-    ```sh
-    . "$HOME/.profile"
-    $XDG_CONFIG_HOME/install/arch.sh
-    ```
-    Restart and verify all packages are running properly.
-    ```
-    sudo reboot
-    ```
-    You may need to install certain packages or run certain commands in order to tweak 
-    everything accordingly. I've tried to include comments at the top of most relevant config 
-    files.
-
-    **MacOS:**
-    ```sh
-    source $HOME/.profile
-    $HOME/.config/install/macos.sh
-    ```
-    I suggest changing the terminal background to a darker theme for the best experience.
-    In order to use the terminal buffer keymap(s) in `nvim`, make sure to set the `use option 
-    as meta key` option in the profile keyboard settings.
-
 ## Manual Installation <a name="manual-installation"></a>
 This section serves to aid those who would like to fully replicate my current working system
 _including_ operating system, packages, and software/architecture specifics.
@@ -208,6 +131,10 @@ probably not for you._
 - [Password](#password)
 - [Boot Loader](#boot-loader)
 - [Installation Wrapup](#installation-wrapup)
+- [Post-Install Internet](#post-install-internet)
+- [Creating a User](#creating-a-user)
+- [Core](#core)
+- [Cloning](#cloning)
 
 #### Setup <a name="setup"></a>
 1. For this guide you will need the following tools:
@@ -552,14 +479,89 @@ Archlinux system.
   shutdown -h now
   ```
   Then safely remove the usb drive.
-- Power on the machine. You likely need to change the BIOS/UEFI settings of your machine in order to tell your motherboard the location of the efi boot partition.
+- Power on the machine. You likely need to change the BIOS/UEFI settings of your machine
+  in order to tell your motherboard the location of the efi boot partition.
 
-   If it boots into a GRUB menu, then stops at a login prompt, you've just successfully
-   completed a standard Archlinux installation! However, this specific installation is
-   anything but standard - we still have some work to do.
+  If it boots into a GRUB menu, then stops at a login prompt, you've just successfully
+  completed a standard Archlinux installation! However, this specific installation is
+  anything but standard - we still have some work to do.
 - Log in to root using `root` as the username and the password you created earlier.
 
-  WIP
+#### Post-Install Internet <a name="post-install-internet"></a>
+- Connect to internet with Network Manager. This can be done via the command line interface
+`nmcli`, or the easier terminal interface `nmtui`.
+- Verify internet connection with `ping archlinux.org`.
+
+#### Creating a User <a name="creating-a-user"></a>
+- Create a new user. This will be the main user in which you will use to log into and
+  interact with your system.
+  ```
+  useradd -m -g wheel sam
+  passwd sam
+  ```
+- Use `EDITOR=vim visudo` to grant the new user root permissions.
+  ```
+  %wheel ALL=(ALL) ALL
+  ```
+  Then logout and log back in as the newly created user.
+
+#### Core <a name="core"></a>
+- First, run a system upgrade to update any packages that were not up to date when the
+  system was installed. It's a good practice to do this on a clean install even if no
+  packages need updating.
+  ```
+  sudo pacman -Syu
+  ```
+- Install git.
+  ```
+  sudo pacman -S git
+  ```
+- Install any core utilities.
+  ```
+  sudo pacman -S bc
+  ```
+- Install and set mksh as the default shell.
+  ```
+  sudo pacman -S mksh
+  chsh -s /bin/mksh
+  ```
+  Log out and log back in to use the new default shell.
+
+#### Cloning <a name="cloning"></a>
+- Clone this repository to your home folder using the steps outlined below.
+  If you have followed my [manual installation](#manual-installation) completely,
+  choose `mksh`.
+  - dash/mksh/sh:
+    ```sh
+    cd $HOME
+    # this action is irreversible - be careful!
+    rm -rf .*
+    git clone --recursive https://github.com/bossley9/dotfiles.git .
+    ```
+  - bash:
+    ```sh
+    git clone --recursive https://github.com/bossley9/dotfiles.git /tmp/dotfiles
+    shopt -s dotglob nullglob
+    cp -rv /tmp/dotfiles/* $HOME/
+    ```
+  - zsh:
+    ```sh
+    git clone --recursive https://github.com/bossley9/dotfiles.git /tmp/dotfiles
+    setopt -s glob_dots
+    cp -rv /tmp/dotfiles/* $HOME/
+    ```
+- Log out and log back in.
+  ```
+  exit
+  ```
+- Run the install script I have created:
+  ```sh
+  $XDG_CONFIG_HOME/install/arch.sh
+  ```
+- Reboot to allow changes to take effect.
+  ```
+  reboot
+  ```
 
 ## Additional Configuration or Notes <a name="addconfig"></a>
 This list of additional configuration options are in no particular order. I've just added or
