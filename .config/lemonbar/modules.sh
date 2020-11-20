@@ -47,8 +47,8 @@ volume() {
   fullNum="$(echo "$volNum/$unit" | bc)"
   emptyNum="$(echo "100/$unit - $fullNum" | bc)"
 
-  volFull="$(printf "%${fullNum}s" | awk "{gsub(/\ /, \"${full}%{O$h_padding}\")};1")"
-  volEmpty="$(printf "%${emptyNum}s" | awk "{gsub(/\ /, \"${empty}%{O$h_padding}\")};1")"
+  volFull="$(printf "%${fullNum}s" | awk "{gsub(/ /, \"${full}%{O$h_padding}\")};1")"
+  volEmpty="$(printf "%${emptyNum}s" | awk "{gsub(/ /, \"${empty}%{O$h_padding}\")};1")"
 
   echo "%{B$BG} ${volFull}${active}%{O$h_padding}${volEmpty} %{B-}"
 }
