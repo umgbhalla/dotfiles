@@ -154,10 +154,10 @@ System Profiler:  htop
     everything accordingly. I've tried to include comments at the top of most relevant config
     files.
 
-    **GNU/Linux:**
+    **GNU/Linux (Archlinux):**
     ```sh
     . "$HOME/.profile"
-    $XDG_CONFIG_HOME/install/linux.sh
+    $XDG_CONFIG_HOME/install/arch.sh
     ```
     Restart and verify all packages are running properly.
     ```
@@ -204,6 +204,7 @@ probably not for you._
 - [Chroot](#chroot)
 - [Localization](#localization)
 - [Network Configuration](#network-configuration)
+- [Initramfs](#initramfs)
 - [Password](#password)
 - [Boot Loader](#boot-loader)
 - [Installation Wrapup](#installation-wrapup)
@@ -324,12 +325,11 @@ it yet). I'm also assuming you have _at least_ 128 GB of disk space.
 
 My parition scheme will be as follows:
 ```
-[SWAP] - 2 * RAM
 /efi - 200 MB
+[SWAP] - 2 * RAM
 / - 8 GB
 /tmp - 1 GB
-/var/tmp - (bind to /tmp)
-/usr/local - 60 GB
+/usr - 60 GB
 /var - 4 GB
 /home - Remainder of space
 ```
@@ -351,26 +351,26 @@ Additionally, it provides options for UEFI as well as tmpfs.
   In this prompt you may type `p` to view the pending partition table.
 - Type `g` to create a new GPT partition scheme. This will also erase the old partition
   table along with any old partitions.
-- Create a SWAP partition. Type `n` to create a new partition, press `enter` to use the
-  default partition number and first sector, and make the partition size twice the size
-  of your RAM capacity. My RAM is 15 GB:
+- Create an efi `/efi` partition. Type `n` to create a new partition, press `enter` to use the
+  default partition number and first sector, and make the partition size 200 MB.
   ```
   n
   enter
   enter
-  +30G
+  +200M
   ```
   If prompted to remove an existing filesystem signature, say `yes`.
   New signatures will be established for the new partitions.
 
   Additionally, if you accidentally create a bad partition, you can always delete
   the partition using the `d` key.
-- Create an efi `/efi` partition.
+- Create a SWAP partition. The partition size should be twice the size of your RAM
+  capacity. My RAM is 15 GB:
   ```
   n
   enter
   enter
-  +200M
+  +30G
   ```
 - Create a root `/` partition.
   ```
@@ -386,7 +386,7 @@ Additionally, it provides options for UEFI as well as tmpfs.
   enter
   +1G
   ```
-- Create a `/usr/local` partition.
+- Create a `/usr` partition.
   ```
   n
   enter
@@ -413,10 +413,10 @@ Additionally, it provides options for UEFI as well as tmpfs.
   newly created partitions.
 - Change all partition signatures.
   ```
-  mkswap /dev/sda1
-  swapon /dev/sda1
+  mkfs.fat -F32 /dev/sda1
 
-  mkfs.fat -F32 /dev/sda2
+  mkswap /dev/sda2
+  swapon /dev/sda2
 
   mkfs.ext4 /dev/sda3
   mkfs.ext4 /dev/sda4
@@ -429,13 +429,13 @@ Additionally, it provides options for UEFI as well as tmpfs.
   mount /dev/sda3 /mnt
 
   mkdir /mnt/efi
-  mount /dev/sda2 /mnt/efi
+  mount /dev/sda1 /mnt/efi
 
   mkdir /mnt/tmp
   mount /dev/sda4 /mnt/tmp -o nodev,nosuid,noexec
 
-  mkdir -p /mnt/usr/local
-  mount /dev/sda5 /mnt/usr/local
+  mkdir /mnt/usr
+  mount /dev/sda5 /mnt/usr
 
   mkdir /mnt/var
   mount /dev/sda6 /mnt/var
@@ -443,6 +443,7 @@ Additionally, it provides options for UEFI as well as tmpfs.
   mkdir /mnt/home
   mount /dev/sda7 /mnt/home -o nodev
   ```
+  You can use the `mount` command to verify that your partitions have been mounted correctly.
 
 #### Operating System Installation <a name="operating-system-installation"></a>
 - Install the Linux kernel and Archlinux base. This usually takes some time to
@@ -458,6 +459,8 @@ Additionally, it provides options for UEFI as well as tmpfs.
   ```
   genfstab -U /mnt >> /mnt/etc/fstab
   ```
+  You can double check that `/mnt/etc/fstab` is formatted according to your needs
+  and modify any mount options if needed.
 
 #### Chroot <a name="chroot"></a>
 - Change root into the new system. You will now be within your newly-formatted disk.
@@ -506,6 +509,17 @@ Additionally, it provides options for UEFI as well as tmpfs.
   systemctl enable NetworkManager
   ```
 
+#### Initramfs <a name="initramfs"></a>
+In order to allow the system to detect the `/usr` drive, we need to add init flags.
+- `vim /etc/mkinitcpio.conf` and add the following hooks, not altering the previous hooks:
+  ```
+  HOOKS=(... shutdown usr fsck)
+  ```
+  Then recreate the ramfs image:
+  ```
+  mkinitcpio -P
+  ```
+
 #### Password <a name="password"></a>
 - Set the root password.
   ```
@@ -538,7 +552,7 @@ Archlinux system.
   shutdown -h now
   ```
   Then safely remove the usb drive.
-- Power on the machine. You may need to change the BIOS/UEFI settings of your machine in order to tell your motherboard the location of the efi boot partition.
+- Power on the machine. You likely need to change the BIOS/UEFI settings of your machine in order to tell your motherboard the location of the efi boot partition.
 
    If it boots into a GRUB menu, then stops at a login prompt, you've just successfully
    completed a standard Archlinux installation! However, this specific installation is
