@@ -30,6 +30,8 @@ I use these same dotfiles for both work and school.
 
 #### Why Linux?
 
+_(I plan on expanding this section in the future.)_
+
 I wanted a solution that protected my privacy from the major tech corporations (**cough cough
 Google Microsoft Apple**) while also providing wonderful shell tools like Unix's 
 [9base](https://tools.suckless.org/9base/)
@@ -104,7 +106,10 @@ System Profiler:  htop
     If you followed my [manual installation](#manual-installation),
     choose either `mksh` or `sh`.
     - `mksh`:
-      ```mksh
+      ```sh
+      cd $HOME
+      # this is an irreversible action!
+      rm -r .*
       git clone --recursive https://github.com/bossley9/dotfiles.git .
       ```
     - `dash/sh`:
@@ -177,9 +182,9 @@ _including_ operating system, packages, and software/architecture specifics.
 
 If you are new to Unix systems, dotfiles, shells, scripting, and systems, I
 highly recommend installing and following the
-[Archlinux installation guide](#installation-with-archlinux) instead of this one. This
+[official Archlinux installation guide](https://wiki.archlinux.org/index.php/Installation_guide) instead of this one. This
 installation is more geared towards Unix regulars and minimalistic power-users looking for a
-fully customizeable/extendable system. I do not recommend people follow this section since
+fully customizeable/extendable system that is POSIX-compliant and follows the [Unix philosophy](https://en.wikipedia.org/wiki/Unix_philosophy). I do not necessarily recommend people to follow this section since
 it's mostly just here for my own benefit, but it may be helpful to advanced Unix users.
 
 In other words: _if you're new to the non-proprietary Unix utopia, this installation is
@@ -188,6 +193,9 @@ probably not for you._
 #### Table of Contents
 - [Setup](#setup)
 - [Boot Start](#boot-start)
+- [Internet](#internet)
+- [Update the System Clock](#update-the-system-clock)
+
 - [Hostname](#hostname)
 - [Distribution Select](#distribution-select)
 - [Disk Partitioning](#disk-partitioning)
@@ -202,38 +210,96 @@ probably not for you._
 
 #### Setup <a name="setup"></a>
 1. For this guide you will need the following tools:
-    - A computer that will be wiped to install the new operating system
-    - An internet connection (preferably ethernet - wireless is a pain)
+    - The computer that will be wiped to install the new operating system
+    - An internet connection
     - A disposable usb drive that can be wiped
-2. Download the latest [FreeBSD](https://www.freebsd.org/where.html) installation image
-  from their website. I chose `amd64` architecture release `12.1`. When given the option,
-  select the `memstick.img` instead of a standard iso since it does not require an
-  internet connection for the base installation, and wifi is difficult to set up
-  without proper command line access.
-  > because the disk image contains the both the necessary system files _and_ the ports
-  > collection, it will be larger than many standard Unix distribution images (but still
-  > _much_ smaller than any Windows iso).
+2. Download the latest [Archlinux installation image](https://www.archlinux.org/download/)
+  from their website. I downloaded version `2020.11.01`.
 3. Burn the downloaded disk image onto the usb.
   This can be done using a number of different tools:
-  - [Balena Etcher](https://www.balena.io/etcher)
-  - [Rufus](https://rufus.ie)
-  - [Mkusb](https://help.ubuntu.com/community/mkusb)
+  - [Balena Etcher](https://www.balena.io/etcher) (cross-platform)
+  - [Rufus](https://rufus.ie) (Windows)
+  - [Mkusb](https://help.ubuntu.com/community/mkusb) (Linux/Ubuntu)
   - Or, if you prefer command line like me:
     ```
     sudo dd bs=4M if=/path/to/img of=/dev/sdx status=progress
     ```
     where `/dev/sdx` is the root partition of the usb (do not include specific partition
-    numbers). You may want to run `sudo fdisk -l` (depending on your distribution)
+    numbers). You may want to run `sudo fdisk -l` or `geom disk list` (depending on your operating system)
     first to double check the partition name.
-4. Boot the machine from the live usb. This may require BIOS tweaking depending on your
-  machine. Be sure to boot with UEFI if you plan on dual booting with Windows, GNU/Linux,
-  or some other operating system in the future.
+4. Boot the computer from the live usb. This may require manual BIOS tweaking depending on your
+  machine. Be sure to boot with UEFI if you plan on dual booting with Windows
+  in the future.
 
 #### Boot Start <a name="boot-start"></a>
-When prompted between `Install`, `Shell`, and `Live CD`, select `Install`. Then select
-the keymap best suited for you. Generally you can continue with the default selection,
-but I always like to choose the `United States of America` keyboard (`us.kbd`) just to
-be safe.
+The boot process should eventually land on a virtual terminal prompt.
+- Verify the boot mode is UEFI by the output of `ls /sys/firmware/efi/efivars`.
+
+#### Internet <a name="internet"></a>
+- You can test for internet with the following command:
+  ```
+  ping archlinux.org
+  ```
+  If an internet connection has already been established, you will see an incremental output of packets. If not, a DNS error will return.
+  ```
+  ping: archlinux.org: Name or service not known
+  ```
+  Type `ctrl+c` to stop the program. If an internet connection has been established, you can skip ahead to the next step.
+- Assuming no internet connection exists, use `ip link` to retrieve the names of all network cards. Remember the names of the cards that display. On most machines there are at least three types of network cards:
+
+  - `lo` represents a loopback device, which is kind of like a virtual network (this is how 127.0.0.1 and other localhost ports are accessed).
+  - `eth0` represents an ethernet (wired) network card. Usually the interface is given a more specific name, such as `enp34s0`.
+  - `wlan0` represents a wireless network card. As with the ethernet card, this is usually passes under a more specific name, like `wlp1s0`. In this guide I will use wlan0 to represent the wireless card name.
+
+- Establish an internet connection to download all base operating system packages.
+  - Ethernet:
+    - Copy the netctl example ethernet configuration.
+      ```sh
+      cp /etc/netctl/examples/ethernet-static /etc/netctl
+      ```
+    - `vim /etc/netctl/ethernet-static` to change the name of the interface card to the name of your network card.
+      ```
+      Interface=eth0
+      ```
+    - Enable the configuration and reboot.
+      ```sh
+      netctl enable ethernet-static
+      systemctl stop dhcpcd
+      systemctl disable dhcpcd
+      sudo reboot
+      ```
+    - Verify `ping archlinux.org` produces a response. Do not proceed and repeat this section until a response appears.
+  - Wireless:
+    - Enter the iwctl prompt.
+      ```sh
+      iwctl
+      ```
+    - Verify the computer's wifi card. This should display the wifi card(s) you saw earlier with ip link.
+      ```
+      device list
+      ```
+    - Scan for local networks. This command does not display any output and instead silently scans.
+      ``` 
+      station wlan0 scan
+      ```
+    - List all scanned networks.
+      ```
+      station wlan0 get-networks
+      ```
+    - Connect to an internet network, where SSID is the name of the network. This will prompt for a password if required.
+      ```
+      station wlan0 connect SSID
+      ```
+    - Type `exit` to return to the original terminal prompt.
+    - Verify `ping archlinux.org` produces a response. Do not proceed and repeat this section until a response appears.
+
+#### Update the System Clock <a name="update-the-system-clock"></a>
+- Update the system clock.
+  ```
+  timedatectl set-ntp true
+  ```
+
+  WIP
 
 #### Hostname <a name="hostname"></a>
 Name your system. I will name mine `automata`.
