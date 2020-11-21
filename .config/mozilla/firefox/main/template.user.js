@@ -43,9 +43,12 @@ user_pref("extensions.formautofill.addresses.enabled", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
 
 // address bar
+user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.urlbar.suggest.bookmark", false);
 user_pref("browser.urlbar.suggest.openpage", false);
 user_pref("browser.urlbar.suggest.topsites", false);
+user_pref("browser.urlbar.suggest.history", false);
+user_pref("browser.urlbar.suggest.searches", false);
 
 // permissions
 // popups
@@ -75,7 +78,7 @@ user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 
-// telemetry
+// telemetry and privacy
 user_pref("toolkit.telemetry.reportingpolicy.firstRun", false);
 user_pref("toolkit.telemetry.enabled", false);
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
@@ -96,6 +99,7 @@ user_pref("toolkit.telemetry.updatePing.enabled", false);
 user_pref("toolkit.telemetry.reportingpolicy.firstRun", false);
 user_pref("toolkit.telemetry.unified", false);
 user_pref("toolkit.telemetry.archive.enabled", false);
+user_pref("toolkit.telemetry.cachedClientID", "");
 user_pref("devtools.onboarding.telemetry.logged", false);
 user_pref("toolkit.telemetry.bhrPing.enabled", false);
 user_pref("datareporting.healthreport.uploadEnabled", false);
@@ -106,10 +110,33 @@ user_pref("datareporting.policy.dataSubmissionEnabled", false);
 user_pref("datareporting.sessions.current.clean", true);
 user_pref("services.sync.prefs.sync.app.shield.optoutstudies.enabled", false);
 user_pref("services.sync.prefs.sync.browser.discovery.enabled", false);
+// disable history recording
+// user_pref("places.history.enabled", false);
+// telemetry master
 user_pref("app.normandy.enabled", false);
+user_pref("privacy.trackingprotection.enabled", true);
+user_pref("browser.send_pings", false);
+user_pref("browser.send_pings.require_same_host", true);
+// why are websites reading battery info?
+user_pref("dom.battery.enabled", false);
+// cookies
+user_pref("network.cookie.alwaysAcceptSessionCookies", false);
+// only site cookies - no third party cookies
+user_pref("network.cookie.cookieBehavior", 1);
+// prevent sites from disabling context menu
+user_pref("dom.event.contextmenu.enabled", false);
+// sites should not be able to see installed plugins
+user_pref("plugins.enumerable_names", "");
+// disable geolocation
+user_pref("geo.enabled", false);
+user_pref("geo.wifi.uri", "");
+user_pref("browser.search.geoip.url", "");
 
 // syncing
 user_pref("services.sync.declinedEngines", "passwords,addresses,creditcards");
+
+// https
+user_pref("dom.security.https_only_mode", true);
 
 // UI customization
 //       \"library-button\",
@@ -141,6 +168,9 @@ user_pref("media.eme.enabled", true);
 // pocket
 user_pref("extensions.pocket.enabled", false);
 user_pref("extensions.pocket.onSaveRecs", false);
+user_pref("extensions.pocket.site", "");
+user_pref("extensions.pocket.oAuthConsumerKey", "");
+user_pref("extensions.pocket.api", "");
 
 // downloads
 // display download panel on download
@@ -148,6 +178,14 @@ user_pref("browser.download.panel.shown", true);
 // always display download icon in bar
 user_pref("browser.download.autohideButton", false);
 
+// reducing memory footprint
+// I never need to "undo" tabs - just open a new one
+user_pref("browser.sessionstore.max_tabs_undo", 0);
+// max urls you can traverse with forward/back
+user_pref("browser.sessionhistory.max_entries", 5);
+// animations
+// user_pref("browser.tabs.animate", false);
+// user_pref("browser.download.animateNotifications", false);
 
 // extensions
 user_pref("extensions.update.enabled", false);

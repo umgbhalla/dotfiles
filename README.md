@@ -719,7 +719,5 @@ implemented or had the time to configure.
 + fix pulse sound switching (idek what's wrong but it's buggy) and needs to be OSS/ALSA compatible
   + fix ffmpeg screen capture quality and audio
 + contact management application (abook?)
-+ Upgrade firefox (to 83 for performance) and change config (no search suggestions, enable https only)
 + Remove mouse cursor from screen script
-+ Switch to plan9/Remove gmake as dependency
 + Switch to terminal email (Mutt?)

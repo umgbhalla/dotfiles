@@ -74,20 +74,18 @@ sudo pacman -S --needed $PACKS # cannot be quoted
 # AUR="$AUR zathura-git"
 # AUR="$AUR youtube-dl"
 
-# AUR="$AUR xgetres"
-
 # yay -S --needed --batchinstall $AUR # cannot be quoted
 
-# browser profile
-# $DET "${XDG_CONFIG_HOME}/mozilla/template.user.js"
-# firefox -CreateProfile "${FF_PROFILE}"
-# baseDir="${HOME}/.mozilla/firefox"
-# profileDir="$(ls "${baseDir}" | grep ".${FF_PROFILE}")"
-# ffDir="${baseDir}/${profileDir}"
-# rm -f "${ffDir}/chrome" >/dev/null
-# rm -f "${ffDir}/user.js" >/dev/null
-# ln -sf "${XDG_CONFIG_HOME}/mozilla/profile/chrome" "${ffDir}/chrome"
-# ln -sf "${XDG_CONFIG_HOME}/mozilla/user.js" "${ffDir}/user.js"
+# xgetres for Xresources
+git clone "https://github.com/tamirzb/xgetres.git" "${TMP_DIR}/xgetres"
+cd "${TMP_DIR}/xgetres"
+git checkout 2505f065e0c7ed990d8d71c0d8bd7106c8ab16f2
+cp "${XDG_CONFIG_HOME}/xgetres/Makefile" "${TMP_DIR}/xgetres/"
+sudo make clean install
+
+# firefox profile
+mkdir -p "${HOME}/.mozilla"
+ln -sf "${XDG_CONFIG_HOME}/mozilla/firefox" "${HOME}/.mozilla/firefox"
 
 # lemonbar
 git clone "https://github.com/krypt-n/bar.git" "${TMP_DIR}/lemonbar"

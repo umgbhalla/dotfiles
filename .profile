@@ -77,7 +77,7 @@ export TERMINAL="$TERM"
 
 # browser
 export BROWSER="firefox"
-export BROWSER_ARGS="${BROWSER}" # set below
+export BROWSER_ARGS="${BROWSER}"
 export BROWSER_INCOGNITO="${BROWSER} -private-window"
 
 # file explorer
@@ -223,7 +223,6 @@ export PATH="$HOME/.local/bin:$PATH"
 #
 
 export FZF_DEFAULT_OPTS="--color=\"$FZF_COLORS\""
-export BROWSER_ARGS="${BROWSER} -P \"${FF_PROFILE}\""
 
 # background command
 # xsetroot doesn't work here because the compositor overrides background changes
