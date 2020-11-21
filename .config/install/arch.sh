@@ -13,12 +13,6 @@ PACKS="${PACKS} man"
 
 # xorg
 PACKS="${PACKS} xorg-server xorg-xinit"
-
-# git clone "https://github.com/baskerville/bspwm.git" "${TMP_DIR}/bspwm"
-# cd "${TMP_DIR}/bspwm"
-# git checkout 51983994fa078b7a7ce4fe796d4625a4ad1e4251
-# sudo make clean install
-
 # wm
 PACKS="${PACKS} bspwm sxhkd"
 # PACKS="${PACKS} libxft"
@@ -38,7 +32,9 @@ PACKS="${PACKS} slop"
 PACKS="${PACKS} redshift"
 # file manager
 PACKS="${PACKS} vifm"
-#
+# compositor
+PACKS="${PACKS} picom"
+# display utils
 PACKS="${PACKS} xorg-xsetroot hsetroot"
 # clipboard
 PACKS="${PACKS} xclip"
@@ -48,11 +44,12 @@ PACKS="${PACKS} htop"
 PACKS="${PACKS} openssh"
 # media player
 PACKS="${PACKS} mpv"
+PACKS="${PACKS} youtube-dl"
 # rss reader
 PACKS="${PACKS} newsboat"
 # PACKS="${PACKS} yarn"
 # pdf viewer utility
-PACKS="${PACKS} zathura-pdf-mupdf"
+PACKS="${PACKS} zathura girara zathura-pdf-mupdf"
 
 # media manipulation
 PACKS="${PACKS} ffmpeg"
@@ -61,18 +58,11 @@ PACKS="${PACKS} ffmpeg"
 # PACKS="${PACKS} pulseaudio pulseaudio-alsa pamixer pavucontrol"
 # PACKS="${PACKS} mpd ncmpcpp"
 
-# PACKS="${PACKS} texlive-most biber"
-
-# PACKS="${PACKS} figlet"
+PACKS="${PACKS} texlive-most biber"
 
 sudo pacman -S --needed $PACKS # cannot be quoted
 
 # AUR="mmv"
-
-# AUR="$AUR picom-ibhagwan-git"
-# AUR="$AUR adobe-source-code-pro-fonts"
-# AUR="$AUR zathura-git"
-# AUR="$AUR youtube-dl"
 
 # yay -S --needed --batchinstall $AUR # cannot be quoted
 
@@ -111,14 +101,6 @@ fc-cache -f -v
 
 # touchpad
 sudo ln -sf "$XDG_CONFIG_HOME/xorg.conf.d/30-touchpad.conf" "/etc/X11/xorg.conf.d/30-touchpad.conf"
-
-# login prompt
-# if command -v "figlet"; then
-#   issue="$(cat "/etc/hostname" | figlet -k | sed 's/\\/\\\\\\/g')"
-#   issuestatus="(\\l) \\s \\\r \\\t"
-#   # -e interprets \n as a new line character
-#   echo -e "${issue}\n${issuestatus}" | sudo tee "/etc/issue" > /dev/null
-# fi
 
 # motd
 echo "" | sudo tee "/etc/motd"
