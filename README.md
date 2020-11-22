@@ -726,3 +726,5 @@ implemented or had the time to configure.
 + suppress home directory dotfile generation (NERDTreeBookmarks, python history, viminfo)
 + fix less hist location and vi nav jump
 + create playlist viewer with youtube-dl
++ vim keybindings for alsamixer
++ vim keybindings extension for firefox
