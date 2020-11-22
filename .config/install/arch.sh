@@ -61,7 +61,7 @@ PACKS="${PACKS} mpd ncmpcpp"
 PACKS="${PACKS} texlive-most biber"
 
 # tuning power consumption
-PACKS="${PACKS} tlp"
+PACKS="${PACKS} tlp brightnessctl"
 
 sudo pacman -S --needed $PACKS # cannot be quoted
 
@@ -71,6 +71,8 @@ amixer sset Master unmute
 # enable power saving
 sudo systemctl enable tlp
 sudo systemctl start tlp
+# logind events
+sudo cp "${XDG_CONFIG_HOME}/etc/systemd/logind.conf" "/etc/systemd/logind.conf"
 
 # AUR="mmv"
 

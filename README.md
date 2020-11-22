@@ -718,6 +718,9 @@ implemented or had the time to configure.
 + [pinyin input (fcitx?)](https://forums.freebsd.org/threads/installing-chinese-input-method-in-freebsd-10-1.52314/)
 + fix pulse sound switching (idek what's wrong but it's buggy) and needs to be OSS/ALSA compatible
   + fix ffmpeg screen capture quality and audio
+  + fix context switching in ALSA (via events (evtest) or manually (dbus or something))
 + contact management application (abook?)
 + Remove mouse cursor from screen script
 + Switch to terminal email (Mutt?)
++ update readme (yes, this file) with actually updated info
++ suppress home directory dotfile generation (NERDTreeBookmarks, python history, viminfo)
