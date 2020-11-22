@@ -124,7 +124,7 @@ user_pref("network.cookie.alwaysAcceptSessionCookies", false);
 // only site cookies - no third party cookies
 user_pref("network.cookie.cookieBehavior", 1);
 // prevent sites from disabling context menu
-user_pref("dom.event.contextmenu.enabled", false);
+// user_pref("dom.event.contextmenu.enabled", false);
 // sites should not be able to see installed plugins
 user_pref("plugins.enumerable_names", "");
 // disable geolocation

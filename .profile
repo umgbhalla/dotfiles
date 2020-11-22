@@ -91,7 +91,7 @@ case "${OS}" in
     ;;
   *)
     export AUDIO_ARCH="alsa"
-    export AUDIO_OUTPUT="pulse"
+    export AUDIO_OUTPUT="alsa"
     ;;
 esac
 export MUSIC_PLAYER="spotify"

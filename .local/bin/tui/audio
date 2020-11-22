@@ -1,34 +1,31 @@
 #!/bin/sh
 # a script to uniformly alter sound cards, volume, and mixing
 
-tmpVolMute="/tmp/audio_volMute"
-touch $tmpVolMute
-tmpMicMute="/tmp/audio_micMute"
-touch $tmpMicMute
-
 # volume up
 
 vol_up() {
-  case $OS in
-    $OS_FREEBSD) mixer vol +$1 ;;
-    *) pamixer --increase "$1" ;;
+  case "$OS" in
+    "$OS_FREEBSD") mixer vol "+${1}" ;;
+    "$OS_LINUX") amixer sset Master "${1}+" ;;
   esac
 }
 
 # volume down
 
 vol_down() {
-  case $OS in
-    $OS_FREEBSD) mixer vol -$1 ;;
-    *) pamixer --decrease "$1";;
+  case "$OS" in
+    "$OS_FREEBSD") mixer vol "-${1}" ;;
+    "$OS_LINUX") amixer sset Master "${1}-" ;;
   esac
 }
 
 # volume mute toggle
 
 vol_toggle() {
-  case $OS in
-    $OS_FREEBSD)
+  tmpVolMute="/tmp/audio_volMute"
+  touch $tmpVolMute
+  case "$OS" in
+    "$OS_FREEBSD")
       volMute=$(cat $tmpVolMute)
       interface="vol"
 
@@ -52,13 +49,22 @@ vol_toggle() {
         fi
       fi
       ;;
-    *) pamixer --toggle-mute ;;
+    "$OS_LINUX")
+      status="$(amixer sget Master | awk '/Mono: Playback/ {print $NF}')"
+      if [ "$status" = "[on]" ]; then
+        amixer sset Master mute
+      else
+        amixer sset Master unmute
+      fi
+      ;;
   esac
 }
 
 # input mic mute toggle
 
 mic_toggle() {
+  tmpMicMute="/tmp/audio_micMute"
+  touch $tmpMicMute
   case $OS in
     $OS_FREEBSD)
       micMute=$(cat $tmpMicMute)

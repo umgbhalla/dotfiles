@@ -19,7 +19,12 @@
  * ------------------------------------------------
  */
 
+/* ads */
 #ad, .ad {
+  display: none;
+}
+/* cookies */
+#js-gdpr-consent-banner {
   display: none;
 }
 
