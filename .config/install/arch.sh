@@ -1,10 +1,7 @@
 #!/bin/sh
 
-# try paru?
-# commented to incentivize manual compilation
-#
-# git clone "https://aur.archlinux.org/yay.git" "$TMP_DIR/yay"
-# cd "$TMP_DIR/yay" && makepkg -si
+git clone "https://aur.archlinux.org/yay-bin.git" "$TMP_DIR/yay"
+cd "$TMP_DIR/yay" && makepkg -si
 
 PACKS=""
 
@@ -15,9 +12,10 @@ PACKS="${PACKS} man"
 PACKS="${PACKS} xorg-server xorg-xinit"
 # wm
 PACKS="${PACKS} bspwm sxhkd"
-# PACKS="${PACKS} libxft"
 # editor
 PACKS="${PACKS} neovim nodejs ripgrep"
+# terminal font
+PACKS="${PACKS} libxft"
 # fonts
 PACKS="${PACKS} ttf-liberation adobe-source-code-pro-fonts wqy-zenhei"
 # browser
@@ -74,9 +72,8 @@ sudo systemctl start tlp
 # logind events
 sudo cp "${XDG_CONFIG_HOME}/etc/systemd/logind.conf" "/etc/systemd/logind.conf"
 
-# AUR="mmv"
-
-# yay -S --needed --batchinstall $AUR # cannot be quoted
+AUR="mmv"
+yay -S --needed --batchinstall $AUR # cannot be quoted
 
 # xgetres for Xresources
 git clone "https://github.com/tamirzb/xgetres.git" "${TMP_DIR}/xgetres"

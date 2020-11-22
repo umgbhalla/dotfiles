@@ -20,6 +20,8 @@
  */
 
 /* ads */
+.img_ad,
+[id^='google_ads'],
 #ad, .ad {
   display: none;
 }

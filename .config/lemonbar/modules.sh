@@ -29,12 +29,11 @@ capture() {
 
 volume() {
   unit="5"
-
-  full=""
-  active=""
-  empty=""
-
   h_padding="4"
+
+  full="%{O$h_padding}"
+  active="%{O$h_padding}"
+  empty="%{O$h_padding}"
 
   volNum="0"
 
@@ -44,13 +43,13 @@ volume() {
     "$OS_LINUX") volNum="$(amixer sget Master | tail -n 1 | cut -d " " -f 5)" ;;
   esac
 
-  fullNum="$(echo "$volNum/$unit" | bc)"
-  emptyNum="$(echo "100/$unit - $fullNum" | bc)"
+  fullNum="$(( ${volNum}/${unit} ))"
+  emptyNum="$(( 100/${unit} - ${fullNum} ))"
 
-  volFull="$(printf "%${fullNum}s" | awk "{gsub(/ /, \"${full}%{O$h_padding}\")};1")"
-  volEmpty="$(printf "%${emptyNum}s" | awk "{gsub(/ /, \"${empty}%{O$h_padding}\")};1")"
+  volFull="$(printf "%${fullNum}s" | sed "s/ /${full}/g")"
+  volEmpty="$(printf "%${emptyNum}s" | sed "s/ /${empty}/g")"
 
-  echo "%{B$BG} ${volFull}${active}%{O$h_padding}${volEmpty} %{B-}"
+  echo "%{B$BG} %{O$h_padding}${volFull}${active}${volEmpty} %{B-}"
 }
 
 battery() {
@@ -81,14 +80,12 @@ battery() {
         echo "%{B$BG} ${status}%{O$ICON_PADDING}${bat} %{B-}"
       fi
       ;;
-    *) echo "bat not yet implemented" ;;
   esac
 }
 
 clock() {
-  datefmt="$(date "+%m.%d %a %H:%M")"
-  capdatefmt="$(echo "$datefmt" | tr "[a-z]" "[A-Z]")"
-  echo "%{B$BG} %{O$ICON_PADDING}${capdatefmt} %{B-}"
+  datefmt="$(date "+%m.%d %a %H:%M" | tr "[a-z]" "[A-Z]")"
+  echo "%{B$BG} %{O$ICON_PADDING}${datefmt} %{B-}"
 }
 
 LEFT="$(wm)"
