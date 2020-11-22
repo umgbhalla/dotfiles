@@ -55,12 +55,22 @@ PACKS="${PACKS} zathura girara zathura-pdf-mupdf"
 PACKS="${PACKS} ffmpeg"
 # PACKS="${PACKS} kdenlive"
 
-# PACKS="${PACKS} pulseaudio pulseaudio-alsa pamixer pavucontrol"
-# PACKS="${PACKS} mpd ncmpcpp"
+PACKS="${PACKS} alsa-utils"
+PACKS="${PACKS} mpd ncmpcpp"
 
 PACKS="${PACKS} texlive-most biber"
 
+# tuning power consumption
+PACKS="${PACKS} tlp"
+
 sudo pacman -S --needed $PACKS # cannot be quoted
+
+# unmute audio channel
+amixer sset Master unmute
+
+# enable power saving
+sudo systemctl enable tlp
+sudo systemctl start tlp
 
 # AUR="mmv"
 

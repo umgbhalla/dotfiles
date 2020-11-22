@@ -41,7 +41,7 @@ volume() {
   case "$OS" in
     # just using the left channel
     "$OS_FREEBSD") volNum="$(mixer vol | grep -o '[^:]*$')" ;;
-    "$OS_LINUX") volNum="$(pamixer --get-volume)" ;;
+    "$OS_LINUX") volNum="$(amixer sget Master | tail -n 1 | cut -d " " -f 5)" ;;
   esac
 
   fullNum="$(echo "$volNum/$unit" | bc)"
