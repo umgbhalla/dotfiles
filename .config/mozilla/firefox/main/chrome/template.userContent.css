@@ -20,10 +20,16 @@
  */
 
 /* ads */
+/* google */
 .img_ad,
 [id^='google_ads'],
+/* youtube */
+#masthead-ad,
+[view-style="COMPACT_PROMOTED_ITEM_STYLE_RICH_GRID"] #dismissable,
+[is-show-more-hidden] #dismissable,
+/* general */
 #ad, .ad {
-  display: none;
+  display: none !important;
 }
 /* cookies */
 #js-gdpr-consent-banner {

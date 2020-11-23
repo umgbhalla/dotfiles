@@ -45,7 +45,6 @@ PACKS="${PACKS} mpv"
 PACKS="${PACKS} youtube-dl"
 # rss reader
 PACKS="${PACKS} newsboat"
-# PACKS="${PACKS} yarn"
 # pdf viewer utility
 PACKS="${PACKS} zathura girara zathura-pdf-mupdf"
 
@@ -60,6 +59,8 @@ PACKS="${PACKS} texlive-most biber"
 
 # tuning power consumption
 PACKS="${PACKS} tlp brightnessctl"
+
+# PACKS="${PACKS} yarn python2"
 
 sudo pacman -S --needed $PACKS # cannot be quoted
 

@@ -71,6 +71,7 @@ alias \
   msr="$MUSIC_PLAYER_ARGS" \
   n="newsboat -u $NEWSBOAT_CONFIG/urls -C $NEWSBOAT_CONFIG/config" \
   pdf="pdflatex" \
+  pl="mpv --prefetch-playlist=yes" \
   s="$XDG_SCRIPT_HOME/run_script.sh" \
   sbuild="$SBUILD" \
   ss="sc-im" \

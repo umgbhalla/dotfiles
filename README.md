@@ -724,7 +724,7 @@ implemented or had the time to configure.
 + Switch to terminal email (Mutt?)
 + update readme (yes, this file) with actually updated info
 + suppress home directory dotfile generation (NERDTreeBookmarks, python history, viminfo)
-+ fix less hist location and vi nav jump
-+ create playlist viewer with youtube-dl
++ fix less hist location, vi nav jump, and yarn config locations
 + vim keybindings for alsamixer
 + vim keybindings extension for firefox
++ setup slock on suspend
