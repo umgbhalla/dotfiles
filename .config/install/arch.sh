@@ -68,10 +68,7 @@ sudo pacman -S --needed $PACKS # cannot be quoted
 amixer sset Master unmute
 
 # enable power saving
-sudo systemctl enable tlp
-sudo systemctl start tlp
-# logind events
-sudo cp "${XDG_CONFIG_HOME}/etc/systemd/logind.conf" "/etc/systemd/logind.conf"
+sudo systemctl enable --now tlp
 
 AUR="mmv"
 
@@ -103,6 +100,12 @@ sudo ln -sf mksh /bin/sh
 # suckless
 $SBUILD "st"
 $SBUILD "herbe"
+$SBUILD "slock"
+
+SYSD="/etc/systemd"
+# logind/power events
+sudo mkdir -p "${SYSD}"
+sudo cp "${XDG_CONFIG_HOME}${SYSD}/logind.conf" "${SYSD}/logind.conf"
 
 # gtk theme
 $DET "${XDG_CONFIG_HOME}/${THEME}/gtk-3.0/template.gtk.css"
