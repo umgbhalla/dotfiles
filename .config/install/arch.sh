@@ -74,6 +74,11 @@ sudo systemctl start tlp
 sudo cp "${XDG_CONFIG_HOME}/etc/systemd/logind.conf" "/etc/systemd/logind.conf"
 
 AUR="mmv"
+
+# firefox extensions
+AUR="${AUR} firefox-ublock-origin"
+AUR="${AUR} firefox-extension-multi-account-containers"
+
 yay -S --needed --batchinstall $AUR # cannot be quoted
 
 # xgetres for Xresources

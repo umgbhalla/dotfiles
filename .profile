@@ -160,6 +160,7 @@ case "${OS}" in
     export SHELL="/bin/${SHELL_NAME}"
     ;;
 esac
+export UID="$(id -u)"
 export XRDB_UPDATE="xrdb -merge ${XDG_CONFIG_HOME}/Xdefaults/Xresources"
 
 # vertical line jumping

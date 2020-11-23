@@ -131,6 +131,8 @@ user_pref("plugins.enumerable_names", "");
 user_pref("geo.enabled", false);
 user_pref("geo.wifi.uri", "");
 user_pref("browser.search.geoip.url", "");
+// plugins not following popup rules
+user_pref("privacy.popups.disable_from_plugins", 2);
 
 // syncing
 user_pref("services.sync.declinedEngines", "passwords,addresses,creditcards");
@@ -144,10 +146,7 @@ user_pref("browser.uiCustomization.state", "{
   \"placements\": {
     \"nav-bar\": [
       \"urlbar-container\",
-      \"downloads-button\",
-      \"_testpilot-containers-browser-action\",
-      \"adblockultimate_adblockultimate_net-browser-action\",
-      \"_react-devtools-browser-action\"
+      \"downloads-button\"
     ],
     \"PersonalToolbar\": []
   },
@@ -191,7 +190,8 @@ user_pref("browser.sessionhistory.max_entries", 5);
 user_pref("extensions.update.enabled", false);
 user_pref("extensions.logging.enabled", false);
 user_pref("extensions.update.autoUpdateEnabled", false);
-// TODO extensions.webextensions.uuids
-// extensions. enabledAddons
-// user_pref("extensions.webextensions.uuids", "{\"default-theme@mozilla.org\":\"b0773b60-c95e-4349-a479-ed229fda20c8\",\"ddg@search.mozilla.org\":\"c4ab20be-9bda-4f88-bed8-26fa5145e8b7\",\"@testpilot-containers\":\"217140a1-0821-4728-b48a-5b5a170d01bf\"}");
-// user_pref("extensions.webextensions.uuids", "{\"doh-rollout@mozilla.org\":\"af86dde3-3012-4b52-b226-932f40771bc2\",\"formautofill@mozilla.org\":\"b77278e9-1462-4226-b2f6-38e5a8e0f4e6\",\"screenshots@mozilla.org\":\"ba8a7714-a1fe-478d-bbea-3d832d5f609c\",\"webcompat-reporter@mozilla.org\":\"f2c7b270-8853-4958-bb73-164170ab0ac9\",\"webcompat@mozilla.org\":\"893e226b-97f5-4812-9689-47c825241d54\",\"default-theme@mozilla.org\":\"b0773b60-c95e-4349-a479-ed229fda20c8\",\"google@search.mozilla.org\":\"9e2fd104-4352-4baf-8531-a3679ed1656b\",\"amazondotcom@search.mozilla.org\":\"90ba61bc-77ca-463e-8500-193ee8f4c715\",\"wikipedia@search.mozilla.org\":\"1371e244-86f7-4820-8db7-bbab04440530\",\"bing@search.mozilla.org\":\"6f78b06c-fbff-478c-9880-08ba366bf328\",\"ddg@search.mozilla.org\":\"c4ab20be-9bda-4f88-bed8-26fa5145e8b7\",\"ebay@search.mozilla.org\":\"8f3829c7-abb2-4b9c-b4fc-ac2681cdfb39\",\"@testpilot-containers\":\"217140a1-0821-4728-b48a-5b5a170d01bf\"}");
+
+// move Firefox disk cache completely to RAM because gotta go fast am i right
+user_pref("browser.cache.disk.parent_directory", "/run/user/${UID}/firefox");
+user_pref("browser.cache.memory.enable", true);
+user_pref("browser.cache.disk.enable", false);

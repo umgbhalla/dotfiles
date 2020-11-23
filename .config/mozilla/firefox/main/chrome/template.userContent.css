@@ -31,9 +31,11 @@
 #ad, .ad {
   display: none !important;
 }
+
 /* cookies */
+#cookiebar,
 #js-gdpr-consent-banner {
-  display: none;
+  display: none !important;
 }
 
 /**
@@ -539,6 +541,7 @@
     .select-menu-merge-method .select-menu-item:hover .description { color: var(--color-bg) !important; }
     .tabnav-tab.selected, .tabnav-tab[aria-current]:not([aria-current="false"]),
     .tabnav-tab[aria-selected="true"] { border-color: var(--color-bg-alt) !important; }
+    .blob-code-inner { color: var(--color-fg) !important; }
     /* TODO */
 }
 
