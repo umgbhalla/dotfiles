@@ -84,14 +84,18 @@ export BROWSER_INCOGNITO="${BROWSER} -private-window"
 export FILE_EXPLORER="vifm"
 export FILE_EXPLORER_ARGS="${FILE_EXPLORER}"
 
-case "${OS}" in
-  "${OS_FREEBSD}")
+case "$OS" in
+  "$OS_FREEBSD")
     export AUDIO_ARCH="oss"
     export AUDIO_OUTPUT="${AUDIO_ARCH}"
     ;;
-  *)
+  "$OS_LINUX")
     export AUDIO_ARCH="alsa"
-    export AUDIO_OUTPUT="alsa"
+    if command -v "pulseaudio" >/dev/null; then
+      export AUDIO_OUTPUT="pulse"
+    else
+      export AUDIO_OUTPUT="alsa"
+    fi
     ;;
 esac
 export MUSIC_PLAYER="spotify"

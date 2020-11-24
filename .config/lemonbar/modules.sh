@@ -40,7 +40,13 @@ volume() {
   case "$OS" in
     # just using the left channel
     "$OS_FREEBSD") volNum="$(mixer vol | grep -o '[^:]*$')" ;;
-    "$OS_LINUX") volNum="$(amixer sget Master | tail -n 1 | cut -d " " -f 5)" ;;
+    "$OS_LINUX")
+      if command -v "pulseaudio" >/dev/null; then
+        volNum="$(pamixer --get-volume)"
+      else
+        volNum="$(amixer sget Master | tail -n 1 | cut -d " " -f 5)"
+      fi
+      ;;
   esac
 
   fullNum="$(( ${volNum}/${unit} ))"

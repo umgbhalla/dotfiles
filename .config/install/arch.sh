@@ -53,6 +53,7 @@ PACKS="${PACKS} ffmpeg"
 # PACKS="${PACKS} kdenlive"
 
 PACKS="${PACKS} alsa-utils"
+# PACKS="${PACKS} pulseaudio pulseaudio-alsa pamixer pavucontrol" # if you need pulseaudio
 PACKS="${PACKS} mpd ncmpcpp"
 
 PACKS="${PACKS} texlive-most biber"
