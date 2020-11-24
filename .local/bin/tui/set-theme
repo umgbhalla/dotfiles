@@ -26,6 +26,11 @@ while read -r template; do
   eval "$DETEMPLATE $template"
 done < "$XDG_CONFIG_HOME/templaterc"
 
+# generate lesskey because less is ridiculous
+if [ command -v lesskey ]; then
+  lesskey "${XDG_CONFIG_HOME}/less/lesskey"
+fi
+
 # Xresource colors
 # do NOT background; apps may not get updated resources
 $XRDB_UPDATE
