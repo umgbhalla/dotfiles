@@ -609,7 +609,7 @@ implemented or had the time to configure.
 + Remove mouse cursor from screen script
 + Switch to terminal email (Mutt?)
 + update readme (yes, this file) with actually updated info
-+ suppress home directory dotfile generation (NERDTreeBookmarks, viminfo)
 + vim keybindings for alsamixer
 + vim keybindings extension for firefox
 + setup slock on suspend
++ reconfigure nvim (error suppression and cleaner plugins)
