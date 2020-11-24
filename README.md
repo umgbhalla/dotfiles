@@ -564,41 +564,10 @@ Archlinux system.
   ```
 
 ## Additional Configuration or Notes <a name="addconfig"></a>
-This list of additional configuration options are in no particular order. I've just added or
-modified them when necessary.
+This list of additional optional configuration options are in no particular order.
+I've just added or modified them when necessary.
 
-- [Grub Customization](#grub-customization)
 - [Gaming](#gaming)
-- [Serverauth Files](#serverauth-files)
-- [Laptop Lid Suspension](#laptop-lid-suspension)
-- [Remote Desktop](#remote-desktop)
-- [Power Management in FreeBSD](#power-management-in-freebsd)
-
-#### Grub Customization <a name="grub-customization"></a>
-After each configuration, be sure to update the grub configuration,
-then reboot to view changes.
-```
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-sudo reboot
-```
-
-If you don't plan on dual-booting or adding boot entries, you can disable the grub
-selection menu at boot time with `sudo nvim /etc/default/grub`:
-```
-GRUB_TIMEOUT=0
-```
-
-You can add a background (such as the one I have provided under
-`.config/wallpapers/grub.png`) by moving it to the `/boot/grub/` folder.
-Be sure that the image is a png - grub is very particular about file formats and
-png is the easiest format to use.
-```
-sudo cp "${XDG_CONFIG_HOME}/wallpapers/grub.png" "/boot/grub/"
-```
-Then, change the background option in `/etc/default/grub`.
-```
-GRUB_BACKGROUND="/boot/grub/grub.png"
-```
 
 #### Gaming <a name="gaming"></a>
 With these settings, I have been able to play every game I've tried.
@@ -628,78 +597,6 @@ sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib3
 ```
 [Lutris also recommended that I install drivers specific to my GPU](https://github.com/lutris/docs/blob/master/InstallingDrivers.md).
 
-## Serverauth Files <a name="serverauth-files"></a>
-Xorg likes to populate the `$HOME` directory with `.serverauth.####` files. These files
-simply save the session of X (similar to Xauthority) and can be redirected to Xauthority.
-Edit `/usr/bin/startx` or `/usr/local/bin/startx` depending on your machine:
-```
-xserverauthfile=$XAUTHORITY
-```
-
-## Laptop Lid Suspension <a name="laptop-lid-suspension"></a>
-By default, FreeBSD does not enable suspension on laptop lid close. To enable it, set the acpi
-lid switch state in `/etc/sysctl.conf`:
-```
-hw.acpi.lid_switch_state=S3
-```
-To view all state options, try `sysctl hw.acpi`.
-
-## Remote Desktop <a name="remote-desktop"></a>
-While I haven't had the opportunity (or need) to spend much time using remote desktop
-between my laptop and desktop, I have found that `x11vnc` is a lightweight server and
-`tigervnc` is a good client. A server can be started with:
-```
-x11vnc -display :0 -passwd PASSWD_HERE
-```
-
-## Power Management in FreeBSD <a name="power-management-in-freebsd"></a>
-Power saving is essential to any laptop. Here are a few tips to reduce [power consumption on
-a FreeBSD](https://wiki.freebsd.org/TuningPowerConsumption) laptop.
-
-- Enable `powerd` in `/etc/rc.conf`. This reduces power consumption by scaling cpu
-  according to workload:
-  ```
-  powerd_enable="YES"
-  ```
-- Throttle the CPU. FreeBSD does not automatically throttle the CPU and forcefully shuts down if the
-  CPU core temperature reaches a dangerous limit. To prevent this, we can set a CPU frequency
-  limit in `/etc/rc.conf`:
-  ```
-  powerd_flags="-M 1600"
-  ```
-  You can use `sysctl dev.cpu.0.freq_levels` to view all possible CPU frequencies.
-
-- Allow the CPU to turn off core clocks on idle. By default, the system runs CPUs at
-  all times unless specified. Add to `/etc/rc.conf`:
-  ```
-  performance_cx_lowest="Cmax"
-  economy_cx_lowest="Cmax"
-  ```
-- If you happen to use an Intel CPU with `drm-kmod`, adding the
-  following to `/boot/loader.conf` will improve CPU efficiency:
-  ```
-  compat.linuxkpi.i915_fastboot=1
-  compat.linuxkpi.i915_enable_fbc=1
-  compat.linuxkpi.i915_enable_dc=2
-  compat.linuxkpi.i915_disable_power_well=1
-  ```
-- Disable bluetooth if you don't use it. This is tricky since it is enabled by default in
-  the kernel and cannot easily be disabled at boot time. However, there is a hacky
-  solution for kernel module loading:
-  ```
-  mv /boot/kernel/ng_ubt.ko /boot/kernel/ng_ubt.ko.blacklisted
-  ```
-- Set the current wifi adapter to powersave mode to decrease radio time and increase
-  power. This may reduce link latency, but in most cases, the effect is negligible. In
-  `/etc/rc.conf` (make sure to choose the correct wifi adapter):
-  ```
-  ifconfig_wlan0="... powersave"
-  ```
-- Reduce sound interrupts to increae performance. In `/boot/loader.conf`:
-  ```
-  hw.snd.latency=7
-  ```
-
 ## TODO <a name="todo"></a>
 Below are a list of things in no particular order that I plan to do but haven't yet
 implemented or had the time to configure.
@@ -717,4 +614,3 @@ implemented or had the time to configure.
 + vim keybindings for alsamixer
 + vim keybindings extension for firefox
 + setup slock on suspend
-+ configure grub on install

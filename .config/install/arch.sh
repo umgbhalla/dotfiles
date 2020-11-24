@@ -123,5 +123,16 @@ sudo ln -sf "$XDG_CONFIG_HOME/xorg.conf.d/30-touchpad.conf" "/etc/X11/xorg.conf.
 # add color to /etc/pacman.conf
 sudo sed -i 's/#Color/Color/' /etc/pacman.conf
 
+# update grub config
+# timeout
+sudo sed -i 's/GRUB_TIMEOUT=./GRUB_TIMEOUT=0/' "/etc/default/grub"
+# background
+sudo cp "${XDG_CONFIG_HOME}/wallpapers/grub.png" "/boot/grub/"
+sudo sed -i 's/#GRUB_BACKGROUND=.*/GRUB_BACKGROUND=\/boot\/grub\/grub.png/' "/etc/default/grub"
+# verbose
+sudo sed -i 's/quiet//' "/etc/default/grub"
+# regenerate
+sudo grub-mkconfig -o "/boot/grub/grub.cfg"
+
 # motd
 echo "" | sudo tee "/etc/motd"
