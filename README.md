@@ -569,7 +569,6 @@ modified them when necessary.
 
 - [Grub Customization](#grub-customization)
 - [Gaming](#gaming)
-- [Fine-Tuning Package Installation](#fine-tuning-package-installation)
 - [Serverauth Files](#serverauth-files)
 - [Laptop Lid Suspension](#laptop-lid-suspension)
 - [Remote Desktop](#remote-desktop)
@@ -628,16 +627,6 @@ games of any kind.
 sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader
 ```
 [Lutris also recommended that I install drivers specific to my GPU](https://github.com/lutris/docs/blob/master/InstallingDrivers.md).
-
-#### Fine-Tuning Package Installation <a name="fine-tuning-package-installation"></a>
-
-There are a few configuration options that can be set to make package browsing and installation
-more user-friendly in Pacman and Yay.
-
-1. Add color support via `/etc/pacman.conf`:
-```
-Color
-```
 
 ## Serverauth Files <a name="serverauth-files"></a>
 Xorg likes to populate the `$HOME` directory with `.serverauth.####` files. These files
@@ -723,8 +712,9 @@ implemented or had the time to configure.
 + Remove mouse cursor from screen script
 + Switch to terminal email (Mutt?)
 + update readme (yes, this file) with actually updated info
-+ suppress home directory dotfile generation (NERDTreeBookmarks, python history, viminfo)
-+ fix less hist location, vi nav jump, and yarn config locations
++ suppress home directory dotfile generation (NERDTreeBookmarks, viminfo)
++ fix less hist location, vi nav jump
 + vim keybindings for alsamixer
 + vim keybindings extension for firefox
 + setup slock on suspend
++ configure grub on install

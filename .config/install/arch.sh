@@ -120,5 +120,8 @@ fc-cache -f -v
 # touchpad
 sudo ln -sf "$XDG_CONFIG_HOME/xorg.conf.d/30-touchpad.conf" "/etc/X11/xorg.conf.d/30-touchpad.conf"
 
+# add color to /etc/pacman.conf
+sudo sed -i 's/#Color/Color/' /etc/pacman.conf
+
 # motd
 echo "" | sudo tee "/etc/motd"

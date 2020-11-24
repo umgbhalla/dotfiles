@@ -178,10 +178,12 @@ export GIT_TEMPLATE_DIR="$XDG_CONFIG_HOME/git/template"
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
 export NEWSBOAT_CONFIG="$XDG_CONFIG_HOME/newsboat"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export SH_HISTFILE="$XDG_CACHE_HOME/sh_history"
 export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
 export YARN_GLOBAL_DIR="$XDG_CACHE_HOME/yarn_global"
 export YARN_RC_DIR="$XDG_CACHE_HOME"
+export YARN_RC_FILENAME="$XDG_CONFIG_HOME/yarn/.yarnrc.yml"
 export XAUTHORITY="${XDG_CONFIG_HOME}/Xdefaults/Xauthority"
 
 #
