@@ -124,10 +124,10 @@ case "$OS" in
 esac
 
 # compositor
-case "${OS}" in
-  "${OS_LINUX}"|"${OS_FREEBSD}")
+case "$OS" in
+  "$OS_LINUX"|"$OS_FREEBSD")
     export COMPOSITOR="picom"
-    export COMPOSITOR_ARGS="${COMPOSITOR} -b"
+    export COMPOSITOR_ARGS="${COMPOSITOR}"
     ;;
   *)
     export COMPOSITOR=""
@@ -246,7 +246,7 @@ if command -v "startx" >/dev/null; then
           # sudo moused -p /dev/psm0
           # exec startx
           ;;
-        *) exec startx ;;
+        "$OS_LINUX") exec startx ;;
       esac
       ;;
   esac

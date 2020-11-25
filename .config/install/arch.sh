@@ -103,8 +103,13 @@ $SBUILD "st"
 $SBUILD "herbe"
 $SBUILD "slock"
 
-SYSD="/etc/systemd"
+# alsamixer alternative
+git clone "https://github.com/bossley9/alsamixer.git" "${TMP_DIR}/alsamixer"
+cd "${TMP_DIR}/alsamixer"
+sudo make clean install
+
 # logind/power events
+SYSD="/etc/systemd"
 sudo mkdir -p "${SYSD}"
 sudo cp "${XDG_CONFIG_HOME}${SYSD}/logind.conf" "${SYSD}/logind.conf"
 

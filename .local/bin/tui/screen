@@ -9,8 +9,10 @@
 # output directories
 snapOutputDir="$HOME/Pictures"
 captureOutputDir="$HOME/Videos"
-mkdir -p "$snapOutputDir"
-mkdir -p "$captureOutputDir"
+if [ -n "$1" ]; then
+  mkdir -p "$snapOutputDir"
+  mkdir -p "$captureOutputDir"
+fi
 
 # filename date format
 datefmt="$(\date +%y-%m-%d_%H:%M:%S)"

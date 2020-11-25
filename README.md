@@ -613,4 +613,4 @@ implemented or had the time to configure.
 + vim keybindings extension for firefox
 + setup slock on suspend
 + reconfigure nvim (error suppression and cleaner plugins)
-+ convert modules to C binary
++ Fix mpd startup errors
