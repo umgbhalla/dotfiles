@@ -53,6 +53,7 @@ char* getcommand(char* command, unsigned int bufsize) {
 char* wm() {
   char* wmcmd = "bspc query -D --names -d";
   wmcmd = getcommand(wmcmd, 4);
+  /* TODO */
 
   /* if (strncmp(wmcmd, "I", 2) == 0) { */
   /* } */
@@ -72,6 +73,60 @@ char* wm() {
   return wmcmd;
 }
 
+char* battery(char* FG, char* BG) {
+  unsigned int batterySize = 4;
+  unsigned int statusSize = 16;
+  unsigned int size = 32;
+
+  char* charging = "";
+  char* discharging = "";
+
+  char* OS = getenv("OS");
+  char* OS_LINUX = getenv("OS_LINUX");
+  char* OS_FREEBSD = getenv("OS_FREEBSD");
+
+  char* batterycmd;
+  char* statuscmd;
+  char* statuspre;
+  char* status = "";
+
+  if (strncmp(OS, OS_FREEBSD, 10) == 0) {
+
+    batterycmd = "apm | awk '/Remaining battery life/ {gsub(\"%\",\"\");print $4;exit}')";
+
+    /* statuscmd = "apm | awk '/Battery Status/ {print $3;exit}')"; */
+    /* statuspre = getcommand(statuscmd, statusSize); */
+    /* if (strncmp(statuspre, "charging", 8) == 0) { */
+    /*   status = charging; */
+    /* } else { */
+    /*   status = discharging; */
+    /* } */
+
+  } else if (strncmp(OS, OS_LINUX, 10) == 0) {
+
+    batterycmd = "cat \"/sys/class/power_supply/BAT0/capacity\"";
+
+    /* statuscmd = "cat \"/sys/class/power_supply/BAT0/status\""; */
+    /* statuspre = getcommand(statuscmd, statusSize); */
+    /* if (strncmp(statuspre, "Charging", 8) == 0) { */
+    /*   status = charging; */
+    /* } else { */
+    /*   status = discharging; */
+    /* } */
+
+  }
+
+  char* batterypre = getcommand(batterycmd, batterySize);
+
+  char* batteryout = malloc(sizeof(char) * (size));
+  snprintf(batteryout, size,
+      "%%{B%s} %s%%{O%s}%s %%{B-}", BG, status, ICON_PADDING, batterypre);
+
+  free(batterypre);
+  /* free(statuspre); */
+  return batteryout;
+}
+
 char* clock(char* FG, char* BG) {
   unsigned int size = 64;
   char* clockcmd = "date \"+%m.%d %a %H:%M\" | tr \"[a-z]\" \"[A-Z]\"";
@@ -89,7 +144,7 @@ char* spaceleft(char* FG, char* BG) {
 
   char* out = malloc(sizeof(char) * size);
   snprintf(out, size,
-      "%%{B%s}%%{O%s}%%{O%s}%%{B-}%%{O%s}%%{B%s}%%{O%s}%%{B-} ",
+      "%%{B%s}%%{O%s}%%{O%s}%%{B-}%%{O%s}%%{B%s}%%{O%s}%%{B-}",
        BG, ICON_PADDING, ICON_PADDING, ICON_PADDING, BG, ICON_PADDING);
 
   return out;
@@ -100,7 +155,7 @@ char* spaceright(char* FG, char* BG) {
 
   char* out = malloc(sizeof(char) * size);
   snprintf(out, size,
-      " %%{B%s}%%{O%s}%%{B-}%%{O%s}%%{B%s}%%{O%s}%%{O%s}%%{B-}",
+      "%%{B%s}%%{O%s}%%{B-}%%{O%s}%%{B%s}%%{O%s}%%{O%s}%%{B-}",
        BG, ICON_PADDING, ICON_PADDING, BG, ICON_PADDING, ICON_PADDING);
 
   return out;
@@ -117,15 +172,19 @@ int main() {
 
   /* modules */
   char* _spaceleft = spaceleft(FG, BG);
+
   char* _wm = wm();
+
+  char* _battery = battery(FG, BG);
   char* _clock = clock(FG, BG);
+
   char* _spaceright = spaceright(FG, BG);
 
   /* output */
-  printf("%%{l}%s%s%%{r}%s%s\n",
+  printf("%%{l}%s %s%%{r}%s %s %s\n",
       _spaceleft,
       _wm,
-      _clock,
+      _battery, _clock,
       _spaceright);
 
   /* free memory */
@@ -134,6 +193,7 @@ int main() {
 
   free(_spaceleft);
   free(_wm);
+  free(_battery);
   free(_clock);
   free(_spaceright);
 }
