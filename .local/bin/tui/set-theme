@@ -31,9 +31,6 @@ if command -v lesskey >/dev/null; then
   lesskey "${XDG_CONFIG_HOME}/less/lesskey"
 fi
 
-# compile bar modules
-# cc -o "${XDG_CONFIG_HOME}/lemonbar/modules" "${XDG_CONFIG_HOME}/lemonbar/modules.c"
-
 # Xresource colors
 # do NOT background; apps may not get updated resources
 $XRDB_UPDATE

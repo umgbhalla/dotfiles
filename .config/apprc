@@ -33,8 +33,8 @@ export BAR_FONT="Source Code Pro:pixelsize=24"
 export BAR_FG="$G_FG"
 export BAR_BG="$G_BG_ALT"
 export BAR_FIFO="${TMP_DIR}/${BAR}fifo"
-export BAR_ARGS="${XDG_CONFIG_HOME}/${BAR}/main.sh"
-export BAR_UPDATE="${XDG_CONFIG_HOME}/${BAR}/signal.sh"
+export BAR_ARGS="${XDG_CONFIG_HOME}/lemonbar/main.sh"
+export BAR_UPDATE="${XDG_CONFIG_HOME}/lemonbar/signal.sh"
 
 # bspwm
 
