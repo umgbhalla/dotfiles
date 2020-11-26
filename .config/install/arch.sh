@@ -146,5 +146,10 @@ sudo sed -i 's/quiet//' "/etc/default/grub"
 # regenerate
 sudo grub-mkconfig -o "/boot/grub/grub.cfg"
 
+# disable udevd because it's unecesary
+# sudo systemctl disable systemd-udevd
+# sudo systemctl disable systemd-udevd-control.socket
+# sudo systemctl disable systemd-udevd-kernel.socket
+
 # motd
 echo "" | sudo tee "/etc/motd"

@@ -13,8 +13,10 @@ set first-page-column 1:1
 map <C-K> zoom in
 map <C-J> zoom out
 
-map <C-k> scroll half-up
-map <C-j> scroll half-down
+map <M-k> scroll half-up
+map <M-j> scroll half-down
+map <M-u> scroll full-up
+map <M-d> scroll full-down
 
 # copying to clipboard
 set selection-clipboard clipboard

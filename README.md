@@ -601,15 +601,13 @@ sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib3
 Below are a list of things in no particular order that I plan to do but haven't yet
 implemented or had the time to configure.
 
-+ [pinyin input (fcitx?)](https://forums.freebsd.org/threads/installing-chinese-input-method-in-freebsd-10-1.52314/)
-+ fix pulse sound switching (idek what's wrong but it's buggy) and needs to be OSS/ALSA compatible
-  + fix ffmpeg screen capture quality and audio
-  + fix context switching in ALSA (via events (evtest) or manually (dbus or something))
-+ contact management application (abook?)
++ pinyin input (fcitx?)
++ fix ffmpeg screen capture quality and audio
 + Remove mouse cursor from screen script
++ contact management application (abook?)
 + Switch to terminal email (Mutt?)
 + update readme (yes, this file) with actually updated info
++ finish templating for github and "general sites"
 + vim keybindings extension for firefox
 + reconfigure nvim (error suppression and cleaner plugins)
-+ add screen magnifier
-+ todo list on desktop
++ htop vim keybindings (or better yet, a custom system profiler)
