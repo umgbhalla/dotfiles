@@ -82,7 +82,8 @@ alias \
 # music
 m() {
   if [ ! $(pgrep -x mpd) > /dev/null ]; then
-    mpd &
+    mpd 2>/dev/null &
+    sleep 0.3
   fi
   ncmpcpp
 }

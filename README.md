@@ -609,9 +609,7 @@ implemented or had the time to configure.
 + Remove mouse cursor from screen script
 + Switch to terminal email (Mutt?)
 + update readme (yes, this file) with actually updated info
-+ vim keybindings for alsamixer
 + vim keybindings extension for firefox
 + reconfigure nvim (error suppression and cleaner plugins)
-+ Fix mpd startup errors
 + add screen magnifier
 + todo list on desktop
