@@ -8,6 +8,7 @@
 if [ "$OS" = "$OS_LINUX" ]; then
   alias ls="ls --color=auto --group-directories-first"
   alias sed="sed --posix"
+  alias bc="bc -w -q"
 else
   alias ls="ls -GF"
 fi

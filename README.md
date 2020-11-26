@@ -614,3 +614,5 @@ implemented or had the time to configure.
 + setup slock on suspend
 + reconfigure nvim (error suppression and cleaner plugins)
 + Fix mpd startup errors
++ add screen magnifier
++ todo list on desktop
