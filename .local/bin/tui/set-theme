@@ -22,14 +22,13 @@ esac
 
 CURRENT_THEME_MODE="${THEME}" . $HOME/.profile
 
-while read -r template; do
-  eval "$DETEMPLATE $template"
-done < "$XDG_CONFIG_HOME/templaterc"
+cat "${XDG_CONFIG_HOME}/templaterc" | \
+  envsubst | \
+  xargs -I {} $DET {}
 
 # generate lesskey because less is ridiculous
-if command -v lesskey >/dev/null; then
+command -v lesskey >/dev/null && \
   lesskey "${XDG_CONFIG_HOME}/less/lesskey"
-fi
 
 # Xresource colors
 # do NOT background; apps may not get updated resources
