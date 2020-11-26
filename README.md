@@ -611,7 +611,6 @@ implemented or had the time to configure.
 + update readme (yes, this file) with actually updated info
 + vim keybindings for alsamixer
 + vim keybindings extension for firefox
-+ setup slock on suspend
 + reconfigure nvim (error suppression and cleaner plugins)
 + Fix mpd startup errors
 + add screen magnifier

@@ -1,0 +1,12 @@
+[Unit]
+Description=Lock X session using slock for user $USER
+Before=sleep.target
+
+[Service]
+User=$USER
+Environment="DISPLAY=$DISPLAY"
+Environment="XAUTHORITY=$XAUTHORITY"
+ExecStart=/usr/local/bin/slock
+
+[Install]
+WantedBy=sleep.target

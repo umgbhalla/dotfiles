@@ -113,6 +113,13 @@ SYSD="/etc/systemd"
 sudo mkdir -p "${SYSD}"
 sudo cp "${XDG_CONFIG_HOME}${SYSD}/logind.conf" "${SYSD}/logind.conf"
 
+# slock
+SYSD="/etc/systemd"
+sudo mkdir -p "${SYSD}/system"
+$DET "${XDG_CONFIG_HOME}/${SYSD}/system/template.slock@.service"
+sudo ln -sf "${XDG_CONFIG_HOME}/${SYSD}/system/slock@.service" "${SYSD}/system/slock@.service"
+sudo systemctl enable "slock@${USER}.service"
+
 # gtk theme
 sudo mkdir -p "$GTK_THEME_DIR"
 sudo ln -sf "${XDG_CONFIG_HOME}/${THEME}" "${GTK_THEME_DIR}/${THEME}"
