@@ -114,7 +114,6 @@ sudo mkdir -p "${SYSD}"
 sudo cp "${XDG_CONFIG_HOME}${SYSD}/logind.conf" "${SYSD}/logind.conf"
 
 # gtk theme
-$DET "${XDG_CONFIG_HOME}/${THEME}/gtk-3.0/template.gtk.css"
 sudo mkdir -p "$GTK_THEME_DIR"
 sudo ln -sf "${XDG_CONFIG_HOME}/${THEME}" "${GTK_THEME_DIR}/${THEME}"
 
@@ -131,7 +130,7 @@ sudo sed -i 's/#Color/Color/' /etc/pacman.conf
 
 # update grub config
 # timeout
-sudo sed -i 's/GRUB_TIMEOUT=./GRUB_TIMEOUT=0/' "/etc/default/grub"
+sudo sed -i 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=0/' "/etc/default/grub"
 # background
 sudo cp "${XDG_CONFIG_HOME}/wallpapers/grub.png" "/boot/grub/"
 sudo sed -i 's/#GRUB_BACKGROUND=.*/GRUB_BACKGROUND=\/boot\/grub\/grub.png/' "/etc/default/grub"
