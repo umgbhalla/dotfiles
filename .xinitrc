@@ -10,7 +10,7 @@ $COMPOSITOR_ARGS &
 $BAR_ARGS &
 
 # theming
-$SETTHEME "time" &
+$SETTHEME "dark" &
 
 # shortcut manager
 sxhkd &

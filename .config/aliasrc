@@ -65,6 +65,8 @@ esac
 alias \
   am="alsamixer" \
   cal="cal -3" \
+  ch="$CURSOR hide" \
+  cs="$CURSOR show" \
   msr="$MUSIC_PLAYER_ARGS" \
   n="newsboat -u $NEWSBOAT_CONFIG/urls -C $NEWSBOAT_CONFIG/config" \
   pdf="pdflatex" \

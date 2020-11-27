@@ -34,6 +34,8 @@ PACKS="${PACKS} vifm"
 PACKS="${PACKS} picom"
 # display utils
 PACKS="${PACKS} xorg-xsetroot hsetroot"
+# mouse/touchpad control
+PACKS="${PACKS} xorg-xinput"
 # clipboard
 PACKS="${PACKS} xclip"
 # system profiler

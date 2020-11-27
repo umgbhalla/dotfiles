@@ -1,0 +1,22 @@
+#!/bin/sh
+# Toggles the display of the cursor for people who are annoyed by cursors most of the time
+
+cursorHideX="0"
+cursorHideY="$RES_HEIGHT"
+
+if [ -z "${1}" ]; then
+  echo "${RED}USAGE: CURSOR [show | hide]${NC}"
+  exit 1
+fi
+
+touchpadId="$(xinput | awk '/TouchPad/ {print $7}' | cut -d "=" -f 2)"
+
+case "${1}" in
+  "show")
+    xinput enable "$touchpadId"
+    ;;
+  "hide")
+    xdotool mousemove "$cursorHideX" "$cursorHideY"
+    xinput disable "$touchpadId"
+    ;;
+esac

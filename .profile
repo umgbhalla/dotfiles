@@ -199,6 +199,7 @@ export GUI_DIR="$XDG_SCRIPT_HOME/gui"
 export TUI_DIR="$XDG_SCRIPT_HOME/tui"
 
 export AUDIO="$TUI_DIR/audio"
+export CURSOR="$TUI_DIR/cursor"
 export DETEMPLATE="$TUI_DIR/detemplate"
 export DET="$DETEMPLATE"
 export HEX2FF="$TUI_DIR/hex2ff"

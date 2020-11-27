@@ -2,7 +2,7 @@
 # Dynamically update all application colors and theming
 
 if [ -z "${1}" ]; then
-  echo "${RED}USAGE: SWITCHTHEME [light | dark | time]"
+  echo "${RED}USAGE: SWITCHTHEME [light | dark | time]${NC}"
   exit 1
 fi
 
