@@ -17,6 +17,9 @@ fi
 # filename date format
 datefmt="$(\date +%y-%m-%d_%H:%M:%S)"
 
+cursorHideX="0"
+cursorHideY="$RES_HEIGHT"
+
 # recording status temporary file path
 screenPid="${TMP_DIR}/screenPid"
 
@@ -37,8 +40,10 @@ screenCapture() {
     case $OS in
       $OS_LINUX)
         ffmpeg \
-          -f x11grab -i $DISPLAY \
-          -f alsa -i default -c:v libx264 -preset ultrafast -c:a aac \
+          -f x11grab -video_size "${RES_WIDTH}x${RES_HEIGHT}" \
+          -i "$DISPLAY" \
+          -f alsa -i default -c:v libx264 \
+          -preset ultrafast -c:a aac \
           "$captureOutputDir/screencapture-${datefmt}.mp4" &
         ;;
       *)
@@ -71,7 +76,12 @@ screenCrop() {
     x="$(echo "${geometry}" | cut -d"+" -f2)"
     y="$(echo "${geometry}" | cut -d"+" -f3)"
 
+    eval "$(xdotool getmouselocation --shell)"
+    xdotool mousemove --sync "$cursorHideX" "$cursorHideY"
+
     ffmpeg -f x11grab -video_size "${dim}" -i "${DISPLAY}+${x},${y}" -vframes 1 "${output}"
+
+    xdotool mousemove --sync "$X" "$Y"
     xclip -selection clip -t image/png "${output}"
     notify "Cropped screenshot taken."
   fi
@@ -130,7 +140,13 @@ screenRecordingStatus() {
 
 screenSnap() {
   output="${snapOutputDir}/snap-${datefmt}.png"
+
+  eval "$(xdotool getmouselocation --shell)"
+  xdotool mousemove --sync "$cursorHideX" "$cursorHideY"
+
   ffmpeg -f x11grab -video_size "${RES_WIDTH}x${RES_HEIGHT}" -i "${DISPLAY}" -vframes 1 "${output}"
+
+  xdotool mousemove --sync "$X" "$Y"
   notify "Screenshot taken."
 }
 

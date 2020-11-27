@@ -24,8 +24,8 @@ PACKS="${PACKS} firefox"
 PACKS="${PACKS} fzf"
 # image viewer
 PACKS="${PACKS} feh"
-# screenshot utility
-PACKS="${PACKS} slop"
+# screenshot utilities
+PACKS="${PACKS} slop xdotool"
 # redshift
 PACKS="${PACKS} redshift"
 # file manager
