@@ -608,7 +608,6 @@ implemented or had the time to configure.
 + update readme (yes, this file) with actually updated info
 + finish templating for github and "general sites"
 + vim keybindings extension for firefox
-+ predefined containers for firefox?
 + reconfigure nvim (error suppression and cleaner plugins)
 + htop vim keybindings (or better yet, a custom system profiler)
 + cordless discord?
