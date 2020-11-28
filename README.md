@@ -602,8 +602,7 @@ Below are a list of things in no particular order that I plan to do but haven't 
 implemented or had the time to configure.
 
 + pinyin input (fcitx?)
-+ fix ffmpeg screen capture quality and audio not recording
-+ Remove mouse cursor from screen script
++ fix ffmpeg audio not recording
 + contact management application (abook?)
 + Switch to terminal email (Mutt?)
 + update readme (yes, this file) with actually updated info
@@ -614,4 +613,3 @@ implemented or had the time to configure.
 + htop vim keybindings (or better yet, a custom system profiler)
 + cordless discord?
 + spotify via mpd?
-+ mpv display webcam

@@ -231,7 +231,7 @@ export PATH="$HOME/.local/bin:$PATH"
 # misc color (ordered after main color declarations)
 #
 
-export FZF_DEFAULT_OPTS="--color=\"$FZF_COLORS\""
+export FZF_DEFAULT_OPTS="--bind $FZF_BINDINGS --color=\"$FZF_COLORS\""
 
 # background command
 # xsetroot doesn't work here because the compositor overrides background changes
