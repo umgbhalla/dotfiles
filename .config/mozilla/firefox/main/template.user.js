@@ -153,8 +153,8 @@ user_pref("browser.uiCustomization.state", "{
   },
   \"currentVersion\": 16
 }");
-user_pref("browser.display.background_color", "${FF_BG}");
-user_pref("browser.display.foreground_color", "${FF_FG}");
+// user_pref("browser.display.background_color", "${FF_BG}");
+// user_pref("browser.display.foreground_color", "${FF_FG}");
 
 // devtools
 user_pref("devtools.toolbox.host", "right");

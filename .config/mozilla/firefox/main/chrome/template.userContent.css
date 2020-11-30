@@ -593,6 +593,31 @@
       border: 1px solid var(--color-bg-alt) !important;
     }
     .oauth-border { border-top: 1px solid var(--color-bg-alt) !important; }
+    .session-authentication .auth-form-header { color: var(--color-fg) !important; }
+    .pagehead-actions > li { color: var(--color-fg) !important; }
+    .UnderlineNav .Counter {
+      color: var(--color-primary) !important;
+    }
+    .SideNav-item[aria-current]:not([aria-current="false"]),
+    .SideNav-item[aria-selected="true"], .SideNav,
+    .SideNav-item:focus, .SideNav-item:hover {
+      background-color: var(--color-bg) !important;
+    }
+    .SideNav-item[aria-current]:not([aria-current="false"])::before,
+    .SideNav-item[aria-selected="true"]::before {
+      background-color: var(--color-primary) !important;
+    }
+    .SideNav-item { border-top: 1px solid var(--color-bg-alt) !important; }
+    .SideNav.border { border: 1px solid var(--color-bg-alt) !important; }
+    .color-text-primary, .flash {
+      color: var(--color-primary) !important;
+    }
+    .flash.flash-warn { color: var(--color-bg) !important; }
+    .flash.flash-warn a { color: var(--color-bg) !important; }
+    .flash.flash-warn .octicon { color: var(--color-bg) !important; }
+    .SelectMenu-item[aria-checked="true"], .SelectMenu-item {
+      color: var(--color-fg) !important;
+    }
     /* TODO */
 }
 
