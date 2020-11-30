@@ -127,7 +127,7 @@ esac
 case "$OS" in
   "$OS_LINUX"|"$OS_FREEBSD")
     export COMPOSITOR="picom"
-    export COMPOSITOR_ARGS="${COMPOSITOR}"
+    export COMPOSITOR_ARGS="${COMPOSITOR} -CG"
     ;;
   *)
     export COMPOSITOR=""

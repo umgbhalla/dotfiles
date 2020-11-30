@@ -618,7 +618,6 @@
     .SelectMenu-item[aria-checked="true"], .SelectMenu-item {
       color: var(--color-fg) !important;
     }
-    /* TODO */
 }
 
 /**
@@ -723,4 +722,22 @@
   .flex-posts-ads,
   .man-h1-article
   { display: none !important; }
+}
+
+/**
+ * ------------------------------------------------
+ * Mastodon
+ * ------------------------------------------------
+ */
+
+@-moz-document domain(mas.to) {
+  .compose-form .autosuggest-textarea__textarea, .compose-form .spoiler-input__input,
+  .compose-form .compose-form__modifiers {
+    color: #fff !important;
+    background: #444b5d !important;
+  }
+  .compose-form .compose-form__buttons-wrapper {
+    color: #fff !important;
+    background: #282c37 !important;
+  }
 }

@@ -196,8 +196,8 @@ user_pref("browser.sessionstore.max_tabs_undo", 0);
 // max urls you can traverse with forward/back
 user_pref("browser.sessionhistory.max_entries", 5);
 // animations
-// user_pref("browser.tabs.animate", false);
-// user_pref("browser.download.animateNotifications", false);
+user_pref("browser.tabs.animate", false);
+user_pref("browser.download.animateNotifications", false);
 
 // extensions
 user_pref("extensions.update.enabled", false);
