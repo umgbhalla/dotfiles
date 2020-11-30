@@ -55,7 +55,8 @@ PACKS="${PACKS} ffmpeg"
 # PACKS="${PACKS} kdenlive"
 
 PACKS="${PACKS} alsa-utils"
-# PACKS="${PACKS} pulseaudio pulseaudio-alsa pamixer pavucontrol" # if you need pulseaudio
+# PACKS="${PACKS} pulseaudio pulseaudio-alsa pamixer"
+# PACKS="${PACKS} pavucontrol"
 PACKS="${PACKS} mpd ncmpcpp"
 
 PACKS="${PACKS} texlive-most biber"
@@ -105,10 +106,15 @@ $SBUILD "st"
 $SBUILD "herbe"
 $SBUILD "slock"
 
-# alsamixer alternative
+# alsamixer alternate
 git clone "https://github.com/bossley9/alsamixer.git" "${TMP_DIR}/alsamixer"
 cd "${TMP_DIR}/alsamixer"
 sudo make clean install
+
+# pacmixer alternate
+# git clone "https://github.com/bossley9/ncpamixer.git" "${TMP_DIR}/ncpamixer"
+# cd "${TMP_DIR}/ncpamixer"
+# sudo make install
 
 # logind/power events
 SYSD="/etc/systemd"

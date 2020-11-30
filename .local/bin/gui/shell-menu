@@ -1,34 +1,20 @@
 #!/bin/sh
-# This script is a dmenu alternative, designed to utilize fzf in 
+# This script is a dmenu alternative designed to utilize fzf in
 # a floating st terminal window. Usage is similar to fzf.
+# There should only ever be one shellmenu instance running at a time.
 
-tmpDataFileIn="/tmp/shell-menu-in"
-tmpDataFileOut="/tmp/shell-menu-out"
-
-c_bg=$SHELLMENU_BG
-c_fg=$SHELLMENU_FG
-c_match=$SHELLMENU_MATCH
-c_sel=$SHELLMENU_SEL
-c_arrow=$SHELLMENU_PROMPT
+tmpDataFile="${TMP_DIR}/shell-menu-data"
 
 width=$SHELLMENU_WIDTH
 height=$SHELLMENU_HEIGHT
 x=$SHELLMENU_X
 y=$SHELLMENU_Y
 
-if [ ! -f $tmpDataFileIn ]; then
-  cat /dev/stdin > $tmpDataFileIn
+in="$(cat "/dev/stdin")"
 
-  st -n shellpopup -G ${width}x${height}+${x}+${y} sh -c \
-    "cat $tmpDataFileIn | \
-    fzf --reverse \
-    $@ > $tmpDataFileOut"
+st -n shellpopup -G ${width}x${height}+${x}+${y} sh -c \
+  "echo \"$in\" | \
+  fzf --reverse \
+  $@ > $tmpDataFile"
 
-  output=$(cat $tmpDataFileOut)
-  rm $tmpDataFileIn $tmpDataFileOut
-  echo $output
-
-else
-  echo -e "${RED}Another instance of SHELLMENU is already running.${NC}"
-  exit 1
-fi
+cat "$tmpDataFile" > "/dev/stdout"
