@@ -1,6 +1,10 @@
 // startup
-user_pref("browser.sessionstore.resume_session_once", true);
-user_pref("browser.sessionstore.resume_from_crash", true);
+// 1 - start at about:blank, 1 - start at home page,
+// 2 - load last visited, 3 - restore session
+user_pref("browser.startup.page", 0);
+user_pref("browser.sessionstore.resume_session_once", false);
+user_pref("browser.sessionstore.resume_from_crash", false);
+user_pref("browser.sessionstore.warnOnQuit", false);
 user_pref("browser.shell.checkDefaultBrowser", false);
 
 // tabs
@@ -102,9 +106,6 @@ user_pref("toolkit.telemetry.archive.enabled", false);
 user_pref("toolkit.telemetry.cachedClientID", "");
 user_pref("devtools.onboarding.telemetry.logged", false);
 user_pref("toolkit.telemetry.bhrPing.enabled", false);
-user_pref("datareporting.healthreport.uploadEnabled", false);
-user_pref("datareporting.policy.dataSubmissionEnabled", false);
-user_pref("datareporting.sessions.current.clean", true);
 user_pref("datareporting.healthreport.uploadEnabled", false);
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
 user_pref("datareporting.sessions.current.clean", true);

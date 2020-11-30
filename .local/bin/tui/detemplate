@@ -13,7 +13,7 @@ case $template in
     filename=$(echo $template | sed -E 's/^template\.//')
     output="$directory/$filename"
     envsubst < $1 > $output
-    echo "envsubst < $1 > $output"
+    # echo "envsubst < $1 > $output"
     ;;
   *) echo -e "${RED}template file \"$1\" is invalid.${NC}";
 esac

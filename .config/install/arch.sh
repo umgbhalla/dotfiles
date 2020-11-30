@@ -54,8 +54,8 @@ PACKS="${PACKS} zathura girara zathura-pdf-mupdf"
 PACKS="${PACKS} ffmpeg"
 # PACKS="${PACKS} kdenlive"
 
-# PACKS="${PACKS} alsa-utils"
-PACKS="${PACKS} pulseaudio pulseaudio-alsa pamixer"
+PACKS="${PACKS} alsa-utils"
+# PACKS="${PACKS} pulseaudio pulseaudio-alsa pamixer"
 PACKS="${PACKS} mpd ncmpcpp"
 
 PACKS="${PACKS} texlive-most biber"
@@ -64,6 +64,9 @@ PACKS="${PACKS} texlive-most biber"
 PACKS="${PACKS} tlp brightnessctl"
 
 # PACKS="${PACKS} yarn python2"
+
+# firefox extensions
+# PACKS="${PACKS} firefox-tridactyl"
 
 sudo pacman -S --needed $PACKS # cannot be quoted
 
