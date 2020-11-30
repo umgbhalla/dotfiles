@@ -54,9 +54,8 @@ PACKS="${PACKS} zathura girara zathura-pdf-mupdf"
 PACKS="${PACKS} ffmpeg"
 # PACKS="${PACKS} kdenlive"
 
-PACKS="${PACKS} alsa-utils"
-# PACKS="${PACKS} pulseaudio pulseaudio-alsa pamixer"
-# PACKS="${PACKS} pavucontrol"
+# PACKS="${PACKS} alsa-utils"
+PACKS="${PACKS} pulseaudio pulseaudio-alsa pamixer"
 PACKS="${PACKS} mpd ncmpcpp"
 
 PACKS="${PACKS} texlive-most biber"
@@ -112,9 +111,9 @@ cd "${TMP_DIR}/alsamixer"
 sudo make clean install
 
 # pacmixer alternate
-# git clone "https://github.com/bossley9/ncpamixer.git" "${TMP_DIR}/ncpamixer"
-# cd "${TMP_DIR}/ncpamixer"
-# sudo make install
+git clone "https://github.com/bossley9/ncpamixer.git" "${TMP_DIR}/ncpamixer"
+cd "${TMP_DIR}/ncpamixer"
+sudo make install
 
 # logind/power events
 SYSD="/etc/systemd"

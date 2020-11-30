@@ -63,7 +63,6 @@ esac
 
 # core
 alias \
-  am="alsamixer" \
   cal="cal -3" \
   ch="$CURSOR hide" \
   cs="$CURSOR show" \
@@ -80,6 +79,12 @@ alias \
   vim="$EDITOR" \
   webcam="mpv av://v4l2:/dev/video0 --profile=low-latency --untimed" \
   yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn"
+
+if command -v pulseaudio >/dev/null; then
+  alias am="ncpamixer"
+else
+  alias am="alsamixer"
+fi
 
 # music
 m() {
