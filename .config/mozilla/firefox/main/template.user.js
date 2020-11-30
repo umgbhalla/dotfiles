@@ -40,9 +40,17 @@ user_pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcu
 // TODO search shortcuts
 
 // logins and passwords
+user_pref("signon.autofillForms", false);
+user_pref("signon.autofillForms.http", false);
+user_pref("signon.autofillForms.autocompleteOff", true);
+user_pref("signon.management.page.vulnerable-passwords.enabled", false);
+user_pref("signon.management.page.breach-alerts.enabled", false);
+user_pref("signon.privateBrowsingCapture.enabled", false);
+user_pref("signon.generation.available", false);
 user_pref("signon.rememberSignons", false);
 
 // forms and autofill
+user_pref("browser.formfill.enable", false);
 user_pref("extensions.formautofill.addresses.enabled", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
 
@@ -111,6 +119,8 @@ user_pref("datareporting.policy.dataSubmissionEnabled", false);
 user_pref("datareporting.sessions.current.clean", true);
 user_pref("services.sync.prefs.sync.app.shield.optoutstudies.enabled", false);
 user_pref("services.sync.prefs.sync.browser.discovery.enabled", false);
+user_pref("services.sync.prefs.sync.browser.formfill.enable", false);
+user_pref("services.sync.engine.passwords", false);
 // disable history recording
 // user_pref("places.history.enabled", false);
 // telemetry master
