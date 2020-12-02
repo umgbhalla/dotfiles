@@ -38,6 +38,11 @@
   display: none !important;
 }
 
+/* markdown output (nvim) */
+header#title-block-header {
+  display: none;
+}
+
 /**
  * ------------------------------------------------
  * FF pages

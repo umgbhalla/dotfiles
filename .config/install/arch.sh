@@ -10,6 +10,7 @@ PACKS="${PACKS} man"
 
 # xorg
 PACKS="${PACKS} xorg-server xorg-xinit"
+PACKS="${PACKS} xf86-video-intel"
 # wm
 PACKS="${PACKS} bspwm sxhkd"
 # editor
@@ -58,6 +59,9 @@ PACKS="${PACKS} alsa-utils"
 # PACKS="${PACKS} pulseaudio pulseaudio-alsa pamixer"
 PACKS="${PACKS} mpd ncmpcpp"
 
+# doc conversion (specifically, md to html)
+PACKS="${PACKS} pandoc"
+# latex
 PACKS="${PACKS} texlive-most biber"
 
 # tuning power consumption

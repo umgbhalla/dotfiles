@@ -19,6 +19,7 @@ user_pref("browser.download.useDownloadDir", "true");
 
 // browsing
 user_pref("general.smoothScroll", false);
+user_pref("toolkit.scrollbox.smoothScroll", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 
@@ -199,6 +200,7 @@ user_pref("browser.sessionhistory.max_entries", 5);
 // animations
 user_pref("browser.tabs.animate", false);
 user_pref("browser.download.animateNotifications", false);
+user_pref("toolkit.cosmeticAnimations.enabled", false);
 // hide fullscreen warning
 user_pref("full-screen-api.warning.timeout", 0);
 
@@ -206,6 +208,9 @@ user_pref("full-screen-api.warning.timeout", 0);
 // user_pref("browser.display.use_system_colors", false);
 // user_pref("widget.content.allow-gtk-dark-theme", false);
 // user_pref("widget.content.gtk-theme-override", "${THEME}:light");
+
+// disable spell check
+user_pref("layout.spellcheckDefault", 0);
 
 // extensions
 user_pref("extensions.update.enabled", false);
