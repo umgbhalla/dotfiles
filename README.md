@@ -1,76 +1,38 @@
 # dotfiles
 
 ## Table of Contents
-1. [What The \**** Are Dotfiles?](#what-are-dotfiles)
+1. [What Are Dotfiles?](#what-are-dotfiles)
 2. [Demonstration](#demonstration)
-3. [System Information](#sysinfo)
+3. [System Information](#system-information)
 4. [Manual Installation](#manual-installation)
 5. [Additional Configuration or Notes](#addconfig)
 6. [TODO](#todo)
 
-## What The \**** Are Dotfiles? <a name="what-are-dotfiles"></a>
-According to Quora, dotfiles are _"text-based configuration files that store settings of 
-almost every application, service and tool running on your system."_
+## What Are Dotfiles? <a name="what-are-dotfiles"></a>
+Dotfiles are simply a collection of all configuration files and system files used in
+a daily workflow. The point of maintaining dotfiles is to have a centralized place to
+store all of your application, OS, and system settings. This becomes especially useful
+when you switch between one or two devices regularly, such as between laptop and desktop,
+or work laptop and home laptop. It provides a consistent experience across all devices.
 
-Essentially, the point of dotfiles is to have a centralized place to store all of your 
-application, OS, and system settings. This becomes especially useful when you switch between 
-one or two machines regularly (which I am forced to do via work and school). This is also 
-useful if you made changes that broke applications and you would like to revert changes.
+The improved advantage of keeping this information in a version-controlled repository
+is that it allows the ability to step back in history and revert changes, or store
+experimental settings in branches (try doing the same thing in iCloud, OneDrive, or
+Google sync).
 
-This introduces the concept of _ricing_, or optimizing a system for greater efficiency and
-visual appeal. All too often, I see my fellow engineers struggle to navigate their machine
-applications and interface quickly, which slows development and productivity. One of the most
-essential parts of being able to use a machine or device effectively is tweaking and 
-customizing the machine interfaces, keybindings, and programs to your needs.
+With my dotfiles, I can use the same programs and workflows both at home and at school.
+I've also worked on making my dotfiles operating system-agnostic - I maintain the same
+experience on GNU/Linux distros, BSDs, MacOS, and Windows.
 
-In my case, I keep a regular maintenance of these dotfiles in hopes that other people will 
-find use from my scripts and struggles to create an aesthetic and fully optimized system. 
-I use these same dotfiles for both work and school.
+This gives way to the concept of _ricing_, or optimizing a system for greater efficiency and
+visual appeal. All too often, I see my fellow engineers struggle to navigate their device
+applications and interface quickly which slows their development and productivity.
+One of the most essential parts of being able to use a piece of technology effectively
+is tweaking and customizing the machine interfaces, keybindings, and programs to your
+workflow and needs.
 
-#### Why Linux?
-
-_(I plan on expanding this section in the future.)_
-
-I wanted a solution that protected my privacy from the major tech corporations (**cough cough
-Google Microsoft Apple**) while also providing wonderful shell tools like Unix's 
-[9base](https://tools.suckless.org/9base/)
-utilities. Using Linux also gives me the opportunity to optimize my system to max efficiency,
-creating truly custom keybindings for every application, and freely tweak visual appearances
-for my own satisfaction (e.g. I guarantee it's extremely hard to add a transparent dual-kawese
-blur to all applications on Windows or MacOS).
-
-Am I completely sold on Linux?
-
-No.
-
-While Linux is free and open-source, I want to switch to using even more optimized systems
-such as the BSD family of systems. I plan to move in this direction and convert all my
-scripts to be POSIX-compliant, but it will likely be a few months before this shift
-happens (especially since I'm still attending school).
-
-> EDIT: Regardless of my student status, I am still actively seeking to convert all my
-> scripts over. Stay tuned :3
-
-#### Reproducing this setup
-
-I highly recommend against copying these dotfiles blindly unless you know exactly what each 
-file does to your system. Some of the features or packages I use in my system are 
-experimental, or built with specific hardware in mind. I take no responsibility for any 
-damages or system failures you may encounter - that being said, if you come across a 
-reproducible issue or would like to ask me questions, feel free to open an issue or contact 
-me privately and I would be more than happy to help.
-
-There are two routes you can follow to reproduce the exact same setup I have, one being more 
- tedious, but possibly less work in the long run.
-  - If you would like to wipe an entire machine and begin from scratch with my setup, I have 
-     outlined a clean installation according to my preferences in 
-     [manual installation](#manual-installation). This may be a bit more work but guarantees that 
-     the setup will work exactly the same as mine.
-  - If you would like to install the dotfiles on top of an existing OS or setup, you can 
-     follow the instructions below to clone my dotfiles into your setup. However, be 
-     forewarned - I can't guarantee anything will work. You will likely have to fiddle with 
-     the `.xinitrc` and `.profile` files a bit to get everything working properly, and it 
-     may cost you a considerable amount of time to get everything to work in the long run.
+In my case, I keep my maintenance of these dotfiles public in hopes that other people might
+benefit from my scripts and struggles to create an aesthetic and fully optimized system.
 
 ## Demonstration <a name="demonstration"></a>
 ![basic status bar with background](.config/install/scr1.png)
@@ -79,18 +41,18 @@ There are two routes you can follow to reproduce the exact same setup I have, on
 ![a workspace with my nvim configuration](.config/install/scr4.png)
 ![music player and file explorer in separate terminal windows](.config/install/scr5.png)
 
-## System Information <a name="sysinfo"></a>
-Information taken from `neofetch` output.
+## System Information <a name="system-information"></a>
+[BSPWM] Automata
 ```
-OS: Arch Linux x86_64
-Kernel: 5.9.3-arch1-1
+Kernel: 5.9.11-arch2-1
 Shell: mksh
 WM: bspwm
+compositor: picom
 Theme: custom [GTK2/3]
 Icons: Adwaita [GTK2/3]
 Terminal: st
 Status Bar: lemonbar-xft
-Launcher: fzf
+Launcher: custom (st and fzf)
 
 Editor: neovim
 Browser: firefox
