@@ -101,8 +101,6 @@ case "$OS" in
     fi
     ;;
 esac
-export MUSIC_PLAYER="spotify"
-export MUSIC_PLAYER_ARGS="spicetify config current_theme DotfilesSpicetify && spicetify apply"
 
 export PDF_VIEWER="zathura"
 

@@ -13,7 +13,7 @@ PACKS="${PACKS} xorg-server xorg-xinit"
 # wm
 PACKS="${PACKS} bspwm sxhkd"
 # editor
-PACKS="${PACKS} neovim nodejs ripgrep"
+PACKS="${PACKS} neovim ripgrep"
 # terminal font
 PACKS="${PACKS} libxft"
 # fonts
@@ -63,7 +63,8 @@ PACKS="${PACKS} texlive-most biber"
 # tuning power consumption
 PACKS="${PACKS} tlp brightnessctl"
 
-# PACKS="${PACKS} yarn python2"
+# dev tools for work/school/projects
+# PACKS="${PACKS} nodejs yarn python2"
 
 # firefox extensions
 # PACKS="${PACKS} firefox-tridactyl"
@@ -113,10 +114,10 @@ git clone "https://github.com/bossley9/alsamixer.git" "${TMP_DIR}/alsamixer"
 cd "${TMP_DIR}/alsamixer"
 sudo make clean install
 
-# pacmixer alternate
-git clone "https://github.com/bossley9/ncpamixer.git" "${TMP_DIR}/ncpamixer"
-cd "${TMP_DIR}/ncpamixer"
-sudo make install
+# # pacmixer alternate
+# git clone "https://github.com/bossley9/ncpamixer.git" "${TMP_DIR}/ncpamixer"
+# cd "${TMP_DIR}/ncpamixer"
+# sudo make install
 
 # logind/power events
 SYSD="/etc/systemd"
