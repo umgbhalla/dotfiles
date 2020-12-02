@@ -23,6 +23,9 @@ export XDG_DATA_HOME="$HOME/.local/share"
 # repo directory
 export XDG_REPO_HOME="$HOME/Repos"
 
+# config directory
+export XDG_DESKTOP_DIR="${XDG_CACHE_HOME}/Desktop"
+
 # tmp directory
 export TMP_DIR="/tmp"
 # local font directory

@@ -9,6 +9,7 @@ user_pref("browser.shell.checkDefaultBrowser", false);
 
 // tabs
 user_pref("browser.ctrlTab.recentlyUsedOrder", false);
+user_pref("browser.tabs.warnOnClose", false);
 
 // downloads
 user_pref("browser.download.dir", "${HOME}/Downloads");
@@ -198,6 +199,13 @@ user_pref("browser.sessionhistory.max_entries", 5);
 // animations
 user_pref("browser.tabs.animate", false);
 user_pref("browser.download.animateNotifications", false);
+// hide fullscreen warning
+user_pref("full-screen-api.warning.timeout", 0);
+
+// fix using gtk to render inputs and make text unreadable
+// user_pref("browser.display.use_system_colors", false);
+// user_pref("widget.content.allow-gtk-dark-theme", false);
+// user_pref("widget.content.gtk-theme-override", "${THEME}:light");
 
 // extensions
 user_pref("extensions.update.enabled", false);
