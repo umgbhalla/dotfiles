@@ -142,7 +142,7 @@ probably not for you._
     - An internet connection
     - A disposable usb drive that can be wiped
 2. Download the latest [Archlinux installation image](https://www.archlinux.org/download/)
-  from their website. I downloaded version `2020.11.01`.
+  from their website. I downloaded version `2020.12.01`.
 3. Burn the downloaded disk image onto the usb.
   This can be done using a number of different tools:
   - [Balena Etcher](https://www.balena.io/etcher) (cross-platform)
@@ -255,7 +255,6 @@ My parition scheme will be as follows:
 /efi - 200 MB
 [SWAP] - 2 * RAM
 / - 8 GB
-/tmp - 1 GB
 /usr - 60 GB
 /var - 4 GB
 /home - Remainder of space
@@ -306,13 +305,6 @@ Additionally, it provides options for UEFI as well as tmpfs.
   enter
   +8G
   ```
-- Create a `/tmp` partition.
-  ```
-  n
-  enter
-  enter
-  +1G
-  ```
 - Create a `/usr` partition.
   ```
   n
@@ -349,7 +341,6 @@ Additionally, it provides options for UEFI as well as tmpfs.
   mkfs.ext4 /dev/sda4
   mkfs.ext4 /dev/sda5
   mkfs.ext4 /dev/sda6
-  mkfs.ext4 /dev/sda7
   ```
 - Mount the partitions.
   ```
@@ -358,17 +349,14 @@ Additionally, it provides options for UEFI as well as tmpfs.
   mkdir /mnt/efi
   mount /dev/sda1 /mnt/efi
 
-  mkdir /mnt/tmp
-  mount /dev/sda4 /mnt/tmp -o nodev,nosuid,noexec
-
   mkdir /mnt/usr
-  mount /dev/sda5 /mnt/usr
+  mount /dev/sda4 /mnt/usr
 
   mkdir /mnt/var
-  mount /dev/sda6 /mnt/var
+  mount /dev/sda5 /mnt/var
 
   mkdir /mnt/home
-  mount /dev/sda7 /mnt/home -o nodev
+  mount /dev/sda6 /mnt/home -o nodev
   ```
   You can use the `mount` command to verify that your partitions have been mounted correctly.
 

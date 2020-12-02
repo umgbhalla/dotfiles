@@ -1,10 +1,9 @@
 # my own feeds
 # https://sam.bossley.us/feeds/thoughts.xml
 # https://sam.bossley.us/feeds/log.xml
-https://github.com/bossley9.private.atom?token=AIN6CHZBZEXJQVI6WOCX34F5PVO5W tech # github feed
 
 # news sources
-https://www.pewresearch.org/feed/ news # pew center
+# https://www.pewresearch.org/feed/ news # pew center
 
 # independent creators
 https://lukesmith.xyz/rss.xml independent tech commentary # luke smith
@@ -53,9 +52,6 @@ https://www.reddit.com/r/archlinux.rss ~r/archlinux reddit tech
 https://www.reddit.com/r/freebsd.rss ~r/freebsd reddit tech
 https://www.reddit.com/r/bsd.rss ~r/bsd reddit tech
 https://www.reddit.com/r/freebsd.rss ~r/freebsd reddit tech
-https://www.reddit.com/r/linuxmasterrace.rss ~r/linuxmasterrace reddit meme tech
-https://www.reddit.com/r/linuxmemes.rss ~r/linuxmemes reddit meme tech
 https://www.reddit.com/r/suckless.rss ~r/suckless reddit tech
 https://www.reddit.com/r/unix.rss ~r/unix reddit tech
 https://www.reddit.com/r/unixporn.rss ~r/unixporn reddit tech visual
-https://www.reddit.com/r/mechanicalkeyboards.rss ~r/mechanicalkeyboards reddit tech
