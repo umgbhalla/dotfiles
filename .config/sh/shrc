@@ -9,19 +9,32 @@ set -o vi
 # terminal ascii
 FG=$WHITE
 P=$RED
+
+msgs=(
+ "stop ricing k?            "
+ "tell me i'm dummy thicc   "
+ "say please three times    "
+ "tell me you love me       "
+ "20 euro                   "
+ "good to know              "
+ "what is love anyways      "
+ "ur tearing me apart lisa  "
+ "stop being a karen        "
+ "stop saying i use arch btw"
+)
+msg="${msgs[$(date +%s) % ${#msgs[@]}]}"
+
 echo -e "${FG}\
- ┌―――――――――――――――――――――――――――――┬―――――――――┐
- ├―――――――――――――――――――――――――――――┘ ${P}▀${FG}  ${P}▀${FG}  ${P}▀${FG} │
- │                                       │
- │                                       │
- │    ${P}/\\,-'''''-,/\\ ${FG}                     │\n\
- │    ${P}\\_)       (_/${FG}                      │\n\
- │    ${P}|           |${FG}                      │\n\
- │    ${P}|           | ${FG}                     │\n\
- │     ${P};         ;     ${FG}i use Unix btw    │\n\
- │      ${P}'-_____-' ${FG}                       │\n\
- │                                       │
- └―――――――――――――――――――――――――――――――――――――――┘
+ ┌――――――――――――――――――――――――┬―――――――――┐
+ ├――――――――――――――――――――――――┘ ${P}▀${FG}  ${P}▀${FG}  ${P}▀${FG} │
+ │ ${P}{\__/}${NC}                           │
+ │ ${P}( •.•)${NC}                           │
+ │  ${P}/ >♥️${NC} u want this?               │
+ │                                  │
+ │ ${P}{\__/}${NC}                           │
+ │ ${P}( •-•)${NC}                           │
+ │ ${P} ♥️< \ ${NC}${msg} │
+ └――――――――――――――――――――――――――――――――――┘
 ${NC}"
 
 # scrollback

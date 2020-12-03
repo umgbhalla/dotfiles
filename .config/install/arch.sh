@@ -46,6 +46,8 @@ PACKS="${PACKS} openssh"
 # media player
 PACKS="${PACKS} mpv"
 PACKS="${PACKS} youtube-dl"
+# youtube
+# PACKS="${PACKS} elinks"
 # rss reader
 PACKS="${PACKS} newsboat"
 # pdf viewer utility

@@ -609,4 +609,4 @@ implemented or had the time to configure.
 - contact management application (abook?)
 - Switch to terminal email (Mutt?)
 - vim keybindings extension for firefox
-- htop vim keybindings (or better yet, a custom system profiler)
+- yt cli/tui explorer
