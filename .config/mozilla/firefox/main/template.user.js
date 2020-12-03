@@ -67,6 +67,8 @@ user_pref("browser.urlbar.suggest.searches", false);
 // permissions
 // popups
 user_pref("dom.disable_open_during_load", false);
+// plugins not following popup rules
+user_pref("privacy.popups.disable_from_plugins", 2);
 
 // firefox data and collection use - see telemetry
 
@@ -135,7 +137,10 @@ user_pref("dom.battery.enabled", false);
 // cookies
 user_pref("network.cookie.alwaysAcceptSessionCookies", false);
 // only site cookies - no third party cookies
-user_pref("network.cookie.cookieBehavior", 1);
+// user_pref("network.cookie.cookieBehavior", 1);
+// Google and Carmen use third party cookies for downloading stuff -
+// another reason why they should never be used
+user_pref("network.cookie.cookieBehavior", 0);
 // prevent sites from disabling context menu
 // user_pref("dom.event.contextmenu.enabled", false);
 // sites should not be able to see installed plugins
@@ -144,8 +149,6 @@ user_pref("plugins.enumerable_names", "");
 user_pref("geo.enabled", false);
 user_pref("geo.wifi.uri", "");
 user_pref("browser.search.geoip.url", "");
-// plugins not following popup rules
-user_pref("privacy.popups.disable_from_plugins", 2);
 
 // syncing
 user_pref("services.sync.declinedEngines", "passwords,addresses,creditcards");
