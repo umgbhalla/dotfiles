@@ -1,6 +1,7 @@
 # dotfiles
 
 ## Table of Contents
+
 1. [What Are Dotfiles?](#what-are-dotfiles)
 2. [Demonstration](#demonstration)
 3. [System Information](#system-information)
@@ -9,6 +10,7 @@
 6. [TODO](#todo)
 
 ## What Are Dotfiles? <a name="what-are-dotfiles"></a>
+
 Dotfiles are simply a collection of all configuration files and system files used in
 a daily workflow. The point of maintaining dotfiles is to have a centralized place to
 store all of your application, OS, and system settings. This becomes especially useful
@@ -35,6 +37,7 @@ In my case, I keep my maintenance of these dotfiles public in hopes that other p
 benefit from my scripts and struggles to create an aesthetic and fully optimized system.
 
 ## Demonstration <a name="demonstration"></a>
+
 ![basic status bar with background](.config/install/scr1.png)
 ![neofetch, a terminal instance, and blurry discord](.config/install/scr2.png)
 ![tiled browser, tty-clock, and pdf viewer](.config/install/scr3.png)
@@ -42,7 +45,9 @@ benefit from my scripts and struggles to create an aesthetic and fully optimized
 ![music player and file explorer in separate terminal windows](.config/install/scr5.png)
 
 ## System Information <a name="system-information"></a>
+
 [BSPWM] Automata
+
 ```
 Kernel: 5.9.11-arch2-1
 Shell: mksh
@@ -62,6 +67,7 @@ System Profiler:  htop
 ```
 
 ## Manual Installation <a name="manual-installation"></a>
+
 This section serves to aid those who would like to fully replicate my current working system
 _including_ operating system, packages, and software/architecture specifics.
 
@@ -79,6 +85,7 @@ In other words: _if you're new to the non-proprietary Unix utopia, this installa
 probably not for you._
 
 #### Table of Contents
+
 - [Setup](#setup)
 - [Boot Start](#boot-start)
 - [Internet](#internet)
@@ -99,34 +106,40 @@ probably not for you._
 - [Cloning](#cloning)
 
 #### Setup <a name="setup"></a>
+
 1. For this guide you will need the following tools:
-    - The computer that will be wiped to install the new operating system
-    - An internet connection
-    - A disposable usb drive that can be wiped
+   - The computer that will be wiped to install the new operating system
+   - An internet connection
+   - A disposable usb drive that can be wiped
 2. Download the latest [Archlinux installation image](https://www.archlinux.org/download/)
-  from their website. I downloaded version `2020.12.01`.
+   from their website. I downloaded version `2020.12.01`.
 3. Burn the downloaded disk image onto the usb.
-  This can be done using a number of different tools:
-  - [Balena Etcher](https://www.balena.io/etcher) (cross-platform)
-  - [Rufus](https://rufus.ie) (Windows)
-  - [Mkusb](https://help.ubuntu.com/community/mkusb) (Linux/Ubuntu)
-  - Or, if you prefer command line like me:
-    ```
-    sudo dd bs=4M if=/path/to/img of=/dev/sdx status=progress
-    ```
-    where `/dev/sdx` is the root partition of the usb (do not include specific partition
-    numbers). You may want to run `sudo fdisk -l` or `geom disk list`
-    (depending on your operating system).
-    first to double check the partition name.
+   This can be done using a number of different tools:
+
+- [Balena Etcher](https://www.balena.io/etcher) (cross-platform)
+- [Rufus](https://rufus.ie) (Windows)
+- [Mkusb](https://help.ubuntu.com/community/mkusb) (Linux/Ubuntu)
+- Or, if you prefer command line like me:
+  ```
+  sudo dd bs=4M if=/path/to/img of=/dev/sdx status=progress
+  ```
+  where `/dev/sdx` is the root partition of the usb (do not include specific partition
+  numbers). You may want to run `sudo fdisk -l` or `geom disk list`
+  (depending on your operating system).
+  first to double check the partition name.
+
 4. Boot the computer from the live usb. This may require manual BIOS tweaking depending
-  on your machine. Be sure to boot with UEFI if you plan on dual booting with Windows
-  in the future.
+   on your machine. Be sure to boot with UEFI if you plan on dual booting with Windows
+   in the future.
 
 #### Boot Start <a name="boot-start"></a>
+
 The boot process should eventually land on a virtual terminal prompt.
+
 - Verify the boot mode is UEFI by the output of `ls /sys/firmware/efi/efivars`.
 
 #### Internet <a name="internet"></a>
+
 - You can test for internet with the following command:
   ```
   ping archlinux.org
@@ -169,7 +182,7 @@ The boot process should eventually land on a virtual terminal prompt.
       sudo reboot
       ```
     - Verify `ping archlinux.org` produces a response. Do not proceed and repeat this
-        section until a response appears.
+      section until a response appears.
   - Wireless:
     - Enter the iwctl prompt.
       ```sh
@@ -182,7 +195,7 @@ The boot process should eventually land on a virtual terminal prompt.
       ```
     - Scan for local networks. This command does not display any output and instead
       silently scans.
-      ``` 
+      ```
       station wlan0 scan
       ```
     - List all scanned networks.
@@ -199,12 +212,14 @@ The boot process should eventually land on a virtual terminal prompt.
       section until a response appears.
 
 #### Update the System Clock <a name="update-the-system-clock"></a>
+
 - Update the system clock.
   ```
   timedatectl set-ntp true
   ```
 
 #### Disk Partitioning <a name="disk-partitioning"></a>
+
 In this guide I assume that you only want to install to one disk, and that the full
 disk is being utilized. I will also be using `ext4` for my filesystem (yes, I've heard
 all about the
@@ -213,6 +228,7 @@ and I've actually used it with my BSD build, but sadly, Archlinux doesn't quite 
 it yet). I'm also assuming you have _at least_ 128 GB of disk space.
 
 My parition scheme will be as follows:
+
 ```
 /efi - 200 MB
 [SWAP] - 2 * RAM
@@ -221,6 +237,7 @@ My parition scheme will be as follows:
 /var - 4 GB
 /home - Remainder of space
 ```
+
 This scheme is to provide the utmost security, modularity, and performance
 for a personal computer. The separate partitions prevents system corruptions and allows
 end-users to easily swap operating systems without affecting home files.
@@ -228,6 +245,7 @@ Additionally, it provides options for UEFI as well as tmpfs.
 
 - Determine the size of the disk and the size of RAM memory.
   I will be using and referencing `/dev/sda` as my disk.
+
   ```
   # disk partition and size
   fdisk -l
@@ -235,23 +253,27 @@ Additionally, it provides options for UEFI as well as tmpfs.
   # memory
   free -h
   ```
+
 - Use `fdisk /dev/sda` to enter a command-line disk partition editor.
   In this prompt you may type `p` to view the pending partition table.
 - Type `g` to create a new GPT partition scheme. This will also erase the old partition
   table along with any old partitions.
 - Create an efi `/efi` partition. Type `n` to create a new partition, press `enter` to use the
   default partition number and first sector, and make the partition size 200 MB.
+
   ```
   n
   enter
   enter
   +200M
   ```
+
   If prompted to remove an existing filesystem signature, say `yes`.
   New signatures will be established for the new partitions.
 
   Additionally, if you accidentally create a bad partition, you can always delete
   the partition using the `d` key.
+
 - Create a SWAP partition. The partition size should be twice the size of your RAM
   capacity. My RAM is 15 GB:
   ```
@@ -293,6 +315,7 @@ Additionally, it provides options for UEFI as well as tmpfs.
   the virtual terminal prompt, where you will be able to run `fdisk -l` to view your
   newly created partitions.
 - Change all partition signatures.
+
   ```
   mkfs.fat -F32 /dev/sda1
 
@@ -304,7 +327,9 @@ Additionally, it provides options for UEFI as well as tmpfs.
   mkfs.ext4 /dev/sda5
   mkfs.ext4 /dev/sda6
   ```
+
 - Mount the partitions.
+
   ```
   mount /dev/sda3 /mnt
 
@@ -320,9 +345,11 @@ Additionally, it provides options for UEFI as well as tmpfs.
   mkdir /mnt/home
   mount /dev/sda6 /mnt/home -o nodev
   ```
+
   You can use the `mount` command to verify that your partitions have been mounted correctly.
 
 #### Operating System Installation <a name="operating-system-installation"></a>
+
 - Install the Linux kernel and Archlinux base. This usually takes some time to
   complete depending on your internet stability. I also recommend installing a
   text editor (`vim`).
@@ -331,6 +358,7 @@ Additionally, it provides options for UEFI as well as tmpfs.
   ```
 
 #### Fstab <a name="fstab"></a>
+
 - Generate an Fstab file. This is a file that dictates how partitions are mounted
   when the system boots.
   ```
@@ -340,12 +368,14 @@ Additionally, it provides options for UEFI as well as tmpfs.
   and modify any mount options if needed.
 
 #### Chroot <a name="chroot"></a>
+
 - Change root into the new system. You will now be within your newly-formatted disk.
   ```
   arch-chroot /mnt
   ```
 
 #### Localization <a name="localization"></a>
+
 - Set the time zone, where REGION and CITY pertain to your local area.
   These values can be tab-completed.
   ```
@@ -370,6 +400,7 @@ Additionally, it provides options for UEFI as well as tmpfs.
   ```
 
 #### Network Configuration <a name="network-configuration"></a>
+
 - Name your system in `/etc/hostname`. I will name mine `automata`.
   ```
   automata
@@ -387,7 +418,9 @@ Additionally, it provides options for UEFI as well as tmpfs.
   ```
 
 #### Initramfs <a name="initramfs"></a>
+
 In order to allow the system to detect the `/usr` drive, we need to add init flags.
+
 - `vim /etc/mkinitcpio.conf` and add the following hooks, not altering the previous hooks:
   ```
   HOOKS=(... shutdown usr fsck)
@@ -398,12 +431,14 @@ In order to allow the system to detect the `/usr` drive, we need to add init fla
   ```
 
 #### Password <a name="password"></a>
+
 - Set the root password.
   ```
   passwd
   ```
 
 #### Boot Loader <a name="boot-loader"></a>
+
 I use Grub as a bootloader because it is simple, quick, and works on both UEFI/BIOS systems. It also has a customizeable appearance.
 
 - Install GRUB and efibootmgr for UEFI.
@@ -417,8 +452,10 @@ I use Grub as a bootloader because it is simple, quick, and works on both UEFI/B
   ```
 
 #### Installation Wrapup <a name="installation-wrapup"></a>
+
 At this point, we have completely installed everything needed for a fully functional
 Archlinux system.
+
 - Exit chroot and umount the partitions.
   ```
   exit
@@ -435,14 +472,17 @@ Archlinux system.
   If it boots into a GRUB menu, then stops at a login prompt, you've just successfully
   completed a standard Archlinux installation! However, this specific installation is
   anything but standard - we still have some work to do.
+
 - Log in to root using `root` as the username and the password you created earlier.
 
 #### Post-Install Internet <a name="post-install-internet"></a>
+
 - Connect to internet with Network Manager. This can be done via the command line interface
-`nmcli`, or the easier terminal interface `nmtui`.
+  `nmcli`, or the easier terminal interface `nmtui`.
 - Verify internet connection with `ping archlinux.org`.
 
 #### Creating a User <a name="creating-a-user"></a>
+
 - Create a new user. This will be the main user in which you will use to log into and
   interact with your system.
   ```
@@ -456,6 +496,7 @@ Archlinux system.
   Then logout and log back in as the newly created user.
 
 #### Core <a name="core"></a>
+
 - First, run a system upgrade to update any packages that were not up to date when the
   system was installed. It's a good practice to do this on a clean install even if no
   packages need updating.
@@ -478,6 +519,7 @@ Archlinux system.
   Log out and log back in to use the new default shell.
 
 #### Cloning <a name="cloning"></a>
+
 - Clone this repository to your home folder using the steps outlined below.
   If you have followed my [manual installation](#manual-installation) completely,
   choose `mksh`.
@@ -514,51 +556,57 @@ Archlinux system.
   ```
 
 ## Additional Configuration or Notes <a name="addconfig"></a>
+
 This list of additional optional configuration options are in no particular order.
 I've just added or modified them when necessary.
 
 - [Gaming](#gaming)
 
 #### Gaming <a name="gaming"></a>
+
 With these settings, I have been able to play every game I've tried.
+
 > I use the following hardware components:
+>
 > - CPU: AMD Ryzen 9 3900x
 > - GPU: AMD Radeon RX 580
 >
 > I specifically chose AMD products for my build since all Nvidia
-> drivers are proprietary and I strongly advocate for open source 
+> drivers are proprietary and I strongly advocate for open source
 > software. Sorry, no RTX. But I think it's best in the long run.
 
-A lot of gaming applications (such as the Steam client and Wine client) are 32-bit 
-architecture and require the `multilib` repository to be enabled. To enable, 
+A lot of gaming applications (such as the Steam client and Wine client) are 32-bit
+architecture and require the `multilib` repository to be enabled. To enable,
 `sudo nvim /etc/pacman.conf` and uncomment the following section:
+
 ```
 [multilib]
 Include = /etc/pacman.d/mirrorlist
 ```
+
 Then upgrade the system.
+
 ```
 sudo pacman -Syu
 ```
-You will also need to install the following packages. Many of these are essential for running 
+
+You will also need to install the following packages. Many of these are essential for running
 games of any kind.
+
 ```
 sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader
 ```
+
 [Lutris also recommended that I install drivers specific to my GPU](https://github.com/lutris/docs/blob/master/InstallingDrivers.md).
 
 ## TODO <a name="todo"></a>
+
 Below are a list of things in no particular order that I plan to do but haven't yet
 implemented or had the time to configure.
 
-+ pinyin input (fcitx?)
-+ fix ffmpeg audio not recording
-+ contact management application (abook?)
-+ Switch to terminal email (Mutt?)
-+ update readme (yes, this file) with actually updated info
-+ finish templating for github and "general sites"
-+ vim keybindings extension for firefox
-+ reconfigure nvim (error suppression and cleaner plugins)
-+ htop vim keybindings (or better yet, a custom system profiler)
-+ cordless discord?
-+ spotify via mpd?
+- pinyin input (fcitx?)
+- fix ffmpeg audio not recording
+- contact management application (abook?)
+- Switch to terminal email (Mutt?)
+- vim keybindings extension for firefox
+- htop vim keybindings (or better yet, a custom system profiler)

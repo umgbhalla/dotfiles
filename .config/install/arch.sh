@@ -59,16 +59,15 @@ PACKS="${PACKS} alsa-utils"
 # PACKS="${PACKS} pulseaudio pulseaudio-alsa pamixer"
 PACKS="${PACKS} mpd ncmpcpp"
 
+# tuning power consumption
+PACKS="${PACKS} tlp brightnessctl"
+
 # doc conversion (specifically, md to html)
 PACKS="${PACKS} pandoc"
 # latex
 PACKS="${PACKS} texlive-most biber"
-
-# tuning power consumption
-PACKS="${PACKS} tlp brightnessctl"
-
 # dev tools for work/school/projects
-# PACKS="${PACKS} nodejs yarn python2"
+PACKS="${PACKS} nodejs yarn python2"
 
 # firefox extensions
 # PACKS="${PACKS} firefox-tridactyl"
