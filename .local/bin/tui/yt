@@ -48,4 +48,8 @@ query_formatted="$(urlencode "$query_raw")"
 
 url="${base_url}${query_formatted}"
 
-elinks "$url"
+echo "${RED}Incomplete until further notice.${NC}"
+# elinks does not come with JS builtin by default which is required by Youtube.
+# the only way to get support is with spidermonkey but it's a huge pain and hassle.
+# curl "$url"
+# elinks "$url"

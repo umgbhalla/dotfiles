@@ -21,6 +21,8 @@ PACKS="${PACKS} libxft"
 PACKS="${PACKS} ttf-liberation adobe-source-code-pro-fonts wqy-zenhei"
 # browser
 PACKS="${PACKS} firefox"
+# alt browser
+# PACKS="${PACKS} elinks"
 # fuzzy finder
 PACKS="${PACKS} fzf"
 # image viewer
@@ -46,10 +48,10 @@ PACKS="${PACKS} openssh"
 # media player
 PACKS="${PACKS} mpv"
 PACKS="${PACKS} youtube-dl"
-# youtube
-PACKS="${PACKS} elinks"
 # rss reader
 PACKS="${PACKS} newsboat"
+# reddit viewer
+# PACKS="${PACKS} rtv"
 # pdf viewer utility
 PACKS="${PACKS} zathura girara zathura-pdf-mupdf"
 
@@ -88,7 +90,7 @@ AUR="mmv"
 AUR="${AUR} firefox-ublock-origin"
 AUR="${AUR} firefox-extension-multi-account-containers"
 
-yay -S --needed --batchinstall $AUR # cannot be quoted
+yay -S --batchinstall --needed --nopovides $AUR # cannot be quoted
 
 # xgetres for Xresources
 git clone "https://github.com/tamirzb/xgetres.git" "${TMP_DIR}/xgetres"
@@ -113,6 +115,12 @@ sudo ln -sf mksh /bin/sh
 $SBUILD "st"
 $SBUILD "herbe"
 $SBUILD "slock"
+
+# swallowing windows
+git clone "https://github.com/salman-abedin/devour.git" "${TMP_DIR}/devour"
+cd "${TMP_DIR}/devour"
+git checkout f1630794f0a6e96377373e8c1629ffa76f9b6cf4
+sudo make install
 
 # alsamixer alternate
 git clone "https://github.com/bossley9/alsamixer.git" "${TMP_DIR}/alsamixer"
