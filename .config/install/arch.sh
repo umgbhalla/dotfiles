@@ -47,7 +47,7 @@ PACKS="${PACKS} openssh"
 PACKS="${PACKS} mpv"
 PACKS="${PACKS} youtube-dl"
 # youtube
-# PACKS="${PACKS} elinks"
+PACKS="${PACKS} elinks"
 # rss reader
 PACKS="${PACKS} newsboat"
 # pdf viewer utility
@@ -124,16 +124,17 @@ sudo make clean install
 # cd "${TMP_DIR}/ncpamixer"
 # sudo make install
 
-# logind/power events
 SYSD="/etc/systemd"
+
+# logind/power events
 sudo mkdir -p "${SYSD}"
 sudo cp "${XDG_CONFIG_HOME}${SYSD}/logind.conf" "${SYSD}/logind.conf"
 
 # slock
-SYSD="/etc/systemd"
-sudo mkdir -p "${SYSD}/system"
-$DET "${XDG_CONFIG_HOME}/${SYSD}/system/template.slock@.service"
-sudo ln -sf "${XDG_CONFIG_HOME}/${SYSD}/system/slock@.service" "${SYSD}/system/slock@.service"
+SYSDSYS="${SYSD}/system"
+sudo mkdir -p "${SYSDSYS}"
+DISPLAY=:0 $DET "${XDG_CONFIG_HOME}/${SYSDSYS}/template.slock@.service"
+sudo ln -sf "${XDG_CONFIG_HOME}/${SYSDSYS}/slock@.service" "${SYSDSYS}/slock@.service"
 sudo systemctl enable "slock@${USER}.service"
 
 # gtk theme

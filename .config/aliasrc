@@ -34,7 +34,8 @@ case "${OS}" in
       reboot="sudo reboot" \
       shutdown="sudo poweroff" \
       suspend="sudo systemctl suspend" \
-      hibernate="sudo systemctl hibernate"
+      hibernate="sudo systemctl hibernate" \
+      lock="slock"
     ;;
   "${OS_FREEBSD}")
     alias \
@@ -76,7 +77,8 @@ alias \
   vi="$EDITOR" \
   vim="$EDITOR" \
   webcam="mpv av://v4l2:/dev/video0 --profile=low-latency --untimed" \
-  yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn"
+  yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn" \
+  yt="$YT"
 
 if command -v pulseaudio >/dev/null; then
   alias am="ncpamixer"

@@ -211,6 +211,7 @@ export SBUILD="$TUI_DIR/sbuild"
 export SCREEN="$TUI_DIR/screen"
 export SHELLMENU="$GUI_DIR/shell-menu"
 export SETTHEME="$TUI_DIR/set-theme"
+export YT="$TUI_DIR/yt"
 
 #
 # path
