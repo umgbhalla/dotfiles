@@ -90,7 +90,7 @@ AUR="mmv"
 AUR="${AUR} firefox-ublock-origin"
 AUR="${AUR} firefox-extension-multi-account-containers"
 
-yay -S --batchinstall --needed --nopovides $AUR # cannot be quoted
+yay -S --batchinstall --needed --noprovides $AUR # cannot be quoted
 
 # xgetres for Xresources
 git clone "https://github.com/tamirzb/xgetres.git" "${TMP_DIR}/xgetres"

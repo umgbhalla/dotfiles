@@ -10,12 +10,15 @@ user_pref("browser.shell.checkDefaultBrowser", false);
 // tabs
 user_pref("browser.ctrlTab.recentlyUsedOrder", false);
 user_pref("browser.tabs.warnOnClose", false);
+user_pref("browser.tabs.warnOnCloseOtherTabs", false);
 
 // downloads
 user_pref("browser.download.dir", "${HOME}/Downloads");
 user_pref("browser.download.useDownloadDir", "true");
 
-// TODO application actions
+// application actions
+user_pref("browser.download.viewableInternally.enabledTypes", "");
+user_pref("browser.download.openInSystemViewerContextMenuItem", false);
 
 // browsing
 user_pref("general.smoothScroll", false);
@@ -35,11 +38,10 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
 user_pref("browser.newtabpage.activity-stream.feeds.snippets", false);
 user_pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts", false);
 
-// TODO
 // default search engine can NO LONGER be set in about:config due to
 // third-party plugins setting the default search engine
-
-// TODO search shortcuts
+//
+// it's now saved in a binary format in search.json.mozlz4
 
 // logins and passwords
 user_pref("signon.autofillForms", false);
