@@ -206,6 +206,10 @@ user_pref("browser.sessionhistory.max_entries", 5);
 user_pref("browser.tabs.animate", false);
 user_pref("browser.download.animateNotifications", false);
 user_pref("toolkit.cosmeticAnimations.enabled", false);
+// fullscreen animations
+user_pref("full-screen-api.transition-duration.enter",	"0 0");
+user_pref("full-screen-api.transition-duration.leave", "0 0");
+user_pref("ui.prefersReducedMotion", 1);
 // hide fullscreen warning
 user_pref("full-screen-api.warning.timeout", 0);
 

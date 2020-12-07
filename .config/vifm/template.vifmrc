@@ -193,7 +193,7 @@ fileviewer {*xml,*json,*csv,*tex,*py,*pl,*rb,*js,*sh,*php},<application/text>
 
 " pdf
 filetype {*.pdf},<application/pdf>
-  \ $PDF_VIEWER %f %i
+  \ devour $PDF_VIEWER %f %i
 fileviewer {*.pdf},<application/pdf>
   \ pdftotext -nopgbrk %c -
 
@@ -211,10 +211,10 @@ filetype {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
   \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
   \*.as[fx]},
   \<video/*>
-  \ mpv %f
+  \ devour mpv %f
 " gifs
 filetype {*.gif}
-  \ mpv %f,
+  \ devour mpv %f,
 
 " web
 filextype {*.html,*.htm},<text/html> $BROWSER %f
@@ -229,11 +229,11 @@ fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 
 " image
 filextype {*.bmp,*.jpg,*.jpeg,*.png,*.xpm,*.svg},<image/*>
-  \ feh --start-at %f
-fileviewer {*.jpg,*.jpeg,*.png}
-  \ $XDG_CONFIG_HOME/vifm/vifmimg draw %px %py %pw %ph %c
-  \ %pc
-  \ $XDG_CONFIG_HOME/vifm/vifmimg clear
+  \ devour feh --start-at %f
+" fileviewer {*.jpg,*.jpeg,*.png}
+"   \ $XDG_CONFIG_HOME/vifm/vifmimg draw %px %py %pw %ph %c
+"   \ %pc
+"   \ $XDG_CONFIG_HOME/vifm/vifmimg clear
 
 " OpenRaster
 filextype *.ora
