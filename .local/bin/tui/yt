@@ -1,55 +1,13 @@
 #!/bin/sh
-# youtube browser
+# ytui wrapper
 
-base_url="https://www.youtube.com/results?search_query="
+read args
 
-if ! command -v elinks > "/dev/null"; then
-  echo "${RED}ERROR: elinks is not installed. Exiting.${NC}"
-  exit 1
-fi
-
-# read query_raw
-
-# if [ -z "$query_raw" ]; then
-#   echo "${RED}USAGE: yt [search query]${NC}"
-#   exit 1
-# fi
-
-if [ "$#" -lt 1 ]; then
+if [ -z "$args" ]; then
   echo "${RED}USAGE: yt [search query]${NC}"
   exit 1
 fi
 
-# syntactic sugar to join all args via the first
-# character in IFS, aka the space character
-query_raw="$*"
-
-# adapted from Giles' fantastic answer in
-# https://unix.stackexchange.com/questions/60653/urlencode-function
-urlencode() {
-  str="$1"
-
-  while [ -n "$str" ]; do
-    tail=${str#?}
-    char="${str%$tail}"
-
-    case $char in
-      [-._~0-9A-Za-z]) printf %c "$char";;
-      *) printf %%%02x "'$char"
-    esac
-
-    str="$tail"
-  done
-
-  echo
-}
-
-query_formatted="$(urlencode "$query_raw")"
-
-url="${base_url}${query_formatted}"
-
-echo "${RED}Incomplete until further notice.${NC}"
-# elinks does not come with JS builtin by default which is required by Youtube.
-# the only way to get support is with spidermonkey but it's a huge pain and hassle.
-# curl "$url"
-# elinks "$url"
+$XDG_CONFIG_HOME/ytui/ytui.ts "$args" | \
+  fzf | awk '{print $NF}' | \
+  xargs -I {} mpv {}

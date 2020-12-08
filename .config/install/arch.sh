@@ -13,8 +13,8 @@ PACKS="${PACKS} xorg-server xorg-xinit"
 PACKS="${PACKS} xf86-video-intel"
 # wm
 PACKS="${PACKS} bspwm sxhkd"
-# editor
-PACKS="${PACKS} neovim ripgrep"
+# editor (fuzzy finder and coc compatibility)
+PACKS="${PACKS} neovim ripgrep nodejs"
 # terminal font
 PACKS="${PACKS} libxft"
 # fonts
@@ -71,7 +71,7 @@ PACKS="${PACKS} pandoc"
 # latex
 PACKS="${PACKS} texlive-most biber"
 # dev tools for work/school/projects
-PACKS="${PACKS} nodejs yarn python2"
+PACKS="${PACKS} nodejs deno yarn python2"
 
 # firefox extensions
 # PACKS="${PACKS} firefox-tridactyl"
@@ -131,6 +131,10 @@ sudo make clean install
 # git clone "https://github.com/bossley9/ncpamixer.git" "${TMP_DIR}/ncpamixer"
 # cd "${TMP_DIR}/ncpamixer"
 # sudo make install
+
+# ytui
+# cd $XDG_CONFIG_HOME/ytui
+# sudo make clean install
 
 SYSD="/etc/systemd"
 

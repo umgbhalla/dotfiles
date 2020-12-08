@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+/* ansi color codes */
+const char* RED = "\033[31m";
+const char* NC = "\033[0m";
+
+char* urlencode(char* url) {
+  return url;
+}
+
+int main(int argc, char* argv[]) {
+  if (argc == 1) {
+    printf("%sUSAGE: ytui [search query]%s\n", RED, NC);
+    return 1;
+  }
+
+
+
+  /* int argvLen = sizeof(argv) / sizeof(argv[0]); */
+  /* printf("argc is %i\n", argc); */
+
+  /* for (unsigned int i = 0; i < argc; i++) { */
+  /*   printf("arg is %s\n", argv[i]); */
+  /* } */
+
+  /* if (argvLen > 0) { */
+  /*   printf("argv[0] is %s\n", argv[0]); */
+  /* } */
+
+  return 0;
+}
