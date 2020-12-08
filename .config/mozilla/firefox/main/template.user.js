@@ -179,8 +179,10 @@ user_pref("devtools.editor.keymap", "vim"); // bindings for all devtools file ed
 
 // media
 user_pref("dom.media.autoplay.autoplay-policy-api", false);
+user_pref("media.autoplay.default", 1);
 user_pref("media.autoplay.enabled", false);
 user_pref("media.block-autoplay-until-in-foreground", true);
+user_pref("media.autoplay.allow-muted", false);
 // play drm-controlled content
 user_pref("media.eme.enabled", true);
 

@@ -84,7 +84,7 @@ pl() {
     echo "${RED}USAGE: pl [url]${NC}"
   else
     case "$1" in
-      *youtube*) devour mpv "$@" ;;
+      *youtube*|*youtu.be*) devour mpv "$@" ;;
       *) mpv "$@" ;;
     esac
   fi
