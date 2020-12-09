@@ -10,4 +10,4 @@ fi
 
 $XDG_CONFIG_HOME/ytui/ytui.ts "$args" | \
   fzf | awk '{print $NF}' | \
-  xargs -I {} mpv {}
+  xargs -I {} devour mpv {}
