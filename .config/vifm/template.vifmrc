@@ -134,9 +134,10 @@ set invwrap
 
 " :mark mark /full/directory/path [filename]
 
-mark h $HOME/
-mark c $XDG_CONFIG_HOME/
-mark b $HOME/Downloads/
+mark H $HOME/
+mark C $XDG_CONFIG_HOME/
+mark B $HOME/Downloads/
+mark D $HOME/Data/
 
 " ------------------------------------------------------------------------------
 
