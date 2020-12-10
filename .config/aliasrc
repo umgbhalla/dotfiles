@@ -77,7 +77,7 @@ alias \
   system="sudo systemctl" \
   vi="$EDITOR" \
   vim="$EDITOR" \
-  webcam="mpv av://v4l2:/dev/video0 --profile=low-latency --untimed" \
+  webcam="devour mpv av://v4l2:/dev/video0 --profile=low-latency --untimed" \
   yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn" \
   yt="$YT"
 

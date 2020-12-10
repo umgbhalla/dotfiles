@@ -611,4 +611,3 @@ implemented or had the time to configure.
 - mpv playlist search
 - nmtui keybindings and readable colors
 - refine ytui script
-- fix emoji script
