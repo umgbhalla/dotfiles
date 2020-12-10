@@ -41,8 +41,6 @@ PACKS="${PACKS} xorg-xsetroot hsetroot"
 PACKS="${PACKS} xorg-xinput"
 # clipboard
 PACKS="${PACKS} xclip"
-# system profiler
-PACKS="${PACKS} htop"
 # ssh
 PACKS="${PACKS} openssh"
 # media player
@@ -135,6 +133,13 @@ sudo make clean install
 # ytui
 # cd $XDG_CONFIG_HOME/ytui
 # sudo make clean install
+
+# system profiler
+git clone "https://github.com/bossley9/htop.git" "${TMP_DIR}/htop"
+cd "${TMP_DIR}/htop"
+./autogen.sh
+./configure
+sudo make clean install
 
 SYSD="/etc/systemd"
 
