@@ -1,8 +1,15 @@
 #!/bin/sh
 
 ICON_PADDING="7"
-FG="$(xgetres "bar.foreground")"
-BG="$(xgetres "bar.background")"
+
+if [ -e "${XRDB_RESOURCES}" ]; then
+  bar_resources="$(grep -i "bar" "${XRDB_RESOURCES}")"
+  FG="$(echo "$bar_resources" | grep "bar.foreground" | cut -d ' ' -f 2)"
+  BG="$(echo "$bar_resources" | grep "bar.background" | cut -d ' ' -f 2)"
+else
+  FG="#e6e6e6"
+  BG="#34312a"
+fi
 
 wm() {
   ws="$(bspc query -D --names -d)"

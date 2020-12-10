@@ -67,6 +67,7 @@ alias \
   cal="cal -3" \
   ch="$CURSOR hide" \
   cs="$CURSOR show" \
+  em="neomutt" \
   n="newsboat -u $NEWSBOAT_CONFIG/urls -C $NEWSBOAT_CONFIG/config" \
   pdf="pdflatex" \
   pl="devour mpv" \

@@ -43,6 +43,10 @@ PACKS="${PACKS} xorg-xinput"
 PACKS="${PACKS} xclip"
 # ssh
 PACKS="${PACKS} openssh"
+# email client
+PACKS="${PACKS} neomutt"
+# contact management
+PACKS="${PACKS} abook"
 # media player
 PACKS="${PACKS} mpv"
 PACKS="${PACKS} youtube-dl"
@@ -88,14 +92,7 @@ AUR="mmv"
 AUR="${AUR} firefox-ublock-origin"
 AUR="${AUR} firefox-extension-multi-account-containers"
 
-yay -S --batchinstall --needed --noprovides $AUR # cannot be quoted
-
-# xgetres for Xresources
-git clone "https://github.com/tamirzb/xgetres.git" "${TMP_DIR}/xgetres"
-cd "${TMP_DIR}/xgetres"
-git checkout 2505f065e0c7ed990d8d71c0d8bd7106c8ab16f2
-cp "${XDG_CONFIG_HOME}/xgetres/Makefile" "${TMP_DIR}/xgetres/"
-sudo make clean install
+yay -S --batchinstall --needed --nocleanmenu --nodiffmenu --noprovides $AUR # cannot be quoted
 
 # firefox profile
 mkdir -p "${HOME}/.mozilla"

@@ -42,7 +42,7 @@ export THEME_LIGHT="light"
 export THEME_DARK="dark"
 
 if [ -z "${CURRENT_THEME_MODE}" ]; then
-  export CURRENT_THEME_MODE="${THEME_LIGHT}"
+  export CURRENT_THEME_MODE="${THEME_DARK}"
 fi
 
 export THEME="gtk-theme"
@@ -166,7 +166,8 @@ case "${OS}" in
     ;;
 esac
 export UID="$(id -u)"
-export XRDB_UPDATE="xrdb -merge ${XDG_CONFIG_HOME}/Xdefaults/Xresources"
+export XRDB_RESOURCES="${XDG_CONFIG_HOME}/Xdefaults/Xresources"
+export XRDB_UPDATE="xrdb -merge ${XRDB_RESOURCES}"
 
 # vertical line jumping
 export VI_NAV_JUMP="5"
