@@ -69,6 +69,7 @@ alias \
   cs="$CURSOR show" \
   n="newsboat -u $NEWSBOAT_CONFIG/urls -C $NEWSBOAT_CONFIG/config" \
   pdf="pdflatex" \
+  pl="devour mpv" \
   s="$XDG_SCRIPT_HOME/run_script.sh" \
   sbuild="$SBUILD" \
   ss="sc-im" \
@@ -78,17 +79,6 @@ alias \
   webcam="mpv av://v4l2:/dev/video0 --profile=low-latency --untimed" \
   yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn" \
   yt="$YT"
-
-pl() {
-  if [ -z "$1" ]; then
-    echo "${RED}USAGE: pl [url]${NC}"
-  else
-    case "$1" in
-      *youtube*|*youtu.be*) devour mpv "$@" ;;
-      *) mpv "$@" ;;
-    esac
-  fi
-}
 
 if command -v pulseaudio >/dev/null; then
   alias am="ncpamixer"
