@@ -604,10 +604,8 @@ sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib3
 Below are a list of things in no particular order that I plan to do but haven't yet
 implemented or had the time to configure.
 
-- fix ffmpeg audio not recording
 - contact management application (abook?)
 - Switch to terminal email (Mutt?)
 - vim keybindings extension for firefox
-- mpv playlist search
 - nmtui keybindings and readable colors
 - refine ytui script

@@ -1,3 +1,4 @@
+# vim: set filetype=sh
 ##### General rules #####
 ##
 ## 1) Because each action has runtime checks whether it's
