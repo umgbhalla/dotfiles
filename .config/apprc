@@ -36,6 +36,11 @@ export BAR_FIFO="${TMP_DIR}/${BAR}fifo"
 export BAR_ARGS="${XDG_CONFIG_HOME}/lemonbar/main.sh"
 export BAR_UPDATE="${XDG_CONFIG_HOME}/lemonbar/signal.sh"
 
+# abook
+
+export ADDRESS_BOOK="${HOME}/Data/Contacts/contacts.vcf"
+export ADDRESS_BOOK_TMP="${XDG_CACHE_HOME}/abook-address-book"
+
 # bspwm
 
 export BSPWM_TOP_PADDING="$(echo "$BAR_HEIGHT+$W_GAPS" | bc)"

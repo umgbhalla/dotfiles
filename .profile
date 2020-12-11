@@ -177,6 +177,7 @@ export VI_NAV_JUMP_LARGE="25"
 # cache and config directories
 #
 
+export ABOOK_CONFIG="$XDG_CONFIG_HOME/abook/abookrc"
 export BOOKMARK_CONFIG="$XDG_CONFIG_HOME/bookmarks"
 export ENV="$XDG_CONFIG_HOME/sh/shrc"
 export GIT_CONFIG="$XDG_CONFIG_HOME/git/config"

@@ -44,7 +44,7 @@ PACKS="${PACKS} xclip"
 # ssh
 PACKS="${PACKS} openssh"
 # email client
-PACKS="${PACKS} neomutt"
+# PACKS="${PACKS} neomutt"
 # contact management
 PACKS="${PACKS} abook"
 # media player

@@ -1,0 +1,7 @@
+# vim: filetype=sh
+set preserve_fields = all
+
+view CONTACT = name, nick, email, mobile, notes
+view ADDRESS = address, address2, city, state, zip, country
+view OTHER = birthday, phone, workphone, pager, fax, anniversary
+view SOCIALS = url
