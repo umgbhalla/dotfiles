@@ -1,7 +1,14 @@
 # vim: filetype=sh
 set preserve_fields = all
 
+field birthday = Birthday, date
+
+field fb = Facebook, string
+field insta = Instagram, string
+field twitter = Twitter, string
+field discord = Discord, string
+
 view CONTACT = name, nick, email, mobile, notes
 view ADDRESS = address, address2, city, state, zip, country
-view OTHER = birthday, phone, workphone, pager, fax, anniversary
-view SOCIALS = url
+view OTHER = birthday, phone, workphone, fax, anniversary
+view SOCIALS = url, fb, insta, twitter, discord

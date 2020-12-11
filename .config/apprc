@@ -38,8 +38,7 @@ export BAR_UPDATE="${XDG_CONFIG_HOME}/lemonbar/signal.sh"
 
 # abook
 
-export ADDRESS_BOOK="${HOME}/Data/Contacts/contacts.vcf"
-export ADDRESS_BOOK_TMP="${XDG_CACHE_HOME}/abook-address-book"
+export ADDRESS_BOOK="${HOME}/Data/Contacts/contacts"
 
 # bspwm
 

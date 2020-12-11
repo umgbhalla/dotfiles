@@ -113,33 +113,8 @@ pk() {
 }
 
 # contacts
-# we need to do all this monkey business because:
-# 1. abook doesn't save as vcard by default
-#    (even though everything else does?)
-# 2. abook will not convert and overwrite a
-#    file that already exists, so we have to
-#    make use of temporary files
 c() {
-  format="vcard"
-  tmp_out="${ADDRESS_BOOK}_out"
-
-  # convert to abook
-  [ -e "$ADDRESS_BOOK" ] && \
-    abook --convert \
-      --informat "$format" --infile "$ADDRESS_BOOK" \
-      --outformat abook --outfile "$ADDRESS_BOOK_TMP"
-
-  abook --datafile "$ADDRESS_BOOK_TMP" --config "$ABOOK_CONFIG"
-
-  # convert to vcard vcf (the better universal format)
-  rm -f "$tmp_out"
-  [ -e "$ADDRESS_BOOK_TMP" ] && \
-    abook --convert \
-      --informat abook --infile "$ADDRESS_BOOK_TMP" \
-      --outformat "$format" --outfile "$tmp_out"
-  mv -f "$tmp_out" "$ADDRESS_BOOK"
-
-  rm -f "$ADDRESS_BOOK_TMP"
+  abook --datafile "$ADDRESS_BOOK" --config "$ABOOK_CONFIG"
 }
 
 alias zr="clear && . $ENV"
