@@ -1,5 +1,3 @@
-local mp = require 'mp'
-
 --adding the source directory to the package path and loading the module
 package.path = mp.command_native( {"expand-path", (mp.get_opt("scroll_list-directory") or "~~/scripts") } ) .. "/?.lua;" .. package.path
 local list = require "scroll-list"
@@ -22,6 +20,17 @@ list.keybinds = {
     {'q', 'close_browser', function() list:close() end, {}}
 }
 
+function os.capture(cmd, raw)
+  local f = assert(io.popen(cmd, 'r'))
+  local s = assert(f:read('*a'))
+  f:close()
+  if raw then return s end
+  s = string.gsub(s, '^%s+', '')
+  s = string.gsub(s, '%s+$', '')
+  s = string.gsub(s, '[\n\r]+', ' ')
+  return s
+end
+
 function observe_change(_, current)
     list.list = {}
     local playlist_length = mp.get_property_number('playlist-count', 0)
@@ -31,22 +40,30 @@ function observe_change(_, current)
 
     for i = 1, playlist_length do
         local item = {}
-        if (i-1 == playlist_current) then
-            item.style = [[{\c&H33ff66&}]]
-        end
-
         local str = i .. '. '
         local index = i - 1
-        local filename = mp.get_property('playlist/'..index..'/filename')
 
-        if not filename:match('^https?://') then
-          str = str .. 'untitled'
-        else
-          str = str .. filename
-
-          -- TODO get name from ytdl or something
-          -- https://github.com/jonniek/mpv-playlistmanager/blob/master/playlistmanager.lua
+        if (index == playlist_current) then
+          item.style = [[{\c&H33ff66&}]]
         end
+
+        local filename = mp.get_property('playlist/'..index..'/filename')
+        local name = filename
+
+        -- unable to retrieve video names without some sort of async call mechanism
+        -- for each video in the playlist (aka not worth my time)
+
+        -- local range = 3
+        -- if ((index >= playlist_current - 3) or (index <= playlist_current + 3)) then
+        --     local titlecmd = "youtube-dl --no-playlist --get-title " .. filename
+        --     local title = os.capture(titlecmd)
+
+        --     if title then
+        --         name = title
+        --     end
+        -- end
+
+        str = str .. name
 
         item.ass = list.ass_escape(str)
         list.list[i] = item
