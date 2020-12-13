@@ -7,3 +7,6 @@
 [submodule ".config/slock"]
 	path = .config/slock
 	url = https://github.com/bossley9/slock.git
+[submodule ".config/ytui"]
+	path = .config/ytui
+	url = https://github.com/bossley9/ytui.git
