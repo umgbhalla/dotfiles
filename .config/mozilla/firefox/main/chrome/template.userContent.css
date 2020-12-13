@@ -43,6 +43,20 @@ header#title-block-header {
   display: none;
 }
 
+/* tridactyl */
+/* commented out because it flashes and is a bit glitchy */
+/* .TridactylOwnNamespace.TridactylThemeDefault { */
+/*     background: var(--color-bg) !important; */
+/*     color: var(--color-fg) !important; */
+/* } */
+/* .TridactylOwnNamespace.TridactylThemeDefault body { */
+/*     background: var(--color-bg) !important; */
+/*     color: var(--color-fg) !important; */
+/* } */
+/* .TridactylOwnNamespace.TridactylThemeDefault a { */
+/*     color: var(--color-primary) !important; */
+/* } */
+
 /**
  * ------------------------------------------------
  * FF pages

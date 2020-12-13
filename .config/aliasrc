@@ -78,6 +78,7 @@ alias \
   vi="$EDITOR" \
   vim="$EDITOR" \
   webcam="devour mpv av://v4l2:/dev/video0 --profile=low-latency --untimed" \
+  wi="nmtui" \
   yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn" \
   yt="$YT"
 
