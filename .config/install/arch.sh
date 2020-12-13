@@ -76,7 +76,7 @@ PACKS="${PACKS} texlive-most biber"
 PACKS="${PACKS} nodejs deno yarn python2"
 
 # firefox extensions
-# PACKS="${PACKS} firefox-tridactyl"
+PACKS="${PACKS} firefox-tridactyl"
 
 sudo pacman -S --needed $PACKS # cannot be quoted
 

@@ -605,6 +605,5 @@ Below are a list of things in no particular order that I plan to do but haven't 
 implemented or had the time to configure.
 
 - Switch to terminal email (Mutt?)
-- vim keybindings extension for firefox
 - nmtui keybindings and readable colors
 - refine ytui script

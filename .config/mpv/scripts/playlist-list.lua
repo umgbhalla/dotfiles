@@ -53,8 +53,8 @@ function observe_change(_, current)
         -- unable to retrieve video names without some sort of async call mechanism
         -- for each video in the playlist (aka not worth my time)
 
-        -- local range = 3
-        -- if ((index >= playlist_current - 3) or (index <= playlist_current + 3)) then
+        -- local range = 1
+        -- if ((index == playlist_current - range) or (index == playlist_current + range)) then
         --     local titlecmd = "youtube-dl --no-playlist --get-title " .. filename
         --     local title = os.capture(titlecmd)
 
