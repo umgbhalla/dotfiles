@@ -67,6 +67,7 @@ alias \
   cal="cal -3" \
   ch="$CURSOR hide" \
   cs="$CURSOR show" \
+  d="date" \
   em="neomutt" \
   n="newsboat -u $NEWSBOAT_CONFIG/urls -C $NEWSBOAT_CONFIG/config" \
   pdf="pdflatex" \
@@ -87,6 +88,38 @@ if command -v pulseaudio >/dev/null; then
 else
   alias am="alsamixer"
 fi
+
+# website retrieval
+# note: this is only semi-effective on javascript-run sites
+webget() {
+  if [ -z "$1" ]; then
+    echo "${RED}USAGE: webget [url]${NC}"
+  else
+    url="$1"
+    urlEscaped="$(echo "$1" | sed -e 's/\///g')"
+
+    # -P output dir
+    # -m recursive mirror downloading
+    # -p download everything required for displaying a site
+    # -k use local relative links
+    # -R specify a pattern of files to reject
+    # -t number of retries for failed connections or errors
+    # -H download files from other hosts too (images, fonts, links (oh no!))
+    # --adjust-extension fix file extensions to be explicit
+
+    wget \
+      -P "$urlEscaped" \
+      -m \
+      -p \
+      -k \
+      -R "robots.txt" \
+      -t 5 \
+      -H \
+      --adjust-extension \
+      --show-progress \
+      "$url"
+  fi
+}
 
 # music
 m() {

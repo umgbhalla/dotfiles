@@ -8,6 +8,9 @@ if [ -z "$args" ]; then
   exit 1
 fi
 
-$XDG_CONFIG_HOME/ytui/ytui.ts "$args" | \
-  fzf | awk '{print $NF}' | \
-  xargs -I {} devour mpv {}
+url="$($XDG_CONFIG_HOME/ytui/ytui.ts "$args" | \
+  fzf | awk '{print $NF}')"
+
+echo "$url" | xclip -selection clipboard
+$NOTIFICATION_MANAGER "Copied URL to clipboard."
+devour mpv "$url"

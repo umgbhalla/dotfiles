@@ -43,6 +43,8 @@ PACKS="${PACKS} xorg-xinput"
 PACKS="${PACKS} xclip"
 # ssh
 PACKS="${PACKS} openssh"
+# archives
+PACKS="${PACKS} unzip"
 # email client
 # PACKS="${PACKS} neomutt"
 # contact management
@@ -74,6 +76,10 @@ PACKS="${PACKS} pandoc"
 PACKS="${PACKS} texlive-most biber"
 # dev tools for work/school/projects
 PACKS="${PACKS} nodejs deno yarn python2"
+# PACKS="${PACKS} rust"
+
+# various utilities/tools
+PACKS="${PACKS} wget"
 
 # firefox extensions
 PACKS="${PACKS} firefox-tridactyl"
