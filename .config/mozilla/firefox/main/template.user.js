@@ -201,7 +201,8 @@ user_pref("browser.download.autohideButton", false);
 
 // reducing memory footprint
 // I never need to "undo" tabs - just open a new one
-user_pref("browser.sessionstore.max_tabs_undo", 0);
+// edit: Tridactyl makes it easier to delete tabs soooo
+user_pref("browser.sessionstore.max_tabs_undo", 5);
 // max urls you can traverse with forward/back
 user_pref("browser.sessionhistory.max_entries", 5);
 // animations
