@@ -71,7 +71,6 @@ alias \
   em="neomutt" \
   n="newsboat -u $NEWSBOAT_CONFIG/urls -C $NEWSBOAT_CONFIG/config" \
   pdf="pdflatex" \
-  pl="devour mpv" \
   s="$XDG_SCRIPT_HOME/run_script.sh" \
   sbuild="$SBUILD" \
   ss="sc-im" \
@@ -129,6 +128,19 @@ m() {
     sleep 0.3
   fi
   ncmpcpp
+}
+pl() {
+  # devour mpv
+  if [ -z "$1" ]; then
+    echo "${RED}USAGE: pl [playlist]${NC}"
+  else
+    # if audio only
+    if [ "$1" == "sc"* ] || grep -q "soundcloud" "$1"; then
+      mpv "$1"
+    else
+      devour mpv "$1"
+    fi
+  fi
 }
 
 # process kill
