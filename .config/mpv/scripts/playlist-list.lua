@@ -63,6 +63,13 @@ function observe_change(_, current)
         --     end
         -- end
 
+        -- in other words, the best solution is no solution - instead we display any comment that
+        -- follows the url (if applicable)
+
+        if string.match(filename, "#") then
+          name = string.gsub(filename, "^.*#", "")
+        end
+
         str = str .. name
 
         item.ass = list.ass_escape(str)
