@@ -85,6 +85,7 @@ screenCrop() {
     x="$(echo "${geometry}" | cut -d"+" -f2)"
     y="$(echo "${geometry}" | cut -d"+" -f3)"
 
+    # must be evaluated to bring the variables to local scope
     eval "$(xdotool getmouselocation --shell)"
     xdotool mousemove --sync "$cursorHideX" "$cursorHideY"
 
@@ -150,12 +151,8 @@ screenRecordingStatus() {
 screenSnap() {
   output="${snapOutputDir}/snap-${datefmt}.png"
 
-  eval "$(xdotool getmouselocation --shell)"
-  xdotool mousemove --sync "$cursorHideX" "$cursorHideY"
-
   ffmpeg -f x11grab -video_size "${RES_WIDTH}x${RES_HEIGHT}" -i "${DISPLAY}" -vframes 1 "${output}"
 
-  xdotool mousemove --sync "$X" "$Y"
   notify "Screenshot taken."
 }
 
