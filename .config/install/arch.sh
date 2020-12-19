@@ -95,6 +95,7 @@ sudo systemctl enable --now tlp
 AUR="mmv"
 
 # firefox extensions
+AUR="${AUR} firefox-tridactyl-native"
 AUR="${AUR} firefox-ublock-origin"
 AUR="${AUR} firefox-extension-multi-account-containers"
 

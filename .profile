@@ -14,6 +14,7 @@ export OS_FREEBSD="FreeBSD"
 
 # config directory
 export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CONFIG_DIR="$XDG_CONFIG_HOME"
 # cache directory
 export XDG_CACHE_HOME="$HOME/.cache"
 # script directory

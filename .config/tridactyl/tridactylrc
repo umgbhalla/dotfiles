@@ -1,0 +1,22 @@
+" vim: filetype=vim
+
+" dark theme
+colors dark
+
+" quick command for focusing
+command hint_focus hint -;
+" Open right click menu on links
+bind ;f composite hint_focus; !s xdotool key Menu
+
+" editorcmd (activate with <c-i>)
+set editorcmd st vim
+
+" hint delay
+set hintdelay 100
+
+" page zoom
+bind <c-K> zoom 0.1 true
+bind <c-J> zoom -0.1 true
+
+" disable annoying bookmark pane
+bind <c-h> unfocus
