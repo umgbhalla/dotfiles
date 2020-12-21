@@ -76,7 +76,8 @@ PACKS="${PACKS} pandoc"
 PACKS="${PACKS} texlive-most biber"
 # dev tools for work/school/projects
 PACKS="${PACKS} nodejs deno yarn python2"
-# PACKS="${PACKS} rust"
+# required for ytui, and a good dev tool
+PACKS="${PACKS} rust"
 
 # various utilities/tools
 PACKS="${PACKS} wget"
@@ -135,8 +136,8 @@ sudo make clean install
 # sudo make install
 
 # ytui
-# cd $XDG_CONFIG_HOME/ytui
-# sudo make clean install
+cd $XDG_CONFIG_HOME/ytui
+sudo make clean install
 
 # system profiler
 git clone "https://github.com/bossley9/htop.git" "${TMP_DIR}/htop"

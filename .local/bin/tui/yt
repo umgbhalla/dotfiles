@@ -8,7 +8,7 @@ if [ -z "$args" ]; then
   exit 1
 fi
 
-url="$($XDG_CONFIG_HOME/ytui/ytui.ts "$args" | \
+url="$(ytui "$args" | \
   fzf | awk '{print $NF}')"
 
 echo "$url" | xclip -selection clipboard
