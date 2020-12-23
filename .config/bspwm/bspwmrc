@@ -33,6 +33,8 @@ bspc config gapless_monocle true
 
 # bspwm defaults
 bspc monitor -d I II III IV V VI VII VIII IX X
+# bspc monitor eDP1 -d I II III IV V IX X
+# bspc monitor HDMI1 -d VI VII VIII
 
 #
 # custom rules

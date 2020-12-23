@@ -69,6 +69,7 @@ alias \
   cs="$CURSOR show" \
   d="date" \
   em="neomutt" \
+  hdmi="xrandr --output HDMI1 --mode ${RES_WIDTH}x${RES_HEIGHT}" \
   n="newsboat -u $NEWSBOAT_CONFIG/urls -C $NEWSBOAT_CONFIG/config" \
   pdf="pdflatex" \
   s="$XDG_SCRIPT_HOME/run_script.sh" \
