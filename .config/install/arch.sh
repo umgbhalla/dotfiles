@@ -135,8 +135,14 @@ sudo make clean install
 # cd "${TMP_DIR}/ncpamixer"
 # sudo make install
 
+# contact management
+# git clone "https://github.com/bossley9/abook.git" "${TMP_DIR}/abook"
+# cd "${TMP_DIR}/abook"
+# ./configure
+# sudo make clean install
+
 # ytui
-cd $XDG_CONFIG_HOME/ytui
+cd "$XDG_CONFIG_HOME/ytui"
 sudo make clean install
 
 # system profiler

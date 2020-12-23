@@ -145,7 +145,6 @@ export WM="bspwm"
 # variables
 #
 
-
 export DOLLAR="$" # vital for envsubst escaping
 export ELINKS_CONFDIR="${XDG_CONFIG_HOME}/elinks"
 export ELINKS_XTERM="st -e"
