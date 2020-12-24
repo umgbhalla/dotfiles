@@ -133,18 +133,9 @@ super + {shift + t,shift + p,shift + space,f}
 # workspace management
 #
 
-# switch workspace
-super {1-9,0}
-  bspc desktop -f {I,II,III,IV,V,VI,VII,VIII,IX,X}; $BAR_UPDATE
-
-# super {1-5,9,0}
-#   bspc desktop -f {I,II,III,IV,V,VI,VII,VIII,IX,X}; $BAR_UPDATE
-# super {6-8}
-#   bspc desktop -f {I,II,III,IV,V,VI,VII,VIII,IX,X}; $BAR_UPDATE
-
-# move node to workspace
-super + shift + {1-9,0}
-  bspc node -d '^{1-9,10}'
+# switch or move workspaces
+super + {_,shift + }{1-9,0}
+    bspc {desktop -f,node -d} ^{1-9,10}; $BAR_UPDATE
 
 # mimic standard floating window cycling
 alt + Tab

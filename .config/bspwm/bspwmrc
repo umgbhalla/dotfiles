@@ -1,5 +1,7 @@
 #!/bin/sh
 # to prevent errors, make sure this file is executable!
+# xrandr --output eDP1 --mode "${RES_WIDTH}x${RES_HEIGHT}" primary
+# xrandr --output HDMI1 --mode "${RES_WIDTH}x${RES_HEIGHT}" --left-of eDP1
 
 # run sxhkd if not already running
 pgrep -x sxhkd > /dev/null || sxhkd &
@@ -33,8 +35,8 @@ bspc config gapless_monocle true
 
 # bspwm defaults
 bspc monitor -d I II III IV V VI VII VIII IX X
-# bspc monitor eDP1 -d I II III IV V IX X
-# bspc monitor HDMI1 -d VI VII VIII
+# bspc monitor eDP1 -d I II III IV V
+# bspc monitor HDMI1 -d VI VII VIII IX X
 
 #
 # custom rules
@@ -51,6 +53,8 @@ bspc rule -a '*:shellpopup' state=floating sticky="on"
 #
 # misc
 #
+
+# bspc eDP1 -s HDMI1
 
 # update bar with latest wm info
 $BAR_UPDATE

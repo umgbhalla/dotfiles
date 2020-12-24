@@ -61,6 +61,7 @@ PACKS="${PACKS} zathura girara zathura-pdf-mupdf"
 
 # media manipulation
 PACKS="${PACKS} ffmpeg"
+# PACKS="${PACKS} mp3splt"
 # PACKS="${PACKS} kdenlive"
 
 PACKS="${PACKS} alsa-utils"
