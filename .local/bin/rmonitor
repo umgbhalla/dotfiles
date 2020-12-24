@@ -1,5 +1,7 @@
 #!/bin/sh
 # rmonitor reconfigures monitors with bspwm to display the correct workspaces on each monitor
+# assumption: xrandr always outputs at least one connected screen
+# assumption: the first screen xrandr outputs is always the primary screen
 bin="rmonitor"
 
 if ! command -v "xrandr" > /dev/null; then
@@ -7,23 +9,33 @@ if ! command -v "xrandr" > /dev/null; then
   exit 1
 fi
 
+if ! command -v "xargs" > /dev/null; then
+  echo -e "${RED}${bin} ERROR: xargs is not installed${NC}"
+  exit 1
+fi
+
 # get all potential screens
-# assumption: xrandr always outputs at least one connected screen
-# assumption: the first screen xrandr outputs is always the primary screen
 screens=()
 # it's easier to parse into an array by switching spaces to dashes
 allScreens=($(xrandr | grep "connected" | tr ' ' '-' | cut -d '-' -f 1,2))
+
+primary="$(echo "${allScreens[0]}" | cut -d '-' -f 1)"
 
 for screen in "${allScreens[@]}"; do
   screenName="$(echo "$screen" | cut -d '-' -f 1)"
   screenStatus="$(echo "$screen" | cut -d '-' -f 2)"
 
-  # reset all screens
-  xrandr --output "$screenName" --off
+  # reset all secondary screens
+  [ "$screenName" != "$primary" ] && \
+    xrandr --output "$screenName" --off
 
   # if screen is connected, save it
   if [ "$screenStatus" == "connected" ]; then
     screens+=("$screenName")
+  # else
+    # desktops="$(bspc query -m "$screenName" -D 2>/dev/null)"
+    # echo "$desktops" | xargs -I {} bspc desktop {} -m "$primary"
+    # bspc monitor "$screenName" -r 2> /dev/null
   fi
 done
 
@@ -31,7 +43,6 @@ done
 case "${#screens[@]}" in
 
   2) # 2 monitors
-    primary="${screens[0]}"
     secondary="${screens[1]}"
 
     # monitor output
@@ -41,18 +52,14 @@ case "${#screens[@]}" in
     # workspaces
     bspc monitor "$primary" -d I II III IV V
     bspc monitor "$secondary" -d VI VII VIII IX X
-
-    # bspc monitor "$primary" -s "$secondary"
     ;;
 
   *) # single monitor or too many monitors
-    monitor="${screens[0]}"
-
     # monitor output
-    xrandr --output "$monitor" --primary --mode "${RES_WIDTH}x${RES_HEIGHT}"
+    xrandr --output "$primary" --primary --mode "${RES_WIDTH}x${RES_HEIGHT}"
 
     # workspaces
-    bspc monitor "$monitor" -d I II III IV V VI VII VIII IX X
+    bspc monitor "$primary" -d I II III IV V VI VII VIII IX X
     ;;
 esac
 
