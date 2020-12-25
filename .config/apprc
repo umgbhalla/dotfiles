@@ -3,7 +3,7 @@
 
 # general vars
 
-export W_WIDTH="$(echo "$RES_WIDTH-($W_GAPS+$W_BORDER_WIDTH)*2" | bc)"
+export W_WIDTH="$(echo "${RES_WIDTH}-(${W_GAPS}+${W_BORDER_WIDTH})*2" | bc)"
 
 export G_BG="$C_BLACK_0"
 export G_BG_ALT="$C_BLACK_1"
@@ -26,9 +26,10 @@ export THEME_ERROR="$G_ALERT"
 
 # bar
 
-export BAR_HEIGHT="36"
+export BAR_HEIGHT="28"
 export BAR_HALF_HEIGHT="$(echo "$BAR_HEIGHT/2" | bc)"
-export BAR_FONT="Source Code Pro:pixelsize=24"
+export BAR_FONT="Source Code Pro:pixelsize=20"
+export BAR_ICON_FONT="Automata:pixelsize=24"
 
 export BAR_FG="$G_FG"
 export BAR_BG="$G_BG_ALT"
@@ -111,7 +112,6 @@ export HERBE_BORDER_BG="$G_FG_ALT"
 # lemonbar
 
 export LEMONBAR_ALERT="${G_ALERT}"
-export LEMONBAR_FONT="${BAR_FONT}"
 
 # picom
 

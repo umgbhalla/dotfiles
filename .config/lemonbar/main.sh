@@ -23,6 +23,6 @@ while cat "$BAR_FIFO"; do :; done | \
   "$BAR" \
   -p \
   -g "${W_WIDTH}x${BAR_HEIGHT}+${W_GAPS}+${W_GAPS}" \
-  -f "${LEMONBAR_FONT}" \
-  -f "Automata:pixelsize=28" \
+  -f "${BAR_FONT}" \
+  -f "${BAR_ICON_FONT}" \
   &
