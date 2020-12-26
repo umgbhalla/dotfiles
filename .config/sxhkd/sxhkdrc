@@ -37,9 +37,9 @@ super + m
 #
 
 super + s
-  exec $XDG_SCRIPT_HOME/run_script.sh
+  exec $XDG_SCRIPT_HOME/run_script
 super + e
-  exec $GUI_DIR/emoji
+  exec $XDG_SCRIPT_HOME/emoji
 
 #
 # audio controls
@@ -83,13 +83,13 @@ F8
 #
 
 super + shift + braceright
-  $XDG_SCRIPT_HOME/tui/redshift subtract 300
+  $XDG_SCRIPT_HOME/rshift subtract 300
 
 super + shift + braceleft
-  $XDG_SCRIPT_HOME/tui/redshift add 300
+  $XDG_SCRIPT_HOME/rshift add 300
 
 super + shift + plus
-  $XDG_SCRIPT_HOME/tui/redshift reset
+  $XDG_SCRIPT_HOME/rshift reset
 
 super + ctrl + shift + braceleft
   brightnessctl s 5%-

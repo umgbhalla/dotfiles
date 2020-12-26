@@ -199,23 +199,20 @@ export XAUTHORITY="${XDG_CONFIG_HOME}/Xdefaults/Xauthority"
 # scripts
 #
 
-export GUI_DIR="$XDG_SCRIPT_HOME/gui"
-export TUI_DIR="$XDG_SCRIPT_HOME/tui"
-
-export AUDIO="$TUI_DIR/audio"
-export CURSOR="$TUI_DIR/cursor"
-export DETEMPLATE="$TUI_DIR/detemplate"
+export AUDIO="$XDG_SCRIPT_HOME/audio"
+export CURSOR="$XDG_SCRIPT_HOME/cursor"
+export DETEMPLATE="$XDG_SCRIPT_HOME/detemplate"
 export DET="$DETEMPLATE"
-export HEX2FF="$TUI_DIR/hex2ff"
-export HEX2RGB="$TUI_DIR/hex2rgb"
-export LAUNCHER="$GUI_DIR/launcher"
-export REDSHIFT="$TUI_DIR/redshift"
+export HEX2FF="$XDG_SCRIPT_HOME/hex2ff"
+export HEX2RGB="$XDG_SCRIPT_HOME/hex2rgb"
+export LAUNCHER="$XDG_SCRIPT_HOME/launcher"
+export REDSHIFT="$XDG_SCRIPT_HOME/rshift"
 export RMONITOR="$XDG_SCRIPT_HOME/rmonitor"
-export SBUILD="$TUI_DIR/sbuild"
-export SCREEN="$TUI_DIR/screen"
-export SHELLMENU="$GUI_DIR/shell-menu"
-export SETTHEME="$TUI_DIR/set-theme"
-export YT="$TUI_DIR/yt"
+export SBUILD="$XDG_SCRIPT_HOME/sbuild"
+export SCREEN="$XDG_SCRIPT_HOME/screen"
+export SHELLMENU="$XDG_SCRIPT_HOME/shell-menu"
+export SETTHEME="$XDG_SCRIPT_HOME/set-theme"
+export YT="$XDG_SCRIPT_HOME/yt"
 
 #
 # path
