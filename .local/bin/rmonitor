@@ -1,29 +1,28 @@
 #!/bin/sh
 # rmonitor reconfigures monitors with bspwm to display the correct workspaces on each monitor
 # assumption: xrandr always outputs at least one connected screen
-# assumption: the first screen xrandr outputs is always the primary screen
-bin="rmonitor"
 
 if ! command -v "xrandr" > /dev/null; then
-  echo -e "${RED}${bin} ERROR: xrandr is not installed${NC}"
+  echo -e "${RED}rmonitor ERROR: xrandr is not installed${NC}"
   exit 1
 fi
 
 if ! command -v "xargs" > /dev/null; then
-  echo -e "${RED}${bin} ERROR: xargs is not installed${NC}"
+  echo -e "${RED}rmonitor ERROR: xargs is not installed${NC}"
   exit 1
 fi
 
 # get all potential screens
 screens=()
-# it's easier to parse into an array by switching spaces to dashes
-allScreens=($(xrandr | grep "connected" | tr ' ' '-' | cut -d '-' -f 1,2))
+# it's easier to parse into an array by switching spaces to another delimiter
+getAllScreens="$(xrandr | grep "connected" | tr ' ' ';' | cut -d ';' -f 1,2)"
+allScreens=($getAllScreens)
 
-primary="$(echo "${allScreens[0]}" | cut -d '-' -f 1)"
+primary="$(echo "$getAllScreens" | grep -w "connected" | cut -d ';' -f 1)"
 
 for screen in "${allScreens[@]}"; do
-  screenName="$(echo "$screen" | cut -d '-' -f 1)"
-  screenStatus="$(echo "$screen" | cut -d '-' -f 2)"
+  screenName="$(echo "$screen" | cut -d ';' -f 1)"
+  screenStatus="$(echo "$screen" | cut -d ';' -f 2)"
 
   # reset all secondary screens
   [ "$screenName" != "$primary" ] && \
@@ -64,4 +63,4 @@ case "${#screens[@]}" in
 esac
 
 # update background for (potentially) different resolutions
-$BACKGROUND
+$BACKGROUND > /dev/null

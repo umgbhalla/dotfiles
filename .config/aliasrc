@@ -71,7 +71,7 @@ alias \
   em="neomutt" \
   n="newsboat -u $NEWSBOAT_CONFIG/urls -C $NEWSBOAT_CONFIG/config" \
   pdf="pdflatex" \
-  rmonitor="$RMONITOR && $CURSOR hide" \
+  rmonitor="$RMONITOR" \
   s="$XDG_SCRIPT_HOME/run_script.sh" \
   sbuild="$SBUILD" \
   ss="sc-im" \
