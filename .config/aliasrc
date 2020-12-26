@@ -133,16 +133,17 @@ m() {
 pl() {
   # devour mpv
   if [ -z "$1" ]; then
-    echo "${RED}USAGE: pl [playlist]${NC}"
+    echo "${RED}USAGE: pl [options] [playlist]${NC}"
   else
     # if audio only
     if [ "$1" == "sc"* ] || grep -q "soundcloud" "$1"; then
-      mpv "$1"
+      mpv "$@"
     else
-      devour mpv "$1"
+      devour mpv "$@"
     fi
   fi
 }
+alias hdmipl="pl --audio-device=alsa/plughw:0,3"
 
 # process kill
 pk() {

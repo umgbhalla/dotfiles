@@ -607,4 +607,3 @@ implemented or had the time to configure.
 - Switch to terminal email (Mutt?)
 - nmtui keybindings and readable colors
 - refine ytui script
-- hdmi audio in alsamixer
