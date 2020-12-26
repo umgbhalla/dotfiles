@@ -9,19 +9,18 @@ wm() {
   title=""
 
   case "$ws" in
-    "I")        title="%{O$ICON_PADDING}develop" ;;
-    "II")       title="%{O$ICON_PADDING}browse " ;;
-    "III")      title="%{O$ICON_PADDING}game   " ;;
-    "IV")       title="%{O$ICON_PADDING}chat   " ;;
-    "V")        title="%{O$ICON_PADDING}media  " ;;
+    "I")        title="%{O$ICON_PADDING}DEVELOP" ;;
+    "II")       title="%{O$ICON_PADDING}BROWSE " ;;
+    "III")      title="%{O$ICON_PADDING}GAME   " ;;
+    "IV")       title="%{O$ICON_PADDING}CHAT   " ;;
+    "V")        title="%{O$ICON_PADDING}MEDIA  " ;;
     "VI")       title="%{O$ICON_PADDING}HDMI1  " ;;
     "VII")      title="%{O$ICON_PADDING}HDMI2  " ;;
     "VIII")     title="%{O$ICON_PADDING}HDMI3  " ;;
-    "IX")       title="%{O$ICON_PADDING}news   " ;;
-    "X")        title="%{O$ICON_PADDING}music  " ;;
+    "IX")       title="%{O$ICON_PADDING}NEWS   " ;;
+    "X")        title="%{O$ICON_PADDING}MUSIC  " ;;
   esac
 
-  title="$(echo "$title" | tr "[a-z]" "[A-Z]")"
   echo "%{B$BG} ${title} %{B-}"
 }
 
