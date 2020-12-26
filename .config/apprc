@@ -126,7 +126,7 @@ export SHELLMENU_Y="$W_GAPS"
 
 # st
 
-export ST_FONT="Source Code Pro:pixelsize=15:antialias=true:autohint=true"
+export ST_FONT="Source Code Pro:pixelsize=16:antialias=true:autohint=true"
 export ST_PADDING="$(echo "$W_GAPS * 1.5 / 1" | bc)"
 
 # vifm

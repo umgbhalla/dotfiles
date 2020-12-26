@@ -112,6 +112,10 @@ git clone "https://github.com/krypt-n/bar.git" "${TMP_DIR}/lemonbar"
 cd "${TMP_DIR}/lemonbar"
 sudo make clean install
 
+# xresources
+cd "${XDG_CONFIG_HOME}/getxr"
+sudo make clean install
+
 # relink /bin/sh
 sudo ln -sf mksh /bin/sh
 
