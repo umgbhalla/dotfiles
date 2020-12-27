@@ -9,14 +9,46 @@ if [ -z "${1}" ]; then
   exit 1
 fi
 
-touchpadId="$(xinput | awk '/TouchPad/ {print $7}' | cut -d "=" -f 2)"
+if ! command -v xinput > /dev/null; then
+  echo "${RED}ERROR: xorg-xinput is required${NC}"
+  exit 1
+fi
+
+if ! command -v xdotool > /dev/null; then
+  echo "${RED}ERROR: xdotool is required${NC}"
+  exit 1
+fi
+
+raw="$(xinput)"
+
+mice=($(echo "$raw" | \
+  grep -i "mouse.*id=" | \
+  grep -o "id=.*" | \
+  tr '[:blank:]' ';' | \
+  cut -d ';' -f 1 | \
+  cut -d '=' -f 2
+  ))
+
+touchpads=($(echo "$raw" | \
+  grep -i "touchpad.*id=" | \
+  grep -o "id=.*" | \
+  tr '[:blank:]' ';' | \
+  cut -d ';' -f 1 | \
+  cut -d '=' -f 2
+  ))
+
+devices=("${mice[@]}" "${touchpads[@]}")
 
 case "${1}" in
   "show")
-    xinput enable "$touchpadId"
+    for device in "${devices[@]}"; do
+      xinput enable "$device"
+    done
     ;;
   "hide")
     xdotool mousemove "$cursorHideX" "$cursorHideY"
-    xinput disable "$touchpadId"
+    for device in "${devices[@]}"; do
+      xinput disable "$device"
+    done
     ;;
 esac

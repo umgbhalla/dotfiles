@@ -75,6 +75,7 @@ alias \
   s="$XDG_SCRIPT_HOME/run_script.sh" \
   sbuild="$SBUILD" \
   ss="sc-im" \
+  stheme="$SETTHEME" \
   system="sudo systemctl" \
   vi="$EDITOR" \
   vim="$EDITOR" \
