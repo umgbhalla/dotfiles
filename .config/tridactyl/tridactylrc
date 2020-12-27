@@ -23,3 +23,12 @@ bind <c-h> unfocus
 
 " unbind Tridactyl's overriding behavior with C-f
 unbind <C-f>
+
+" stop recording history!
+set historyresults 0
+
+" hide mode indicator - mostly only use normal anyways
+set modeindicator false
+
+" open a new tab in the current container
+set tabopencontaineraware true

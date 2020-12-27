@@ -7,10 +7,11 @@ CP=cp -f
 RM=rm -rf
 MKDIR=mkdir -p
 
-CFLAGS= -O2 -lX11
+CFLAGS+=-O2 -I/usr/local/include
+LDFLAGS+=-L/usr/local/lib -lX11
 
 all:
-	$(CC) $(CFLAGS) -o $(BINARY) main.c
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $(BINARY) main.c
 	
 clean:
 	$(RM) $(BINARY) *.o
