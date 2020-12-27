@@ -84,6 +84,8 @@ for my own benefit, but it may be helpful to some Unix users.
 In other words: _if you're new to the non-proprietary Unix utopia, this installation is
 probably not for you._
 
+[You can follow my FreeBSD installation guide here.](.config/install/doc/freebsd.md)
+
 #### Table of Contents
 
 - [Setup](#setup)
