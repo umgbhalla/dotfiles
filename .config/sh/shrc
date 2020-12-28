@@ -10,19 +10,23 @@ set -o vi
 FG=$WHITE
 P=$RED
 
-msgs=(
- "stop ricing k?            "
- "tell me i'm dummy thicc   "
- "say please three times    "
- "tell me you love me       "
- "20 euro                   "
- "good to know              "
- "what is love anyways      "
- "ur tearing me apart lisa  "
- "stop being a karen        "
- "stop saying i use arch btw"
-)
-msg="${msgs[$(date +%s) % ${#msgs[@]}]}"
+if [ "$OS" == "$OS_OPENBSD" ]; then
+  msg="tell me i'm dummy thicc   "
+else
+  msgs=(
+   "stop ricing k?            "
+   "tell me i'm dummy thicc   "
+   "say please three times    "
+   "tell me you love me       "
+   "20 euro                   "
+   "good to know              "
+   "what is love anyways      "
+   "ur tearing me apart lisa  "
+   "stop being a karen        "
+   "stop saying i use arch btw"
+  )
+  msg="${msgs[$(date +%s) % ${#msgs[@]}]}"
+fi
 
 echo -e "${FG}\
  ┌――――――――――――――――――――――――┬―――――――――┐

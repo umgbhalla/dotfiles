@@ -5,20 +5,28 @@
 # defaults
 # ----------------------------------------------------------------
 
-if [ "$OS" = "$OS_LINUX" ]; then
-  alias ls="ls --color=auto --group-directories-first"
-  alias sed="sed --posix"
-  alias bc="bc -w -q"
-else
-  alias ls="ls -GF"
-fi
-
 alias \
   cp="cp -v" \
   mv="mv -v" \
   rm="rm -v" \
   md="mkdir -pv" \
   grep="grep --color=auto"
+
+case "$OS" in
+  "$OS_LINUX")
+    alias ls="ls --color=auto --group-directories-first"
+    alias sed="sed --posix"
+    alias bc="bc -w -q"
+    ;;
+  "$OS_OPENBSD")
+    alias ls="ls -F"
+    alias md="mkdir -p"
+    unalias grep
+    ;;
+  *)
+    alias ls="ls -GF"
+    ;;
+esac
 
 cd() {
   builtin cd "$@" && ls
@@ -28,8 +36,8 @@ cd() {
 # system session
 # ----------------------------------------------------------------
 
-case "${OS}" in
-  "${OS_LINUX}")
+case "$OS" in
+  "$OS_LINUX")
     alias \
       reboot="sudo reboot" \
       shutdown="sudo poweroff" \
@@ -37,12 +45,17 @@ case "${OS}" in
       hibernate="sudo systemctl hibernate" \
       lock="slock"
     ;;
-  "${OS_FREEBSD}")
+  "$OS_FREEBSD")
     alias \
       reboot="sudo reboot" \
       shutdown="sudo poweroff" \
       suspend="sudo acpiconf -s 3" \
       hibernate="sudo acpiconf -s 5"
+    ;;
+  "$OS_OPENBSD")
+    alias \
+      reboot="doas reboot" \
+      shutdown="doas shutdown -p now"
     ;;
 esac
 
@@ -51,14 +64,24 @@ esac
 # ----------------------------------------------------------------
 
 # package manager
-case "${OS}" in
-  "${OS_LINUX}")
+case "$OS" in
+  "$OS_LINUX")
     alias p="sudo pacman"
     alias y="unset GIT_CONFIG && yay --norebuild --noredownload"
     ;;
-  "${OS_FREEBSD}")
+  "$OS_FREEBSD")
     alias p="sudo pkg"
     alias y="sudo portsnap"
+    ;;
+  "$OS_OPENBSD")
+    # refrain from using OpenBSD's package tools because it's better
+    # to build from source with as few packages as possible
+    p() {
+      echo -e "${RED}Stop installing packages. It's bad for you.${NC}"
+    }
+    y() {
+      p $@
+    }
     ;;
 esac
 
@@ -84,6 +107,10 @@ alias \
   wi="nmtui" \
   yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn" \
   yt="$YT"
+
+if [ "$OS" == "$OS_OPENBSD" ]; then
+  unalias cal
+fi
 
 if command -v pulseaudio >/dev/null; then
   alias am="ncpamixer"

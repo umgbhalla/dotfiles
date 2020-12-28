@@ -7,6 +7,7 @@ export OS="$(uname)"
 export OS_MACOS="Darwin"
 export OS_LINUX="Linux"
 export OS_FREEBSD="FreeBSD"
+export OS_OPENBSD="OpenBSD"
 
 #
 # directories
@@ -243,12 +244,15 @@ export BACKGROUND="hsetroot -solid ${G_BG} -cover ${XDG_CONFIG_HOME}/wallpapers/
 # startx
 if command -v "startx" >/dev/null; then
   case "$(tty)" in
-    "/dev/ttyv0" | "/dev/tty1")
+    "/dev/ttyv0" | "/dev/tty1" | "/dev/ttyC0")
       case "$OS" in
         "$OS_FREEBSD")
           exec startx -- -nocursor
           # sudo moused -p /dev/psm0
           # exec startx
+          ;;
+        "$OS_OPENBSD")
+          echo "WIP startx"
           ;;
         "$OS_LINUX") exec startx ;;
       esac
