@@ -24,10 +24,10 @@
   - An internet connection
   - A disposable usb drive that can be wiped
 - Download the latest [FreeBSD installation image](https://www.freebsd.org/where.html) from their website. I downloaded the `amd64` architecture release 12.2 `memstick.img` instead of the standard iso image since it does not require an internet connection for the base installation.
-- Burn the downloaded disk image onto the usb.
+- Burn the downloaded disk image onto the usb. The dollar sign indicates elevated privileges (usually `sudo` or `doas` will suffice).
 
   ```
-  sudo dd bs=4M if=/path/to/img of=/dev/sdx status=progress
+  $ dd bs=4M if=/path/to/img of=/dev/sdx status=progress
   ```
 
   where `/dev/sdx` is the root partition of the usb (do not include specific partition numbers). You may want to run `sudo fdisk -l` or `geom disk list` (depending on your operating system) first to double check the partition name.
@@ -91,8 +91,7 @@ will continue without a network connection.
 #### System Configuration <a name="system-configuration"></a>
 
 You are now able to choose the types of services you would like to have run at boot time.
-I have never had a need to enable any additional services other than `moused`, `sshd`, and
-`dumpdev`.
+I select `sshd`, `moused`, `powerd`, and `dumpdev`.
 
 #### System Hardening <a name="system-hardening"></a>
 
@@ -104,7 +103,7 @@ of the box. I select `random_pid`, `clear_tmp`, `disable_syslogd`, and `disable_
 When prompted, select `Yes` to add a new user to the system. This will be the main user.
 
 - Set the username and full name. I usually keep both the username and full name the same.
-- Press `ENTER` to keep Uid and Login group as default.
+- Press `ENTER` twice to keep Uid and Login group as default.
 - When prompted, be sure to add your user to the additional group `wheel`
   for sudo privileges (You can also save yourself some time by adding yourself to the
   `video` and `operator` groups).
@@ -124,7 +123,7 @@ created earlier.
 
 #### Basic Networking <a name="basic-networking"></a>
 
-- Use `sysctl net.wlan.devices` to determine your wifi device name. Mine is `iwm0`.
+- Use `sysctl net.wlan.devices` to determine your wifi device name(s). Mine is `iwm0`.
   Then enable the device in your `/etc/rc.conf`. In this example I will use `iwm0`.
   You will additionally need to use either `ee` or `vi` text editors since they are
   the only editors installed by default.
@@ -148,12 +147,21 @@ created earlier.
 
 #### Core Setup <a name="core-setup"></a>
 
-- Update the main package repositories and install core utilities.
-  Install `pkg` when prompted.
+- Update the main package repositories and install core utilities using `ports`. You could also use `pkg` but I've found that the occasional package binary is broken or out of date while `ports` always seem to have the latest working sources - plus, compiling from source will _always_ provide the best performance optimization and fine-tuned control.
+
   ```
-  pkg update
-  pkg install sudo git neovim
+  cd /usr/ports/security/sudo
+  make -DBATCH install clean
+
+  cd /usr/ports/devel/git
+  make -DBATCH install clean
+
+  cd /usr/ports/editors/neovim
+  make -DBATCH install clean
   ```
+
+  These packages may take a while to compile.
+
 - Enable root permissions for the `wheel` group via the `visudo` command:
   ```
   %wheel ALL=(ALL) ALL
@@ -163,7 +171,8 @@ created earlier.
 - Set up graphics for X. I use an intel-based vga so I installed
   an intel video package.
   ```
-  sudo pkg install xf86-video-intel
+  cd /usr/ports/x11-drivers/xf86-video-intel
+  sudo make -DBATCH install clean
   ```
   Then enable the module in your `/etc/rc.conf`:
   ```
@@ -182,21 +191,23 @@ created earlier.
   sudo pw groupmod operator -m $USER
   ```
 - Setup the default shell. I currenly use `mksh`. set it as the default shell for the main user.
+
   ```
-  sudo pkg install mksh
+  cd /usr/ports/shells/mksh
+  sudo make -DBATCH install clean
   sudo chsh -s /usr/local/bin/mksh
   ```
+
 - Log out and log back in.
   ```
   exit
   ```
-  In order to properly clone my dotfiles you will need to empty the user home directory. Because
-  `mksh` does not support globbing (or, a limited version), we will need to remove all dotfiles
-  to clone directly into the directory.
+  In order to properly clone my dotfiles you will need to empty the user home directory. Because `mksh` does not support globbing (or, a limited version), we will need to remove all dotfiles to clone directly into the directory.
   ```
+  cd $HOME
+  # this action is irreversible - be careful!
   rm -r .*
   ```
-- Finally, install my dotfiles. See [cloning](#cloning) for more details.
 
 #### Cloning <a name="cloning"></a>
 

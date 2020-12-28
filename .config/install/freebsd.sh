@@ -1,16 +1,74 @@
 #!/bin/sh
 
-sudo pkg install cmake gettext gmake meson ncurses pkgconf python uthash
+#
+# setup
+#
 
-# sudo portsnap fetch
-# sudo portsnap extract
+# just in case these have not already been run
+sudo portsnap fetch
+sudo portsnap extract
 
-PACKS="mmv" # god-tier utilities
-# PACKS="${PACKS} groff"
+sudo portsnap fetch update
 
-PACKS="${PACKS} xorg drm-kmod"
-PACKS="${PACKS} bspwm sxhkd"
-PACKS="${PACKS} sourcecodepro-ttf wqy-fonts"
+PORTS_DIR="/usr/ports"
+
+PORTS=()
+
+#
+# dependencies
+#
+
+# required by st
+PORTS+=("${PORTS_DIR}/x11-fonts/libXft")
+
+#
+# utilities
+#
+
+PORTS+=("${PORTS_DIR}/misc/mmv")
+
+#
+# core
+#
+
+# are these needed with the addition of xorg?
+PORTS+=("${PORTS_DIR}/x11-servers/xorg-server")
+PORTS+=("${PORTS_DIR}/x11/xinit")
+PORTS+=("${PORTS_DIR}/x11/xauth")
+PORTS+=("${PORTS_DIR}/x11/xrandr")
+
+PORTS+=("${PORTS_DIR}/x11/xorg")
+PORTS+=("${PORTS_DIR}/x11/xorg-minimal")
+
+PORTS+=("${PORTS_DIR}/graphics/drm-kmod")
+PORTS+=("${PORTS_DIR}/x11-wm/bspwm")
+PORTS+=("${PORTS_DIR}/x11/sxhkd")
+PORTS+=("${PORTS_DIR}/x11-fonts/sourcecodepro-ttf")
+PORTS+=("${PORTS_DIR}/x11-fonts/wqy")
+
+#
+# installation
+#
+
+for port in "${PORTS[@]}"; do
+  cd "$port"
+  sudo make config-recursive
+done
+
+for port in "${PORTS[@]}"; do
+  cd "$port"
+  sudo make deinstall install clean
+done
+
+# suckless utilities
+$SBUILD st
+# $SBUILD herbe
+# $SBUILD slock
+
+# sudo pkg install cmake gettext gmake meson ncurses pkgconf python uthash
+
+# cd /usr/ports/ports-mgmt/portmaster
+# sudo make clean install
 
 # bar
 git clone "https://github.com/krypt-n/bar.git" "${TMP_DIR}/lemonbar-xft"
