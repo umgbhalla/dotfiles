@@ -165,11 +165,6 @@ git checkout "f1630794f0a6e96377373e8c1629ffa76f9b6cf4"
 cp -f "${XDG_CONFIG_HOME}/devour/Makefile" "${TMP_DIR}/devour/"
 doas make install
 
-# touchpad and keyboard
-doas ln -sf "${XDG_CONFIG_HOME}/etc/wsconsctl.conf" "/etc/wsconsctl.conf"
-# turn off console display after 60 seconds of inactivity
-# wsconsctl display.screen_off=60000
-
 # # firefox extensions
 # firefox-tridactyl"
 # firefox-tridactyl-native"
