@@ -13,6 +13,7 @@ define-filter "this week" "age between 0:7"
 
 browser "eval $BROWSER_ARGS %u"
 macro , set browser "mpv %u" ; open-in-browser ; set browser "eval $BROWSER_ARGS %u"
+macro c set browser "echo %u | xclip -selection clipboard" ; open-in-browser ; set browser "eval $BROWSER_ARGS %u"
 
 # vim bindings
 unbind-key j
