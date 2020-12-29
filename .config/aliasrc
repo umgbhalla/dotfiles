@@ -92,6 +92,7 @@ alias \
   cs="$CURSOR show" \
   d="date" \
   em="neomutt" \
+  lss="du -h -s" \
   n="newsboat -u $XDG_DATA_HOME/newsboat/urls -C $NEWSBOAT_CONFIG/config" \
   pdf="pdflatex" \
   rmonitor="$RMONITOR" \
