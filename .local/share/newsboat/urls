@@ -1,3 +1,4 @@
+# vim: filetype=m3u
 # my own feeds
 # https://sam.bossley.us/feeds/thoughts.xml
 # https://sam.bossley.us/feeds/log.xml
@@ -23,6 +24,8 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCuo9VyowIT-ljA5G2ZuC6Yw you
 https://www.youtube.com/feeds/videos.xml?channel_id=UCSdma21fnJzgmPodhC9SJ3g youtube meme # nakey jakey
 https://www.youtube.com/feeds/videos.xml?channel_id=UCsvn_Po0SmunchJYOWpOxMg youtube meme # dunkey
 https://www.youtube.com/feeds/videos.xml?channel_id=UCRC6cNamj9tYAO6h_RXd5xA youtube meme # rt
+https://www.youtube.com/feeds/videos.xml?channel_id=UCRC6cNamj9tYAO6h_RXd5xA youtube meme # rt
+https://www.youtube.com/feeds/videos.xml?channel_id=UCdoPCztTOW7BJUPk2h5ttXA youtube meme # callmekevin
 https://www.youtube.com/feeds/videos.xml?channel_id=UCU9pX8hKcrx06XfOB-VQLdw youtube meme minecraft # xisuma
 https://www.youtube.com/feeds/videos.xml?channel_id=UChFur_NwVSbUozOcF_F2kMg youtube meme minecraft # mumbo
 https://www.youtube.com/feeds/videos.xml?channel_id=UCtqxG9IrHFU_ID1khGvx9sA youtube meme # all gas
@@ -43,20 +46,21 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCKab3hYnOoTZZbEUQBMx-ww you
 https://www.youtube.com/feeds/videos.xml?channel_id=UCJY99Kt7cpA1XlPhaonGtvQ youtube meme commentary # jesus christ
 
 # music
-https://www.youtube.com/feeds/videos.xml?channel_id=UCw3e5HIQiYc7p1bEpOtEkog "~Xisumamusic" youtube music # xisuma music
+# https://www.youtube.com/feeds/videos.xml?channel_id=UCw3e5HIQiYc7p1bEpOtEkog "~Xisumamusic" youtube music # xisuma music
 
 # twitch
 https://twitchrss.appspot.com/vod/dunkstream "~Dunkey Stream" twitch meme game
 https://twitchrss.appspot.com/vod/chriswere "~Chris Were Stream" twitch game
 https://twitchrss.appspot.com/vod/rtgamecrowd "~RTGameCrowd Stream" twitch meme game
-https://twitchrss.appspot.com/vod/eddyburback "~Eddy Burback Stream" twitch meme game
-https://twitchrss.appspot.com/vod/gusjohnson "~Gus Johnson Stream" twitch meme game
-https://twitchrss.appspot.com/vod/nerdcubed "~Nerd Cubed Stream" twitch meme game
+# https://twitchrss.appspot.com/vod/eddyburback "~Eddy Burback Stream" twitch meme game
+# https://twitchrss.appspot.com/vod/gusjohnson "~Gus Johnson Stream" twitch meme game
+# https://twitchrss.appspot.com/vod/nerdcubed "~Nerd Cubed Stream" twitch meme game
 
 # reddit
-https://www.reddit.com/r/archlinux.rss ~r/archlinux reddit tech
-https://www.reddit.com/r/freebsd.rss ~r/freebsd reddit tech
-https://www.reddit.com/r/bsd.rss ~r/bsd reddit tech
-https://www.reddit.com/r/suckless.rss ~r/suckless reddit tech
-https://www.reddit.com/r/unix.rss ~r/unix reddit tech
-https://www.reddit.com/r/unixporn.rss ~r/unixporn reddit tech visual
+# do I really look at these?
+# https://www.reddit.com/r/archlinux.rss ~r/archlinux reddit tech
+# https://www.reddit.com/r/freebsd.rss ~r/freebsd reddit tech
+# https://www.reddit.com/r/bsd.rss ~r/bsd reddit tech
+# https://www.reddit.com/r/suckless.rss ~r/suckless reddit tech
+# https://www.reddit.com/r/unix.rss ~r/unix reddit tech
+# https://www.reddit.com/r/unixporn.rss ~r/unixporn reddit tech visual
