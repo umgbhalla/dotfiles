@@ -94,6 +94,10 @@ case "$OS" in
     export AUDIO_ARCH="oss"
     export AUDIO_OUTPUT="${AUDIO_ARCH}"
     ;;
+  "$OS_OPENBSD")
+    export AUDIO_ARCH="sndio"
+    export AUDIO_OUTPUT="${AUDIO_ARCH}"
+    ;;
   "$OS_LINUX")
     export AUDIO_ARCH="alsa"
     if command -v "pulseaudio" >/dev/null; then
@@ -128,7 +132,7 @@ esac
 
 # compositor
 case "$OS" in
-  "$OS_LINUX"|"$OS_FREEBSD")
+  "$OS_LINUX"|"$OS_FREEBSD"|"$OS_OPENBSD")
     export COMPOSITOR="picom"
     export COMPOSITOR_ARGS="${COMPOSITOR} -CG"
     ;;

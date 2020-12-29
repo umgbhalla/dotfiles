@@ -1,11 +1,36 @@
 #!/bin/sh
 # a script to uniformly alter sound cards, volume, and mixing
 
+# volume get
+
+vol_get() {
+  case "$OS" in
+    # just using the left channel
+    "$OS_FREEBSD") echo "$(mixer vol | grep -o '[^:]*$')" ;;
+    "$OS_OPENBSD")
+      raw="$(sndioctl | grep output.level | cut -d "=" -f 2)"
+      echo "$( echo "${raw} * 100 / 1" | bc)"
+      ;;
+    "$OS_LINUX")
+      if command -v "pulseaudio" >/dev/null; then
+        echo "$(pamixer --get-volume)"
+      else
+        echo "$(amixer sget Master | tail -n 1 | cut -d " " -f 5)"
+      fi
+      ;;
+    *) echo "0" ;;
+  esac
+}
+
 # volume up
 
 vol_up() {
   case "$OS" in
     "$OS_FREEBSD") mixer vol "+${1}" ;;
+    "$OS_OPENBSD")
+      amt="$(echo "scale=2;${1}/100" | bc)"
+      sndioctl output.level=+${amt}
+      ;;
     "$OS_LINUX")
       if command -v "pulseaudio" >/dev/null; then
         pamixer --increase "$1"
@@ -21,6 +46,10 @@ vol_up() {
 vol_down() {
   case "$OS" in
     "$OS_FREEBSD") mixer vol "-${1}" ;;
+    "$OS_OPENBSD")
+      amt="$(echo "scale=2;${1}/100" | bc)"
+      sndioctl output.level=-${amt}
+      ;;
     "$OS_LINUX")
       if command -v "pulseaudio" >/dev/null; then
         pamixer --decrease "$1"
@@ -113,26 +142,32 @@ mic_toggle() {
 case $1 in
   vol)
     case $2 in
+      get) vol_get "$@" ;;
       up)
         if [ -z $3 ]; then echo -e "${RED}USAGE: AUDIO vol up [amount]${NC}";
         else vol_up $3; fi
+        $BAR_UPDATE > /dev/null
         ;;
       down)
         if [ -z $3 ]; then echo -e "${RED}USAGE: AUDIO vol down [amount]${NC}";
         else vol_down $3; fi
+        $BAR_UPDATE > /dev/null
         ;;
-      toggle) vol_toggle ;;
-      *) echo -e "${RED}USAGE: AUDIO vol [up | down | toggle]${NC}" ;;
+      toggle)
+        vol_toggle
+        $BAR_UPDATE > /dev/null
+        ;;
+      *) echo -e "${RED}USAGE: AUDIO vol [get | up | down | toggle]${NC}" ;;
     esac
     ;;
   mic)
     case $2 in
-      toggle) mic_toggle ;;
+      toggle)
+        mic_toggle
+        $BAR_UPDATE > /dev/null
+        ;;
       *) echo -e "${RED}USAGE: AUDIO mic [toggle]${NC}" ;;
     esac
     ;;
   *) echo -e "${RED}USAGE: AUDIO [vol mic]${NC}" ;;
 esac
-
-# propogate changes to status bar
-$BAR_UPDATE

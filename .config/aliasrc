@@ -110,6 +110,7 @@ alias \
 
 if [ "$OS" == "$OS_OPENBSD" ]; then
   unalias cal
+  alias why="doas sh /etc/netstart"
 fi
 
 if command -v pulseaudio >/dev/null; then

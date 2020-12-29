@@ -37,19 +37,7 @@ volume() {
   active="%{O$h_padding}"
   empty="%{O$h_padding}"
 
-  volNum="0"
-
-  case "$OS" in
-    # just using the left channel
-    "$OS_FREEBSD") volNum="$(mixer vol | grep -o '[^:]*$')" ;;
-    "$OS_LINUX")
-      if command -v "pulseaudio" >/dev/null; then
-        volNum="$(pamixer --get-volume)"
-      else
-        volNum="$(amixer sget Master | tail -n 1 | cut -d " " -f 5)"
-      fi
-      ;;
-  esac
+  volNum="$($AUDIO vol get)"
 
   fullNum="$(( ${volNum}/${unit} ))"
   emptyNum="$(( 100/${unit} - ${fullNum} ))"
@@ -72,6 +60,18 @@ battery() {
 
       status="$(echo "$pow" | awk '/Battery Status/ {print $3;exit}')"
       if [ "$status" = "charging" ]; then status="$charging"
+      else status="$discharging"
+      fi
+
+      echo "%{B$BG} ${status}%{O$ICON_PADDING}${bat} %{B-}"
+      ;;
+    "$OS_OPENBSD")
+      pow="$(apm)"
+
+      bat="$(echo "$pow" | awk '/Battery state/ {gsub("%","");print $4;exit}')"
+
+      status="$(echo "$pow" | awk '/A\/C adapter state/ {print $4}')"
+      if [ "$status" = "connected" ]; then status="$charging"
       else status="$discharging"
       fi
 
