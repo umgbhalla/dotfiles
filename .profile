@@ -113,7 +113,7 @@ export NOTIFICATION_MANAGER="herbe"
 
 # panel/bar
 case "$OS" in
-  "$OS_LINUX"|"$OS_FREEBSD")
+  "$OS_LINUX"|"$OS_FREEBSD"|"$OS_OPENBSD")
     # updated further in apprc file
     export BAR="lemonbar"
     export BAR_ARGS=""
@@ -232,10 +232,14 @@ export PATH="$HOME/.local/bin:$PATH"
 . "$XDG_CONFIG_HOME/apprc"
 
 #
-# misc color (ordered after main color declarations)
+# misc app variables (ordered after main app declarations)
 #
 
+# fzf
 export FZF_DEFAULT_OPTS="--bind $FZF_BINDINGS --color=\"$FZF_COLORS\""
+
+# Firefox profile
+export BROWSER_ARGS="${BROWSER} -P ${FF_PROFILE}"
 
 # background command
 # xsetroot doesn't work here because the compositor overrides background changes

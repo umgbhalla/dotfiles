@@ -1,16 +1,11 @@
-# This custom makefile is intended to be used with https://github.com/krypt-n/bar.git 
+# This custom makefile is intended to be used with https://github.com/krypt-n/bar.git
 
 # This snippet has been shmelessly stol^Hborrowed from thestinger's repose Makefile
 VERSION = 1.1
-GIT_DESC=$(shell test -d .git && git describe --always 2>/dev/null)
-
-ifneq "$(GIT_DESC)" ""
-	VERSION=$(GIT_DESC)
-endif
 
 CC	?= gcc
-CFLAGS += -Wall -std=c99 -Os -DVERSION="\"$(VERSION)\"" -I/usr/local/include -I/usr/local/include/freetype2
-LDFLAGS += -L/usr/local/lib -lxcb -lxcb-xinerama -lxcb-randr -lX11 -lX11-xcb -lXft -lfreetype -lz -lfontconfig
+CFLAGS += -Wall -std=c99 -Os -DVERSION="\"$(VERSION)\"" -I/usr/local/include -I/usr/X11R6/include -I /usr/X11R6/include/freetype2 -I/usr/local/include/freetype2
+LDFLAGS += -L/usr/local/lib -L/usr/X11R6/lib -lxcb -lxcb-xinerama -lxcb-randr -lX11 -lX11-xcb -lXft -lfreetype -lz -lfontconfig
 CFDEBUG = -g3 -pedantic -Wall -Wunused-parameter -Wlong-long \
           -Wsign-conversion -Wconversion -Wimplicit-function-declaration
 

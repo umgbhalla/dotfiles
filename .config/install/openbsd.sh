@@ -13,6 +13,9 @@ mkdir -p "$XDG_CACHE_HOME"
 # dependencies
 #
 
+# required by lemonbar
+PKGS="${PKGS} xcb"
+
 #
 # core development
 #
@@ -57,13 +60,21 @@ PKGS="${PKGS} picom"
 PKGS="${PKGS} xclip"
 # screenshot utilities
 PKGS="${PKGS} slop xdotool"
+# browser
+PKGS="${PKGS} firefox"
+# image viewer
+PKGS="${PKGS} feh"
+# media player
+PKGS="${PKGS} mpv"
+PKGS="${PKGS} youtube-dl"
+# rss reader
+PKGS="${PKGS} newsboat"
 
 #
 # installation
 #
 
 doas pkg_add -I $PKGS # cannot be quoted
-
 
 # optional - ports
 # doas pkg_add portslist
@@ -81,6 +92,12 @@ doas pkg_add -I $PKGS # cannot be quoted
 # git checkout "5a07de3549b065d318d2d43fdb2c94c4f5e4183e"
 # ./configure
 
+# status bar
+git clone "https://github.com/krypt-n/bar.git" "${TMP_DIR}/lemonbar"
+cp -f "${XDG_CONFIG_HOME}/lemonbar/Makefile" "${TMP_DIR}/lemonbar/"
+cd "${TMP_DIR}/lemonbar"
+doas make clean install
+
 # xresources
 cd "${XDG_CONFIG_HOME}/getxr"
 doas make clean install
@@ -90,25 +107,18 @@ mkdir -p "$FONT_DIR"
 cp -v $XDG_CONFIG_HOME/fonts/* "$FONT_DIR/"
 fc-cache -f -v
 
+# firefox profile
+mkdir -p "${HOME}/.mozilla"
+ln -sf "${XDG_CONFIG_HOME}/mozilla/firefox" "${HOME}/.mozilla/firefox"
+
 # turn off console display after 60 seconds of inactivity
 # wsconsctl display.screen_off=60000
 
-echo WIP
-
 #PACKS="${PACKS} xf86-video-intel"
-## browser
-#PACKS="${PACKS} firefox"
-## image viewer
-#PACKS="${PACKS} feh"
 ## email client
 ## PACKS="${PACKS} neomutt"
 ## contact management
 #PACKS="${PACKS} abook"
-## media player
-#PACKS="${PACKS} mpv"
-#PACKS="${PACKS} youtube-dl"
-## rss reader
-#PACKS="${PACKS} newsboat"
 ## reddit viewer
 ## PACKS="${PACKS} rtv"
 ## pdf viewer utility
@@ -156,19 +166,6 @@ echo WIP
 #AUR="${AUR} firefox-extension-multi-account-containers"
 
 #yay -S --batchinstall --needed --nocleanmenu --nodiffmenu --noprovides $AUR # cannot be quoted
-
-## firefox profile
-#mkdir -p "${HOME}/.mozilla"
-#ln -sf "${XDG_CONFIG_HOME}/mozilla/firefox" "${HOME}/.mozilla/firefox"
-
-## lemonbar
-#git clone "https://github.com/krypt-n/bar.git" "${TMP_DIR}/lemonbar"
-#cd "${TMP_DIR}/lemonbar"
-#sudo make clean install
-
-## xresources
-#cd "${XDG_CONFIG_HOME}/getxr"
-#sudo make clean install
 
 ## relink /bin/sh
 #sudo ln -sf mksh /bin/sh
