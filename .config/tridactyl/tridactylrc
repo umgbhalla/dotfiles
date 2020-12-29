@@ -21,9 +21,6 @@ bind <c-J> zoom -0.1 true
 " disable annoying bookmark pane
 bind <c-h> unfocus
 
-" unbind Tridactyl's overriding behavior with C-f
-unbind <C-f>
-
 " stop recording history!
 set historyresults 0
 
@@ -32,3 +29,7 @@ set modeindicator false
 
 " open a new tab in the current container
 set tabopencontaineraware true
+
+" unbind Tridactyl's overriding behavior
+unbind <C-f>
+unbind <C-a>
