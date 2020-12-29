@@ -30,6 +30,8 @@ export XDG_DESKTOP_DIR="${XDG_CACHE_HOME}/Desktop"
 
 # tmp directory
 export TMP_DIR="/tmp"
+# opt directory
+export OPT_DIR="/opt"
 # local font directory
 export FONT_DIR="${XDG_DATA_HOME}/fonts"
 

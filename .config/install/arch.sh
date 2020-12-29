@@ -1,9 +1,22 @@
 #!/bin/sh
 
+#
+# setup
+#
+
+PACKS=""
+AUR=""
+
+mkdir -p "$XDG_CACHE_HOME"
+mkdir -p "$TMP_DIR"
+mkdir -p "$OPT_DIR"
+
 git clone "https://aur.archlinux.org/yay-bin.git" "$TMP_DIR/yay"
 cd "$TMP_DIR/yay" && makepkg -si
 
-PACKS=""
+#
+# core
+#
 
 # documentation
 PACKS="${PACKS} man"
@@ -44,7 +57,7 @@ PACKS="${PACKS} openssh"
 # archives
 PACKS="${PACKS} unzip"
 # email client
-# PACKS="${PACKS} neomutt"
+PACKS="${PACKS} neomutt"
 # contact management
 PACKS="${PACKS} abook"
 # media player
@@ -52,8 +65,6 @@ PACKS="${PACKS} mpv"
 PACKS="${PACKS} youtube-dl"
 # rss reader
 PACKS="${PACKS} newsboat"
-# reddit viewer
-# PACKS="${PACKS} rtv"
 # pdf viewer utility
 PACKS="${PACKS} zathura girara zathura-pdf-mupdf"
 
@@ -63,14 +74,15 @@ PACKS="${PACKS} ffmpeg"
 # PACKS="${PACKS} kdenlive"
 
 PACKS="${PACKS} alsa-utils"
+# optional - pulseaudio
 # PACKS="${PACKS} pulseaudio pulseaudio-alsa pamixer"
 PACKS="${PACKS} mpd ncmpcpp"
 
 # tuning power consumption
 PACKS="${PACKS} tlp brightnessctl"
 
-# doc conversion (specifically, md to html)
-PACKS="${PACKS} pandoc"
+# # doc conversion (specifically, md to html)
+# PACKS="${PACKS} pandoc"
 # latex
 PACKS="${PACKS} texlive-most biber"
 # dev tools for work/school/projects
@@ -84,6 +96,18 @@ PACKS="${PACKS} wget"
 # firefox extensions
 PACKS="${PACKS} firefox-tridactyl"
 
+AUR="${AUR} mmv"
+
+# firefox extensions
+AUR="${AUR} firefox-tridactyl-native"
+AUR="${AUR} firefox-ublock-origin"
+AUR="${AUR} firefox-extension-multi-account-containers"
+
+#
+# installation
+#
+
+
 sudo pacman -S --needed $PACKS # cannot be quoted
 
 # unmute audio channel
@@ -91,13 +115,6 @@ amixer sset Master unmute
 
 # enable power saving
 sudo systemctl enable --now tlp
-
-AUR="mmv"
-
-# firefox extensions
-AUR="${AUR} firefox-tridactyl-native"
-AUR="${AUR} firefox-ublock-origin"
-AUR="${AUR} firefox-extension-multi-account-containers"
 
 yay -S --batchinstall --needed --nocleanmenu --nodiffmenu --noprovides $AUR # cannot be quoted
 
@@ -128,15 +145,17 @@ cd "${TMP_DIR}/devour"
 git checkout f1630794f0a6e96377373e8c1629ffa76f9b6cf4
 sudo make install
 
-# alsamixer alternate
-git clone "https://github.com/bossley9/alsamixer.git" "${TMP_DIR}/alsamixer"
-cd "${TMP_DIR}/alsamixer"
-sudo make clean install
-
-# # pacmixer alternate
-# git clone "https://github.com/bossley9/ncpamixer.git" "${TMP_DIR}/ncpamixer"
-# cd "${TMP_DIR}/ncpamixer"
-# sudo make install
+if command -v "pulseaudio" > "/dev/null"; then
+  # pacmixer alternate
+  git clone "https://github.com/bossley9/ncpamixer.git" "${TMP_DIR}/ncpamixer"
+  cd "${TMP_DIR}/ncpamixer"
+  sudo make install
+else
+  # alsamixer alternate
+  git clone "https://github.com/bossley9/alsamixer.git" "${TMP_DIR}/alsamixer"
+  cd "${TMP_DIR}/alsamixer"
+  sudo make clean install
+fi
 
 # contact management
 # git clone "https://github.com/bossley9/abook.git" "${TMP_DIR}/abook"

@@ -108,16 +108,20 @@ alias \
   yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn" \
   yt="$YT"
 
-if [ "$OS" == "$OS_OPENBSD" ]; then
-  unalias cal
-  alias why="doas sh /etc/netstart"
-fi
+case "$OS" in
+  "$OS_LINUX")
+    if command -v pulseaudio >/dev/null; then
+      alias am="ncpamixer"
+    else
+      alias am="alsamixer"
+    fi
+    ;;
+  "$OS_OPENBSD")
+    unalias cal
+    alias why="doas sh /etc/netstart"
+    ;;
+esac
 
-if command -v pulseaudio >/dev/null; then
-  alias am="ncpamixer"
-else
-  alias am="alsamixer"
-fi
 
 # website retrieval
 # note: this is only semi-effective on javascript-run sites
