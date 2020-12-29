@@ -48,7 +48,7 @@ The installation process will prompt you to configure a network interface.
 It is much easier to set up a proper network configuration after the installation process has finished.
 
 - Type `done` and the installation process will continue without a network connection.
-- Type a DNS name domain name. I usually use the format `hostname.domain` - for example, `aesir.domain`.
+- Type a DNS name domain name. I usually just use `domain`.
 - Press `ENTER` to use `none` for the default DNS nameservers.
 
 #### Password <a name="password"></a>

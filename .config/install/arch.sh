@@ -21,8 +21,6 @@ PACKS="${PACKS} libxft"
 PACKS="${PACKS} ttf-liberation adobe-source-code-pro-fonts wqy-zenhei"
 # browser
 PACKS="${PACKS} firefox"
-# alt browser
-# PACKS="${PACKS} elinks"
 # fuzzy finder
 PACKS="${PACKS} fzf"
 # image viewer

@@ -72,7 +72,7 @@ export VISUAL="${EDITOR}"
 
 # terminal
 case "$OS" in
-  "$OS_LINUX"|"$OS_FREEBSD")
+  "$OS_LINUX"|"$OS_FREEBSD"|"$OS_OPENBSD")
     export TERM="st"
     export TERM_ARGS="$TERM"
     ;;
@@ -251,9 +251,7 @@ if command -v "startx" >/dev/null; then
           # sudo moused -p /dev/psm0
           # exec startx
           ;;
-        "$OS_OPENBSD")
-          echo "WIP startx"
-          ;;
+        "$OS_OPENBSD") exec startx ;;
         "$OS_LINUX") exec startx ;;
       esac
       ;;

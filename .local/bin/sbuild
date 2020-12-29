@@ -12,6 +12,11 @@ olddir="$(pwd)"
 cd "${dir}"
 
 $DETEMPLATE "template.config.h"
-sudo make clean install
+
+if command -v "doas" > "/dev/null"; then
+  doas make clean install
+else
+  sudo make clean install
+fi
 
 cd "${olddir}"
