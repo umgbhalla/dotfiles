@@ -18,14 +18,14 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CONFIG_DIR="$XDG_CONFIG_HOME"
 # cache directory
 export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CACHE_DIR="$XDG_CACHE_HOME"
 # script directory
 export XDG_SCRIPT_HOME="$HOME/.local/bin"
 # data directory
 export XDG_DATA_HOME="$HOME/.local/share"
 # repo directory
 export XDG_REPO_HOME="$HOME/Repos"
-
-# config directory
+# desktop directory
 export XDG_DESKTOP_DIR="${XDG_CACHE_HOME}/Desktop"
 
 # tmp directory
@@ -91,27 +91,10 @@ export BROWSER_INCOGNITO="${BROWSER} -private-window"
 export FILE_EXPLORER="vifm"
 export FILE_EXPLORER_ARGS="${FILE_EXPLORER}"
 
-case "$OS" in
-  "$OS_FREEBSD")
-    export AUDIO_ARCH="oss"
-    export AUDIO_OUTPUT="${AUDIO_ARCH}"
-    ;;
-  "$OS_OPENBSD")
-    export AUDIO_ARCH="sndio"
-    export AUDIO_OUTPUT="${AUDIO_ARCH}"
-    ;;
-  "$OS_LINUX")
-    export AUDIO_ARCH="alsa"
-    if command -v "pulseaudio" >/dev/null; then
-      export AUDIO_OUTPUT="pulse"
-    else
-      export AUDIO_OUTPUT="alsa"
-    fi
-    ;;
-esac
-
+# document viewer
 export PDF_VIEWER="zathura"
 
+# system profiler
 export SYSTEM_PROFILER="htop"
 
 # notifications
@@ -144,14 +127,42 @@ case "$OS" in
     ;;
 esac
 
+# music player
+export MUSIC_PLAYER=""
+export MUSIC_PLAYER_ARGS="${MUSIC_PLAYER}"
+if [ "$OS" == "$OS_LINUX" ]; then
+  export MUSIC_PLAYER="spotify"
+  export MUSIC_PLAYER_ARGS="${MUSIC_PLAYER}"
+fi
+
+# pager
 export PAGER="less"
 
+# window manager
 export WM="bspwm"
 
 #
 # variables
 #
 
+case "$OS" in
+  "$OS_FREEBSD")
+    export AUDIO_ARCH="oss"
+    export AUDIO_OUTPUT="${AUDIO_ARCH}"
+    ;;
+  "$OS_OPENBSD")
+    export AUDIO_ARCH="sndio"
+    export AUDIO_OUTPUT="${AUDIO_ARCH}"
+    ;;
+  "$OS_LINUX")
+    export AUDIO_ARCH="alsa"
+    if command -v "pulseaudio" >/dev/null; then
+      export AUDIO_OUTPUT="pulse"
+    else
+      export AUDIO_OUTPUT="alsa"
+    fi
+    ;;
+esac
 export DOLLAR="$" # vital for envsubst escaping
 export ELINKS_CONFDIR="${XDG_CONFIG_HOME}/elinks"
 export ELINKS_XTERM="st -e"
@@ -173,12 +184,10 @@ case "${OS}" in
     ;;
 esac
 export UID="$(id -u)"
-export XRDB_RESOURCES="${XDG_CONFIG_HOME}/Xdefaults/Xresources"
-export XRDB_UPDATE="xrdb -merge ${XRDB_RESOURCES}"
-
-# vertical line jumping
 export VI_NAV_JUMP="5"
 export VI_NAV_JUMP_LARGE="25"
+export XRDB_RESOURCES="${XDG_CONFIG_HOME}/Xdefaults/Xresources"
+export XRDB_UPDATE="xrdb -merge ${XRDB_RESOURCES}"
 
 #
 # cache and config directories
@@ -190,6 +199,7 @@ export CARGO_HOME="$XDG_CACHE_HOME/cargo"
 export ENV="$XDG_CONFIG_HOME/sh/shrc"
 export GIT_CONFIG="$XDG_CONFIG_HOME/git/config"
 export GIT_TEMPLATE_DIR="$XDG_CONFIG_HOME/git/template"
+export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
 export LESSKEY="$XDG_CACHE_HOME/lesskey_generated"
 export NEWSBOAT_CONFIG="$XDG_CONFIG_HOME/newsboat"

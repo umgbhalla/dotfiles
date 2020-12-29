@@ -103,6 +103,9 @@ AUR="${AUR} firefox-tridactyl-native"
 AUR="${AUR} firefox-ublock-origin"
 AUR="${AUR} firefox-extension-multi-account-containers"
 
+# alternate music player
+AUR="${AUR} spotify"
+
 #
 # installation
 #

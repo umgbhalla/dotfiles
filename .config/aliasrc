@@ -325,3 +325,7 @@ alias clear-cache="sync; echo 1 | sudo tee /proc/sys/vm/drop_caches"
 
 # list all open windows
 alias windows="wmctrl -l"
+
+# alias refresh-keys="sudo pacman-key --refresh-keys"
+# you could also try keyservers such as pgp.mit.edu or keyserver.ubuntu.com
+alias get-key="gpg --keyserver keys.gnupg.net --recv-keys"
