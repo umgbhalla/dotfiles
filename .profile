@@ -236,7 +236,9 @@ export PATH="${XDG_SCRIPT_HOME}:$PATH"
 export FZF_DEFAULT_OPTS="--bind $FZF_BINDINGS --color=\"$FZF_COLORS\""
 
 # Firefox profile
-export BROWSER_ARGS="${BROWSER} -P ${FF_PROFILE}"
+if [ "$OS" == "$OS_OPENBSD" ]; then
+  export BROWSER_ARGS="${BROWSER} -P ${FF_PROFILE}"
+fi
 
 # background command
 # xsetroot doesn't work here because the compositor overrides background changes

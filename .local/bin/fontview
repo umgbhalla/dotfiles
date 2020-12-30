@@ -1,7 +1,7 @@
 #!/bin/sh
 # creates and displays a font preview
 
-preview_text="ABCDEFGHIJKLM\nNOPQRSTUVWXYZ\nabcdefghijklm\nnopqrstuvwxyz\n1234567890\n!@$\%(){}[]"
+preview_text="ABCDEFGHIJKLM\nNOPQRSTUVWXYZ\nabcdefghijklm\nnopqrstuvwxyz\n1234567890;:'\"+=\n!?@$^&*\%|/\\\=<>(){}[]"
 usage="fontview [font file [preview text]]"
 output="${XDG_CACHE_HOME}/fontview_img.png"
 
