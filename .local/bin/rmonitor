@@ -1,5 +1,6 @@
 #!/bin/sh
 # rmonitor reconfigures monitors with bspwm to display the correct workspaces on each monitor
+
 # assumption: xrandr always outputs at least one connected screen
 
 if ! command -v "xrandr" > /dev/null; then

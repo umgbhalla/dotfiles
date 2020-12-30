@@ -1,4 +1,5 @@
 #!/bin/sh
+# converts a hexidecimal color to firefox's r, g, b format
 
 hex=$($HEX2RGB $1)
 

@@ -1,4 +1,6 @@
 #!/bin/sh
+# sets and manages blue light filter with redshift
+
 TEMP=$REDSHIFT_LAST
 DEFAULT_TEMP=6500
 

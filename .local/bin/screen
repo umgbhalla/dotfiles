@@ -207,5 +207,5 @@ case "$1" in
   snap) screenSnap ;;
   stop) screenStop ;;
   video) screenVideo ;;
-  *) echo "${RED}USAGE: SCREEN [capture | crop | gif | recording-status | snap | stop | video]${NC}" ;;
+  *) echo "${RED}USAGE: screen [capture | crop | gif | recording-status | snap | stop | video]${NC}" ;;
 esac

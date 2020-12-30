@@ -1,4 +1,5 @@
 #!/bin/sh
+# a program launching script
 
 case $OS in
   $OS_FREEBSD)

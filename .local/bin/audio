@@ -1,5 +1,5 @@
 #!/bin/sh
-# a script to uniformly alter sound cards, volume, and mixing
+# uniformly manages audio volume for inputs and output
 
 # volume get
 

@@ -138,9 +138,9 @@ sudo make clean install
 sudo ln -sf mksh /bin/sh
 
 # suckless
-$SBUILD "st"
-$SBUILD "herbe"
-$SBUILD "slock"
+sbuild "st"
+sbuild "herbe"
+sbuild "slock"
 
 # swallowing windows
 git clone "https://github.com/salman-abedin/devour.git" "${TMP_DIR}/devour"

@@ -88,16 +88,14 @@ esac
 # core
 alias \
   cal="cal -3" \
-  ch="$CURSOR hide" \
-  cs="$CURSOR show" \
+  ch="cursor hide" \
+  cs="cursor show" \
   d="date" \
   em="neomutt" \
   lss="du -h -s" \
   n="newsboat -u $XDG_DATA_HOME/newsboat/urls -C $NEWSBOAT_CONFIG/config" \
   pdf="pdflatex" \
-  rmonitor="$RMONITOR" \
   s="$XDG_SCRIPT_HOME/run_script.sh" \
-  sbuild="$SBUILD" \
   ss="sc-im" \
   stheme="$SETTHEME" \
   system="sudo systemctl" \
@@ -106,8 +104,7 @@ alias \
   webcam="devour mpv av://v4l2:/dev/video0 --profile=low-latency --untimed" \
   wget="wget --hsts-file=${XDG_DATA_HOME}/wget-hsts" \
   wi="nmtui" \
-  yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn" \
-  yt="$YT"
+  yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn"
 
 case "$OS" in
   "$OS_LINUX")

@@ -1,4 +1,5 @@
 #!/bin/sh
+# finds and copies a text emoji to the clipboard
 
 emoji=$(cat $XDG_DATA_HOME/emojis | sed -e 's/\ +#/\\t#/' | $SHELLMENU | \
   awk -F '#' '{printf "%s",$1}')
