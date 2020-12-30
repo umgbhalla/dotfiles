@@ -1,1 +1,20 @@
-shell-menu
+#!/bin/sh
+# This script is a dmenu alternative designed to utilize fzf in
+# a floating st terminal window. Usage is similar to fzf.
+# There should only ever be one shellmenu instance running at a time.
+
+tmpDataFile="${TMP_DIR}/shell-menu-data"
+
+width=$SHELLMENU_WIDTH
+height=$SHELLMENU_HEIGHT
+x=$SHELLMENU_X
+y=$SHELLMENU_Y
+
+in="$(cat "/dev/stdin")"
+
+st -n shellpopup -G ${width}x${height}+${x}+${y} sh -c \
+  "echo \"$in\" | \
+  fzf --reverse \
+  $@ > $tmpDataFile"
+
+cat "$tmpDataFile" > "/dev/stdout"

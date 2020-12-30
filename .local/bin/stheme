@@ -1,1 +1,41 @@
-set-theme
+#!/bin/sh
+# Dynamically update all application colors and theming
+
+if [ -z "${1}" ]; then
+  echo "${RED}USAGE: stheme [light | dark | time]${NC}"
+  exit 1
+fi
+
+THEME=""
+case "${1}" in
+  "time")
+    hour="$(date +%H)"
+
+    if [ "${hour}" -ge 9 ] && [ "${hour}" -le 20 ]; then
+      THEME="light"
+    else
+      THEME="dark"
+    fi
+    ;;
+  *) THEME="${1}" ;;
+esac
+
+CURRENT_THEME_MODE="${THEME}" . $HOME/.profile
+
+cat "${XDG_CONFIG_HOME}/templaterc" | \
+  envsubst | \
+  xargs -I {} det {}
+
+# generate lesskey because less is ridiculous
+command -v lesskey >/dev/null && \
+  lesskey "${XDG_CONFIG_HOME}/less/lesskey"
+
+# Xresource colors
+# do NOT background; apps may not get updated resources
+$XRDB_UPDATE
+
+# update bar
+$BAR_UPDATE &
+
+# background
+$BACKGROUND
