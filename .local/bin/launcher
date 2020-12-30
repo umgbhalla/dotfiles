@@ -8,13 +8,13 @@ case $OS in
       | tr ':' '\n' \
       | xargs -I {} find {} -type f \
       | xargs basename \
-      | $SHELLMENU \
+      | shellmenu \
     )
     ;;
   *)
     $(\
       ls /bin \
-      | $SHELLMENU \
+      | shellmenu \
     )
     ;;
 esac

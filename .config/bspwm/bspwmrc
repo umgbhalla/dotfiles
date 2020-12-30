@@ -58,7 +58,7 @@ bspc rule -a '*:shellpopup' state=floating sticky="on"
 #
 
 # initialize workspaces and monitors
-$RMONITOR
+rmonitor
 
 # update bar with latest wm info
 $BAR_UPDATE

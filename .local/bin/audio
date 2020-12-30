@@ -144,12 +144,12 @@ case $1 in
     case $2 in
       get) vol_get "$@" ;;
       up)
-        if [ -z $3 ]; then echo -e "${RED}USAGE: AUDIO vol up [amount]${NC}";
+        if [ -z $3 ]; then echo -e "${RED}USAGE: audio vol up [amount]${NC}";
         else vol_up $3; fi
         $BAR_UPDATE > /dev/null
         ;;
       down)
-        if [ -z $3 ]; then echo -e "${RED}USAGE: AUDIO vol down [amount]${NC}";
+        if [ -z $3 ]; then echo -e "${RED}USAGE: audio vol down [amount]${NC}";
         else vol_down $3; fi
         $BAR_UPDATE > /dev/null
         ;;
@@ -157,7 +157,7 @@ case $1 in
         vol_toggle
         $BAR_UPDATE > /dev/null
         ;;
-      *) echo -e "${RED}USAGE: AUDIO vol [get | up | down | toggle]${NC}" ;;
+      *) echo -e "${RED}USAGE: audio vol [get | up | down | toggle]${NC}" ;;
     esac
     ;;
   mic)
@@ -166,8 +166,8 @@ case $1 in
         mic_toggle
         $BAR_UPDATE > /dev/null
         ;;
-      *) echo -e "${RED}USAGE: AUDIO mic [toggle]${NC}" ;;
+      *) echo -e "${RED}USAGE: audio mic [toggle]${NC}" ;;
     esac
     ;;
-  *) echo -e "${RED}USAGE: AUDIO [vol mic]${NC}" ;;
+  *) echo -e "${RED}USAGE: audio [vol mic]${NC}" ;;
 esac

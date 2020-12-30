@@ -8,7 +8,7 @@ super + Return
 
 # launcher
 super + space
-  exec $LAUNCHER
+  exec launcher
 
 # browser
 super + b
@@ -37,25 +37,19 @@ super + m
 #
 
 super + s
-  exec $XDG_SCRIPT_HOME/run_script
+  exec run_script
 super + e
-  exec $XDG_SCRIPT_HOME/emoji
+  exec emoji
 
 #
 # audio controls
 #
 
 super + bracketleft
-  $AUDIO vol down 5
+  audio vol down 5
 
 super + bracketright
-  $AUDIO vol up 5
-
-# super + backslash
-#   $AUDIO vol toggle
-
-# super + apostrophe
-#   $AUDIO mic toggle
+  audio vol up 5
 
 #
 # screen capture
@@ -65,31 +59,31 @@ super + bracketright
 
 # for ease and alignment with macOS
 shift + alt + 3
-  $SCREEN snap
+  screen snap
 shift + alt + 4
-  $SCREEN crop
+  screen crop
 
 # capture
 
-F10
-  $SCREEN capture
-F9
-  $SCREEN stop
-F8
-  $SCREEN gif
+super + F10
+  screen capture
+super + F9
+  screen stop
+super + F8
+  screen gif
 
 #
 # brightness control
 #
 
 super + shift + braceright
-  $XDG_SCRIPT_HOME/rshift subtract 300
+  rshift subtract 300
 
 super + shift + braceleft
-  $XDG_SCRIPT_HOME/rshift add 300
+  rshift add 300
 
 super + shift + plus
-  $XDG_SCRIPT_HOME/rshift reset
+  rshift reset
 
 super + ctrl + shift + braceleft
   brightnessctl s 5%-

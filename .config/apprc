@@ -158,7 +158,7 @@ esac
 
 # zathura
 
-export ZATHURA_BG="$($HEX2RGB $G_BG | sed -e s/b/ba/ -e s/\)/,$W_ALPHA\)/)"
-export ZATHURA_BG_ALT="$($HEX2RGB $G_BG_ALT | sed -e s/b/ba/ -e s/\)/,$W_ALPHA\)/)"
+export ZATHURA_BG="$(hex2rgb $G_BG | sed -e s/b/ba/ -e s/\)/,$W_ALPHA\)/)"
+export ZATHURA_BG_ALT="$(hex2rgb $G_BG_ALT | sed -e s/b/ba/ -e s/\)/,$W_ALPHA\)/)"
 export ZATHURA_FG="$G_FG"
 export ZATHURA_PRIMARY="$G_PRIMARY"

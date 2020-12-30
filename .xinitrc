@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # set last redshift
-"$REDSHIFT" set "$(cat $REDSHIFT_LAST)" &
+rshift set "$(cat $REDSHIFT_LAST)" &
 
 # init compositor
 $COMPOSITOR_ARGS &
@@ -10,7 +10,7 @@ $COMPOSITOR_ARGS &
 $BAR_ARGS &
 
 # theming
-$SETTHEME "dark" &
+stheme "dark" &
 
 # shortcut manager
 sxhkd &

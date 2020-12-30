@@ -2,7 +2,7 @@
 # Dynamically update all application colors and theming
 
 if [ -z "${1}" ]; then
-  echo "${RED}USAGE: SWITCHTHEME [light | dark | time]${NC}"
+  echo "${RED}USAGE: stheme [light | dark | time]${NC}"
   exit 1
 fi
 
@@ -24,7 +24,7 @@ CURRENT_THEME_MODE="${THEME}" . $HOME/.profile
 
 cat "${XDG_CONFIG_HOME}/templaterc" | \
   envsubst | \
-  xargs -I {} $DET {}
+  xargs -I {} det {}
 
 # generate lesskey because less is ridiculous
 command -v lesskey >/dev/null && \

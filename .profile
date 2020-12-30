@@ -213,29 +213,10 @@ export YARN_RC_FILENAME="$XDG_CONFIG_HOME/yarn/.yarnrc.yml"
 export XAUTHORITY="${XDG_CONFIG_HOME}/Xdefaults/Xauthority"
 
 #
-# scripts
-#
-
-export AUDIO="$XDG_SCRIPT_HOME/audio"
-export CURSOR="$XDG_SCRIPT_HOME/cursor"
-export DETEMPLATE="$XDG_SCRIPT_HOME/detemplate"
-export DET="$DETEMPLATE"
-export HEX2FF="$XDG_SCRIPT_HOME/hex2ff"
-export HEX2RGB="$XDG_SCRIPT_HOME/hex2rgb"
-export LAUNCHER="$XDG_SCRIPT_HOME/launcher"
-export REDSHIFT="$XDG_SCRIPT_HOME/rshift"
-export RMONITOR="$XDG_SCRIPT_HOME/rmonitor"
-export SBUILD="$XDG_SCRIPT_HOME/sbuild"
-export SCREEN="$XDG_SCRIPT_HOME/screen"
-export SHELLMENU="$XDG_SCRIPT_HOME/shell-menu"
-export SETTHEME="$XDG_SCRIPT_HOME/set-theme"
-export YT="$XDG_SCRIPT_HOME/yt"
-
-#
 # path
 #
 
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="${XDG_SCRIPT_HOME}:$PATH"
 
 #
 # includes

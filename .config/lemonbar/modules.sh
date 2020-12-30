@@ -37,7 +37,7 @@ volume() {
   active="%{O$h_padding}"
   empty="%{O$h_padding}"
 
-  volNum="$($AUDIO vol get)"
+  volNum="$(audio vol get)"
 
   fullNum="$(( ${volNum}/${unit} ))"
   emptyNum="$(( 100/${unit} - ${fullNum} ))"

@@ -95,9 +95,8 @@ alias \
   lss="du -h -s" \
   n="newsboat -u $XDG_DATA_HOME/newsboat/urls -C $NEWSBOAT_CONFIG/config" \
   pdf="pdflatex" \
-  s="$XDG_SCRIPT_HOME/run_script.sh" \
+  s="run_script" \
   ss="sc-im" \
-  stheme="$SETTHEME" \
   system="sudo systemctl" \
   vi="$EDITOR" \
   vim="$EDITOR" \
