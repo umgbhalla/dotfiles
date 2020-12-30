@@ -173,5 +173,8 @@ $SBUILD "st"
 $SBUILD "herbe"
 #$SBUILD "slock"
 
+# rc config
+doas ln -sf "$XDG_CONFIG_HOME/etc/rc.conf.local" "/etc/rc.conf.local"
+
 # motd
 echo "" | doas tee "/etc/motd"

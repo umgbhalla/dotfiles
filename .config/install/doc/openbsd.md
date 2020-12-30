@@ -110,6 +110,7 @@ You have now successfully finished installing OpenBSD! Press `ENTER` to reboot t
   ```
   join SSID_HERE wpakey PSK_HERE
   dhcp
+  up
   ```
 
   Since Vim is not installed, you will need to use Vi to edit the file.

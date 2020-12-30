@@ -2,27 +2,27 @@
 # given a hex code of form #xxxxxx, returns an rgb color of form rgb(x, x, x)
 # e.g. hex2rgb "#abc123" => "rgb(171,193,35)"
 
-if [ -z $1 ]; then
-  echo -e "${RED}A hex string must be supplied as an argument.${NC}"
+if [ -z "$1" ]; then
+  echo -e "${RED}USAGE: hex2rgb [hex string]${NC}"
   exit 1
 fi
 
-hex=$(echo $1 | tail -c +2)
-len=$(echo -n $hex | wc -m)
+hex="$(echo "$1" | tail -c +2)"
+# hex="$(echo "$1" | cut -d '#' -f 2)"
 
-if [ $len != 6 ]; then
-  echo -e "${RED}A hex string must be of the format #xxxxxx, where x represents an alphanumeric character within range 0-9a-fA-F.${NC}"
+if [ "${#hex}" != 6 ]; then
+  echo -e "${RED}ERROR: hex string must be of the format #xxxxxx, where x represents an alphanumeric character within range 0-9a-fA-F.${NC}"
   exit 1
 fi
 
 hex=$(echo $hex | tr '[:lower:]' '[:upper:]') # capitalize hex
 
-a=$(echo $hex | head -c +2)
-b=$(echo $hex | tail -c +3 | head -c +2)
-c=$(echo $hex | tail -c +5)
+a="$(echo $hex | cut -b 1-2)"
+b="$(echo $hex | cut -b 3-4)"
+c="$(echo $hex | cut -b 5-6)"
 
-r=$(echo "ibase=16; $a" | bc)
-g=$(echo "ibase=16; $b" | bc)
-b=$(echo "ibase=16; $c" | bc)
+r="$(echo "ibase=16; $a" | bc)"
+g="$(echo "ibase=16; $b" | bc)"
+b="$(echo "ibase=16; $c" | bc)"
 
 echo "rgb($r,$g,$b)"

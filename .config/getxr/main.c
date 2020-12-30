@@ -59,11 +59,12 @@ int is_whitespace(char c) {
   return is_whitespace;
 }
 
+const char* RED = "\033[31m";
+const char* NC = "\033[0m";
+
 /* main */
 int main(int argc, char* argv[]) {
   if (argc < 2) {
-    const char* RED = "\033[31m";
-    const char* NC = "\033[0m";
     printf("%sUSAGE: getxr [resource]%s\n", RED, NC);
     return 1;
   }
@@ -72,9 +73,17 @@ int main(int argc, char* argv[]) {
 
   /* get default DISPLAY env variable */
   Display* display = XOpenDisplay(NULL);
+  if (!display) {
+    printf("%sERROR: getxr unable to open X display%s\n", RED, NC);
+    return 1;
+  }
 
   /* retrieve loaded x resources */
   char* xresources = XResourceManagerString(display);
+  if (!xresources) {
+    printf("%sERROR: getxr unable to retrieve X resources%s\n", RED, NC);
+    return 1;
+  }
 
   int resource_index = index_of(xresources, resource);
   int resource_length = length(resource);
