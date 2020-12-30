@@ -229,7 +229,8 @@ rp() {
 fm() {
   fmDir="${XDG_CACHE_HOME}/fm_last_dir"
   $FILE_EXPLORER_ARGS --choose-dir="$fmDir"
-  cd $(cat "$fmDir")
+  dir="$(cat "$fmDir" | tr ' ' '\ ')"
+  cd "$dir"
 }
 alias r="fm"
 

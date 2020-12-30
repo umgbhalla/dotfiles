@@ -1,0 +1,50 @@
+#!/bin/sh
+
+preview_text="ABCDEFGHIJKLM\nNOPQRSTUVWXYZ\nabcdefghijklm\nnopqrstuvwxyz\n1234567890\n!@$\%(){}[]"
+usage="fontview [font file [preview text]]"
+output="${XDG_CACHE_HOME}/fontview_img.png"
+
+# dependencies
+if ! command -v "convert" > "/dev/null"; then
+  echo -e "${RED}ERROR: ImageMagick convert is not installed${NC}"
+  exit 1
+fi
+if ! command -v "feh" > "/dev/null"; then
+  echo -e "${RED}ERROR: feh is not installed${NC}"
+  exit 1
+fi
+
+# invalid input
+if [ -z "$1" ] || [ ! -f "$1" ]; then
+  echo -e "${RED}USAGE: ${usage}${NC}"
+  exit 1
+fi
+
+# supplied preview
+if [ -n "$2" ]; then
+  preview_text="$2"
+fi
+
+max_width="${RES_WIDTH:-1920}"
+max_height="${RES_HEIGHT:-1080}"
+
+resolution="$(( $max_width / 2 ))x$(( $max_height / 2 ))"
+
+bg="$(getxr "*.color0")"
+bg="${bg:-"#1d1a16"}"
+
+fg="$(getxr "*.color7")"
+fg="${fg:-"#e6e6e6"}"
+
+fs="$(( $max_height / 8 / 2 / 1 ))"
+
+convert \
+  -size "$resolution" xc:"$bg" \
+  -gravity center \
+  -pointsize "$fs" \
+  -font "$1" \
+  -fill "$fg" \
+  -annotate +0+0 "$preview_text" \
+  -flatten "$output"
+
+feh "$output"
