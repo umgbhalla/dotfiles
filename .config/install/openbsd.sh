@@ -21,7 +21,7 @@ PKGS="${PKGS} xcb"
 #
 
 # editor and utilities
-PKGS="${PKGS} neovim ripgrep nodejs fzf"
+PKGS="${PKGS} neovim ripgrep node fzf"
 
 # because fzf complains about not being the latest version
 git clone --depth 1 "https://github.com/junegunn/fzf.git" "${XDG_CACHE_HOME}/fzf"
@@ -30,9 +30,6 @@ cd "${XDG_CACHE_HOME}/fzf"
 
 # archives
 PKGS="${PKGS} unzip-6.0p13"
-
-# dev tools for projects
-PKGS="${PKGS} nodejs"
 
 # TODO add yarn
 # https://classic.yarnpkg.com/en/docs/install/#alternatives-stable
