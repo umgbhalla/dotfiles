@@ -31,11 +31,17 @@ cd "${XDG_CACHE_HOME}/fzf"
 # archives
 PKGS="${PKGS} unzip-6.0p13"
 
-# TODO add yarn
-# https://classic.yarnpkg.com/en/docs/install/#alternatives-stable
-# or compile from src?
-# doas mkdir -p "/opt"
-# cd "/opt"
+# yarn
+yarn_ver="$(curl -L "https://yarnpkg.com/latest-version")"
+curl \
+  -L "https://yarnpkg.com/downloads/${yarn_ver}/yarn-v${yarn_ver}.tar.gz" \
+  -o "${TMP_DIR}/yarn.tar.gz"
+yarn_install_dir="${XDG_DATA_HOME}/yarn"
+tar vxzf "${TMP_DIR}/yarn.tar.gz" -C "${TMP_DIR}/yarn"
+# overwrite old installations
+rm -r "$yarn_install_dir"
+mv "${TMP_DIR}/yarn/yarn-v${yarn_ver}" "$yarn_install_dir"
+ln -sf "${yarn_install_dir}/bin/yarn" "${XDG_SCRIPT_HOME}/yarn"
 
 # TODO python2 is required by node-sass.
 # Remove when phased out of new versions
