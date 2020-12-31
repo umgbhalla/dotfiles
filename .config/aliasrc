@@ -108,6 +108,7 @@ alias \
 case "$OS" in
   "$OS_LINUX")
     alias am="alsamixer"
+    alias clear-mem="sync; echo 1 | sudo tee /proc/sys/vm/drop_caches; sync"
     ;;
   "$OS_OPENBSD")
     unalias cal
@@ -315,7 +316,19 @@ e() {
 # miscellaneous
 # ----------------------------------------------------------------
 
-alias clear-cache="sync; echo 1 | sudo tee /proc/sys/vm/drop_caches"
+clearcache() {
+  case "$OS" in
+    "$OS_LINUX")
+      # clear repository caches
+      # if you want to clear the WHOLE cache, try -Scc (unrecommended)
+      sudo pacman -Sc
+      sudo yay -Sc
+
+      # clear any files in trash
+      rm -r ${XDG_DATA_HOME}/Trash/*
+      ;;
+  esac
+}
 
 # list all open windows
 alias windows="wmctrl -l"
