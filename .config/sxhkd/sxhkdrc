@@ -59,18 +59,18 @@ super + bracketright
 
 # for ease and alignment with macOS
 shift + alt + 3
-  screen snap
+  scene snap
 shift + alt + 4
-  screen crop
+  scene crop
 
 # capture
 
 super + F10
-  screen capture
+  scene capture
 super + F9
-  screen stop
+  scene stop
 super + F8
-  screen gif
+  scene gif
 
 #
 # brightness control

@@ -1,4 +1,4 @@
 #!/bin/sh
 # simple gui macro to record gif
 
-$SCREEN gif
+scene gif
