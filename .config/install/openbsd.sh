@@ -122,6 +122,7 @@ export AUTOCONF_VERSION="2.69"
 export AUTOMAKE_VERSION="1.15"
 make # individual make can probably be removed
 doas make install
+rm -rf "${XDG_CACHE_HOME}/vifm"
 
 # status bar
 git clone "https://github.com/krypt-n/bar.git" "${TMP_DIR}/lemonbar"
@@ -143,11 +144,14 @@ mkdir -p "${HOME}/.mozilla"
 ln -sf "${XDG_CONFIG_HOME}/mozilla/firefox" "${HOME}/.mozilla/firefox"
 
 # system profiler
-# git clone "https://github.com/bossley9/htop.git" "${XDG_CACHE_HOME}/htop"
-# cd "${XDG_CACHE_HOME}/htop"
-# ./autogen.sh
-#./configure
-#sudo make clean install
+git clone "https://github.com/bossley9/htop.git" "${XDG_CACHE_HOME}/htop"
+cd "${XDG_CACHE_HOME}/htop"
+export AUTOCONF_VERSION="2.69"
+export AUTOMAKE_VERSION="1.15"
+./autogen.sh
+./configure
+doas make clean install
+rm -rf "${XDG_CACHE_HOME}/htop"
 
 # gtk theme
 doas mkdir -p "$GTK_THEME_DIR"
