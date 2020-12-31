@@ -107,11 +107,7 @@ alias \
 
 case "$OS" in
   "$OS_LINUX")
-    if command -v pulseaudio >/dev/null; then
-      alias am="ncpamixer"
-    else
-      alias am="alsamixer"
-    fi
+    alias am="alsamixer"
     ;;
   "$OS_OPENBSD")
     unalias cal

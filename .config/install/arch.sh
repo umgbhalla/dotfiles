@@ -148,17 +148,15 @@ cd "${TMP_DIR}/devour"
 git checkout f1630794f0a6e96377373e8c1629ffa76f9b6cf4
 sudo make install
 
-if command -v "pulseaudio" > "/dev/null"; then
-  # pacmixer alternate
-  git clone "https://github.com/bossley9/ncpamixer.git" "${TMP_DIR}/ncpamixer"
-  cd "${TMP_DIR}/ncpamixer"
-  sudo make install
-else
-  # alsamixer alternate
-  git clone "https://github.com/bossley9/alsamixer.git" "${TMP_DIR}/alsamixer"
-  cd "${TMP_DIR}/alsamixer"
-  sudo make clean install
-fi
+# until ncpamixer proves itself to work without segfaulting, alsamixer works just fine...
+# git clone "https://github.com/bossley9/ncpamixer.git" "${TMP_DIR}/ncpamixer"
+# cd "${TMP_DIR}/ncpamixer"
+# sudo make install
+
+# alsamixer
+git clone "https://github.com/bossley9/alsamixer.git" "${TMP_DIR}/alsamixer"
+cd "${TMP_DIR}/alsamixer"
+sudo make clean install
 
 # contact management
 # git clone "https://github.com/bossley9/abook.git" "${TMP_DIR}/abook"

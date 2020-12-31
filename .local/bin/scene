@@ -37,21 +37,12 @@ screenCapture() {
 
     case $OS in
       $OS_LINUX)
-        if command -v pulseaudio >/dev/null; then
-          ffmpeg \
-            -f x11grab -video_size "${RES_WIDTH}x${RES_HEIGHT}" \
-            -i "$DISPLAY" \
-            -f pulse -i default -c:v libx264 \
-            -preset ultrafast -c:a aac \
-            "$captureOutputDir/screencapture-${datefmt}.mp4" &
-        else
-          ffmpeg \
-            -f x11grab -video_size "${RES_WIDTH}x${RES_HEIGHT}" \
-            -i "$DISPLAY" \
-            -f alsa -i default -c:v libx264 \
-            -preset ultrafast -c:a aac \
-            "$captureOutputDir/screencapture-${datefmt}.mp4" &
-        fi
+        ffmpeg \
+          -f x11grab -video_size "${RES_WIDTH}x${RES_HEIGHT}" \
+          -i "$DISPLAY" \
+          -f alsa -i default -c:v libx264 \
+          -preset ultrafast -c:a aac \
+          "$captureOutputDir/screencapture-${datefmt}.mp4" &
         ;;
       *)
         ffmpeg \
