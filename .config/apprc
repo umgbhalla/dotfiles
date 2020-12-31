@@ -45,18 +45,6 @@ export ADDRESS_BOOK="${HOME}/Data/Contacts/contacts"
 
 export BSPWM_TOP_PADDING="$(echo "$BAR_HEIGHT+$W_GAPS" | bc)"
 
-export BSPWM_BORDER_ACTIVE="$G_BG"
-if [ "$CURRENT_THEME_MODE" = "$THEME_DARK" ]; then
-  export BSPWM_BORDER_ACTIVE="$G_FG_ALT"
-fi
-
-export BSPWM_BORDER_FOCUSED="$BSPWM_BORDER_ACTIVE"
-
-export BSPWM_BORDER_NORMAL="$G_BG"
-if [ "$CURRENT_THEME_MODE" = "$THEME_DARK" ]; then
-  export BSPWM_BORDER_NORMAL="$G_BG_ALT"
-fi
-
 # file explorer
 
 export FILE_EXPLORER_FIFO="${TMP_DIR}/${FILE_EXPLORER}fifo"

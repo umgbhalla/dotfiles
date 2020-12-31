@@ -37,5 +37,16 @@ $XRDB_UPDATE
 # update bar
 $BAR_UPDATE &
 
+# window borders
+normal="$(getxr "theme.bg_alt")"
+if [ "$CURRENT_THEME_MODE" = "$THEME_DARK" ]; then
+  focused="$(getxr "theme.fg")"
+else
+  focused="$(getxr "theme.fg_alt")"
+fi
+bspc config normal_border_color "$normal"
+bspc config active_border_color "$focused"
+bspc config focused_border_color "$focused"
+
 # background
 $BACKGROUND

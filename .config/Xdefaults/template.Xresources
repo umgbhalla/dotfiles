@@ -36,6 +36,11 @@
 
 theme.mode:     $CURRENT_THEME_MODE
 
+theme.bg:       $C_BLACK_0
+theme.bg_alt:   $C_BLACK_1
+theme.fg:       $C_GRAY_0
+theme.fg_alt:   $C_GRAY_1
+
 ! st
 
 st.foreground:  $C_GRAY_0
