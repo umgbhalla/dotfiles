@@ -16,6 +16,9 @@ mkdir -p "$XDG_CACHE_HOME"
 # required by lemonbar
 PKGS="${PKGS} xcb"
 
+# required by vifm
+PKGS="${PKGS} automake-1.15.1"
+
 #
 # core development
 #
@@ -62,8 +65,6 @@ PKGS="${PKGS} mmv"
 
 # window manager
 PKGS="${PKGS} bspwm sxhkd"
-# background display utils
-PKGS="${PKGS} hsetroot"
 # blue light filter
 PKGS="${PKGS} redshift"
 # fonts
@@ -104,7 +105,7 @@ PKGS="${PKGS} neofetch"
 
 doas pkg_add -I $PKGS # cannot be quoted
 
-# optional - ports
+# ports (optional)
 # doas pkg_add portslist
 # cd "$TMP_DIR"
 # ftp https://cdn.openbsd.org/pub/OpenBSD/$(uname -r)/{ports.tar.gz,SHA256.sig}
@@ -112,13 +113,15 @@ doas pkg_add -I $PKGS # cannot be quoted
 # cd /usr
 # doas tar vxzf "${TMP_DIR}/ports.tar.gz"
 
-# terminal file browser
-# required for vifm compilation
-# PKGS="${PKGS} automake-1.16.2"
-# git clone "https://github.com/vifm/vifm" "${XDG_CACHE_HOME}/vifm"
-# cd "${XDG_CACHE_HOME}/vifm"
-# git checkout "5a07de3549b065d318d2d43fdb2c94c4f5e4183e"
-# ./configure
+# terminal file manager
+git clone "https://github.com/vifm/vifm" "${XDG_CACHE_HOME}/vifm"
+cd "${XDG_CACHE_HOME}/vifm"
+git checkout "5a07de3549b065d318d2d43fdb2c94c4f5e4183e"
+./configure
+export AUTOCONF_VERSION="2.69"
+export AUTOMAKE_VERSION="1.15"
+make # individual make can probably be removed
+doas make install
 
 # status bar
 git clone "https://github.com/krypt-n/bar.git" "${TMP_DIR}/lemonbar"

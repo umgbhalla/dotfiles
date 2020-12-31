@@ -47,7 +47,7 @@ PACKS="${PACKS} vifm"
 # compositor
 PACKS="${PACKS} picom"
 # display utils
-PACKS="${PACKS} xorg-xsetroot hsetroot"
+PACKS="${PACKS} xorg-xsetroot"
 # mouse/touchpad control
 PACKS="${PACKS} xorg-xinput"
 # clipboard

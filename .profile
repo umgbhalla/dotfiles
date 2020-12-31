@@ -241,8 +241,8 @@ if [ "$OS" == "$OS_OPENBSD" ]; then
 fi
 
 # background command
-# xsetroot doesn't work here because the compositor overrides background changes
-export BACKGROUND="hsetroot -solid ${G_BG} -cover ${XDG_CONFIG_HOME}/wallpapers/cover-${CURRENT_THEME_MODE}.jpg"
+# feh is used over xsetroot or hsetroot because both cause flicker glitches and abnormal behavior on the BSDs
+export BACKGROUND="feh --no-fehbg --bg-scale ${XDG_CONFIG_HOME}/wallpapers/cover-${CURRENT_THEME_MODE}.jpg"
 
 # startx
 if command -v "startx" >/dev/null; then
