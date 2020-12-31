@@ -132,7 +132,7 @@ export ST_PADDING="$(echo "$W_GAPS * 1.5 / 1" | bc)"
 # vifm
 
 case "$OS" in
-  "$OS_FREEBSD")
+  "$OS_FREEBSD"|"$OS_OPENBSD")
     export VIFM_ICON_DIR=""
     export VIFM_ICON_EXE="#!"
     export VIFM_ICON_AUDIO=""
