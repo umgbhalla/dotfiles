@@ -19,6 +19,14 @@
  * ------------------------------------------------
  */
 
+/* body { */
+/*   background-color: var(--color-bg) !important; */
+/*   color: var(--color-fg) !important; */
+/* } */
+/* input { */
+/*   color: var(--color-fg) !important; */
+/* } */
+
 /* ads */
 /* google */
 .img_ad,
@@ -153,7 +161,7 @@ header#title-block-header {
  */
 
 @-moz-document domain(youtube.com) {
-    :root { 
+    :root {
         --yt-spec-general-background-a: var(--color-bg) !important;
         --yt-spec-general-background-b: var(--color-bg) !important;
         --yt-spec-brand-background-solid: var(--color-bg) !important;
@@ -179,6 +187,56 @@ header#title-block-header {
         background-color: var(--color-primary) !important;
     }
     #contents { background-color: var(--color-bg) !important; }
+}
+
+/**
+ * ------------------------------------------------
+ * youtube studio
+ * ------------------------------------------------
+ */
+
+@-moz-document domain(studio.youtube.com) {
+  :root {
+    --paper-dialog-background-color: var(--color-bg) !important;
+    --paper-dialog-color: var(--color-fg) !important;
+
+    --primary-text-color: var(--color-fg) !important;
+    --ytcp-background-color: var(--color-bg) !important;
+
+    --ytcp-brand-background-solid: var(--color-bg) !important;
+    --ytcp-background-0: var(--color-bg) !important;
+    --ytcp-background-10: var(--color-bg-alt) !important;
+    --ytcp-background-20: var(--color-bg-alt) !important;
+    --ytcp-background-30: var(--color-bg) !important;
+    --ytcp-background-90: var(--color-bg-alt) !important;
+
+    --ytcp-black-primary: var(--color-fg) !important;
+    --ytcp-black-secondary: var(--color-fg-alt) !important;
+    --ytcp-white-primary: var(--color-bg) !important;
+    --ytcp-white-secondary: var(--color-bg-alt) !important;
+
+    --ytcp-studio-blue: var(--color-primary) !important;
+    --ytcp-call-to-action: var(--color-primary) !important;
+    --ytcp-call-to-action-raised-background: var(--color-primary) !important;
+    --ytcp-studio-green: var(--color-secondary) !important;
+  }
+
+  ytcp-video-section-content {
+    --header-background-color: var(--color-bg) !important;
+    --row-background-color: var(--color-bg) !important;
+  }
+
+  .ytcp-home-button { display: none !important; }
+  .floating-column.ytcp-table-header, ytcp-table-header,
+  .header.ytcp-content-section { background: var(--color-bg) !important; }
+  .iron-selected.ytcp-navigation-drawer,
+  .iron-selected.ytcp-navigation-drawer .ytcp-navigation-drawer,
+  .ytcp-navigation-drawer::after{
+    color: var(--color-primary) !important;
+  }
+  .icon-text-edit-triangle-wrap.ytcp-video-row .icon-yellow.ytcp-video-row {
+    color: var(--color-warning) !important;
+  }
 }
 
 /**
@@ -758,5 +816,19 @@ header#title-block-header {
   .compose-form .compose-form__buttons-wrapper {
     color: #fff !important;
     background: #282c37 !important;
+  }
+}
+
+/**
+ * ------------------------------------------------
+ * Various
+ * ------------------------------------------------
+ */
+
+@-moz-document domain(arccompute.com) {
+  .tl_article .tl_article_content,
+  .tl_article .tl_article_content .ql-editor,
+  .tl_article .tl_article_header {
+    color: var(--color-fg) !important;
   }
 }

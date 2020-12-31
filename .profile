@@ -255,7 +255,7 @@ if command -v "startx" >/dev/null; then
           # exec startx
           ;;
         "$OS_OPENBSD") exec startx ;;
-        "$OS_LINUX") exec startx ;;
+        # "$OS_LINUX") exec startx ;;
       esac
       ;;
   esac
