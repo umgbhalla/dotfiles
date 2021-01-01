@@ -218,6 +218,8 @@ header#title-block-header {
     --ytcp-studio-blue: var(--color-primary) !important;
     --ytcp-call-to-action: var(--color-primary) !important;
     --ytcp-call-to-action-raised-background: var(--color-primary) !important;
+    --top-banner-color: var(--color-primary);
+    --iron-icon-fill-color: var(--color-fg-alt);
     --ytcp-studio-green: var(--color-secondary) !important;
   }
 
@@ -226,16 +228,23 @@ header#title-block-header {
     --row-background-color: var(--color-bg) !important;
   }
 
+  .top-banner.ytcd-carousel-card {
+  }
+
   .ytcp-home-button { display: none !important; }
   .floating-column.ytcp-table-header, ytcp-table-header,
   .header.ytcp-content-section { background: var(--color-bg) !important; }
   .iron-selected.ytcp-navigation-drawer,
-  .iron-selected.ytcp-navigation-drawer .ytcp-navigation-drawer,
-  .ytcp-navigation-drawer::after{
-    color: var(--color-primary) !important;
+  .iron-selected.ytcp-navigation-drawer .ytcp-navigation-drawer
+  { color: var(--color-primary) !important; }
+  .ytcp-navigation-drawer::after {
+    background-color: var(--color-primary) !important;
   }
   .icon-text-edit-triangle-wrap.ytcp-video-row .icon-yellow.ytcp-video-row {
     color: var(--color-warning) !important;
+  }
+  #video-snapshot.yta-video-snapshot {
+    background-color: var(--color-bg) !important;
   }
 }
 
