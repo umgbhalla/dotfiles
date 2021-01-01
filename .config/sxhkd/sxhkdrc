@@ -86,10 +86,10 @@ super + shift + plus
   rshift reset
 
 super + ctrl + shift + braceleft
-  brightnessctl s 5%-
+  bright s 5
 
 super + ctrl + shift + braceright
-  brightnessctl s +5%
+  bright a 5
 
 #
 # bspwm core

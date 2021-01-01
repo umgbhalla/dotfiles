@@ -1,0 +1,70 @@
+#!/bin/sh
+# adjusts display brightness. All values are based on a [0-100] scale where 0
+# represents a black screen and 100 represents 100% brightness
+
+not_supported="operating system brightness controls not implemented (yet)"
+
+brightness_get() {
+  case "$OS" in
+    "$OS_OPENBSD")
+      wsconsctl "display.brightness" | \
+        cut -d '=' -f 2 | \
+        cut -d '.' -f 1
+      ;;
+    *) echo -e "${RED}ERROR: ${not_supported}${NC}" ;;
+  esac
+}
+
+brightness_add() {
+  case "$OS" in
+    "$OS_OPENBSD")
+      wsconsctl "display.brightness+=${1}" > "/dev/null"
+      ;;
+    "$OS_LINUX")
+      brightnessctl s "+${1}%"
+      ;;
+    *) echo -e "${RED}ERROR: ${not_supported}${NC}" ;;
+  esac
+}
+
+brightness_subtract() {
+  case "$OS" in
+    "$OS_OPENBSD")
+      wsconsctl "display.brightness-=${1}" > "/dev/null"
+      ;;
+    "$OS_LINUX")
+      brightnessctl s "-${1}%"
+      ;;
+    *) echo -e "${RED}ERROR: ${not_supported}${NC}" ;;
+  esac
+}
+
+# $1 represents add or subtract (1 and -1 respectively) and
+# $2 represents the amount
+brightness_set() {
+  if [ -z "$2" ]; then
+    echo -e "${RED}USAGE: bright [a [amount] | s [amount]]${NC}"
+    return
+  fi
+
+  if [ "$1" -eq 1 ]; then
+    brightness_add "$2"
+  else
+    brightness_subtract "$2"
+  fi
+}
+
+case "$1" in
+  "g")
+    brightness_get
+    ;;
+  "a")
+    brightness_set "1" "$2"
+    ;;
+  "s")
+    brightness_set "-1" "$2"
+    ;;
+  *)
+    echo -e "${RED}USAGE: bright [g | a | s]${NC}"
+    ;;
+esac

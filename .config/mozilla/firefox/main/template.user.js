@@ -15,6 +15,8 @@ user_pref("browser.tabs.warnOnCloseOtherTabs", false);
 // downloads
 user_pref("browser.download.dir", "${HOME}/Downloads");
 user_pref("browser.download.useDownloadDir", "true");
+// uploads (restricted in OpenBSD by unveil)
+user_pref("dom.input.fallbackUploadDir", "${HOME}/Downloads");
 
 // application actions
 user_pref("browser.download.viewableInternally.enabledTypes", "");
