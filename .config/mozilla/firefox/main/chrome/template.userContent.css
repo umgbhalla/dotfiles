@@ -781,28 +781,6 @@ header#title-block-header {
 
 /**
  * ------------------------------------------------
- * FreeBSD man
- * ------------------------------------------------
- */
-
-@-moz-document domain(unix.com) {
-  .page {
-    background: var(--color-bg) !important;
-    color: var(--color-fg) !important;
-  }
-  /* hide all junk */
-  form,
-  #main-navbar,
-  #neo_navbar_divs_center_menu_bar,
-  .neo-table-border,
-  .man-h1-wrap,
-  .flex-posts-ads,
-  .man-h1-article
-  { display: none !important; }
-}
-
-/**
- * ------------------------------------------------
  * Mastodon
  * ------------------------------------------------
  */
@@ -832,3 +810,32 @@ header#title-block-header {
     color: var(--color-fg) !important;
   }
 }
+
+@-moz-document domain(unix.com) {
+  body {
+    background: var(--color-bg) !important;
+    color: var(--color-fg) !important;
+  }
+  .page {
+    background: var(--color-bg) !important;
+    color: var(--color-fg) !important;
+  }
+  pre {
+    color: var(--color-fg) !important;
+    margin: 0;
+  }
+  .neo-man-caps, .neo-man-header {
+    color: var(--color-primary) !important;
+  }
+  /* hide all junk */
+  form,
+  #main-navbar,
+  #neo_navbar_divs_center_menu_bar,
+  .neo-table-border,
+  .man-h1-wrap,
+  .flex-posts-ads,
+  .man-h1-article,
+  footer
+  { display: none !important; }
+}
+

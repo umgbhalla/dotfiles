@@ -33,7 +33,7 @@ brightness_subtract() {
       wsconsctl "display.brightness-=${1}" > "/dev/null"
       ;;
     "$OS_LINUX")
-      brightnessctl s "-${1}%"
+      brightnessctl s "${1}%-"
       ;;
     *) echo -e "${RED}ERROR: ${not_supported}${NC}" ;;
   esac
