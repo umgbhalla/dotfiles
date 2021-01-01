@@ -254,7 +254,7 @@ if command -v "startx" >/dev/null; then
           # sudo moused -p /dev/psm0
           # exec startx
           ;;
-        "$OS_OPENBSD") exec startx ;;
+        # "$OS_OPENBSD") exec startx ;;
         # "$OS_LINUX") exec startx ;;
       esac
       ;;

@@ -15,7 +15,6 @@ mkdir -p "$XDG_CACHE_HOME"
 
 # required by lemonbar
 PKGS="${PKGS} xcb"
-
 # required by vifm
 PKGS="${PKGS} automake-1.15.1"
 
@@ -25,37 +24,19 @@ PKGS="${PKGS} automake-1.15.1"
 
 # editor and utilities
 PKGS="${PKGS} neovim ripgrep node fzf"
-
-# because fzf complains about not being the latest version
-git clone --depth 1 "https://github.com/junegunn/fzf.git" "${XDG_CACHE_HOME}/fzf"
-cd "${XDG_CACHE_HOME}/fzf"
-./install
-
+# # because fzf complains about not being the latest version
+# git clone --depth 1 "https://github.com/junegunn/fzf.git" "${XDG_CACHE_HOME}/fzf"
+# cd "${XDG_CACHE_HOME}/fzf"
+# ./install
 # archives
 PKGS="${PKGS} unzip-6.0p13"
-
-# yarn
-yarn_ver="$(curl -L "https://yarnpkg.com/latest-version")"
-curl \
-  -L "https://yarnpkg.com/downloads/${yarn_ver}/yarn-v${yarn_ver}.tar.gz" \
-  -o "${TMP_DIR}/yarn.tar.gz"
-yarn_install_dir="${XDG_DATA_HOME}/yarn"
-tar vxzf "${TMP_DIR}/yarn.tar.gz" -C "${TMP_DIR}/yarn"
-# overwrite old installations
-rm -r "$yarn_install_dir"
-mv "${TMP_DIR}/yarn/yarn-v${yarn_ver}" "$yarn_install_dir"
-ln -sf "${yarn_install_dir}/bin/yarn" "${XDG_SCRIPT_HOME}/yarn"
-
 # TODO python2 is required by node-sass.
 # Remove when phased out of new versions
 PKGS="${PKGS} python-2.7.18p0"
-
 # required for ytui
 PKGS="${PKGS} rust"
-
 # web utility downloader
 # PKGS="${PKGS} wget"
-
 # god-tier utility
 PKGS="${PKGS} mmv"
 
@@ -103,7 +84,7 @@ PKGS="${PKGS} neofetch"
 # installation
 #
 
-doas pkg_add -I $PKGS # cannot be quoted
+doas pkg_add -I -m -v $PKGS # cannot be quoted
 
 # ports (optional)
 # doas pkg_add portslist
@@ -112,6 +93,22 @@ doas pkg_add -I $PKGS # cannot be quoted
 # signify -Cp /etc/signify/openbsd-$(uname -r | cut -c 1,3)-base.pub -x SHA256.sig ports.tar.gz
 # cd /usr
 # doas tar vxzf "${TMP_DIR}/ports.tar.gz"
+
+# pip
+# required by fzf, youtube-dl
+curl "https://bootstrap.pypa.io/get-pip.py" -o "${TMP_DIR}/pip.py"
+python3 "${TMP_DIR}/pip.py"
+
+# yarn
+yarn_ver="$(curl -L "https://yarnpkg.com/latest-version")"
+curl \
+  -L "https://yarnpkg.com/downloads/${yarn_ver}/yarn-v${yarn_ver}.tar.gz" \
+  -o "${TMP_DIR}/yarn.tar.gz"
+yarn_install_dir="${XDG_DATA_HOME}/yarn"
+tar vxzf "${TMP_DIR}/yarn.tar.gz" -C "${TMP_DIR}/yarn"
+rm -r "$yarn_install_dir" # overwrite old installations
+mv "${TMP_DIR}/yarn/yarn-v${yarn_ver}" "$yarn_install_dir"
+ln -sf "${yarn_install_dir}/bin/yarn" "${XDG_SCRIPT_HOME}/yarn"
 
 # terminal file manager
 git clone "https://github.com/vifm/vifm" "${XDG_CACHE_HOME}/vifm"
@@ -157,10 +154,6 @@ rm -rf "${XDG_CACHE_HOME}/htop"
 doas mkdir -p "$GTK_THEME_DIR"
 doas ln -sf "${XDG_CONFIG_HOME}/${THEME}" "${GTK_THEME_DIR}/${THEME}"
 
-# pip
-curl "https://bootstrap.pypa.io/get-pip.py" -o "${TMP_DIR}/pip.py"
-python3 "${TMP_DIR}/pip.py"
-
 # upgrade (fix) youtube-dl
 pip install --upgrade youtube-dl
 
@@ -182,9 +175,8 @@ doas make install
 # firefox-extension-multi-account-containers"
 
 # suckless utilities
-$SBUILD "st"
-$SBUILD "herbe"
-#$SBUILD "slock"
+sbuild "st"
+sbuild "herbe"
 
 # rc config
 doas ln -sf "$XDG_CONFIG_HOME/etc/rc.conf.local" "/etc/rc.conf.local"
