@@ -40,6 +40,9 @@ PKGS="${PKGS} wget"
 # god-tier utility
 PKGS="${PKGS} mmv"
 
+# package searching
+PKGS="${PKGS} pkglocatedb"
+
 #
 # Xorg
 #

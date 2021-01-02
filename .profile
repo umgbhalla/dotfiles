@@ -164,9 +164,8 @@ case "$OS" in
     ;;
 esac
 export DOLLAR="$" # vital for envsubst escaping
-export ELINKS_CONFDIR="${XDG_CONFIG_HOME}/elinks"
-export ELINKS_XTERM="st -e"
 export FF_PROFILE="main"
+export NODE_REPL_HISTORY="${XDG_CACHE_HOME}/node_repl_history"
 export PROMPT_EOL_MARK="" # prevent partial line % from appearing
 export REDSHIFT_LAST="$XDG_CACHE_HOME/redshift_last"
 case "${OS}" in
