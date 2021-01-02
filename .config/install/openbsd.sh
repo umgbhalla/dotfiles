@@ -36,7 +36,7 @@ PKGS="${PKGS} python-2.7.18p0"
 # required for ytui
 PKGS="${PKGS} rust"
 # web utility downloader
-# PKGS="${PKGS} wget"
+PKGS="${PKGS} wget"
 # god-tier utility
 PKGS="${PKGS} mmv"
 
@@ -105,8 +105,9 @@ curl \
   -L "https://yarnpkg.com/downloads/${yarn_ver}/yarn-v${yarn_ver}.tar.gz" \
   -o "${TMP_DIR}/yarn.tar.gz"
 yarn_install_dir="${XDG_DATA_HOME}/yarn"
+mkdir -p "${TMP_DIR}/yarn"
 tar vxzf "${TMP_DIR}/yarn.tar.gz" -C "${TMP_DIR}/yarn"
-rm -r "$yarn_install_dir" # overwrite old installations
+rm -r "$yarn_install_dir" 2>/dev/null # overwrite old installations
 mv "${TMP_DIR}/yarn/yarn-v${yarn_ver}" "$yarn_install_dir"
 ln -sf "${yarn_install_dir}/bin/yarn" "${XDG_SCRIPT_HOME}/yarn"
 
@@ -136,10 +137,6 @@ mkdir -p "$FONT_DIR"
 cp -v $XDG_CONFIG_HOME/fonts/* "$FONT_DIR/"
 fc-cache -f -v
 
-# firefox profile
-mkdir -p "${HOME}/.mozilla"
-ln -sf "${XDG_CONFIG_HOME}/mozilla/firefox" "${HOME}/.mozilla/firefox"
-
 # system profiler
 git clone "https://github.com/bossley9/htop.git" "${XDG_CACHE_HOME}/htop"
 cd "${XDG_CACHE_HOME}/htop"
@@ -168,18 +165,33 @@ git checkout "f1630794f0a6e96377373e8c1629ffa76f9b6cf4"
 cp -f "${XDG_CONFIG_HOME}/devour/Makefile" "${TMP_DIR}/devour/"
 doas make install
 
-# # firefox extensions
-# firefox-tridactyl"
-# firefox-tridactyl-native"
-# firefox-ublock-origin"
-# firefox-extension-multi-account-containers"
+# firefox profile
+mkdir -p "${HOME}/.mozilla"
+ln -sf "${XDG_CONFIG_HOME}/mozilla/firefox" "${HOME}/.mozilla/firefox"
+# firefox extensions
+FF_EXT_DIR="${HOME}/.mozilla/firefox/${FF_PROFILE}/extensions"
+mkdir -p "$FF_EXT_DIR"
+# multi-containers
+wget -v -O "${FF_EXT_DIR}/@testpilot-containers.xpi" \
+  "https://addons.mozilla.org/firefox/downloads/file/3650825/firefox_multi_account_containers-7.1.0-fx.xpi"
+# ublock origin
+wget -v -O "${FF_EXT_DIR}/uBlock0@raymondhill.net.xpi" \
+  "https://addons.cdn.mozilla.net/user-media/addons/607454/ublock_origin-1.17.4-an+fx.xpi"
+# firefox-tridactyl
+wget -v -O "${FF_EXT_DIR}/tridactyl.vim@cmcaine.co.uk.xpi" \
+  "https://addons.mozilla.org/firefox/downloads/file/3697894/tridactyl-1.20.4-an+fx.xpi"
+# TODO firefox-tridactyl-native
+# curl -fsSl "https://raw.githubusercontent.com/tridactyl/tridactyl/1.20.4/native/install.sh" | sh
+# https://github.com/tridactyl/tridactyl/issues/1144
+
+# power management/sleep states
+doas rcctl enable apmd
+doas rcctl set apmd flags -A
+doas rcctl start apmd
 
 # suckless utilities
 sbuild "st"
 sbuild "herbe"
-
-# rc config
-doas ln -sf "$XDG_CONFIG_HOME/etc/rc.conf.local" "/etc/rc.conf.local"
 
 # motd
 echo "" | doas tee "/etc/motd"
