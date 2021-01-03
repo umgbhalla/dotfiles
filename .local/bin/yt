@@ -11,6 +11,11 @@ fi
 url="$(ytui "$args" | \
   fzf | awk '{print $NF}')"
 
-echo "$url" | xclip -selection clipboard
-$NOTIFICATION_MANAGER "Copied URL to clipboard."
+if [ -z "$url" ]; then
+  echo "${RED}USAGE: yt [search query]${NC}"
+  exit 1
+fi
+
+echo "$url" | xclip -selection clipboard &
+$NOTIFICATION_MANAGER "Copied URL to clipboard." &
 devour mpv "$url"

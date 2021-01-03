@@ -34,7 +34,7 @@ PKGS="${PKGS} unzip-6.0p13"
 # Remove when phased out of new versions
 PKGS="${PKGS} python-2.7.18p0"
 # required for ytui
-PKGS="${PKGS} rust"
+PKGS="${PKGS} rust rust-rustfmt"
 # web utility downloader
 PKGS="${PKGS} wget"
 # god-tier utility
