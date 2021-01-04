@@ -1,0 +1,156 @@
+#!/bin/sh
+# quizzes a user based on an input of phrases and definitions
+# inspired by OpenBSD's quiz game and quizlet being extremely annoying
+
+#
+# definitions
+#
+
+# couldn't figure out how to read into an array using a string in ksh
+tmp_file="${TMP_DIR}/quiz"
+
+# quiz file delimiter
+del=";"
+
+# color to display questions
+q_color="${BLUE}"
+# color to display correct answers
+ans_color="${GREEN}"
+# color to display incorrect answers
+inc_color="${RED}"
+
+usage="USAGE: \tquiz [quiz file(s)]\n\
+\twhere each line is of the format\n\
+\ttermi${del}definition\n\tor\n\tquestion${del}answer"
+
+# score handling
+total=0
+correct=0
+
+echo_err() {
+  echo -e "${RED}${1}${NC}"
+  exit 1
+}
+
+rm_tmp() {
+  rm "$tmp_file" 2> "/dev/null"
+}
+
+#
+# setup
+#
+
+# handle error where no input is supplied or input does not exist
+if [ -z "$1" ]; then echo_err "$usage"; fi
+if [ ! -f "$1" ]; then echo_err "$usage"; fi
+
+# create temporary dictionary file
+rm_tmp
+touch "$tmp_file"
+
+# clear terminal
+# clear
+
+#
+# utils
+#
+
+# to_lowercase "string"
+to_lowercase() {
+  if [ -z "$1" ]; then
+    echo ""
+    return
+  fi
+
+  echo "$1" | tr "[:upper:]" "[:lower:]"
+}
+
+# randomize "file"
+randomize() {
+  if [ -z "$1" ]; then
+    echo_err "ERROR: unable to randomize nothing"
+  fi
+
+  r=""
+
+  if command -v "sort" > "/dev/null"; then
+    r="$(sort -R "$1")"
+  else
+    r="$(cat "$1")"
+  fi
+
+  echo "$r" > "$1"
+}
+
+# quiz "term" "definition"
+quiz() {
+  if [ -z "$1" -o -z "$2" ]; then
+    echo_err "ERROR: invalid format in quiz file"
+  fi
+
+  term="$1"
+  def="$2"
+
+  # add question mark if necessary
+  qmark="\?"
+  if ! echo "$term" | grep -o "$qmark" > "/dev/null"; then
+    term="${term}?"
+  fi
+
+  ans=""
+
+  total=$(($total+1))
+  while :; do
+    echo "${q_color}${term}${NC}"
+
+    read ans < "/dev/tty"
+
+    # if answer is correct
+    if [ "$(to_lowercase "$ans")" == "$(to_lowercase "$def")" ]
+    then
+      echo "${ans_color}Correct!${NC}"
+      score=$(($score+1))
+      break
+    fi
+
+    # if enter is pressed
+    if [ "$ans" == "" ]; then
+      echo "${inc_color}The correct answer is \"$def\"${NC}"
+      break
+    fi
+
+  done
+}
+
+#
+# main
+#
+
+# concatenate individual files
+for file in "$@"; do
+  cat "$file" >> "$tmp_file"
+done
+
+# randomize terms and defs
+randomize "$tmp_file"
+
+# quiz for each line
+while read line; do
+  term="$(echo "$line" | cut -d "${del}" -f 1)"
+  def="$(echo "$line" | cut -d "${del}" -f 2)"
+
+  quiz "$term" "$def"
+done < "$tmp_file"
+
+# score
+perc=""
+if command -v "bc" > "/dev/null"; then
+  accuracy="$(echo "scale=2;${score}/${total}" | bc | cut -d '.' -f 2)"
+  perc="Accuracy: ${accuracy}%"
+fi
+results="${ans_color}You correctly answered ${score}/${total}. ${perc}${NC}"
+
+echo "$results"
+
+# cleanup
+rm_tmp
