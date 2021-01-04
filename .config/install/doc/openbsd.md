@@ -171,3 +171,7 @@ You have now successfully finished installing OpenBSD! Press `ENTER` to reboot t
   ```
   reboot
   ```
+
+At this point the base installation will be completely finished. If you would like to make additional changes to further optimize your setup, here are some suggestions.
+
+- Diable unused devices (bluetooth, fingerprint/card readers, ethernet) in the BIOS

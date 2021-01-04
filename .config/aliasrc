@@ -19,7 +19,7 @@ case "$OS" in
     alias bc="bc -w -q"
     ;;
   "$OS_OPENBSD")
-    alias ls="ls -F"
+    alias ls="colorls -GF"
     alias md="mkdir -p"
     unalias grep
     ;;

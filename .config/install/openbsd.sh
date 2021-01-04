@@ -40,6 +40,8 @@ PKGS="${PKGS} wget"
 # god-tier utility
 PKGS="${PKGS} mmv"
 
+# colors in sys utils
+PKGS="${PKGS} colorls"
 # package searching
 PKGS="${PKGS} pkglocatedb"
 
