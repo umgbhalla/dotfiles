@@ -704,6 +704,7 @@ header#title-block-header {
     .SelectMenu-item[aria-checked="true"], .SelectMenu-item {
       color: var(--color-fg) !important;
     }
+    .Header-old { background-color: var(--color-bg) !important; }
 }
 
 /**
