@@ -112,7 +112,9 @@ case "$OS" in
     ;;
   "$OS_OPENBSD")
     unalias cal
-    alias why="doas sh /etc/netstart"
+    alias \
+      fet="pfetch" \
+      why="doas sh /etc/netstart"
     ;;
 esac
 

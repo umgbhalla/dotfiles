@@ -167,6 +167,8 @@ export DOLLAR="$" # vital for envsubst escaping
 export FF_PROFILE="main"
 export NODE_REPL_HISTORY="${XDG_CACHE_HOME}/node_repl_history"
 export PROMPT_EOL_MARK="" # prevent partial line % from appearing
+export PF_COL1="1"
+export PF_INFO="ascii title os host kernel pkgs shell editor wm de uptime memory palette"
 export REDSHIFT_LAST="$XDG_CACHE_HOME/redshift_last"
 case "${OS}" in
   "${OS_LINUX}")

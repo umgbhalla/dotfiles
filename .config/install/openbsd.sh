@@ -80,8 +80,6 @@ PKGS="${PKGS} zathura girara zathura-pdf-mupdf"
 PKGS="${PKGS} texlive_base texlive_texmf-full"
 # music player
 PKGS="${PKGS} mpd ncmpcpp"
-# system profiler
-PKGS="${PKGS} neofetch"
 
 #
 # installation
@@ -149,6 +147,11 @@ export AUTOMAKE_VERSION="1.15"
 ./configure
 doas make clean install
 rm -rf "${XDG_CACHE_HOME}/htop"
+
+# system reporter
+git clone "https://github.com/dylanaraps/pfetch.git" "${TMP_DIR}/pfetch"
+cd "${TMP_DIR}/pfetch"
+mv pfetch "${XDG_SCRIPT_HOME}/pfetch"
 
 # gtk theme
 doas mkdir -p "$GTK_THEME_DIR"
