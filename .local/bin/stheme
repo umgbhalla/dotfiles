@@ -40,7 +40,8 @@ $BAR_UPDATE &
 # window borders
 normal="$(getxr "theme.bg_alt")"
 if [ "$CURRENT_THEME_MODE" = "$THEME_DARK" ]; then
-  focused="$(getxr "theme.fg")"
+  # focused="$(getxr "theme.fg")"
+  focused="$(getxr "theme.bg_alt")"
 else
   focused="$(getxr "theme.fg_alt")"
 fi

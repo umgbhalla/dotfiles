@@ -19,9 +19,9 @@ ans_color="${GREEN}"
 # color to display incorrect answers
 inc_color="${RED}"
 
-usage="USAGE: \tquiz [quiz file(s)]\n\
-\twhere each line is of the format\n\
-\ttermi${del}definition\n\tor\n\tquestion${del}answer"
+usage="USAGE: \tquiz [directory | quiz file(s)]\n\
+\twhere each line in a file is of the format\n\n\
+\tterm${del}definition"
 
 # score handling
 total=0
@@ -42,7 +42,19 @@ rm_tmp() {
 
 # handle error where no input is supplied or input does not exist
 if [ -z "$1" ]; then echo_err "$usage"; fi
-if [ ! -f "$1" ]; then echo_err "$usage"; fi
+
+files=""
+
+if [ -f "$1" ]; then
+  files="$@"
+elif [ -d "$1" ]; then
+  files="$(ls $1/*)"
+else
+  # supplied arg(s) is not a file or directory
+  echo_err "$usage"
+fi
+
+echo files are $files
 
 # create temporary dictionary file
 rm_tmp
@@ -127,7 +139,7 @@ quiz() {
 #
 
 # concatenate individual files
-for file in "$@"; do
+for file in $files; do
   cat "$file" >> "$tmp_file"
 done
 
