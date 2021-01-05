@@ -61,7 +61,7 @@ export W_ALPHA="1"
 export W_ALPHA_HEX="FF" # higher value means more opaque
 
 export W_BORDER_WIDTH="0"
-export W_CORNER_RADIUS="3"
+export W_CORNER_RADIUS="0"
 export W_GAPS="16"
 
 #

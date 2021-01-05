@@ -5,17 +5,17 @@
 " Blank lines are ignored.
 " The basic format for each item is shown with an example.
 
+" preview window
 " vsplit
 " view
 
-" only open one pane
-only
-" display three columns of before and after directories
+" display directory columns
+only " only open one pane
 set millerview
 set milleroptions=csize:2,rsize:1
 
 " display hidden files on startup
-set dotfiles
+" set dotfiles
 
 " ------------------------------------------------------------------------------
 
