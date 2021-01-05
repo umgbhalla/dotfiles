@@ -110,7 +110,6 @@ AUR="${AUR} spotify"
 # installation
 #
 
-
 sudo pacman -S --needed $PACKS # cannot be quoted
 
 # unmute audio channel
@@ -187,6 +186,11 @@ sudo mkdir -p "${SYSDSYS}"
 DISPLAY=:0 $DET "${XDG_CONFIG_HOME}/${SYSDSYS}/template.slock@.service"
 sudo ln -sf "${XDG_CONFIG_HOME}/${SYSDSYS}/slock@.service" "${SYSDSYS}/slock@.service"
 sudo systemctl enable "slock@${USER}.service"
+
+# system reporter
+git clone "https://github.com/dylanaraps/pfetch.git" "${TMP_DIR}/pfetch"
+cd "${TMP_DIR}/pfetch"
+mv pfetch "${XDG_SCRIPT_HOME}/pfetch"
 
 # gtk theme
 sudo mkdir -p "$GTK_THEME_DIR"

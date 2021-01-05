@@ -4,6 +4,7 @@
 # general vars
 
 export W_WIDTH="$(echo "${RES_WIDTH}-(${W_GAPS}+${W_BORDER_WIDTH})*2" | bc)"
+export W_HEIGHT="$(echo "${RES_HEIGHT}-(${W_GAPS}+${W_BORDER_WIDTH})*2" | bc)"
 
 export G_BG="$C_BLACK_0"
 export G_BG_ALT="$C_BLACK_1"
@@ -108,7 +109,7 @@ export PICOM_ALPHA="$(echo $(( $W_ALPHA * 100 )) | sed -e 's/\.//g')"
 # shellmenu
 
 export SHELLMENU_WIDTH="$W_WIDTH"
-export SHELLMENU_HEIGHT="$( echo "$RES_HEIGHT / 2" | bc)"
+export SHELLMENU_HEIGHT="$W_HEIGHT"
 export SHELLMENU_X="$W_GAPS"
 export SHELLMENU_Y="$W_GAPS"
 

@@ -107,8 +107,10 @@ alias \
 
 case "$OS" in
   "$OS_LINUX")
-    alias am="alsamixer"
-    alias clear-mem="sync; echo 1 | sudo tee /proc/sys/vm/drop_caches; sync"
+    alias \
+      am="alsamixer" \
+      clear-mem="sync; echo 1 | sudo tee /proc/sys/vm/drop_caches; sync" \
+      fet="pfetch"
     ;;
   "$OS_OPENBSD")
     unalias cal
