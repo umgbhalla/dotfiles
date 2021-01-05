@@ -1,0 +1,32 @@
+diff --git a/src/meson.build b/src/meson.build
+index 4f6ac9a..a35b714 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -78,13 +78,7 @@ if get_option('unittest')
+ 	cflags += ['-DUNIT_TEST']
+ endif
+ 
+-host_system = host_machine.system()
+-if host_system == 'linux'
+-	cflags += ['-DHAS_INOTIFY']
+-elif host_system == 'freebsd' or host_system == 'netbsd' or
+-     host_system == 'dragonfly' or host_system == 'openbsd'
+-	cflags += ['-DHAS_KQUEUE']
+-endif
++cflags += ['-DHAS_KQUEUE']
+ 
+ subdir('backend')
+ 
+diff --git a/src/vsync.c b/src/vsync.c
+index 5980155..8273d28 100644
+--- a/src/vsync.c
++++ b/src/vsync.c
+@@ -54,7 +54,7 @@ static int vsync_drm_wait(session_t *ps) {
+  */
+ static bool vsync_drm_init(session_t *ps) {
+ 	// Should we always open card0?
+-	if (ps->drm_fd < 0 && (ps->drm_fd = open("/dev/dri/card0", O_RDWR)) < 0) {
++	if (ps->drm_fd < 0 && (ps->drm_fd = open("/dev/drm0", O_RDWR)) < 0) {
+ 		log_error("Failed to open device.");
+ 		return false;
+ 	}

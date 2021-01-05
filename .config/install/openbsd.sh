@@ -13,12 +13,18 @@ mkdir -p "$XDG_CACHE_HOME"
 # dependencies
 #
 
-# required by girara/zathura manual build
-PKGS="${PKGS} gettext-tools meson"
-# required by lemonbar
-PKGS="${PKGS} xcb"
 # required by vifm
 PKGS="${PKGS} automake-1.15.1"
+# required by girara/zathura manual build
+PKGS="${PKGS} gettext-tools"
+# required by picom
+PKGS="${PKGS} libev"
+# required by picom, girara/zathura
+PKGS="${PKGS} meson"
+# required by picom
+PKGS="${PKGS} uthash"
+# required by lemonbar
+PKGS="${PKGS} xcb"
 
 #
 # core development
@@ -58,7 +64,8 @@ PKGS="${PKGS} redshift"
 # fonts
 PKGS="${PKGS} liberation-fonts adobe-source-code-pro zh-wqy-zenhei-ttf"
 # compositor
-PKGS="${PKGS} picom"
+# ibhagwan's fork manually installed below until merged with master
+# PKGS="${PKGS} picom"
 # system clipboard
 PKGS="${PKGS} xclip"
 # screenshot utilities
@@ -126,6 +133,16 @@ export AUTOMAKE_VERSION="1.15"
 make # individual make can probably be removed
 doas make install
 rm -rf "${XDG_CACHE_HOME}/vifm"
+
+# compositor
+git clone "https://github.com/ibhagwan/picom.git" "${TMP_DIR}/picom"
+cd "${TMP_DIR}/picom"
+git checkout "44b4970f70d6b23759a61a2b94d9bfb4351b41b1"
+git submodule update --init --recursive
+patch -i "${XDG_CONFIG_HOME}/picom/patch.diff"
+CPPFLAGS="-I/usr/local/include -I/usr/X11R6/include" LDFLAGS="-L/usr/local/lib -L/usr/X11R6/lib" meson . build
+meson configure build -Ddbus="false" -Db_colorout="never" -Dbuildtype="minsize" -Dauto_features="disabled"
+doas ninja -C build install
 
 # status bar
 git clone "https://github.com/krypt-n/bar.git" "${TMP_DIR}/lemonbar"
