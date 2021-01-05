@@ -42,7 +42,7 @@ volume() {
   fullNum="$(( ${volNum}/${unit} ))"
   emptyNum="$(( 100/${unit} - ${fullNum} ))"
 
-  volFull="$(printf "%${fullNum}s" | sed "s/ /${full}/g")"
+  [ $fullNum -ne 0 ] && volFull="$(printf "%${fullNum}s" | sed "s/ /${full}/g")"
   volEmpty="$(printf "%${emptyNum}s" | sed "s/ /${empty}/g")"
 
   echo "%{B$BG} %{O$h_padding}${volFull}${active}${volEmpty} %{B-}"
