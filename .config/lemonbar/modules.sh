@@ -1,8 +1,8 @@
 #!/bin/sh
 
 ICON_PADDING="7"
-FG="$(getxr bar.foreground || echo "$BAR_FG")"
-BG="$(getxr bar.background || echo "$BAR_BG")"
+FG="$(getxr theme.fg || echo "$BAR_FG")"
+BG=""
 
 wm() {
   ws="$(bspc query -D --names -d)"
@@ -100,9 +100,7 @@ LEFT="$(wm)"
 CENTER=""
 RIGHT="$(capture) $(volume) $(battery) $(clock)"
 
-SPACE_LEFT="%{B$BG}%{O$ICON_PADDING}%{O$ICON_PADDING}%{B-}\
-%{O$ICON_PADDING}%{B$BG}%{O$ICON_PADDING}%{B-} "
-SPACE_RIGHT=" %{B$BG}%{O$ICON_PADDING}%{B-}\
-%{O$ICON_PADDING}%{B$BG}%{O$ICON_PADDING}%{O$ICON_PADDING}%{B-}"
+SPACE_LEFT=""
+SPACE_RIGHT=""
 
 echo "%{F$FG}%{l}${SPACE_LEFT}$LEFT%{c}$CENTER%{r}$RIGHT${SPACE_RIGHT}"
