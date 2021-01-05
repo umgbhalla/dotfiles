@@ -13,6 +13,8 @@ mkdir -p "$XDG_CACHE_HOME"
 # dependencies
 #
 
+# required by girara/zathura manual build
+PKGS="${PKGS} gettext-tools meson"
 # required by lemonbar
 PKGS="${PKGS} xcb"
 # required by vifm
@@ -154,6 +156,24 @@ rm -rf "${XDG_CACHE_HOME}/htop"
 git clone "https://github.com/dylanaraps/pfetch.git" "${TMP_DIR}/pfetch"
 cd "${TMP_DIR}/pfetch"
 mv pfetch "${XDG_SCRIPT_HOME}/pfetch"
+
+# document viewer update (pkg doesn't include the latest inverted color diff)
+git clone "https://git.pwmt.org/pwmt/girara.git" "${TMP_DIR}/girara"
+cd "${TMP_DIR}/girara"
+git checkout "1b60a46481f6ba37e7515ca80d6f627583f7100f"
+meson build
+cd build
+ninja
+doas ninja install
+
+git clone "https://git.pwmt.org/pwmt/zathura.git" "${TMP_DIR}/zathura-git"
+cd "${TMP_DIR}/zathura-git"
+git checkout "f0796be3fa73cefb2eb71b0274330a74f14188f3"
+CFLAGS="-I/usr/local/include" LDFLAGS="-L/usr/local/lib" meson build
+meson build
+cd build
+ninja
+doas ninja install
 
 # gtk theme
 doas mkdir -p "$GTK_THEME_DIR"
