@@ -198,6 +198,10 @@ export ABOOK_CONFIG="$XDG_CONFIG_HOME/abook/abookrc"
 export BOOKMARK_CONFIG="$XDG_DATA_HOME/sh_bookmarks"
 export CARGO_HOME="$XDG_CACHE_HOME/cargo"
 export ENV="$XDG_CONFIG_HOME/sh/shrc"
+case "$OS" in
+  "$OS_OPENBSD") export FF_CACHE_DIR="/tmp/firefox-cache-${UID}" ;;
+  "$OS_LINUX") export FF_CACHE_DIR="/run/user/${UID}/firefox" ;;
+esac
 export GIT_CONFIG="$XDG_CONFIG_HOME/git/config"
 export GIT_TEMPLATE_DIR="$XDG_CONFIG_HOME/git/template"
 export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"

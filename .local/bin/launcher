@@ -2,6 +2,7 @@
 # a program launching script
 
 case $OS in
+  "$OS_OPENBSD") $( ls /usr/local/bin | shellmenu) ;;
   $OS_FREEBSD)
     $(\
       echo $PATH \

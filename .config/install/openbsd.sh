@@ -32,10 +32,6 @@ PKGS="${PKGS} xcb"
 
 # editor and utilities
 PKGS="${PKGS} neovim ripgrep node fzf"
-# # because fzf complains about not being the latest version
-# git clone --depth 1 "https://github.com/junegunn/fzf.git" "${XDG_CACHE_HOME}/fzf"
-# cd "${XDG_CACHE_HOME}/fzf"
-# ./install
 # archives
 PKGS="${PKGS} unzip-6.0p13"
 # TODO python2 is required by node-sass.
@@ -83,7 +79,7 @@ PKGS="${PKGS} ffmpeg mp3splt"
 PKGS="${PKGS} newsboat"
 # contact management
 PKGS="${PKGS} abook"
-# # email client
+# email client
 # PKGS="${PKGS} neomutt-20201127"
 # pdf document viewer
 PKGS="${PKGS} zathura girara zathura-pdf-mupdf"
@@ -91,6 +87,8 @@ PKGS="${PKGS} zathura girara zathura-pdf-mupdf"
 PKGS="${PKGS} texlive_base texlive_texmf-full"
 # music player
 PKGS="${PKGS} mpd ncmpcpp"
+# image editor (optional)
+# PKGS="${PKGS} gimp"
 
 #
 # installation
@@ -228,6 +226,11 @@ wget -v -O "${FF_EXT_DIR}/tridactyl.vim@cmcaine.co.uk.xpi" \
 # TODO firefox-tridactyl-native
 # curl -fsSl "https://raw.githubusercontent.com/tridactyl/tridactyl/1.20.4/native/install.sh" | sh
 # https://github.com/tridactyl/tridactyl/issues/1144
+
+# grant staff privileges
+doas usermod -G staff "$USER"
+
+# TODO performance tweaking
 
 # power management/sleep states
 doas rcctl enable apmd

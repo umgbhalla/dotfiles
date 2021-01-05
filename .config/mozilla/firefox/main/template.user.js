@@ -231,7 +231,10 @@ user_pref("extensions.update.enabled", false);
 user_pref("extensions.logging.enabled", false);
 user_pref("extensions.update.autoUpdateEnabled", false);
 
+// force OpenGL acceleration
+user_pref("layers.acceleration.force-enabled", true);
+
 // move Firefox disk cache completely to RAM because gotta go fast am i right
-user_pref("browser.cache.disk.parent_directory", "/run/user/${UID}/firefox");
+user_pref("browser.cache.disk.parent_directory", "${FF_CACHE_DIR}");
 user_pref("browser.cache.memory.enable", true);
 user_pref("browser.cache.disk.enable", false);
