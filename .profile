@@ -85,7 +85,7 @@ export TERMINAL="$TERM"
 # browser
 export BROWSER="firefox"
 export BROWSER_ARGS="${BROWSER}"
-export BROWSER_INCOGNITO="${BROWSER} -private-window"
+export BROWSER_INCOGNITO="${BROWSER_ARGS} -private-window"
 
 # file explorer
 export FILE_EXPLORER="vifm"
@@ -244,6 +244,7 @@ export FZF_DEFAULT_OPTS="--bind $FZF_BINDINGS --color=\"$FZF_COLORS\""
 # Firefox profile
 if [ "$OS" == "$OS_OPENBSD" ]; then
   export BROWSER_ARGS="${BROWSER} -P ${FF_PROFILE}"
+  export BROWSER_INCOGNITO="${BROWSER_ARGS} -private-window"
 fi
 
 # background command
