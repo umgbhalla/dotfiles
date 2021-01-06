@@ -230,10 +230,16 @@ wget -v -O "${FF_EXT_DIR}/tridactyl.vim@cmcaine.co.uk.xpi" \
 # curl -fsSl "https://raw.githubusercontent.com/tridactyl/tridactyl/1.20.4/native/install.sh" | sh
 # https://github.com/tridactyl/tridactyl/issues/1144
 
+# update manual page paths in mandoc db
+OLD_IFS="$IFS"
+IFS=":"
+for path in $MANPATH; do
+  doas makewhatis "$path"
+done
+IFS="$OLD_IFS"
+
 # grant staff privileges
 doas usermod -G staff "$USER"
-
-# TODO performance tweaking
 
 # power management/sleep states
 doas rcctl enable apmd

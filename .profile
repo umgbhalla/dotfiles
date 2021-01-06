@@ -221,7 +221,8 @@ export XAUTHORITY="${XDG_CONFIG_HOME}/Xdefaults/Xauthority"
 # path
 #
 
-export PATH="${XDG_SCRIPT_HOME}:$PATH"
+export MANPATH="/usr/share/man:/usr/local/share/man:${MANPATH}"
+export PATH="${XDG_SCRIPT_HOME}:${PATH}"
 
 #
 # includes
