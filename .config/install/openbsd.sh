@@ -246,7 +246,12 @@ doas rcctl enable apmd
 doas rcctl set apmd flags -A
 doas rcctl start apmd
 
+# sysctl
 doas ln -sf "${XDG_CONFIG_HOME}/etc/sysctl.conf" "/etc/sysctl.conf"
+
+# boot
+# does not work with symbolic link
+echo "boot" | doas tee "/etc/boot.conf"
 
 # suckless utilities
 sbuild "st"
