@@ -6,12 +6,8 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 # natural scrolling
 case "$OS" in
-  "$OS_FREEBSD")
-    xinput set-prop "System mouse" "libinput Natural Scrolling Enabled" 1
-    ;;
-  "$OS_OPENBSD")
-    wsconsctl mouse.reverse_scrolling=1
-    ;;
+  "$OS_OPENBSD") wsconsctl mouse.reverse_scrolling=1 ;;
+  "$OS_FREEBSD") xinput set-prop "System mouse" "libinput Natural Scrolling Enabled" 1 ;;
 esac
 
 #

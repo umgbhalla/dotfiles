@@ -44,8 +44,9 @@ PKGS="${PKGS} wget"
 # god-tier utility
 PKGS="${PKGS} mmv"
 
-# colors in sys utils
-PKGS="${PKGS} colorls"
+# colors in sys utils (optional)
+# it can make ttys harder to read
+# PKGS="${PKGS} colorls"
 # package searching
 PKGS="${PKGS} pkglocatedb"
 
@@ -238,6 +239,8 @@ doas usermod -G staff "$USER"
 doas rcctl enable apmd
 doas rcctl set apmd flags -A
 doas rcctl start apmd
+
+doas ln -sf "${XDG_CONFIG_HOME}/etc/sysctl.conf" "/etc/sysctl.conf"
 
 # suckless utilities
 sbuild "st"

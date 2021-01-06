@@ -11,7 +11,7 @@ dir="${XDG_CONFIG_HOME}/${1}"
 olddir="$(pwd)"
 cd "${dir}"
 
-$DETEMPLATE "template.config.h"
+det "template.config.h"
 
 if command -v "doas" > "/dev/null"; then
   doas make clean install

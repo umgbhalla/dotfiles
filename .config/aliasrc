@@ -19,7 +19,7 @@ case "$OS" in
     alias bc="bc -w -q"
     ;;
   "$OS_OPENBSD")
-    alias ls="colorls -GF"
+    alias ls="ls -F"
     alias md="mkdir -p"
     unalias grep
     ;;
@@ -55,7 +55,9 @@ case "$OS" in
   "$OS_OPENBSD")
     alias \
       reboot="doas reboot" \
-      shutdown="doas shutdown -p now"
+      shutdown="doas shutdown -p now" \
+      suspend="echo -e \"${RED}Suspend yourself.${NC}\"" \
+      hibernate="echo -e \"${RED}What do you think I am? A bear?${NC}\""
     ;;
 esac
 
