@@ -226,9 +226,34 @@ wget -v -O "${FF_EXT_DIR}/uBlock0@raymondhill.net.xpi" \
 # firefox-tridactyl
 wget -v -O "${FF_EXT_DIR}/tridactyl.vim@cmcaine.co.uk.xpi" \
   "https://addons.mozilla.org/firefox/downloads/file/3697894/tridactyl-1.20.4-an+fx.xpi"
-# TODO firefox-tridactyl-native
+
 # curl -fsSl "https://raw.githubusercontent.com/tridactyl/tridactyl/1.20.4/native/install.sh" | sh
 # https://github.com/tridactyl/tridactyl/issues/1144
+# TODO firefox-tridactyl-native
+# firefox-tridactyl-native
+# manually run the contents of
+# https://raw.githubusercontent.com/tridactyl/tridactyl/1.20.4/native/install.sh
+# because it's more secure this way
+tri_manifest="https://raw.githubusercontent.com/tridactyl/tridactyl/1.15.0/native/tridactyl.json"
+tri_native="https://raw.githubusercontent.com/tridactyl/tridactyl/1.15.0/native/native_main.py"
+tri_manifest_home="${HOME}/.mozilla/native-messaging-hosts/"
+tri_native_home="${XDG_DATA_HOME}"
+tri_manifest_file="${tri_manifest_home}/tridactyl.json"
+tri_native_file="${tri_native_home}/native_main.py.new"
+tri_native_file_final="${tri_native_home}/native_main.py"
+# fetch files
+curl -L --create-dirs -o "$tri_manifest_file" "$tri_manifest"
+curl -L --create-dirs -o "$tri_native_file" "$tri_native"
+# substitute native file path
+sed_escape_native="$(echo "$tri_native_file_final" | sed 's/[&/\]/\\&/g')"
+sed -i.bak "s/REPLACE_ME_WITH_SED/${sed_escape_native}/" "$tri_manifest_file"
+chmod +x "$tri_native_file"
+# substitute python path
+python_path="$(command -v python3)"
+sed_escape_env="$(echo "/usr/bin/env" | sed 's/[&/\]/\\&/g')"
+sed_escape_python="$(echo "$python_path" | sed 's/[&/\]/\\&/g')"
+sed -i.bak "1s/.*/#!${sed_escape_env} ${sed_escape_python}/" "$tri_native_file"
+mv "$tri_native_file" "$tri_native_file_final"
 
 # update manual page paths in mandoc db
 OLD_IFS="$IFS"

@@ -242,8 +242,8 @@ b() {
   if [ -z "${bpath}" ]; then
     echo "${RED}Error: invalid bookmark.${NC}"
     echo "${RED}Add new bookmarks to ${BOOKMARK_CONFIG} with the format 'identifier, path'${NC}"
-    sleep 1
-    $EDITOR "${BOOKMARK_CONFIG}"
+    # sleep 1
+    # $EDITOR "${BOOKMARK_CONFIG}"
   else
     cd "${bpath}"
   fi
