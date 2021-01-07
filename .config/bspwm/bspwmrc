@@ -23,10 +23,6 @@ bspc config top_padding $BSPWM_TOP_PADDING
 bspc config border_width $W_BORDER_WIDTH
 bspc config window_gap $W_GAPS
 
-bspc config active_border_color $BSPWM_BORDER_ACTIVE
-bspc config normal_border_color $BSPWM_BORDER_NORMAL
-bspc config focused_border_color $BSPWM_BORDER_FOCUSED
-
 bspc config split_ratio 0.6
 
 # no fullscreen gaps
