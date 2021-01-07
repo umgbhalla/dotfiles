@@ -89,36 +89,34 @@ esac
 
 # core
 alias \
-  cal="cal -3" \
   ch="cursor hide" \
   cs="cursor show" \
   d="date" \
   em="neomutt" \
+  fet="pfetch" \
   lss="du -h -s" \
   n="newsboat -u $XDG_DATA_HOME/newsboat/urls -C $NEWSBOAT_CONFIG/config" \
   pdf="pdflatex" \
   s="run_script" \
   ss="sc-im" \
-  system="sudo systemctl" \
   vi="$EDITOR" \
   vim="$EDITOR" \
-  webcam="devour mpv av://v4l2:/dev/video0 --profile=low-latency --untimed" \
   wget="wget --hsts-file=${XDG_DATA_HOME}/wget-hsts" \
-  wi="nmtui" \
   yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn"
 
 case "$OS" in
+  "$OS_OPENBSD")
+    alias \
+      sp="ncspot"
+    ;;
   "$OS_LINUX")
     alias \
       am="alsamixer" \
+      cal="cal -3" \
       clear-mem="sync; echo 1 | sudo tee /proc/sys/vm/drop_caches; sync" \
-      fet="pfetch"
-    ;;
-  "$OS_OPENBSD")
-    unalias cal
-    alias \
-      fet="pfetch" \
-      why="doas sh /etc/netstart"
+      system="sudo systemctl" \
+      wi="nmtui" \
+      webcam="devour mpv av://v4l2:/dev/video0 --profile=low-latency --untimed"
     ;;
 esac
 

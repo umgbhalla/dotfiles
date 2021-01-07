@@ -260,9 +260,9 @@ wget -v -O "${FF_EXT_DIR}/tridactyl.vim@cmcaine.co.uk.xpi" \
 # sed -i 's/VERSION.*=.*/VERSION\ =\ \"0\.1\.2\"/' "$tri_native_file_final"
 # chmod 755 "$tri_native_file_final"
 
-# # spotify
-# cd "/usr/ports/audio/ncspot"
-# doas make install clean
+# spotify
+cd "/usr/ports/audio/ncspot"
+doas make install clean
 
 # update manual page paths in mandoc db
 OLD_IFS="$IFS"
