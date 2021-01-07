@@ -101,6 +101,7 @@ alias \
   ss="sc-im" \
   vi="$EDITOR" \
   vim="$EDITOR" \
+  webcam="devour mpv av://v4l2:/dev/video0 --profile=low-latency --untimed"
   wget="wget --hsts-file=${XDG_DATA_HOME}/wget-hsts" \
   yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn"
 
@@ -116,7 +117,6 @@ case "$OS" in
       clear-mem="sync; echo 1 | sudo tee /proc/sys/vm/drop_caches; sync" \
       system="sudo systemctl" \
       wi="nmtui" \
-      webcam="devour mpv av://v4l2:/dev/video0 --profile=low-latency --untimed"
     ;;
 esac
 

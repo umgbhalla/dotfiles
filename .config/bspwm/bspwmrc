@@ -4,18 +4,21 @@
 # run sxhkd if not already running
 pgrep -x sxhkd > /dev/null || sxhkd &
 
+# mouse/touchpad setup
+
 # natural scrolling
 case "$OS" in
   "$OS_OPENBSD") wsconsctl mouse.reverse_scrolling=1 ;;
   "$OS_FREEBSD") xinput set-prop "System mouse" "libinput Natural Scrolling Enabled" 1 ;;
 esac
+# disable mouse
+cursor hide
+# change desktop cursor to left pointer
+xsetroot -cursor_name left_ptr &
 
 #
 # general settings
 #
-
-# change desktop cursor to left pointer
-xsetroot -cursor_name left_ptr &
 
 # appearance
 bspc config top_padding $BSPWM_TOP_PADDING

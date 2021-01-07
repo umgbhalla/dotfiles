@@ -275,6 +275,9 @@ IFS="$OLD_IFS"
 # grant staff privileges
 doas usermod -G staff "$USER"
 
+# grant webcam privileges
+doas chown "$USER" "/dev/video0"
+
 # power management/sleep states
 doas rcctl enable apmd
 doas rcctl set apmd flags -A
