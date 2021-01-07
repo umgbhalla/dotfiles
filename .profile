@@ -165,6 +165,8 @@ case "$OS" in
 esac
 export DOLLAR="$" # vital for envsubst escaping
 export FF_PROFILE="main"
+export LANG="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
 export NODE_REPL_HISTORY="${XDG_CACHE_HOME}/node_repl_history"
 export PROMPT_EOL_MARK="" # prevent partial line % from appearing
 export PF_COL1="1"
