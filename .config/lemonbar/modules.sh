@@ -2,7 +2,6 @@
 
 ICON_PADDING="7"
 FG="$(getxr theme.fg || echo "$BAR_FG")"
-BG=""
 
 wm() {
   ws="$(bspc query -D --names -d)"
@@ -21,12 +20,12 @@ wm() {
     "X")        title="%{O$ICON_PADDING}MUSIC  " ;;
   esac
 
-  echo "%{B$BG} ${title} %{B-}"
+  echo " ${title} "
 }
 
 capture() {
   [ -e "${TMP_DIR}/screenPid" ] && \
-    echo "%{B$BG} %{F$LEMONBAR_ALERT}%{F$FG} %{B-}"
+    echo " %{F$LEMONBAR_ALERT}%{F$FG} "
 }
 
 volume() {
@@ -45,7 +44,7 @@ volume() {
   [ $fullNum -ne 0 ] && volFull="$(printf "%${fullNum}s" | sed "s/ /${full}/g")"
   volEmpty="$(printf "%${emptyNum}s" | sed "s/ /${empty}/g")"
 
-  echo "%{B$BG} %{O$h_padding}${volFull}${active}${volEmpty} %{B-}"
+  echo " %{O$h_padding}${volFull}${active}${volEmpty} "
 }
 
 battery() {
@@ -63,7 +62,7 @@ battery() {
       else status="$discharging"
       fi
 
-      echo "%{B$BG} ${status}%{O$ICON_PADDING}${bat} %{B-}"
+      echo " ${status}%{O$ICON_PADDING}${bat} "
       ;;
     "$OS_OPENBSD")
       pow="$(apm)"
@@ -75,7 +74,7 @@ battery() {
       else status="$discharging"
       fi
 
-      echo "%{B$BG} ${status}%{O$ICON_PADDING}${bat} %{B-}"
+      echo " ${status}%{O$ICON_PADDING}${bat} "
       ;;
     "$OS_LINUX")
       bat="$(cat "/sys/class/power_supply/BAT0/capacity" 2>/dev/null)"
@@ -85,7 +84,7 @@ battery() {
         if [ "$status" = "Charging" ]; then status="$charging"
         else status="$discharging"
         fi
-        echo "%{B$BG} ${status}%{O$ICON_PADDING}${bat} %{B-}"
+        echo " ${status}%{O$ICON_PADDING}${bat} "
       fi
       ;;
   esac
@@ -93,7 +92,7 @@ battery() {
 
 clock() {
   datefmt="$(date "+%m.%d %a %H:%M" | tr "[a-z]" "[A-Z]")"
-  echo "%{B$BG} %{O$ICON_PADDING}${datefmt} %{B-}"
+  echo " %{O$ICON_PADDING}${datefmt} "
 }
 
 LEFT="$(wm)"
