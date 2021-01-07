@@ -17,37 +17,38 @@ brightness_get() {
 
 brightness_add() {
   case "$OS" in
-    "$OS_OPENBSD")
-      wsconsctl "display.brightness+=${1}" > "/dev/null"
-      ;;
-    "$OS_LINUX")
-      brightnessctl s "+${1}%"
-      ;;
+    "$OS_OPENBSD") wsconsctl "display.brightness+=${1}" > "/dev/null" ;;
+    "$OS_LINUX") brightnessctl s "+${1}%" ;;
     *) echo -e "${RED}ERROR: ${not_supported}${NC}" ;;
   esac
 }
 
 brightness_subtract() {
   case "$OS" in
-    "$OS_OPENBSD")
-      wsconsctl "display.brightness-=${1}" > "/dev/null"
-      ;;
-    "$OS_LINUX")
-      brightnessctl s "${1}%-"
-      ;;
+    "$OS_OPENBSD") wsconsctl "display.brightness-=${1}" > "/dev/null" ;;
+    "$OS_LINUX") brightnessctl s "${1}%-" ;;
     *) echo -e "${RED}ERROR: ${not_supported}${NC}" ;;
   esac
 }
 
-# $1 represents add or subtract (1 and -1 respectively) and
-# $2 represents the amount
 brightness_set() {
+  case "$OS" in
+    "$OS_OPENBSD") wsconsctl "display.brightness=${1}" > "/dev/null" ;;
+    *) echo -e "${RED}ERROR: ${not_supported}${NC}" ;;
+  esac
+}
+
+# $1 represents change type (<0=subtract,0=set,>0=add)
+# $2 represents the amount
+brightness_change() {
   if [ -z "$2" ]; then
-    echo -e "${RED}USAGE: bright [a [amount] | s [amount]]${NC}"
+    echo -e "${RED}USAGE: bright [+ [amount] | - [amount] | s [amount]]${NC}"
     return
   fi
 
-  if [ "$1" -eq 1 ]; then
+  if [ "$1" -eq 0 ]; then
+    brightness_set "$2"
+  elif [ "$1" -ge 0 ]; then
     brightness_add "$2"
   else
     brightness_subtract "$2"
@@ -55,16 +56,11 @@ brightness_set() {
 }
 
 case "$1" in
-  "g")
-    brightness_get
-    ;;
-  "a")
-    brightness_set "1" "$2"
-    ;;
-  "s")
-    brightness_set "-1" "$2"
-    ;;
+  "g") brightness_get ;;
+  "-") brightness_change "-1" "$2" ;;
+  "s") brightness_change "0" "$2" ;;
+  "+") brightness_change "1" "$2" ;;
   *)
-    echo -e "${RED}USAGE: bright [g | a | s]${NC}"
+    echo -e "${RED}USAGE: bright [g | + | - | s]${NC}"
     ;;
 esac

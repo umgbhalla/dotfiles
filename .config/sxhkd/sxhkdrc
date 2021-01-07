@@ -86,10 +86,10 @@ super + shift + plus
   rshift reset
 
 super + ctrl + shift + braceleft
-  bright s 5
+  bright - 5
 
 super + ctrl + shift + braceright
-  bright a 5
+  bright + 5
 
 #
 # bspwm core
