@@ -37,7 +37,8 @@ PKGS="${PKGS} unzip-6.0p13"
 # TODO python2 is required by node-sass.
 # Remove when phased out of new versions
 PKGS="${PKGS} python-2.7.18p0"
-# required for ytui
+# great low-level dev language
+# required by ncspot, ytui
 PKGS="${PKGS} rust rust-rustfmt"
 # web utility downloader
 PKGS="${PKGS} wget"
@@ -99,13 +100,15 @@ PKGS="${PKGS} mpd ncmpcpp"
 
 doas pkg_add -I -m -v $PKGS # cannot be quoted
 
-# ports (optional)
-# doas pkg_add portslist
-# cd "$TMP_DIR"
-# ftp https://cdn.openbsd.org/pub/OpenBSD/$(uname -r)/{ports.tar.gz,SHA256.sig}
-# signify -Cp /etc/signify/openbsd-$(uname -r | cut -c 1,3)-base.pub -x SHA256.sig ports.tar.gz
-# cd /usr
-# doas tar vxzf "${TMP_DIR}/ports.tar.gz"
+# ports
+# required by ncspot
+cd "$TMP_DIR"
+ftp https://cdn.openbsd.org/pub/OpenBSD/$(uname -r)/{ports.tar.gz,SHA256.sig}
+signify -Cp /etc/signify/openbsd-$(uname -r | cut -c 1,3)-base.pub -x SHA256.sig ports.tar.gz
+cd /usr
+doas tar vxzf "${TMP_DIR}/ports.tar.gz"
+# required for any port browsing
+doas pkg_add portslist
 
 # pip
 # required by fzf, youtube-dl
@@ -257,6 +260,10 @@ wget -v -O "${FF_EXT_DIR}/tridactyl.vim@cmcaine.co.uk.xpi" \
 # sed -i 's/VERSION.*=.*/VERSION\ =\ \"0\.1\.2\"/' "$tri_native_file_final"
 # chmod 755 "$tri_native_file_final"
 
+# # spotify
+# cd "/usr/ports/audio/ncspot"
+# doas make install clean
+
 # update manual page paths in mandoc db
 OLD_IFS="$IFS"
 IFS=":"
@@ -276,9 +283,13 @@ doas rcctl start apmd
 # sysctl
 doas ln -sf "${XDG_CONFIG_HOME}/etc/sysctl.conf" "/etc/sysctl.conf"
 
+# wsconsctl
+# does not work with symbolic link
+doas cp "${XDG_CONFIG_HOME}/etc/wsconsctl.conf" "/etc/wsconsctl.conf"
+
 # boot
 # does not work with symbolic link
-echo "boot" | doas tee "/etc/boot.conf"
+doas cp "${XDG_CONFIG_HOME}/etc/boot.conf" "/etc/boot.conf"
 
 # suckless utilities
 sbuild "st"
