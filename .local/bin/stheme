@@ -31,16 +31,16 @@ command -v lesskey >/dev/null && \
   lesskey "${XDG_CONFIG_HOME}/less/lesskey"
 
 # gimp splash
-case "$OS" in
-  "$OS_OPENBSD")
-    gimp_splash="/usr/local/share/gimp/2.0/images/gimp-splash.png"
-    doas cp "${XDG_CONFIG_HOME}/GIMP/2.10/img/gimp-splash-${CURRENT_THEME_MODE}.png" "$gimp_splash"
-    ;;
-  "$OS_LINUX")
-    gimp_splash="/usr/share/gimp/2.0/images/gimp-splash.png"
-    sudo cp "${XDG_CONFIG_HOME}/GIMP/2.10/img/gimp-splash-${CURRENT_THEME_MODE}.png" "$gimp_splash"
-    ;;
-esac
+# case "$OS" in
+#   "$OS_OPENBSD")
+#     gimp_splash="/usr/local/share/gimp/2.0/images/gimp-splash.png"
+#     doas cp "${XDG_CONFIG_HOME}/GIMP/2.10/img/gimp-splash-${CURRENT_THEME_MODE}.png" "$gimp_splash"
+#     ;;
+#   "$OS_LINUX")
+#     gimp_splash="/usr/share/gimp/2.0/images/gimp-splash.png"
+#     sudo cp "${XDG_CONFIG_HOME}/GIMP/2.10/img/gimp-splash-${CURRENT_THEME_MODE}.png" "$gimp_splash"
+#     ;;
+# esac
 
 # Xresource colors
 # do NOT background; apps may not get updated resources
