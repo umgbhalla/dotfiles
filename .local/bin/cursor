@@ -65,12 +65,14 @@ case "${1}" in
   "show")
     for device in "${devices[@]}"; do
       xinput enable "$device" 2>/dev/null
+      xsetroot -cursor_name left_ptr
     done
     ;;
   "hide")
     xdotool mousemove "$cursorHideX" "$cursorHideY"
     for device in "${devices[@]}"; do
       xinput disable "$device" 2>/dev/null
+      xsetroot -cursor_name hand1
     done
     ;;
 esac
