@@ -1,0 +1,39 @@
+[saved_state]
+volume = 100
+repeat = "playlist"
+shuffle = false
+
+[theme]
+background = "black"
+primary = "white"
+# secondary = "light black"
+title = "light white"
+playing = "red"
+playing_selected = "black"
+playing_bg = "black"
+highlight = "black"
+highlight_bg = "white"
+error = "black"
+error_bg = "red"
+statusbar = "white"
+statusbar_progress = "light white"
+statusbar_bg = "black"
+cmdline = "red"
+cmdline_bg = "black"
+# search_match = "light red"
+
+[keybindings]
+"n" = "next"
+"b" = "previous"
+"1" = "focus library"
+"2" = "focus queue"
+"3" = "focus search"
+"d" = "move down 5"
+"u" = "move up 5"
+"g" = "move up 200"
+"Shift+g" = "move down 200"
+"s" = "stop"
+"p" = "playpause"
+"Ctrl+b" = "seek -10000"
+"Ctrl+n" = "seek +10000"
+"Shift+h" = "back"
