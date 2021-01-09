@@ -91,8 +91,8 @@ PKGS="${PKGS} texlive_base texlive_texmf-full"
 PKGS="${PKGS} mpd ncmpcpp"
 # image editor (optional)
 # PKGS="${PKGS} gimp"
-# pdf conversions (optional)
-# PKGS="${PKGS} poppler-utils"
+# vector editor (optional)
+# PKGS="${PKGS} inkscape"
 
 #
 # installation
