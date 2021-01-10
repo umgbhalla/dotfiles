@@ -6,18 +6,20 @@ https://sam.bossley.us/feeds/log.xml
 # news sources
 # https://www.pewresearch.org/feed/ news # pew center
 
-# independent creators
+# independent creative writing
 https://lukesmith.xyz/rss.xml independent tech commentary # luke smith
-https://notrelated.libsyn.com/rss independent podcast # not related
 https://allisonlcj.wordpress.com/feed/atom independent commentary # allison lee
 https://www.romanzolotarev.com/rss.xml independent tech # roman zolotarev
 https://dataswamp.org/~solene/rss.xml independent tech # solene
+
+# podcasts
 https://vault.lunduke.com/LundukeShowMP3.xml independent tech commentary # bryan lunduke
+https://notrelated.libsyn.com/rss independent podcast # not related
+https://www.youtube.com/feeds/videos.xml?channel_id=UC9q4FW3t7AasK7o49C-Mq6w youtube meme podcast # gus and eddy
 
 # youtube
 https://www.youtube.com/feeds/videos.xml?channel_id=UCxVG7_SQHH4jd3gSb5Y6PzA "~Allison Lee (Youtube)" youtube # allison lee
 https://www.youtube.com/feeds/videos.xml?channel_id=UCmHCNoUXWAFuzxWJdX2d99w youtube meme commentary # scott cramer
-https://www.youtube.com/feeds/videos.xml?channel_id=UC9q4FW3t7AasK7o49C-Mq6w youtube meme podcast # gus and eddy
 https://www.youtube.com/feeds/videos.xml?channel_id=UCAPR27YUyxmgwm3Wc2WSHLw youtube tech # chris were
 https://share.tube/feeds/videos.xml?accountId=108 "~Chris Were (Peertube)" peertube tech # chris were
 https://www.youtube.com/feeds/videos.xml?channel_id=UCpIafFPGutTAKOBHMtGen7g youtube meme # gus johnson
@@ -53,6 +55,7 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCJY99Kt7cpA1XlPhaonGtvQ you
 https://twitchrss.appspot.com/vod/dunkstream "~Dunkey Stream" twitch meme game
 https://twitchrss.appspot.com/vod/chriswere "~Chris Were Stream" twitch game
 https://twitchrss.appspot.com/vod/rtgamecrowd "~RTGameCrowd Stream" twitch meme game
+https://twitchrss.appspot.com/vod/rychainz "~Rychainz Stream" twitch meme game
 # https://twitchrss.appspot.com/vod/eddyburback "~Eddy Burback Stream" twitch meme game
 # https://twitchrss.appspot.com/vod/gusjohnson "~Gus Johnson Stream" twitch meme game
 # https://twitchrss.appspot.com/vod/nerdcubed "~Nerd Cubed Stream" twitch meme game
