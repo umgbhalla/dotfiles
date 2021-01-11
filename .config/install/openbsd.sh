@@ -17,10 +17,16 @@ mkdir -p "$XDG_CACHE_HOME"
 PKGS="${PKGS} automake-1.15.1"
 # required by girara/zathura manual build
 PKGS="${PKGS} gettext-tools"
+# # required by gcc
+# PKGS="${PKGS} gmp"
 # required by picom
 PKGS="${PKGS} libev"
 # required by picom, girara/zathura
 PKGS="${PKGS} meson"
+# # required by gcc
+# PKGS="${PKGS} mpfr"
+# required by yarn
+PKGS="${PKGS} node"
 # required by picom
 PKGS="${PKGS} uthash"
 # required by lemonbar
@@ -110,22 +116,37 @@ doas tar vxzf "${TMP_DIR}/ports.tar.gz"
 # required for any port browsing
 doas pkg_add portslist
 
+# # gcc 4.3+
+# # required by node and yarn
+# git clone "git://gcc.gnu.org/git/gcc.git" "${XDG_CACHE_HOME}/gcc"
+# cd "${XDG_CACHE_HOME}/gcc"
+# mkdir -p "build"
+# cd "build"
+# ./../configure --with-gmp=/usr/local/include/gmp.h
+
 # pip
 # required by fzf, youtube-dl
 curl "https://bootstrap.pypa.io/get-pip.py" -o "${TMP_DIR}/pip.py"
 python3 "${TMP_DIR}/pip.py"
 
-# yarn
-yarn_ver="$(curl -L "https://yarnpkg.com/latest-version")"
-curl \
-  -L "https://yarnpkg.com/downloads/${yarn_ver}/yarn-v${yarn_ver}.tar.gz" \
-  -o "${TMP_DIR}/yarn.tar.gz"
-yarn_install_dir="${XDG_DATA_HOME}/yarn"
-mkdir -p "${TMP_DIR}/yarn"
-tar vxzf "${TMP_DIR}/yarn.tar.gz" -C "${TMP_DIR}/yarn"
-rm -r "$yarn_install_dir" 2>/dev/null # overwrite old installations
-mv "${TMP_DIR}/yarn/yarn-v${yarn_ver}" "$yarn_install_dir"
-ln -sf "${yarn_install_dir}/bin/yarn" "${XDG_SCRIPT_HOME}/yarn"
+# # yarn
+# yarn_ver="$(\
+#   curl -L "https://api.github.com/repos/yarnpkg/yarn/releases/latest" | \
+#   grep -m 1 "tar.gz" | \
+#   cut -d '"' -f 4 | \
+#   cut -d 'v' -f 2 | \
+#   cut -d '.' -f 1-3
+#   )"
+# wget -v -O \
+#   "${TMP_DIR}/yarn.tar.gz" \
+#   "https://github.com/yarnpkg/yarn/releases/download/v${yarn_ver}/yarn-v${yarn_ver}.tar.gz"
+# mkdir -p "${TMP_DIR}/yarn"
+# tar vxzf "${TMP_DIR}/yarn.tar.gz" -C "${TMP_DIR}/yarn"
+# yarn_install_dir="${XDG_DATA_HOME}/yarn"
+# rm -r "$yarn_install_dir" 2>"/dev/null" # overwrite old installations
+# mv "${TMP_DIR}/yarn/yarn-v${yarn_ver}" "$yarn_install_dir"
+# ln -sf "${yarn_install_dir}/bin/yarn.js" "${XDG_SCRIPT_HOME}/yarn"
+# # npm config set unsafe-perm true
 
 # terminal file manager
 git clone "https://github.com/vifm/vifm" "${XDG_CACHE_HOME}/vifm"
@@ -259,9 +280,27 @@ if ! grep -qi "tridactyl" "$ff_unveil_file"; then
   echo "${tri_native_home} rx" | doas tee -a "$ff_unveil_file"
 fi
 
-# spotify
+# Spotify
 cd "/usr/ports/audio/ncspot"
 doas make install clean
+
+# # TODO Discord (work)
+# wget -v -O "${TMP_DIR}/discord.tar.gz" "https://discord.com/api/download?platform=linux&format=tar.gz"
+# mkdir -p "${TMP_DIR}/discord"
+# tar vxzf "${TMP_DIR}/discord.tar.gz" -C "${TMP_DIR}/discord"
+# discord_install_dir="${XDG_DATA_HOME}/discord"
+# rm -r "$discord_install_dir" 2>"/dev/null" # overwrite old installations
+# mv "${TMP_DIR}/discord/Discord" "$discord_install_dir"
+# ln -sf "${discord_install_dir}/Discord" "${XDG_SCRIPT_HOME}/discord"
+
+# # TODO Zoom (school)
+# zoom_ver="5.4.57450.1220"
+# wget -v -O \
+#   "${TMP_DIR}/zoom.tar.xz" \
+#   "https://zoom.us/client/${zoom_ver}/zoom_x86_64.pkg.tar.xz"
+# mkdir -p "${TMP_DIR}/zoom"
+# xz --decompress -v "${TMP_DIR}/zoom.tar.xz"
+# tar xvf "${TMP_DIR}/zoom.tar" -C "${TMP_DIR}/zoom"
 
 # update manual page paths in mandoc db
 OLD_IFS="$IFS"
