@@ -116,6 +116,7 @@ case "$OS" in
       am="alsamixer" \
       cal="cal -3" \
       clear-mem="sync; echo 1 | sudo tee /proc/sys/vm/drop_caches; sync" \
+      hack="nethack" \
       sp="ncspot" \
       system="sudo systemctl" \
       wi="nmtui" \

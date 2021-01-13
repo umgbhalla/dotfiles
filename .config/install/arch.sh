@@ -96,6 +96,9 @@ PACKS="${PACKS} wget"
 # firefox extensions
 PACKS="${PACKS} firefox-tridactyl"
 
+# who doesn't like nethack?
+PACKS="${PACKS} nethack"
+
 AUR="${AUR} mmv"
 
 # firefox extensions
