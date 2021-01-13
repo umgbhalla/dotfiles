@@ -108,6 +108,7 @@ alias \
 case "$OS" in
   "$OS_OPENBSD")
     alias \
+      hack="nethack-${NETHACK_VER}" \
       sp="ncspot"
     ;;
   "$OS_LINUX")

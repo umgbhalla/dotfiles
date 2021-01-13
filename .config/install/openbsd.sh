@@ -107,6 +107,8 @@ PKGS="${PKGS} mpd ncmpcpp"
 doas pkg_add -I -m -v $PKGS # cannot be quoted
 
 # ports
+PORTS_DIR="/usr/ports"
+mkdir -p "$PORTS_DIR"
 # required by ncspot
 cd "$TMP_DIR"
 ftp https://cdn.openbsd.org/pub/OpenBSD/$(uname -r)/{ports.tar.gz,SHA256.sig}
@@ -301,6 +303,11 @@ doas make install clean
 # mkdir -p "${TMP_DIR}/zoom"
 # xz --decompress -v "${TMP_DIR}/zoom.tar.xz"
 # tar xvf "${TMP_DIR}/zoom.tar" -C "${TMP_DIR}/zoom"
+
+# Nethack (def a must)
+nethack_ver="$(echo "$NETHACK_VER" | cut -d '.' -f 1-2)"
+cd "${PORTS_DIR}/games/nethack/${nethack_ver}/"
+doas make install clean
 
 # update manual page paths in mandoc db
 OLD_IFS="$IFS"
