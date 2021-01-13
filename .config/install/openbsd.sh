@@ -113,12 +113,16 @@ mkdir -p "$PORTS_DIR"
 cd "$TMP_DIR"
 ftp https://cdn.openbsd.org/pub/OpenBSD/$(uname -r)/{ports.tar.gz,SHA256.sig}
 signify -Cp /etc/signify/openbsd-$(uname -r | cut -c 1,3)-base.pub -x SHA256.sig ports.tar.gz
-cd /usr
+cd "/usr"
 doas tar vxzf "${TMP_DIR}/ports.tar.gz"
 # required for any port browsing
 doas pkg_add portslist
 
 # # gcc 4.3+
+# cd "${PORTS_DIR}/lang/gcc"
+# doas make
+# doas make install clean
+
 # # required by node and yarn
 # git clone "git://gcc.gnu.org/git/gcc.git" "${XDG_CACHE_HOME}/gcc"
 # cd "${XDG_CACHE_HOME}/gcc"
