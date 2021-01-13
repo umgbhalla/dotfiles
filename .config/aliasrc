@@ -122,6 +122,33 @@ case "$OS" in
     ;;
 esac
 
+# this... it's not what it looks like I promise mom
+mrping() {
+  echo "${YELLOW}\
+                   #\n\
+                  //*##(*\n\
+                 //,,#((%\n\
+             (.,*&&&&/%\n\
+                 ((#/\n\
+               **  (,\n\
+                   /,\n\
+                   /,.\n\
+                  //,,\n\
+                 //**,\n\
+                /(/**\n\
+            .####*,**\n\
+          ##(#(%%&&####\n\
+        #%%#(##,,,..%%%#(\n\
+       /(%%%%*,*,,,,,...*(\n\
+      #(%%%&%&((((/**,,,*%\n\
+    #%%(%%%%%%%%#&&&&&&\n\
+    (.( # (#%%%%&&%%##\n\
+    /           */*#\n\
+              ,,,&,\n\
+            ,*(**/&*,\n\
+${NC}"
+}
+alias ping="mrping && ping"
 
 # website retrieval
 # note: this is only semi-effective on javascript-run sites
