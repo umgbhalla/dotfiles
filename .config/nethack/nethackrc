@@ -1,2 +1,16 @@
+# vim: filetype=sh
+# all options can be read at https://nethackwiki.com/wiki/Options#Options
+
 # disable auto pickpup by default
 OPTIONS=!autopickup
+# see https://nethackwiki.com/wiki/Autopickup_exception
+# AUTOPICKUP_EXCEPTION=
+
+# enable color
+OPTIONS=color
+# automatically disclose all death information
+# OPTIONS=disclose:+i +a +v +g +c +o
+# display inv menu when choosing items
+OPTIONS=force_invmenu
+# disable mail delivery - I don't use this feature
+OPTIONS=!mail
