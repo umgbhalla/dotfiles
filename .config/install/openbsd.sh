@@ -343,6 +343,9 @@ doas cp "${XDG_CONFIG_HOME}/etc/wsconsctl.conf" "/etc/wsconsctl.conf"
 # does not work with symbolic link
 doas cp "${XDG_CONFIG_HOME}/etc/boot.conf" "/etc/boot.conf"
 
+# mk (ports)
+doas cp "${XDG_CONFIG_HOME}/etc/mk.conf" "/etc/mk.conf"
+
 # suckless utilities
 sbuild "st"
 sbuild "herbe"
