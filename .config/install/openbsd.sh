@@ -108,8 +108,7 @@ doas pkg_add -I -m -v $PKGS # cannot be quoted
 
 # ports
 PORTS_DIR="/usr/ports"
-mkdir -p "$PORTS_DIR"
-# required by ncspot
+doas mkdir -p "$PORTS_DIR"
 cd "$TMP_DIR"
 ftp https://cdn.openbsd.org/pub/OpenBSD/$(uname -r)/{ports.tar.gz,SHA256.sig}
 signify -Cp /etc/signify/openbsd-$(uname -r | cut -c 1,3)-base.pub -x SHA256.sig ports.tar.gz
