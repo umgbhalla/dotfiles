@@ -72,7 +72,13 @@ case "${1}" in
     xdotool mousemove "$cursorHideX" "$cursorHideY"
     for device in "${devices[@]}"; do
       xinput disable "$device" 2>/dev/null
-      xsetroot -cursor_name hand1
+      case "$OS" in
+        "$OS_OPENBSD") xsetroot -cursor_name hand1 ;;
+        "$OS_LINUX")
+          # Adwaita
+          xsetroot -cursor_name lr_angle
+          ;;
+      esac
     done
     ;;
 esac
