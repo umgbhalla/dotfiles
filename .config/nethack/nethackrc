@@ -1,0 +1,2 @@
+# disable auto pickpup by default
+OPTIONS=!autopickup
