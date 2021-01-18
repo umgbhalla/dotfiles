@@ -117,41 +117,36 @@ doas tar vxzf "${TMP_DIR}/ports.tar.gz"
 # required for any port browsing
 doas pkg_add portslist
 
-# # gcc 4.3+
-# cd "${PORTS_DIR}/lang/gcc"
-# doas make
-# doas make install clean
-
-# # required by node and yarn
-# git clone "git://gcc.gnu.org/git/gcc.git" "${XDG_CACHE_HOME}/gcc"
-# cd "${XDG_CACHE_HOME}/gcc"
-# mkdir -p "build"
-# cd "build"
-# ./../configure --with-gmp=/usr/local/include/gmp.h
+# gcc 4.3+
+cd "${PORTS_DIR}/lang/gcc"
+doas make
+doas make install clean
+# symlink - possibly hazardous but evidently necessary
+ln -sf "/usr/local/bin/egcc" "${XDG_SCRIPT_HOME}/gcc"
+ln -sf "/usr/local/bin/eg++" "${XDG_SCRIPT_HOME}/g++"
 
 # pip
 # required by fzf, youtube-dl
 curl "https://bootstrap.pypa.io/get-pip.py" -o "${TMP_DIR}/pip.py"
 python3 "${TMP_DIR}/pip.py"
 
-# # yarn
-# yarn_ver="$(\
-#   curl -L "https://api.github.com/repos/yarnpkg/yarn/releases/latest" | \
-#   grep -m 1 "tar.gz" | \
-#   cut -d '"' -f 4 | \
-#   cut -d 'v' -f 2 | \
-#   cut -d '.' -f 1-3
-#   )"
-# wget -v -O \
-#   "${TMP_DIR}/yarn.tar.gz" \
-#   "https://github.com/yarnpkg/yarn/releases/download/v${yarn_ver}/yarn-v${yarn_ver}.tar.gz"
-# mkdir -p "${TMP_DIR}/yarn"
-# tar vxzf "${TMP_DIR}/yarn.tar.gz" -C "${TMP_DIR}/yarn"
-# yarn_install_dir="${XDG_DATA_HOME}/yarn"
-# rm -r "$yarn_install_dir" 2>"/dev/null" # overwrite old installations
-# mv "${TMP_DIR}/yarn/yarn-v${yarn_ver}" "$yarn_install_dir"
-# ln -sf "${yarn_install_dir}/bin/yarn.js" "${XDG_SCRIPT_HOME}/yarn"
-# # npm config set unsafe-perm true
+# yarn
+yarn_ver="$(\
+  curl -L "https://api.github.com/repos/yarnpkg/yarn/releases/latest" | \
+  grep -m 1 "tar.gz" | \
+  cut -d '"' -f 4 | \
+  cut -d 'v' -f 2 | \
+  cut -d '.' -f 1-3
+  )"
+wget -v -O \
+  "${TMP_DIR}/yarn.tar.gz" \
+  "https://github.com/yarnpkg/yarn/releases/download/v${yarn_ver}/yarn-v${yarn_ver}.tar.gz"
+mkdir -p "${TMP_DIR}/yarn"
+tar vxzf "${TMP_DIR}/yarn.tar.gz" -C "${TMP_DIR}/yarn"
+yarn_install_dir="${XDG_DATA_HOME}/yarn"
+rm -r "$yarn_install_dir" 2>"/dev/null" # overwrite old installations
+mv "${TMP_DIR}/yarn/yarn-v${yarn_ver}" "$yarn_install_dir"
+ln -sf "${yarn_install_dir}/bin/yarn.js" "${XDG_SCRIPT_HOME}/yarn"
 
 # terminal file manager
 git clone "https://github.com/vifm/vifm" "${XDG_CACHE_HOME}/vifm"
