@@ -26,6 +26,8 @@
 /* input { */
 /*   color: var(--color-fg) !important; */
 /* } */
+/* I can't read links */
+a { color: var(--color-primary); }
 
 /* ads */
 /* google */
@@ -848,4 +850,3 @@ header#title-block-header {
   footer
   { display: none !important; }
 }
-
