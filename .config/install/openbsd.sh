@@ -19,14 +19,10 @@ mkdir -p "$XDG_CACHE_HOME"
 PKGS="${PKGS} automake-1.15.1"
 # required by girara/zathura manual build
 PKGS="${PKGS} gettext-tools"
-# # required by gcc
-# PKGS="${PKGS} gmp"
 # required by picom
 PKGS="${PKGS} libev"
 # required by picom, girara/zathura
 PKGS="${PKGS} meson"
-# # required by gcc
-# PKGS="${PKGS} mpfr"
 # required by yarn
 PKGS="${PKGS} node"
 # required by picom
@@ -53,9 +49,6 @@ PKGS="${PKGS} wget"
 # god-tier utility
 PKGS="${PKGS} mmv"
 
-# colors in sys utils (optional)
-# it can make ttys harder to read
-# PKGS="${PKGS} colorls"
 # package searching
 PKGS="${PKGS} pkglocatedb"
 
@@ -69,9 +62,7 @@ PKGS="${PKGS} bspwm sxhkd"
 PKGS="${PKGS} redshift"
 # fonts
 PKGS="${PKGS} liberation-fonts adobe-source-code-pro zh-wqy-zenhei-ttf"
-# compositor
-# ibhagwan's fork manually installed below until merged with master
-# PKGS="${PKGS} picom"
+# compositor - ibhagwan's fork manually installed below until merged with master
 # system clipboard
 PKGS="${PKGS} xclip"
 # screenshot utilities
@@ -89,8 +80,6 @@ PKGS="${PKGS} ffmpeg mp3splt"
 PKGS="${PKGS} newsboat"
 # contact management
 PKGS="${PKGS} abook"
-# email client
-# PKGS="${PKGS} neomutt-20201127"
 # pdf document viewer
 PKGS="${PKGS} zathura girara zathura-pdf-mupdf"
 # document creation
@@ -135,23 +124,23 @@ ln -sf "${BIN}/python3" "${XDG_SCRIPT_HOME}/python"
 curl "https://bootstrap.pypa.io/get-pip.py" -o "${TMP_DIR}/pip.py"
 python "${TMP_DIR}/pip.py"
 
-# yarn
-yarn_ver="$(\
-  curl -L "https://api.github.com/repos/yarnpkg/yarn/releases/latest" | \
-  grep -m 1 "tar.gz" | \
-  cut -d '"' -f 4 | \
-  cut -d 'v' -f 2 | \
-  cut -d '.' -f 1-3
-  )"
-wget -v -O \
-  "${TMP_DIR}/yarn.tar.gz" \
-  "https://github.com/yarnpkg/yarn/releases/download/v${yarn_ver}/yarn-v${yarn_ver}.tar.gz"
-mkdir -p "${TMP_DIR}/yarn"
-tar vxzf "${TMP_DIR}/yarn.tar.gz" -C "${TMP_DIR}/yarn"
-yarn_install_dir="${XDG_DATA_HOME}/yarn"
-rm -r "$yarn_install_dir" 2>"/dev/null" # overwrite old installations
-mv "${TMP_DIR}/yarn/yarn-v${yarn_ver}" "$yarn_install_dir"
-ln -sf "${yarn_install_dir}/bin/yarn.js" "${XDG_SCRIPT_HOME}/yarn"
+# # yarn
+# yarn_ver="$(\
+#   curl -L "https://api.github.com/repos/yarnpkg/yarn/releases/latest" | \
+#   grep -m 1 "tar.gz" | \
+#   cut -d '"' -f 4 | \
+#   cut -d 'v' -f 2 | \
+#   cut -d '.' -f 1-3
+#   )"
+# wget -v -O \
+#   "${TMP_DIR}/yarn.tar.gz" \
+#   "https://github.com/yarnpkg/yarn/releases/download/v${yarn_ver}/yarn-v${yarn_ver}.tar.gz"
+# mkdir -p "${TMP_DIR}/yarn"
+# tar vxzf "${TMP_DIR}/yarn.tar.gz" -C "${TMP_DIR}/yarn"
+# yarn_install_dir="${XDG_DATA_HOME}/yarn"
+# rm -r "$yarn_install_dir" 2>"/dev/null" # overwrite old installations
+# mv "${TMP_DIR}/yarn/yarn-v${yarn_ver}" "$yarn_install_dir"
+# ln -sf "${yarn_install_dir}/bin/yarn.js" "${XDG_SCRIPT_HOME}/yarn"
 
 # terminal file manager
 git clone "https://github.com/vifm/vifm" "${XDG_CACHE_HOME}/vifm"
@@ -256,9 +245,8 @@ wget -v -O "${FF_EXT_DIR}/uBlock0@raymondhill.net.xpi" \
 wget -v -O "${FF_EXT_DIR}/tridactyl.vim@cmcaine.co.uk.xpi" \
   "https://addons.mozilla.org/firefox/downloads/file/3697894/tridactyl-1.20.4-an+fx.xpi"
 # firefox-tridactyl-native
-# manually running the contents of
+# manually running install because we need to do additional work with unveil
 # https://raw.githubusercontent.com/tridactyl/tridactyl/1.20.4/native/install.sh
-# because we need to do additional work with unveil
 tri_manifest="https://raw.githubusercontent.com/tridactyl/tridactyl/1.15.0/native/tridactyl.json"
 tri_native="https://raw.githubusercontent.com/tridactyl/tridactyl/1.15.0/native/native_main.py"
 tri_manifest_home="${HOME}/.mozilla/native-messaging-hosts/"
