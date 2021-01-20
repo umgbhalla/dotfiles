@@ -4,6 +4,8 @@
 # setup
 #
 
+PREFIX="/usr/local"
+BIN="${PREFIX}/bin"
 PKGS=""
 
 mkdir -p "$TMP_DIR"
@@ -122,13 +124,16 @@ cd "${PORTS_DIR}/lang/gcc"
 doas make
 doas make install clean
 # symlink - possibly hazardous but evidently necessary
-ln -sf "/usr/local/bin/egcc" "${XDG_SCRIPT_HOME}/gcc"
-ln -sf "/usr/local/bin/eg++" "${XDG_SCRIPT_HOME}/g++"
+ln -sf "${BIN}/egcc" "${XDG_SCRIPT_HOME}/gcc"
+ln -sf "${BIN}/eg++" "${XDG_SCRIPT_HOME}/g++"
+
+# python symlink alias
+ln -sf "${BIN}/python3" "${XDG_SCRIPT_HOME}/python"
 
 # pip
 # required by fzf, youtube-dl
 curl "https://bootstrap.pypa.io/get-pip.py" -o "${TMP_DIR}/pip.py"
-python3 "${TMP_DIR}/pip.py"
+python "${TMP_DIR}/pip.py"
 
 # yarn
 yarn_ver="$(\
