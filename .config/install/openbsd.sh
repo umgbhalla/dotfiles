@@ -331,6 +331,14 @@ doas rcctl enable apmd
 doas rcctl set apmd flags -A
 doas rcctl start apmd
 
+# turn of mail server (not being used)
+doas rcctl stop smtpd
+doas rcctl disable smtpd
+
+# turn of dbus (not being used)
+doas rcctl stop messagebus
+doas rcctl disable messagebus
+
 # sysctl
 doas ln -sf "${XDG_CONFIG_HOME}/etc/sysctl.conf" "/etc/sysctl.conf"
 
