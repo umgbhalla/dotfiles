@@ -101,7 +101,7 @@ alias \
   ss="sc-im" \
   vi="$EDITOR" \
   vim="$EDITOR" \
-  webcam="devour mpv av://v4l2:/dev/video0 --profile=low-latency --untimed"
+  webcam="devour mpv av://v4l2:/dev/video0 --profile=low-latency --untimed" \
   wget="wget --hsts-file=${XDG_DATA_HOME}/wget-hsts" \
   yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn"
 
