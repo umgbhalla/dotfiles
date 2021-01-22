@@ -12,7 +12,7 @@ super + space
 
 # browser
 super + b
-  eval $BROWSER_ARGS
+  eval $BROWSER
 super + shift + b
   eval $BROWSER_INCOGNITO
 

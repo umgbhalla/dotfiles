@@ -83,9 +83,9 @@ esac
 export TERMINAL="$TERM"
 
 # browser
-export BROWSER="firefox"
-export BROWSER_ARGS="${BROWSER}"
-export BROWSER_INCOGNITO="${BROWSER_ARGS} -private-window"
+export BROWSER_NAME="firefox"
+export BROWSER="${BROWSER_NAME}"
+export BROWSER_INCOGNITO="${BROWSER} -private-window"
 
 # file explorer
 export FILE_EXPLORER="vifm"
@@ -165,6 +165,7 @@ case "$OS" in
 esac
 export DOLLAR="$" # vital for envsubst escaping
 export FF_PROFILE="main"
+export KERN_NOSUIDCOREDUMP="1"
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export NETHACK_VER="3.6.2"
@@ -250,8 +251,8 @@ export FZF_DEFAULT_OPTS="--bind $FZF_BINDINGS --color=\"$FZF_COLORS\""
 
 # Firefox profile
 if [ "$OS" == "$OS_OPENBSD" ]; then
-  export BROWSER_ARGS="${BROWSER} -P ${FF_PROFILE}"
-  export BROWSER_INCOGNITO="${BROWSER_ARGS} -private-window"
+  export BROWSER="${BROWSER_NAME} -P ${FF_PROFILE}"
+  export BROWSER_INCOGNITO="${BROWSER} -private-window"
 fi
 
 # background command
