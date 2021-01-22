@@ -218,7 +218,7 @@ filetype {*.gif}
   \ devour mpv %f,
 
 " web
-filextype {*.html,*.htm},<text/html> $BROWSER %f
+filextype {*.html,*.htm},<text/html> $BROWSER %d/%f
 filetype {*.html,*.htm},<text/html> links, lynx
 
 " object

@@ -1,0 +1,13 @@
+<!-- This HTML file can be used to retrieve the latest current browser user agent. The user agent can then be tweaked to force general.useragent.override in Firefox's user.js preferences -->
+<!-- To prevent incompatibilities (and poor web design) you can use this and swap the "OpenBSD" platform with a platform of your choosing ("Linux" works well) -->
+<html>
+  <head>
+    <title>User Agent</title>
+  </head>
+  <body>
+    <h1 id="useragent-container">test123</h1>
+    <script>
+      document.getElementById("useragent-container").innerHTML = navigator.userAgent;
+    </script>
+  </body>
+</html>
