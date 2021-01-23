@@ -245,6 +245,3 @@ user_pref("browser.cache.disk.enable", false);
 // only text (e.g. outlook)
 // retrieved from local index file and tweaked (see ${XDG_CONFIG_HOME}/mozilla/firefox/useragent.html)
 user_pref("general.useragent.override", "Mozilla/5.0 (X11; Linux amd64; rv:82.0) Gecko/20100101 Firefox/82.0");
-
-
-

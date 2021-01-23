@@ -274,8 +274,19 @@ if ! grep -qi "tridactyl" "$ff_unveil_file"; then
 fi
 
 # Spotify
-cd "/usr/ports/audio/ncspot"
+cd "${PORTS_DIR}/audio/ncspot"
 doas make install clean
+
+# media codecs (to fix Youtube purchases and different formats)
+# cd "${PORTS_DIR}/multimedia/libmatroska"
+# doas make install clean
+# cd "${PORTS_DIR}/multimedia/libmp4v2"
+# doas make install clean
+# cd "${PORTS_DIR}/multimedia/libquicktime"
+# doas make install clean
+# cd "${PORTS_DIR}/multimedia/libtheora"
+# doas make
+# doas make install clean
 
 # # TODO Discord (work)
 # wget -v -O "${TMP_DIR}/discord.tar.gz" "https://discord.com/api/download?platform=linux&format=tar.gz"
@@ -319,11 +330,11 @@ doas rcctl enable apmd
 doas rcctl set apmd flags -A
 doas rcctl start apmd
 
-# turn of mail server (not being used)
+# turn off mail server (not being used)
 doas rcctl stop smtpd
 doas rcctl disable smtpd
 
-# turn of dbus (not being used)
+# turn off dbus (not being used)
 doas rcctl stop messagebus
 doas rcctl disable messagebus
 
