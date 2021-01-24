@@ -25,6 +25,8 @@ PKGS="${PKGS} libev"
 PKGS="${PKGS} meson"
 # required by yarn
 PKGS="${PKGS} node"
+# required by biber
+PKGS="${PKGS} p5-Log-Log4perl"
 # required by picom
 PKGS="${PKGS} uthash"
 # required by lemonbar
@@ -276,6 +278,13 @@ fi
 # Spotify
 cd "${PORTS_DIR}/audio/ncspot"
 doas make install clean
+
+# biber for latex
+# TODO perl -MCPAN -e "install biber"
+# curl -o "${TMP_DIR}/biber.tar.gz" -L "https://sourceforge.net/projects/biblatex-biber/files/biblatex-biber/current/biblatex-biber.tar.gz"
+# mkdir -p "${TMP_DIR}/biber"
+# tar vxzf "${TMP_DIR}/biber.tar.gz" -C "${TMP_DIR}/biber"
+# TODO
 
 # media codecs (to fix Youtube purchases and different formats)
 # cd "${PORTS_DIR}/multimedia/libmatroska"
