@@ -92,6 +92,8 @@ PKGS="${PKGS} mpd ncmpcpp"
 # PKGS="${PKGS} gimp"
 # vector editor (optional)
 # PKGS="${PKGS} inkscape"
+# java (optional)
+PKGS="${PKGS} jdk-11.0.8.10.1v0"
 
 #
 # installation

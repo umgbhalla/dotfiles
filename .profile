@@ -230,6 +230,8 @@ export XAUTHORITY="${XDG_CONFIG_HOME}/Xdefaults/Xauthority"
 
 export MANPATH="/usr/share/man:/usr/local/share/man:${MANPATH}"
 export PATH="${XDG_SCRIPT_HOME}:${PATH}"
+# java
+export PATH="${PATH}:/usr/local/jdk-11/bin"
 
 #
 # includes
