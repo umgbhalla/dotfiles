@@ -36,6 +36,14 @@ screenCapture() {
     notify "Screen capture starting."
 
     case $OS in
+      "$OS_OPENBSD")
+        ffmpeg \
+          -f x11grab -video_size "${RES_WIDTH}x${RES_HEIGHT}" \
+          -i "$DISPLAY" \
+          -f sndio -i snd/0.mon -c:v libx264 \
+          -preset ultrafast -c:a aac \
+          "$captureOutputDir/screencapture-${datefmt}.mp4" &
+        ;;
       $OS_LINUX)
         ffmpeg \
           -f x11grab -video_size "${RES_WIDTH}x${RES_HEIGHT}" \

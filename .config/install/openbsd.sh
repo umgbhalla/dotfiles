@@ -286,6 +286,10 @@ doas make install clean
 # tar vxzf "${TMP_DIR}/biber.tar.gz" -C "${TMP_DIR}/biber"
 # TODO
 
+# scene recording (possibly keep for future reference)
+# wget -v -O "${XDG_SCRIPT_HOME}/fauxstream" "https://raw.githubusercontent.com/rfht/fauxstream/master/fauxstream"
+# chmod +x "${XDG_SCRIPT_HOME}/fauxstream"
+
 # media codecs (to fix Youtube purchases and different formats)
 # cd "${PORTS_DIR}/multimedia/libmatroska"
 # doas make install clean
@@ -346,6 +350,10 @@ doas rcctl disable smtpd
 # turn off dbus (not being used)
 doas rcctl stop messagebus
 doas rcctl disable messagebus
+
+# audio recording
+doas rcctl set sndiod flags -s default -m play,mon -s mon
+doas rcctl restart sndiod
 
 # sysctl
 doas ln -sf "${XDG_CONFIG_HOME}/etc/sysctl.conf" "/etc/sysctl.conf"
