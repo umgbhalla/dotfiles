@@ -93,7 +93,7 @@ PKGS="${PKGS} mpd ncmpcpp"
 # vector editor (optional)
 # PKGS="${PKGS} inkscape"
 # java (optional)
-PKGS="${PKGS} jdk-11.0.8.10.1v0"
+# PKGS="${PKGS} jdk-11.0.8.10.1v0"
 
 #
 # installation
