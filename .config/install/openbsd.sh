@@ -27,6 +27,7 @@ PKGS="${PKGS} meson"
 PKGS="${PKGS} node"
 # required by biber
 PKGS="${PKGS} p5-Log-Log4perl"
+PKGS="${PKGS} p5-Module-Install"
 # required by picom
 PKGS="${PKGS} uthash"
 # required by lemonbar
@@ -281,12 +282,41 @@ fi
 cd "${PORTS_DIR}/audio/ncspot"
 doas make install clean
 
-# biber for latex
-# TODO perl -MCPAN -e "install biber"
+# perl latest
+perl_ver="5.32.1"
+curl -o "${TMP_DIR}/perl.tar.gz" -L "https://www.cpan.org/src/5.0/perl-${perl_ver}.tar.gz"
+mkdir -p "${TMP_DIR}/perl"
+tar vxzf "${TMP_DIR}/perl.tar.gz" -C "${TMP_DIR}/perl"
+cd "${TMP_DIR}/perl"
+cd "$(ls)"
+sh Configure -de
+make
+# make test
+doas make install
+ln -sf "${BIN}/perl${perl_ver}" "${XDG_SCRIPT_HOME}/perl"
+# perl cpanm (installing perl modules)
+doas perl -MCPAN -e "install App::cpanminus"
+
+# perl Module::Build (required by Biber)
+doas cpanm Module::Build
+# Biber
+curl -o "${TMP_DIR}/biber.tar.gz" -L "https://sourceforge.net/projects/biblatex-biber/files/biblatex-biber/current/biblatex-biber.tar.gz"
+mkdir -p "${TMP_DIR}/biber"
+tar vxzf "${TMP_DIR}/biber.tar.gz" -C "${TMP_DIR}/biber"
+cd "${TMP_DIR}/biber"
+cd "$(ls)"
+doas perl ./Build.PL # necessary to create Build script
+# perl Biber dependencies
+doas ./Build installdeps
+# perl PAR::Packer (required by Biber)
+doas ./Build install
+
+
+# # TODO
+# # biber for latex
 # curl -o "${TMP_DIR}/biber.tar.gz" -L "https://sourceforge.net/projects/biblatex-biber/files/biblatex-biber/current/biblatex-biber.tar.gz"
 # mkdir -p "${TMP_DIR}/biber"
 # tar vxzf "${TMP_DIR}/biber.tar.gz" -C "${TMP_DIR}/biber"
-# TODO
 
 # scene recording (possibly keep for future reference)
 # wget -v -O "${XDG_SCRIPT_HOME}/fauxstream" "https://raw.githubusercontent.com/rfht/fauxstream/master/fauxstream"
