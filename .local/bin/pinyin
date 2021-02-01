@@ -1,0 +1,7 @@
+#!/bin/sh
+# provides a terminal interface to easily
+# type hanzi from pinyin
+
+# ibus list-engine | grep '^\ ' | sort | shellmenu
+
+echo TODO WIP

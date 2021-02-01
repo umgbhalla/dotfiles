@@ -17,5 +17,6 @@ sxhkd &
 
 # input method editor
 # fcitx &
+# ibus-daemon -drx
 
 exec "$WM"

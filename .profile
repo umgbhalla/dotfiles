@@ -196,9 +196,9 @@ export VI_NAV_JUMP_LARGE="25"
 export XRDB_RESOURCES="${XDG_CONFIG_HOME}/Xdefaults/Xresources"
 export XRDB_UPDATE="xrdb -merge ${XRDB_RESOURCES}"
 # input method editor
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
+# export GTK_IM_MODULE="ibus"
+# export QT_IM_MODULE="ibus"
+# export XMODIFIERS="@im=ibus"
 
 #
 # cache and config directories
