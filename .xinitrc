@@ -15,4 +15,7 @@ stheme "dark" &
 # shortcut manager
 sxhkd &
 
+# input method editor
+# fcitx &
+
 exec "$WM"

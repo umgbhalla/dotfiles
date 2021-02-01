@@ -95,6 +95,11 @@ PKGS="${PKGS} mpd ncmpcpp"
 # PKGS="${PKGS} inkscape"
 # java (optional)
 # PKGS="${PKGS} jdk-11.0.8.10.1v0"
+# input method editor
+PKGS="${PKGS} fcitx"
+PKGS="${PKGS} fcitx-configtool"
+PKGS="${PKGS} fcitx-pinyin"
+PKGS="${PKGS} libpinyin"
 
 #
 # installation
@@ -282,45 +287,7 @@ fi
 cd "${PORTS_DIR}/audio/ncspot"
 doas make install clean
 
-# perl latest
-perl_ver="5.32.1"
-curl -o "${TMP_DIR}/perl.tar.gz" -L "https://www.cpan.org/src/5.0/perl-${perl_ver}.tar.gz"
-mkdir -p "${TMP_DIR}/perl"
-tar vxzf "${TMP_DIR}/perl.tar.gz" -C "${TMP_DIR}/perl"
-cd "${TMP_DIR}/perl"
-cd "$(ls)"
-sh Configure -de
-make
-# make test
-doas make install
-ln -sf "${BIN}/perl${perl_ver}" "${XDG_SCRIPT_HOME}/perl"
-# perl cpanm (installing perl modules)
-doas perl -MCPAN -e "install App::cpanminus"
-
-# perl Module::Build (required by Biber)
-doas cpanm Module::Build
-# Biber
-curl -o "${TMP_DIR}/biber.tar.gz" -L "https://sourceforge.net/projects/biblatex-biber/files/biblatex-biber/current/biblatex-biber.tar.gz"
-mkdir -p "${TMP_DIR}/biber"
-tar vxzf "${TMP_DIR}/biber.tar.gz" -C "${TMP_DIR}/biber"
-cd "${TMP_DIR}/biber"
-cd "$(ls)"
-doas perl ./Build.PL # necessary to create Build script
-# perl Biber dependencies
-doas ./Build installdeps
-# perl PAR::Packer (required by Biber)
-doas ./Build install
-
-
-# # TODO
-# # biber for latex
-# curl -o "${TMP_DIR}/biber.tar.gz" -L "https://sourceforge.net/projects/biblatex-biber/files/biblatex-biber/current/biblatex-biber.tar.gz"
-# mkdir -p "${TMP_DIR}/biber"
-# tar vxzf "${TMP_DIR}/biber.tar.gz" -C "${TMP_DIR}/biber"
-
-# scene recording (possibly keep for future reference)
-# wget -v -O "${XDG_SCRIPT_HOME}/fauxstream" "https://raw.githubusercontent.com/rfht/fauxstream/master/fauxstream"
-# chmod +x "${XDG_SCRIPT_HOME}/fauxstream"
+# TODO Biber
 
 # media codecs (to fix Youtube purchases and different formats)
 # cd "${PORTS_DIR}/multimedia/libmatroska"
