@@ -10,11 +10,19 @@ height=$SHELLMENU_HEIGHT
 x=$SHELLMENU_X
 y=$SHELLMENU_Y
 
-in="$(cat "/dev/stdin")"
+command=""
+
+if [ -z "$1" ]; then
+  in="$(cat "/dev/stdin")"
+
+  command="echo \"$in\" | \
+    fzf --reverse \
+    $@ > $tmpDataFile"
+else
+  command="$1 > $tmpDataFile"
+fi
 
 st -n shellpopup -G ${width}x${height}+${x}+${y} sh -c \
-  "echo \"$in\" | \
-  fzf --reverse \
-  $@ > $tmpDataFile"
+  "$command"
 
 cat "$tmpDataFile" > "/dev/stdout"

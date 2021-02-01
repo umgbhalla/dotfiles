@@ -1,0 +1,5 @@
+#!/bin/sh
+# wrapper for pinyin script
+
+shellmenu pinyin | tr -d '\n' | xclip -selection clipboard
+herbe "Pinyin copied to clipboard."

@@ -44,13 +44,10 @@ case "$1" in
       fzf \
       --phony \
       --algo=v1 \
+      --reverse \
       --bind 'change:reload:$FZF_DEFAULT_COMMAND {q}'\
     )
 
-    # copy to clipboard
-    # TODO
     echo "$out"
-    # paste
-    # TODO
     ;;
 esac

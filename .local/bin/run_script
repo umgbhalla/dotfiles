@@ -1,5 +1,0 @@
-#!/bin/sh
-# a script for executing other gui scripts from keybindings or command line
-
-script=$(ls $XDG_SCRIPT_HOME | shellmenu)
-$XDG_SCRIPT_HOME/$script
