@@ -15,8 +15,4 @@ stheme "dark" &
 # shortcut manager
 sxhkd &
 
-# input method editor
-# fcitx &
-# ibus-daemon -drx
-
 exec "$WM"

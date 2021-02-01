@@ -1,7 +1,56 @@
 #!/bin/sh
-# provides a terminal interface to easily
-# type hanzi from pinyin
+# provides an easy mechanism to type
+# hanzi from pinyin input with tones
 
-# ibus list-engine | grep '^\ ' | sort | shellmenu
+data="${XDG_DATA_HOME}/lang/pinyin"
 
-echo TODO WIP
+getchar() {
+  if [ -n "$1" ]; then
+    charline="$(\
+      grep -i "$1" "$data" | \
+      tr -s ' ' | \
+      cut -d ' ' -f 2
+      )"
+
+    echo "$charline"
+  fi
+}
+
+tokenize() {
+  tokens="$(\
+    echo "$@" | \
+    sed 's/[0-9]/&\ /g' | \
+    tr -s ' '
+    )"
+
+  out=""
+
+  for token in $tokens; do
+    char="$(pinyin getchar "$token")"
+    out="${out}${char}"
+  done
+
+  echo "$out"
+}
+
+case "$1" in
+  "getchar") getchar "$2" ;;
+
+  "tokenize") shift 1; tokenize "$@" ;;
+
+  *) # default
+    out=$(\
+      FZF_DEFAULT_COMMAND='pinyin tokenize' \
+      fzf \
+      --phony \
+      --algo=v1 \
+      --bind 'change:reload:$FZF_DEFAULT_COMMAND {q}'\
+    )
+
+    # copy to clipboard
+    # TODO
+    echo "$out"
+    # paste
+    # TODO
+    ;;
+esac

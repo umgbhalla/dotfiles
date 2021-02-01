@@ -95,11 +95,6 @@ PKGS="${PKGS} mpd ncmpcpp"
 # PKGS="${PKGS} inkscape"
 # java (optional)
 # PKGS="${PKGS} jdk-11.0.8.10.1v0"
-# input method editor
-# PKGS="${PKGS} fcitx"
-# PKGS="${PKGS} fcitx-configtool"
-# PKGS="${PKGS} fcitx-pinyin"
-# PKGS="${PKGS} ibus"
 
 #
 # installation
