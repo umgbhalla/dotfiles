@@ -4,7 +4,7 @@
 set -o vi
 
 # aliases
-[ -f $XDG_CONFIG_HOME/aliasrc ] && . $XDG_CONFIG_HOME/aliasrc
+[ -f "${XDG_CONFIG_HOME}/aliasrc" ] && . "${XDG_CONFIG_HOME}/aliasrc"
 
 # terminal ascii
 FG=$WHITE
@@ -31,7 +31,8 @@ else
 fi
 
 # scrollback
-HISTFILE="$SH_HISTFILE"
+# HISTFILE="$SH_HISTFILE"
+HISTFILE=""
 HISTSIZE="1000000"
 
 # prompt

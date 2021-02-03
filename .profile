@@ -201,7 +201,7 @@ export XRDB_UPDATE="xrdb -merge ${XRDB_RESOURCES}"
 #
 
 export ABOOK_CONFIG="$XDG_CONFIG_HOME/abook/abookrc"
-export BOOKMARK_CONFIG="$XDG_DATA_HOME/sh_bookmarks"
+export BOOKMARK_CONFIG="$XDG_DATA_HOME/sh/bookmarks"
 export CARGO_HOME="$XDG_CACHE_HOME/cargo"
 export ENV="$XDG_CONFIG_HOME/sh/shrc"
 case "$OS" in
