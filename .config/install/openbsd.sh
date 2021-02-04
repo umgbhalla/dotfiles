@@ -23,6 +23,8 @@ PKGS="${PKGS} gettext-tools"
 PKGS="${PKGS} libev"
 # required by picom, girara/zathura
 PKGS="${PKGS} meson"
+# required by openh264 codec
+PKGS="${PKGS} nasm"
 # required by yarn
 PKGS="${PKGS} node"
 # required by biber
@@ -284,16 +286,14 @@ doas make install clean
 
 # TODO Biber
 
-# media codecs (to fix Youtube purchases and different formats)
-# cd "${PORTS_DIR}/multimedia/libmatroska"
-# doas make install clean
-# cd "${PORTS_DIR}/multimedia/libmp4v2"
-# doas make install clean
-# cd "${PORTS_DIR}/multimedia/libquicktime"
-# doas make install clean
-# cd "${PORTS_DIR}/multimedia/libtheora"
-# doas make
-# doas make install clean
+# TODO Youtube movie codec
+
+# libopen264
+git clone "https://github.com/cisco/openh264" "${TMP_DIR}/openh264"
+cd "${TMP_DIR}/openh264"
+g checkout "992c1c147175126c3fe7ab78216aa0395f9e6c71"
+gmake ARCH="x86_64"
+doas gmake install
 
 # # TODO Discord (work)
 # wget -v -O "${TMP_DIR}/discord.tar.gz" "https://discord.com/api/download?platform=linux&format=tar.gz"
