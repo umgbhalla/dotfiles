@@ -254,9 +254,10 @@ rp() {
 
 # file explorer directory setting
 fm() {
-  fmDir="${XDG_CACHE_HOME}/fm_last_dir"
-  $FILE_EXPLORER_ARGS --choose-dir="$fmDir"
-  dir="$(cat "$fmDir" | tr ' ' '\ ')"
+  fmTmp="$(mktemp -t "fm.${MK_TEMP}")"
+  $FILE_EXPLORER_ARGS --choose-dir="$fmTmp"
+  dir="$(cat "$fmTmp" | tr ' ' '\ ')"
+  rm -f "$fmTmp" > "/dev/null"
   cd "$dir"
 }
 alias r="fm"

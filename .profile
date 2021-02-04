@@ -29,7 +29,8 @@ export XDG_REPO_HOME="$HOME/Repos"
 export XDG_DESKTOP_DIR="${XDG_CACHE_HOME}/Desktop"
 
 # tmp directory
-export TMP_DIR="/tmp"
+export TMPDIR="/tmp"
+export TMP_DIR="$TMPDIR" # TODO deprecate
 # opt directory
 export OPT_DIR="/opt"
 # local font directory
@@ -165,6 +166,8 @@ case "$OS" in
 esac
 export DOLLAR="$" # vital for envsubst escaping
 export FF_PROFILE="main"
+# for use in mktemp templates
+export MK_TEMP="XXXXXXXXXX"
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export NETHACK_VER="3.6.2"
