@@ -239,6 +239,12 @@ user_pref("browser.cache.disk.parent_directory", "${FF_CACHE_DIR}");
 user_pref("browser.cache.memory.enable", true);
 user_pref("browser.cache.disk.enable", false);
 
+// disable browser notifications - reducing overstimulation!
+user_pref("browser.slowStartup.notificationDisabled", true);
+user_pref("dom.webnotifications.enabled", false);
+user_pref("dom.webnotifications.requireinteraction.enabled", false);
+user_pref("dom.webnotifications.serviceworker.enabled", false);
+
 // hardcode user agent
 // warning: this can seriously affect the layout of some websites
 // but it's required for zoom and for certain sites to not display
