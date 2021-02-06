@@ -7,5 +7,5 @@ repos,      $XDG_REPO_HOME
 downloads,  $HOME/Downloads
 music,      $HOME/Music
 ports,      /usr/ports
-pl,         $HOME/Data/Media/pl/music
+pl,         $HOME/Data/Media/pl
 etc,        /etc
