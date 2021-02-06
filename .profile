@@ -208,7 +208,7 @@ export BOOKMARK_CONFIG="$XDG_DATA_HOME/sh/bookmarks"
 export CARGO_HOME="$XDG_CACHE_HOME/cargo"
 export ENV="$XDG_CONFIG_HOME/sh/shrc"
 case "$OS" in
-  "$OS_OPENBSD") export FF_CACHE_DIR="/tmp/firefox-cache-${UID}" ;;
+  "$OS_OPENBSD") export FF_CACHE_DIR="${TMPDIR}/firefox_cache.${UID}" ;;
   "$OS_LINUX") export FF_CACHE_DIR="/run/user/${UID}/firefox" ;;
 esac
 export GIT_CONFIG="$XDG_CONFIG_HOME/git/config"

@@ -87,6 +87,7 @@ PKGS="${PKGS} newsboat"
 PKGS="${PKGS} abook"
 # pdf document viewer
 PKGS="${PKGS} zathura girara zathura-pdf-mupdf"
+PKGS="${PKGS} evince-3.36.7" # pdf form filling
 # document creation
 PKGS="${PKGS} texlive_base texlive_texmf-full"
 # music player
