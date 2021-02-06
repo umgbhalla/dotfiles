@@ -51,6 +51,9 @@ super + bracketleft
 super + bracketright
   audio vol up 5
 
+super + backslash
+  audio vol set 0
+
 #
 # screen capture
 #

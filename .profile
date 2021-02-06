@@ -35,6 +35,8 @@ export TMP_DIR="$TMPDIR" # TODO deprecate
 export OPT_DIR="/opt"
 # local font directory
 export FONT_DIR="${XDG_DATA_HOME}/fonts"
+# null
+export NULL="/dev/null"
 
 #
 # display
