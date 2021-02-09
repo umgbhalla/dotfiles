@@ -9,3 +9,5 @@ music,      $HOME/Music
 ports,      /usr/ports
 pl,         $HOME/Data/Media/pl
 etc,        /etc
+school,     $HOME/Data/School/OSU/Year-4/Spring
+
