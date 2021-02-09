@@ -122,6 +122,21 @@ case "$OS" in
     ;;
 esac
 
+# latex compilation
+lat() {
+  if [ -z "$1" ]; then
+    echo -e "${RED}ERROR: file not supplied${NC}"
+    return 1
+  fi
+
+  file="$(echo "$1" | cut -d '.' -f 1)"
+
+  pdflatex "$file"
+  bibtex "$file"
+  pdflatex "$file"
+  pdflatex "$file"
+}
+
 # this... it's not what it looks like I promise mom
 mrping() {
   echo "${YELLOW}\
