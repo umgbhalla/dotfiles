@@ -1,40 +1,40 @@
 #!/bin/sh
 
 ICON_PADDING="7"
-FG="$(getxr theme.fg || echo "$BAR_FG")"
+FG="$C_GRAY_0"
 
 wm() {
   ws="$(bspc query -D --names -d)"
   title=""
 
   case "$ws" in
-    "I")        title="%{O$ICON_PADDING}DEVELOP" ;;
-    "II")       title="%{O$ICON_PADDING}BROWSE " ;;
-    "III")      title="%{O$ICON_PADDING}GAME   " ;;
-    "IV")       title="%{O$ICON_PADDING}CHAT   " ;;
-    "V")        title="%{O$ICON_PADDING}MEDIA  " ;;
-    "VI")       title="%{O$ICON_PADDING}HDMI1  " ;;
-    "VII")      title="%{O$ICON_PADDING}HDMI2  " ;;
-    "VIII")     title="%{O$ICON_PADDING}HDMI3  " ;;
-    "IX")       title="%{O$ICON_PADDING}NEWS   " ;;
-    "X")        title="%{O$ICON_PADDING}MUSIC  " ;;
+    "I")        title="%{O${ICON_PADDING}}DEVELOP" ;;
+    "II")       title="%{O${ICON_PADDING}}BROWSE " ;;
+    "III")      title="%{O${ICON_PADDING}}GAME   " ;;
+    "IV")       title="%{O${ICON_PADDING}}CHAT   " ;;
+    "V")        title="%{O${ICON_PADDING}}MEDIA  " ;;
+    "VI")       title="%{O${ICON_PADDING}}HDMI1  " ;;
+    "VII")      title="%{O${ICON_PADDING}}HDMI2  " ;;
+    "VIII")     title="%{O${ICON_PADDING}}HDMI3  " ;;
+    "IX")       title="%{O${ICON_PADDING}}NEWS   " ;;
+    "X")        title="%{O${ICON_PADDING}}MUSIC  " ;;
   esac
 
   echo " ${title} "
 }
 
 capture() {
-  [ -e "${TMP_DIR}/screenPid" ] && \
-    echo " %{F$LEMONBAR_ALERT}%{F$FG} "
+  [ -e "${TMPDIR}/screenPid" ] && \
+    echo " %{F${LEMONBAR_ALERT}}%{F${FG}} "
 }
 
 volume() {
   unit="5"
   h_padding="4"
 
-  full="%{O$h_padding}"
-  active="%{O$h_padding}"
-  empty="%{O$h_padding}"
+  full="%{O${h_padding}}"
+  active="%{O${h_padding}}"
+  empty="%{O${h_padding}}"
 
   volNum="$(audio vol get)"
 
@@ -44,7 +44,7 @@ volume() {
   [ $fullNum -ne 0 ] && volFull="$(printf "%${fullNum}s" | sed "s/ /${full}/g")"
   volEmpty="$(printf "%${emptyNum}s" | sed "s/ /${empty}/g")"
 
-  echo " %{O$h_padding}${volFull}${active}${volEmpty} "
+  echo " %{O${h_padding}}${volFull}${active}${volEmpty} "
 }
 
 battery() {
@@ -62,7 +62,7 @@ battery() {
       else status="$discharging"
       fi
 
-      echo " ${status}%{O$ICON_PADDING}${bat} "
+      echo " ${status}%{O${ICON_PADDING}}${bat} "
       ;;
     "$OS_OPENBSD")
       pow="$(apm)"
@@ -74,7 +74,7 @@ battery() {
       else status="$discharging"
       fi
 
-      echo " ${status}%{O$ICON_PADDING}${bat} "
+      echo " ${status}%{O${ICON_PADDING}}${bat} "
       ;;
     "$OS_LINUX")
       bat="$(cat "/sys/class/power_supply/BAT0/capacity" 2>/dev/null)"
@@ -84,7 +84,7 @@ battery() {
         if [ "$status" = "Charging" ]; then status="$charging"
         else status="$discharging"
         fi
-        echo " ${status}%{O$ICON_PADDING}${bat} "
+        echo " ${status}%{O${ICON_PADDING}}${bat} "
       fi
       ;;
   esac
@@ -92,14 +92,11 @@ battery() {
 
 clock() {
   datefmt="$(date "+%m.%d %a %H:%M" | tr "[a-z]" "[A-Z]")"
-  echo " %{O$ICON_PADDING}${datefmt} "
+  echo " %{O${ICON_PADDING}}${datefmt} "
 }
 
 LEFT="$(wm)"
 CENTER=""
 RIGHT="$(capture) $(volume) $(battery) $(clock)"
 
-SPACE_LEFT=""
-SPACE_RIGHT=""
-
-echo "%{F$FG}%{l}${SPACE_LEFT}$LEFT%{c}$CENTER%{r}$RIGHT${SPACE_RIGHT}"
+echo "%{F${FG}}%{l}${LEFT}%{c}${CENTER}%{r}${RIGHT}"
