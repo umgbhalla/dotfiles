@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ICON_PADDING="7"
-FG="$C_GRAY_0"
+FG="$C_BLACK_0"
 
 wm() {
   ws="$(bspc query -D --names -d)"

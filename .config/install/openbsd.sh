@@ -63,6 +63,8 @@ PKGS="${PKGS} pkglocatedb"
 
 # window manager
 PKGS="${PKGS} bspwm sxhkd"
+# root window
+PKGS="${PKGS} hsetroot"
 # blue light filter
 PKGS="${PKGS} redshift"
 # fonts

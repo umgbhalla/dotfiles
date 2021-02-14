@@ -262,8 +262,7 @@ if [ "$OS" == "$OS_OPENBSD" ]; then
 fi
 
 # background command
-# feh is used over xsetroot or hsetroot because both cause flicker glitches and abnormal behavior on the BSDs
-export BACKGROUND="feh --no-fehbg --bg-scale ${XDG_CONFIG_HOME}/wallpapers/cover-${CURRENT_THEME_MODE}.jpg"
+export BACKGROUND="hsetroot -solid ${C_CYAN_0}"
 
 # startx
 if command -v "startx" >/dev/null; then
