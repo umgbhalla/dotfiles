@@ -1,0 +1,75 @@
+; vim: filetype=lisp
+; vim: syntax=config
+
+[colors]
+transparent = #00000000
+fg = ${env:BAR_FG}
+alert = ${env:G_ALERT}
+
+[styles]
+padding = 2
+
+[bar/main]
+width = ${env:W_WIDTH}
+height = ${env:BAR_HEIGHT}
+offset-x = ${env:W_GAPS}
+offset-y = ${env:W_GAPS}
+
+; always display below fullscreen windows
+override-redirect = true
+wm-restack = ${env:WM}
+
+background = ${colors.transparent}
+foreground = ${colors.fg}
+
+font-0 = Source Code Pro Medium:pixelsize=14;3
+font-1 = Automata:pixelsize=16;4
+font-2 = Automata:pixelsize=12;3
+
+cursor-click = pointer
+
+modules-left = bspwm
+; modules-center = title
+modules-right = capture battery date
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused-font = 3
+label-occupied-font = 3
+label-urgent-font = 3
+label-empty-font = 3
+
+label-focused = "  "
+label-occupied = "  "
+label-empty = "  "
+
+[module/title]
+type = internal/xwindow
+label-maxlen = 60
+
+[module/capture]
+type = custom/script
+interval = 0
+exec = ${POLYBAR_SCRIPT_DIR}/capture.sh
+click-left = scene stop
+
+format-foreground = ${colors.alert}
+
+[module/battery]
+type = custom/script
+interval = 10
+exec = ${POLYBAR_SCRIPT_DIR}/battery.sh
+
+format-padding = ${styles.padding}
+
+[module/date]
+type = internal/date
+interval = 30.0
+
+date = %m.%d %a
+time = %H:%M
+
+label =  %date% %time%
+
+; format-padding = ${styles.padding}

@@ -38,14 +38,11 @@ export THEME_ERROR="$G_ALERT"
 
 export BAR_HEIGHT="28"
 export BAR_HALF_HEIGHT="$(echo "$BAR_HEIGHT/2" | bc)"
-export BAR_FONT="Source Code Pro:pixelsize=20"
-export BAR_ICON_FONT="Automata:pixelsize=24"
 
-export BAR_FG="$G_FG"
-export BAR_BG="$G_BG_ALT"
-export BAR_FIFO="${TMP_DIR}/${BAR}fifo"
-export BAR_ARGS="${XDG_CONFIG_HOME}/lemonbar/main.sh"
-export BAR_UPDATE="${XDG_CONFIG_HOME}/lemonbar/signal.sh"
+export BAR_FG="$G_BG_ALT"
+export BAR_UPDATE="touch -m ${XDG_CONFIG_HOME}/polybar/config"
+
+export POLYBAR_SCRIPT_DIR="${XDG_CONFIG_DIR}/polybar/scripts"
 
 # abook
 

@@ -67,6 +67,8 @@ PKGS="${PKGS} bspwm sxhkd"
 PKGS="${PKGS} hsetroot"
 # blue light filter
 PKGS="${PKGS} redshift"
+# status bar
+PKGS="${PKGS} polybar"
 # fonts
 PKGS="${PKGS} liberation-fonts adobe-source-code-pro zh-wqy-zenhei-ttf"
 # compositor - ibhagwan's fork manually installed below until merged with master
@@ -174,10 +176,10 @@ meson configure build -Ddbus="false" -Db_colorout="never" -Dbuildtype="minsize" 
 doas ninja -C build install
 
 # status bar
-git clone "https://github.com/krypt-n/bar.git" "${TMP_DIR}/lemonbar"
-cp -f "${XDG_CONFIG_HOME}/lemonbar/Makefile" "${TMP_DIR}/lemonbar/"
-cd "${TMP_DIR}/lemonbar"
-doas make clean install
+# git clone "https://github.com/krypt-n/bar.git" "${TMP_DIR}/lemonbar"
+# cp -f "${XDG_CONFIG_HOME}/lemonbar/Makefile" "${TMP_DIR}/lemonbar/"
+# cd "${TMP_DIR}/lemonbar"
+# doas make clean install
 
 # xresources
 cd "${XDG_CONFIG_HOME}/getxr"
