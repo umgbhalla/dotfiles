@@ -1,7 +1,8 @@
 #!/bin/sh
 
-charging=""
-discharging=""
+# charging=""
+charging=""
+discharging=""
 
 pow="$(apm)"
 
