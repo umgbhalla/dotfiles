@@ -1,6 +1,15 @@
 #!/bin/sh
 # app-specific style environment variables
 
+# window settings
+
+export W_ALPHA="0.9"
+export W_ALPHA_HEX="DD" # higher value means more opaque
+
+export W_BORDER_WIDTH="0"
+export W_CORNER_RADIUS="0"
+export W_GAPS="20"
+
 # general vars
 
 export W_WIDTH="$(echo "${RES_WIDTH}-(${W_GAPS}+${W_BORDER_WIDTH})*2" | bc)"
@@ -104,7 +113,7 @@ export LEMONBAR_ALERT="${G_ALERT}"
 
 # picom
 
-export PICOM_ALPHA="$(echo $(( $W_ALPHA * 100 )) | sed -e 's/\.//g')"
+export PICOM_ALPHA="$(echo "${W_ALPHA}*100" | bc | sed -e 's/\..*//g')"
 
 # shellmenu
 
@@ -115,6 +124,7 @@ export SHELLMENU_Y="$W_GAPS"
 
 # st
 
+export ST_ALPHA="$W_ALPHA"
 export ST_FONT="Source Code Pro:pixelsize=16:antialias=true:autohint=true"
 export ST_PADDING="$(echo "$W_GAPS * 1.5 / 1" | bc)"
 

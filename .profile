@@ -58,15 +58,6 @@ export GTK_THEME_DIR="/usr/share/themes"
 export GTK_THEME="${THEME}:${CURRENT_THEME_MODE}"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 
-# window settings
-
-export W_ALPHA="1"
-export W_ALPHA_HEX="FF" # higher value means more opaque
-
-export W_BORDER_WIDTH="0"
-export W_CORNER_RADIUS="0"
-export W_GAPS="16"
-
 #
 # default programs
 #
