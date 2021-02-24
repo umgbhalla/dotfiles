@@ -27,9 +27,9 @@ font-1 = Automata:pixelsize=13;3
 
 cursor-click = pointer
 
-modules-left = bspwm
+modules-left = bspwm capture
 ; modules-center = title
-modules-right = capture audio battery date
+modules-right = audio battery date
 
 [module/bspwm]
 type = internal/bspwm
@@ -38,26 +38,25 @@ label-focused = "  "
 label-occupied = "  "
 label-empty = "  "
 
+[module/capture]
+type = custom/script
+interval = 1
+exec = [ "$(scene recording-status)" == "recording" ] && echo ""
+click-left = scene stop
+format-foreground = ${colors.alert}
+
 [module/title]
 type = internal/xwindow
 label-maxlen = 60
 
-[module/capture]
-type = custom/script
-interval = 0
-exec = ${POLYBAR_SCRIPT_DIR}/capture.sh
-click-left = scene stop
-format-foreground = ${colors.alert}
-format-padding = ${styles.padding}
-
 [module/audio]
 type = custom/script
-interval = 0
+interval = 1
 exec = ${POLYBAR_SCRIPT_DIR}/audio.sh
 
 [module/battery]
 type = custom/script
-interval = 10
+interval = 20
 exec = ${POLYBAR_SCRIPT_DIR}/battery.sh
 format-padding = ${styles.padding}
 

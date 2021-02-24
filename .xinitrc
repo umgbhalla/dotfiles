@@ -3,6 +3,9 @@
 # set last redshift
 rshift set "$(cat $REDSHIFT_LAST)" &
 
+# mute audio
+audio vol set 0
+
 # init compositor
 $COMPOSITOR_ARGS &
 
