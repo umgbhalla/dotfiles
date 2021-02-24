@@ -113,7 +113,7 @@ esac
 case "$OS" in
   "$OS_LINUX"|"$OS_FREEBSD"|"$OS_OPENBSD")
     export COMPOSITOR="picom"
-    export COMPOSITOR_ARGS="${COMPOSITOR} -CG"
+    export COMPOSITOR_ARGS="${COMPOSITOR}"
     ;;
   *)
     export COMPOSITOR=""

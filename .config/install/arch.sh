@@ -45,7 +45,7 @@ PACKS="${PACKS} redshift"
 # file manager
 PACKS="${PACKS} vifm"
 # compositor
-PACKS="${PACKS} picom"
+# PACKS="${PACKS} picom"
 # display utils
 PACKS="${PACKS} xorg-xsetroot"
 # mouse/touchpad control
@@ -100,6 +100,9 @@ PACKS="${PACKS} firefox-tridactyl"
 PACKS="${PACKS} nethack"
 
 AUR="${AUR} mmv"
+
+# compositor fork with dual kawase and blur
+AUR="${AUR} picom-ibhagwan-git"
 
 # firefox extensions
 AUR="${AUR} firefox-tridactyl-native"
