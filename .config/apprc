@@ -128,6 +128,7 @@ export SHELLMENU_Y="$W_GAPS"
 
 export ST_ALPHA="$W_ALPHA"
 export ST_FONT="Source Code Pro:pixelsize=16:antialias=true:autohint=true"
+export ST_FONT_2="Automata:pixelsize=16"
 export ST_PADDING="$(echo "$W_GAPS * 1.5 / 1" | bc)"
 
 # vifm
