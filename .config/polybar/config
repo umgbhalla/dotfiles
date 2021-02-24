@@ -51,7 +51,7 @@ label-maxlen = 60
 
 [module/audio]
 type = custom/script
-interval = 1
+interval = 600
 exec = ${POLYBAR_SCRIPT_DIR}/audio.sh
 
 [module/battery]

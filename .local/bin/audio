@@ -158,20 +158,20 @@ case $1 in
       up)
         if [ -z $3 ]; then echo -e "${RED}USAGE: audio vol up [amount]${NC}";
         else vol_up $3; fi
-        $BAR_UPDATE > /dev/null
+        $POLYBAR_UPDATE > "$NULL"
         ;;
       down)
         if [ -z $3 ]; then echo -e "${RED}USAGE: audio vol down [amount]${NC}";
         else vol_down $3; fi
-        $BAR_UPDATE > /dev/null
+        $POLYBAR_UPDATE > "$NULL"
         ;;
       set)
         vol_set $3
-        $BAR_UPDATE > "$NULL"
+        $POLYBAR_UPDATE > "$NULL"
         ;;
       toggle)
         vol_toggle
-        $BAR_UPDATE > /dev/null
+        $POLYBAR_UPDATE > "$NULL"
         ;;
       *) echo -e "${RED}USAGE: audio vol [get | up | down | set | toggle]${NC}" ;;
     esac
@@ -180,7 +180,7 @@ case $1 in
     case $2 in
       toggle)
         mic_toggle
-        $BAR_UPDATE > /dev/null
+        $POLYBAR_UPDATE > "$NULL"
         ;;
       *) echo -e "${RED}USAGE: audio mic [toggle]${NC}" ;;
     esac
