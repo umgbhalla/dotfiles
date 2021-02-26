@@ -218,7 +218,7 @@ sudo sed -i 's/#Color/Color/' /etc/pacman.conf
 # timeout
 sudo sed -i 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=0/' "/etc/default/grub"
 # background
-sudo cp "${XDG_CONFIG_HOME}/wallpapers/grub.png" "/boot/grub/"
+sudo cp "${XDG_DATA_HOME}/wallpapers/grub.png" "/boot/grub/"
 sudo sed -i 's/#GRUB_BACKGROUND=.*/GRUB_BACKGROUND=\/boot\/grub\/grub.png/' "/etc/default/grub"
 # verbose
 sudo sed -i 's/quiet//' "/etc/default/grub"

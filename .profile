@@ -253,7 +253,8 @@ if [ "$OS" == "$OS_OPENBSD" ]; then
 fi
 
 # background command
-export BACKGROUND="hsetroot -solid ${C_CYAN_0}"
+# export BACKGROUND="hsetroot -solid ${C_CYAN_0}"
+export BACKGROUND="feh --no-fehbg --bg-fill ${XDG_DATA_HOME}/wallpapers/sailor.png"
 
 # startx
 if command -v "startx" >/dev/null; then
