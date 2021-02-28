@@ -4,7 +4,7 @@
 # window settings
 
 export W_ALPHA="0.8"
-export W_ALPHA_HEX="DD" # higher value means more opaque
+# export W_ALPHA_HEX="DD" # higher value means more opaque
 
 export W_BORDER_WIDTH="0"
 export W_CORNER_RADIUS="0"
