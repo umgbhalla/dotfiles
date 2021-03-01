@@ -68,6 +68,44 @@ screenCapture() {
 }
 
 # --------------------------------------------------------------------------
+# capture-crop
+# --------------------------------------------------------------------------
+
+screenCaptureCrop() {
+  if [ ! -f "${screenPid}" ]; then
+    geometry="$(slop)"
+
+    if [ -z "${geometry}" ]; then
+      echo "${RED}Error: invalid dimensions.${NC}"
+      return
+    fi
+
+    dim="$(echo "${geometry}" | cut -d"+" -f1)"
+    x="$(echo "${geometry}" | cut -d"+" -f2)"
+    y="$(echo "${geometry}" | cut -d"+" -f3)"
+
+    notify "Screen capture starting."
+    output="$captureOutputDir/screencapture-${datefmt}.mp4"
+
+    case $OS in
+      $OS_LINUX)
+        ffmpeg \
+          -f x11grab -video_size "$dim" \
+          -i "${DISPLAY}+${x},${y}" \
+          -f alsa -i default -c:v libx264 \
+          -preset ultrafast -c:a aac \
+          "$output" &
+        ;;
+    esac
+
+    echo $! > "${screenPid}"
+    $BAR_UPDATE
+  else
+    echo -e "${RED}Error: capture already in progress.${NC}"
+  fi
+}
+
+# --------------------------------------------------------------------------
 # crop
 # --------------------------------------------------------------------------
 
@@ -200,6 +238,7 @@ screenVideo() {
 
 case "$1" in
   capture) screenCapture ;;
+  capture-crop) screenCaptureCrop ;;
   crop) screenCrop ;;
   gif) screenGif ;;
   recording-status) screenRecordingStatus ;;

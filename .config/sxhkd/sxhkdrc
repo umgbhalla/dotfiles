@@ -68,6 +68,8 @@ shift + alt + 4
 
 # capture
 
+super + F11
+  scene capture-crop
 super + F10
   scene capture
 super + F9
