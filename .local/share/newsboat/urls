@@ -9,13 +9,14 @@ https://sam.bossley.us/feeds/log.xml
 # independent creative writing
 https://lukesmith.xyz/rss.xml independent tech commentary # luke smith
 https://allisonlcj.com/feed/atom independent commentary # allison lee
-# link seems to be dead
-# https://www.romanzolotarev.com/rss.xml independent tech # roman zolotarev
+https://www.romanzolotarev.com/rss.xml independent tech # roman zolotarev
 https://dataswamp.org/~solene/rss.xml independent tech # solene
 https://onetapestry.com/feed/atom independent christian # david kuo
 
 # podcasts
-https://vault.lunduke.com/LundukeShowMP3.xml independent tech commentary # bryan lunduke
+# https://vault.lunduke.com/LundukeShowMP3.xml independent tech commentary # bryan lunduke
+# https://odysee.com/@Lunduke TODO broken, fix
+
 # https://notrelated.libsyn.com/rss independent podcast # not related
 https://www.youtube.com/feeds/videos.xml?channel_id=UC9q4FW3t7AasK7o49C-Mq6w youtube meme podcast # gus and eddy
 # https://rss.art19.com/not-overthinking podcast # not overthinking
@@ -56,6 +57,11 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCKab3hYnOoTZZbEUQBMx-ww you
 
 # music
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCw3e5HIQiYc7p1bEpOtEkog "~Xisumamusic" youtube music # xisuma music
+# https://soundcloud.com/denycedenyce/tracks TODO add soundcloud feeds
+# https://soundcloud.com/hydrodynamiks
+# https://soundcloud.com/worsethanthis # a l e x
+# https://soundcloud.com/k_type_beat
+# https://soundcloud.com/jack-snyder
 
 # twitch
 https://twitchrss.appspot.com/vod/dunkstream "~Dunkey Stream" twitch meme game
