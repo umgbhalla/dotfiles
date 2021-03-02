@@ -212,7 +212,7 @@ pl() {
   else
     case "$1" in
       # audio only
-      "sc"*|*"soundcloud"*) mpv "$@" ;;
+      *"sc"*|*"soundcloud"*) mpv "$@" ;;
       # YT video
       *) devour mpv "$@" ;;
     esac
