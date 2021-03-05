@@ -10,4 +10,6 @@ ports,      /usr/ports
 pl,         $HOME/Data/Media/pl
 etc,        /etc
 school,     $HOME/Data/School/OSU/Year-4/Spring
+unity,      $HOME/Documents/Unity/Projects
+roguelike,  $HOME/Documents/Unity/Projects/Untitled_Roguelike
 
