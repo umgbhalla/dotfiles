@@ -27,6 +27,10 @@ font-1 = Automata:pixelsize=13;3
 
 cursor-click = pointer
 
+; tray
+tray-position = right
+tray-padding = ${styles.padding}
+
 modules-left = bspwm capture
 ; modules-center = title
 modules-right = audio battery date
