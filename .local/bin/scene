@@ -15,7 +15,7 @@ if [ -n "$1" ]; then
 fi
 
 # filename date format
-datefmt="$(\date +%y-%m-%d_%H:%M:%S)"
+datefmt="$(\date +%y-%m-%d_%H-%M-%S)"
 
 cursorHideX="0"
 cursorHideY="$RES_HEIGHT"
