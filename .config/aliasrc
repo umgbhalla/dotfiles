@@ -91,6 +91,7 @@ esac
 alias \
   ch="cursor hide" \
   cs="cursor show" \
+  cra="npx create-react-app --template=typescript --use-npm" \
   d="date" \
   em="neomutt" \
   fet="pfetch" \
