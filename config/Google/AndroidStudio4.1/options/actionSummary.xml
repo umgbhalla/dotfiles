@@ -1,0 +1,69 @@
+<application>
+  <component name="ActionsLocalSummary">
+    <data>
+      <entry key="$Undo">
+        <ActionSummary times="25" last="1614357280346" />
+      </entry>
+      <entry key="CloseProject">
+        <ActionSummary times="1" last="1614356309031" />
+      </entry>
+      <entry key="EditorBackSpace">
+        <ActionSummary times="18" last="1614357390962" />
+      </entry>
+      <entry key="EditorDeleteToWordStart">
+        <ActionSummary times="6" last="1614357278356" />
+      </entry>
+      <entry key="EditorEnter">
+        <ActionSummary times="2" last="1614357387209" />
+      </entry>
+      <entry key="EditorPreviousWord">
+        <ActionSummary times="1" last="1614356791347" />
+      </entry>
+      <entry key="EditorPreviousWordWithSelection">
+        <ActionSummary times="1" last="1614356792495" />
+      </entry>
+      <entry key="QuickChangeScheme">
+        <ActionSummary times="1" last="1614356167559" />
+      </entry>
+      <entry key="SearchEverywhere">
+        <ActionSummary times="1" last="1614356290128" />
+      </entry>
+      <entry key="ShowSettings">
+        <ActionSummary times="5" last="1614357316258" />
+      </entry>
+      <entry key="WelcomeScreen.CreateNewProject">
+        <ActionSummary times="1" last="1614356134721" />
+      </entry>
+      <entry key="WelcomeScreen.GoogleCloudTools.SampleImport">
+        <ActionSummary times="1" last="1614356127798" />
+      </entry>
+      <entry key="WelcomeScreen.OpenProject">
+        <ActionSummary times="1" last="1614356320552" />
+      </entry>
+      <entry key="WelcomeScreen.Plugins">
+        <ActionSummary times="1" last="1614356333372" />
+      </entry>
+      <entry key="com.intellij.codeInsight.daemon.NavigateAction">
+        <ActionSummary times="1" last="1614357410600" />
+      </entry>
+      <entry key="com.intellij.openapi.project.DumbAwareAction$SimpleDumbAwareAction">
+        <ActionSummary times="1" last="1614356291463" />
+      </entry>
+      <entry key="com.intellij.openapi.updateSettings.impl.UpdateChecker$showNotification$1">
+        <ActionSummary times="1" last="1614506955887" />
+      </entry>
+      <entry key="com.intellij.openapi.wm.impl.ToolWindowHeader$HideAction">
+        <ActionSummary times="4" last="1614356244155" />
+      </entry>
+      <entry key="com.intellij.openapi.wm.impl.welcomeScreen.FlatWelcomeFrame$FlatWelcomeScreen$5">
+        <ActionSummary times="1" last="1614356329046" />
+      </entry>
+      <entry key="flutter.NewProject.welcome">
+        <ActionSummary times="2" last="1614356490692" />
+      </entry>
+      <entry key="io.flutter.FlutterInitializer$2">
+        <ActionSummary times="1" last="1614356852247" />
+      </entry>
+    </data>
+  </component>
+</application>

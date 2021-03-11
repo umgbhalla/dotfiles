@@ -1,0 +1,17 @@
+2021/02/11-13:03:48.027 1bbf5 Reusing MANIFEST /home/umang/.config/Microsoft/Microsoft Teams/Local Storage/leveldb/MANIFEST-000001
+2021/02/11-13:03:48.027 1bbf5 Recovering log #16
+2021/02/11-13:03:48.031 1bbf5 Level-0 table #18: started
+2021/02/11-13:03:48.037 1bbf5 Level-0 table #18: 292959 bytes OK
+2021/02/11-13:03:48.039 1bbf5 Delete type=0 #16
+2021/02/11-13:03:48.040 1bc72 Compacting 4@0 + 1@1 files
+2021/02/11-13:03:48.056 1bc72 Generated table #20@0: 90 keys, 373130 bytes
+2021/02/11-13:03:48.056 1bc72 Compacted 4@0 + 1@1 files => 373130 bytes
+2021/02/11-13:03:48.057 1bc72 compacted to: files[ 0 1 1 0 0 0 0 ]
+2021/02/11-13:03:48.058 1bc72 Delete type=2 #8
+2021/02/11-13:03:48.058 1bc72 Delete type=2 #10
+2021/02/11-13:03:48.058 1bc72 Delete type=2 #15
+2021/02/11-13:03:48.058 1bc72 Delete type=2 #18
+2021/02/11-13:03:48.058 1bc72 Delete type=2 #13
+2021/02/11-13:03:54.454 1bc72 Level-0 table #22: started
+2021/02/11-13:03:54.456 1bc72 Level-0 table #22: 49127 bytes OK
+2021/02/11-13:03:54.458 1bc72 Delete type=0 #19

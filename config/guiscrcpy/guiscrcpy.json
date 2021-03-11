@@ -1,0 +1,17 @@
+{
+    "adb": "/usr/bin/adb",
+    "bitrate": 16000,
+    "dimension": null,
+    "dispRO": true,
+    "extra": "",
+    "fullscreen": false,
+    "paths": [
+        "bin",
+        "/usr/bin",
+        "~/.local/bin",
+        "~/bin",
+        "/usr/local/bin"
+    ],
+    "scrcpy": "/usr/bin/scrcpy",
+    "swtouches": false
+}

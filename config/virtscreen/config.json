@@ -1,0 +1,39 @@
+{
+    "customX11vncArgs": {
+        "enabled": false,
+        "value": ""
+    },
+    "displaySettingApp": "arandr",
+    "presets": [],
+    "theme_color": 8,
+    "version": "0.3.1",
+    "virt": {
+        "device": "VIRTUAL1",
+        "height": 1024,
+        "hidpi": false,
+        "portrait": false,
+        "width": 1368
+    },
+    "vnc": {
+        "autostart": false,
+        "port": 5900
+    },
+    "x11vncOptions": {
+        "-multiptr": {
+            "arg": null,
+            "available": true,
+            "enabled": true
+        },
+        "-ncache": {
+            "arg": 10,
+            "available": true,
+            "enabled": false
+        },
+        "-repeat": {
+            "arg": null,
+            "available": true,
+            "enabled": true
+        }
+    },
+    "x11vncVersion": "0.9.15"
+}

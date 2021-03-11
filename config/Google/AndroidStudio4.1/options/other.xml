@@ -1,0 +1,39 @@
+<application>
+  <component name="PropertiesComponent">
+    <property name="AndroidInitConfigurator.V1" value="true" />
+    <property name="AndroidInitConfigurator.V3" value="true" />
+    <property name="AndroidInitConfigurator.V5" value="true" />
+    <property name="AndroidPlatformName" value="Android API 30 Platform" />
+    <property name="DART_CHECK_SDK_UPDATE_KEY" value="DoNotCheck" />
+    <property name="Default.SavedEditorTheme" value="_@user_Default" />
+    <property name="FLUTTER_COMPANY_DOMAIN" value="umgflut1.com" />
+    <property name="FLUTTER_LAST_SURVEY_CONTENT_CHECK_KEY" value="1614357411014" />
+    <property name="FLUTTER_SDK_KNOWN_PATHS" value="$USER_HOME$/snap/flutter/common/flutter" />
+    <property name="MarketplacePluginsSearchHistory" value="ligature&#10;liga&#10;li&#10;/tag:&quot;User Interface&quot;&#10;theme" />
+    <property name="NonModalCommitCustomization.IsApplied" value="true" />
+    <property name="SAVED_ANDROID_NPW_ASKED_LANGUAGE" value="true" />
+    <property name="SAVED_ANDROID_NPW_LANGUAGE" value="Kotlin" />
+    <property name="SAVED_ANDROID_PACKAGE" value="com.example" />
+    <property name="UITheme.relaunch" value="true" />
+    <property name="ask.about.ctrl.y.shortcut" value="true" />
+    <property name="build.toolwindow.Sync.selection.state" value="com.intellij.build.BuildTreeConsoleView" />
+    <property name="file.chooser.recent.files" value="/mnt/F/flutterapps&#10;/mnt/F" />
+    <property name="file.gist.reindex.count" value="1" />
+    <property name="fileTypeChangedCounter" value="1" />
+    <property name="installed.kotlin.plugin.version" value="1.3.72-release-Studio4.1-5" />
+    <property name="io.flutter.analytics.clientId" value="aa106279-6647-4593-829f-ee6d5f5637f5" />
+    <property name="io.flutter.analytics.optOut" value="true" />
+    <property name="io.flutter.analytics.toastShown" value="true" />
+    <property name="io.flutter.console.preferencesSet" value="true" />
+    <property name="io.flutter.editor.enableHotUi" value="true" />
+    <property name="io.flutter.formatCodeOnSave" value="true" />
+    <property name="io.flutter.syncAndroidLibraries" value="true" />
+    <property name="kotlin-gradle-user-dirs" value="$USER_HOME$/.gradle" />
+    <property name="kotlin.plugin.releaseDate" value="1.3.72-release-Studio4.1-5:2020-06-17" />
+    <property name="lastSeenTip" value="Kotlin_Java_convert.html" />
+    <property name="lastTimeTipsWereShown" value="1614356292061" />
+    <property name="last_opened_file_path" value="/mnt/F/flutterapps" />
+    <property name="seenTips" value="Kotlin.html,Kotlin_Java_convert.html" />
+    <property name="tasks.pass.word.conversion.enforced" value="true" />
+  </component>
+</application>

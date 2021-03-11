@@ -1,0 +1,8 @@
+{
+    "gui": true,
+    "openAtLogin": false,
+    "ui": {
+        "darkMode": "alwaysDark"
+    },
+    "windowState": "{\"dockHidden\":false,\"height\":1039,\"isFullScreen\":false,\"width\":948,\"windowHidden\":true,\"x\":964,\"y\":33}"
+}

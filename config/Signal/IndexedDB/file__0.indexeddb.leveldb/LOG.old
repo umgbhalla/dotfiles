@@ -1,0 +1,7 @@
+2021/01/07-17:50:27.706 ec9a Reusing MANIFEST /home/umang/.config/Signal/IndexedDB/file__0.indexeddb.leveldb/MANIFEST-000001
+2021/01/07-17:50:27.706 ec9a Recovering log #4
+2021/01/07-17:50:27.706 ec9a Reusing old log /home/umang/.config/Signal/IndexedDB/file__0.indexeddb.leveldb/000004.log 
+2021/01/07-17:50:27.873 ec9f Level-0 table #8: started
+2021/01/07-17:50:27.874 ec9f Level-0 table #8: 469 bytes OK
+2021/01/07-17:50:27.877 ec9f Delete type=0 #4
+2021/01/07-17:50:27.877 ec9f Manual compaction at level-0 from '\x00\x02\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x03\x00\x00\x00' @ 0 : 0; will stop at (end)

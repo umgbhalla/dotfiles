@@ -1,0 +1,173 @@
+         app:INFO ------------------------------------------------
+         app:INFO             Sun Dec 20 21:44:34 2020            
+         app:INFO               Starting new session              
+         app:INFO ------------------------------------------------
+         app:INFO             OpenShot (version 2.5.1)            
+         app:INFO ------------------------------------------------
+         app:INFO openshot-qt version: 2.5.1
+         app:INFO libopenshot version: 0.2.5
+         app:INFO platform: Linux-5.8.0-7630-generic-x86_64-with-Pop-20.04-focal
+         app:INFO processor: x86_64
+         app:INFO machine: x86_64
+         app:INFO python version: 3.4.3
+         app:INFO qt5 version: 5.2.1
+         app:INFO pyqt5 version: 5.2.1
+    language:INFO Qt Detected Languages: ['en-US', 'en']
+    language:INFO LANG Environment Variable: en_US.UTF-8
+    language:INFO LOCALE Environment Variable: 
+    language:INFO OpenShot Preference Language: Default
+project_data:INFO Setting default profile to HD 720p 30 fps
+         app:INFO Setting font to /tmp/.mount_cFPC6W/usr/bin/images/fonts/Ubuntu-R.ttf
+logger_libopenshot:INFO Connecting to libopenshot with debug port: 5556
+         app:INFO Setting custom dark theme
+     ui_util:INFO Initializing UI for MainWindow
+ files_model:INFO updating files model.
+transition_model:INFO updating transitions model.
+effects_model:INFO updating effects model.
+properties_model:INFO updating clip properties model.
+transition_model:INFO updating transitions model.
+ files_model:INFO updating files model.
+ main_window:INFO InitCacheSettings
+ main_window:INFO cache-mode: CacheMemory
+ main_window:INFO cache-limit-mb: 250
+ main_window:INFO Creating CacheMemory object with 262144000 byte limit
+preview_thread:INFO QThread Start Method Invoked
+ main_window:INFO Clear all thumbnails: /home/umang/.openshot_qt/thumbnail
+preview_thread:INFO initPlayer
+ main_window:INFO Clear all animations: /home/umang/.openshot_qt/blender
+ main_window:INFO Clear all titles: /home/umang/.openshot_qt/title
+ main_window:INFO updateStatusChanged
+ main_window:INFO updateStatusChanged
+         app:INFO Process command-line arguments: ['/tmp/.mount_cFPC6W/usr/bin/openshot-qt']
+ main_window:INFO recover_backup
+project_data:INFO Setting default profile to HD 720p 30 fps
+preview_thread:INFO refreshFrame
+preview_thread:INFO self.player.Position(): 1
+video_widget:INFO Load: Set video widget display aspect ratio to: 1.7777777910232544
+video_widget:INFO Set video widget pixel aspect ratio to: 1.0
+ main_window:INFO updateStatusChanged
+preview_thread:INFO onModeChanged
+properties_model:INFO Update item: 
+properties_model:INFO updating clip properties model.
+preview_thread:INFO refreshFrame
+preview_thread:INFO self.player.Position(): 1
+    timeline:INFO Adjusting max size of preview image: PyQt5.QtCore.QSize(724, 407)
+preview_thread:INFO refreshFrame
+preview_thread:INFO self.player.Position(): 1
+     version:INFO Found current version: {"openshot_version": "2.5.1"}
+ main_window:INFO foundCurrentVersion: Found the latest version: 2.5.1
+timeline_webview:INFO Qt Found!
+timeline_webview:INFO $scope.Qt = true;
+timeline_webview:INFO SetThumbAddress: http://127.0.0.1:49899/thumbnails/
+timeline_webview:INFO SortItems
+timeline_webview:INFO UpdateLayerIndex
+timeline_webview:INFO UpdateLayerIndex
+     metrics:INFO Track metric: [200] http://www.google-analytics.com/collect?ua=Mozilla%2F5.0+%28X11%3B+Linux+x86_64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F37.0.2062.120+Safari%2F537.36&cd2=3.4.3&aip=1&cd3=5.2.1&sc=start&tid=UA-4381101-5&cd1=0.2.5&cd5=Pop-20.04-focal&t=screenview&ul=en-us&cd=launch-app&aid=org.openshot.openshot-qt&cid=&av=2.5.1&cd4=5.2.1&an=OpenShot+Video+Editor&v=1 | (35 bytes)
+     metrics:INFO Track metric: [200] http://www.google-analytics.com/collect?ua=Mozilla%2F5.0+%28X11%3B+Linux+x86_64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F37.0.2062.120+Safari%2F537.36&cd2=3.4.3&aip=1&cd3=5.2.1&tid=UA-4381101-5&cd1=0.2.5&cd5=Pop-20.04-focal&t=screenview&ul=en-us&cd=initial-launch-screen&aid=org.openshot.openshot-qt&cid=cdefae8b-2289-4b18-9ff2-a1fa8c7a7d6c&av=2.5.1&cd4=5.2.1&an=OpenShot+Video+Editor&v=1 | (35 bytes)
+     metrics:INFO Track metric: [200] http://www.google-analytics.com/collect?ua=Mozilla%2F5.0+%28X11%3B+Linux+x86_64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F37.0.2062.120+Safari%2F537.36&cd2=3.4.3&aip=1&cd3=5.2.1&sc=start&tid=UA-4381101-5&cd1=0.2.5&cd5=Pop-20.04-focal&t=screenview&ul=en-us&cd=launch-app&aid=org.openshot.openshot-qt&cid=&av=2.5.1&cd4=5.2.1&an=OpenShot+Video+Editor&v=1 | (35 bytes)
+     metrics:INFO Track metric: [200] http://www.google-analytics.com/collect?ua=Mozilla%2F5.0+%28X11%3B+Linux+x86_64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F37.0.2062.120+Safari%2F537.36&cd2=3.4.3&aip=1&cd3=5.2.1&tid=UA-4381101-5&cd1=0.2.5&cd5=Pop-20.04-focal&t=screenview&ul=en-us&cd=main-screen&aid=org.openshot.openshot-qt&cid=cdefae8b-2289-4b18-9ff2-a1fa8c7a7d6c&av=2.5.1&cd4=5.2.1&an=OpenShot+Video+Editor&v=1 | (35 bytes)
+     metrics:INFO Track metric: [200] http://www.google-analytics.com/collect?ua=Mozilla%2F5.0+%28X11%3B+Linux+x86_64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F37.0.2062.120+Safari%2F537.36&cd2=3.4.3&aip=1&cd3=5.2.1&tid=UA-4381101-5&cd1=0.2.5&cd5=Pop-20.04-focal&t=screenview&ul=en-us&cd=initial-launch-screen&aid=org.openshot.openshot-qt&cid=cdefae8b-2289-4b18-9ff2-a1fa8c7a7d6c&av=2.5.1&cd4=5.2.1&an=OpenShot+Video+Editor&v=1 | (35 bytes)
+     metrics:INFO Track metric: [200] http://www.google-analytics.com/collect?ua=Mozilla%2F5.0+%28X11%3B+Linux+x86_64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F37.0.2062.120+Safari%2F537.36&cd2=3.4.3&aip=1&cd3=5.2.1&tid=UA-4381101-5&cd1=0.2.5&cd5=Pop-20.04-focal&t=screenview&ul=en-us&cd=metrics-opt-in&aid=org.openshot.openshot-qt&cid=cdefae8b-2289-4b18-9ff2-a1fa8c7a7d6c&av=2.5.1&cd4=5.2.1&an=OpenShot+Video+Editor&v=1 | (35 bytes)
+     metrics:INFO Track metric: [200] http://www.google-analytics.com/collect?ua=Mozilla%2F5.0+%28X11%3B+Linux+x86_64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F37.0.2062.120+Safari%2F537.36&cd2=3.4.3&aip=1&cd3=5.2.1&tid=UA-4381101-5&cd1=0.2.5&cd5=Pop-20.04-focal&t=screenview&ul=en-us&cd=main-screen&aid=org.openshot.openshot-qt&cid=cdefae8b-2289-4b18-9ff2-a1fa8c7a7d6c&av=2.5.1&cd4=5.2.1&an=OpenShot+Video+Editor&v=1 | (35 bytes)
+     metrics:INFO Track metric: [200] http://www.google-analytics.com/collect?ua=Mozilla%2F5.0+%28X11%3B+Linux+x86_64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F37.0.2062.120+Safari%2F537.36&cd2=3.4.3&aip=1&cd3=5.2.1&tid=UA-4381101-5&cd1=0.2.5&cd5=Pop-20.04-focal&t=screenview&ul=en-us&cd=metrics-opt-out&aid=org.openshot.openshot-qt&cid=cdefae8b-2289-4b18-9ff2-a1fa8c7a7d6c&av=2.5.1&cd4=5.2.1&an=OpenShot+Video+Editor&v=1 | (35 bytes)
+     metrics:INFO Track metric: [200] http://www.google-analytics.com/collect?ua=Mozilla%2F5.0+%28X11%3B+Linux+x86_64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F37.0.2062.120+Safari%2F537.36&cd2=3.4.3&aip=1&cd3=5.2.1&tid=UA-4381101-5&cd1=0.2.5&cd5=Pop-20.04-focal&t=screenview&ul=en-us&cd=metrics-opt-in&aid=org.openshot.openshot-qt&cid=cdefae8b-2289-4b18-9ff2-a1fa8c7a7d6c&av=2.5.1&cd4=5.2.1&an=OpenShot+Video+Editor&v=1 | (35 bytes)
+    timeline:INFO Adjusting max size of preview image: PyQt5.QtCore.QSize(1284, 722)
+preview_thread:INFO refreshFrame
+preview_thread:INFO self.player.Position(): 1
+    timeline:INFO Adjusting max size of preview image: PyQt5.QtCore.QSize(1284, 722)
+preview_thread:INFO refreshFrame
+preview_thread:INFO self.player.Position(): 1
+    timeline:INFO Adjusting max size of preview image: PyQt5.QtCore.QSize(1284, 722)
+preview_thread:INFO refreshFrame
+preview_thread:INFO self.player.Position(): 1
+    timeline:INFO Adjusting max size of preview image: PyQt5.QtCore.QSize(1284, 722)
+preview_thread:INFO refreshFrame
+preview_thread:INFO self.player.Position(): 1
+    timeline:INFO Adjusting max size of preview image: PyQt5.QtCore.QSize(1496, 842)
+preview_thread:INFO refreshFrame
+preview_thread:INFO self.player.Position(): 1
+ main_window:INFO ---------------- Shutting down -----------------
+preview_thread:INFO exiting thread
+   thumbnail:INFO Shutting down thumbnail server: ('127.0.0.1', 49899)
+preview_thread:INFO onModeChanged
+         app:INFO             OpenShot's session ended            
+         app:INFO             Sun Dec 20 21:45:30 2020            
+         app:INFO ================================================
+         app:INFO ------------------------------------------------
+         app:INFO             Sun Jan 17 01:31:30 2021            
+         app:INFO               Starting new session              
+         app:INFO ------------------------------------------------
+         app:INFO             OpenShot (version 2.5.1)            
+         app:INFO ------------------------------------------------
+         app:INFO openshot-qt version: 2.5.1
+         app:INFO libopenshot version: 0.2.5
+         app:INFO platform: Linux-5.8.0-7630-generic-x86_64-with-Pop-20.04-focal
+         app:INFO processor: x86_64
+         app:INFO machine: x86_64
+         app:INFO python version: 3.4.3
+         app:INFO qt5 version: 5.2.1
+         app:INFO pyqt5 version: 5.2.1
+    language:INFO Qt Detected Languages: ['en-US', 'en']
+    language:INFO LANG Environment Variable: en_US.UTF-8
+    language:INFO LOCALE Environment Variable: 
+    language:INFO OpenShot Preference Language: Default
+project_data:INFO Setting default profile to HD 720p 30 fps
+         app:INFO Setting font to /tmp/.mount_7g6pOr/usr/bin/images/fonts/Ubuntu-R.ttf
+logger_libopenshot:INFO Connecting to libopenshot with debug port: 5556
+         app:INFO Setting custom dark theme
+     ui_util:INFO Initializing UI for MainWindow
+ files_model:INFO updating files model.
+transition_model:INFO updating transitions model.
+effects_model:INFO updating effects model.
+properties_model:INFO updating clip properties model.
+transition_model:INFO updating transitions model.
+ files_model:INFO updating files model.
+ main_window:INFO InitCacheSettings
+ main_window:INFO cache-mode: CacheMemory
+ main_window:INFO cache-limit-mb: 250
+ main_window:INFO Creating CacheMemory object with 262144000 byte limit
+preview_thread:INFO QThread Start Method Invoked
+preview_thread:INFO initPlayer
+ main_window:INFO Clear all thumbnails: /home/umang/.openshot_qt/thumbnail
+     version:INFO Found current version: {"openshot_version": "2.5.1"}
+ main_window:INFO Clear all animations: /home/umang/.openshot_qt/blender
+ main_window:INFO Clear all titles: /home/umang/.openshot_qt/title
+ main_window:INFO updateStatusChanged
+ main_window:INFO updateStatusChanged
+         app:INFO Process command-line arguments: ['/tmp/.mount_7g6pOr/usr/bin/openshot-qt']
+ main_window:INFO recover_backup
+project_data:INFO Setting default profile to HD 720p 30 fps
+preview_thread:INFO refreshFrame
+preview_thread:INFO self.player.Position(): 1
+video_widget:INFO Load: Set video widget display aspect ratio to: 1.7777777910232544
+video_widget:INFO Set video widget pixel aspect ratio to: 1.0
+ main_window:INFO updateStatusChanged
+ main_window:INFO foundCurrentVersion: Found the latest version: 2.5.1
+preview_thread:INFO onModeChanged
+properties_model:INFO Update item: 
+properties_model:INFO updating clip properties model.
+preview_thread:INFO refreshFrame
+preview_thread:INFO self.player.Position(): 1
+    timeline:INFO Adjusting max size of preview image: PyQt5.QtCore.QSize(844, 475)
+preview_thread:INFO refreshFrame
+preview_thread:INFO self.player.Position(): 1
+timeline_webview:WARNING TimelineWebView::eval_js() called before document ready event. Script queued: $('body').scope().SetTrackLabel('Track %s');
+timeline_webview:WARNING TimelineWebView::eval_js() called before document ready event. Script queued: $('body').scope().LoadJson({"type": "load", "value": {"import_path": "", "settings": {}, "version": {"openshot-qt": "0.0.0", "libopenshot": "0.0.0"}, "display_ratio": {"den": 9, "num": 16}, "id": "0W8HRFS5VC", "scale": 15, "files": [], "progress": [], "markers": [], "duration": 300, "tick_pixels": 100, "clips": [], "channels": 2, "channel_layout": 3, "height": 720, "layers": [{"id": "L1", "lock": false, "label": "", "number": 1000000, "y": 0}, {"id": "L2", "lock": false, "label": "", "number": 2000000, "y": 0}, {"id": "L3", "lock": false, "label": "", "number": 3000000, "y": 0}, {"id": "L4", "lock": false, "label": "", "number": 4000000, "y": 0}, {"id": "L5", "lock": false, "label": "", "number": 5000000, "y": 0}], "export_path": "", "width": 1280, "pixel_ratio": {"den": 1, "num": 1}, "effects": [], "sample_rate": 44100, "fps": {"den": 1, "num": 30}, "profile": "HD 720p 30 fps", "playhead_position": 0}, "key": "", "old_values": {}, "partial": false});
+timeline_webview:WARNING TimelineWebView::eval_js() called before document ready event. Script queued: $('body').scope().setScale(15, 0);
+timeline_webview:WARNING TimelineWebView::eval_js() called before document ready event. Script queued: $('body').scope().SetSnappingMode(1);
+timeline_webview:INFO Qt Found!
+timeline_webview:INFO $scope.Qt = true;
+timeline_webview:INFO SetThumbAddress: http://127.0.0.1:59095/thumbnails/
+    timeline:INFO Adjusting max size of preview image: PyQt5.QtCore.QSize(1496, 842)
+preview_thread:INFO refreshFrame
+preview_thread:INFO self.player.Position(): 1
+timeline_webview:INFO SortItems
+timeline_webview:INFO UpdateLayerIndex
+timeline_webview:INFO UpdateLayerIndex
+ main_window:INFO ---------------- Shutting down -----------------
+preview_thread:INFO exiting thread
+   thumbnail:INFO Shutting down thumbnail server: ('127.0.0.1', 59095)
+preview_thread:INFO onModeChanged
+         app:INFO             OpenShot's session ended            
+         app:INFO             Sun Jan 17 01:31:39 2021            
+         app:INFO ================================================

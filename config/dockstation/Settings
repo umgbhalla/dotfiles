@@ -1,0 +1,22 @@
+{
+	"settings": {
+		"shell": "sh",
+		"logsLimit": 500,
+		"termPath": "",
+		"termArgs": "",
+		"sshTunnel": {
+			"type": "port",
+			"port": 3500,
+			"socketPath": "/tmp/docker.tmp.sock",
+			"dockerPath": "/var/run/docker.sock"
+		},
+		"docker": {
+			"type": "native",
+			"vmName": "default",
+			"driver": "virtualbox"
+		}
+	},
+	"docker": {
+		"type": "machine"
+	}
+}

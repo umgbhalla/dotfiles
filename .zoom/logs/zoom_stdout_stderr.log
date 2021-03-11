@@ -1,0 +1,689 @@
+ZoomLauncher started.
+Zoom path is: /opt/zoom
+cmd line: zoommtg://google.zoom.us/google?token=ZfNwErPCELGLYaw%2FUngpUGZpt6WqCDNz9pTA9BFUSs9u51DHp6NN7VjHNQFcOvES5%2BC7RLJH2TcdWtFZPeeM1TIUapXmEfSGgmKE%2B4%2Fh%2Fp3%2FfgGTEvuBlgKav%2BHzfG%2FA1GDUBD3e9VMO%2FKzC%2BXv758odptFtv6Xf%2FFz8WLTYKsL7ew6CaD1ndhHsyXzY4m9oawMUhg5B4SziUKldBSokkR48cWE8J2WYwjZ6dtE%2FOYRSU2ZtGLfc%2BDagX8SgKYNdEbhdGwZUhxhXjwlyH1GB1wrYEzPsvdtcL0HoGQ71e%2FSi2iS29jNpHKdE7kJBAh2tHKIOZQg5RqDRxGbIuGhi35ji0YyyCbnRLiDgzIaw1y0%3D&errorno=0&errormsg=
+CreateReportChannel bp_server_fd=4
+$HOME = /home/umang 
+export SSB_HOME=/home/umang/.zoom; export QSG_INFO=1; export LD_LIBRARY_PATH=/opt/zoom; export BREAKPAD_CLIENT_FD=3; /opt/zoom/zoom "zoommtg://google.zoom.us/google?token=ZfNwErPCELGLYaw%2FUngpUGZpt6WqCDNz9pTA9BFUSs9u51DHp6NN7VjHNQFcOvES5%2BC7RLJH2TcdWtFZPeeM1TIUapXmEfSGgmKE%2B4%2Fh%2Fp3%2FfgGTEvuBlgKav%2BHzfG%2FA1GDUBD3e9VMO%2FKzC%2BXv758odptFtv6Xf%2FFz8WLTYKsL7ew6CaD1ndhHsyXzY4m9oawMUhg5B4SziUKldBSokkR48cWE8J2WYwjZ6dtE%2FOYRSU2ZtGLfc%2BDagX8SgKYNdEbhdGwZUhxhXjwlyH1GB1wrYEzPsvdtcL0HoGQ71e%2FSi2iS29jNpHKdE7kJBAh2tHKIOZQg5RqDRxGbIuGhi35ji0YyyCbnRLiDgzIaw1y0%3D&errorno=0&errormsg=" 
+zoom started.
+Zoom is running, send message to it: zoommtg://google.zoom.us/google?token=ZfNwErPCELGLYaw%2FUngpUGZpt6WqCDNz9pTA9BFUSs9u51DHp6NN7VjHNQFcOvES5%2BC7RLJH2TcdWtFZPeeM1TIUapXmEfSGgmKE%2B4%2Fh%2Fp3%2FfgGTEvuBlgKav%2BHzfG%2FA1GDUBD3e9VMO%2FKzC%2BXv758odptFtv6Xf%2FFz8WLTYKsL7ew6CaD1ndhHsyXzY4m9oawMUhg5B4SziUKldBSokkR48cWE8J2WYwjZ6dtE%2FOYRSU2ZtGLfc%2BDagX8SgKYNdEbhdGwZUhxhXjwlyH1GB1wrYEzPsvdtcL0HoGQ71e%2FSi2iS29jNpHKdE7kJBAh2tHKIOZQg5RqDRxGbIuGhi35ji0YyyCbnRLiDgzIaw1y0%3D&errorno=0&errormsg=
+Exit zoom as another zoom instance is running!
+Client: Breakpad is using Client-Server Mode! client fd = 3
+success to create child process,status is 0.
+zoom exited normally.
+run zoom successfully,exit code is 0.
+ZoomLauncher exit.
+ZoomLauncher started.
+Zoom path is: /opt/zoom
+cmd line: zoommtg://zoom.us/join?action=join&confno=94033300147&uid=xgauJI81R92IjvhH44f9gw&uname=IIIT_Umang%20Bhalla&pk=wI2MFhlVOTYxREeCCHbd8AGB5cA0wRDT-jhHz1T4ENo9EJVsmC1czYlGsgBovI4esq3yBkxri0d10Wp63A1dyJnZsTbisqVP2BmI6UludqkXRMEFAwQF1J39URNaO8acZ3-sVUGixCxJOYQIiic.0SW6-vW6hMLjDD8c&zc=0&mcv=0.92.11227.0929&confid=ZW1haWw9dW1hbmdiaGFsbGExJTQwZ21haWwuY29tJnVzcz0zVzFoUjdybzVNTkYwSGtHdkRoRXFSTm5JVFB0dTVSNmJIRTJaMmdjbWlFeEp0cHcyOUtvYmY1YWhkWk1MMFR4ZENpRkpYTVpiMG95WmVDUzBjaWtMZy5TcW1peW5vNkZleWd4WG5iJnRpZD0wMTdjMzE1ODgzMWI0YWYxODVkOGFkZGI0YTExNzVmZg%3D%3D&browser=chrome&t=1613219833555
+CreateReportChannel bp_server_fd=4
+$HOME = /home/umang 
+export SSB_HOME=/home/umang/.zoom; export QSG_INFO=1; export LD_LIBRARY_PATH=/opt/zoom; export BREAKPAD_CLIENT_FD=3; /opt/zoom/zoom "zoommtg://zoom.us/join?action=join&confno=94033300147&uid=xgauJI81R92IjvhH44f9gw&uname=IIIT_Umang%20Bhalla&pk=wI2MFhlVOTYxREeCCHbd8AGB5cA0wRDT-jhHz1T4ENo9EJVsmC1czYlGsgBovI4esq3yBkxri0d10Wp63A1dyJnZsTbisqVP2BmI6UludqkXRMEFAwQF1J39URNaO8acZ3-sVUGixCxJOYQIiic.0SW6-vW6hMLjDD8c&zc=0&mcv=0.92.11227.0929&confid=ZW1haWw9dW1hbmdiaGFsbGExJTQwZ21haWwuY29tJnVzcz0zVzFoUjdybzVNTkYwSGtHdkRoRXFSTm5JVFB0dTVSNmJIRTJaMmdjbWlFeEp0cHcyOUtvYmY1YWhkWk1MMFR4ZENpRkpYTVpiMG95WmVDUzBjaWtMZy5TcW1peW5vNkZleWd4WG5iJnRpZD0wMTdjMzE1ODgzMWI0YWYxODVkOGFkZGI0YTExNzVmZg%3D%3D&browser=chrome&t=1613219833555" 
+zoom started.
+Zoom is running, send message to it: zoommtg://zoom.us/join?action=join&confno=94033300147&uid=xgauJI81R92IjvhH44f9gw&uname=IIIT_Umang%20Bhalla&pk=wI2MFhlVOTYxREeCCHbd8AGB5cA0wRDT-jhHz1T4ENo9EJVsmC1czYlGsgBovI4esq3yBkxri0d10Wp63A1dyJnZsTbisqVP2BmI6UludqkXRMEFAwQF1J39URNaO8acZ3-sVUGixCxJOYQIiic.0SW6-vW6hMLjDD8c&zc=0&mcv=0.92.11227.0929&confid=ZW1haWw9dW1hbmdiaGFsbGExJTQwZ21haWwuY29tJnVzcz0zVzFoUjdybzVNTkYwSGtHdkRoRXFSTm5JVFB0dTVSNmJIRTJaMmdjbWlFeEp0cHcyOUtvYmY1YWhkWk1MMFR4ZENpRkpYTVpiMG95WmVDUzBjaWtMZy5TcW1peW5vNkZleWd4WG5iJnRpZD0wMTdjMzE1ODgzMWI0YWYxODVkOGFkZGI0YTExNzVmZg%3D%3D&browser=chrome&t=1613219833555
+Exit zoom as another zoom instance is running!
+Client: Breakpad is using Client-Server Mode! client fd = 3
+success to create child process,status is 0.
+zoom exited normally.
+run zoom successfully,exit code is 0.
+ZoomLauncher exit.
+ZoomLauncher started.
+Zoom path is: /opt/zoom
+cmd line: 
+CreateReportChannel bp_server_fd=4
+$HOME = /home/umang 
+export SSB_HOME=/home/umang/.zoom; export QSG_INFO=1; export LD_LIBRARY_PATH=/opt/zoom; export BREAKPAD_CLIENT_FD=3; /opt/zoom/zoom "" 
+zoom started.
+Exit zoom as another zoom instance is running!
+Client: Breakpad is using Client-Server Mode! client fd = 3
+success to create child process,status is 0.
+zoom exited normally.
+run zoom successfully,exit code is 0.
+ZoomLauncher exit.
+ZoomLauncher started.
+Zoom path is: /opt/zoom
+cmd line: 
+CreateReportChannel bp_server_fd=4
+$HOME = /home/umang 
+export SSB_HOME=/home/umang/.zoom; export QSG_INFO=1; export LD_LIBRARY_PATH=/opt/zoom; export BREAKPAD_CLIENT_FD=3; /opt/zoom/zoom "" 
+zoom started.
+Exit zoom as another zoom instance is running!
+Client: Breakpad is using Client-Server Mode! client fd = 3
+success to create child process,status is 0.
+zoom exited normally.
+run zoom successfully,exit code is 0.
+ZoomLauncher exit.
+ZoomLauncher started.
+Zoom path is: /opt/zoom
+cmd line: 
+CreateReportChannel bp_server_fd=4
+$HOME = /home/umang 
+export SSB_HOME=/home/umang/.zoom; export QSG_INFO=1; export LD_LIBRARY_PATH=/opt/zoom; export BREAKPAD_CLIENT_FD=3; /opt/zoom/zoom "" 
+zoom started.
+[CZPClientLogMgr::LogClientEnvironment] [MacAddr: F8:E4:E3:26:ED:55][client: Linux][OS:  Pop!_OS 20.04 LTS x64][Hardware: CPU Core:6 Frenquency:1.31508 G Memory size:7435MB CPU Brand:AMD Ryzen 5 4500U with Radeon Graphics          GPU Brand:][Req ID: ]
+Linux Client Version is 5.5.7011.0206
+QSG_RENDER_LOOP is 
+XDG_CURRENT_DESKTOP = pop:GNOME;   GDMSESSION = pop
+Graphics Card Info:: 03:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Renoir (rev c3)
+Zoom package arch is 64bit, runing OS arch is x86_64
+qt.scenegraph.general: threaded render loop
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 1024x512
+qt.scenegraph.general: R/G/B/A Buffers:   8 8 8 8
+qt.scenegraph.general: Depth Buffer:      24
+qt.scenegraph.general: Stencil Buffer:    8
+qt.scenegraph.general: Samples:           -1
+qt.scenegraph.general: GL_VENDOR:         AMD
+qt.scenegraph.general: GL_RENDERER:       AMD RENOIR (DRM 3.38.0, 5.8.0-7642-generic, LLVM 11.0.0)
+qt.scenegraph.general: GL_VERSION:        4.6 (Compatibility Profile) Mesa 20.3.2
+qt.scenegraph.general: GL_EXTENSIONS:    GL_AMD_conservative_depth GL_AMD_depth_clamp_separate GL_AMD_draw_buffers_blend GL_AMD_framebuffer_multisample_advanced GL_AMD_multi_draw_indirect GL_AMD_performance_monitor GL_AMD_pinned_memory GL_AMD_query_buffer_object GL_AMD_seamless_cubemap_per_texture GL_AMD_shader_stencil_export GL_AMD_shader_trinary_minmax GL_AMD_texture_texture4 GL_AMD_vertex_shader_layer GL_AMD_vertex_shader_viewport_index GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_APPLE_packed_pixels GL_ARB_ES2_compatibility GL_ARB_ES3_1_compatibility GL_ARB_ES3_compatibility GL_ARB_arrays_of_arrays GL_ARB_base_instance GL_ARB_bindless_texture GL_ARB_blend_func_extended GL_ARB_buffer_storage GL_ARB_clear_buffer_object GL_ARB_clear_texture GL_ARB_clip_control GL_ARB_color_buffer_float GL_ARB_compatibility GL_ARB_compressed_texture_pixel_storage GL_ARB_compute_shader GL_ARB_compute_variable_group_size GL_ARB_conditional_render_inverted GL_ARB_conservative_depth GL_ARB_copy_buffer GL_ARB_copy_image GL_ARB_cull_distance GL_ARB_debug_output GL_ARB_depth_buffer_float GL_ARB_depth_clamp GL_ARB_depth_texture GL_ARB_derivative_control GL_ARB_direct_state_access GL_ARB_draw_buffers GL_ARB_draw_buffers_blend GL_ARB_draw_elements_base_vertex GL_ARB_draw_indirect GL_ARB_draw_instanced GL_ARB_enhanced_layouts GL_ARB_explicit_attrib_location GL_ARB_explicit_uniform_location GL_ARB_fragment_coord_conventions GL_ARB_fragment_layer_viewport GL_ARB_fragment_program GL_ARB_fragment_program_shadow GL_ARB_fragment_shader GL_ARB_framebuffer_no_attachments GL_ARB_framebuffer_object GL_ARB_framebuffer_sRGB GL_ARB_get_program_binary GL_ARB_get_texture_sub_image GL_ARB_gl_spirv GL_ARB_gpu_shader5 GL_ARB_gpu_shader_fp64 GL_ARB_gpu_shader_int64 GL_ARB_half_float_pixel GL_ARB_half_float_vertex GL_ARB_indirect_parameters GL_ARB_instanced_arrays GL_ARB_internalformat_query GL_ARB_internalformat_query2 GL_ARB_invalidate_subdata GL_ARB_map_buffer_alignment GL_ARB_map_buffer_range GL_ARB_multi_bind GL_ARB_multi_draw_indirect GL_ARB_multisample GL_ARB_multitexture GL_ARB_occlusion_query GL_ARB_occlusion_query2 GL_ARB_parallel_shader_compile GL_ARB_pipeline_statistics_query GL_ARB_pixel_buffer_object GL_ARB_point_parameters GL_ARB_point_sprite GL_ARB_polygon_offset_clamp GL_ARB_program_interface_query GL_ARB_provoking_vertex GL_ARB_query_buffer_object GL_ARB_robust_buffer_access_behavior GL_ARB_robustness GL_ARB_sample_shading GL_ARB_sampler_objects GL_ARB_seamless_cube_map GL_ARB_seamless_cubemap_per_texture GL_ARB_separate_shader_objects GL_ARB_shader_atomic_counter_ops GL_ARB_shader_atomic_counters GL_ARB_shader_ballot GL_ARB_shader_bit_encoding GL_ARB_shader_clock GL_ARB_shader_draw_parameters GL_ARB_shader_group_vote GL_ARB_shader_image_load_store GL_ARB_shader_image_size GL_ARB_shader_objects GL_ARB_shader_precision GL_ARB_shader_stencil_export GL_ARB_shader_storage_buffer_object GL_ARB_shader_subroutine GL_ARB_shader_texture_image_samples GL_ARB_shader_texture_lod GL_ARB_shader_viewport_layer_array GL_ARB_shading_language_100 GL_ARB_shading_language_420pack GL_ARB_shading_language_include GL_ARB_shading_language_packing GL_ARB_shadow GL_ARB_sparse_buffer GL_ARB_spirv_extensions GL_ARB_stencil_texturing GL_ARB_sync GL_ARB_tessellation_shader GL_ARB_texture_barrier GL_ARB_texture_border_clamp GL_ARB_texture_buffer_object GL_ARB_texture_buffer_object_rgb32 GL_ARB_texture_buffer_range GL_ARB_texture_compression GL_ARB_texture_compression_bptc GL_ARB_texture_compression_rgtc GL_ARB_texture_cube_map GL_ARB_texture_cube_map_array GL_ARB_texture_env_add GL_ARB_texture_env_combine GL_ARB_texture_env_crossbar GL_ARB_texture_env_dot3 GL_ARB_texture_filter_anisotropic GL_ARB_texture_float GL_ARB_texture_gather GL_ARB_texture_mirror_clamp_to_edge GL_ARB_texture_mirrored_repeat GL_ARB_texture_multisample GL_ARB_texture_non_power_of_two GL_ARB_texture_query_levels GL_ARB_texture_query_lod GL_ARB_texture_rectangle GL_ARB_texture_rg GL_ARB_texture_rgb10_a2ui GL_ARB_texture_stencil8 GL_ARB_texture_storage GL_ARB_texture_storage_multisample GL_ARB_texture_swizzle GL_ARB_texture_view GL_ARB_timer_query GL_ARB_transform_feedback2 GL_ARB_transform_feedback3 GL_ARB_transform_feedback_instanced GL_ARB_transform_feedback_overflow_query GL_ARB_transpose_matrix GL_ARB_uniform_buffer_object GL_ARB_vertex_array_bgra GL_ARB_vertex_array_object GL_ARB_vertex_attrib_64bit GL_ARB_vertex_attrib_binding GL_ARB_vertex_buffer_object GL_ARB_vertex_program GL_ARB_vertex_shader GL_ARB_vertex_type_10f_11f_11f_rev GL_ARB_vertex_type_2_10_10_10_rev GL_ARB_viewport_array GL_ARB_window_pos GL_ATI_blend_equation_separate GL_ATI_draw_buffers GL_ATI_fragment_shader GL_ATI_meminfo GL_ATI_separate_stencil GL_ATI_texture_compression_3dc GL_ATI_texture_env_combine3 GL_ATI_texture_float GL_ATI_texture_mirror_once GL_EXT_EGL_image_storage GL_EXT_EGL_sync GL_EXT_abgr GL_EXT_bgra GL_EXT_blend_color GL_EXT_blend_equation_separate GL_EXT_blend_func_separate GL_EXT_blend_minmax GL_EXT_blend_subtract GL_EXT_compiled_vertex_array GL_EXT_copy_texture GL_EXT_depth_bounds_test GL_EXT_direct_state_access GL_EXT_draw_buffers2 GL_EXT_draw_instanced GL_EXT_draw_range_elements GL_EXT_fog_coord GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXT_framebuffer_multisample_blit_scaled GL_EXT_framebuffer_object GL_EXT_framebuffer_sRGB GL_EXT_gpu_program_parameters GL_EXT_gpu_shader4 GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_multi_draw_arrays GL_EXT_packed_depth_stencil GL_EXT_packed_float GL_EXT_packed_pixels GL_EXT_pixel_buffer_object GL_EXT_point_parameters GL_EXT_polygon_offset_clamp GL_EXT_provoking_vertex GL_EXT_rescale_normal GL_EXT_secondary_color GL_EXT_semaphore GL_EXT_semaphore_fd GL_EXT_separate_specular_color GL_EXT_shader_image_load_formatted GL_EXT_shader_image_load_store GL_EXT_shader_integer_mix GL_EXT_shader_samples_identical GL_EXT_shadow_funcs GL_EXT_stencil_two_side GL_EXT_stencil_wrap GL_EXT_subtexture GL_EXT_texture GL_EXT_texture3D GL_EXT_texture_array GL_EXT_texture_buffer_object GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_latc GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc GL_EXT_texture_cube_map GL_EXT_texture_edge_clamp GL_EXT_texture_env_add GL_EXT_texture_env_combine GL_EXT_texture_env_dot3 GL_EXT_texture_filter_anisotropic GL_EXT_texture_integer GL_EXT_texture_lod_bias GL_EXT_texture_mirror_clamp GL_EXT_texture_object GL_EXT_texture_rectangle GL_EXT_texture_sRGB GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_decode GL_EXT_texture_shadow_lod GL_EXT_texture_shared_exponent GL_EXT_texture_snorm GL_EXT_texture_swizzle GL_EXT_timer_query GL_EXT_transform_feedback GL_EXT_vertex_array GL_EXT_vertex_array_bgra GL_EXT_vertex_attrib_64bit GL_EXT_window_rectangles GL_IBM_multimode_draw_arrays GL_IBM_rasterpos_clip GL_IBM_texture_mirrored_repeat GL_INGR_blend_func_separate GL_INTEL_blackhole_render GL_KHR_blend_equation_advanced GL_KHR_context_flush_control GL_KHR_debug GL_KHR_no_error GL_KHR_parallel_shader_compile GL_KHR_robust_buffer_access_behavior GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_KHR_texture_compression_astc_sliced_3d GL_MESA_framebuffer_flip_y GL_MESA_pack_invert GL_MESA_shader_integer_functions GL_MESA_texture_signed_rgba GL_MESA_window_pos GL_NVX_gpu_memory_info GL_NV_alpha_to_coverage_dither_control GL_NV_blend_square GL_NV_conditional_render GL_NV_copy_depth_to_color GL_NV_copy_image GL_NV_depth_clamp GL_NV_fog_distance GL_NV_half_float GL_NV_light_max_exponent GL_NV_packed_depth_stencil GL_NV_primitive_restart GL_NV_shader_atomic_int64 GL_NV_texgen_reflection GL_NV_texture_barrier GL_NV_texture_env_combine4 GL_NV_texture_rectangle GL_NV_vdpau_interop GL_OES_EGL_image GL_OES_read_format GL_S3_s3tc GL_SGIS_generate_mipmap GL_SGIS_texture_border_clamp GL_SGIS_texture_edge_clamp GL_SGIS_texture_lod GL_SUN_multi_draw_arrays
+qt.scenegraph.general: Max Texture Size: 16384
+qt.scenegraph.general: Debug context:    false
+Client: Breakpad is using Client-Server Mode! client fd = 3
+AppIconMgr::systemDesktopName log Desktop Name: pop 
+Error: Send error, 22 Invalid argument
+Error: Send error, 22 Invalid argument
+Error: Send error, 22 Invalid argument
+WorkerBase::loop() normal exit, fds[0].revents & POLLIN = true
+WorkerBase::loop() normal exit, fds[0].revents & POLLIN = true
+success to create child process,status is 0.
+zoom exited normally.
+run zoom successfully,exit code is 0.
+ZoomLauncher exit.
+ZoomLauncher started.
+Zoom path is: /opt/zoom
+cmd line: 
+CreateReportChannel bp_server_fd=4
+$HOME = /home/umang 
+export SSB_HOME=/home/umang/.zoom; export QSG_INFO=1; export LD_LIBRARY_PATH=/opt/zoom; export BREAKPAD_CLIENT_FD=3; /opt/zoom/zoom "" 
+zoom started.
+[CZPClientLogMgr::LogClientEnvironment] [MacAddr: F8:E4:E3:26:ED:55][client: Linux][OS:  Pop!_OS 20.04 LTS x64][Hardware: CPU Core:6 Frenquency:2.42038 G Memory size:7435MB CPU Brand:AMD Ryzen 5 4500U with Radeon Graphics          GPU Brand:][Req ID: ]
+Linux Client Version is 5.5.7011.0206
+QSG_RENDER_LOOP is 
+XDG_CURRENT_DESKTOP = pop:GNOME;   GDMSESSION = pop
+Graphics Card Info:: 03:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Renoir (rev c3)
+Zoom package arch is 64bit, runing OS arch is x86_64
+qt.scenegraph.general: threaded render loop
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+Client: Breakpad is using Client-Server Mode! client fd = 3
+AppIconMgr::systemDesktopName log Desktop Name: pop 
+Error: Send error, 22 Invalid argument
+Error: Send error, 22 Invalid argument
+Error: Send error, 22 Invalid argument
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 1024x512
+qt.scenegraph.general: R/G/B/A Buffers:   8 8 8 8
+qt.scenegraph.general: Depth Buffer:      24
+qt.scenegraph.general: Stencil Buffer:    8
+qt.scenegraph.general: Samples:           -1
+qt.scenegraph.general: GL_VENDOR:         AMD
+qt.scenegraph.general: GL_RENDERER:       AMD RENOIR (DRM 3.38.0, 5.8.0-7642-generic, LLVM 11.0.0)
+qt.scenegraph.general: GL_VERSION:        4.6 (Compatibility Profile) Mesa 20.3.2
+qt.scenegraph.general: GL_EXTENSIONS:    GL_AMD_conservative_depth GL_AMD_depth_clamp_separate GL_AMD_draw_buffers_blend GL_AMD_framebuffer_multisample_advanced GL_AMD_multi_draw_indirect GL_AMD_performance_monitor GL_AMD_pinned_memory GL_AMD_query_buffer_object GL_AMD_seamless_cubemap_per_texture GL_AMD_shader_stencil_export GL_AMD_shader_trinary_minmax GL_AMD_texture_texture4 GL_AMD_vertex_shader_layer GL_AMD_vertex_shader_viewport_index GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_APPLE_packed_pixels GL_ARB_ES2_compatibility GL_ARB_ES3_1_compatibility GL_ARB_ES3_compatibility GL_ARB_arrays_of_arrays GL_ARB_base_instance GL_ARB_bindless_texture GL_ARB_blend_func_extended GL_ARB_buffer_storage GL_ARB_clear_buffer_object GL_ARB_clear_texture GL_ARB_clip_control GL_ARB_color_buffer_float GL_ARB_compatibility GL_ARB_compressed_texture_pixel_storage GL_ARB_compute_shader GL_ARB_compute_variable_group_size GL_ARB_conditional_render_inverted GL_ARB_conservative_depth GL_ARB_copy_buffer GL_ARB_copy_image GL_ARB_cull_distance GL_ARB_debug_output GL_ARB_depth_buffer_float GL_ARB_depth_clamp GL_ARB_depth_texture GL_ARB_derivative_control GL_ARB_direct_state_access GL_ARB_draw_buffers GL_ARB_draw_buffers_blend GL_ARB_draw_elements_base_vertex GL_ARB_draw_indirect GL_ARB_draw_instanced GL_ARB_enhanced_layouts GL_ARB_explicit_attrib_location GL_ARB_explicit_uniform_location GL_ARB_fragment_coord_conventions GL_ARB_fragment_layer_viewport GL_ARB_fragment_program GL_ARB_fragment_program_shadow GL_ARB_fragment_shader GL_ARB_framebuffer_no_attachments GL_ARB_framebuffer_object GL_ARB_framebuffer_sRGB GL_ARB_get_program_binary GL_ARB_get_texture_sub_image GL_ARB_gl_spirv GL_ARB_gpu_shader5 GL_ARB_gpu_shader_fp64 GL_ARB_gpu_shader_int64 GL_ARB_half_float_pixel GL_ARB_half_float_vertex GL_ARB_indirect_parameters GL_ARB_instanced_arrays GL_ARB_internalformat_query GL_ARB_internalformat_query2 GL_ARB_invalidate_subdata GL_ARB_map_buffer_alignment GL_ARB_map_buffer_range GL_ARB_multi_bind GL_ARB_multi_draw_indirect GL_ARB_multisample GL_ARB_multitexture GL_ARB_occlusion_query GL_ARB_occlusion_query2 GL_ARB_parallel_shader_compile GL_ARB_pipeline_statistics_query GL_ARB_pixel_buffer_object GL_ARB_point_parameters GL_ARB_point_sprite GL_ARB_polygon_offset_clamp GL_ARB_program_interface_query GL_ARB_provoking_vertex GL_ARB_query_buffer_object GL_ARB_robust_buffer_access_behavior GL_ARB_robustness GL_ARB_sample_shading GL_ARB_sampler_objects GL_ARB_seamless_cube_map GL_ARB_seamless_cubemap_per_texture GL_ARB_separate_shader_objects GL_ARB_shader_atomic_counter_ops GL_ARB_shader_atomic_counters GL_ARB_shader_ballot GL_ARB_shader_bit_encoding GL_ARB_shader_clock GL_ARB_shader_draw_parameters GL_ARB_shader_group_vote GL_ARB_shader_image_load_store GL_ARB_shader_image_size GL_ARB_shader_objects GL_ARB_shader_precision GL_ARB_shader_stencil_export GL_ARB_shader_storage_buffer_object GL_ARB_shader_subroutine GL_ARB_shader_texture_image_samples GL_ARB_shader_texture_lod GL_ARB_shader_viewport_layer_array GL_ARB_shading_language_100 GL_ARB_shading_language_420pack GL_ARB_shading_language_include GL_ARB_shading_language_packing GL_ARB_shadow GL_ARB_sparse_buffer GL_ARB_spirv_extensions GL_ARB_stencil_texturing GL_ARB_sync GL_ARB_tessellation_shader GL_ARB_texture_barrier GL_ARB_texture_border_clamp GL_ARB_texture_buffer_object GL_ARB_texture_buffer_object_rgb32 GL_ARB_texture_buffer_range GL_ARB_texture_compression GL_ARB_texture_compression_bptc GL_ARB_texture_compression_rgtc GL_ARB_texture_cube_map GL_ARB_texture_cube_map_array GL_ARB_texture_env_add GL_ARB_texture_env_combine GL_ARB_texture_env_crossbar GL_ARB_texture_env_dot3 GL_ARB_texture_filter_anisotropic GL_ARB_texture_float GL_ARB_texture_gather GL_ARB_texture_mirror_clamp_to_edge GL_ARB_texture_mirrored_repeat GL_ARB_texture_multisample GL_ARB_texture_non_power_of_two GL_ARB_texture_query_levels GL_ARB_texture_query_lod GL_ARB_texture_rectangle GL_ARB_texture_rg GL_ARB_texture_rgb10_a2ui GL_ARB_texture_stencil8 GL_ARB_texture_storage GL_ARB_texture_storage_multisample GL_ARB_texture_swizzle GL_ARB_texture_view GL_ARB_timer_query GL_ARB_transform_feedback2 GL_ARB_transform_feedback3 GL_ARB_transform_feedback_instanced GL_ARB_transform_feedback_overflow_query GL_ARB_transpose_matrix GL_ARB_uniform_buffer_object GL_ARB_vertex_array_bgra GL_ARB_vertex_array_object GL_ARB_vertex_attrib_64bit GL_ARB_vertex_attrib_binding GL_ARB_vertex_buffer_object GL_ARB_vertex_program GL_ARB_vertex_shader GL_ARB_vertex_type_10f_11f_11f_rev GL_ARB_vertex_type_2_10_10_10_rev GL_ARB_viewport_array GL_ARB_window_pos GL_ATI_blend_equation_separate GL_ATI_draw_buffers GL_ATI_fragment_shader GL_ATI_meminfo GL_ATI_separate_stencil GL_ATI_texture_compression_3dc GL_ATI_texture_env_combine3 GL_ATI_texture_float GL_ATI_texture_mirror_once GL_EXT_EGL_image_storage GL_EXT_EGL_sync GL_EXT_abgr GL_EXT_bgra GL_EXT_blend_color GL_EXT_blend_equation_separate GL_EXT_blend_func_separate GL_EXT_blend_minmax GL_EXT_blend_subtract GL_EXT_compiled_vertex_array GL_EXT_copy_texture GL_EXT_depth_bounds_test GL_EXT_direct_state_access GL_EXT_draw_buffers2 GL_EXT_draw_instanced GL_EXT_draw_range_elements GL_EXT_fog_coord GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXT_framebuffer_multisample_blit_scaled GL_EXT_framebuffer_object GL_EXT_framebuffer_sRGB GL_EXT_gpu_program_parameters GL_EXT_gpu_shader4 GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_multi_draw_arrays GL_EXT_packed_depth_stencil GL_EXT_packed_float GL_EXT_packed_pixels GL_EXT_pixel_buffer_object GL_EXT_point_parameters GL_EXT_polygon_offset_clamp GL_EXT_provoking_vertex GL_EXT_rescale_normal GL_EXT_secondary_color GL_EXT_semaphore GL_EXT_semaphore_fd GL_EXT_separate_specular_color GL_EXT_shader_image_load_formatted GL_EXT_shader_image_load_store GL_EXT_shader_integer_mix GL_EXT_shader_samples_identical GL_EXT_shadow_funcs GL_EXT_stencil_two_side GL_EXT_stencil_wrap GL_EXT_subtexture GL_EXT_texture GL_EXT_texture3D GL_EXT_texture_array GL_EXT_texture_buffer_object GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_latc GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc GL_EXT_texture_cube_map GL_EXT_texture_edge_clamp GL_EXT_texture_env_add GL_EXT_texture_env_combine GL_EXT_texture_env_dot3 GL_EXT_texture_filter_anisotropic GL_EXT_texture_integer GL_EXT_texture_lod_bias GL_EXT_texture_mirror_clamp GL_EXT_texture_object GL_EXT_texture_rectangle GL_EXT_texture_sRGB GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_decode GL_EXT_texture_shadow_lod GL_EXT_texture_shared_exponent GL_EXT_texture_snorm GL_EXT_texture_swizzle GL_EXT_timer_query GL_EXT_transform_feedback GL_EXT_vertex_array GL_EXT_vertex_array_bgra GL_EXT_vertex_attrib_64bit GL_EXT_window_rectangles GL_IBM_multimode_draw_arrays GL_IBM_rasterpos_clip GL_IBM_texture_mirrored_repeat GL_INGR_blend_func_separate GL_INTEL_blackhole_render GL_KHR_blend_equation_advanced GL_KHR_context_flush_control GL_KHR_debug GL_KHR_no_error GL_KHR_parallel_shader_compile GL_KHR_robust_buffer_access_behavior GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_KHR_texture_compression_astc_sliced_3d GL_MESA_framebuffer_flip_y GL_MESA_pack_invert GL_MESA_shader_integer_functions GL_MESA_texture_signed_rgba GL_MESA_window_pos GL_NVX_gpu_memory_info GL_NV_alpha_to_coverage_dither_control GL_NV_blend_square GL_NV_conditional_render GL_NV_copy_depth_to_color GL_NV_copy_image GL_NV_depth_clamp GL_NV_fog_distance GL_NV_half_float GL_NV_light_max_exponent GL_NV_packed_depth_stencil GL_NV_primitive_restart GL_NV_shader_atomic_int64 GL_NV_texgen_reflection GL_NV_texture_barrier GL_NV_texture_env_combine4 GL_NV_texture_rectangle GL_NV_vdpau_interop GL_OES_EGL_image GL_OES_read_format GL_S3_s3tc GL_SGIS_generate_mipmap GL_SGIS_texture_border_clamp GL_SGIS_texture_edge_clamp GL_SGIS_texture_lod GL_SUN_multi_draw_arrays
+qt.scenegraph.general: Max Texture Size: 16384
+qt.scenegraph.general: Debug context:    false
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x1024
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 1024x1024
+QProcess: Destroyed while process ("./zopen") is still running.
+
+(zopen:31711): Gtk-WARNING **: 18:23:27.589: Theme parsing error: gtk.css:8008:53: Invalid name of pseudo-class
+
+(zopen:31711): Gtk-WARNING **: 18:23:27.589: Theme parsing error: gtk.css:8019:53: Invalid name of pseudo-class
+
+(zopen:31711): Gtk-WARNING **: 18:23:27.589: Theme parsing error: gtk.css:8023:53: Invalid name of pseudo-class
+
+(zopen:31711): Gtk-WARNING **: 18:23:27.589: Theme parsing error: gtk.css:8030:53: Invalid name of pseudo-class
+
+(zopen:31711): Gtk-WARNING **: 18:23:27.589: Theme parsing error: gtk.css:8037:53: Invalid name of pseudo-class
+
+(zopen:31711): Gtk-WARNING **: 18:23:27.589: Theme parsing error: gtk.css:8044:53: Invalid name of pseudo-class
+
+(zopen:31711): Gtk-WARNING **: 18:23:27.589: Theme parsing error: gtk.css:8048:53: Invalid name of pseudo-class
+
+(zopen:31711): Gtk-WARNING **: 18:23:27.589: Theme parsing error: gtk.css:8053:53: Invalid name of pseudo-class
+
+(brave:31739): Gtk-WARNING **: 18:23:27.806: Theme parsing error: gtk.css:8008:53: Invalid name of pseudo-class
+
+(brave:31739): Gtk-WARNING **: 18:23:27.806: Theme parsing error: gtk.css:8019:53: Invalid name of pseudo-class
+
+(brave:31739): Gtk-WARNING **: 18:23:27.806: Theme parsing error: gtk.css:8023:53: Invalid name of pseudo-class
+
+(brave:31739): Gtk-WARNING **: 18:23:27.806: Theme parsing error: gtk.css:8030:53: Invalid name of pseudo-class
+
+(brave:31739): Gtk-WARNING **: 18:23:27.807: Theme parsing error: gtk.css:8037:53: Invalid name of pseudo-class
+
+(brave:31739): Gtk-WARNING **: 18:23:27.807: Theme parsing error: gtk.css:8044:53: Invalid name of pseudo-class
+
+(brave:31739): Gtk-WARNING **: 18:23:27.807: Theme parsing error: gtk.css:8048:53: Invalid name of pseudo-class
+
+(brave:31739): Gtk-WARNING **: 18:23:27.807: Theme parsing error: gtk.css:8053:53: Invalid name of pseudo-class
+Opening in existing browser session.
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x1024
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+QProcess: Destroyed while process ("./zopen") is still running.
+
+(zopen:34229): Gtk-WARNING **: 18:35:47.072: Theme parsing error: gtk.css:8008:53: Invalid name of pseudo-class
+
+(zopen:34229): Gtk-WARNING **: 18:35:47.072: Theme parsing error: gtk.css:8019:53: Invalid name of pseudo-class
+
+(zopen:34229): Gtk-WARNING **: 18:35:47.072: Theme parsing error: gtk.css:8023:53: Invalid name of pseudo-class
+
+(zopen:34229): Gtk-WARNING **: 18:35:47.072: Theme parsing error: gtk.css:8030:53: Invalid name of pseudo-class
+
+(zopen:34229): Gtk-WARNING **: 18:35:47.072: Theme parsing error: gtk.css:8037:53: Invalid name of pseudo-class
+
+(zopen:34229): Gtk-WARNING **: 18:35:47.072: Theme parsing error: gtk.css:8044:53: Invalid name of pseudo-class
+
+(zopen:34229): Gtk-WARNING **: 18:35:47.072: Theme parsing error: gtk.css:8048:53: Invalid name of pseudo-class
+
+(zopen:34229): Gtk-WARNING **: 18:35:47.072: Theme parsing error: gtk.css:8053:53: Invalid name of pseudo-class
+
+(brave:34258): Gtk-WARNING **: 18:35:47.302: Theme parsing error: gtk.css:8008:53: Invalid name of pseudo-class
+
+(brave:34258): Gtk-WARNING **: 18:35:47.302: Theme parsing error: gtk.css:8019:53: Invalid name of pseudo-class
+
+(brave:34258): Gtk-WARNING **: 18:35:47.302: Theme parsing error: gtk.css:8023:53: Invalid name of pseudo-class
+
+(brave:34258): Gtk-WARNING **: 18:35:47.302: Theme parsing error: gtk.css:8030:53: Invalid name of pseudo-class
+
+(brave:34258): Gtk-WARNING **: 18:35:47.302: Theme parsing error: gtk.css:8037:53: Invalid name of pseudo-class
+
+(brave:34258): Gtk-WARNING **: 18:35:47.302: Theme parsing error: gtk.css:8044:53: Invalid name of pseudo-class
+
+(brave:34258): Gtk-WARNING **: 18:35:47.302: Theme parsing error: gtk.css:8048:53: Invalid name of pseudo-class
+
+(brave:34258): Gtk-WARNING **: 18:35:47.302: Theme parsing error: gtk.css:8053:53: Invalid name of pseudo-class
+Opening in existing browser session.
+ZoomLauncher started.
+Zoom path is: /opt/zoom
+cmd line: zoommtg://zoom.us/join?action=join&confno=94033300147&uid=xgauJI81R92IjvhH44f9gw&uname=IIITB_Umang%20Bhalla&pk=d39BhbzetvXXxn7wJelgExtoDUEPYZmsczzu32BFPjocODNAN3tgwuPkWsK5booR-B0WF1ppmZRoI5YLiiUKTgTcwhzQ-b7YWu9phpUbfi7QR4_ehKjuB3fTRWHcoEUR_owHy8ZDXfmQjqwyhys.mpdN1vWc6S1j07cw&zc=0&mcv=0.92.11227.0929&confid=ZW1haWw9dW1hbmdiaGFsbGExJTQwZ21haWwuY29tJnVzcz1MOS1kaU13aHhxMW45RVIzbWpObjFXMHZSejZuTnpCU0UyYjVQdVJqUVY1alBkc2RmYkdjYUpuRDQ1OENBX0tabFVqTWllUGc1cW80SlNCNVpVNUFZZy5DOXh2NlpzaWJiUHNBbVNrJnRpZD0wMTdjMzE1ODgzMWI0YWYxODVkOGFkZGI0YTExNzVmZg%3D%3D&browser=chrome&t=1613222184203
+CreateReportChannel bp_server_fd=4
+$HOME = /home/umang 
+export SSB_HOME=/home/umang/.zoom; export QSG_INFO=1; export LD_LIBRARY_PATH=/opt/zoom; export BREAKPAD_CLIENT_FD=3; /opt/zoom/zoom "zoommtg://zoom.us/join?action=join&confno=94033300147&uid=xgauJI81R92IjvhH44f9gw&uname=IIITB_Umang%20Bhalla&pk=d39BhbzetvXXxn7wJelgExtoDUEPYZmsczzu32BFPjocODNAN3tgwuPkWsK5booR-B0WF1ppmZRoI5YLiiUKTgTcwhzQ-b7YWu9phpUbfi7QR4_ehKjuB3fTRWHcoEUR_owHy8ZDXfmQjqwyhys.mpdN1vWc6S1j07cw&zc=0&mcv=0.92.11227.0929&confid=ZW1haWw9dW1hbmdiaGFsbGExJTQwZ21haWwuY29tJnVzcz1MOS1kaU13aHhxMW45RVIzbWpObjFXMHZSejZuTnpCU0UyYjVQdVJqUVY1alBkc2RmYkdjYUpuRDQ1OENBX0tabFVqTWllUGc1cW80SlNCNVpVNUFZZy5DOXh2NlpzaWJiUHNBbVNrJnRpZD0wMTdjMzE1ODgzMWI0YWYxODVkOGFkZGI0YTExNzVmZg%3D%3D&browser=chrome&t=1613222184203" 
+zoom started.
+Zoom is running, send message to it: zoommtg://zoom.us/join?action=join&confno=94033300147&uid=xgauJI81R92IjvhH44f9gw&uname=IIITB_Umang%20Bhalla&pk=d39BhbzetvXXxn7wJelgExtoDUEPYZmsczzu32BFPjocODNAN3tgwuPkWsK5booR-B0WF1ppmZRoI5YLiiUKTgTcwhzQ-b7YWu9phpUbfi7QR4_ehKjuB3fTRWHcoEUR_owHy8ZDXfmQjqwyhys.mpdN1vWc6S1j07cw&zc=0&mcv=0.92.11227.0929&confid=ZW1haWw9dW1hbmdiaGFsbGExJTQwZ21haWwuY29tJnVzcz1MOS1kaU13aHhxMW45RVIzbWpObjFXMHZSejZuTnpCU0UyYjVQdVJqUVY1alBkc2RmYkdjYUpuRDQ1OENBX0tabFVqTWllUGc1cW80SlNCNVpVNUFZZy5DOXh2NlpzaWJiUHNBbVNrJnRpZD0wMTdjMzE1ODgzMWI0YWYxODVkOGFkZGI0YTExNzVmZg%3D%3D&browser=chrome&t=1613222184203
+Exit zoom as another zoom instance is running!
+Client: Breakpad is using Client-Server Mode! client fd = 3
+success to create child process,status is 0.
+zoom exited normally.
+run zoom successfully,exit code is 0.
+ZoomLauncher exit.
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+CSBConfUI::OnConfStatusChanged  UI_CMD_SHARE_READYqt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 2048x1024
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+QProcess: Destroyed while process ("./zopen") is still running.
+
+(zopen:36659): Gtk-WARNING **: 18:47:20.862: Theme parsing error: gtk.css:8008:53: Invalid name of pseudo-class
+
+(zopen:36659): Gtk-WARNING **: 18:47:20.862: Theme parsing error: gtk.css:8019:53: Invalid name of pseudo-class
+
+(zopen:36659): Gtk-WARNING **: 18:47:20.862: Theme parsing error: gtk.css:8023:53: Invalid name of pseudo-class
+
+(zopen:36659): Gtk-WARNING **: 18:47:20.862: Theme parsing error: gtk.css:8030:53: Invalid name of pseudo-class
+
+(zopen:36659): Gtk-WARNING **: 18:47:20.862: Theme parsing error: gtk.css:8037:53: Invalid name of pseudo-class
+
+(zopen:36659): Gtk-WARNING **: 18:47:20.862: Theme parsing error: gtk.css:8044:53: Invalid name of pseudo-class
+
+(zopen:36659): Gtk-WARNING **: 18:47:20.862: Theme parsing error: gtk.css:8048:53: Invalid name of pseudo-class
+
+(zopen:36659): Gtk-WARNING **: 18:47:20.862: Theme parsing error: gtk.css:8053:53: Invalid name of pseudo-class
+
+(brave:36688): Gtk-WARNING **: 18:47:21.102: Theme parsing error: gtk.css:8008:53: Invalid name of pseudo-class
+
+(brave:36688): Gtk-WARNING **: 18:47:21.103: Theme parsing error: gtk.css:8019:53: Invalid name of pseudo-class
+
+(brave:36688): Gtk-WARNING **: 18:47:21.103: Theme parsing error: gtk.css:8023:53: Invalid name of pseudo-class
+
+(brave:36688): Gtk-WARNING **: 18:47:21.103: Theme parsing error: gtk.css:8030:53: Invalid name of pseudo-class
+
+(brave:36688): Gtk-WARNING **: 18:47:21.103: Theme parsing error: gtk.css:8037:53: Invalid name of pseudo-class
+
+(brave:36688): Gtk-WARNING **: 18:47:21.103: Theme parsing error: gtk.css:8044:53: Invalid name of pseudo-class
+
+(brave:36688): Gtk-WARNING **: 18:47:21.103: Theme parsing error: gtk.css:8048:53: Invalid name of pseudo-class
+
+(brave:36688): Gtk-WARNING **: 18:47:21.103: Theme parsing error: gtk.css:8053:53: Invalid name of pseudo-class
+Opening in existing browser session.
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+QCoreApplication::postEvent: Unexpected null receiver
+QCoreApplication::postEvent: Unexpected null receiver
+QCoreApplication::postEvent: Unexpected null receiver
+QCoreApplication::postEvent: Unexpected null receiver
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+ZoomLauncher started.
+Zoom path is: /opt/zoom
+cmd line: zoommtg://zoom.us/join?action=join&confno=94033300147&uid=xgauJI81R92IjvhH44f9gw&uname=IIITBhopal_Umang%20Bhalla&pk=n5wJVqhl1YIePThvqryRvCWWOobDeq_fUoId-Gd7hNHzK15xtDxnLnW1h5Tx6JYA1RSCla0c4jY36jwpnI--OrM6DC0oNX4KlQnlE-L50mOtBN3qGVw7eq2PXMYzhE37hfWOabkf-1qsfpjC8UM.AClBFW7OMiaO3iaO&zc=0&mcv=0.92.11227.0929&confid=ZW1haWw9dW1hbmdiaGFsbGExJTQwZ21haWwuY29tJnVzcz0zV2U0eFdiMGptSFBfN2liQUk4WHotNFF2eTBsRWctZl93OTFsczJrc1hqZVFncC1RbmdwOTluSDlZZHIwd0IwQUVvSjRJTFF6a21ydndJR0lKbW80dy5GWlAxOUw0M2NTUng2X21QJnRpZD0wMTdjMzE1ODgzMWI0YWYxODVkOGFkZGI0YTExNzVmZg%3D%3D&browser=chrome&t=1613222270756
+CreateReportChannel bp_server_fd=4
+$HOME = /home/umang 
+export SSB_HOME=/home/umang/.zoom; export QSG_INFO=1; export LD_LIBRARY_PATH=/opt/zoom; export BREAKPAD_CLIENT_FD=3; /opt/zoom/zoom "zoommtg://zoom.us/join?action=join&confno=94033300147&uid=xgauJI81R92IjvhH44f9gw&uname=IIITBhopal_Umang%20Bhalla&pk=n5wJVqhl1YIePThvqryRvCWWOobDeq_fUoId-Gd7hNHzK15xtDxnLnW1h5Tx6JYA1RSCla0c4jY36jwpnI--OrM6DC0oNX4KlQnlE-L50mOtBN3qGVw7eq2PXMYzhE37hfWOabkf-1qsfpjC8UM.AClBFW7OMiaO3iaO&zc=0&mcv=0.92.11227.0929&confid=ZW1haWw9dW1hbmdiaGFsbGExJTQwZ21haWwuY29tJnVzcz0zV2U0eFdiMGptSFBfN2liQUk4WHotNFF2eTBsRWctZl93OTFsczJrc1hqZVFncC1RbmdwOTluSDlZZHIwd0IwQUVvSjRJTFF6a21ydndJR0lKbW80dy5GWlAxOUw0M2NTUng2X21QJnRpZD0wMTdjMzE1ODgzMWI0YWYxODVkOGFkZGI0YTExNzVmZg%3D%3D&browser=chrome&t=1613222270756" 
+zoom started.
+Zoom is running, send message to it: zoommtg://zoom.us/join?action=join&confno=94033300147&uid=xgauJI81R92IjvhH44f9gw&uname=IIITBhopal_Umang%20Bhalla&pk=n5wJVqhl1YIePThvqryRvCWWOobDeq_fUoId-Gd7hNHzK15xtDxnLnW1h5Tx6JYA1RSCla0c4jY36jwpnI--OrM6DC0oNX4KlQnlE-L50mOtBN3qGVw7eq2PXMYzhE37hfWOabkf-1qsfpjC8UM.AClBFW7OMiaO3iaO&zc=0&mcv=0.92.11227.0929&confid=ZW1haWw9dW1hbmdiaGFsbGExJTQwZ21haWwuY29tJnVzcz0zV2U0eFdiMGptSFBfN2liQUk4WHotNFF2eTBsRWctZl93OTFsczJrc1hqZVFncC1RbmdwOTluSDlZZHIwd0IwQUVvSjRJTFF6a21ydndJR0lKbW80dy5GWlAxOUw0M2NTUng2X21QJnRpZD0wMTdjMzE1ODgzMWI0YWYxODVkOGFkZGI0YTExNzVmZg%3D%3D&browser=chrome&t=1613222270756
+Exit zoom as another zoom instance is running!
+Client: Breakpad is using Client-Server Mode! client fd = 3
+success to create child process,status is 0.
+zoom exited normally.
+run zoom successfully,exit code is 0.
+ZoomLauncher exit.
+CSBConfUI::OnConfStatusChanged  UI_CMD_SHARE_READYqt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 2048x1024
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qrc:/qml/AttendeeItemDelegate.qml:18: TypeError: Type error
+qrc:/qml/AttendeeItemDelegate.qml:505: TypeError: Type error
+qrc:/qml/AttendeeItemDelegate.qml:432: TypeError: Type error
+qrc:/qml/AttendeeItemDelegate.qml:343: TypeError: Type error
+qrc:/qml/AttendeeItemDelegate.qml:301: TypeError: Type error
+qrc:/qml/AttendeeItemDelegate.qml:219: TypeError: Type error
+qrc:/qml/AttendeeItemDelegate.qml:121: TypeError: Type error
+qrc:/qml/AttendeeItemDelegate.qml:96: TypeError: Type error
+qrc:/qml/AttendeeItemDelegate.qml:533: TypeError: Type error
+qrc:/qml/AttendeeItemDelegate.qml:95: TypeError: Type error
+qrc:/qml/AttendeeItemDelegate.qml:16: TypeError: Type error
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+QProcess: Destroyed while process ("./zopen") is still running.
+
+(zopen:40323): Gtk-WARNING **: 19:02:02.278: Theme parsing error: gtk.css:8008:53: Invalid name of pseudo-class
+
+(zopen:40323): Gtk-WARNING **: 19:02:02.278: Theme parsing error: gtk.css:8019:53: Invalid name of pseudo-class
+
+(zopen:40323): Gtk-WARNING **: 19:02:02.278: Theme parsing error: gtk.css:8023:53: Invalid name of pseudo-class
+
+(zopen:40323): Gtk-WARNING **: 19:02:02.278: Theme parsing error: gtk.css:8030:53: Invalid name of pseudo-class
+
+(zopen:40323): Gtk-WARNING **: 19:02:02.278: Theme parsing error: gtk.css:8037:53: Invalid name of pseudo-class
+
+(zopen:40323): Gtk-WARNING **: 19:02:02.278: Theme parsing error: gtk.css:8044:53: Invalid name of pseudo-class
+
+(zopen:40323): Gtk-WARNING **: 19:02:02.278: Theme parsing error: gtk.css:8048:53: Invalid name of pseudo-class
+
+(zopen:40323): Gtk-WARNING **: 19:02:02.278: Theme parsing error: gtk.css:8053:53: Invalid name of pseudo-class
+
+(brave:40351): Gtk-WARNING **: 19:02:02.529: Theme parsing error: gtk.css:8008:53: Invalid name of pseudo-class
+
+(brave:40351): Gtk-WARNING **: 19:02:02.529: Theme parsing error: gtk.css:8019:53: Invalid name of pseudo-class
+
+(brave:40351): Gtk-WARNING **: 19:02:02.529: Theme parsing error: gtk.css:8023:53: Invalid name of pseudo-class
+
+(brave:40351): Gtk-WARNING **: 19:02:02.529: Theme parsing error: gtk.css:8030:53: Invalid name of pseudo-class
+
+(brave:40351): Gtk-WARNING **: 19:02:02.529: Theme parsing error: gtk.css:8037:53: Invalid name of pseudo-class
+
+(brave:40351): Gtk-WARNING **: 19:02:02.529: Theme parsing error: gtk.css:8044:53: Invalid name of pseudo-class
+
+(brave:40351): Gtk-WARNING **: 19:02:02.529: Theme parsing error: gtk.css:8048:53: Invalid name of pseudo-class
+
+(brave:40351): Gtk-WARNING **: 19:02:02.529: Theme parsing error: gtk.css:8053:53: Invalid name of pseudo-class
+Opening in existing browser session.
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 1024x512
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+QCoreApplication::postEvent: Unexpected null receiver
+QCoreApplication::postEvent: Unexpected null receiver
+QCoreApplication::postEvent: Unexpected null receiver
+QCoreApplication::postEvent: Unexpected null receiver
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+ZoomLauncher started.
+Zoom path is: /opt/zoom
+cmd line: zoommtg://zoom.us/join?action=join&confno=94033300147&uid=xgauJI81R92IjvhH44f9gw&uname=IIITBhopal_Umang%20Bhalla&pk=568zO0u2hdK_xwNkJAnTMP0PaNEqUmcyXPN_JEe7E5LH6x3bGT001JJNfgAdw8NIIO6HWGlkBQ2O5cAkiOftQ6mNrl3MLNgmHGmMKDHpvy4LGma4RYqPuExsv66v1hKDz-t-_WsA1LiL7TeXSx0.rXiVOYd_vec8QuzD&zc=0&mcv=0.92.11227.0929&confid=ZW1haWw9dW1hbmdiaGFsbGExJTQwZ21haWwuY29tJnVzcz1FTU03YW1Bd0xhMlFjWDdjdnlrOXRiN2V1ekVFNFBzc0VXaXpXVVRWUm1saWxpTmstV3lFd3YwR2M5RmNpczlSQmhNb2xVa1VmeWw0cnR4RG9IaGlZdy5GRXM4YU5iSXB6QUpJZ1NrJnRpZD0wMTdjMzE1ODgzMWI0YWYxODVkOGFkZGI0YTExNzVmZg%3D%3D&browser=chrome&t=1613225152261
+CreateReportChannel bp_server_fd=4
+$HOME = /home/umang 
+export SSB_HOME=/home/umang/.zoom; export QSG_INFO=1; export LD_LIBRARY_PATH=/opt/zoom; export BREAKPAD_CLIENT_FD=3; /opt/zoom/zoom "zoommtg://zoom.us/join?action=join&confno=94033300147&uid=xgauJI81R92IjvhH44f9gw&uname=IIITBhopal_Umang%20Bhalla&pk=568zO0u2hdK_xwNkJAnTMP0PaNEqUmcyXPN_JEe7E5LH6x3bGT001JJNfgAdw8NIIO6HWGlkBQ2O5cAkiOftQ6mNrl3MLNgmHGmMKDHpvy4LGma4RYqPuExsv66v1hKDz-t-_WsA1LiL7TeXSx0.rXiVOYd_vec8QuzD&zc=0&mcv=0.92.11227.0929&confid=ZW1haWw9dW1hbmdiaGFsbGExJTQwZ21haWwuY29tJnVzcz1FTU03YW1Bd0xhMlFjWDdjdnlrOXRiN2V1ekVFNFBzc0VXaXpXVVRWUm1saWxpTmstV3lFd3YwR2M5RmNpczlSQmhNb2xVa1VmeWw0cnR4RG9IaGlZdy5GRXM4YU5iSXB6QUpJZ1NrJnRpZD0wMTdjMzE1ODgzMWI0YWYxODVkOGFkZGI0YTExNzVmZg%3D%3D&browser=chrome&t=1613225152261" 
+zoom started.
+Zoom is running, send message to it: zoommtg://zoom.us/join?action=join&confno=94033300147&uid=xgauJI81R92IjvhH44f9gw&uname=IIITBhopal_Umang%20Bhalla&pk=568zO0u2hdK_xwNkJAnTMP0PaNEqUmcyXPN_JEe7E5LH6x3bGT001JJNfgAdw8NIIO6HWGlkBQ2O5cAkiOftQ6mNrl3MLNgmHGmMKDHpvy4LGma4RYqPuExsv66v1hKDz-t-_WsA1LiL7TeXSx0.rXiVOYd_vec8QuzD&zc=0&mcv=0.92.11227.0929&confid=ZW1haWw9dW1hbmdiaGFsbGExJTQwZ21haWwuY29tJnVzcz1FTU03YW1Bd0xhMlFjWDdjdnlrOXRiN2V1ekVFNFBzc0VXaXpXVVRWUm1saWxpTmstV3lFd3YwR2M5RmNpczlSQmhNb2xVa1VmeWw0cnR4RG9IaGlZdy5GRXM4YU5iSXB6QUpJZ1NrJnRpZD0wMTdjMzE1ODgzMWI0YWYxODVkOGFkZGI0YTExNzVmZg%3D%3D&browser=chrome&t=1613225152261
+Exit zoom as another zoom instance is running!
+Client: Breakpad is using Client-Server Mode! client fd = 3
+success to create child process,status is 0.
+zoom exited normally.
+run zoom successfully,exit code is 0.
+ZoomLauncher exit.
+CSBConfUI::OnConfStatusChanged  UI_CMD_SHARE_READYqt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 2048x1024
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 1024x512
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+
+(zopen:46980): Gtk-WARNING **: 19:47:16.612: Theme parsing error: gtk.css:8008:53: Invalid name of pseudo-class
+
+(zopen:46980): Gtk-WARNING **: 19:47:16.612: Theme parsing error: gtk.css:8019:53: Invalid name of pseudo-class
+
+(zopen:46980): Gtk-WARNING **: 19:47:16.612: Theme parsing error: gtk.css:8023:53: Invalid name of pseudo-class
+
+(zopen:46980): Gtk-WARNING **: 19:47:16.612: Theme parsing error: gtk.css:8030:53: Invalid name of pseudo-class
+
+(zopen:46980): Gtk-WARNING **: 19:47:16.612: Theme parsing error: gtk.css:8037:53: Invalid name of pseudo-class
+
+(zopen:46980): Gtk-WARNING **: 19:47:16.612: Theme parsing error: gtk.css:8044:53: Invalid name of pseudo-class
+
+(zopen:46980): Gtk-WARNING **: 19:47:16.612: Theme parsing error: gtk.css:8048:53: Invalid name of pseudo-class
+
+(zopen:46980): Gtk-WARNING **: 19:47:16.612: Theme parsing error: gtk.css:8053:53: Invalid name of pseudo-class
+
+(brave:47010): Gtk-WARNING **: 19:47:16.846: Theme parsing error: gtk.css:8008:53: Invalid name of pseudo-class
+
+(brave:47010): Gtk-WARNING **: 19:47:16.847: Theme parsing error: gtk.css:8019:53: Invalid name of pseudo-class
+
+(brave:47010): Gtk-WARNING **: 19:47:16.847: Theme parsing error: gtk.css:8023:53: Invalid name of pseudo-class
+
+(brave:47010): Gtk-WARNING **: 19:47:16.847: Theme parsing error: gtk.css:8030:53: Invalid name of pseudo-class
+
+(brave:47010): Gtk-WARNING **: 19:47:16.847: Theme parsing error: gtk.css:8037:53: Invalid name of pseudo-class
+
+(brave:47010): Gtk-WARNING **: 19:47:16.847: Theme parsing error: gtk.css:8044:53: Invalid name of pseudo-class
+
+(brave:47010): Gtk-WARNING **: 19:47:16.847: Theme parsing error: gtk.css:8048:53: Invalid name of pseudo-class
+
+(brave:47010): Gtk-WARNING **: 19:47:16.847: Theme parsing error: gtk.css:8053:53: Invalid name of pseudo-class
+Opening in existing browser session.
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+
+(zopen:48237): Gtk-WARNING **: 19:53:51.284: Theme parsing error: gtk.css:8008:53: Invalid name of pseudo-class
+
+(zopen:48237): Gtk-WARNING **: 19:53:51.284: Theme parsing error: gtk.css:8019:53: Invalid name of pseudo-class
+
+(zopen:48237): Gtk-WARNING **: 19:53:51.284: Theme parsing error: gtk.css:8023:53: Invalid name of pseudo-class
+
+(zopen:48237): Gtk-WARNING **: 19:53:51.284: Theme parsing error: gtk.css:8030:53: Invalid name of pseudo-class
+
+(zopen:48237): Gtk-WARNING **: 19:53:51.284: Theme parsing error: gtk.css:8037:53: Invalid name of pseudo-class
+
+(zopen:48237): Gtk-WARNING **: 19:53:51.284: Theme parsing error: gtk.css:8044:53: Invalid name of pseudo-class
+
+(zopen:48237): Gtk-WARNING **: 19:53:51.285: Theme parsing error: gtk.css:8048:53: Invalid name of pseudo-class
+
+(zopen:48237): Gtk-WARNING **: 19:53:51.285: Theme parsing error: gtk.css:8053:53: Invalid name of pseudo-class
+
+(brave:48265): Gtk-WARNING **: 19:53:51.455: Theme parsing error: gtk.css:8008:53: Invalid name of pseudo-class
+
+(brave:48265): Gtk-WARNING **: 19:53:51.455: Theme parsing error: gtk.css:8019:53: Invalid name of pseudo-class
+
+(brave:48265): Gtk-WARNING **: 19:53:51.455: Theme parsing error: gtk.css:8023:53: Invalid name of pseudo-class
+
+(brave:48265): Gtk-WARNING **: 19:53:51.455: Theme parsing error: gtk.css:8030:53: Invalid name of pseudo-class
+
+(brave:48265): Gtk-WARNING **: 19:53:51.455: Theme parsing error: gtk.css:8037:53: Invalid name of pseudo-class
+
+(brave:48265): Gtk-WARNING **: 19:53:51.455: Theme parsing error: gtk.css:8044:53: Invalid name of pseudo-class
+
+(brave:48265): Gtk-WARNING **: 19:53:51.455: Theme parsing error: gtk.css:8048:53: Invalid name of pseudo-class
+
+(brave:48265): Gtk-WARNING **: 19:53:51.455: Theme parsing error: gtk.css:8053:53: Invalid name of pseudo-class
+Opening in existing browser session.
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: Animation Driver: using vsync: 16.95 ms
+qt.scenegraph.general: texture atlas dimensions: 512x512
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+QCoreApplication::postEvent: Unexpected null receiver
+QCoreApplication::postEvent: Unexpected null receiver
+QCoreApplication::postEvent: Unexpected null receiver
+QCoreApplication::postEvent: Unexpected null receiver
+qt.scenegraph.general: animation driver switched to timer mode
+qt.scenegraph.general: Using sg animation driver
+qt.scenegraph.general: animation driver switched to vsync mode
+WorkerBase::loop() normal exit, fds[0].revents & POLLIN = true
+WorkerBase::loop() normal exit, fds[0].revents & POLLIN = true
+success to create child process,status is 0.
+zoom exited normally.
+run zoom successfully,exit code is 0.
+ZoomLauncher exit.

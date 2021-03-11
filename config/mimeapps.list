@@ -1,0 +1,45 @@
+[Default Applications]
+text/html=balena-etcher-electron.desktop
+x-scheme-handler/http=brave-browser.desktop
+x-scheme-handler/https=brave-browser.desktop
+x-scheme-handler/about=brave-browser.desktop
+x-scheme-handler/unknown=brave-browser.desktop
+application/xhtml+xml=brave-browser.desktop
+x-scheme-handler/mailto=userapp-Thunderbird-66ELY0.desktop
+x-scheme-handler/msteams=teams.desktop
+message/rfc822=userapp-Thunderbird-66ELY0.desktop
+x-scheme-handler/news=userapp-Thunderbird-0EMGY0.desktop
+x-scheme-handler/snews=userapp-Thunderbird-0EMGY0.desktop
+x-scheme-handler/nntp=userapp-Thunderbird-0EMGY0.desktop
+x-scheme-handler/feed=userapp-Thunderbird-GACGY0.desktop
+application/rss+xml=userapp-Thunderbird-GACGY0.desktop
+application/x-extension-rss=userapp-Thunderbird-GACGY0.desktop
+x-scheme-handler/etcher=balena-etcher-electron.desktop
+
+[Added Associations]
+application/javascript=code.desktop;org.gnome.gedit.desktop;brackets.desktop;
+image/jpeg=brackets.desktop;
+x-scheme-handler/http=google-chrome.desktop;brave-browser.desktop;
+application/xhtml+xml=google-chrome.desktop;sidekick-browser.desktop;brave-browser.desktop;
+text/html=google-chrome.desktop;code.desktop;sidekick-browser.desktop;
+x-scheme-handler/https=google-chrome.desktop;sidekick-browser.desktop;brave-browser.desktop;
+application/octet-stream=nautilus-autorun-software.desktop;
+text/x-csrc=code.desktop;
+application/vnd.debian.binary-package=snap-store_ubuntu-software-local-file.desktop;
+audio/flac=museeks.desktop;
+image/png=google-chrome.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-66ELY0.desktop;
+message/rfc822=userapp-Thunderbird-66ELY0.desktop;
+x-scheme-handler/news=userapp-Thunderbird-0EMGY0.desktop;
+x-scheme-handler/snews=userapp-Thunderbird-0EMGY0.desktop;
+x-scheme-handler/nntp=userapp-Thunderbird-0EMGY0.desktop;
+x-scheme-handler/feed=userapp-Thunderbird-GACGY0.desktop;
+application/rss+xml=userapp-Thunderbird-GACGY0.desktop;
+application/x-extension-rss=userapp-Thunderbird-GACGY0.desktop;
+application/x-mozilla-bookmarks=code-url-handler.desktop;
+x-scheme-handler/sms=org.gnome.Shell.Extensions.GSConnect.desktop;
+x-scheme-handler/tel=org.gnome.Shell.Extensions.GSConnect.desktop;
+
+[Removed Associations]
+x-scheme-handler/http=sidekick-browser.desktop;
+x-scheme-handler/ftp=sidekick-browser.desktop;

@@ -1,0 +1,35 @@
+{
+  "main_window_geometry": {
+    "__class__": "bytearray",
+    "__value__": "AdnQywADAAAAAAPEAAAAJAAAB3cAAAQvAAADxAAAAEQAAAd3AAAELwAAAAAAAAAAB4AAAAPEAAAARAAAB3cAAAQv"
+  },
+  "main_window_state": {
+    "__class__": "bytearray",
+    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAAAAAAAAPwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAA/////wAAAIgA////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAD/////AAAAlwD///8AAAABAAAAAAAAAAD8AgAAAAP7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAABjAP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAA/////wAAAM0A////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAD/////AAAAEwD///8AAAO0AAAD7AAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAAAAAABAAAAHgBhAGMAdABpAG8AbgBzAF8AdABvAG8AbABiAGEAcgIAAAAA/////wAAAAAAAAAA"
+  },
+  "old_prefs_migrated": true,
+  "session_data": {
+    "controls_help_shown_count": 2,
+    "standalone_font_settings": {},
+    "standalone_misc_settings": {
+      "remember_last_read": true,
+      "remember_window_geometry": false,
+      "save_annotations_in_ebook": true,
+      "singleinstance": false
+    },
+    "standalone_recently_opened": [
+      {
+        "key": "/home/umang/opensource/feb/6502Emulator/README.md",
+        "pathtoebook": "/home/umang/opensource/feb/6502Emulator/README.md",
+        "timestamp": "2021-02-17T08:09:25.330Z",
+        "title": "README"
+      },
+      {
+        "key": "/home/umang/yakala/README.md",
+        "pathtoebook": "/home/umang/yakala/README.md",
+        "timestamp": "2021-01-26T18:03:05.236Z",
+        "title": "README"
+      }
+    ]
+  }
+}

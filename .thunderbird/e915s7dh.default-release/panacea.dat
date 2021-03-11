@@ -1,0 +1,138 @@
+// <!-- <mdb:mork:z v="1.4"/> -->
+< <(a=c)> // (f=iso-8859-1)
+  (8A=charset)(8B=boxFlags)(8C=hierDelim)(8D=onlineName)(8E=aclFlags)
+  (8F=serverTotal)(90=serverUnseen)(91=serverRecent)(92=indexingPriority)
+  (93=folderName)(94=applyIncomingFilters.empty)(95=applyIncomingFilters)
+  (96=nextUID)(97=lastSyncTimeInSec)(98=MRUTime)
+  (99=dobayes.mailnews@mozilla.org#junk.empty)
+  (9A=dobayes.mailnews@mozilla.org#junk)(9B=LastPurgeTime)
+  (9C=useServerRetention)(80=ns:msg:db:row:scope:folders:all)
+  (81=ns:msg:db:table:kind:folders)(82=key)(83=flags)(84=totalMsgs)
+  (85=totalUnreadMsgs)(86=pendingUnreadMsgs)(87=pendingMsgs)
+  (88=expungedBytes)(89=folderSize)>
+
+<(80
+    =/home/umang/.thunderbird/e915s7dh.default-release/ImapMail/imap.gmail.com\
+/INBOX.msf)(D2=88083014)(D6=19a4)(2D06=161c)(82=0)(3416=1b36b6fc)(84
+    =ISO-8859-1)(D3=204040)(A0=2f)(86=INBOX)(D7=46be)(80B4=1613663068)
+  (348C=602e7237)(88
+    =/home/umang/.thunderbird/e915s7dh.default-release/Mail/Local Folders/Tras\
+h.msf)(89=104)(83=ffffffffffffffff)(8A=Trash)(341C=1)(8B
+    =/home/umang/.thunderbird/e915s7dh.default-release/Mail/Local Folders/Unse\
+nt Messages.msf)(8C=804)(8E=Outbox)(8F
+    =/home/umang/.thunderbird/e915s7dh.default-release/Mail/Local Folders)
+  (90=1c)(91=ffffffff)(92=)(93=Local Folders)(94
+    =/home/umang/.thunderbird/e915s7dh.default-release/ImapMail/imap.gmail.com\
+/Drafts.msf)(85=5e)(95=Drafts)(96
+    =/home/umang/.thunderbird/e915s7dh.default-release/ImapMail/imap.gmail.com\
+/Templates.msf)(D0=400000)(97=Templates)(98
+    =/home/umang/.thunderbird/e915s7dh.default-release/ImapMail/imap.gmail.com\
+/Sent.msf)(99=Sent)(9A
+    =/home/umang/.thunderbird/e915s7dh.default-release/ImapMail/imap.gmail.com\
+/Archives.msf)(9B=Archives)(9C
+    =/home/umang/.thunderbird/e915s7dh.default-release/ImapMail/imap.gmail.com\
+/Notes.msf)(9E=8082014)(9F=240040)(9D=Notes)(80B1=602e723a)(A1
+    =/home/umang/.thunderbird/e915s7dh.default-release/ImapMail/imap.gmail.com\
+/Personal.msf)(341B=28)(3469=1d2eba)(A2=Personal)(341A=602e722c)(A3
+    =/home/umang/.thunderbird/e915s7dh.default-release/ImapMail/imap.gmail.com\
+/Receipts.msf)(A4=Receipts)(A5
+    =/home/umang/.thunderbird/e915s7dh.default-release/ImapMail/imap.gmail.com\
+/Trash.msf)(D1=82014)(A7=240050)(A8
+    =/home/umang/.thunderbird/e915s7dh.default-release/ImapMail/imap.gmail.com\
+/Unsubscribed Emails.msf)(7F5B=8b65)(A9=Unsubscribed Emails)(7F58
+    =1613656672)(346D=585)(AA
+    =/home/umang/.thunderbird/e915s7dh.default-release/ImapMail/imap.gmail.com\
+/Work.msf)(AB=Work)(80B2=602e723b)(AC
+    =/home/umang/.thunderbird/e915s7dh.default-release/ImapMail/imap.gmail.com\
+/[Gmail].msf)(AE=9082014)(AF=60048)(AD=[Gmail])(7F5C=1613656711)(B0
+    =/home/umang/.thunderbird/e915s7dh.default-release/ImapMail/imap.gmail.com\
+/[Gmail].sbd/All Mail.msf)(B2=8086014)(7235=1c39)(6811=1726)(80AF=2c52a00c)
+  (B3=248040)(B4=[Gmail]/All Mail)(3F49=602e7238)(7F5D=1613656713)(3F4D
+    =5ca4)(B5
+    =/home/umang/.thunderbird/e915s7dh.default-release/ImapMail/imap.gmail.com\
+/[Gmail].sbd/Drafts.msf)(B7=8082414)(B8=240840)(B9=[Gmail]/Drafts)(BA
+    =/home/umang/.thunderbird/e915s7dh.default-release/ImapMail/imap.gmail.com\
+/[Gmail].sbd/Important.msf)(385B=20d)(35B2=b8)(80B0=861f41f)(BC
+    =[Gmail]/Important)(7D3D=1613656647)(39FD=2de)(BD
+    =/home/umang/.thunderbird/e915s7dh.default-release/ImapMail/imap.gmail.com\
+/[Gmail].sbd/Sent Mail.msf)(C0=8082214)(3695=12a)(80AE=1295dc51)(C1=242040)
+  (C2=[Gmail]/Sent Mail)(BF=60)(7F5F=602e7239)(3701=160)(C3
+    =/home/umang/.thunderbird/e915s7dh.default-release/ImapMail/imap.gmail.com\
+/[Gmail].sbd/Spam.msf)(C6=40082014)(C7=241040)(C8=[Gmail]/Spam)(C5=-1)
+  (C9
+    =/home/umang/.thunderbird/e915s7dh.default-release/ImapMail/imap.gmail.com\
+/[Gmail].sbd/Starred.msf)(3461=24)(7F84=b96fe)(CB=[Gmail]/Starred)(7F60
+    =1613656740)(34B0=36)(CC
+    =/home/umang/.thunderbird/e915s7dh.default-release/ImapMail/imap.gmail.com\
+/[Gmail].sbd/Trash.msf)(7F59=10082114)(346C=584)(CE=250040)(CF
+    =[Gmail]/Trash)(3418
+    =/home/umang/.thunderbird/e915s7dh.default-release/ImapMail/imap.gmail.com)
+  (80B6
+    =/home/umang/.thunderbird/e915s7dh.default-release/Mail/pop3.rediffmail.co\
+m/Inbox.msf)(80B7=1004)(80F4=3e)(80F5=30a5bf)(80B8=Inbox)(80F8=1613663943)
+  (80B9
+    =/home/umang/.thunderbird/e915s7dh.default-release/Mail/pop3.rediffmail.co\
+m/Trash.msf)(80BA
+    =/home/umang/.thunderbird/e915s7dh.default-release/Mail/pop3.rediffmail.co\
+m)(80BB=bhallamanoj_70@rediffmail.com)>
+{1:^80 {(k^81:c)(s=9)} 
+  [1(^82^80)(^83^D2)(^84^D6)(^85=161c)(^86=0)(^87=0)(^88=0)(^89^3416)
+    (^8A^84)(^8B^D3)(^8C=2f)(^8D^86)(^8E=0)(^8F^D6)(^90=0)(^91=0)(^96^D7)
+    (^98^80B4)(^97^348C)]
+  [2(^82^88)(^83^89)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^83)(^8A^84)
+    (^93^8A)(^9C=1)]
+  [3(^82^8B)(^83^8C)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^83)(^8A^84)
+    (^93^8E)(^9C=1)]
+  [4(^82^8F)(^83=1c)(^84^91)(^85^91)(^86=0)(^87=0)(^88=0)(^89^83)(^8A=)
+    (^93^93)]
+  [5(^82^94)(^83=0)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^83)(^8A^84)
+    (^8B=0)(^8C=5e)(^8D^95)(^8E=0)(^8F=0)(^90=0)(^91=0)]
+  [6(^82^96)(^83^D0)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^83)(^8A^84)
+    (^8B=0)(^8C=5e)(^8D^97)(^8E=0)(^8F=0)(^90=0)(^91=0)(^97=0)]
+  [7(^82^98)(^83=0)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^83)(^8A^84)
+    (^8B=0)(^8C=5e)(^8D^99)(^8E=0)(^8F=0)(^90=0)(^91=0)]
+  [8(^82^9A)(^83=0)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^83)(^8A^84)
+    (^8B=0)(^8C=5e)(^8D^9B)(^8E=0)(^8F=0)(^90=0)(^91=0)]
+  [9(^82^9C)(^83^9E)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^83)(^8A^84)
+    (^8B^9F)(^8C=2f)(^8D^9D)(^8E=0)(^8F=0)(^90=0)(^91=0)(^97^80B1)]
+  [A(^82^A1)(^83^9E)(^84=28)(^85=0)(^86=0)(^87=0)(^88=0)(^89^3469)(^8A^84)
+    (^8B^9F)(^8C=2f)(^8D^A2)(^8E=0)(^8F=28)(^90=0)(^91=0)(^97^341A)
+    (^96=2f)]
+  [B(^82^A3)(^83^9E)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^83)(^8A^84)
+    (^8B^9F)(^8C=2f)(^8D^A4)(^8E=0)(^8F=0)(^90=0)(^91=0)(^97^80B1)]
+  [C(^82^A5)(^83^D1)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^83)(^8A^84)
+    (^8B^A7)(^8C=2f)(^8D^8A)(^8E=0)(^8F=0)(^90=0)(^91=0)(^97=0)]
+  [D(^82^A8)(^83^9E)(^84=0)(^85=0)(^86=0)(^87=0)(^88=8b65)(^89=0)(^8A^84)
+    (^8B^9F)(^8C=2f)(^8D^A9)(^8E=0)(^8F=0)(^90=0)(^91=0)(^97^348C)(^98^7F58)
+    (^96=585)]
+  [E(^82^AA)(^83^9E)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^83)(^8A^84)
+    (^8B^9F)(^8C=2f)(^8D^AB)(^8E=0)(^8F=0)(^90=0)(^91=0)(^97^80B2)]
+  [F(^82^AC)(^83^AE)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^83)(^8A^84)
+    (^8B^AF)(^8C=2f)(^8D^AD)(^8E=0)(^8F=0)(^90=0)(^91=0)(^97=0)(^98^7F5C)]
+  [10(^82^B0)(^83^B2)(^84=1c39)(^85=1726)(^86=0)(^87=0)(^88=0)(^89^80AF)
+    (^8A^84)(^8B^B3)(^8C=2f)(^8D^B4)(^8E=0)(^8F=1c39)(^90=0)(^91=0)
+    (^97^3F49)(^98^7F5D)(^96=5ca4)]
+  [11(^82^B5)(^83^B7)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^83)(^8A^84)
+    (^8B^B8)(^8C=2f)(^8D^B9)(^8E=0)(^8F=0)(^90=0)(^91=0)(^97^80B1)]
+  [12(^82^BA)(^83^9E)(^84=20d)(^85=b8)(^86=0)(^87=0)(^88=0)(^89^80B0)
+    (^8A^84)(^8B^9F)(^8C=2f)(^8D^BC)(^8E=0)(^8F=20d)(^90=0)(^91=0)(^97^3F49)
+    (^98^7D3D)(^96=2de)]
+  [13(^82^BD)(^83^C0)(^84=12a)(^85=0)(^86=0)(^87=0)(^88=0)(^89^80AE)
+    (^8A^84)(^8B^C1)(^8C=2f)(^8D^C2)(^8E=0)(^8F=12a)(^90=0)(^91=0)(^92=60)
+    (^97^7F5F)(^96=160)]
+  [14(^82^C3)(^83^C6)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^83)(^8A^84)
+    (^8B^C7)(^8C=2f)(^8D^C8)(^8E=0)(^8F=0)(^90=0)(^91=0)(^92=-1)(^97=0)]
+  [15(^82^C9)(^83^9E)(^84=24)(^85=1)(^86=0)(^87=0)(^88=0)(^89^7F84)
+    (^8A^84)(^8B^9F)(^8C=2f)(^8D^CB)(^8E=0)(^8F=24)(^90=0)(^91=0)(^97^7F5F)
+    (^98^7F60)(^96=36)]
+  [16(^82^CC)(^83^7F59)(^84=584)(^85=0)(^86=0)(^87=0)(^88=0)(^89^83)
+    (^8A^84)(^8B^CE)(^8C=2f)(^8D^CF)(^8E=0)(^8F=0)(^90=0)(^91=0)(^92=-1)
+    (^97=0)]
+  [17(^82^3418)(^83=0)(^84^91)(^85^91)(^86=0)(^87=0)(^88=0)(^89^83)
+    (^8A=)(^8B=0)(^8C=2f)(^8D=)(^8E=0)(^8F=0)(^90=0)(^91=0)(^97=0)]
+  [18(^82^80B6)(^83=1004)(^84=3e)(^85=3e)(^86=0)(^87=0)(^88=0)(^89^80F5)
+    (^8A^84)(^93^80B8)(^98^80F8)(^9C=1)]
+  [19(^82^80B9)(^83^89)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^83)(^8A^84)
+    (^93^8A)(^9C=1)]
+  [1A(^82^80BA)(^83=1c)(^84^91)(^85^91)(^86=0)(^87=0)(^88=0)(^89^83)
+    (^8A=)(^93^80BB)]}

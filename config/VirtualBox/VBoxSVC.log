@@ -1,0 +1,51 @@
+00:00:00.000481 main     VirtualBox XPCOM Server 6.1.18 r142142 linux.amd64 (Jan  7 2021 17:36:17) release log
+00:00:00.000486 main     Log opened 2021-01-21T16:18:37.228501000Z
+00:00:00.000488 main     Build Type: release
+00:00:00.000493 main     OS Product: Linux
+00:00:00.000496 main     OS Release: 5.8.0-7630-generic
+00:00:00.000498 main     OS Version: #32~1609193707~20.04~781bb80-Ubuntu SMP Tue Jan 5 21:23:50 UTC 2
+00:00:00.000529 main     DMI Product Name: VivoBook_ASUSLaptop X421IA_M433IA
+00:00:00.000540 main     DMI Product Version: 1.0       
+00:00:00.000548 main     Firmware type: UEFI
+00:00:00.000685 main     Secure Boot: Disabled
+00:00:00.000733 main     Host RAM: 7435MB (7.2GB) total, 3967MB (3.8GB) available
+00:00:00.000737 main     Executable: /usr/lib/virtualbox/VBoxSVC
+00:00:00.000739 main     Process ID: 132918
+00:00:00.000741 main     Package type: LINUX_64BITS_UBUNTU_19_10
+00:00:00.002606 main     IPC socket path: /tmp/.vbox-umang-ipc/ipcd
+00:00:00.107219 nspr-2   VirtualBox: object creation starts
+00:00:00.107335 nspr-2   Home directory: '/home/umang/.config/VirtualBox'
+00:00:00.107884 nspr-2   Loading settings file "/home/umang/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:00:00.113392 nspr-2   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlp1s0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:00:00.114480 nspr-2   HostDnsMonitor: initializing
+00:00:00.114785 nspr-2   NAT: resolv.conf: nameserver 127.0.0.53
+00:00:00.114799 nspr-2   NAT: resolv.conf: ignoring "options edns0 trust-ad"
+00:00:00.114812 nspr-2   HostDnsMonitor: updating information
+00:00:00.114832 nspr-2   HostDnsMonitor: old information
+00:00:00.114839 nspr-2     no server entries
+00:00:00.114847 nspr-2     no domain set
+00:00:00.114852 nspr-2     no search string entries
+00:00:00.114858 nspr-2   HostDnsMonitor: new information
+00:00:00.114863 nspr-2     server 1: 127.0.0.53
+00:00:00.114870 nspr-2     no domain set
+00:00:00.114875 nspr-2     no search string entries
+00:00:00.123132 nspr-2   VD: VDInit finished with VINF_SUCCESS
+00:00:00.129771 nspr-2   Loading settings file "/home/umang/VirtualBox VMs/t1/t1.vbox" with version "1.16-linux"
+00:00:00.132051 nspr-2   OCI: Local config file '/home/umang/.config/VirtualBox/oci_config' does not exist
+00:00:00.132070 nspr-2   OCI: Original config file '/home/umang/.oci/config' does not exist
+00:00:00.132077 nspr-2   OCI: Reading profiles finished with status NS_OK
+00:00:00.132087 nspr-2   ExtPack: Created cloud provider 'OCI' (hrc=NS_OK)
+00:00:00.132101 nspr-2   VirtualBox: object created
+00:00:00.866335 nspr-3   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:00:01.131486 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:00:01.133122 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={16ced992-5fdc-4aba-aff5-6a39bbd7c38b} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:00:10.243245 nspr-2   Saving settings file "/home/umang/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:00:12.529245 nspr-2   Saving settings file "/home/umang/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:00:12.537178 nspr-2   Saving settings file "/home/umang/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:00:12.542960 nspr-3   Saving settings file "/home/umang/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:00:18.060169 main     VirtualBox: object deletion starts
+00:00:18.060612 main     HostDnsMonitor: shutting down ...
+00:00:18.061169 main     HostDnsMonitor: shut down
+00:00:18.136952 Watcher  ERROR [COM]: aRC=E_ACCESSDENIED (0x80070005) aIID={d0a0163f-e254-4e5b-a1f2-011cf991c38d} aComponent={VirtualBoxWrap} aText={The object is not ready}, preserve=false aResultDetail=0
+00:00:23.061353 main     {00007f220c017ed0} HostPowerServiceLinux::~HostPowerServiceLinux: RTThreadWait() for 5000 ms failed with VERR_TIMEOUT
+00:00:23.062369 main     VirtualBox: object deleted
