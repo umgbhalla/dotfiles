@@ -1,1 +1,0 @@
-/home/umang/.dotfiles/.zshrc
