@@ -1,1 +1,0 @@
-{"net":{"http_server_properties":{"servers":[{"https://releases.hyper.is":{"supports_spdy":true}},{"https://hyper-news.now.sh":{"supports_spdy":true}},{"https://hyper-news.vercel.app":{"supports_spdy":true}}],"version":5}}}
