@@ -2,6 +2,7 @@
 # my own feeds
 https://sam.bossley.us/feeds/thoughts.xml
 https://sam.bossley.us/feeds/log.xml
+https://rss-endpoints.netlify.app/.netlify/functions/soundcloud/sambossley
 
 # news sources
 # https://www.pewresearch.org/feed/ news # pew center
