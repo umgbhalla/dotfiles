@@ -19,6 +19,8 @@ mkdir -p "$XDG_CACHE_HOME"
 PKGS="${PKGS} automake-1.15.1"
 # required by girara/zathura manual build
 PKGS="${PKGS} gettext-tools"
+# required by ytfzf
+# PKGS="${PKGS} jq"
 # required by picom
 PKGS="${PKGS} libev"
 # required by picom, girara/zathura
@@ -233,6 +235,10 @@ pip install --upgrade youtube-dl
 # ytui
 cd "$XDG_CONFIG_HOME/ytui"
 doas make clean install
+# ytfzf
+# git clone "https://github.com/pystardust/ytfzf" "${TMPDIR}/ytfzf"
+# cd "${TMPDIR}/ytfzf"
+# doas make install
 
 # swallowing windows
 git clone "https://github.com/salman-abedin/devour.git" "${TMP_DIR}/devour"
