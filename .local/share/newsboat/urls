@@ -57,17 +57,17 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCKab3hYnOoTZZbEUQBMx-ww you
 
 # music
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCw3e5HIQiYc7p1bEpOtEkog "~Xisumamusic" youtube music # xisuma music
-# https://soundcloud.com/denycedenyce/tracks TODO add soundcloud feeds
-# https://soundcloud.com/hydrodynamiks
-# https://soundcloud.com/worsethanthis # a l e x
-# https://soundcloud.com/k_type_beat
-# https://soundcloud.com/jack-snyder
+https://rss-endpoints.netlify.app/.netlify/functions/soundcloud/denycedenyce "~Denyce" soundcloud music
+https://rss-endpoints.netlify.app/.netlify/functions/soundcloud/hydrodynamiks soundcloud music
+# https://rss-endpoints.netlify.app/.netlify/functions/soundcloud/worsethanthis "~a l e x" soundcloud music
+https://rss-endpoints.netlify.app/.netlify/functions/soundcloud/k_type_beat "~Kaleb" soundcloud music
+https://rss-endpoints.netlify.app/.netlify/functions/soundcloud/jack-snyder "~JJ" soundcloud music
 
 # twitch
 https://twitchrss.appspot.com/vod/dunkstream "~Dunkey Stream" twitch meme game
 https://twitchrss.appspot.com/vod/chriswere "~Chris Were Stream" twitch game
 https://twitchrss.appspot.com/vod/rtgamecrowd "~RTGameCrowd Stream" twitch meme game
-# https://twitchrss.appspot.com/vod/rychainz "~Rychainz Stream" twitch meme game
+https://twitchrss.appspot.com/vod/rychainz "~Rychainz Stream" twitch meme game
 # https://twitchrss.appspot.com/vod/eddyburback "~Eddy Burback Stream" twitch meme game
 # https://twitchrss.appspot.com/vod/gusjohnson "~Gus Johnson Stream" twitch meme game
 # https://twitchrss.appspot.com/vod/nerdcubed "~Nerd Cubed Stream" twitch meme game
