@@ -61,7 +61,7 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCKab3hYnOoTZZbEUQBMx-ww you
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCw3e5HIQiYc7p1bEpOtEkog "~Xisumamusic" youtube music # xisuma music
 https://rss-endpoints.netlify.app/.netlify/functions/soundcloud/denycedenyce "~Denyce" soundcloud music
 https://rss-endpoints.netlify.app/.netlify/functions/soundcloud/hydrodynamiks soundcloud music
-# https://rss-endpoints.netlify.app/.netlify/functions/soundcloud/worsethanthis "~a l e x" soundcloud music
+https://rss-endpoints.netlify.app/.netlify/functions/soundcloud/worsethanthis "~a l e x" soundcloud music
 https://rss-endpoints.netlify.app/.netlify/functions/soundcloud/k_type_beat "~Kaleb" soundcloud music
 https://rss-endpoints.netlify.app/.netlify/functions/soundcloud/jack-snyder "~JJ" soundcloud music
 
