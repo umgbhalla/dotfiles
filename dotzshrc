@@ -22,12 +22,16 @@ alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 alias .f='cd /mnt/F'
+alias .d='cd /mnt/F/dotfiles'
 alias .u='cd /mnt/F/umgbhalla.github.io'
+alias .dev='cd /mnt/F/dev'
 #alias code='/usr/share/code/code'
 alias vsf='code /mnt/F '
 alias vs='code'
 alias vsu='cd /mnt/F/umgbhalla.github.io && code .'
-
+alias op='xdg-open'
+alias sc='tty-clock -Ssc'
+alias o='fuck'
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -125,7 +129,7 @@ alias la='exa -a --color=always --group-directories-first'  # all files and dirs
 alias ll='exa -l --color=always --group-directories-first'  # long format
 alias lt='exa -aT --color=always --group-directories-first' # tree listing
 alias l.='exa -a | egrep "^\."'
-alias ls='(exa -al --color=always ) | bat' # ls in bat
+alias ls='(exa -al --color=always --reverse --sort=size ) | bat' # ls in bat
 alias ct='cht.sh' #curl cht.sh/:learn
 alias sai='sudo apt install' #hahaha
 alias ssy='sudo apt update && sudo apt upgrade'
@@ -160,4 +164,17 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 fpath=(~/.zsh.d/ $fpath)
 
 
-pfetch
+
+eval $(thefuck --alias)
+
+#autoload -Uz compinit
+#compinit
+# Completion for kitty
+#kitty + complete setup zsh | source /dev/stdin
+
+
+
+#pfetch
+bindkey "^b" _fuzzybrowse_zsh_insert_output
+
+
