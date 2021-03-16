@@ -13,6 +13,7 @@ https://allisonlcj.com/feed/atom independent commentary # allison lee
 https://www.romanzolotarev.com/rss.xml independent tech # roman zolotarev
 https://dataswamp.org/~solene/rss.xml independent tech # solene
 https://onetapestry.com/feed/atom independent christian # david kuo
+# https://gettingitstrait.com/feed journal commentary # getting it strait
 
 # podcasts
 # https://vault.lunduke.com/LundukeShowMP3.xml independent tech commentary # bryan lunduke
@@ -68,7 +69,7 @@ https://rss-endpoints.netlify.app/.netlify/functions/soundcloud/jack-snyder "~JJ
 # twitch
 https://twitchrss.appspot.com/vod/dunkstream "~Dunkey Stream" twitch meme game
 https://twitchrss.appspot.com/vod/chriswere "~Chris Were Stream" twitch game
-https://twitchrss.appspot.com/vod/rtgamecrowd "~RTGameCrowd Stream" twitch meme game
+https://twitchrss.appspot.com/vod/rtgame "~RTGameCrowd Stream" twitch meme game
 https://twitchrss.appspot.com/vod/rychainz "~Rychainz Stream" twitch meme game
 # https://twitchrss.appspot.com/vod/eddyburback "~Eddy Burback Stream" twitch meme game
 # https://twitchrss.appspot.com/vod/gusjohnson "~Gus Johnson Stream" twitch meme game
