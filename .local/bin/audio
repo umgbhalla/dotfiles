@@ -112,6 +112,7 @@ vol_set() {
   else
     case "$OS" in
       "$OS_OPENBSD") sndioctl output.level=$1 ;;
+      "$OS_LINUX") pamixer --set-volume "$1"
     esac
   fi
 }

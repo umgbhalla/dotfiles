@@ -3,6 +3,8 @@
 charging=""
 discharging=""
 
+LINUX_BAT="/sys/class/power_supply/BAT0"
+
 if command -v "apm" > "$NULL"; then
   pow="$(apm)"
 
@@ -14,6 +16,16 @@ if command -v "apm" > "$NULL"; then
   fi
 
   echo "${status} ${bat}"
+
+elif [ -e "$LINUX_BAT" ]; then
+  bat="$(cat "/sys/class/power_supply/BAT0/capacity" 2> "$NULL")"
+
+  status="$(cat "/sys/class/power_supply/BAT0/status")"
+  if [ "$status" = "Charging" ]; then status="$charging"
+  else status="$discharging"
+  fi
+
+  echo "${status} ${bat}"
 else
-  echo ""
+  echo "$discharging"
 fi
