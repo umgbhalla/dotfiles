@@ -178,7 +178,7 @@ screenKeyToggle() {
     kill -15 "$pid"
     rm -f "${keyPid}"
   else
-    screenkey &
+    screenkey --no-systray --compr-cnt 2 --persist &
     echo $! > "${keyPid}"
   fi
 }
