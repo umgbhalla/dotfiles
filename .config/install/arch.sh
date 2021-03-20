@@ -12,7 +12,7 @@ AUR=""
 
 mkdir -p "$TMPDIR"
 mkdir -p "$XDG_CACHE_HOME"
-# mkdir -p "$OPT_DIR"
+mkdir -p "$OPT_DIR"
 
 #
 # dependencies
@@ -129,8 +129,11 @@ AUR="${AUR} firefox-ublock-origin"
 AUR="${AUR} firefox-extension-multi-account-containers"
 
 # alternate music player
-# AUR="${AUR} spotify"
+AUR="${AUR} spotify"
 AUR="${AUR} ncspot"
+
+# development engine
+# AUR="${AUR} unityhub"
 
 #
 # installation
@@ -150,10 +153,10 @@ yay -S --batchinstall --needed --nocleanmenu --nodiffmenu --noprovides $AUR # ca
 mkdir -p "${HOME}/.mozilla"
 ln -sf "${XDG_CONFIG_HOME}/mozilla/firefox" "${HOME}/.mozilla/firefox"
 
-# lemonbar
-# git clone "https://github.com/krypt-n/bar.git" "${TMPDIR}/lemonbar"
-# cd "${TMPDIR}/lemonbar"
-# sudo make clean install
+# spotify with spicetify
+sudo chmod a+wr "${OPT_DIR}/spotify"
+sudo chmod a+wr "${OPT_DIR}/spotify/Apps" -R
+yay -S --needed --nocleanmenu --nodiffmenu --noprovides spicetify-cli
 
 # xresources
 cd "${XDG_CONFIG_HOME}/getxr"
