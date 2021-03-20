@@ -27,5 +27,5 @@ elif [ -e "$LINUX_BAT" ]; then
 
   echo "${status} ${bat}"
 else
-  echo "$discharging"
+  echo "$charging"
 fi
