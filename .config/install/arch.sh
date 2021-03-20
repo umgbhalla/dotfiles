@@ -88,6 +88,9 @@ PKGS="${PKGS} ffmpeg"
 # PKGS="${PKGS} mp3splt"
 # PKGS="${PKGS} kdenlive"
 
+# dipslay pressed keys
+PKGS="${PKGS} screenkey"
+
 PKGS="${PKGS} alsa-utils"
 # optional - pulseaudio
 PKGS="${PKGS} pulseaudio pulseaudio-alsa pamixer pavucontrol"
@@ -105,6 +108,12 @@ PKGS="${PKGS} texlive-most"
 # PKGS="${PKGS} nodejs deno yarn python2"
 # required for ytui, and a good dev tool
 PKGS="${PKGS} rust"
+# for Unity C# development
+# if there are still issues finding mono, set the following props
+# "omnisharp.useGlobalMono": "always"
+# "omnisharp.monoPath": "/usr/bin/mono"
+# PKGS="${PKGS} mono"
+# PKGS="${PKGS} dotnet-runtime dotnet-sdk" # probably don't need this
 
 # various utilities/tools
 PKGS="${PKGS} wget"
@@ -134,6 +143,8 @@ AUR="${AUR} ncspot"
 
 # development engine
 # AUR="${AUR} unityhub"
+# for Unity C# development
+# AUR="${AUR} mono-basic" # probably don't need this
 
 #
 # installation

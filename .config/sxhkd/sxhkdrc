@@ -76,6 +76,8 @@ super + F9
   scene stop
 super + F8
   scene gif
+super + F7
+  scene key-toggle
 
 #
 # brightness control

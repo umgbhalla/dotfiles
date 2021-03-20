@@ -21,7 +21,8 @@ cursorHideX="0"
 cursorHideY="$RES_HEIGHT"
 
 # recording status temporary file path
-screenPid="${TMP_DIR}/screenPid"
+screenPid="${TMPDIR}/screenPid"
+keyPid="${TMPDIR}/screenKeyPid"
 
 notify() {
   $NOTIFICATION_MANAGER "$1"
@@ -168,6 +169,21 @@ screenGif() {
 }
 
 # --------------------------------------------------------------------------
+# key-toggle
+# --------------------------------------------------------------------------
+
+screenKeyToggle() {
+  if [ -e "${keyPid}" ]; then
+    pid="$(cat "${keyPid}")"
+    kill -15 "$pid"
+    rm -f "${keyPid}"
+  else
+    screenkey &
+    echo $! > "${keyPid}"
+  fi
+}
+
+# --------------------------------------------------------------------------
 # recording-status
 # --------------------------------------------------------------------------
 
@@ -241,6 +257,7 @@ case "$1" in
   capture-crop) screenCaptureCrop ;;
   crop) screenCrop ;;
   gif) screenGif ;;
+  key-toggle) screenKeyToggle ;;
   recording-status) screenRecordingStatus ;;
   snap) screenSnap ;;
   stop) screenStop ;;
