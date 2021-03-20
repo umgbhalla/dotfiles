@@ -4,102 +4,121 @@
 # setup
 #
 
-PACKS=""
+PREFIX="/usr/local"
+BIN="${PREFIX}/bin"
+
+PKGS=""
 AUR=""
 
+mkdir -p "$TMPDIR"
 mkdir -p "$XDG_CACHE_HOME"
-mkdir -p "$TMP_DIR"
-mkdir -p "$OPT_DIR"
+# mkdir -p "$OPT_DIR"
 
-git clone "https://aur.archlinux.org/yay-bin.git" "$TMP_DIR/yay"
-cd "$TMP_DIR/yay" && makepkg -si
+#
+# dependencies
+#
+
+# required by coc.nvim
+PKGS="${PKGS} npm"
 
 #
 # core
 #
 
+# yay package management
+git clone "https://aur.archlinux.org/yay-bin.git" "${TMPDIR}/yay"
+cd "${TMPDIR}/yay" && makepkg -si
+
 # documentation
-PACKS="${PACKS} man"
+PKGS="${PKGS} man"
+# editor
+PKGS="${PKGS} neovim ripgrep nodejs npm fzf"
+# archives
+PKGS="${PKGS} unzip"
+# development languages
+PKG="${PKGS} python"
+
+#
+# Xorg
+#
 
 # xorg
-PACKS="${PACKS} xorg-server xorg-xinit"
-PACKS="${PACKS} xf86-video-intel"
+PKGS="${PKGS} xorg-server xorg-xinit"
+PKGS="${PKGS} xf86-video-intel"
 # wm
-PACKS="${PACKS} bspwm sxhkd"
-# editor (fuzzy finder and coc compatibility)
-PACKS="${PACKS} neovim ripgrep nodejs"
+PKGS="${PKGS} bspwm sxhkd"
 # terminal font
-PACKS="${PACKS} libxft"
+PKGS="${PKGS} libxft"
 # fonts
-PACKS="${PACKS} ttf-liberation adobe-source-code-pro-fonts wqy-zenhei"
+PKGS="${PKGS} ttf-liberation adobe-source-code-pro-fonts wqy-zenhei"
 # browser
-PACKS="${PACKS} firefox"
-# fuzzy finder
-PACKS="${PACKS} fzf"
+PKGS="${PKGS} firefox"
 # image viewer
-PACKS="${PACKS} feh"
+PKGS="${PKGS} feh"
 # screenshot utilities
-PACKS="${PACKS} slop xdotool"
+PKGS="${PKGS} slop xdotool"
 # redshift
-PACKS="${PACKS} redshift"
+PKGS="${PKGS} redshift"
 # file manager
-PACKS="${PACKS} vifm"
-# compositor
-# PACKS="${PACKS} picom"
+PKGS="${PKGS} vifm"
+# compositor (fork installed below)
+# PKGS="${PKGS} picom"
 # display utils
-PACKS="${PACKS} xorg-xsetroot"
+PKGS="${PKGS} xorg-xsetroot"
 # mouse/touchpad control
-PACKS="${PACKS} xorg-xinput"
+PKGS="${PKGS} xorg-xinput"
 # clipboard
-PACKS="${PACKS} xclip"
+PKGS="${PKGS} xclip"
 # ssh
-PACKS="${PACKS} openssh"
-# archives
-PACKS="${PACKS} unzip"
+PKGS="${PKGS} openssh"
 # email client
-PACKS="${PACKS} neomutt"
+# PKGS="${PKGS} neomutt"
 # contact management
-PACKS="${PACKS} abook"
+PKGS="${PKGS} abook"
 # media player
-PACKS="${PACKS} mpv"
-PACKS="${PACKS} youtube-dl"
+PKGS="${PKGS} mpv"
+PKGS="${PKGS} youtube-dl"
 # rss reader
-PACKS="${PACKS} newsboat"
+PKGS="${PKGS} newsboat"
 # pdf viewer utility
-PACKS="${PACKS} zathura girara zathura-pdf-mupdf"
+PKGS="${PKGS} zathura girara zathura-pdf-mupdf"
 
 # media manipulation
-PACKS="${PACKS} ffmpeg"
-# PACKS="${PACKS} mp3splt"
-# PACKS="${PACKS} kdenlive"
+PKGS="${PKGS} ffmpeg"
+# PKGS="${PKGS} mp3splt"
+# PKGS="${PKGS} kdenlive"
 
-PACKS="${PACKS} alsa-utils"
+PKGS="${PKGS} alsa-utils"
 # optional - pulseaudio
-# PACKS="${PACKS} pulseaudio pulseaudio-alsa pamixer"
-PACKS="${PACKS} mpd ncmpcpp"
+PKGS="${PKGS} pulseaudio pulseaudio-alsa pamixer pavucontrol"
+PKGS="${PKGS} mpd ncmpcpp"
 
 # tuning power consumption
-PACKS="${PACKS} tlp brightnessctl"
+PKGS="${PKGS} tlp brightnessctl"
 
 # # doc conversion (specifically, md to html)
-# PACKS="${PACKS} pandoc"
+# PKGS="${PKGS} pandoc"
 # latex
-PACKS="${PACKS} texlive-most biber"
+# PKGS="${PKGS} texlive-most biber"
+PKGS="${PKGS} texlive-most"
 # dev tools for work/school/projects
-PACKS="${PACKS} nodejs deno yarn python2"
+# PKGS="${PKGS} nodejs deno yarn python2"
 # required for ytui, and a good dev tool
-PACKS="${PACKS} rust"
+PKGS="${PKGS} rust"
 
 # various utilities/tools
-PACKS="${PACKS} wget"
+PKGS="${PKGS} wget"
 
 # firefox extensions
-PACKS="${PACKS} firefox-tridactyl"
+PKGS="${PKGS} firefox-tridactyl"
 
 # who doesn't like nethack?
-PACKS="${PACKS} nethack"
+PKGS="${PKGS} nethack"
 
-AUR="${AUR} mmv"
+# AUR="${AUR} mmv"
+
+# status bar
+AUR="${AUR} polybar"
 
 # compositor fork with dual kawase and blur
 AUR="${AUR} picom-ibhagwan-git"
@@ -117,7 +136,7 @@ AUR="${AUR} ncspot"
 # installation
 #
 
-sudo pacman -S --needed $PACKS # cannot be quoted
+sudo pacman -S --needed $PKGS # cannot be quoted
 
 # unmute audio channel
 amixer sset Master unmute
@@ -132,9 +151,9 @@ mkdir -p "${HOME}/.mozilla"
 ln -sf "${XDG_CONFIG_HOME}/mozilla/firefox" "${HOME}/.mozilla/firefox"
 
 # lemonbar
-git clone "https://github.com/krypt-n/bar.git" "${TMP_DIR}/lemonbar"
-cd "${TMP_DIR}/lemonbar"
-sudo make clean install
+# git clone "https://github.com/krypt-n/bar.git" "${TMPDIR}/lemonbar"
+# cd "${TMPDIR}/lemonbar"
+# sudo make clean install
 
 # xresources
 cd "${XDG_CONFIG_HOME}/getxr"
@@ -146,37 +165,37 @@ sudo ln -sf mksh /bin/sh
 # suckless
 sbuild "st"
 sbuild "herbe"
-sbuild "slock"
+# sbuild "slock"
 
 # swallowing windows
-git clone "https://github.com/salman-abedin/devour.git" "${TMP_DIR}/devour"
-cd "${TMP_DIR}/devour"
+git clone "https://github.com/salman-abedin/devour.git" "${TMPDIR}/devour"
+cd "${TMPDIR}/devour"
 git checkout f1630794f0a6e96377373e8c1629ffa76f9b6cf4
 sudo make install
 
 # until ncpamixer proves itself to work without segfaulting, alsamixer works just fine...
-# git clone "https://github.com/bossley9/ncpamixer.git" "${TMP_DIR}/ncpamixer"
-# cd "${TMP_DIR}/ncpamixer"
+# git clone "https://github.com/bossley9/ncpamixer.git" "${TMPDIR}/ncpamixer"
+# cd "${TMPDIR}/ncpamixer"
 # sudo make install
 
 # alsamixer
-git clone "https://github.com/bossley9/alsamixer.git" "${TMP_DIR}/alsamixer"
-cd "${TMP_DIR}/alsamixer"
+git clone "https://github.com/bossley9/alsamixer.git" "${TMPDIR}/alsamixer"
+cd "${TMPDIR}/alsamixer"
 sudo make clean install
 
 # contact management
-# git clone "https://github.com/bossley9/abook.git" "${TMP_DIR}/abook"
-# cd "${TMP_DIR}/abook"
+# git clone "https://github.com/bossley9/abook.git" "${TMPDIR}/abook"
+# cd "${TMPDIR}/abook"
 # ./configure
 # sudo make clean install
 
 # ytui
-cd "$XDG_CONFIG_HOME/ytui"
+cd "${XDG_CONFIG_HOME}/ytui"
 sudo make clean install
 
 # system profiler
-git clone "https://github.com/bossley9/htop.git" "${TMP_DIR}/htop"
-cd "${TMP_DIR}/htop"
+git clone "https://github.com/bossley9/htop.git" "${TMPDIR}/htop"
+cd "${TMPDIR}/htop"
 ./autogen.sh
 ./configure
 sudo make clean install
@@ -188,16 +207,16 @@ sudo mkdir -p "${SYSD}"
 sudo cp "${XDG_CONFIG_HOME}${SYSD}/logind.conf" "${SYSD}/logind.conf"
 
 # slock
-SYSDSYS="${SYSD}/system"
-sudo mkdir -p "${SYSDSYS}"
-DISPLAY=:0 $DET "${XDG_CONFIG_HOME}/${SYSDSYS}/template.slock@.service"
-sudo ln -sf "${XDG_CONFIG_HOME}/${SYSDSYS}/slock@.service" "${SYSDSYS}/slock@.service"
-sudo systemctl enable "slock@${USER}.service"
+# SYSDSYS="${SYSD}/system"
+# sudo mkdir -p "${SYSDSYS}"
+# DISPLAY=:0 $DET "${XDG_CONFIG_HOME}/${SYSDSYS}/template.slock@.service"
+# sudo ln -sf "${XDG_CONFIG_HOME}/${SYSDSYS}/slock@.service" "${SYSDSYS}/slock@.service"
+# sudo systemctl enable "slock@${USER}.service"
 
 # system reporter
-git clone "https://github.com/dylanaraps/pfetch.git" "${TMP_DIR}/pfetch"
-cd "${TMP_DIR}/pfetch"
-mv pfetch "${XDG_SCRIPT_HOME}/pfetch"
+# git clone "https://github.com/dylanaraps/pfetch.git" "${TMPDIR}/pfetch"
+# cd "${TMPDIR}/pfetch"
+# mv pfetch "${XDG_SCRIPT_HOME}/pfetch"
 
 # gtk theme
 sudo mkdir -p "$GTK_THEME_DIR"
@@ -218,8 +237,8 @@ sudo sed -i 's/#Color/Color/' /etc/pacman.conf
 # timeout
 sudo sed -i 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=0/' "/etc/default/grub"
 # background
-sudo cp "${XDG_DATA_HOME}/wallpapers/grub.png" "/boot/grub/"
-sudo sed -i 's/#GRUB_BACKGROUND=.*/GRUB_BACKGROUND=\/boot\/grub\/grub.png/' "/etc/default/grub"
+# sudo cp "${XDG_DATA_HOME}/wallpapers/grub.png" "/boot/grub/"
+# sudo sed -i 's/#GRUB_BACKGROUND=.*/GRUB_BACKGROUND=\/boot\/grub\/grub.png/' "/etc/default/grub"
 # verbose
 sudo sed -i 's/quiet//' "/etc/default/grub"
 # regenerate
