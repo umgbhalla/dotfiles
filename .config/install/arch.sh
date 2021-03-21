@@ -65,6 +65,7 @@ PKGS="${PKGS} vifm"
 # PKGS="${PKGS} picom"
 # display utils
 PKGS="${PKGS} xorg-xsetroot"
+PKGS="${PKGS} xorg-xsetroot"
 # mouse/touchpad control
 PKGS="${PKGS} xorg-xinput"
 # clipboard
