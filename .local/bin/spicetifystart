@@ -1,0 +1,7 @@
+#!/bin/sh
+
+spicetify config extensions dribbblish-dynamic.js
+spicetify config current_theme ${SPICETIFY_THEME}
+spicetify config color_scheme dark
+spicetify -q backup apply
+spicetify -q apply

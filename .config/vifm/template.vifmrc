@@ -232,6 +232,8 @@ filetype {*.[1-8]},<text/troff> man ./%c
 fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 
 " image
+filextype {*.xcf}
+  \ gimp %f
 filextype {*.bmp,*.jpg,*.jpeg,*.png,*.xpm,*.svg},<image/*>
   \ devour feh --start-at %f
 

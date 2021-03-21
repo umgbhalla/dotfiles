@@ -124,7 +124,7 @@ esac
 # music player
 export MUSIC_PLAYER=""
 export MUSIC_PLAYER_ARGS="${MUSIC_PLAYER}"
-if [ "$OS" == "$OS_LINUX" ]; then
+if command -v "spotify" > "$NULL"; then
   export MUSIC_PLAYER="spotify"
   export MUSIC_PLAYER_ARGS="${MUSIC_PLAYER}"
 fi
@@ -150,7 +150,7 @@ case "$OS" in
     ;;
   "$OS_LINUX")
     export AUDIO_ARCH="alsa"
-    if command -v "pulseaudio" >/dev/null; then
+    if command -v "pulseaudio" > "$NULL"; then
       export AUDIO_OUTPUT="pulse"
     else
       export AUDIO_OUTPUT="alsa"
@@ -250,6 +250,12 @@ export FZF_DEFAULT_OPTS="--bind $FZF_BINDINGS --color=\"$FZF_COLORS\""
 if [ "$OS" == "$OS_OPENBSD" ]; then
   export BROWSER="${BROWSER_NAME} -P ${FF_PROFILE}"
   export BROWSER_INCOGNITO="${BROWSER} -private-window"
+fi
+
+# spicetify
+if command -v "spicetify" > "$NULL"; then
+  export MUSIC_PLAYER="spotify"
+  export MUSIC_PLAYER_ARGS="spicetifystart"
 fi
 
 # background command

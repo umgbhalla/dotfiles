@@ -83,10 +83,15 @@ PKGS="${PKGS} newsboat"
 # pdf viewer utility
 PKGS="${PKGS} zathura girara zathura-pdf-mupdf"
 
+# dipslay utility
+PKGS="${PKGS} xorg-xev"
+
 # media manipulation
 PKGS="${PKGS} ffmpeg"
 # PKGS="${PKGS} mp3splt"
 # PKGS="${PKGS} kdenlive"
+# image manipulation
+# PKGS="${PKGS} gimp inkscape"
 
 # dipslay pressed keys
 PKGS="${PKGS} screenkey"

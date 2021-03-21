@@ -10,6 +10,7 @@ $XDG_CONFIG_HOME/mpd/template.mpd.conf
 $XDG_CONFIG_HOME/mpv/template.mpv.conf
 $XDG_CONFIG_HOME/ncmpcpp/template.config
 $XDG_CONFIG_HOME/picom/template.picom.conf
+$XDG_CONFIG_HOME/spicetify/template.config.ini
 $XDG_CONFIG_HOME/st/template.config.h
 $XDG_CONFIG_HOME/vifm/template.vifmrc
 $XDG_CONFIG_HOME/Xdefaults/template.Xresources
