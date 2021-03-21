@@ -141,7 +141,7 @@ screenGif() {
   if [ ! -f "${screenPid}" ]; then
     output="${captureOutputDir}/gif-${datefmt}.gif"
     geometry="$(slop)"
-    fps="7"
+    fps="10"
     # largest possible width to incentivize small area recordings
     maxRatio="900"
 
