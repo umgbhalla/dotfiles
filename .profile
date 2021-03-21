@@ -259,8 +259,8 @@ if command -v "spicetify" > "$NULL"; then
 fi
 
 # background command
-# export BACKGROUND="hsetroot -solid ${C_CYAN_0}"
-export BACKGROUND="feh --no-fehbg --bg-fill ${XDG_DATA_HOME}/wallpapers/sailor.jpg"
+export BACKGROUND="hsetroot -solid ${C_CYAN_0}"
+# export BACKGROUND="feh --no-fehbg --bg-fill ${XDG_DATA_HOME}/wallpapers/sailor.jpg"
 
 # startx
 if command -v "startx" >/dev/null; then
