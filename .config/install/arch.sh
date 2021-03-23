@@ -8,6 +8,7 @@ PREFIX="/usr/local"
 BIN="${PREFIX}/bin"
 
 PKGS=""
+PKGSA=""
 AUR=""
 
 mkdir -p "$TMPDIR"
@@ -148,6 +149,8 @@ AUR="${AUR} ncspot"
 
 # streaming/recording/video manipulation
 # AUR="${AUR} obs-studio-git" # git version for latest loopback update
+# PKGS="${PKGS} linux-headers dkms"
+PKGSA="${PKGSA} v4l2loopback-dkms" # if not already installed
 
 # Unity development
 # if there are still issues finding mono, set the following props
@@ -172,6 +175,9 @@ amixer sset Master unmute
 sudo systemctl enable --now tlp
 
 yay -S --batchinstall --needed --nocleanmenu --nodiffmenu --noprovides $AUR # cannot be quoted
+
+# after
+sudo pacman -S --needed $PKGSA # cannot be quoted
 
 # firefox profile
 mkdir -p "${HOME}/.mozilla"
@@ -226,6 +232,9 @@ cd "${TMPDIR}/htop"
 ./autogen.sh
 ./configure
 sudo make clean install
+
+# obs v4l2 loopback device for virtual camera
+# sudo modprobe v4l2loopback devices=1 video_nr=10 card_label="OBS Cam" exclusive_caps=1
 
 SYSD="/etc/systemd"
 
