@@ -83,6 +83,8 @@ PKGS="${PKGS} youtube-dl"
 PKGS="${PKGS} newsboat"
 # pdf viewer utility
 PKGS="${PKGS} zathura girara zathura-pdf-mupdf"
+# wifi - still don't have a good alternative editor here
+PKGS="${PKGS} nm-connection-editor"
 
 # dipslay utility
 PKGS="${PKGS} xorg-xev"
@@ -112,14 +114,11 @@ PKGS="${PKGS} tlp brightnessctl"
 PKGS="${PKGS} texlive-most"
 # dev tools for work/school/projects
 # PKGS="${PKGS} nodejs deno yarn python2"
+# TODO python2 is required by node-sass.
+# Remove when phased out of new versions
+PKGS="${PKGS} python2"
 # required for ytui, and a good dev tool
 PKGS="${PKGS} rust"
-# for Unity C# development
-# if there are still issues finding mono, set the following props
-# "omnisharp.useGlobalMono": "always"
-# "omnisharp.monoPath": "/usr/bin/mono"
-# PKGS="${PKGS} mono"
-# PKGS="${PKGS} dotnet-runtime dotnet-sdk" # probably don't need this
 
 # various utilities/tools
 PKGS="${PKGS} wget"
@@ -143,14 +142,22 @@ AUR="${AUR} firefox-tridactyl-native"
 AUR="${AUR} firefox-ublock-origin"
 AUR="${AUR} firefox-extension-multi-account-containers"
 
-# alternate music player
+# spotify
 AUR="${AUR} spotify"
 AUR="${AUR} ncspot"
 
-# development engine
+# streaming/recording/video manipulation
+# AUR="${AUR} obs-studio-git" # git version for latest loopback update
+
+# Unity development
+# if there are still issues finding mono, set the following props
+# "omnisharp.useGlobalMono": "always"
+# "omnisharp.monoPath": "/usr/bin/mono"
 # AUR="${AUR} unityhub"
-# for Unity C# development
 # AUR="${AUR} mono-basic" # probably don't need this
+# PKGS="${PKGS} mono"
+# PKGS="${PKGS} dotnet-runtime dotnet-sdk"
+# PKGS="${PKGS} code"
 
 #
 # installation
