@@ -46,10 +46,12 @@ screenCapture() {
           "$captureOutputDir/screencapture-${datefmt}.mp4" &
         ;;
       $OS_LINUX)
+        # itsoffset is necessary since codec has trouble recording in sync with libx264
         ffmpeg \
           -f x11grab -video_size "${RES_WIDTH}x${RES_HEIGHT}" \
           -i "$DISPLAY" \
-          -f alsa -i default -c:v libx264 \
+          -f alsa -itsoffset 00:00:01 \
+          -i default -c:v libx264 \
           -preset ultrafast -c:a aac \
           "$captureOutputDir/screencapture-${datefmt}.mp4" &
         ;;
