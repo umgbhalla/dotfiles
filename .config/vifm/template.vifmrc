@@ -187,9 +187,7 @@ command link ln -s %d/%f %d/%f2
 " program.
 
 " text
-filetype {*xml,*json,*csv,*tex,*py,*pl,*rb,*js,*sh,*php},<application/text>
-  \ $EDITOR %f
-fileviewer {*xml,*json,*csv,*tex,*py,*pl,*rb,*js,*sh,*php},<application/text>
+filetype {*.csv,*.js,*.json,*.php,*.pl,*.py,*rb,*.sh,*.tex,*ts,*.xml},<application/text>
   \ $EDITOR %f
 
 " pdf
