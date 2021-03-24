@@ -113,10 +113,9 @@ PKGS="${PKGS} tlp brightnessctl"
 # PKGS="${PKGS} texlive-most biber"
 PKGS="${PKGS} texlive-most"
 # dev tools for work/school/projects
-# PKGS="${PKGS} nodejs deno yarn python2"
 # TODO python2 is required by node-sass.
 # Remove when phased out of new versions
-PKGS="${PKGS} python2"
+PKGS="${PKGS} nodejs deno yarn python2"
 # required for ytui, and a good dev tool
 PKGS="${PKGS} rust"
 
@@ -150,14 +149,15 @@ AUR="${AUR} ncspot"
 # AUR="${AUR} obs-studio-git" # git version for latest loopback update
 
 # Unity development
+# https://chrislabarge.com/posts/neovim-unity-engine/
 # if there are still issues finding mono, set the following props
 # "omnisharp.useGlobalMono": "always"
 # "omnisharp.monoPath": "/usr/bin/mono"
 # AUR="${AUR} unityhub"
 # AUR="${AUR} mono-basic" # probably don't need this
 # PKGS="${PKGS} mono"
-# PKGS="${PKGS} dotnet-runtime dotnet-sdk"
-# PKGS="${PKGS} code"
+# PKGS="${PKGS} dotnet-runtime dotnet-sdk" # probably don't need this
+# PKGS="${PKGS} code" # probably don't need this (eventually)
 
 #
 # installation
