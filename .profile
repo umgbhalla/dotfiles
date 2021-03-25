@@ -42,6 +42,12 @@ export NULL="/dev/null"
 # display
 #
 
+# rice LOD
+export RICE_HIGH="desktop"
+export RICE_LOW="minimal"
+
+export RICE="$RICE_LOW"
+
 export RES_WIDTH="1920"
 export RES_HEIGHT="1080"
 
@@ -260,8 +266,13 @@ if command -v "spicetify" > "$NULL"; then
 fi
 
 # background command
-export BACKGROUND="hsetroot -solid ${C_CYAN_0}"
-# export BACKGROUND="feh --no-fehbg --bg-fill ${XDG_DATA_HOME}/wallpapers/sailor.jpg"
+case "$RICE" in
+  "$RICE_HIGH")
+    export BACKGROUND="nice xwinwrap -b -s -fs -st -sp -nf -ov -fdt -- mpv -wid WID --really-quiet --framedrop=vo --no-audio --panscan="1.0" --no-osc --input-vo-keyboard=no --loop-file=inf ${XDG_CONFIG_HOME}/wallpapers/warrior-death.mkv"
+    # export BACKGROUND="feh --no-fehbg --bg-fill ${XDG_DATA_HOME}/wallpapers/sailor.jpg"
+    ;;
+  *) export BACKGROUND="hsetroot -solid ${C_CYAN_0}" ;;
+esac
 
 # startx
 if command -v "startx" >/dev/null; then

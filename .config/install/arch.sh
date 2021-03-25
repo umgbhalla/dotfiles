@@ -150,6 +150,9 @@ AUR="${AUR} firefox-extension-multi-account-containers"
 AUR="${AUR} spotify"
 AUR="${AUR} ncspot"
 
+# animated wallpaper eyecandy
+AUR="${AUR} xwinwrap"
+
 # streaming/recording/video manipulation
 # AUR="${AUR} obs-studio-git" # git version for latest loopback update
 # PKGS="${PKGS} linux-headers dkms"

@@ -11,10 +11,14 @@ case "$OS" in
   "$OS_OPENBSD") wsconsctl mouse.reverse_scrolling=1 ;;
   "$OS_FREEBSD") xinput set-prop "System mouse" "libinput Natural Scrolling Enabled" 1 ;;
 esac
-# # change desktop cursor to left pointer
-# xsetroot -cursor_name left_ptr &
-# disable mouse
-cursor hide
+
+# change desktop cursor to left pointer
+xsetroot -cursor_name left_ptr &
+
+if [ "$RICE" == "$RICE_LOW" ]; then
+  # disable mouse
+  cursor hide
+fi
 
 #
 # general settings
