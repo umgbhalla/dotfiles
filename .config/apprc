@@ -48,8 +48,10 @@ export POLYBAR_DIR="${XDG_CONFIG_DIR}/polybar"
 export POLYBAR_CONFIG="${POLYBAR_DIR}/config"
 export POLYBAR_SCRIPT_DIR="${POLYBAR_DIR}/scripts"
 
-export POLYBAR_UPDATE="${POLYBAR_DIR}/update.sh"
-export POLYBAR_UPDATE_STR="polybar_update_string"
+if ! command -v "pulseaudio" > "$NULL"; then
+  export POLYBAR_UPDATE="${POLYBAR_DIR}/update.sh"
+  export POLYBAR_UPDATE_STR="polybar_update_string"
+fi
 
 # abook
 

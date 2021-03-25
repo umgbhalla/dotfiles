@@ -54,9 +54,23 @@ type = internal/xwindow
 label-maxlen = 60
 
 [module/audio]
-type = custom/script
-interval = 600
-exec = ${POLYBAR_SCRIPT_DIR}/audio.sh
+type = internal/pulseaudio
+
+format-volume = <bar-volume>
+bar-volume-width = 20
+interval = 5
+
+bar-volume-indicator = │
+bar-volume-fill = ―
+bar-volume-empty = ―
+label-muted = ――――――――――――――――――――
+
+click-right = pavucontrol
+
+; [module/audio]
+; type = custom/script
+; interval = 600
+; exec = ${POLYBAR_SCRIPT_DIR}/audio.sh
 
 [module/battery]
 type = custom/script
