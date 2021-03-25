@@ -42,11 +42,16 @@ export NULL="/dev/null"
 # display
 #
 
-# rice LOD
 export RICE_HIGH="desktop"
 export RICE_LOW="minimal"
 
+# rice LOD
 export RICE="$RICE_LOW"
+export RICE_LOD_FILE="${HOME}/.rice"
+
+case "$(cat "$RICE_LOD_FILE" 2> "$NULL")" in
+  "$RICE_HIGH") export RICE="$RICE_HIGH";
+esac
 
 export RES_WIDTH="1920"
 export RES_HEIGHT="1080"
@@ -61,8 +66,6 @@ fi
 export THEME="Adapta-Nokto"
 export THEME_FONT="Roboto Regular 12"
 export GTK_THEME_DIR="/usr/share/themes"
-
-# export GTK_THEME="${THEME}:${CURRENT_THEME_MODE}"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 
 #
