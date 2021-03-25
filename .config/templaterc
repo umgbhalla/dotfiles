@@ -1,11 +1,12 @@
-$XDG_CONFIG_HOME/$THEME/gtk-3.0/template.gtk.css
+$XDG_CONFIG_HOME/gtk-theme/gtk-3.0/template.gtk.css
+$XDG_CONFIG_HOME/gtk-2.0/template.gtkrc
 $XDG_CONFIG_HOME/gtk-3.0/template.bookmarks
+$XDG_CONFIG_HOME/gtk-3.0/template.settings.ini
 $XDG_CONFIG_HOME/herbe/template.config.h
 $XDG_CONFIG_HOME/mozilla/firefox/template.profiles.ini
 $XDG_CONFIG_HOME/mozilla/firefox/template.installs.ini
 $XDG_CONFIG_HOME/mozilla/firefox/$FF_PROFILE/template.user.js
 $XDG_CONFIG_HOME/mozilla/firefox/$FF_PROFILE/chrome/template.userChrome.css
-$XDG_CONFIG_HOME/mozilla/firefox/$FF_PROFILE/chrome/template.userContent.css
 $XDG_CONFIG_HOME/mpd/template.mpd.conf
 $XDG_CONFIG_HOME/mpv/template.mpv.conf
 $XDG_CONFIG_HOME/ncmpcpp/template.config

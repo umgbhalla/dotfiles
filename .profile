@@ -52,10 +52,11 @@ if [ -z "${CURRENT_THEME_MODE}" ]; then
   export CURRENT_THEME_MODE="${THEME_DARK}"
 fi
 
-export THEME="gtk-theme"
+# export THEME="gtk-theme"
+export THEME="Adwaita-dark"
 export GTK_THEME_DIR="/usr/share/themes"
 
-export GTK_THEME="${THEME}:${CURRENT_THEME_MODE}"
+# export GTK_THEME="${THEME}:${CURRENT_THEME_MODE}"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 
 #
