@@ -151,7 +151,7 @@ AUR="${AUR} spotify"
 AUR="${AUR} ncspot"
 
 # animated wallpaper eyecandy
-AUR="${AUR} xwinwrap"
+AUR="${AUR} xwinwrap-git"
 
 # streaming/recording/video manipulation
 # AUR="${AUR} obs-studio-git" # git version for latest loopback update
