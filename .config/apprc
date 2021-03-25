@@ -40,7 +40,9 @@ export BAR_HEIGHT="28"
 export BAR_HALF_HEIGHT="$(echo "$BAR_HEIGHT/2" | bc)"
 
 export BAR_FG="$G_BG_ALT"
-# export BAR_UPDATE="touch -m ${XDG_CONFIG_HOME}/polybar/config"
+if [ "$RICE" == "$RICE_HIGH" ]; then
+  export BAR_FG="$G_FG"
+fi
 
 export POLYBAR_DIR="${XDG_CONFIG_DIR}/polybar"
 export POLYBAR_CONFIG="${POLYBAR_DIR}/config"
