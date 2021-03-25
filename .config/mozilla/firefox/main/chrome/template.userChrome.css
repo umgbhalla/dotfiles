@@ -134,3 +134,7 @@ tabs { --tab-min-height: 38px; }
     border: none !important;
     padding: 0 !important;
 }
+
+#PersonalToolbar {
+    display: none;
+}

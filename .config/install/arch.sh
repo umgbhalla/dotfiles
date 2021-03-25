@@ -120,6 +120,10 @@ PKGS="${PKGS} nodejs deno yarn python2"
 # required for ytui, and a good dev tool
 PKGS="${PKGS} rust"
 
+# gtk theme
+PKGS="${PKGS} adapta-gtk-theme"
+PKGS="${PKGS} ttf-roboto"
+
 # various utilities/tools
 PKGS="${PKGS} wget"
 

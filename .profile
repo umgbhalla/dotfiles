@@ -52,8 +52,8 @@ if [ -z "${CURRENT_THEME_MODE}" ]; then
   export CURRENT_THEME_MODE="${THEME_DARK}"
 fi
 
-# export THEME="gtk-theme"
-export THEME="Adwaita-dark"
+export THEME="Adapta-Nokto"
+export THEME_FONT="Roboto Regular 12"
 export GTK_THEME_DIR="/usr/share/themes"
 
 # export GTK_THEME="${THEME}:${CURRENT_THEME_MODE}"
