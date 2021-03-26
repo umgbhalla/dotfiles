@@ -336,8 +336,8 @@ e() {
     return
   fi
   if [ -f "$1" ]; then
-    dir="$(echo "$1" | cut -d'.' -f1)"
-    mkdir -p "$dir"
+    # dir="$(echo "$1" | cut -d'.' -f1)"
+    # mkdir -p "$dir"
     case "$1" in
       *.asar)      asar e "$1" "$dir" ;;
       *.tar.bz2)   tar xvjf "$1"    ;;
@@ -356,7 +356,7 @@ e() {
       *.exe)       cabextract "$1"  ;;
       *)           echo "${RED}${1}: unrecognized file compression${NC}" ;;
     esac
-    cd "$dir"
+    # cd "$dir"
   else
     echo "${RED}${1} is not a valid file${NC}"
   fi
@@ -376,8 +376,17 @@ clearcache() {
 
       # clear any files in trash
       rm -r ${XDG_DATA_HOME}/Trash/*
+      rm -r ${XDG_DATA_HOME}/vifm/Trash/*
       ;;
   esac
+}
+
+# merge pdfs
+pdfmerge() {
+  out="$1"
+  shift
+  in="$@"
+  gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile="$out" $in
 }
 
 # list all open windows
