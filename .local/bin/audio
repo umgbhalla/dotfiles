@@ -59,51 +59,6 @@ vol_down() {
   esac
 }
 
-# volume mute toggle
-
-vol_toggle() {
-  tmpVolMute="/tmp/audio_volMute"
-  touch $tmpVolMute
-  case "$OS" in
-    "$OS_FREEBSD")
-      volMute=$(cat $tmpVolMute)
-      interface="vol"
-
-      # never muted before
-      if [ -z $volMute ]; then
-        vol=$(mixer $interface | awk '{print $NF}')
-        echo "1,$vol" > $tmpVolMute
-        mixer $interface 0
-      else
-        isMuted=$(cut -d, -f1 $tmpVolMute)
-        vol=$(cut -d, -f2 $tmpVolMute)
-        if [ $isMuted = 1 ]; then
-          # unmute
-          mixer $interface $vol
-          echo "0,0" > $tmpVolMute
-        else
-          # mute
-          vol=$(mixer $interface | awk '{print $NF}')
-          echo "1,$vol" > $tmpVolMute
-          mixer $interface 0
-        fi
-      fi
-      ;;
-    "$OS_LINUX")
-      if command -v "pulseaudio" >/dev/null; then
-        pamixer --toggle-mute
-      else
-        status="$(amixer sget Master | awk '/Mono: Playback/ {print $NF}')"
-        if [ "$status" = "[on]" ]; then
-          amixer sset Master mute
-        else
-          amixer sset Master unmute
-        fi
-      fi
-      ;;
-  esac
-}
-
 # volume set
 
 vol_set() {
@@ -115,39 +70,6 @@ vol_set() {
       "$OS_LINUX") pamixer --set-volume "$1"
     esac
   fi
-}
-
-# input mic mute toggle
-
-mic_toggle() {
-  tmpMicMute="/tmp/audio_micMute"
-  touch $tmpMicMute
-  case $OS in
-    $OS_FREEBSD)
-      micMute=$(cat $tmpMicMute)
-      interface="ogain"
-
-      # never muted before
-      if [ -z $micMute ]; then
-        vol=$(mixer $interface | awk '{print $NF}')
-        echo "1,$vol" > $tmpMicMute
-        mixer $interface 0
-      else
-        isMuted=$(cut -d, -f1 $tmpMicMute)
-        vol=$(cut -d, -f2 $tmpMicMute)
-        if [ $isMuted = 1 ]; then
-          # unmute
-          mixer $interface $vol
-          echo "0,0" > $tmpMicMute
-        else
-          # mute
-          vol=$(mixer $interface | awk '{print $NF}')
-          echo "1,$vol" > $tmpMicMute
-          mixer $interface 0
-        fi
-      fi
-      ;;
-  esac
 }
 
 # control logic
@@ -170,20 +92,7 @@ case $1 in
         vol_set $3
         $POLYBAR_UPDATE > "$NULL"
         ;;
-      toggle)
-        vol_toggle
-        $POLYBAR_UPDATE > "$NULL"
-        ;;
-      *) echo -e "${RED}USAGE: audio vol [get | up | down | set | toggle]${NC}" ;;
-    esac
-    ;;
-  mic)
-    case $2 in
-      toggle)
-        mic_toggle
-        $POLYBAR_UPDATE > "$NULL"
-        ;;
-      *) echo -e "${RED}USAGE: audio mic [toggle]${NC}" ;;
+      *) echo -e "${RED}USAGE: audio vol [get | up | down | set]${NC}" ;;
     esac
     ;;
   *) echo -e "${RED}USAGE: audio [vol mic]${NC}" ;;
