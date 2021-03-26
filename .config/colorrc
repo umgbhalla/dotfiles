@@ -5,8 +5,8 @@
 # Xresources-formatted colors
 #
 
-export C_BLACK_0="#ccc7af"
-export C_BLACK_1="#b3ae99"
+export C_BLACK_0="#0d191f"
+export C_BLACK_1="#222d32"
 
 export C_RED_0="#ba795c"
 export C_RED_1="#ba9a81"
@@ -26,15 +26,15 @@ export C_MAGENTA_1="#b294bb"
 export C_CYAN_0="#44716b"
 export C_CYAN_1="#5e8d87"
 
-export C_GRAY_0="#4d4a41"
-export C_GRAY_1="#666357"
+export C_GRAY_0="#87847d"
+export C_GRAY_1="#e6e6e6"
 
-if [ "$CURRENT_THEME_MODE" = "$THEME_DARK" ]; then
-  export C_BLACK_0="#1d1a16"
-  export C_BLACK_1="#34312a"
+if [ "$CURRENT_THEME_MODE" = "$THEME_LIGHT" ]; then
+  export C_BLACK_0="#ccc7af"
+  export C_BLACK_1="#b3ae99"
 
-  export C_GRAY_0="#87847d"
-  export C_GRAY_1="#e6e6e6"
+  export C_GRAY_0="#4d4a41"
+  export C_GRAY_1="#666357"
 fi
 
 #
