@@ -108,8 +108,9 @@ PKGS="${PKGS} mpd ncmpcpp"
 # tuning power consumption
 PKGS="${PKGS} tlp brightnessctl"
 
-# # doc conversion (specifically, md to html)
-# PKGS="${PKGS} pandoc"
+# doc conversion (specifically, md to html)
+# used for vim markdown previews
+PKGS="${PKGS} pandoc"
 # latex
 # PKGS="${PKGS} texlive-most biber"
 PKGS="${PKGS} texlive-most"
@@ -153,10 +154,13 @@ AUR="${AUR} ncspot"
 # animated wallpaper eyecandy
 AUR="${AUR} xwinwrap-git"
 
+# system reporter
+AUR="${AUR} pfetch"
+
 # streaming/recording/video manipulation
 # AUR="${AUR} obs-studio-git" # git version for latest loopback update
 # PKGS="${PKGS} linux-headers dkms"
-PKGSA="${PKGSA} v4l2loopback-dkms" # if not already installed
+# PKGSA="${PKGSA} v4l2loopback-dkms" # if not already installed
 
 # Unity development
 # https://chrislabarge.com/posts/neovim-unity-engine/
@@ -255,11 +259,6 @@ sudo cp "${XDG_CONFIG_HOME}${SYSD}/logind.conf" "${SYSD}/logind.conf"
 # DISPLAY=:0 $DET "${XDG_CONFIG_HOME}/${SYSDSYS}/template.slock@.service"
 # sudo ln -sf "${XDG_CONFIG_HOME}/${SYSDSYS}/slock@.service" "${SYSDSYS}/slock@.service"
 # sudo systemctl enable "slock@${USER}.service"
-
-# system reporter
-# git clone "https://github.com/dylanaraps/pfetch.git" "${TMPDIR}/pfetch"
-# cd "${TMPDIR}/pfetch"
-# mv pfetch "${XDG_SCRIPT_HOME}/pfetch"
 
 # gtk theme
 sudo mkdir -p "$GTK_THEME_DIR"
