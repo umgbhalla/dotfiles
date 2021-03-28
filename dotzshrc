@@ -35,7 +35,32 @@ alias o='fuck'
 alias f='tuxi'
 alias reload='source ~/.zshrc'
 alias ixi="curl -F 'f:1=<-' ix.io"
+alias spr="curl -F 'sprunge=<-' http://sprunge.us"
 alias p='pfetch'
+alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
+alias gst='git status'
+alias gcl='git clone'
+alias gad='git add .'
+alias gsp='git push'
+alias gct='git commit -m'
+
+# Changing "ls" to "exa"
+#alias ol='ls'#doesnt work
+alias ld='exa -al --color=always --group-directories-first' # my preferred listing
+alias la='exa -a --color=always --group-directories-first'  # all files and dirs
+alias ll='exa -l --color=always --group-directories-first'  # long format
+alias lt='exa -aT --color=always --group-directories-first' # tree listing
+alias l.='exa -a | egrep "^\."'
+alias ls='(exa -al --color=always --reverse --sort=size ) | bat' # ls in bat
+alias ct='cht.sh' #curl cht.sh/:learn
+alias sai='sudo apt install' #hahaha
+alias ssy='sudo apt update && sudo apt upgrade'
+alias gs='git status'
+alias c='clear'
+# confirm before overwriting something
+alias cp="cp -i"
+alias mv='mv -i'
+alias rm='rm -i'
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -135,23 +160,6 @@ alias oz='open_with_fzf'
 #alias ll="exa -la"
 #alias bt ="bat"
 
-# Changing "ls" to "exa"
-#alias ol='ls'#doesnt work
-alias ld='exa -al --color=always --group-directories-first' # my preferred listing
-alias la='exa -a --color=always --group-directories-first'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first'  # long format
-alias lt='exa -aT --color=always --group-directories-first' # tree listing
-alias l.='exa -a | egrep "^\."'
-alias ls='(exa -al --color=always --reverse --sort=size ) | bat' # ls in bat
-alias ct='cht.sh' #curl cht.sh/:learn
-alias sai='sudo apt install' #hahaha
-alias ssy='sudo apt update && sudo apt upgrade'
-alias gs='git status'
-alias c='clear'
-# confirm before overwriting something
-alias cp="cp -i"
-alias mv='mv -i'
-alias rm='rm -i'
 
 
 #neofetch
