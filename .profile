@@ -271,7 +271,7 @@ fi
 # background command
 case "$RICE" in
   "$RICE_HIGH")
-    export BACKGROUND="nice xwinwrap -b -s -fs -st -sp -nf -ov -fdt -- mpv -wid WID --really-quiet --framedrop=vo --no-audio --panscan="1.0" --no-osc --input-vo-keyboard=no --loop-file=inf ${XDG_CONFIG_HOME}/wallpapers/warrior-death.mkv"
+    export BACKGROUND="nice xwinwrap -b -s -fs -st -sp -nf -ov -fdt -- mpv -wid WID --really-quiet --framedrop=vo --no-audio --panscan="1.0" --no-osc --input-vo-keyboard=no --loop-file=inf ${XDG_CONFIG_HOME}/wallpapers/botw-title.mkv"
     # export BACKGROUND="feh --no-fehbg --bg-fill ${XDG_DATA_HOME}/wallpapers/sailor.jpg"
     ;;
   *) export BACKGROUND="hsetroot -solid ${C_CYAN_0}" ;;
