@@ -114,12 +114,13 @@ case "$OS" in
   "$OS_LINUX")
     alias \
       am="alsamixer" \
+      bt="aria2c" \
       cal="cal -3" \
       clear-mem="sync; echo 1 | sudo tee /proc/sys/vm/drop_caches; sync" \
       hack="nethack" \
       sp="ncspot" \
       system="sudo systemctl" \
-      wi="nmtui" \
+      wi="nmtui"
     ;;
 esac
 

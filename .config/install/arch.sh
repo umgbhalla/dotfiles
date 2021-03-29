@@ -131,6 +131,9 @@ PKGS="${PKGS} wget"
 # firefox extensions
 PKGS="${PKGS} firefox-tridactyl"
 
+# torrents
+PKGS="${PKGS} aria2"
+
 # who doesn't like nethack?
 PKGS="${PKGS} nethack"
 

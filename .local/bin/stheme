@@ -34,6 +34,10 @@ cat "${XDG_CONFIG_HOME}/templaterc" | \
 command -v lesskey >/dev/null && \
   lesskey "${XDG_CONFIG_HOME}/less/lesskey"
 
+# disable read permissions
+[ -e "${XDG_CONFIG_HOME}/aria2/aria2.conf" ] && \
+  chmod 600 "${XDG_CONFIG_HOME}/aria2/aria2.conf"
+
 # gimp splash
 # case "$OS" in
 #   "$OS_OPENBSD")
