@@ -118,8 +118,6 @@ PKGS="${PKGS} texlive-most"
 # TODO python2 is required by node-sass.
 # Remove when phased out of new versions
 PKGS="${PKGS} nodejs deno yarn python2"
-# required for ytui, and a good dev tool
-PKGS="${PKGS} rust"
 
 # gtk theme
 PKGS="${PKGS} adapta-gtk-theme"
@@ -225,6 +223,9 @@ sudo make install
 # cd "${TMPDIR}/ncpamixer"
 # sudo make install
 
+# rustup - required for ytui, eww
+curl --proto '=https' -sSf "https://sh.rustup.rs" | sh
+
 # alsamixer
 git clone "https://github.com/bossley9/alsamixer.git" "${TMPDIR}/alsamixer"
 cd "${TMPDIR}/alsamixer"
@@ -239,6 +240,14 @@ sudo make clean install
 # ytui
 cd "${XDG_CONFIG_HOME}/ytui"
 sudo make clean install
+
+# eww (widgets)
+# git clone "https://github.com/elkowar/eww" "${TMPDIR}/eww"
+# cd "${TMPDIR}/eww"
+# cargo build --release
+# cd "target/release"
+# chmod +x "eww"
+# mv "eww" "${XDG_SCRIPT_HOME}/"
 
 # system profiler
 git clone "https://github.com/bossley9/htop.git" "${TMPDIR}/htop"

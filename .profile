@@ -208,7 +208,7 @@ export XRDB_UPDATE="xrdb -merge ${XRDB_RESOURCES}"
 
 export ABOOK_CONFIG="$XDG_CONFIG_HOME/abook/abookrc"
 export BOOKMARK_CONFIG="$XDG_DATA_HOME/sh/bookmarks"
-export CARGO_HOME="$XDG_CACHE_HOME/cargo"
+export CARGO_HOME="${XDG_CACHE_HOME}/cargo"
 export ENV="$XDG_CONFIG_HOME/sh/shrc"
 case "$OS" in
   "$OS_OPENBSD") export FF_CACHE_DIR="${TMPDIR}/firefox_cache.${UID}" ;;
@@ -223,6 +223,7 @@ export NEWSBOAT_CONFIG="$XDG_CONFIG_HOME/newsboat"
 export NETHACKOPTIONS="@${XDG_CONFIG_HOME}/nethack/nethackrc"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
+export RUSTUP_HOME="${XDG_CONFIG_HOME}/rustup"
 export SH_HISTFILE="$XDG_CACHE_HOME/sh_history"
 export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
 export YARN_GLOBAL_DIR="$XDG_CACHE_HOME/yarn_global"
@@ -238,6 +239,8 @@ export MANPATH="/usr/share/man:/usr/local/share/man:${MANPATH}"
 export PATH="${XDG_SCRIPT_HOME}:${PATH}"
 # java
 export PATH="${PATH}:/usr/local/jdk-11/bin"
+# rust
+export PATH="${PATH}:${XDG_CACHE_HOME}/cargo/bin"
 
 #
 # includes
