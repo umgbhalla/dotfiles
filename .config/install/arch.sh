@@ -256,9 +256,6 @@ cd "${TMPDIR}/htop"
 ./configure
 sudo make clean install
 
-# obs v4l2 loopback device for virtual camera
-# sudo modprobe v4l2loopback devices=1 video_nr=10 card_label="OBS Cam" exclusive_caps=1
-
 SYSD="/etc/systemd"
 
 # logind/power events

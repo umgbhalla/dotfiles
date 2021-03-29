@@ -118,6 +118,7 @@ case "$OS" in
       cal="cal -3" \
       clear-mem="sync; echo 1 | sudo tee /proc/sys/vm/drop_caches; sync" \
       hack="nethack" \
+      obsv="sudo modprobe v4l2loopback devices=1 video_nr=10 card_label=\"OBS Cam\" exclusive_caps=1" \
       sp="ncspot" \
       system="sudo systemctl" \
       wi="nmtui"
