@@ -210,7 +210,7 @@ sudo ln -sf mksh /bin/sh
 # suckless
 sbuild "st"
 sbuild "herbe"
-# sbuild "slock"
+sbuild "slock"
 
 # swallowing windows
 git clone "https://github.com/salman-abedin/devour.git" "${TMPDIR}/devour"
@@ -263,11 +263,11 @@ sudo mkdir -p "${SYSD}"
 sudo cp "${XDG_CONFIG_HOME}${SYSD}/logind.conf" "${SYSD}/logind.conf"
 
 # slock
-# SYSDSYS="${SYSD}/system"
-# sudo mkdir -p "${SYSDSYS}"
-# DISPLAY=:0 $DET "${XDG_CONFIG_HOME}/${SYSDSYS}/template.slock@.service"
-# sudo ln -sf "${XDG_CONFIG_HOME}/${SYSDSYS}/slock@.service" "${SYSDSYS}/slock@.service"
-# sudo systemctl enable "slock@${USER}.service"
+SYSDSYS="${SYSD}/system"
+sudo mkdir -p "${SYSDSYS}"
+DISPLAY=:0 det"${XDG_CONFIG_HOME}${SYSDSYS}/template.slock@.service"
+sudo ln -sf "${XDG_CONFIG_HOME}${SYSDSYS}/slock@.service" "${SYSDSYS}/slock@.service"
+sudo systemctl enable "slock@${USER}.service"
 
 # gtk theme
 sudo mkdir -p "$GTK_THEME_DIR"
