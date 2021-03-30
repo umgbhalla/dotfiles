@@ -265,7 +265,7 @@ sudo cp "${XDG_CONFIG_HOME}${SYSD}/logind.conf" "${SYSD}/logind.conf"
 # slock
 SYSDSYS="${SYSD}/system"
 sudo mkdir -p "${SYSDSYS}"
-DISPLAY=:0 det"${XDG_CONFIG_HOME}${SYSDSYS}/template.slock@.service"
+DISPLAY=:0 det "${XDG_CONFIG_HOME}${SYSDSYS}/template.slock@.service"
 sudo ln -sf "${XDG_CONFIG_HOME}${SYSDSYS}/slock@.service" "${SYSDSYS}/slock@.service"
 sudo systemctl enable "slock@${USER}.service"
 
