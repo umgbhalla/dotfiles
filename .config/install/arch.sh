@@ -132,6 +132,9 @@ PKGS="${PKGS} firefox-tridactyl"
 # torrents
 PKGS="${PKGS} aria2"
 
+# qrcodes
+PKGS="${PKGS} qrencode"
+
 # who doesn't like nethack?
 PKGS="${PKGS} nethack"
 

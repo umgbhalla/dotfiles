@@ -1,0 +1,28 @@
+#!/bin/sh
+# given piped data, returns a qrcode.
+# can encode up to 7000 digits or 4000 characters
+# see `man qrencode` for more information
+
+if ! command -v "qrencode" > "$NULL"; then
+  echo "${RED}Error: requires qrencode${NC}"
+  return
+fi
+
+if ! command -v "xclip" > "$NULL"; then
+  echo "${RED}Error: requires xclip${NC}"
+  return
+fi
+
+if ! command -v "feh" > "$NULL"; then
+  echo "${RED}Error: requires feh${NC}"
+  return
+fi
+
+in="/dev/stdin"
+
+if [ -p "$in" ]; then
+  cat "$in" | qrencode -o - -t PNG | feh -g 500x500 -Z -
+else
+  echo "${RED}ERROR: No input was found in stdin${NC}"
+fi
+
