@@ -93,7 +93,7 @@ PKGS="${PKGS} xorg-xev"
 # media manipulation
 PKGS="${PKGS} ffmpeg"
 # PKGS="${PKGS} mp3splt"
-# PKGS="${PKGS} kdenlive"
+# PKGS="${PKGS} kdenlive breeze"
 # image manipulation
 # PKGS="${PKGS} gimp inkscape"
 
