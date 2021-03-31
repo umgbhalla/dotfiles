@@ -25,6 +25,7 @@ alias .f='cd /mnt/F'
 alias .d='cd /mnt/F/dotfiles'
 alias .u='cd /mnt/F/umgbhalla.github.io'
 alias .dev='cd /mnt/F/dev'
+alias .n='cd /mnt/F/dev/flutterapps/comet/The-Network-App'
 #alias code='/usr/share/code/code'
 alias vsf='code /mnt/F '
 alias vs='code'
@@ -44,7 +45,8 @@ alias gcl='git clone'
 alias gad='git add .'
 alias gsp='git push'
 alias gct='git commit -m'
-
+alias s=' du -sh ./* | sort -n | bat'
+alias bri='sudo brightnessctl -d amdgpu_bl0 set '
 # Changing "ls" to "exa"
 #alias ol='ls'#doesnt work
 alias ld='exa -al --color=always --group-directories-first' # my preferred listing
@@ -180,6 +182,7 @@ export NVM_DIR="/home/umang/.nvm"
 eval "$(starship init zsh)"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+#export PATH="$PATH:/usr/lib/dart/bin"
 
 
 #curl cheat.sh/
