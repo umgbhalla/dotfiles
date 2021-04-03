@@ -1,3 +1,9 @@
+#         _
+#  _______| |__  _ __ ___
+# |_  / __| '_ \| '__/ __|
+#  / /\__ \ | | | | | (__
+# /___|___/_| |_|_|  \___|
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -26,7 +32,7 @@ alias .d='cd /mnt/F/dotfiles'
 alias .u='cd /mnt/F/umgbhalla.github.io'
 alias .dev='cd /mnt/F/dev'
 alias .n='cd /mnt/F/dev/flutterapps/comet/The-Network-App'
-#alias code='/usr/share/code/code'
+#aliases 
 alias vsf='code /mnt/F '
 alias vs='code'
 alias vsu='cd /mnt/F/umgbhalla.github.io && code .'
@@ -43,26 +49,25 @@ alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold g
 alias gst='git status'
 alias gcl='git clone'
 alias gad='git add .'
-alias gsp='git push'
+alias gps='git push'
 alias gct='git commit -m'
 alias s=' du -sh ./* | sort -n | bat'
 alias bri='sudo brightnessctl -d amdgpu_bl0 set '
 # Changing "ls" to "exa"
-#alias ol='ls'#doesnt work
-alias ld='exa -al --color=always --group-directories-first' # my preferred listing
+alias ld='(exa -al --color=always --group-directories-first) | bat' # my preferred listing
 alias la='exa -a --color=always --group-directories-first'  # all files and dirs
 alias ll='exa -l --color=always --group-directories-first'  # long format
 alias lt='exa -aT --color=always --group-directories-first' # tree listing
 alias l.='exa -a | egrep "^\."'
-alias ls='(exa -al --color=always --reverse --sort=size ) | bat' # ls in bat
+# ls in bat
+alias ls='(exa -al --color=always --reverse --group-directories-first --sort=size) | bat' 
+#misc
 alias ct='cht.sh' #curl cht.sh/:learn
 alias sai='sudo apt install' #hahaha
 alias ssy='sudo apt update && sudo apt upgrade'
 alias gs='git status'
 alias c='clear'
-# confirm before overwriting something
-alias cp="cp -i"
-alias mv='mv -i'
+# confirm before removing something
 alias rm='rm -i'
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -200,7 +205,7 @@ eval $(thefuck --alias)
 
 
 #pfetch
-bindkey "^b" _fuzzybrowse_zsh_insert_output
+#bindkey "^b" _fuzzybrowse_zsh_insert_output
 
 
 
