@@ -1,3 +1,15 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+
+
 #         _
 #  _______| |__  _ __ ___
 # |_  / __| '_ \| '__/ __|
@@ -14,7 +26,8 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+#ZSH_THEME="agnoster"
 
 
 ### "bat" as manpager
@@ -39,7 +52,7 @@ alias vsu='cd /mnt/F/umgbhalla.github.io && code .'
 alias op='xdg-open'
 alias sc='tty-clock -Ssc'
 alias o='fuck'
-alias f='tuxi'
+alias f='tuxi -u'
 alias reload='source ~/.zshrc'
 alias ixi="curl -F 'f:1=<-' ix.io"
 alias spr="curl -F 'sprunge=<-' http://sprunge.us"
@@ -55,19 +68,14 @@ alias s=' du -sh ./* | sort -n | bat'
 alias bri='sudo brightnessctl -d amdgpu_bl0 set '
 alias code='/usr/share/code/bin/code'
 alias yt=' ytfzf -t '
+alias mu='youtube-dl -f "bestaudio/best" -ciw -o "%(title)s.%(ext)s" -v --extract-audio --audio-quality 0 --audio-format mp3'
 alias m='micro'
 alias v='vim'
 alias rec='asciinema rec'
 alias aot='mpv https://music.youtube.com/playlist\?list\=PL9PLUrw0CbcRbxo9kzgkbe0rB9CjvigOI --no-video'
-# Changing "ls" to "exa"
-alias ld='(exa -al --color=always --group-directories-first) | bat' # my preferred listing
-alias la='exa -a --color=always --group-directories-first'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first'  # long format
-alias lt='exa -aT --color=always --group-directories-first' # tree listing
-alias l.='exa -a | egrep "^\."'
 alias corona='curl https://corona-stats.online?minimal=true | grep IN | bat'
-# ls in bat
-#alias ls='(exa -al --color=always --reverse --group-directories-first --sort=size) | bat' 
+alias mpp='mpv --no-video'
+alias serv='sudo service --status-all | bat'
 #misc
 alias batr="bat README.md"
 alias ct='cht.sh' #curl cht.sh/:learn
@@ -149,6 +157,13 @@ source $ZSH/oh-my-zsh.sh
 #alias cz='cd_with_fzf'
 #alias oz='open_with_fzf'
 # User configuration
+# Changing "ls" to "exa"
+#alias ls='(exa -al --color=always --reverse --group-directories-first --sort=size) | bat' 
+alias ld='(exa -ahl --color=always --group-directories-first) | bat' # my preferred listing
+alias la='(exa -a --color=always --group-directories-first) | bat'  # all files and dirs
+alias ll='(exa -l --color=always --group-directories-first) | bat'  # long format
+alias lt='(exa -aT --color=always --group-directories-first)| bat' # tree listing
+alias l.='exa -a | egrep "^\."'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -195,7 +210,7 @@ export NVM_DIR="/home/umang/.nvm"
 
  source ~/.profile
 
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 #export PATH="$PATH:/usr/lib/dart/bin"
@@ -212,8 +227,8 @@ eval $(thefuck --alias)
 #compinit
 # Completion for kitty
 #kitty + complete setup zsh | source /dev/stdin
-
-
+#cal 
+#uptime -s | lolcat
 
 #pfetch
 #bindkey "^b" _fuzzybrowse_zsh_insert_output
@@ -222,3 +237,9 @@ eval $(thefuck --alias)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPS="--extended"
+
+
+POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
