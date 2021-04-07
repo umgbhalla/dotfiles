@@ -84,6 +84,8 @@ PKGS="${PKGS} youtube-dl"
 PKGS="${PKGS} newsboat"
 # pdf viewer utility
 PKGS="${PKGS} zathura girara zathura-pdf-mupdf"
+# pdf editor
+# PKGS="${PKGS} evince"
 # wifi - still don't have a good alternative editor here
 PKGS="${PKGS} nm-connection-editor"
 
@@ -160,6 +162,9 @@ AUR="${AUR} xwinwrap-git"
 
 # system reporter
 AUR="${AUR} pfetch"
+
+# alt browser
+# AUR="${AUR} nyxt-browser-git"
 
 # streaming/recording/video manipulation
 # AUR="${AUR} obs-studio-git" # git version for latest loopback update
