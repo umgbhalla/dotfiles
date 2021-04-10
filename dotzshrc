@@ -45,6 +45,7 @@ alias .d='cd /mnt/F/dotfiles'
 alias .u='cd /mnt/F/umgbhalla.github.io'
 alias .dev='cd /mnt/F/dev'
 alias .n='cd /mnt/F/dev/flutterapps/comet/The-Network-App'
+alias .t='/mnt/F/testingrepo'
 #aliases 
 alias vsf='code /mnt/F '
 alias vs='code'
@@ -67,13 +68,13 @@ alias gct='git commit -m'
 alias s=' du -sh ./* | sort -n | bat'
 alias bri='sudo brightnessctl -d amdgpu_bl0 set '
 alias code='/usr/share/code/bin/code'
-alias yt=' ytfzf -t '
+alias ytf=' ytfzf -t '
 alias mu='youtube-dl -f "bestaudio/best" -ciw -o "%(title)s.%(ext)s" -v --extract-audio --audio-quality 0 --audio-format mp3'
 alias m='micro'
 alias v='vim'
 alias rec='asciinema rec'
 alias aot='mpv https://music.youtube.com/playlist\?list\=PL9PLUrw0CbcRbxo9kzgkbe0rB9CjvigOI --no-video'
-alias corona='curl https://corona-stats.online?minimal=true | grep IN | bat'
+alias corona=' curl https://corona-stats.online?minimal=true  | bat'
 alias mpp='mpv --no-video'
 alias serv='sudo service --status-all | bat'
 #misc
@@ -143,7 +144,7 @@ alias rm='rm -i'
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions git zsh-syntax-highlighting )
+plugins=(zsh-autosuggestions git zsh-syntax-highlighting web-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -159,12 +160,12 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 # Changing "ls" to "exa"
 #alias ls='(exa -al --color=always --reverse --group-directories-first --sort=size) | bat' 
-alias ld='(exa -ahl --color=always --group-directories-first) | bat' # my preferred listing
-alias la='(exa -a --color=always --group-directories-first) | bat'  # all files and dirs
-alias ll='(exa -l --color=always --group-directories-first) | bat'  # long format
+alias ld='(exa -ahl --color=always --group-directories-first) ' # my preferred listing
+alias la='(exa -a --color=always --group-directories-first) '  # all files and dirs
+alias ll='(exa -l --color=always --group-directories-first) '  # long format
 alias lt='(exa -aT --color=always --group-directories-first)| bat' # tree listing
 alias l.='exa -a | egrep "^\."'
-
+alias g="google"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
