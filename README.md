@@ -38,32 +38,31 @@ benefit from my scripts and struggles to create an aesthetic and fully optimized
 
 ## Demonstration <a name="demonstration"></a>
 
-![basic status bar with background](.config/install/scr1.png)
-![neofetch, a terminal instance, and blurry discord](.config/install/scr2.png)
-![tiled browser, tty-clock, and pdf viewer](.config/install/scr3.png)
-![a workspace with my nvim configuration](.config/install/scr4.png)
-![music player and file explorer in separate terminal windows](.config/install/scr5.png)
+![basic workspace with a textbook pdf, nvim editor window, tty-clock, and fet.sh](.config/install/scr1.png)
+![spotify client with spicetify and nvim editor windows side by side](.config/install/scr2.png)
+![resizing and moving of an nvim editor window](.config/install/scr3.gif)
+![moving and swapping tty-clock, ncspot, and zathura windows](.config/install/scr4.gif)
 
 ## System Information <a name="system-information"></a>
 
-[BSPWM] Automata
+[BSPWM] Wild
 
 ```
-Kernel: 5.9.11-arch2-1
+Kernel: 5.11.7-arch1-1
 Shell: mksh
 WM: bspwm
-compositor: picom
-Theme: custom [GTK2/3]
+compositor: picom (ibhagwan fork)
+Theme: Adapta-Nokto [GTK2/3]
 Icons: Adwaita [GTK2/3]
 Terminal: st
-Status Bar: lemonbar-xft
-Launcher: custom (st and fzf)
+Status Bar: polybar
+Launcher: custom (st with fzf)
 
 Editor: neovim
 Browser: firefox
 File Exporer: vifm
 Notifications: herbe
-System Profiler:  htop
+System Profiler: htop (custom fork)
 ```
 
 ## Manual Installation <a name="manual-installation"></a>
