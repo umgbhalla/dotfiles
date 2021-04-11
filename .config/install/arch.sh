@@ -140,6 +140,9 @@ PKGS="${PKGS} qrencode"
 # who doesn't like nethack?
 PKGS="${PKGS} nethack"
 
+# DAW
+# PKGS="${PKGS} lmms"
+
 # AUR="${AUR} mmv"
 
 # status bar
