@@ -233,7 +233,7 @@ fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 filextype {*.xcf}
   \ gimp %f
 filextype {*.bmp,*.jpg,*.jpeg,*.png,*.xpm,*.svg},<image/*>
-  \ devour feh --start-at %f
+    \ devour img-open %c
 
 " font
 filextype {*.ttf,*.otf,*.woff,*.woff2,*.eot}

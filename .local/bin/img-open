@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if ! command -v "feh" > "$NULL"; then
+  echo -e "${RED}ERROR: feh is required${NC}"
+  exit 1
+fi
+
+if [ -z "$1" ]; then
+  echo -e "${RED}USAGE: img-open [file name]${NC}"
+  exit 1
+fi
+
+FILE="$1"
+INFO=";file %f"
+
+feh --start-at "$FILE" --info "$INFO" --fullscreen --no-menus --scale-down
