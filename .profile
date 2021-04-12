@@ -141,6 +141,7 @@ fi
 
 # pager
 export PAGER="less"
+export MANPAGER="${PAGER}"
 
 # window manager
 export WM="bspwm"

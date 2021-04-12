@@ -202,6 +202,11 @@ yay -S --batchinstall --needed --nocleanmenu --nodiffmenu --noprovides $AUR # ca
 # after
 sudo pacman -S --needed $PKGSA # cannot be quoted
 
+# ssh security permissions
+ssh-keygen
+chmod -v 700 "${HOME}/.ssh"
+chmod -Rv 600 ${HOME}/.ssh/*
+
 # firefox profile
 mkdir -p "${HOME}/.mozilla"
 ln -sf "${XDG_CONFIG_HOME}/mozilla/firefox" "${HOME}/.mozilla/firefox"
