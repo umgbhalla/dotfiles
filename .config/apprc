@@ -20,8 +20,8 @@ export G_BG_ALT="$C_BLACK_1"
 export G_FG="$C_GRAY_1"
 export G_FG_ALT="$C_GRAY_0"
 
-export G_PRIMARY="$C_RED_0"
-export G_SECONDARY="$C_BLUE_0"
+export G_PRIMARY="$C_BLUE_0"
+export G_SECONDARY="$C_RED_0"
 export G_TERTIARY="$C_GREEN_0"
 export G_ALERT="$C_RED_0"
 

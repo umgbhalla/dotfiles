@@ -37,7 +37,7 @@ PKGS="${PKGS} neovim ripgrep nodejs npm fzf"
 # archives
 PKGS="${PKGS} unzip"
 # development languages
-PKG="${PKGS} python"
+PKG="${PKGS} clang python"
 
 #
 # Xorg

@@ -142,7 +142,7 @@ My parition scheme will be as follows:
 [SWAP] - 2 * RAM
 / - 8 GB
 /usr - 60 GB
-/var - 4 GB
+/var - 6 GB
 /home - Remainder of space
 ```
 
@@ -208,7 +208,7 @@ Additionally, it provides options for UEFI as well as tmpfs.
   n
   enter
   enter
-  +4G
+  +6G
   ```
 - Create a `/home` home partition. This partition will use the remainder of the disk space.
   ```
