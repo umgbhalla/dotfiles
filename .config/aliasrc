@@ -283,7 +283,10 @@ alias r="fm"
 # bookmarks
 b() {
   touch "$BOOKMARK_CONFIG"
-  bpath="$(cat "$BOOKMARK_CONFIG" | fzf | cut -d',' -f2)"
+  initialQuery="$1"
+  bpath="$(cat "$BOOKMARK_CONFIG" | \
+    fzf --query "$initialQuery" --select-1 | \
+    cut -d',' -f2)"
   bpath="$(eval "echo $bpath")"
 
   if [ -z "${bpath}" ]; then
