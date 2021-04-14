@@ -236,6 +236,7 @@ export XAUTHORITY="${XDG_CONFIG_HOME}/Xdefaults/Xauthority"
 # path
 #
 
+export LD_PRELOAD="/usr/lib/libhardened_malloc.so"
 export MANPATH="/usr/share/man:/usr/local/share/man:${MANPATH}"
 export PATH="${XDG_SCRIPT_HOME}:${PATH}"
 # java

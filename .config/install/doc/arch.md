@@ -242,10 +242,10 @@ Additionally, it provides options for UEFI as well as tmpfs.
   mount /dev/sda1 /mnt/efi -o nodev,nosuid,noexec
 
   mkdir /mnt/usr
-  mount /dev/sda4 /mnt/usr
+  mount /dev/sda4 /mnt/usr -o nodev
 
   mkdir /mnt/var
-  mount /dev/sda5 /mnt/var -o nodev,nosuid,noexec
+  mount /dev/sda5 /mnt/var -o nodev,nosuid
 
   mkdir /mnt/home
   mount /dev/sda6 /mnt/home -o nodev,nosuid

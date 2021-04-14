@@ -169,6 +169,9 @@ AUR="${AUR} xwinwrap-git"
 # system reporter
 AUR="${AUR} pfetch"
 
+# hardened malloc for security (closer to OpenBSD)
+AUR="${AUR} hardened-malloc-git"
+
 # alt browser
 # AUR="${AUR} nyxt-browser-git"
 
@@ -204,11 +207,6 @@ yay -S --batchinstall --needed --nocleanmenu --nodiffmenu --noprovides $AUR # ca
 
 # after
 sudo pacman -S --needed $PKGSA # cannot be quoted
-
-# ssh security permissions
-ssh-keygen
-chmod -v 700 "${HOME}/.ssh"
-chmod -Rv 600 ${HOME}/.ssh/*
 
 # firefox profile
 mkdir -p "${HOME}/.mozilla"
@@ -313,6 +311,9 @@ sudo cp -v "${XDG_CONFIG_HOME}${securityLimits}" "$securityLimits"
 # add 4 second delay between failed login attempts
 pamLogin="/etc/pam.d/system-login"
 sudo cp -v "${XDG_CONFIG_HOME}${pamLogin}" "$pamLogin"
+# prohibit ssh root login
+sshConf="/etc/ssh/sshd_config"
+sudo cp -v "${XDG_CONFIG_HOME}${sshConf}" "$sshConf"
 
 # update grub config
 # timeout
