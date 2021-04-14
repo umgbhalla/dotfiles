@@ -1,5 +1,11 @@
-" Comments in Vimscript start with a `"`.
-
+"                              ██
+"                             ░░
+"                    ██    ██ ██ ██████████  ██████  █████
+"                   ░██   ░██░██░░██░░██░░██░░██░░█ ██░░░██
+"                   ░░██ ░██ ░██ ░██ ░██ ░██ ░██ ░ ░██  ░░
+"                    ░░████  ░██ ░██ ░██ ░██ ░██   ░██   ██
+"                     ░░██   ░██ ███ ░██ ░██░███   ░░█████
+"             ░░██      ░░    ░░ ░░░  ░░  ░░ ░░░     ░░░░░
 " If you open this file in Vim, it'll be syntax highlighted for you.
 
 " Vim is based on Vi. Setting `nocompatible` switches from the default
@@ -17,16 +23,13 @@ syntax on
 " Disable the default Vim startup message.
 set shortmess+=I
 
-" Show line numbers.
-set number
-
 " This enables relative line numbering mode. With both number and
 " relativenumber enabled, the current line shows the true line number, while
 " all other lines (above and below) are numbered relative to the current line.
 " This is useful because you can tell, at a glance, what count is needed to
 " jump up or down to a particular line, by {count}k to go up or {count}j to go
 " down.
-set relativenumber
+set number relativenumber
 
 " Always show the status line at the bottom, even if you only have one window open.
 set laststatus=2
@@ -51,6 +54,7 @@ set ignorecase
 set smartcase
 
 " Enable searching as you type, rather than waiting till you press enter.
+"set hlsearch
 set incsearch
 
 " Unbind some useless/annoying default key bindings.
@@ -70,3 +74,39 @@ set mouse+=a
 " bad habit. The former is enforceable through a .vimrc, while we don't know
 " how to prevent the latter.
 " Do this in normal mode...
+set bg=light
+
+" tabs
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+" convert tab to spaces
+set expandtab
+set autoindent " for python
+set fileformat=unix
+
+
+set statusline=
+set statusline+=%#IncSearch#
+set statusline+=\ %y
+set statusline+=\ %r
+set statusline+=%#CursorLineNr#
+set statusline+=\ %F
+set statusline+=%= "Right side settings
+set statusline+=%#Search#
+set statusline+=\ %l/%L
+set statusline+=\ [%c]
+
+" Enable autocomplete
+set wildmode=longest,list,full
+
+"split open at the bottom now right
+set splitbelow splitright
+:imap ii <Esc>
+" Remap splits navigation to just CTRL + hjkl
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
