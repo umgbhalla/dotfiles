@@ -170,7 +170,7 @@ AUR="${AUR} xwinwrap-git"
 AUR="${AUR} pfetch"
 
 # hardened malloc for security (closer to OpenBSD)
-AUR="${AUR} hardened-malloc-git"
+# AUR="${AUR} hardened-malloc-git"
 
 # alt browser
 # AUR="${AUR} nyxt-browser-git"
