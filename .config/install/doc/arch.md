@@ -239,17 +239,19 @@ Additionally, it provides options for UEFI as well as tmpfs.
   mount /dev/sda3 /mnt
 
   mkdir /mnt/efi
-  mount /dev/sda1 /mnt/efi
+  mount /dev/sda1 /mnt/efi -o nodev,nosuid,noexec
 
   mkdir /mnt/usr
   mount /dev/sda4 /mnt/usr
 
   mkdir /mnt/var
-  mount /dev/sda5 /mnt/var
+  mount /dev/sda5 /mnt/var -o nodev,nosuid,noexec
 
   mkdir /mnt/home
-  mount /dev/sda6 /mnt/home -o nodev
+  mount /dev/sda6 /mnt/home -o nodev,nosuid
   ```
+
+  > If you want absolute security, try mounting the home partition with the `noexec` option.
 
   You can use the `mount` command to verify that your partitions have been mounted correctly.
 

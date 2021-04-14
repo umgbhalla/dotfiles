@@ -143,6 +143,9 @@ PKGS="${PKGS} nethack"
 # DAW
 # PKGS="${PKGS} lmms"
 
+# password generator
+# PKGS="${PKGS} pwgen"
+
 # AUR="${AUR} mmv"
 
 # status bar
@@ -300,6 +303,17 @@ sudo ln -sf "$XDG_CONFIG_HOME/xorg.conf.d/30-touchpad.conf" "/etc/X11/xorg.conf.
 # add color to /etc/pacman.conf
 sudo sed -i 's/#Color/Color/' /etc/pacman.conf
 
+# system hardening
+# set umask to be 0077 as recommended by the NSA
+# (new files are not rwx by anyone except owner)
+sudo sed -i 's/^umask.*/umask 0077/' "/etc/profile"
+# limit max number of processes/user
+securityLimits="/etc/security/limits.conf"
+sudo cp -v "${XDG_CONFIG_HOME}${securityLimits}" "$securityLimits"
+# add 4 second delay between failed login attempts
+pamLogin="/etc/pam.d/system-login"
+sudo cp -v "${XDG_CONFIG_HOME}${pamLogin}" "$pamLogin"
+
 # update grub config
 # timeout
 sudo sed -i 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=0/' "/etc/default/grub"
@@ -310,11 +324,6 @@ sudo sed -i 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=0/' "/etc/default/grub"
 sudo sed -i 's/quiet//' "/etc/default/grub"
 # regenerate
 sudo grub-mkconfig -o "/boot/grub/grub.cfg"
-
-# disable udevd because it's unecesary
-# sudo systemctl disable systemd-udevd
-# sudo systemctl disable systemd-udevd-control.socket
-# sudo systemctl disable systemd-udevd-kernel.socket
 
 # motd
 echo "" | sudo tee "/etc/motd"
