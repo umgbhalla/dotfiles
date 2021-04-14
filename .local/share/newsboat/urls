@@ -67,6 +67,9 @@ https://rss-endpoints.netlify.app/.netlify/functions/soundcloud/worsethanthis "~
 https://rss-endpoints.netlify.app/.netlify/functions/soundcloud/k_type_beat "~Kaleb" soundcloud music
 https://rss-endpoints.netlify.app/.netlify/functions/soundcloud/jack-snyder "~JJ" soundcloud music
 
+# webtoons
+https://www.webtoons.com/en/challenge/summoned/rss?title_no=365069 "~Summoned by Hope Bobbitt" webtoon
+
 # twitch
 https://twitchrss.appspot.com/vod/dunkstream "~Dunkey Stream" twitch meme game
 https://twitchrss.appspot.com/vod/chriswere "~Chris Were Stream" twitch game
