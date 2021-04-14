@@ -52,8 +52,8 @@ alias vs='code'
 alias vsu='cd /mnt/F/umgbhalla.github.io && code .'
 alias op='xdg-open'
 alias sc='tty-clock -Ssc'
-alias o='fuck'
 alias f='tuxi -u'
+alias r='ranger .'
 alias reload='source ~/.zshrc'
 alias ixi="curl -F 'f:1=<-' ix.io"
 alias spr="curl -F 'sprunge=<-' http://sprunge.us"
@@ -71,12 +71,18 @@ alias code='/usr/share/code/bin/code'
 alias ytf=' ytfzf -t '
 alias mu='youtube-dl -f "bestaudio/best" -ciw -o "%(title)s.%(ext)s" -v --extract-audio --audio-quality 0 --audio-format mp3'
 alias m='micro'
-alias v='vim'
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
+alias vz='nvim ~/.zshrc'
+alias vn='nvim ~/.config/nvim/init.vim'
 alias rec='asciinema rec'
 alias aot='mpv https://music.youtube.com/playlist\?list\=PL9PLUrw0CbcRbxo9kzgkbe0rB9CjvigOI --no-video'
 alias corona=' curl https://corona-stats.online?minimal=true  | bat'
 alias mpp='mpv --no-video'
 alias serv='sudo service --status-all | bat'
+alias color="colorscript -e 31"
+alias pfetch="pfetch && color"
 #misc
 alias batr="bat README.md"
 alias ct='cht.sh' #curl cht.sh/:learn
@@ -148,16 +154,18 @@ plugins=(zsh-autosuggestions git zsh-syntax-highlighting web-search)
 
 source $ZSH/oh-my-zsh.sh
 
-#open_with_fzf() {
-#    fd -t f -H -I | fzf -m --preview="xdg-mime query default {}" | xargs -ro -d "\n" xdg-open 2>&-
-#}
-#cd_with_fzf() {
-#    cd $HOME && cd "$(fd -t d | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview" --preview-window=:hidden)"
-#}
+open_with_fzf() {
+    fd -t f -H -I | fzf -m --preview="xdg-mime query default {}" | xargs -ro -d "\n" xdg-open 2>&-
+}
+cd_with_fzf() {
+    cd $HOME && cd "$(fd -t d | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview" --preview-window=:hidden)"
+}
 
-#alias cz='cd_with_fzf'
-#alias oz='open_with_fzf'
+alias cz='cd_with_fzf'
+alias oz='open_with_fzf'
 # User configuration
+alias  lol=" figlet -c -f ~/.local/share/fonts/figlet-fonts/3d.flf "
+
 # Changing "ls" to "exa"
 #alias ls='(exa -al --color=always --reverse --group-directories-first --sort=size) | bat' 
 alias ld='(exa -ahl --color=always --group-directories-first) ' # my preferred listing
@@ -185,12 +193,7 @@ alias g="google"
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-# alias ll="exa -la"
-# alias bt ="bat"
+
 
 # only for git
 #zstyle ':completion:*:*:git:*' fzf-search-display true
@@ -209,7 +212,7 @@ export NVM_DIR="/home/umang/.nvm"
 #colorscript random
 
 
- source ~/.profile
+source ~/.profile
 
 #eval "$(starship init zsh)"
 
@@ -220,9 +223,12 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 #curl cheat.sh/
 fpath=(~/.zsh.d/ $fpath)
 
+alias ide="	tmux  split-window -v -p 30 ;	tmux  split-window -h -p 66  ;	tmux  split-window -h -p 50  "
 
 
-eval $(thefuck --alias)
+
+
+#eval $(thefuck --alias)
 
 #autoload -Uz compinit
 #compinit
@@ -244,3 +250,9 @@ POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/bit bit
+
+
+#"figlet -c -f ~/.local/share/fonts/figlet-fonts/3d.flf hello magnus" 
