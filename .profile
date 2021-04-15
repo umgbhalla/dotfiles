@@ -47,7 +47,7 @@ export RICE_LOW="minimal"
 
 # rice LOD
 export RICE="$RICE_LOW"
-export RICE_LOD_FILE="${HOME}/.rice"
+export RICE_LOD_FILE="${XDG_CONFIG_HOME}/rice"
 
 case "$(cat "$RICE_LOD_FILE" 2> "$NULL")" in
   "$RICE_HIGH") export RICE="$RICE_HIGH";
