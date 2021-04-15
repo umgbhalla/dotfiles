@@ -3,7 +3,8 @@
 auth       required   pam_shells.so
 auth       requisite  pam_nologin.so
 auth       include    system-auth
-auth       optional   pam_faildelay.so     delay=4000000
+# pause 4 seconds between each password attempt
+auth       optional   pam_faildelay.so    delay=4000000
 
 account    required   pam_access.so
 account    required   pam_nologin.so
@@ -12,9 +13,11 @@ account    include    system-auth
 password   include    system-auth
 
 session    optional   pam_loginuid.so
-session    optional   pam_keyinit.so       force revoke
+session    optional   pam_keyinit.so      force revoke
 session    include    system-auth
-session    optional   pam_motd.so          motd=/etc/motd
-session    optional   pam_mail.so          dir=/var/spool/mail standard quiet
+session    optional   pam_motd.so         motd=/etc/motd
+session    optional   pam_mail.so         dir=/var/spool/mail standard quiet
 -session   optional   pam_systemd.so
-session    required   pam_env.so           user_readenv=1
+session    required   pam_env.so          user_readenv=1
+# enable control groups, or cgroups
+session    optional   pam_cgfs.so         -c freezer,memory,name=systemd,unified

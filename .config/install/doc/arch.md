@@ -398,6 +398,10 @@ Archlinux system.
   ```
   %wheel ALL=(ALL) ALL
   ```
+  It's also prudent to disable the prompt timeout to prevent unmonitored processes from dying.
+  ```
+  Defaults passwd_timeout=0
+  ```
   Then logout and log back in as the newly created user.
 
 ## Core <a name="core"></a>

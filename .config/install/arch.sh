@@ -140,6 +140,9 @@ PKGS="${PKGS} qrencode"
 # who doesn't like nethack?
 PKGS="${PKGS} nethack"
 
+# containers
+# PKGS="${PKGS} lxd"
+
 # DAW
 # PKGS="${PKGS} lmms"
 
