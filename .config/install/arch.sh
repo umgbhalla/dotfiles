@@ -275,6 +275,10 @@ sudo make clean install
 
 SYSD="/etc/systemd"
 
+# reduce the amount of journaling
+journalConf="journald.conf"
+sudo cp -v "${XDG_CONFIG_HOME}${SYSD}/${journalConf}" "${SYSD}/$journalConf"
+
 # logind/power events
 sudo mkdir -p "${SYSD}"
 sudo cp "${XDG_CONFIG_HOME}${SYSD}/logind.conf" "${SYSD}/logind.conf"

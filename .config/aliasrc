@@ -380,9 +380,12 @@ clearcache() {
       sudo pacman -Sc
       sudo yay -Sc
 
+      sudo journalctl --rotate
+      sudo journalctl --vacuum-time=1d
+
       # clear any files in trash
-      rm -r ${XDG_DATA_HOME}/Trash/*
-      rm -r ${XDG_DATA_HOME}/vifm/Trash/*
+      rm -r ${XDG_DATA_HOME}/Trash/* 2> "$NULL"
+      rm -r ${XDG_DATA_HOME}/vifm/Trash/* 2> "$NULL"
       ;;
   esac
 }
