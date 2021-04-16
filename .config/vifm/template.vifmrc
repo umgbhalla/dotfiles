@@ -244,6 +244,12 @@ filextype *.ora
         \ {Edit in MyPaint}
         \ mypaint %f,
 
+" spreadsheet
+filextype {*.sc}
+  \ sc-im %f
+fileviewer {*.sc}
+  \ sc-im %f
+
 " Mindmap
 filextype *.vym
         \ {Open with VYM}

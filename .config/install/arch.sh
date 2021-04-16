@@ -261,6 +261,14 @@ sudo make clean install
 cd "${XDG_CONFIG_HOME}/ytui"
 sudo make clean install
 
+# spreadsheets
+git clone "https://github.com/andmarti1424/sc-im.git" "${TMPDIR}/sc-im"
+cd "${TMPDIR}/sc-im"
+cp "${XDG_CONFIG_HOME}/sc-im/Makefile" "${TMPDIR}/sc-im/src/"
+cd "src"
+make
+sudo make install clean
+
 # eww (widgets)
 # git clone "https://github.com/elkowar/eww" "${TMPDIR}/eww"
 # cd "${TMPDIR}/eww"

@@ -1,0 +1,10 @@
+color "type=HEADINGS fg=BLACK bg=BLUE"
+color "type=HEADINGS_ODD fg=BLACK bg=BLUE"
+color "type=MODE fg=CYAN bg=DEFAULT_COLOR"
+color "type=CELL_SELECTION_SC fg=BLACK bg=CYAN"
+color "type=CELL_SELECTION fg=CYAN bg=DEFAULT_COLOR"
+color "type=NUMB fg=DEFAULT_COLOR bg=DEFAULT_COLOR"
+color "type=STRG fg=DEFAULT_COLOR bg=DEFAULT_COLOR"
+
+nnoremap "ZZ" ":wq<CR>"
+nnoremap "ZQ" ":q!<CR>"
