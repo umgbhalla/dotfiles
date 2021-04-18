@@ -35,7 +35,7 @@ set mouse+=a                            " Enable your mouse
 set splitbelow                          " Horizontal splits will automatically be below
 set splitright                          " Vertical splits will automatically be to the right
 set t_Co=256                            " Support 256 colors
-set conceallevel=0                      " So that I can see `` in markdown files
+set conceallevel=2                    
 set tabstop=4                           " Insert 2 spaces for a tab
 set softtabstop=4
 set shiftwidth=4                        " Change the number of space characters inserted for indentation
@@ -45,7 +45,7 @@ set showtabline=2                       " Always show tabs
 set fileformat=unix
 set smartindent                         " Makes indenting smart
 set autoindent                          " Good auto indent
-set laststatus=2                        " Always display the status line
+"set laststatus=0                        " Always display the status line
 set cursorline                          " Enable highlighting of the current line
 set relativenumber
 set background=dark                     " tell vim what the background color looks like
