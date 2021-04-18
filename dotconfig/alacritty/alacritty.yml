@@ -2,29 +2,30 @@
 window:
   dimensions:
     columns: 150
-    lines: 28
+    lines: 20
   padding:
     x: 10
     y: 10
   dynamic_padding: true
-  decorations: none
+  #decorations: none
 scrolling:
   history: 10000
   multiplier: 10
-background_opacity: 0.94
+background_opacity: 1
 window.dynamic_title: false
 
 # Font Customization
 font:
   normal:
-    family: MesloLGS NF
-  #   style: Regular
-  # bold:
-  #   family: MesloLGS NF
-  #   style: Bold
-  # italic:
-  #   family: MesloLGS NF
-  #   style: Italic
+    #family: MesloLGS NF
+    family: Hack Nerd Font
+    #   style: Regular
+    # bold:
+    #   family: MesloLGS NF
+    #   style: Bold
+    # italic:
+    #   family: MesloLGS NF
+    #   style: Italic
   size: 12
   offset:
     x: 0
@@ -35,63 +36,13 @@ font:
   use_thin_strokes: false
   debug:
     persistent_logging: false
-draw_bold_text_with_bright_colors: true
+  draw_bold_text_with_bright_colors: true
 
-# Colors (Base 16 Default Dark) base
-colors:
-  primary:
-    background: '#101520'
-    foreground: '#f7fdf9'
-    dim_foreground: '#a5abb6'
-  cursor:
-    text: '#2e3440'
-    cursor: '#d8dee9'
-  vi_mode_cursor:
-    text: '#2e3440'
-    cursor: '#d8dee9'
-  selection:
-    text: CellForeground
-    background: '#4c566a'
-  search:
-    matches:
-      foreground: CellBackground
-      background: '#88c0d0'
-    bar:
-      background: '#434c5e'
-      foreground: '#dedefe'
-  normal:
-    black: '#3b4252'
-    red: '#bf616a'
-    green: '#a3be8c'
-    yellow: '#ebcb8b'
-    blue: '#81a1c1'
-    magenta: '#b48ead'
-    cyan: '#88c0d0'
-    white: '#e5e9f0'
-  bright:
-    black: '#4c566a'
-    red: '#bf616a'
-    green: '#a3be8c'
-    yellow: '#ebcb8b'
-    blue: '#81a1c1'
-    magenta: '#b48ead'
-    cyan: '#8fbcbb'
-    white: '#eceff4'
-  dim:
-    black: '#373e4d'
-    red: '#94545d'
-    green: '#809575'
-    yellow: '#b29e75'
-    blue: '#68809a'
-    magenta: '#8c738c'
-    cyan: '#6d96a5'
-    white: '#aeb3bb'
-
-#nord cp
-# colors:
-#   primary:
-#     background: '#2e3440'
-#     foreground: '#d8dee9'
+  # Colors (Base 16 Default Dark) base
+  # colors:
+  #   primary:
+#     background: '#101520'
+#     foreground: '#f7fdf9'
 #     dim_foreground: '#a5abb6'
 #   cursor:
 #     text: '#2e3440'
@@ -108,7 +59,7 @@ colors:
 #       background: '#88c0d0'
 #     bar:
 #       background: '#434c5e'
-#       foreground: '#d8dee9'
+#       foreground: '#dedefe'
 #   normal:
 #     black: '#3b4252'
 #     red: '#bf616a'
@@ -137,6 +88,56 @@ colors:
 #     cyan: '#6d96a5'
 #     white: '#aeb3bb'
 
+#nord cp
+colors:
+  primary:
+    background: '#2E3440'
+    foreground: '#d8dee9'
+    dim_foreground: '#a5abb6'
+  cursor:
+    text: '#2e3040'
+    cursor: '#d8def9'
+  vi_mode_cursor:
+    text: '#2e3440'
+    cursor: '#d8dee9'
+  selection:
+    text: CellForeground
+    background: '#4c566a'
+  search:
+    matches:
+      foreground: CellBackground
+      background: '#88c0d0'
+    bar:
+      background: '#434c5e'
+      foreground: '#d8dee9'
+  normal:
+    black: '#3b4252'
+    red: '#bf616a'
+    green: '#81dfc8'
+    yellow: '#ebcb8b'
+    blue: '#81a1c1'
+    magenta: '#b48ead'
+    cyan: '#88c0d0'
+    white: '#e5e9f0'
+  bright:
+    black: '#4c566a'
+    red: '#bf616a'
+    green: '#a3be8c'
+    yellow: '#ebcb8b'
+    blue: '#81a1c1'
+    magenta: '#b48ead'
+    cyan: '#8fbcbb'
+    white: '#eceff4'
+  dim:
+    black: '#373e4d'
+    red: '#94545d'
+    green: '#809575'
+    yellow: '#b29e75'
+    blue: '#68809a'
+    magenta: '#8c738c'
+    cyan: '#6d96a5'
+    white: '#aeb3bb'
+
 
 
 
@@ -157,7 +158,7 @@ cursor:
 
 
 key_bindings:
-  - { key: N, mods: Control, action: SpawnNewInstance }
-  - { key: Space,  mods: Control,  action: ToggleViMode            }
+  - { key: Return, mods: Control, action: SpawnNewInstance }
+#  - { key: Space,  mods: Control,  action: ToggleViMode            }
 # - { key: Q, mods: Control, action: Exit }
 
