@@ -10,20 +10,30 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Better Syntax Support
     Plug 'sheerun/vim-polyglot'
+    
     " File Explorer
     Plug 'scrooloose/NERDTree'
+    
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
+    
     " Theme 
     Plug 'arcticicestudio/nord-vim'
+    
     " Airline
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    "
+    
+    " Stable version of coc
     Plug 'neoclide/coc.nvim',{'branch': 'release'}
+    " Keeping up to date with master
+    Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+    " DON'T forget to CocInstall from https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#implemented-coc-extensions
+    "   
+    "
     "FZF
     "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     "Plug 'junegunn/fzf.vim'
     "Plug 'airblade/vim-rooter'
-    "
+    
 call plug#end()
