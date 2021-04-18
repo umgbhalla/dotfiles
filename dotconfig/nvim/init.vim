@@ -17,55 +17,32 @@
 
 " Source all the plugins 
     source $HOME/.config/nvim/vim-plug/plugins.vim
+
     set runtimepath^=~/.vim runtimepath+=~/.vim/after
     let &packpath=&runtimepath
 
-" Source some settings
+" Source SETTINGS
     source $HOME/.config/nvim/general/settings.vim
 
-" Source some Keybinds
+" Source KEYBINDS
     source $HOME/.config/nvim/keys/mappings.vim
-"
-"Status-line
-    set statusline=
-    set statusline+=%#IncSearch#
-    set statusline+=\ %y
-    set statusline+=\ %r
-    set statusline+=%#CursorLineNr#
-    set statusline+=\ %F
-    set statusline+=%= "Right side settings
-    set statusline+=%#Search#
-    set statusline+=\ %l/%L
-    set statusline+=\ [%c]
 
-" air-line
-    let g:airline_powerline_fonts = 1
-
-    if !exists('g:airline_symbols')
-        let g:airline_symbols = {}
-    endif
-
-
-" airline symbols
-    let g:airline_left_sep = ''
-    let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
-    let g:airline_symbols.branch = 'b'
-    let g:airline_symbols.readonly = 'L'
-    let g:airline_symbols.linenr = '^'
-    let g:airline_symbols.maxlinenr = ' l '
-
-" Enable autocomplete
-"    set wildmode=longest,list,full
+" Source THEME 
+    source $HOME/.config/nvim/themes/nord.vim
        
+" Configs 
+    
+    " Source AIRLINE config
+        source $HOME/.config/nvim/plug-config/airline.vim
+           
+    " Source COC config
+        source $HOME/.config/nvim/plug-config/coc.vim
+           
 
-"split open at the bottom now right
-    :imap ii <Esc>
+
+   " :imap ii <Esc>
 
 
-" Nert tree toggle
-    map <C-n> :NERDTreeToggle<CR>
 
 
 " source rc file again
@@ -77,9 +54,6 @@
  "   nnoremap <Left> :vertical resize +2<CR>
  "   nnoremap <Right> :vertical resize -2<CR>
 
-" theme
-    colorscheme nord
-    set guifont=Hack
        
 
 "" =================================================================================
@@ -147,3 +121,10 @@
 "    noremap _ -
 
 
+" theme
+"    set termguicolors
+"    colorscheme nord
+"    set guifont=Hack
+"
+" Enable autocomplete
+"    set wildmode=longest,list,full
