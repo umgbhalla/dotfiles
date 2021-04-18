@@ -8,7 +8,14 @@
 "                ███  ░██░░██████░░██████   ░░██   ░██ ███ ░██ ░██
 "               ░░░   ░░  ░░░░░░  ░░░░░░     ░░    ░░ ░░░  ░░  ░░
 "
-"
+"                              ██          ██   ██
+"                             ░░          ░░   ░██
+"                              ██ ███████  ██ ██████
+"                             ░██░░██░░░██░██░░░██░
+"                             ░██ ░██  ░██░██  ░██
+"                             ░██ ░██  ░██░██  ░██
+"                             ░██ ███  ░██░██  ░░██
+"                             ░░ ░░░   ░░ ░░    ░░
 "
 "
 "
@@ -17,7 +24,6 @@
 
 " Source all the plugins 
     source $HOME/.config/nvim/vim-plug/plugins.vim
-
     set runtimepath^=~/.vim runtimepath+=~/.vim/after
     let &packpath=&runtimepath
 
@@ -29,25 +35,21 @@
 
 " Source THEME 
     source $HOME/.config/nvim/themes/nord.vim
+ " Source AIRLINE config
+    source $HOME/.config/nvim/themes/airline.vim      
+
        
-" Configs 
-    
-    " Source AIRLINE config
-        source $HOME/.config/nvim/plug-config/airline.vim
-           
-    " Source COC config
-        source $HOME/.config/nvim/plug-config/coc.vim
-           
-
-
-   " :imap ii <Esc>
-
-
-
+" Source COC CONFIG
+    source $HOME/.config/nvim/plug-config/coc.vim
 
 " source rc file again
     map <M-s> :source ~/.config/nvim/init.vim<CR>
-       
+  
+
+
+
+
+
 " remaped arrow keys to resize panes
  "   nnoremap <Up> :resize +2<CR> 
  "   nnoremap <Down> :resize -2<CR>
@@ -128,3 +130,10 @@
 "
 " Enable autocomplete
 "    set wildmode=longest,list,full
+"
+"
+
+   " :imap ii <Esc>
+
+
+
