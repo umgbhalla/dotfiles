@@ -1,19 +1,23 @@
+"
+"                                                   ██
+"                                                  ░░
+"                ███████   █████   ██████  ██    ██ ██ ██████████
+"               ░░██░░░██ ██░░░██ ██░░░░██░██   ░██░██░░██░░██░░██
+"                ░██  ░██░███████░██   ░██░░██ ░██ ░██ ░██ ░██ ░██
+"                ░██  ░██░██░░░░ ░██   ░██ ░░████  ░██ ░██ ░██ ░██
+"                ███  ░██░░██████░░██████   ░░██   ░██ ███ ░██ ░██
+"               ░░░   ░░  ░░░░░░  ░░░░░░     ░░    ░░ ░░░  ░░  ░░
+"
 
-"                              ██
-"                             ░░
-"                    ██    ██ ██ ██████████  ██████  █████
-"                   ░██   ░██░██░░██░░██░░██░░██░░█ ██░░░██
-"                   ░░██ ░██ ░██ ░██ ░██ ░██ ░██ ░ ░██  ░░
-"                    ░░████  ░██ ░██ ░██ ░██ ░██   ░██   ██
-"                     ░░██   ░██ ███ ░██ ░██░███   ░░█████
-"             ░░██      ░░    ░░ ░░░  ░░  ░░ ░░░     ░░░░░
-" 
+ 
 
-" github.com/umgbhalla
+"  https://github.com/umgbhalla/
 
-source $HOME/.config/nvim/vim-plug/plugins.vim
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
-let &packpath=&runtimepath
+" Source all the plugins 
+    source $HOME/.config/nvim/vim-plug/plugins.vim
+    set runtimepath^=~/.vim runtimepath+=~/.vim/after
+    let &packpath=&runtimepath
+
 " =================================================================================
     set nocompatible
     syntax on
@@ -95,10 +99,10 @@ let &packpath=&runtimepath
     map <C-s> :source ~/.config/nvim/init.vim<CR>
        
 " remaped arrow keys to resize panes
-    nnoremap <Up> :resize +2<CR> 
-    nnoremap <Down> :resize -2<CR>
-    nnoremap <Left> :vertical resize +2<CR>
-    nnoremap <Right> :vertical resize -2<CR>
+    "nnoremap <Up> :resize +2<CR> 
+    "nnoremap <Down> :resize -2<CR>
+    "nnoremap <Left> :vertical resize +2<CR>
+    "nnoremap <Right> :vertical resize -2<CR>
 
 " theme
     colorscheme nord

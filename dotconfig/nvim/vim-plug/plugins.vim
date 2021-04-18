@@ -14,11 +14,16 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'scrooloose/NERDTree'
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
-    "theme 
+    " Theme 
     Plug 'arcticicestudio/nord-vim'
-    "airline
+    " Airline
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     "
     Plug 'neoclide/coc.nvim',{'branch': 'release'}
+    "FZF
+    "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    "Plug 'junegunn/fzf.vim'
+    "Plug 'airblade/vim-rooter'
+    "
 call plug#end()
