@@ -1,4 +1,15 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+#                                      ██
+#                                     ░██
+#                       ██████  ██████░██      ██████  █████
+#                      ░░░░██  ██░░░░ ░██████ ░░██░░█ ██░░░██
+#                         ██  ░░█████ ░██░░░██ ░██ ░ ░██  ░░
+#                    ██  ██    ░░░░░██░██  ░██ ░██   ░██   ██
+#                   ░██ ██████ ██████ ░██  ░██░███   ░░█████
+#                   ░░ ░░░░░░ ░░░░░░  ░░   ░░ ░░░     ░░░░░
+#
+#
+#
+#Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -8,14 +19,6 @@ fi
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-
-
-#         _
-#  _______| |__  _ __ ___
-# |_  / __| '_ \| '__/ __|
-#  / /\__ \ | | | | | (__
-# /___|___/_| |_|_|  \___|
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -44,113 +47,59 @@ alias .f='cd /mnt/F'
 alias .d='cd /mnt/F/dotfiles'
 alias .u='cd /mnt/F/umgbhalla.github.io'
 alias .dev='cd /mnt/F/dev'
-alias .n='cd /mnt/F/dev/flutterapps/comet/The-Network-App'
+alias .n='cd ~/.config/nvim/'
 alias .t='/mnt/F/testingrepo'
+
 #aliases 
-alias vsf='code /mnt/F '
-alias vs='code'
-alias vsu='cd /mnt/F/umgbhalla.github.io && code .'
-alias op='xdg-open'
-alias sc='tty-clock -SscC0'
-alias f='tuxi -u'
-alias r='ranger .'
-alias reload='source ~/.zshrc'
-alias ixi="curl -F 'f:1=<-' ix.io"
-alias spr="curl -F 'sprunge=<-' http://sprunge.us"
-alias qr='curl -F-=\<- qrenco.de'
-alias p='pfetch'
-alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
-alias gst='git status'
-alias gcl='git clone'
-alias gad='git add .'
-alias gps='git push'
-alias gct='git commit -m'
-alias srt=' du -sh ./* | sort -n | bat'
-alias s='surf'
+alias aot='mpv https://music.youtube.com/playlist\?list\=PL9PLUrw0CbcRbxo9kzgkbe0rB9CjvigOI --no-video'
+alias b='bat'
+alias batr="bat README.md"
 alias bri='sudo brightnessctl -d amdgpu_bl0 set '
+alias c='clear'
 alias code='/usr/share/code/bin/code'
-alias ytf=' ytfzf -t '
-alias mu='youtube-dl -f "bestaudio/best" -ciw -o "%(title)s.%(ext)s" -v --extract-audio --audio-quality 0 --audio-format mp3'
+alias color="colorscript -e 31"
+alias covid=' curl https://corona-stats.online?minimal=true  | bat'
+alias ct='cht.sh' #curl cht.sh/:learn
+alias f='tuxi -u'
+alias gad='git add .'
+alias gcl='git clone'
+alias gct='git commit -m'
+alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
+alias gps='git push'
+alias gs='git status'
+alias gst='git status'
+alias ixi="curl -F 'f:1=<-' ix.io"
+alias lol=" figlet -c -f ~/.local/share/fonts/figlet-fonts/3d.flf "
 alias m='micro'
-alias v='vim'
+alias mpp='mpv --no-video'
+alias mu='youtube-dl -f "bestaudio/best" -ciw -o "%(title)s.%(ext)s" -v --extract-audio --audio-quality 0 --audio-format mp3'
 alias n='nvim'
 alias neo='neovide'
-alias nz='nvim ~/.zshrc'
 alias nn='nvim ~/.config/nvim/init.vim'
-alias rec='asciinema rec'
-alias aot='mpv https://music.youtube.com/playlist\?list\=PL9PLUrw0CbcRbxo9kzgkbe0rB9CjvigOI --no-video'
-alias covid=' curl https://corona-stats.online?minimal=true  | bat'
-alias mpp='mpv --no-video'
-alias serv='sudo service --status-all | bat'
-alias color="colorscript -e 31"
+alias nz='nvim ~/.zshrc'
+alias op='xdg-open'
+alias p='pfetch'
 alias pfetch="pfetch && color"
-#misc
-alias batr="bat README.md"
-alias ct='cht.sh' #curl cht.sh/:learn
+alias qr='curl -F-=\<- qrenco.de'
+alias r='ranger .'
+alias rec='asciinema rec'
+alias reload='source ~/.zshrc'
+alias s='surf'
 alias sai='sudo apt install' #hahaha
+alias sc='tty-clock -SscC0'
+alias serv='sudo service --status-all | bat'
+alias spr="curl -F 'sprunge=<-' http://sprunge.us"
+alias srt=' du -sh ./* | sort -n | bat'
 alias ssy='sudo apt update && sudo apt upgrade'
-alias gs='git status'
-alias c='clear'
+alias v='vim'
+alias vs='code'
+alias vsf='code /mnt/F '
+alias vsu='cd /mnt/F/umgbhalla.github.io && code .'
+alias ytf=' ytfzf -t '
+   
 # confirm before removing something
 alias rm='rm -i'
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-#ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-#COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(zsh-autosuggestions git zsh-syntax-highlighting web-search)
 
 source $ZSH/oh-my-zsh.sh
@@ -164,36 +113,16 @@ cd_with_fzf() {
 
 alias cz='cd_with_fzf'
 alias oz='open_with_fzf'
+#
 # User configuration
-alias  lol=" figlet -c -f ~/.local/share/fonts/figlet-fonts/3d.flf "
 
 # Changing "ls" to "exa"
-#alias ls='(exa -al --color=always --reverse --group-directories-first --sort=size) | bat' 
-alias ld='(exa -ahl --color=always --group-directories-first) ' # my preferred listing
-alias la='(exa -a --color=always --group-directories-first) '  # all files and dirs
+alias ld='(exa -ahl --color=always --group-directories-first) | bat ' # my preferred listing
+alias ls='(exa -a --color=always --group-directories-first) |bat '  # all files and dirs
 alias ll='(exa -l --color=always --group-directories-first) '  # long format
 alias lt='(exa -aT --color=always --group-directories-first)| bat' # tree listing
 alias l.='exa -a | egrep "^\."'
 alias g="google"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
 
 
 # only for git
@@ -201,16 +130,9 @@ alias g="google"
 # or for everything
 zstyle ':completion:*' fzf-search-display true
 
-#neofetch
 
 export NVM_DIR="/home/umang/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-
-### RANDOM COLOR SCRIPT ###
-# Get this script from my GitLab: gitlab.com/dwt1/shell-color-scripts
-# Or install it from the Arch User Repository: shell-color-scripts
-#colorscript random
 
 
 source ~/.profile
@@ -235,11 +157,7 @@ alias ide="	tmux  split-window -v -p 30 ;	tmux  split-window -h -p 66  ;	tmux  s
 #compinit
 # Completion for kitty
 #kitty + complete setup zsh | source /dev/stdin
-#cal 
-#uptime -s | lolcat
 
-#pfetch
-#bindkey "^b" _fuzzybrowse_zsh_insert_output
 
 
 
@@ -255,5 +173,12 @@ POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/bit bit
 
+#typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+#
+#"figlet -c -f ~/.local/share/fonts/figlet-fonts/3d.flf hello magnus"  
+### RANDOM COLOR SCRIPT ###
+# Get this script from my GitLab: gitlab.com/dwt1/shell-color-scripts
+# Or install it from the Arch User Repository: shell-color-scripts
+#colorscript random
 
-#"figlet -c -f ~/.local/share/fonts/figlet-fonts/3d.flf hello magnus" 
+
