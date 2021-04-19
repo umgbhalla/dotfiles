@@ -6,6 +6,8 @@ super + return // terminal spawn
 
 alt + p // rofi -show run  
 alt + return // surf google.com  
+alt + c // fzf default for cd in fuzzy result 
+alt + r // fzf zsh history
 
 
 ctrl + space // prefix for tmux  
