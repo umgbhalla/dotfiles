@@ -32,7 +32,7 @@
 
 
 " Nert tree toggle
-    map <C-n> :NERDTreeToggle<CR>
+ "   map <C-n> :NERDTreeToggle<CR>
 
 " Easy CAPS
     inoremap <c-u> <ESC>viwUi

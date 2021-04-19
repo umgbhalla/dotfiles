@@ -35,7 +35,7 @@
 
 " Source THEME 
     source $HOME/.config/nvim/themes/nord.vim
- " Source AIRLINE config
+" Source AIRLINE config
     source $HOME/.config/nvim/themes/airline.vim      
 
        
@@ -44,7 +44,9 @@
 
 " source rc file again
     map <M-s> :source ~/.config/nvim/init.vim<CR>
-  
+    
+" source ranger config  
+    source $HOME/.config/nvim/plug-config/rnvimr.vim
 
 
 
