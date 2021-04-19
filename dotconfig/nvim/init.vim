@@ -1,4 +1,3 @@
-"
 "                                                   ██
 "                                                  ░░
 "                ███████   █████   ██████  ██    ██ ██ ██████████
@@ -7,7 +6,6 @@
 "                ░██  ░██░██░░░░ ░██   ░██ ░░████  ░██ ░██ ░██ ░██
 "                ███  ░██░░██████░░██████   ░░██   ░██ ███ ░██ ░██
 "               ░░░   ░░  ░░░░░░  ░░░░░░     ░░    ░░ ░░░  ░░  ░░
-"
 "                              ██          ██   ██
 "                             ░░          ░░   ░██
 "                              ██ ███████  ██ ██████
@@ -17,125 +15,32 @@
 "                             ░██ ███  ░██░██  ░░██
 "                             ░░ ░░░   ░░ ░░    ░░
 "
-"
-"
-"
 " https://github.com/umgbhalla/
+" SOURCE all the PLUGINS 
 
-" Source all the plugins 
     source $HOME/.config/nvim/vim-plug/plugins.vim
     set runtimepath^=~/.vim runtimepath+=~/.vim/after
     let &packpath=&runtimepath
 
-" Source SETTINGS
     source $HOME/.config/nvim/general/settings.vim
-
-" Source KEYBINDS
     source $HOME/.config/nvim/keys/mappings.vim
-
-" Source THEME 
-    source $HOME/.config/nvim/themes/nord.vim
-" Source AIRLINE config
+    "source $HOME/.config/nvim/themes/nord.vim
+    source $HOME/.config/nvim/themes/gruvbox.vim
     source $HOME/.config/nvim/themes/airline.vim      
-
-       
-" Source COC CONFIG
     source $HOME/.config/nvim/plug-config/coc.vim
-
-" source rc file again
-    map <M-s> :source ~/.config/nvim/init.vim<CR>
-    
-" source ranger config  
     source $HOME/.config/nvim/plug-config/rnvimr.vim
+    source $HOME/.config/nvim/plug-config/fzf.vim
+    source $HOME/.config/nvim/plug-config/rainbow.vim
+    source $HOME/.config/nvim/plug-config/start-screen.vim
+    source $HOME/.config/nvim/plug-config/commentry.vim
+
+    map <M-s> :source ~/.config/nvim/init.vim<CR>
+
+    luafile $HOME/.config/nvim/lua/plug-colorizer.lua
+
+"lua require'plug-colorizer'
 
 
-
-
-
-" remaped arrow keys to resize panes
- "   nnoremap <Up> :resize +2<CR> 
- "   nnoremap <Down> :resize -2<CR>
- "   nnoremap <Left> :vertical resize +2<CR>
- "   nnoremap <Right> :vertical resize -2<CR>
-
-       
-
-"" =================================================================================
-"    set nocompatible
-"    syntax on
-"    set shortmess+=I
-"    set relativenumber
-"    set laststatus=2
-"    set backspace=indent,eol,start
-"    set hidden
-"    set ignorecase
-"    set smartcase
-"   " set incsearch
-"    nmap Q <Nop>    " 'Q' in normal mode enters Ex mode. You almost never want this.
-"    set noerrorbells visualbell t_vb= " audio bell disbled
-"    set mouse+=a " enable mouse support
-"    set bg=dark
-"
-"" =================================================================================
-"        
-"" tabs
-"    set tabstop=4
-"    set softtabstop=4
-"    set shiftwidth=4
-"
-"" convert tab to spaces
-"    set expandtab
-"    set autoindent " for python
-"    set fileformat=unix
-
-""system clipboard
-"    set clipboard+=unnamedplus
-        
-" Remap splits navigation to just CTRL + hjkl
-"    nnoremap <C-h> <C-w>h
-"    nnoremap <C-j> <C-w>j
-"    nnoremap <C-k> <C-w>k
-"    nnoremap <C-l> <C-w>l
-
-" remap shit
-" map each number to its shift-key character
-"    noremap 1 !
-"    noremap 2 @
-"    noremap 3 #
-"    noremap 4 $
-"    noremap 5 %
-"    noremap 6 ^
-"    noremap 7 &
-"    noremap 8 *
-"    noremap 9 (
-"    noremap 0 )
-"    noremap - _
-
-" and then the opposite
-"    noremap ! 1
-"    noremap @ 2
-"    noremap # 3
-"    noremap $ 4
-"    noremap % 5
-"    noremap ^ 6
-"    noremap & 7
-"    noremap * 8
-"    noremap ( 9
-"    noremap ) 0
-"    noremap _ -
-
-
-" theme
-"    set termguicolors
-"    colorscheme nord
-"    set guifont=Hack
-"
-" Enable autocomplete
-"    set wildmode=longest,list,full
-"
-"
-
-   " :imap ii <Esc>
 
 
 
