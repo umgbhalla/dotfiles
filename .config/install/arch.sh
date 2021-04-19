@@ -225,7 +225,10 @@ cd "${XDG_CONFIG_HOME}/getxr"
 sudo make clean install
 
 # relink /bin/sh
-sudo ln -sf mksh /bin/sh
+sudo ln -sfT mksh /usr/bin/sh
+PACMAN_HOOK_DIR="/etc/pacman.d/hooks"
+sudo mkdir -p "$PACMAN_HOOK_DIR"
+sudo cp "${XDG_CONFIG_HOME}/pacman/hooks/binsh" "$PACMAN_HOOK_DIR"
 
 # suckless
 sbuild "st"
