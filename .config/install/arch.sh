@@ -261,6 +261,14 @@ sudo make clean install
 cd "${XDG_CONFIG_HOME}/ytui"
 sudo make clean install
 
+# xmr
+# XMR_ARCHIVE="${TMPDIR}/xmr.tar.bz2"
+# curl -L "https://downloads.getmonero.org/cli/linux64" -o "$XMR_ARCHIVE"
+# mkdir -p "${TMPDIR}/xmr"
+# tar xvjf "$XMR_ARCHIVE" -C "${TMPDIR}/xmr"
+# cd "${TMPDIR}/xmr"
+# mv "$(ls)" "$XMR_PATH"
+
 # spreadsheets
 git clone "https://github.com/andmarti1424/sc-im.git" "${TMPDIR}/sc-im"
 cd "${TMPDIR}/sc-im"

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+case "$1" in
+  "cli")
+    "${XMR_PATH}/monero-wallet-cli"
+    ;;
+  "d")
+    "${XMR_PATH}/monerod"
+    ;;
+esac

@@ -231,6 +231,7 @@ export YARN_GLOBAL_DIR="$XDG_CACHE_HOME/yarn_global"
 export YARN_RC_DIR="$XDG_CACHE_HOME"
 export YARN_RC_FILENAME="$XDG_CONFIG_HOME/yarn/.yarnrc.yml"
 export XAUTHORITY="${XDG_CONFIG_HOME}/Xdefaults/Xauthority"
+export XMR_PATH="${XDG_SCRIPT_HOME}/xmr.d"
 
 #
 # path
