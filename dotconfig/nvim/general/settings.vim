@@ -47,7 +47,7 @@ set smartindent                         " Makes indenting smart
 set autoindent                          " Good auto indent
 "set laststatus=0                        " Always display the status line
 set cursorline                          " Enable highlighting of the current line
-set relativenumber
+set number relativenumber
 set background=dark                     " tell vim what the background color looks like
 set noshowmode                          " We don't need to see things like -- INSERT -- anymore
 set nobackup                            " This is recommended by coc

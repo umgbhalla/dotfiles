@@ -1,5 +1,5 @@
 # dotfiles
 my dotfiles :uwu:
 
-![Rice](./rice.gif)
-![png](./Screenshot.png)
+![png](./Screenshot.png)  
+![png](./Screenshot_1.png)
