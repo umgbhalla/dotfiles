@@ -1,10 +1,17 @@
 #!/bin/sh
 
+
+mkdir -p "$XMR_CONFIG"
+cd "$XMR_CONFIG"
+
 case "$1" in
   "cli")
     "${XMR_PATH}/monero-wallet-cli"
     ;;
   "d")
     "${XMR_PATH}/monerod"
+    ;;
+  "mine")
+    "${XMR_PATH}/xmr-stak-rx"
     ;;
 esac

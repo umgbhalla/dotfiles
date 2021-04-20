@@ -231,6 +231,7 @@ export YARN_GLOBAL_DIR="$XDG_CACHE_HOME/yarn_global"
 export YARN_RC_DIR="$XDG_CACHE_HOME"
 export YARN_RC_FILENAME="$XDG_CONFIG_HOME/yarn/.yarnrc.yml"
 export XAUTHORITY="${XDG_CONFIG_HOME}/Xdefaults/Xauthority"
+export XMR_CONFIG="${XDG_CONFIG_HOME}/xmr"
 export XMR_PATH="${XDG_SCRIPT_HOME}/xmr.d"
 
 #
@@ -275,27 +276,13 @@ if command -v "spicetify" > "$NULL"; then
 fi
 
 # background command
-case "$RICE" in
-  "$RICE_HIGH")
-    export BACKGROUND="nice xwinwrap -b -s -fs -st -sp -nf -ov -fdt -- mpv -wid WID --really-quiet --framedrop=vo --no-audio --panscan="1.0" --no-osc --input-vo-keyboard=no --loop-file=inf ${XDG_CONFIG_HOME}/wallpapers/botw-title.mkv"
-    # export BACKGROUND="feh --no-fehbg --bg-fill ${XDG_DATA_HOME}/wallpapers/sailor.jpg"
-    ;;
-  *) export BACKGROUND="hsetroot -solid ${C_CYAN_0}" ;;
-esac
+export BACKGROUND="feh --no-fehbg --bg-fill ${XDG_DATA_HOME}/wallpapers/freebsd.png"
 
 # startx
-if command -v "startx" >/dev/null; then
-  case "$(tty)" in
-    "/dev/ttyv0" | "/dev/tty1" | "/dev/ttyC0")
-      case "$OS" in
-        "$OS_FREEBSD")
-          exec startx -- -nocursor
-          # sudo moused -p /dev/psm0
-          # exec startx
-          ;;
-        # "$OS_OPENBSD") exec startx ;;
-        # "$OS_LINUX") exec startx ;;
-      esac
-      ;;
-  esac
-fi
+# if command -v "startx" >/dev/null; then
+#   case "$(tty)" in
+#     "/dev/ttyv0" | "/dev/tty1" | "/dev/ttyC0")
+#       # exec startx
+#       ;;
+#   esac
+# fi

@@ -149,6 +149,9 @@ PKGS="${PKGS} nethack"
 # password generator
 # PKGS="${PKGS} pwgen"
 
+# required by xmr-stack (possibly already installed)
+# PKGS="${PKGS} hwloc openssl cmake libmicrohttpd"
+
 # AUR="${AUR} mmv"
 
 # status bar
@@ -271,6 +274,8 @@ sudo make clean install
 # tar xvjf "$XMR_ARCHIVE" -C "${TMPDIR}/xmr"
 # cd "${TMPDIR}/xmr"
 # mv "$(ls)" "$XMR_PATH"
+# xmr-stak
+# recommended: https://github.com/fireice-uk/xmr-stak
 
 # spreadsheets
 git clone "https://github.com/andmarti1424/sc-im.git" "${TMPDIR}/sc-im"
