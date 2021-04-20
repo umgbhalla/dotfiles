@@ -9,6 +9,19 @@ export OS_LINUX="Linux"
 export OS_FREEBSD="FreeBSD"
 export OS_OPENBSD="OpenBSD"
 
+# distros (kernel-based)
+
+export DISTRO_ARCHLINUX="Archlinux"
+export DISTRO_GENTOO="Gentoo"
+
+if [ "$OS" == "$OS_LINUX" ]; then
+  case "$(uname -r)" in
+    *arch*)     export DISTRO="$DISTRO_ARCHLINUX" ;;
+    *gentoo*)   export DISTRO="$DISTRO_GENTOO" ;;
+    *)          export DISTRO="" ;;
+  esac
+fi
+
 #
 # directories
 #
