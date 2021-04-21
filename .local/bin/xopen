@@ -6,8 +6,12 @@ file="$1"
 args="$@"
 
 case "$file" in
+  "")
+    echo "${RED}ERROR: No argument supplied.${NC}"
+    exit 1
+    ;;
   "file://"*|"http://"*|"https://"*|"ftp://"*|"sftp://"*)
-    $BROWSER "$args" &
+    $BROWSER "$args"
     exit 0
     ;;
 esac
@@ -16,5 +20,6 @@ ext="${file##*.}"
 
 case "$ext" in
   # TODO
+  md) $EDITOR "$args" ;;
   *) xdg-open "$args" ;;
 esac
