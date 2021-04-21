@@ -6,5 +6,7 @@ color "type=CELL_SELECTION fg=CYAN bg=DEFAULT_COLOR"
 color "type=NUMB fg=DEFAULT_COLOR bg=DEFAULT_COLOR"
 color "type=STRG fg=DEFAULT_COLOR bg=DEFAULT_COLOR"
 
-nnoremap "ZZ" ":wq<CR>"
+nnoremap "ZZ" ":xq!<CR>"
 nnoremap "ZQ" ":q!<CR>"
+
+nnoremap "gx" "gf"

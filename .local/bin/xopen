@@ -1,0 +1,20 @@
+#!/bin/sh
+# given a file name, opens the file with the corresponding program.
+# designed specifically as a custom replacement to xdg-open and scopen.
+
+file="$1"
+args="$@"
+
+case "$file" in
+  "file://"*|"http://"*|"https://"*|"ftp://"*|"sftp://"*)
+    $BROWSER "$args" &
+    exit 0
+    ;;
+esac
+
+ext="${file##*.}"
+
+case "$ext" in
+  # TODO
+  *) xdg-open "$args" ;;
+esac
