@@ -29,7 +29,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+#ZSH_THEME="powerlevel10k/powerlevel10k"
 #ZSH_THEME="agnoster"
 
 
@@ -118,9 +118,10 @@ alias oz='open_with_fzf'
 
 # Changing "ls" to "exa"
 alias ld='(exa -ahl --color=always --group-directories-first) | bat ' # my preferred listing
-alias ls='(exa -a --color=always --group-directories-first) |bat '  # all files and dirs
+alias l='(exa -a --color=always --group-directories-first) |bat '  # all files and dirs
 alias ll='(exa -l --color=always --group-directories-first) '  # long format
 alias lt='(exa -aT --color=always --group-directories-first)| bat' # tree listing
+alias ls=exa
 alias l.='exa -a | egrep "^\."'
 alias g="google"
 
@@ -137,7 +138,7 @@ export NVM_DIR="/home/umang/.nvm"
 
 source ~/.profile
 
-#eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 #export PATH="$PATH:/usr/lib/dart/bin"
@@ -164,6 +165,8 @@ alias ide="	tmux  split-window -v -p 30 ;	tmux  split-window -h -p 66  ;	tmux  s
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPS="--extended"
 
+export VISUAL=nvim
+export EDITOR="$VISUAL"
 
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
