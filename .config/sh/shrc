@@ -10,25 +10,25 @@ set -o vi
 FG=$NC$WHITE
 P=$BOLD$CYAN
 
-msg="tell me im pretty         "
-msg_alt="Welcome to $(uname), ${USER}!"
+# msg="tell me im pretty         "
+# msg_alt="Welcome to $(uname), ${USER}!"
 
-if xset q > "/dev/null" 2>&1; then
-  echo -e "${FG}\
-   ┌――――――――――――――――――――――――┬―――――――――┐
-   ├――――――――――――――――――――――――┘ ${P}▀${FG}  ${P}▀${FG}  ${P}▀${FG} │
-   │ ${P}{\__/}${NC}                           │
-   │ ${P}( •.•)${NC}                           │
-   │  ${P}/ >@${NC} u want this?               │
-   │                                  │
-   │ ${P}{\__/}${NC}                           │
-   │ ${P}( •-•)${NC}                           │
-   │ ${P} @< \ ${NC}${msg} │
-   └――――――――――――――――――――――――――――――――――┘
-  ${NC}"
-else
-  echo -e "${P}${msg_alt}${NC}"
-fi
+# if xset q > "/dev/null" 2>&1; then
+#   echo -e "${FG}\
+#    ┌――――――――――――――――――――――――┬―――――――――┐
+#    ├――――――――――――――――――――――――┘ ${P}▀${FG}  ${P}▀${FG}  ${P}▀${FG} │
+#    │ ${P}{\__/}${NC}                           │
+#    │ ${P}( •.•)${NC}                           │
+#    │  ${P}/ >@${NC} u want this?               │
+#    │                                  │
+#    │ ${P}{\__/}${NC}                           │
+#    │ ${P}( •-•)${NC}                           │
+#    │ ${P} @< \ ${NC}${msg} │
+#    └――――――――――――――――――――――――――――――――――┘
+#   ${NC}"
+# else
+#   echo -e "${P}${msg_alt}${NC}"
+# fi
 
 # scrollback
 # HISTFILE="$SH_HISTFILE"

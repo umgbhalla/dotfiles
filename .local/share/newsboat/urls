@@ -6,7 +6,7 @@
 
 # news sources
 # https://www.pewresearch.org/feed/ news # pew center
-https://rss-endpoints.netlify.app/.netlify/functions/gis
+https://rss-endpoints.netlify.app/.netlify/functions/gis "~Getting It Strait" news # getting it strait
 
 # independent creative writing
 https://lukesmith.xyz/rss.xml independent tech commentary # luke smith
@@ -14,13 +14,12 @@ https://allisonlcj.com/feed/atom independent commentary # allison lee
 https://www.romanzolotarev.com/rss.xml independent tech # roman zolotarev
 https://dataswamp.org/~solene/rss.xml independent tech # solene
 https://onetapestry.com/feed/atom independent christian # david kuo
-# https://gettingitstrait.com/feed journal commentary # getting it strait
 
 # podcasts
 # https://vault.lunduke.com/LundukeShowMP3.xml independent tech commentary # bryan lunduke
 # https://odysee.com/@Lunduke TODO broken, fix
 
-# https://notrelated.libsyn.com/rss independent podcast # not related
+https://notrelated.libsyn.com/rss independent podcast # not related
 https://www.youtube.com/feeds/videos.xml?channel_id=UC9q4FW3t7AasK7o49C-Mq6w youtube meme podcast # gus and eddy
 # https://rss.art19.com/not-overthinking podcast # not overthinking
 https://anchor.fm/s/384a0f00/podcast/rss podcast # ask advo
@@ -71,10 +70,10 @@ https://rss-endpoints.netlify.app/.netlify/functions/soundcloud/jack-snyder "~JJ
 https://www.webtoons.com/en/challenge/summoned/rss?title_no=365069 "~Summoned by Hope Bobbitt" webtoon
 
 # twitch
-https://twitchrss.appspot.com/vod/dunkstream "~Dunkey Stream" twitch meme game
-https://twitchrss.appspot.com/vod/chriswere "~Chris Were Stream" twitch game
-https://twitchrss.appspot.com/vod/rtgame "~RTGameCrowd Stream" twitch meme game
-https://twitchrss.appspot.com/vod/rychainz "~Rychainz Stream" twitch meme game
+# https://twitchrss.appspot.com/vod/dunkstream "~Dunkey Stream" twitch meme game
+# https://twitchrss.appspot.com/vod/chriswere "~Chris Were Stream" twitch game
+# https://twitchrss.appspot.com/vod/rtgame "~RTGameCrowd Stream" twitch meme game
+# https://twitchrss.appspot.com/vod/rychainz "~Rychainz Stream" twitch meme game
 # https://twitchrss.appspot.com/vod/eddyburback "~Eddy Burback Stream" twitch meme game
 # https://twitchrss.appspot.com/vod/gusjohnson "~Gus Johnson Stream" twitch meme game
 # https://twitchrss.appspot.com/vod/nerdcubed "~Nerd Cubed Stream" twitch meme game
@@ -82,8 +81,9 @@ https://twitchrss.appspot.com/vod/rychainz "~Rychainz Stream" twitch meme game
 # reddit
 # do I really look at these?
 # https://www.reddit.com/r/archlinux.rss ~r/archlinux reddit tech
-# https://www.reddit.com/r/freebsd.rss ~r/freebsd reddit tech
+https://www.reddit.com/r/freebsd.rss ~r/freebsd reddit tech
+https://www.reddit.com/r/bsd.rss ~r/openbsd reddit tech
 # https://www.reddit.com/r/bsd.rss ~r/bsd reddit tech
-# https://www.reddit.com/r/suckless.rss ~r/suckless reddit tech
+https://www.reddit.com/r/suckless.rss ~r/suckless reddit tech
 # https://www.reddit.com/r/unix.rss ~r/unix reddit tech
 # https://www.reddit.com/r/unixporn.rss ~r/unixporn reddit tech visual
