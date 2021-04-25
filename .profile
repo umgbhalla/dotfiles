@@ -41,15 +41,19 @@ export XDG_REPO_HOME="$HOME/Repos"
 # desktop directory
 export XDG_DESKTOP_DIR="${XDG_CACHE_HOME}/Desktop"
 
+# local font directory
+export FONT_DIR="${XDG_DATA_HOME}/fonts"
+# kerchoff's principle
+export KEY_DIR="${XDG_CONFIG_HOME}/ssh"
+# null
+export NULL="/dev/null"
+# opt directory
+export OPT_DIR="/opt"
+# ports directory
+export PORTS_DIR="/usr/ports"
 # tmp directory
 export TMPDIR="/tmp"
 export TMP_DIR="$TMPDIR" # TODO deprecate
-# opt directory
-export OPT_DIR="/opt"
-# local font directory
-export FONT_DIR="${XDG_DATA_HOME}/fonts"
-# null
-export NULL="/dev/null"
 
 #
 # display
@@ -264,10 +268,10 @@ export PATH="${PATH}:${XDG_CACHE_HOME}/cargo/bin"
 #
 
 # colors
-. "$XDG_CONFIG_HOME/colorrc"
+. "${XDG_CONFIG_HOME}/colorrc"
 
 # app-specific environment variables
-. "$XDG_CONFIG_HOME/apprc"
+. "${XDG_CONFIG_HOME}/apprc"
 
 #
 # misc app variables (ordered after main app declarations)
@@ -291,11 +295,5 @@ fi
 # background command
 export BACKGROUND="feh --no-fehbg --bg-fill ${XDG_DATA_HOME}/wallpapers/freebsd.png"
 
-# startx
-# if command -v "startx" >/dev/null; then
-#   case "$(tty)" in
-#     "/dev/ttyv0" | "/dev/tty1" | "/dev/ttyC0")
-#       # exec startx
-#       ;;
-#   esac
-# fi
+# init
+. "${XDG_CONFIG_HOME}/initrc"

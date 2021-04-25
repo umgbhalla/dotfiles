@@ -26,18 +26,6 @@ CURRENT_THEME_MODE="${THEME}" . $HOME/.profile
 # do NOT background; apps may not get updated resources
 $XRDB_UPDATE
 
-cat "${XDG_CONFIG_HOME}/templaterc" | \
-  envsubst | \
-  xargs -I {} det {}
-
-# generate lesskey because less is ridiculous
-command -v lesskey >/dev/null && \
-  lesskey "${XDG_CONFIG_HOME}/less/lesskey"
-
-# disable read permissions
-[ -e "${XDG_CONFIG_HOME}/aria2/aria2.conf" ] && \
-  chmod 600 "${XDG_CONFIG_HOME}/aria2/aria2.conf"
-
 # gimp splash
 # case "$OS" in
 #   "$OS_OPENBSD")
@@ -63,3 +51,5 @@ $BACKGROUND
 
 # update bar
 $BAR_UPDATE &
+
+. "${XDG_CONFIG_HOME}/initrc"

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# templates
+templates="$(cat "${XDG_CONFIG_HOME}/templaterc" | envsubst)"
+for template in $templates; do
+  det "$template"
+done
+
+# generate lesskey because less is ridiculous
+command -v lesskey >/dev/null && \
+  lesskey "${XDG_CONFIG_HOME}/less/lesskey"
+
+# disable read permissions
+# [ -e "${XDG_CONFIG_HOME}/aria2/aria2.conf" ] && \
+#   chmod 600 "${XDG_CONFIG_HOME}/aria2/aria2.conf"

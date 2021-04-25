@@ -24,3 +24,4 @@ nnoremap "ZQ" ":q!<CR>"
 
 nnoremap "gx" "gf"
 
+inoremap "<C-h>" "<BS>"
