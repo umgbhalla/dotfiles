@@ -1,6 +1,8 @@
 #!/bin/sh
 # uniformly manages audio volume for inputs and output
 
+not_supported="operating system brightness controls not implemented (yet)"
+
 # volume get
 
 vol_get() {
@@ -68,6 +70,7 @@ vol_set() {
     case "$OS" in
       "$OS_OPENBSD") sndioctl output.level=$1 ;;
       "$OS_LINUX") pamixer --set-volume "$1"
+      *) echo -e "${RED}ERROR: ${not_supported}${NC}" ;;
     esac
   fi
 }
