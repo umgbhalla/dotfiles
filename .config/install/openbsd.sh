@@ -189,7 +189,6 @@ doas make clean install
 
 # font(s)
 mkdir -p "$FONT_DIR"
-cp -v $XDG_CONFIG_HOME/fonts/* "$FONT_DIR/"
 fc-cache -f -v
 
 # system profiler

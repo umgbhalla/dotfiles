@@ -200,14 +200,14 @@ if [ "$OS" == "$OS_OPENBSD" ]; then
   export PKG_PATH="http://ftp.openbsd.org/pub/OpenBSD/$(uname -r)/packages/$(arch -s)/"
 fi
 export REDSHIFT_LAST="$XDG_CACHE_HOME/redshift_last"
-case "${OS}" in
-  "${OS_LINUX}")
+case "$OS" in
+  "$OS_LINUX")
     export SHELL_NAME="mksh"
     export SHELL="/bin/${SHELL_NAME}"
     ;;
-  "${OS_FREEBSD}")
-    export SHELL_NAME="mksh"
-    export SHELL="/usr/local/bin/${SHELL_NAME}"
+  "$OS_FREEBSD"|"$OS_OPENBSD")
+    export SHELL_NAME="sh"
+    export SHELL="/bin/${SHELL_NAME}"
     ;;
   *)
     export SHELL_NAME="sh"
@@ -261,7 +261,7 @@ export PATH="${XDG_SCRIPT_HOME}:${PATH}"
 # java
 export PATH="${PATH}:/usr/local/jdk-11/bin"
 # rust
-export PATH="${PATH}:${XDG_CACHE_HOME}/cargo/bin"
+export PATH="${PATH}:${CARGO_HOME}/bin"
 
 #
 # includes

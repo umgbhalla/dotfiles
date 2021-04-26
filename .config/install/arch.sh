@@ -323,7 +323,6 @@ sudo ln -sf "${XDG_CONFIG_HOME}/${THEME}" "${GTK_THEME_DIR}/${THEME}"
 
 # font(s)
 mkdir -p "$FONT_DIR"
-cp -v $XDG_CONFIG_HOME/fonts/* "$FONT_DIR/"
 fc-cache -f -v
 
 # touchpad
