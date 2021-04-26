@@ -1,0 +1,43 @@
+# $FreeBS$
+#
+# System-wide .profile file for sh(1).
+#
+# For the setting of languages and character sets please see
+# login.conf(5) and in particular the charset and lang options.
+# For full locales list check /usr/share/locale/*
+# You should also read the setlocale(3) man page for information
+# on how to achieve more precise control of locale settings.
+#
+# Check system messages
+# msgs -q
+# Allow terminal messages
+# mesg y
+
+# new files not rwx by anyone except owner (recommended by NSA)
+umask 0077
+
+# # append to $PATH when not already in
+# # (accessible to scripts in /etc/profile.d)
+# append_path () {
+#   case ":${PATH}:" in
+#     *":${1}:"*) ;;
+#     *) PATH="${PATH}:${1}" ;;
+#   esac
+# }
+
+# # default paths
+# append_path "/usr/local/sbin"
+# append_path "/usr/local/bin"
+# append_path "/usr/bin"
+
+# # load profiles from /etc/profile.d
+# if test -d "/etc/profile.d/"; then
+#   for profile in /etc/profile.d/*.sh; do
+# 		test -r "$profile" && . "$profile"
+# 	done
+# 	unset profile
+# fi
+
+# # unload functions
+# unset -f append_path
+
