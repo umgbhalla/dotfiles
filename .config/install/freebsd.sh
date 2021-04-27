@@ -66,6 +66,7 @@ PKGS="${PKGS} x11/xorg-minimal"
 PKGS="${PKGS} xsetroot"
 PKGS="${PKGS} xinput"
 PKGS="${PKGS} xrandr"
+PKGS="${PKGS} xdotool"
 PKGS="${PKGS} xrdb"
 PKGS="${PKGS} drm-kmod"
 

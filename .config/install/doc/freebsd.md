@@ -176,6 +176,11 @@ created earlier.
   ```
   add path 'dri/*' mode 0666 group operator
   ```
+- Set up the default shell. I currently use `mksh`:
+  ```
+  doas pkg install mksh
+  chsh -s /usr/local/bin/mksh
+  ```
 - Log out and log back in.
   ```
   exit

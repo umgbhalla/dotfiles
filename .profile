@@ -205,7 +205,11 @@ case "$OS" in
     export SHELL_NAME="mksh"
     export SHELL="/bin/${SHELL_NAME}"
     ;;
-  "$OS_FREEBSD"|"$OS_OPENBSD")
+  "$OS_FREEBSD")
+    export SHELL_NAME="mksh"
+    export SHELL="/usr/local/bin/${SHELL_NAME}"
+    ;;
+  "$OS_OPENBSD")
     export SHELL_NAME="sh"
     export SHELL="/bin/${SHELL_NAME}"
     ;;
