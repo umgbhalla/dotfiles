@@ -4,171 +4,201 @@
 # setup
 #
 
-# just in case these have not already been run
-sudo portsnap fetch
-sudo portsnap extract
+GUI=true
 
-sudo portsnap fetch update
+PREFIX="/usr/local"
+BIN="${PREFIX}/bin"
 
-PORTS_DIR="/usr/ports"
+PKGS=""
+# PORTS=""
 
-PORTS=()
+mkdir -p "$TMPDIR"
+mkdir -p "$XDG_CACHE_HOME"
+mkdir -p "$PORTS_DIR"
+
+# update ports
+doas portsnap fetch
+doas portsnap extract
+doas portsnap fetch update
 
 #
 # dependencies
 #
 
-# required by st
-PORTS+=("${PORTS_DIR}/x11-fonts/libXft")
+# build dependencies
+PKGS="${PKGS} meson ninja"
+# required by ibhagwan picom
+PKGS="${PKGS} libconfig libev uthash"
+# required by firefox extensions
+PKGS="${PKGS} wget"
 
 #
 # utilities
 #
 
-PORTS+=("${PORTS_DIR}/misc/mmv")
+PKGS="${PKGS} mmv"
 
 #
 # core
 #
 
-# are these needed with the addition of xorg?
-PORTS+=("${PORTS_DIR}/x11-servers/xorg-server")
-PORTS+=("${PORTS_DIR}/x11/xinit")
-PORTS+=("${PORTS_DIR}/x11/xauth")
-PORTS+=("${PORTS_DIR}/x11/xrandr")
+# editor
+PKGS="${PKGS} neovim ripgrep node npm fzf"
+# file manager
+PKGS="${PKGS} vifm"
+# spreadsheets
+PKGS="${PKGS} sc-im"
+# development languages
+PKGS="${PKGS} python"
+PKGS="${PKGS} rust"
+PKGS="${PKGS} texlive-full"
+PKGS="${PKGS} yarn"
+# fetch
+PKGS="${PKGS} pfetch"
+# rss reader
+PKGS="${PKGS} newsboat"
+# hackin
+PKGS="${PKGS} nethack36-nox11-3.6.6_1"
 
-PORTS+=("${PORTS_DIR}/x11/xorg")
-PORTS+=("${PORTS_DIR}/x11/xorg-minimal")
+if [ "$GUI" == true ]; then
 
-PORTS+=("${PORTS_DIR}/graphics/drm-kmod")
-PORTS+=("${PORTS_DIR}/x11-wm/bspwm")
-PORTS+=("${PORTS_DIR}/x11/sxhkd")
-PORTS+=("${PORTS_DIR}/x11-fonts/sourcecodepro-ttf")
-PORTS+=("${PORTS_DIR}/x11-fonts/wqy")
+PKGS="${PKGS} x11/xorg-minimal"
+PKGS="${PKGS} xsetroot"
+PKGS="${PKGS} xinput"
+PKGS="${PKGS} xrandr"
+PKGS="${PKGS} xrdb"
+PKGS="${PKGS} drm-kmod"
+
+PKGS="${PKGS} bspwm"
+PKGS="${PKGS} sxhkd"
+PKGS="${PKGS} polybar"
+
+PKGS="${PKGS} firefox"
+
+PKGS="${PKGS} feh"
+PKGS="${PKGS} mpv"
+PKGS="${PKGS} ffmpeg"
+PKGS="${PKGS} xclip"
+PKGS="${PKGS} slop"
+PKGS="${PKGS} slop"
+PKGS="${PKGS} zathura-pdf-mupdf"
+
+PKGS="${PKGS} musicpd"
+PKGS="${PKGS} ncmpcpp"
+
+PKGS="${PKGS} hsetroot"
+PKGS="${PKGS} redshift"
+PKGS="${PKGS} sourcecodepro-ttf"
+PKGS="${PKGS} wqy-fonts"
+
+fi
 
 #
 # installation
 #
 
-for port in "${PORTS[@]}"; do
-  cd "$port"
-  sudo make config-recursive
-done
+doas pkg install $PKGS # cannot be quoted
 
-for port in "${PORTS[@]}"; do
-  cd "$port"
-  sudo make deinstall install clean
-done
+# rustup - required for ytui
+# TODO maybe try the package instead?
+curl --proto '=https' -Sf "https://sh.rustup.rs" | sh
 
-# suckless utilities
-$SBUILD st
-# $SBUILD herbe
-# $SBUILD slock
+# system profiler
+git clone "https://github.com/bossley9/htop.git" "${TMPDIR}/htop"
+cd "${TMPDIR}/htop"
+./autogen.sh
+./configure
+doas make install clean
 
-# sudo pkg install cmake gettext gmake meson ncurses pkgconf python uthash
+# system profile
+profile="/etc/profile"
+doas cp -v "${XDG_CONFIG_HOME}${profile}" "$profile"
 
+# TODO
 # cd /usr/ports/ports-mgmt/portmaster
 # sudo make clean install
 
-# bar
-git clone "https://github.com/krypt-n/bar.git" "${TMP_DIR}/lemonbar-xft"
-cp -f "${XDG_CONFIG_HOME}/lemonbar/Makefile" "${TMP_DIR}/lemonbar-xft/"
-cd "${TMP_DIR}/lemonbar-xft"
-sudo gmake clean install
+# for port in "${PORTS[@]}"; do
+#   cd "$port"
+#   sudo make config-recursive
+# done
+
+# for port in "${PORTS[@]}"; do
+#   cd "$port"
+#   sudo make deinstall install clean
+# done
+
+if [ "$GUI" == true ]; then
+
+# suckless
+sbuild "st"
+sbuild "herbe"
+# TODO
+# sbuild "slock"
 
 # compositor
-git clone "https://github.com/yshui/picom" "${TMP_DIR}/picom"
-cd "${TMP_DIR}/picom"
-git checkout 248bffede73e520a4929dd7751667d29d4169d59
+git clone "https://github.com/ibhagwan/picom" "${TMPDIR}/picom"
+cd "${TMPDIR}/picom"
 git submodule update --init --recursive
 CPPFLAGS="-I/usr/local/include" LDFLAGS="-L/usr/local/lib" meson . build
 meson configure build -Dcompton="false" -Ddbus="false" -Db_colorout="never" -Dbuildtype="minsize" -Dauto_features="disabled"
-sudo ninja -C build install
+doas ninja -C build install
 
-PACKS="${PACKS} hsetroot"
+# pdf viewer
+git clone "https://git.pwmt.org/pwmt/girara.git" "${TMPDIR}/girara/"
+cd "${TMPDIR}/girara"
+meson . build
+doas ninja -C build install
+git clone "https://git.pwmt.org/pwmt/zathura.git" "${TMPDIR}/zathura"
+cd "${TMPDIR}/zathura"
+meson . build
+doas ninja -C build install
 
-PACKS="${PACKS} neovim node ripgrep"
+# pip
+# required by youtube-dl
+curl "https://bootstrap.pypa.io/get-pip.py" -o "${TMPDIR}/pip.py"
+python "${TMPDIR}/pip.py"
+# youtube-dl
+pip install --upgrade youtube-dl
+# ytui
+# TODO
+# cd "${XDG_CONFIG_HOME}/ytui"
+# make
+# doas make install clean
+# # swallowing windows
+git clone "https://github.com/salman-abedin/devour.git" "${TMPDIR}/devour"
+cd "${TMPDIR}/devour"
+cp -f "${XDG_CONFIG_HOME}/devour/Makefile" "${TMPDIR}/devour/"
+doas make install
 
-PACKS="${PACKS} vifm"
+# firefox profile
+mkdir -p "${HOME}/.mozilla"
+ln -sf "${XDG_CONFIG_HOME}/mozilla/firefox" "${HOME}/.mozilla/firefox"
+# firefox extensions
+FF_EXT_DIR="${HOME}/.mozilla/firefox/${FF_PROFILE}/extensions"
+mkdir -p "$FF_EXT_DIR"
+# multi-containers
+wget -v -O "${FF_EXT_DIR}/@testpilot-containers.xpi" \
+  "https://addons.mozilla.org/firefox/downloads/file/3650825/firefox_multi_account_containers-7.1.0-fx.xpi"
+# ublock origin
+wget -v -O "${FF_EXT_DIR}/uBlock0@raymondhill.net.xpi" \
+  "https://addons.cdn.mozilla.net/user-media/addons/607454/ublock_origin-1.17.4-an+fx.xpi"
+# firefox-tridactyl
+wget -v -O "${FF_EXT_DIR}/tridactyl.vim@cmcaine.co.uk.xpi" \
+  "https://addons.mozilla.org/firefox/downloads/file/3697894/tridactyl-1.20.4-an+fx.xpi"
 
-PACKS="${PACKS} firefox"
-# PACKS="${PACKS} vimb"
-# PACKS="${PACKS} elinks"
+# xresources
+cd "${XDG_CONFIG_HOME}/getxr"
+doas make clean install
 
-PACKS="${PACKS} zathura-pdf-mupdf" # required for any document viewing
-git clone "https://git.pwmt.org/pwmt/girara.git" "${TMP_DIR}/girara/"
-cd "${TMP_DIR}/girara"
-git checkout 1b60a46481f6ba37e7515ca80d6f627583f7100f
-meson build
-cd build
-ninja
-sudo ninja install
-git clone "https://git.pwmt.org/pwmt/zathura.git" "${TMP_DIR}/zathura-git"
-cd "${TMP_DIR}/zathura-git"
-git checkout 02a8877f771b3af4c5a8758ded756aae7f469dcb
-meson build
-cd build
-ninja
-sudo ninja install
-
-PACKS="${PACKS} htop"
-PACKS="${PACKS} neofetch"
-
-PACKS="${PACKS} redshift"
-
-PACKS="${PACKS} xclip"
-PACKS="${PACKS} fzf"
-PACKS="${PACKS} feh mpv"
-PACKS="${PACKS} slop"
-PACKS="${PACKS} yarn"
-
-PACKS="${PACKS} ncmpcpp"
-
-# mpd
-git clone "https://github.com/MusicPlayerDaemon/MPD.git" "${TMP_DIR}/mpd"
-cd "${TMP_DIR}/mpd"
-git checkout eb9f5339b683d037ab3224e362071e22991e0e83
-meson . output/release
-meson configure output/release -Dcpp_args="-I/usr/local/include" -Dpulse="disabled"
-sudo ninja -C output/release install
-
-PACKS="${PACKS} newsboat"
-
-PACKS="${PACKS} texlive-full"
-
-sudo pkg install $PACKS
-
-# firefox profile setup
-$DETEMPLATE "${XDG_CONFIG_HOME}/mozilla/template.user.js"
-DISPLAY=:0 firefox -CreateProfile "${FF_PROFILE}"
-baseDir="${HOME}/.mozilla/firefox"
-profileDir="$(ls "${baseDir}" | grep ".${FF_PROFILE}")"
-ffDir="${baseDir}/${profileDir}"
-rm -f "${ffDir}/chrome" >/dev/null
-rm -f "${ffDir}/user.js" >/dev/null
-ln -sf "${XDG_CONFIG_HOME}/mozilla/profile/chrome" "${ffDir}/chrome"
-ln -sf "${XDG_CONFIG_HOME}/mozilla/user.js" "${ffDir}/user.js"
-
-# get Xresources script
-git clone "https://github.com/tamirzb/xgetres.git" "${TMP_DIR}/xgetres"
-cd "${TMP_DIR}/xgetres"
-git checkout 2505f065e0c7ed990d8d71c0d8bd7106c8ab16f2
-cp "${XDG_CONFIG_HOME}/xgetres/Makefile" "${TMP_DIR}/xgetres/"
-sudo make clean install
-
-$SBUILD st
-$SBUILD herbe
-$SBUILD slock
-
-# gtk theme
-$DETEMPLATE "${XDG_CONFIG_HOME}/${THEME}/gtk-3.0/template.gtk.css"
-sudo mkdir -p "${GTK_THEME_DIR}"
-sudo ln -sf "${XDG_CONFIG_HOME}/${THEME}" "${GTK_THEME_DIR}/${THEME}"
+fi
 
 # fonts
-mkdir -p "${FONT_DIR}"
-sudo cp -v ${XDG_CONFIG_HOME}/fonts/* "${FONT_DIR}/"
+mkdir -p "$FONT_DIR"
 fc-cache -f -v
 
+# ssh
+mkdir -p "$KEY_DIR"
+
 # motd
-echo "" | sudo tee "/etc/motd"
+echo "" | doas tee "/etc/motd.template"

@@ -23,7 +23,7 @@
   - The computer that will be wiped to install the new operating system
   - An internet connection
   - A disposable usb drive that can be wiped
-- Download the latest [FreeBSD installation image](https://www.freebsd.org/where.html) from their website. I downloaded the `amd64` architecture release 12.2 `memstick.img` instead of the standard iso image since it does not require an internet connection for the base installation.
+- Download the latest [FreeBSD installation image](https://www.freebsd.org/where.html) from their website. I downloaded `FreeBSD-13.0-RELEASE-amd64-memstick.img` instead of the standard iso image since it does not require an internet connection for the base installation.
 - Burn the downloaded disk image onto the usb. The dollar sign indicates elevated privileges (usually `sudo` or `doas` will suffice).
 
   ```
@@ -54,15 +54,15 @@ might try [OpenBSD](https://www.openbsd.org)).
 
 We will be partitioning our disk with ZFS. Select `Auto (ZFS)` to partition with ZFS.
 
-- Change the swap size to be twice the size of ram. For example, if I have 16 GB, this will be 32GB.
+- Change the swap size to be twice the size of ram. Usually 30 GB is more than enough.
   ```
-  32g
+  30g
   ```
 - Verify that the partition scheme is `GPT`, and either `(BIOS + UEFI)` or `(UEFI)`.
 - Change the pool type to stripe, and select your disk you want FreeBSD to be installed on
   (usually this is named `ada0`).
-- Proceed with installation to begin the base system installation process, as well as
-  the ports tree.
+- Optionally, you can encrypt disks and encrypt swap. I would recommend these as there's no such thing as being too secure. If you choose to encrypt your disk(s) and or swap, you will need to create a encryption password which will be required on each boot.
+- Proceed with installation to begin the base system installation process, as well as the ports tree.
 
 #### Password <a name="password"></a>
 
@@ -91,12 +91,12 @@ will continue without a network connection.
 #### System Configuration <a name="system-configuration"></a>
 
 You are now able to choose the types of services you would like to have run at boot time.
-I select `sshd`, `moused`, `powerd`, and `dumpdev`.
+I usually select `sshd`, `powerd`, and `dumpdev`.
 
 #### System Hardening <a name="system-hardening"></a>
 
 FreeBSD has a wide variety of security features it offers (as opposed to Linux systems) out
-of the box. I select `random_pid`, `clear_tmp`, `disable_syslogd`, and `disable_sendmail`.
+of the box. I always select `hide_uids`, `hide_gids`, `read_msgbuf`, `random_pid`, `clear_tmp`, `disable_syslogd`, and `disable_sendmail`.
 
 #### Adding a User <a name="adding-a-user"></a>
 
@@ -136,7 +136,7 @@ created earlier.
   ```
   network={
     ssid="YOUR SSID"
-    psd="YOUR PSK"
+    psk="YOUR PSK"
   }
   ```
   Reboot, login to root, and verify that a network connection has been established
@@ -150,59 +150,37 @@ created earlier.
 - Update the main package repositories and install core utilities using `ports`. You could also use `pkg` but I've found that the occasional package binary is broken or out of date while `ports` always seem to have the latest working sources - plus, compiling from source will _always_ provide the best performance optimization and fine-tuned control.
 
   ```
-  cd /usr/ports/security/sudo
+  portsnap fetch
+  portsnap extract
+
+  cd /usr/ports/security/doas
   make -DBATCH install clean
 
   cd /usr/ports/devel/git
-  make -DBATCH install clean
-
-  cd /usr/ports/editors/neovim
-  make -DBATCH install clean
+  make -DBATCH FLAVOR=lite install clean
   ```
 
   These packages may take a while to compile.
 
-- Enable root permissions for the `wheel` group via the `visudo` command:
+- Enable root permissions for the `wheel` group via `/usr/local/etc/rc.conf`:
   ```
-  %wheel ALL=(ALL) ALL
+  permit :wheel
   ```
 - Logout and log back in as the main user created earlier.
   You will now be able to install packages.
-- Set up graphics for X. I use an intel-based vga so I installed
-  an intel video package.
+- Set up graphics for X. Enable this module in your `/etc/rc.conf`, which will be installed later:
   ```
-  cd /usr/ports/x11-drivers/xf86-video-intel
-  sudo make -DBATCH install clean
-  ```
-  Then enable the module in your `/etc/rc.conf`:
-  ```
-  kld_list="/boot/modules/i915kms.ko"
-  ```
-  To prevent screen tearing and lag, add yourself to the video group.
-  ```
-  sudo pw groupmod video -m $USER
+  kld_list="i915kms"
   ```
   Allow X to access devices. Edit `/etc/devfs.rules` as follows:
   ```
   add path 'dri/*' mode 0666 group operator
   ```
-  Then add the user to the operator group:
-  ```
-  sudo pw groupmod operator -m $USER
-  ```
-- Setup the default shell. I currenly use `mksh`. set it as the default shell for the main user.
-
-  ```
-  cd /usr/ports/shells/mksh
-  sudo make -DBATCH install clean
-  sudo chsh -s /usr/local/bin/mksh
-  ```
-
 - Log out and log back in.
   ```
   exit
   ```
-  In order to properly clone my dotfiles you will need to empty the user home directory. Because `mksh` does not support globbing (or, a limited version), we will need to remove all dotfiles to clone directly into the directory.
+  In order to properly clone my dotfiles you will need to empty the user home directory:
   ```
   cd $HOME
   # this action is irreversible - be careful!
@@ -214,6 +192,7 @@ created earlier.
 - Clone this repository to your home folder using the steps outlined below.
 
   ```sh
+  umask 0077
   git clone --recursive https://github.com/bossley9/dotfiles.git .
   ```
 

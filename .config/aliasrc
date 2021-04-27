@@ -106,6 +106,10 @@ alias \
   yarn="HOME=$YARN_RC_DIR PREFIX=$YARN_GLOBAL_DIR yarn"
 
 case "$OS" in
+  "$OS_FREEBSD")
+    alias \
+      hack="nethack"
+    ;;
   "$OS_OPENBSD")
     alias \
       hack="nethack-${NETHACK_VER}" \
