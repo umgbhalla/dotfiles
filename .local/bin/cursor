@@ -19,7 +19,6 @@ if ! command -v xdotool > /dev/null; then
   exit 1
 fi
 
-devicesIndex=0
 raw="$(xinput)"
 
 mouseStr="$(echo "$raw" | \
@@ -46,34 +45,22 @@ touchpadStr="$(echo "$raw" | \
   cut -d '=' -f 2
   )"
 
-for mouse in $mouseStr; do
-  devices[devicesIndex]="$mouse"
-  devicesIndex=$devicesIndex+1
-done
-
-for pointer in $pointerStr; do
-  devices[devicesIndex]="$pointer"
-  devicesIndex=$devicesIndex+1
-done
-
-for touchpad in $touchpadStr; do
-  devices[devicesIndex]="$touchpad"
-  devicesIndex=$devicesIndex+1
-done
+devices="${mouseStr} ${pointerStr} ${touchpadStr}"
 
 case "${1}" in
   "show")
-    for device in "${devices[@]}"; do
+    for device in $devices; do
       xinput enable "$device" 2>/dev/null
       xsetroot -cursor_name left_ptr
     done
     ;;
   "hide")
     xdotool mousemove "$cursorHideX" "$cursorHideY"
-    for device in "${devices[@]}"; do
+    for device in $devices; do
       xinput disable "$device" 2>/dev/null
       case "$OS" in
         "$OS_OPENBSD") xsetroot -cursor_name hand1 ;;
+        "$OS_FREEBSD") xsetroot -cursor_name hand1 ;;
         "$OS_LINUX")
           # Adwaita
           xsetroot -cursor_name lr_angle

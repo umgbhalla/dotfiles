@@ -376,7 +376,7 @@ e() {
 # miscellaneous
 # ----------------------------------------------------------------
 
-alias keygen="ssh-keygen -t rsa -b 4096 -f ${KEY_DIR}/id_rsa"
+alias keygen="ssh-keygen -t rsa -b 4096"
 
 clearcache() {
   case "$OS" in

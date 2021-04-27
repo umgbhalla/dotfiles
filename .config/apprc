@@ -131,10 +131,10 @@ export SHELLMENU_Y="$W_GAPS"
 # spicetifty
 export SPICETIFY_THEME="SpicetifyDotfiles"
 
-export SPICETIFY_BG="${G_BG:1}"
-export SPICETIFY_BG_ALT="${G_BG_ALT:1}"
-export SPICETIFY_FG="${G_FG:1}"
-export SPICETIFY_FG_ALT="${G_FG_ALT:1}"
+export SPICETIFY_BG="${G_BG#\#}"
+export SPICETIFY_BG_ALT="${G_BG_ALT#\#}"
+export SPICETIFY_FG="${G_FG#\#}"
+export SPICETIFY_FG_ALT="${G_FG_ALT#\#}"
 
 # st
 

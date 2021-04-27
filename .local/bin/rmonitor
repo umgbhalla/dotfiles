@@ -13,23 +13,14 @@ if ! command -v "xargs" > /dev/null; then
   exit 1
 fi
 
-# get all potential screens
-set screens
-screensIndex=0
+screens=""
 
 # it's easier to parse into an array by switching spaces to another delimiter
 getAllScreens="$(xrandr | grep "connected" | tr ' ' ';' | cut -d ';' -f 1,2)"
-set allScreens
-allScreensIndex=0
-
-for screen in $getAllScreens; do
-  allScreens[$allScreensIndex]="$screen"
-  allScreensIndex=$allScreensIndex+1
-done
 
 primary="$(echo "$getAllScreens" | grep -w "connected" | cut -d ';' -f 1)"
 
-for screen in "${allScreens[@]}"; do
+for screen in $getAllScreens; do
   screenName="$(echo "$screen" | cut -d ';' -f 1)"
   screenStatus="$(echo "$screen" | cut -d ';' -f 2)"
 
@@ -39,8 +30,7 @@ for screen in "${allScreens[@]}"; do
 
   # if screen is connected, save it
   if [ "$screenStatus" == "connected" ]; then
-    screens[screensIndex]="$screenName"
-    screensIndex=$screensIndex+1
+    screens="${screens} ${screenName}"
   # else
     # desktops="$(bspc query -m "$screenName" -D 2>/dev/null)"
     # echo "$desktops" | xargs -I {} bspc desktop {} -m "$primary"
@@ -49,10 +39,11 @@ for screen in "${allScreens[@]}"; do
 done
 
 # handle active screens
-case "${#screens[@]}" in
+numActiveScreens="$(echo "$screens" | wc -w)"
+case "$numActiveScreens" in
 
   2) # 2 monitors
-    secondary="${screens[1]}"
+    secondary="$(echo $screens | cut -d ' ' -f 2)"
 
     # monitor output
     xrandr --output "$primary" --primary --mode "${RES_WIDTH}x${RES_HEIGHT}"
