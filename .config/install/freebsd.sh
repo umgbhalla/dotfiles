@@ -31,6 +31,8 @@ PKGS="${PKGS} meson ninja"
 PKGS="${PKGS} libconfig libev uthash"
 # required by firefox extensions
 PKGS="${PKGS} wget"
+# required for certain man pages
+PKGS="${PKGS} groff"
 
 #
 # utilities
