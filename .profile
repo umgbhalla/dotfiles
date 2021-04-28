@@ -102,9 +102,8 @@ esac
 export TERMINAL="$TERM"
 
 # browser
-export BROWSER_NAME="firefox"
-export BROWSER="${BROWSER_NAME}"
-export BROWSER_INCOGNITO="${BROWSER} -private-window"
+export BROWSER="browser"
+export BROWSER_INCOGNITO="browser incognito"
 
 # file explorer
 export FILE_EXPLORER="vifm"
@@ -188,7 +187,7 @@ case "$OS" in
     ;;
 esac
 export DOLLAR="$" # vital for envsubst escaping
-export FF_PROFILE="main"
+export FF_PROFILE="default"
 # for use in mktemp templates
 export MK_TEMP="XXXXXXXXXX"
 export LANG="en_US.UTF-8"
@@ -243,6 +242,7 @@ export GIT_TEMPLATE_DIR="$XDG_CONFIG_HOME/git/template"
 export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
 export LESSKEY="$XDG_CACHE_HOME/lesskey_generated"
+export MOZ_LOG_FILE="${XDG_CACHE_HOME}/mozilla/mozilla.log"
 export NEWSBOAT_CONFIG="$XDG_CONFIG_HOME/newsboat"
 export NETHACKOPTIONS="@${XDG_CONFIG_HOME}/nethack/nethackrc"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
@@ -285,12 +285,6 @@ export PATH="${PATH}:${CARGO_HOME}/bin"
 
 # fzf
 export FZF_DEFAULT_OPTS="--bind $FZF_BINDINGS --color=\"$FZF_COLORS\""
-
-# Firefox profile
-if [ "$OS" == "$OS_OPENBSD" ]; then
-  export BROWSER="${BROWSER_NAME} -P ${FF_PROFILE}"
-  export BROWSER_INCOGNITO="${BROWSER} -private-window"
-fi
 
 # spicetify
 if command -v "spicetify" > "$NULL"; then

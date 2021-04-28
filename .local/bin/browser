@@ -1,0 +1,8 @@
+#!/bin/sh
+# opens the default browser with any arguments attached
+
+
+case "$1" in
+  "incognito") firefox --private-window ;;
+  *) firefox -P "$FF_PROFILE" ;;
+esac
