@@ -166,11 +166,12 @@ AUR="${AUR} firefox-ublock-origin"
 AUR="${AUR} firefox-extension-multi-account-containers"
 
 # spotify
-AUR="${AUR} spotify"
+# proves to be troublesome
+# AUR="${AUR} spotify"
 AUR="${AUR} ncspot"
 
 # animated wallpaper eyecandy
-AUR="${AUR} xwinwrap-git"
+# AUR="${AUR} xwinwrap-git"
 
 # system reporter
 AUR="${AUR} pfetch"

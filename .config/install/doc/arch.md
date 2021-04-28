@@ -29,7 +29,7 @@
    - An internet connection
    - A disposable usb drive that can be wiped
 2. Download the latest [Archlinux installation image](https://www.archlinux.org/download/)
-   from their website. I downloaded version `2021.03.01`.
+   from their website. I downloaded version `2021.04.01`.
 3. Burn the downloaded disk image onto the usb.
    This can be done using a number of different tools:
 
@@ -181,13 +181,13 @@ Additionally, it provides options for UEFI as well as tmpfs.
   Additionally, if you accidentally create a bad partition, you can always delete
   the partition using the `d` key.
 
-- Create a SWAP partition. The partition size should be twice the size of your RAM
-  capacity. My RAM is 16 GB:
+- Create a SWAP partition. The partition size should be around twice the size of your RAM
+  capacity, but usually you don't need any more than 30 GB. My RAM is 16 GB:
   ```
   n
   enter
   enter
-  +32G
+  +30G
   ```
 - Create a root `/` partition.
   ```
@@ -308,15 +308,15 @@ Additionally, it provides options for UEFI as well as tmpfs.
 
 ## Network Configuration <a name="network-configuration"></a>
 
-- Name your system in `/etc/hostname`. I will name mine `kamino`.
+- Name your system in `/etc/hostname`. I will name mine `sunset`.
   ```
-  kamino
+  sunset
   ```
 - Create the corresponding host entries in `/etc/hosts`:
   ```
   127.0.0.1     localhost
   ::1           localhost
-  127.0.1.1     automata.localdomain    automata
+  127.0.1.1     sunset.localdomain    sunset
   ```
 - Install a network manager. I use `NetworkManager`:
   ```
@@ -435,6 +435,8 @@ Archlinux system.
   cd $HOME
   # this action is irreversible - be careful!
   rm -rf .*
+  # security permissions
+  umask 0077
   git clone --recursive https://github.com/bossley9/dotfiles.git .
   ```
 
@@ -447,6 +449,8 @@ Archlinux system.
 - Run the install script I have created:
 
   ```sh
+  # security permissions
+  umask 0077
   $XDG_CONFIG_HOME/install/arch.sh
   ```
 
