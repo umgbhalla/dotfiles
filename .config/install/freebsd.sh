@@ -175,10 +175,11 @@ cp -f "${XDG_CONFIG_HOME}/devour/Makefile" "${TMPDIR}/devour/"
 doas make install
 
 # firefox profile
-mkdir -p "${HOME}/.mozilla"
-ln -sf "${XDG_CONFIG_HOME}/mozilla/firefox" "${HOME}/.mozilla/firefox"
+FF_INSTALL_DIR="${HOME}/.mozilla"
+FF_EXT_DIR="${FF_INSTALL_DIR}/firefox/${FF_PROFILE}/extensions"
+mkdir -p "$FF_INSTALL_DIR"
+ln -sf "${XDG_CONFIG_HOME}/mozilla/firefox" "${FF_INSTALL_DIR}/firefox"
 # firefox extensions
-FF_EXT_DIR="${HOME}/.mozilla/firefox/${FF_PROFILE}/extensions"
 mkdir -p "$FF_EXT_DIR"
 # multi-containers
 wget -v -O "${FF_EXT_DIR}/@testpilot-containers.xpi" \
@@ -189,6 +190,11 @@ wget -v -O "${FF_EXT_DIR}/uBlock0@raymondhill.net.xpi" \
 # firefox-tridactyl
 wget -v -O "${FF_EXT_DIR}/tridactyl.vim@cmcaine.co.uk.xpi" \
   "https://addons.mozilla.org/firefox/downloads/file/3697894/tridactyl-1.20.4-an+fx.xpi"
+# firefox-tridactyl-native
+# installing a specific version because it can't be automated. If you want the latest,
+# try :installnative in the tridactyl console
+curl -o "${TMPDIR}/tri-install.sh" "https://raw.githubusercontent.com/tridactyl/tridactyl/1.20.4/native/install.sh"
+sh "${TMPDIR}/tri-install.sh"
 
 # xresources
 cd "${XDG_CONFIG_HOME}/getxr"

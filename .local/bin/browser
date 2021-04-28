@@ -3,6 +3,6 @@
 
 
 case "$1" in
-  "incognito") firefox --private-window ;;
-  *) firefox -P "$FF_PROFILE" ;;
+  "incognito") exec firefox -P "$FF_PROFILE" --private-window ;;
+  *) exec firefox -P "$FF_PROFILE" ;;
 esac
