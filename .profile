@@ -153,6 +153,10 @@ if command -v "spotify" > "$NULL"; then
   export MUSIC_PLAYER="spotify"
   export MUSIC_PLAYER_ARGS="${MUSIC_PLAYER}"
 fi
+case "$OS" in
+  "$OS_FREEBSD") export MUSIC_PLAYER_DAEMON="musicpd" ;;
+  *) export MUSIC_PLAYER_DAEMON="mpd" ;;
+esac
 
 # pager
 export PAGER="less"

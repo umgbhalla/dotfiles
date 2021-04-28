@@ -200,8 +200,5 @@ fi
 mkdir -p "$FONT_DIR"
 fc-cache -f -v
 
-# ssh
-mkdir -p "$KEY_DIR"
-
 # motd
 echo "" | doas tee "/etc/motd.template"
