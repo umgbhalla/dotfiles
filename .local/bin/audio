@@ -99,5 +99,5 @@ case $1 in
       *) echo -e "${RED}USAGE: audio vol [get | up | down | set]${NC}" ;;
     esac
     ;;
-  *) echo -e "${RED}USAGE: audio [vol mic]${NC}" ;;
+  *) echo -e "${RED}USAGE: audio [vol | mic]${NC}" ;;
 esac

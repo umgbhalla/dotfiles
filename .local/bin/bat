@@ -1,0 +1,60 @@
+#!/bin/sh
+# returns common battery status information
+
+LINUX_BAT="/sys/class/power_supply/BAT0"
+
+not_implemented() {
+  echo -e "${RED}functionality not yet implemented for operating system${NC}"
+}
+
+bat_get() {
+  max="100"
+
+  case "$OS" in
+    "$OS_FREEBSD")
+      bat="$(apm)"
+      bat="$(echo "$bat" | awk '/Remaining battery life/ {gsub("%","");print $4;exit}')"
+      echo "$bat"
+      ;;
+    "$OS_LINUX")
+      if [ -e "$LINUX_BAT" ]; then
+        bat="$(cat "${LINUX_BAT}/capacity" 2> "$NULL")"
+        echo "$bat"
+      else
+        echo "$max"
+      fi
+      ;;
+    *) not_implemented ;;
+  esac
+}
+
+bat_status() {
+  charging="charging"
+  discharging="discharging"
+
+  case "$OS" in
+    "$OS_FREEBSD")
+      bat="$(apm)"
+      bat="$(echo "$bat" | awk '/Battery Status/ {print $3;exit}')"
+      echo "$bat"
+      ;;
+    "$OS_LINUX")
+      if [ -e "$LINUX_BAT" ]; then
+        status="$(cat "${LINUX_BAT}/status")"
+        if [ "$status" = "Charging" ]; then status="$charging"
+        else status="$discharging"
+        fi
+        echo "$status"
+      else
+        echo "$charging"
+      fi
+      ;;
+    *) not_implemented ;;
+  esac
+}
+
+case "$1" in
+  "status") bat_status ;;
+  "get") bat_get ;;
+  *) echo -e "${RED}USAGE: bat [get | status]${NC}" ;;
+esac
