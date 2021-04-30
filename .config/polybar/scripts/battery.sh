@@ -4,11 +4,11 @@ charging=""
 discharging=""
 
 status="$charging"
-if [ "$(bat status)" == "discharging" ]; then
+if [ "$(battery status)" == "discharging" ]; then
   status="$discharging"
 fi
 
-bat="$(bat get)"
+bat="$(battery get)"
 
 if [ "$OS" == "$OS_LINUX" ]; then
   if [ ! -e "/sys/class/power_supply/BAT0" ]; then
