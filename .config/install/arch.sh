@@ -211,6 +211,7 @@ sudo systemctl enable "slock@${USER}.service"
 
 # xresources
 cd "${XDG_CONFIG_HOME}/getxr"
+make
 sudo make install clean
 
 # swallowing windows
@@ -220,8 +221,9 @@ make
 sudo make install
 
 # ytui
-# cd "${XDG_CONFIG_HOME}/ytui"
-# sudo make clean install
+cd "${XDG_CONFIG_HOME}/ytui"
+make
+sudo make install clean
 
 # touchpad
 touchpadConf="${ETC}/X11/xorg.conf.d/30-touchpad.conf"

@@ -9,13 +9,13 @@ herbe: herbe.c
 	$(CC) herbe.c $(CFLAGS) -o herbe
 
 install: herbe
-	mkdir -p ${DESTDIR}${PREFIX}/bin
-	cp -f herbe ${DESTDIR}${PREFIX}/bin
+	@mkdir -p ${DESTDIR}${PREFIX}/bin
+	@mv herbe ${DESTDIR}${PREFIX}/bin
 
 uninstall:
-	rm -f ${DESTDIR}${PREFIX}/bin/herbe
+	@rm -f ${DESTDIR}${PREFIX}/bin/herbe
 
 clean:
-	rm -f herbe
+	@rm -f herbe
 
 .PHONY: all install uninstall clean

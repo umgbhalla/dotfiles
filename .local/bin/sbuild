@@ -13,10 +13,12 @@ cd "${dir}"
 
 det "template.config.h"
 
-if command -v "doas" > "/dev/null"; then
-  doas make clean install
+if command -v "doas" > "$NULL"; then
+  make
+  doas make install clean
 else
-  sudo make clean install
+  make
+  sudo make install clean
 fi
 
 cd "${olddir}"
