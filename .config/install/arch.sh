@@ -4,7 +4,7 @@
 # setup
 #
 
-GUI=true
+GUI="1"
 
 PKGS=""
 AURS=""
@@ -61,7 +61,7 @@ PKGS="${PKGS} unzip wget"
 # hackin
 PKGS="${PKGS} nethack"
 
-if [ "$GUI" == true ]; then
+if [ "$GUI" == "1" ]; then
 
 PKGS="${PKGS} xorg-server xorg-xinit"
 PKGS="${PKGS} xorg-xsetroot"
@@ -195,7 +195,7 @@ sudo cp -v "${XDG_CONFIG_HOME}${journalConf}" "$journalConf"
 loginConf="${SYSD}/logind.conf"
 sudo cp -v "${XDG_CONFIG_HOME}${loginConf}" "$loginConf"
 
-if [ "$GUI" == true ]; then
+if [ "$GUI" == "1" ]; then
 
 # suckless
 sbuild "st"
@@ -271,4 +271,4 @@ sudo sed -i 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=0/' "$grubConf"
 # regenerate
 sudo grub-mkconfig -o "/boot/grub/grub.cfg"
 
-echo -e "${YELLOW}It is recommended to reboot the system directly after running this script.${NC}"
+echo "${YELLOW}It is recommended to reboot the system directly after running this script.${NC}"
