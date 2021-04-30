@@ -69,7 +69,7 @@ esac
 case "$OS" in
   "$OS_LINUX")
     alias p="sudo pacman"
-    alias y="unset GIT_CONFIG && yay --norebuild --noredownload"
+    alias y="paru"
     ;;
   "$OS_FREEBSD")
     alias p="sudo pkg"
@@ -384,7 +384,7 @@ clearcache() {
       # clear repository caches
       # if you want to clear the WHOLE cache, try -Scc (unrecommended)
       sudo pacman -Sc
-      sudo yay -Sc
+      paru -Sc
 
       sudo journalctl --rotate
       sudo journalctl --vacuum-time=1d

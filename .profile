@@ -53,6 +53,9 @@ export PORTS_DIR="/usr/ports"
 export TMPDIR="/tmp"
 export TMP_DIR="$TMPDIR" # TODO deprecate
 
+export PREFIX="/usr/local"
+export BIN="${PREFIX}/bin"
+
 #
 # display
 #

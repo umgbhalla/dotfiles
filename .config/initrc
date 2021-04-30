@@ -7,7 +7,7 @@ for template in $templates; do
 done
 
 # generate lesskey because less is ridiculous
-command -v lesskey >/dev/null && \
+command -v "lesskey" > "$NULL" && \
   lesskey "${XDG_CONFIG_HOME}/less/lesskey"
 
 # disable read permissions

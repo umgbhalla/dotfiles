@@ -132,8 +132,7 @@ The boot process should eventually land on a virtual terminal prompt.
 
 ## Disk Partitioning <a name="disk-partitioning"></a>
 
-In this guide I assume that you only want to install to one disk, and that the full
-disk is being utilized. I will also be using `ext4` for my filesystem (yes, I've heard all about the [wonders of root-on-ZFS](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/zfs.html#zfs-differences) and I've actually used it with my BSD build, but sadly, Archlinux doesn't quite support it yet). I'm also assuming you have _at least_ 128 GB of disk space.
+In this guide I assume that you only want to install to one disk and that the full disk is being utilized. I will also be using `ext4` for my filesystem (yes, I know all about the [wonders of ZFS](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/zfs.html#zfs-differences) and I use it with my BSD builds, but sadly Archlinux doesn't quite support it yet). I'm also assuming you have _at least_ 128 GB of disk space.
 
 My parition scheme will be as follows:
 
@@ -162,6 +161,11 @@ Additionally, it provides options for UEFI as well as tmpfs.
   free -h
   ```
 
+- (Optional) Before we partition, we should ideally securely erase the disk - especially if we would like to encrypt it in the future. Fill the entire drive with random data:
+  ```
+  dd if=/dev/urandom of=/dev/sdX bs=4096 status=progress
+  ```
+  This process can take up to a few hours to complete; however, if you're serious about security, this is a necessary step. (It is [more advisable to use RNG data over zero data](https://wiki.archlinux.org/index.php/Securely_wipe_disk#Wipe_all_data_left_on_the_device) for best results. We're also using pseudorandom data because it's more practical)
 - Use `fdisk /dev/sda` to enter a command-line disk partition editor.
   In this prompt you may type `p` to view the pending partition table.
 - Type `g` to create a new GPT partition scheme. This will also erase the old partition
@@ -458,6 +462,10 @@ Archlinux system.
   ```
   reboot
   ```
+- It is **highly** recommended to harden your BIOS post-installation. This includes, but is not limited to:
+  - setting a BIOS password
+  - removing unused boot options
+  - disabling unused ports or buses
 
 ## Additional Configuration <a name="additional-configuration"></a>
 
@@ -467,8 +475,6 @@ I've just added or modified them when necessary.
 - [Gaming](#gaming)
 
 ## Gaming <a name="gaming"></a>
-
-With these settings, I have been able to play every game I've tried.
 
 > I use the following hardware components:
 >
@@ -494,8 +500,11 @@ Then upgrade the system.
 sudo pacman -Syu
 ```
 
-You will also need to install the following packages. Many of these are essential for running
-games of any kind.
+You may need to adjust the maximum file size limit in `/etc/security/limits.conf`. I set it to 25 GB by default but it may need to be raised higher.
+
+> If a game requires single files with sizes over 25 GB, I'd recommend against playing that game for obvious reasons.
+
+You will need to install the following packages. Many of these are essential for running games of any kind.
 
 ```
 sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader

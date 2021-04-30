@@ -4,44 +4,56 @@
 # setup
 #
 
-PREFIX="/usr/local"
-BIN="${PREFIX}/bin"
+GUI=true
 
 PKGS=""
 PKGSA=""
 AUR=""
+ETC="/etc"
 
+mkdir -p "$ETC"
 mkdir -p "$TMPDIR"
-mkdir -p "$XDG_CACHE_HOME"
 mkdir -p "$OPT_DIR"
 
-#
-# dependencies
-#
-
-# required by coc.nvim
-PKGS="${PKGS} npm"
+# AUR package management
+git clone "https://aur.archlinux.org/paru-bin.git" "${TMPDIR}/paru"
+cd "${TMPDIR}/paru" && makepkg -si
 
 #
 # core
 #
 
-# yay package management
-git clone "https://aur.archlinux.org/yay-bin.git" "${TMPDIR}/yay"
-cd "${TMPDIR}/yay" && makepkg -si
-
 # documentation
-PKGS="${PKGS} man"
+# no glaring differences between mandoc and man-db
+PKGS="${PKGS} mandoc"
 # editor
 PKGS="${PKGS} neovim ripgrep nodejs npm fzf"
-# archives
-PKGS="${PKGS} unzip"
-# development languages
-PKG="${PKGS} clang python"
+# file manager
+PKGS="${PKGS} vifm"
+
+# # development languages
+# PKG="${PKGS} clang"
+PKGS="${PKGS} python"
+PKGS="${PKGS} rustup" # TODO setup?
+PKGS="${PKGS} texlive-most biber"
+PKGS="${PKGS} yarn"
+# rss reader
+PKGS="${PKGS} newsboat"
+# ssh
+PKGS="${PKGS} openssh"
+# tuning and power management
+PKGS="${PKGS} tlp brightnessctl"
+# various utils
+PKGS="${PKGS} dash"
+PKGS="${PKGS} unzip wget"
+# hackin
+PKGS="${PKGS} nethack"
 
 #
 # Xorg
 #
+
+if [ "$GUI" == true ]; then
 
 # xorg
 PKGS="${PKGS} xorg-server xorg-xinit"
@@ -60,8 +72,6 @@ PKGS="${PKGS} feh"
 PKGS="${PKGS} slop xdotool"
 # redshift
 PKGS="${PKGS} redshift"
-# file manager
-PKGS="${PKGS} vifm"
 # compositor (fork installed below)
 # PKGS="${PKGS} picom"
 # display utils
@@ -71,8 +81,6 @@ PKGS="${PKGS} xorg-xsetroot"
 PKGS="${PKGS} xorg-xinput"
 # clipboard
 PKGS="${PKGS} xclip"
-# ssh
-PKGS="${PKGS} openssh"
 # email client
 # PKGS="${PKGS} neomutt"
 # contact management
@@ -80,8 +88,6 @@ PKGS="${PKGS} abook"
 # media player
 PKGS="${PKGS} mpv"
 PKGS="${PKGS} youtube-dl"
-# rss reader
-PKGS="${PKGS} newsboat"
 # pdf viewer utility
 PKGS="${PKGS} zathura girara zathura-pdf-mupdf"
 # pdf editor
@@ -107,15 +113,9 @@ PKGS="${PKGS} alsa-utils"
 PKGS="${PKGS} pulseaudio pulseaudio-alsa pamixer pavucontrol"
 PKGS="${PKGS} mpd ncmpcpp"
 
-# tuning power consumption
-PKGS="${PKGS} tlp brightnessctl"
-
 # doc conversion (specifically, md to html)
 # used for vim markdown previews
 PKGS="${PKGS} pandoc"
-# latex
-# PKGS="${PKGS} texlive-most biber"
-PKGS="${PKGS} texlive-most"
 # dev tools for work/school/projects
 # TODO python2 is required by node-sass.
 # Remove when phased out of new versions
@@ -125,9 +125,6 @@ PKGS="${PKGS} nodejs deno yarn python2"
 PKGS="${PKGS} adapta-gtk-theme"
 PKGS="${PKGS} ttf-roboto"
 
-# various utilities/tools
-PKGS="${PKGS} wget"
-
 # firefox extensions
 PKGS="${PKGS} firefox-tridactyl"
 
@@ -136,9 +133,6 @@ PKGS="${PKGS} aria2"
 
 # qrcodes
 PKGS="${PKGS} qrencode"
-
-# who doesn't like nethack?
-PKGS="${PKGS} nethack"
 
 # containers
 # PKGS="${PKGS} lxd"
@@ -173,9 +167,6 @@ AUR="${AUR} ncspot"
 # animated wallpaper eyecandy
 # AUR="${AUR} xwinwrap-git"
 
-# system reporter
-AUR="${AUR} pfetch"
-
 # hardened malloc for security (closer to OpenBSD)
 # AUR="${AUR} hardened-malloc-git"
 
@@ -198,22 +189,82 @@ AUR="${AUR} pfetch"
 # PKGS="${PKGS} dotnet-runtime dotnet-sdk" # probably don't need this
 # PKGS="${PKGS} code" # probably don't need this (eventually)
 
+fi
+
 #
 # installation
 #
 
-sudo pacman -S --needed $PKGS # cannot be quoted
+sudo pacman -S $PKGS # cannot be quoted
+
+if [ "$GUI" == true ]; then
 
 # unmute audio channel
 amixer sset Master unmute
 
-# enable power saving
-sudo systemctl enable --now tlp
-
-yay -S --batchinstall --needed --nocleanmenu --nodiffmenu --noprovides $AUR # cannot be quoted
+# yay -S --batchinstall --needed --nocleanmenu --nodiffmenu --noprovides $AUR # cannot be quoted
+paru -S $AUR
 
 # after
 sudo pacman -S --needed $PKGSA # cannot be quoted
+
+fi
+
+# enable power management
+sudo systemctl enable --now tlp
+
+# spreadsheets
+git clone "https://github.com/andmarti1424/sc-im.git" "${TMPDIR}/sc-im"
+cd "${TMPDIR}/sc-im/src"
+cp "${XDG_CONFIG_HOME}/sc-im/Makefile" "${TMPDIR}/sc-im/src/"
+make
+sudo make install clean
+
+# system profiler
+git clone "https://github.com/bossley9/htop.git" "${TMPDIR}/htop"
+cd "${TMPDIR}/htop"
+./autogen.sh
+./configure
+sudo make install clean
+
+# fetch
+git clone "https://github.com/dylanaraps/pfetch.git" "${TMPDIR}/pfetch"
+cd "${TMPDIR}/pfetch"
+sudo make install
+
+# relink /bin/sh
+sudo ln -sfT "dash" "/usr/bin/sh"
+PACMAN_HOOK_DIR="${ETC}/pacman.d/hooks"
+sudo mkdir -p "$PACMAN_HOOK_DIR"
+sudo cp "${XDG_CONFIG_HOME}${PACMAN_HOOK_DIR}/binsh.hook" "$PACMAN_HOOK_DIR"
+
+# add color to /etc/pacman.conf
+sudo sed -i 's/#\s*Color/Color/' "${ETC}/pacman.conf"
+
+# system hardening
+# umask 0077 as recommended by the NSA
+sudo sed -i 's/^umask.*/umask 0077/' "${ETC}/profile"
+# set security limits
+securityLimits="${ETC}/security/limits.conf"
+sudo cp -v "${XDG_CONFIG_HOME}${securityLimits}" "$securityLimits"
+# prohibit ssh root login
+sshConf="${ETC}/ssh/sshd_config"
+sudo sed -i 's/#\s*PermitRootLogin.*/PermitRootLogin no/' "$sshConf"
+# add 5 second delay between failed login attempts
+pamLogin="${ETC}/pam.d/system-login"
+sudo cp -v "${XDG_CONFIG_HOME}${pamLogin}" "$pamLogin"
+
+# systemd
+SYSD="/${ETC}/systemd"
+sudo mkdir -p "${SYSD}"
+# reduce the amount of journaling
+journalConf="${SYSD}/journald.conf"
+sudo cp -v "${XDG_CONFIG_HOME}${journalConf}" "$journalConf"
+# power/lid events
+loginConf="${SYSD}/logind.conf"
+sudo cp -v "${XDG_CONFIG_HOME}${loginConf}" "$loginConf"
+
+if [ "$GUI" == true ]; then
 
 # firefox profile
 mkdir -p "${HOME}/.mozilla"
@@ -227,12 +278,6 @@ yay -S --needed --nocleanmenu --nodiffmenu --noprovides spicetify-cli
 # xresources
 cd "${XDG_CONFIG_HOME}/getxr"
 sudo make clean install
-
-# relink /bin/sh
-sudo ln -sfT mksh /usr/bin/sh
-PACMAN_HOOK_DIR="/etc/pacman.d/hooks"
-sudo mkdir -p "$PACMAN_HOOK_DIR"
-sudo cp "${XDG_CONFIG_HOME}/pacman/hooks/binsh" "$PACMAN_HOOK_DIR"
 
 # suckless
 sbuild "st"
@@ -278,14 +323,6 @@ sudo make clean install
 # xmr-stak
 # recommended: https://github.com/fireice-uk/xmr-stak
 
-# spreadsheets
-git clone "https://github.com/andmarti1424/sc-im.git" "${TMPDIR}/sc-im"
-cd "${TMPDIR}/sc-im"
-cp "${XDG_CONFIG_HOME}/sc-im/Makefile" "${TMPDIR}/sc-im/src/"
-cd "src"
-make
-sudo make install clean
-
 # eww (widgets)
 # git clone "https://github.com/elkowar/eww" "${TMPDIR}/eww"
 # cd "${TMPDIR}/eww"
@@ -293,23 +330,6 @@ sudo make install clean
 # cd "target/release"
 # chmod +x "eww"
 # mv "eww" "${XDG_SCRIPT_HOME}/"
-
-# system profiler
-git clone "https://github.com/bossley9/htop.git" "${TMPDIR}/htop"
-cd "${TMPDIR}/htop"
-./autogen.sh
-./configure
-sudo make clean install
-
-SYSD="/etc/systemd"
-
-# reduce the amount of journaling
-journalConf="journald.conf"
-sudo cp -v "${XDG_CONFIG_HOME}${SYSD}/${journalConf}" "${SYSD}/$journalConf"
-
-# logind/power events
-sudo mkdir -p "${SYSD}"
-sudo cp "${XDG_CONFIG_HOME}${SYSD}/logind.conf" "${SYSD}/logind.conf"
 
 # slock
 SYSDSYS="${SYSD}/system"
@@ -329,33 +349,13 @@ fc-cache -f -v
 # touchpad
 sudo ln -sf "$XDG_CONFIG_HOME/xorg.conf.d/30-touchpad.conf" "/etc/X11/xorg.conf.d/30-touchpad.conf"
 
-# add color to /etc/pacman.conf
-sudo sed -i 's/#Color/Color/' /etc/pacman.conf
+fi
 
-# system hardening
-# set umask to be 0077 as recommended by the NSA
-# (new files are not rwx by anyone except owner)
-sudo sed -i 's/^umask.*/umask 0077/' "/etc/profile"
-# limit max number of processes/user
-securityLimits="/etc/security/limits.conf"
-sudo cp -v "${XDG_CONFIG_HOME}${securityLimits}" "$securityLimits"
-# add 4 second delay between failed login attempts
-pamLogin="/etc/pam.d/system-login"
-sudo cp -v "${XDG_CONFIG_HOME}${pamLogin}" "$pamLogin"
-# prohibit ssh root login
-sshConf="/etc/ssh/sshd_config"
-sudo cp -v "${XDG_CONFIG_HOME}${sshConf}" "$sshConf"
-
-# update grub config
+# grub
 # timeout
-sudo sed -i 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=0/' "/etc/default/grub"
-# background
-# sudo cp "${XDG_DATA_HOME}/wallpapers/grub.png" "/boot/grub/"
-# sudo sed -i 's/#GRUB_BACKGROUND=.*/GRUB_BACKGROUND=\/boot\/grub\/grub.png/' "/etc/default/grub"
-# verbose
-sudo sed -i 's/quiet//' "/etc/default/grub"
+grubConf="${ETC}/default/grub"
+sudo sed -i 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=0/' "$grubConf"
 # regenerate
 sudo grub-mkconfig -o "/boot/grub/grub.cfg"
 
-# motd
-echo "" | sudo tee "/etc/motd"
+echo -e "${YELLOW}It is recommended to reboot the system directly after running this sript.${NC}"
