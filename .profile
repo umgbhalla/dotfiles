@@ -14,7 +14,7 @@ export OS_OPENBSD="OpenBSD"
 export DISTRO_ARCHLINUX="Archlinux"
 export DISTRO_GENTOO="Gentoo"
 
-if [ "$OS" == "$OS_LINUX" ]; then
+if [ "$OS" = "$OS_LINUX" ]; then
   case "$(uname -r)" in
     *arch*)     export DISTRO="$DISTRO_ARCHLINUX" ;;
     *gentoo*)   export DISTRO="$DISTRO_GENTOO" ;;
@@ -200,7 +200,7 @@ export NODE_REPL_HISTORY="${XDG_CACHE_HOME}/node_repl_history"
 export PROMPT_EOL_MARK="" # prevent partial line % from appearing
 export PF_COL1="1"
 export PF_INFO="ascii title os host kernel pkgs shell editor wm de uptime memory palette"
-if [ "$OS" == "$OS_OPENBSD" ]; then
+if [ "$OS" = "$OS_OPENBSD" ]; then
   export PKG_PATH="http://ftp.openbsd.org/pub/OpenBSD/$(uname -r)/packages/$(arch -s)/"
 fi
 export REDSHIFT_LAST="$XDG_CACHE_HOME/redshift_last"

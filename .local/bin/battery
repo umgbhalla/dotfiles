@@ -56,5 +56,5 @@ bat_status() {
 case "$1" in
   "status") bat_status ;;
   "get") bat_get ;;
-  *) echo -e "${RED}USAGE: bat [get | status]${NC}" ;;
+  *) echo -e "${RED}USAGE: battery [get | status]${NC}" ;;
 esac

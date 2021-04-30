@@ -45,7 +45,7 @@ label-empty = "  "
 [module/capture]
 type = custom/script
 interval = 1
-exec = [ "$(scene recording-status)" == "recording" ] && echo ""
+exec = [ "$(scene recording-status)" = "recording" ] && echo ""
 click-left = scene stop
 format-foreground = ${colors.alert}
 

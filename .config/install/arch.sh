@@ -61,7 +61,7 @@ PKGS="${PKGS} unzip wget"
 # hackin
 PKGS="${PKGS} nethack"
 
-if [ "$GUI" == "1" ]; then
+if [ "$GUI" = "1" ]; then
 
 PKGS="${PKGS} xorg-server xorg-xinit"
 PKGS="${PKGS} xorg-xsetroot"
@@ -195,7 +195,7 @@ sudo cp -v "${XDG_CONFIG_HOME}${journalConf}" "$journalConf"
 loginConf="${SYSD}/logind.conf"
 sudo cp -v "${XDG_CONFIG_HOME}${loginConf}" "$loginConf"
 
-if [ "$GUI" == "1" ]; then
+if [ "$GUI" = "1" ]; then
 
 # suckless
 sbuild "st"

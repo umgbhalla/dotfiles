@@ -40,7 +40,7 @@ export BAR_HEIGHT="28"
 export BAR_HALF_HEIGHT="$(echo "$BAR_HEIGHT/2" | bc)"
 
 export BAR_FG="$G_BG_ALT"
-if [ "$RICE" == "$RICE_HIGH" ]; then
+if [ "$RICE" = "$RICE_HIGH" ]; then
   export BAR_FG="$G_FG"
 fi
 
