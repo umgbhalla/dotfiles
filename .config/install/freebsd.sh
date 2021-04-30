@@ -83,7 +83,6 @@ PKGS="${PKGS} mpv"
 PKGS="${PKGS} ffmpeg"
 PKGS="${PKGS} xclip"
 PKGS="${PKGS} slop"
-PKGS="${PKGS} slop"
 PKGS="${PKGS} zathura-pdf-mupdf"
 
 PKGS="${PKGS} musicpd"
