@@ -29,7 +29,7 @@ for screen in $getAllScreens; do
     xrandr --output "$screenName" --off
 
   # if screen is connected, save it
-  if [ "$screenStatus" == "connected" ]; then
+  if [ "$screenStatus" = "connected" ]; then
     screens="${screens} ${screenName}"
   # else
     # desktops="$(bspc query -m "$screenName" -D 2>/dev/null)"

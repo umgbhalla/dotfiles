@@ -39,10 +39,7 @@ export THEME_ERROR="$G_ALERT"
 export BAR_HEIGHT="28"
 export BAR_HALF_HEIGHT="$(echo "$BAR_HEIGHT/2" | bc)"
 
-export BAR_FG="$G_BG_ALT"
-if [ "$RICE" = "$RICE_HIGH" ]; then
-  export BAR_FG="$G_FG"
-fi
+export BAR_FG="$G_FG"
 
 export POLYBAR_DIR="${XDG_CONFIG_DIR}/polybar"
 export POLYBAR_CONFIG="${POLYBAR_DIR}/config"

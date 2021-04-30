@@ -15,7 +15,7 @@ esac
 # change desktop cursor to left pointer
 xsetroot -cursor_name left_ptr &
 
-if [ "$RICE" == "$RICE_LOW" ]; then
+if [ "$RICE" = "$RICE_LOW" ]; then
   # disable mouse
   cursor hide
 fi
