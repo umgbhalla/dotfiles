@@ -93,7 +93,9 @@ PKGS="${PKGS} mpd ncmpcpp"
 AURS="${AURS} ncspot"
 # AURS="${AURS} spotify"
 # PKGS="${PKGS} alsa-utils"
-# PKGS="${PKGS} pulseaudio pulseaudio-alsa pamixer pavucontrol"
+PKGS="${PKGS} pamixer"
+PKGS="${PKGS} pulseaudio pulseaudio-alsa pavucontrol"
+# PKGS="${PKGS} pipewire pipewire-alsa pipewire-pulse"
 # PKGS="${PKGS} lmms"
 # PKGS="${PKGS} kdenlive"
 # AURS="${AURS} obs-studio-git"
@@ -214,6 +216,7 @@ sudo make install clean
 # swallowing windows
 git clone "https://github.com/salman-abedin/devour.git" "${TMPDIR}/devour"
 cd "${TMPDIR}/devour"
+make
 sudo make install
 
 # ytui

@@ -1,7 +1,9 @@
 #!/bin/sh
 # uniformly manages audio volume for inputs and output
 
-not_supported="operating system brightness controls not implemented (yet)"
+not_implemented() {
+  echo -e "${RED}functionality not yet implemented for operating system${NC}"
+}
 
 # volume get
 
@@ -14,7 +16,8 @@ vol_get() {
       echo "$( echo "${raw} * 100 / 1" | bc)"
       ;;
     "$OS_LINUX")
-      if command -v "pulseaudio" >/dev/null; then
+      if command -v "pulseaudio" > "$NULL" || \
+        command -v "pipewire" > "$NULL"; then
         echo "$(pamixer --get-volume)"
       else
         echo "$(amixer sget Master | tail -n 1 | cut -d " " -f 5)"
@@ -34,7 +37,8 @@ vol_up() {
       sndioctl output.level=+${amt}
       ;;
     "$OS_LINUX")
-      if command -v "pulseaudio" >/dev/null; then
+      if command -v "pulseaudio" > "$NULL" || \
+        command -v "pipewire" > "$NULL"; then
         pamixer --increase "$1"
       else
         amixer sset Master "${1}+"
@@ -53,7 +57,8 @@ vol_down() {
       sndioctl output.level=-${amt}
       ;;
     "$OS_LINUX")
-      if command -v "pulseaudio" >/dev/null; then
+      if command -v "pulseaudio" > "$NULL" || \
+        command -v "pipewire" > "$NULL"; then
         pamixer --decrease "$1"
       else
         amixer sset Master "${1}-"
@@ -70,8 +75,15 @@ vol_set() {
     case "$OS" in
       "$OS_OPENBSD") sndioctl output.level=$1 ;;
       "$OS_FREEBSD") mixer vol "$1" ;;
-      "$OS_LINUX") pamixer --set-volume "$1" ;;
-      *) echo -e "${RED}ERROR: ${not_supported}${NC}" ;;
+      "$OS_LINUX")
+        if command -v "pulseaudio" > "$NULL" || \
+          command -v "pipewire" > "$NULL"; then
+          pamixer --set-volume "$1"
+        else
+          not_implemented
+        fi
+        ;;
+      *) not_implemented ;;
     esac
   fi
 }
@@ -99,5 +111,5 @@ case $1 in
       *) echo -e "${RED}USAGE: audio vol [get | up | down | set]${NC}" ;;
     esac
     ;;
-  *) echo -e "${RED}USAGE: audio [vol | mic]${NC}" ;;
+  *) echo "${RED}USAGE: audio [vol | mic]${NC}" ;;
 esac
