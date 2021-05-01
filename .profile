@@ -162,7 +162,7 @@ esac
 
 # pager
 export PAGER="less"
-export MANPAGER="${PAGER}"
+export MANPAGER="nvim +Man!"
 
 # window manager
 export WM="bspwm"
