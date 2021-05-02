@@ -12,16 +12,63 @@ captureOutputDir="${HOME}/Videos"
 screenPidFile="${TMPDIR}/screen.pid"
 keyPidFile="${TMPDIR}/screenKey.pid"
 
-if [ -n "$1" ]; then
-  mkdir -p "$snapOutputDir"
-  mkdir -p "$captureOutputDir"
-fi
-
-# filename date format
-datefmt="$(\date +%y-%m-%d_%H-%M-%S)"
-
 cursorHideX="0"
 cursorHideY="$RES_HEIGHT"
+
+# --------------------------------------------------------------------------
+# error handling
+# --------------------------------------------------------------------------
+
+error() {
+  if [ -n "$1" ]; then echo "${RED}ERROR: ${1}${NC}"; fi
+  exit 1
+}
+
+error_screen_already_capturing() {
+  error "capture already in progress."
+}
+
+error_invalid_arguments() {
+  error "invalid arguments."
+}
+
+error_invalid_dimensions() {
+  error "invalid dimensions."
+}
+
+# --------------------------------------------------------------------------
+# output
+# --------------------------------------------------------------------------
+
+get_output() {
+  if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then error_invalid_arguments; fi
+
+  dir=""
+
+  case "$1" in
+    "snap") dir="$snapOutputDir" ;;
+    "capture") dir="$captureOutputDir" ;;
+  esac
+
+  mkdir -p "$dir"
+
+  # filename date format
+  datefmt="$(\date +%y-%m-%d_%H-%M-%S)"
+
+  echo "${dir}/${2}-${datefmt}.${3}"
+}
+
+get_output_snap() {
+  echo "$(get_output "snap" "$1" "$2")"
+}
+
+get_output_capture() {
+  echo "$(get_output "capture" "$1" "$2")"
+}
+
+# --------------------------------------------------------------------------
+# arguments
+# --------------------------------------------------------------------------
 
 get_video_args() {
   w="$1"
@@ -43,11 +90,10 @@ get_crop_video_args() {
   geometry="$(slop)"
 
   if [ -z "$geometry" ]; then
-    echo "${RED}Error: invalid dimensions.${NC}"
-    return
+    error_invalid_dimensions
   fi
 
-  dim="$(echo "$geometry" | cut -d "+" -f1 )"
+  dim="$(echo "$geometry" | cut -d "+" -f 1 )"
 
   x="$(echo "$geometry" | cut -d "+" -f 2)"
   y="$(echo "$geometry" | cut -d "+" -f 3)"
@@ -59,12 +105,23 @@ get_crop_video_args() {
   echo "$crop_video_args"
 }
 
-error_screen_already_capturing() {
-  echo "${RED}Error: capture already in progress.${NC}"
+get_audio_args() {
+  audio_args=""
+  case "$OS" in
+    "$OS_OPENBSD") audio_args="-f sndio -i snd/0.mon" ;;
+    "$OS_LINUX")
+      playback_device="$(pactl list short sources | grep "monitor" | awk '{print $1}')"
+      # # itsoffset is necessary since codec has trouble recording in sync with libx264
+      # audio_args="-f pulse -itsoffset 00:00:01 -i ${playback_device}"
+      audio_args="-f pulse -i $playback_device"
+      ;;
+  esac
+
+  echo "$audio_args"
 }
 
-error_invalid_arguments() {
-  echo "${RED}Error: invalid arguments.${NC}"
+get_codec_args() {
+  echo "-c:v libx264 -preset superfast -c:a aac"
 }
 
 # --------------------------------------------------------------------------
@@ -116,37 +173,16 @@ notify() {
 # --------------------------------------------------------------------------
 
 screenCapture() {
-  if is_screen_capturing; then
-    error_screen_already_capturing
-    return
-  fi
+  if is_screen_capturing; then error_screen_already_capturing; fi
+
+  video_args="$(get_video_args)"
+  audio_args="$(get_audio_args)"
+  codec_args="$(get_codec_args)"
+  output="$(get_output_capture "capture" "mp4")"
 
   notify "Screen capture starting."
 
-  video_args="$(get_video_args)"
-
-  case $OS in
-    "$OS_OPENBSD")
-      ffmpeg $video_args \
-        -f sndio -i snd/0.mon -c:v libx264 \
-        -preset ultrafast -c:a aac \
-        "$captureOutputDir/screencapture-${datefmt}.mp4" &
-      ;;
-    $OS_LINUX)
-      # itsoffset is necessary since codec has trouble recording in sync with libx264
-      ffmpeg $video_args \
-        -f alsa -itsoffset 00:00:01 \
-        -i default -c:v libx264 \
-        -preset ultrafast -c:a aac \
-        "$captureOutputDir/screencapture-${datefmt}.mp4" &
-      ;;
-    *)
-      ffmpeg $video_args \
-        -c:v libx264 -preset ultrafast -c:a aac \
-        "$captureOutputDir/screencapture-${datefmt}.mp4" &
-      ;;
-  esac
-
+  ffmpeg $video_args $audio_args $codec_args "$output" &
   start_screen $!
 }
 
@@ -155,31 +191,16 @@ screenCapture() {
 # --------------------------------------------------------------------------
 
 screenCaptureCrop() {
-  if is_screen_capturing; then
-    error_screen_already_capturing
-    return
-  fi
+  if is_screen_capturing; then error_screen_already_capturing; fi
 
   video_args="$(get_crop_video_args)"
+  audio_args="$(get_audio_args)"
+  codec_args="$(get_codec_args)"
+  output="$(get_output_capture "capture" "mp4")"
 
-  if [ -z "$video_args" ]; then
-    error_invalid_arguments
-    stop_screen
-    return
-  fi
+  notify "Screen capture starting."
 
-  notify "screen capture starting."
-  output="$captureoutputdir/screencapture-${datefmt}.mp4"
-
-  case $os in
-    $os_linux)
-      ffmpeg $video_args \
-        -f alsa -i default -c:v libx264 \
-        -preset ultrafast -c:a aac \
-        "$output" &
-      ;;
-  esac
-
+  ffmpeg $video_args $audio_args $codec_args "$output" &
   start_screen $!
 }
 
@@ -188,22 +209,17 @@ screenCaptureCrop() {
 # --------------------------------------------------------------------------
 
 screenCrop() {
-  output="${snapOutputDir}/snap-${datefmt}.png"
   video_args="$(get_crop_video_args)"
-
-  if [ -z "$video_args" ]; then
-    error_invalid_arguments
-    return
-  fi
+  output="$(get_output_snap "snap" "png")"
 
   # must be evaluated (eval) to bring the variables to local scope
   eval "$(xdotool getmouselocation --shell)"
   xdotool mousemove --sync "$cursorHideX" "$cursorHideY"
 
-  ffmpeg $video_args -vframes 1 "${output}"
+  ffmpeg $video_args -vframes 1 "$output"
 
   xdotool mousemove --sync "$X" "$Y"
-  xclip -selection clip -t image/png "${output}"
+  xclip -selection clip -t image/png "$output"
   notify "Cropped screenshot taken."
 }
 
@@ -212,23 +228,14 @@ screenCrop() {
 # --------------------------------------------------------------------------
 
 screenGif() {
-  if is_screen_capturing; then
-    error_screen_already_capturing
-    return
-  fi
+  if is_screen_capturing; then error_screen_already_capturing; fi
 
-  output="${captureOutputDir}/gif-${datefmt}.gif"
+  video_args="$(get_crop_video_args)"
+  output="$(get_output_capture "gif" "gif")"
+
   fps="10"
   # largest possible width to incentivize small area recordings
   maxRatio="900"
-
-  video_args="$(get_crop_video_args)"
-
-  if [ -z "$video_args" ]; then
-    error_invalid_arguments
-    stop_screen
-    return
-  fi
 
   notify "Gif capture starting."
 
@@ -236,7 +243,7 @@ screenGif() {
     -c:v gif \
     -r "${fps}" \
     -vf "scale='min(${maxRatio},iw)':-1" \
-    "${output}" &
+    "$output" &
 
   start_screen $!
 }
@@ -271,15 +278,14 @@ screenRecordingStatus() {
 # --------------------------------------------------------------------------
 
 screenSnap() {
-  output="${snapOutputDir}/snap-${datefmt}.png"
-
   video_args="$(get_video_args)"
+  output="$(get_output_snap "snap" "png")"
 
   # must be evaluated (eval) to bring the variables to local scope
   eval "$(xdotool getmouselocation --shell)"
   xdotool mousemove "$cursorHideX" "$cursorHideY"
 
-  ffmpeg $video_args -vframes 1 "${output}"
+  ffmpeg $video_args -vframes 1 "$output"
 
   xdotool mousemove "$X" "$Y"
   notify "Screenshot taken."
@@ -301,18 +307,14 @@ screenStop() {
 # --------------------------------------------------------------------------
 
 screenVideo() {
-  if is_screen_capturing; then
-    error_screen_already_capturing
-    return
-  fi
+  if is_screen_capturing; then error_screen_already_capturing; fi
 
   video_args="$(get_video_args)"
+  output="$(get_output_capture "video" "mp4")"
 
   notify "Video capture starting."
 
-  ffmpeg $video_args \
-    "${captureOutputDir}/video-${datefmt}.mp4" &
-
+  ffmpeg $video_args "$output" &
   start_screen $!
 }
 
