@@ -207,8 +207,8 @@ webget() {
 
 # music
 m() {
-  if [ ! $(pgrep -x "$MUSIC_PLAYER_DAEMON") > /dev/null ]; then
-    $MUSIC_PLAYER_DAEMON 2>/dev/null &
+  if ! pgrep -x "$MUSIC_PLAYER_DAEMON" > "$NULL"; then
+    $MUSIC_PLAYER_DAEMON 2> "$NULL" &
     sleep 0.3
   fi
   ncmpcpp

@@ -45,7 +45,8 @@ export POLYBAR_DIR="${XDG_CONFIG_DIR}/polybar"
 export POLYBAR_CONFIG="${POLYBAR_DIR}/config"
 export POLYBAR_SCRIPT_DIR="${POLYBAR_DIR}/scripts"
 
-if ! command -v "pulseaudio" > "$NULL"; then
+if ! command -v "pulseaudio" > "$NULL" && \
+  ! command -v "pipewire" > "$NULL"; then
   export POLYBAR_UPDATE="${POLYBAR_DIR}/update.sh"
   export POLYBAR_UPDATE_STR="polybar_update_string"
 fi

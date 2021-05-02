@@ -92,10 +92,11 @@ PKGS="${PKGS} zathura girara zathura-pdf-mupdf"
 PKGS="${PKGS} mpd ncmpcpp"
 AURS="${AURS} ncspot"
 # AURS="${AURS} spotify"
-# PKGS="${PKGS} alsa-utils"
+PKGS="${PKGS} alsa-utils"
 PKGS="${PKGS} pamixer"
-PKGS="${PKGS} pulseaudio pulseaudio-alsa pavucontrol"
-# PKGS="${PKGS} pipewire pipewire-alsa pipewire-pulse"
+PKGS="${PKGS} pulseaudio pulseaudio-alsa"
+PKGS="${PKGS} pavucontrol"
+# PKGS="${PKGS} pipewire pipewire-alsa pipewire-pulse pipewire-jack"
 # AURS="${AURS} scrcpy"
 # PKGS="${PKGS} lmms"
 # PKGS="${PKGS} kdenlive"
@@ -234,10 +235,10 @@ sudo ln -sf "${XDG_CONFIG_HOME}${touchpadConf}" "$touchpadConf"
 # amixer sset Master unmute
 
 # alsamixer
-# git clone "https://github.com/bossley9/alsamixer.git" "${TMPDIR}/alsamixer"
-# cd "${TMPDIR}/alsamixer"
-# make all
-# sudo make install clean
+git clone "https://github.com/bossley9/alsamixer.git" "${TMPDIR}/alsamixer"
+cd "${TMPDIR}/alsamixer"
+make all
+sudo make install clean
 
 # spotify with spicetify
 # if command -v "spotify" > "$NULL"; then
