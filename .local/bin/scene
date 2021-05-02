@@ -110,10 +110,8 @@ get_audio_args() {
   case "$OS" in
     "$OS_OPENBSD") audio_args="-f sndio -i snd/0.mon" ;;
     "$OS_LINUX")
-      playback_device="$(pactl list short sources | grep "monitor" | awk '{print $1}')"
-      # # itsoffset is necessary since codec has trouble recording in sync with libx264
-      # audio_args="-f pulse -itsoffset 00:00:01 -i ${playback_device}"
-      audio_args="-f pulse -i $playback_device"
+      # requires manual edits with pavucontrol
+      audio_args="-f alsa -i pulse"
       ;;
   esac
 
