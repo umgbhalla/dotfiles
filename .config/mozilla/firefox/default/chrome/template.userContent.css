@@ -1,0 +1,16 @@
+@-moz-document url("about:newtab"), url("about:home"), url("about:blank"), url("about:preferences") {
+  .sticky-container,
+  body {
+    background-color: var(--color-bg) !important;
+  }
+}
+
+@-moz-document domain("stackexchange.com"),
+  domain("stackoverflow.com"),
+  domain("askubuntu.com"),
+  domain("superuser.com") {
+  /* no cookie prompts */
+  .js-consent-banner {
+    display: none !important;
+  }
+}

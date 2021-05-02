@@ -192,7 +192,7 @@ esac
 export DOLLAR="$" # vital for envsubst escaping
 export FF_PROFILE="default"
 # for use in mktemp templates
-export MK_TEMP="XXXXXXXXXX"
+export MK_TEMP="XXXXXXXXXXXXXX"
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export NETHACK_VER="3.6.2"

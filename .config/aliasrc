@@ -279,7 +279,7 @@ fm() {
   fmTmp="$(mktemp -t "fm.${MK_TEMP}")"
   $FILE_EXPLORER_ARGS --choose-dir="$fmTmp"
   dir="$(cat "$fmTmp" | tr ' ' '\ ')"
-  rm -f "$fmTmp" > "/dev/null"
+  rm -f "$fmTmp" > "$NULL"
   cd "$dir"
 }
 alias r="fm"
