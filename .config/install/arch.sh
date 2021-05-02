@@ -236,7 +236,8 @@ sudo ln -sf "${XDG_CONFIG_HOME}${touchpadConf}" "$touchpadConf"
 # alsamixer
 # git clone "https://github.com/bossley9/alsamixer.git" "${TMPDIR}/alsamixer"
 # cd "${TMPDIR}/alsamixer"
-# sudo make clean install
+# make all
+# sudo make install clean
 
 # spotify with spicetify
 # if command -v "spotify" > "$NULL"; then
