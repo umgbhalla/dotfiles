@@ -377,6 +377,7 @@ e() {
 # ----------------------------------------------------------------
 
 alias keygen="ssh-keygen -t rsa -b 4096"
+alias phone="devour scrcpy"
 
 clearcache() {
   case "$OS" in
