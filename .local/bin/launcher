@@ -1,9 +1,9 @@
 #!/bin/sh
 # a program launching script
 
-case $OS in
+case $"OS" in
   "$OS_OPENBSD") $( ls /usr/local/bin | shellmenu) ;;
-  $OS_FREEBSD)
+  "$OS_FREEBSD")
     $(\
       echo $PATH \
       | tr ':' '\n' \

@@ -1,0 +1,20 @@
+#!/bin/sh
+# set the default pulseaudio output and
+# moves all sink inputs to new output
+
+output="$(pacmd "list-sinks" | awk '/name:/{print substr($2, 2, length($2)-2)}' | shellmenu)"
+
+if [ -z "$output" ]; then
+  echo "${RED}No sink specified.${NC}"
+  return
+fi
+
+pacmd "set-default-sink" "$output"
+
+inputs="$(pacmd "list-sink-inputs" | awk '/index:/{print $2}')"
+
+for input in $inputs; do
+  pacmd "move-sink-input" "$input" "$output"
+done
+
+pacmd "set-default-source" "${output}.monitor"
