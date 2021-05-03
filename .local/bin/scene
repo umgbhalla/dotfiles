@@ -137,9 +137,11 @@ get_codec_args() {
 }
 
 get_codec_args_mic() {
+  inc="30dB"
+
   case "$RICE" in
-    "$RICE_HIGH") echo "-preset superfast -c:a aac -af loudnorm" ;;
-    *) echo "-preset ultrafast -c:a aac -af loudnorm" ;;
+    "$RICE_HIGH") echo "-c:a aac -af volume=${inc}" ;;
+    *) echo "-c:a aac -af volume=${inc}" ;;
   esac
 }
 
