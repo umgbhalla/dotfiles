@@ -10,6 +10,7 @@
 snapOutputDir="${HOME}/Pictures"
 captureOutputDir="${HOME}/Videos"
 screenPidFile="${TMPDIR}/screen.pid"
+screenPidFileAlt="${TMPDIR}/screen-alt.pid"
 keyPidFile="${TMPDIR}/screenKey.pid"
 
 cursorHideX="0"
@@ -66,6 +67,10 @@ get_output_capture() {
   echo "$(get_output "capture" "$1" "$2")"
 }
 
+get_output_audio() {
+  echo "$(get_output "capture" "$1" "$2")"
+}
+
 # --------------------------------------------------------------------------
 # arguments
 # --------------------------------------------------------------------------
@@ -105,14 +110,19 @@ get_crop_video_args() {
   echo "$crop_video_args"
 }
 
+get_mic_sink() {
+  echo "$(pactl list short sources | \
+    awk "/${PULSE_VIRT_MIC}/{print \$1}")"
+}
+
 get_audio_args() {
   audio_args=""
   case "$OS" in
     "$OS_OPENBSD") audio_args="-f sndio -i snd/0.mon" ;;
     "$OS_LINUX")
-      # requires manual editing
-      # try pavucontrol or "pout" alias
-      audio_args="-f pulse -i default"
+      # try pavucontrol or aliases "pout", then "pin"
+      audio_args="-f pulse -i default -ac 1"
+      test -n "$1" && audio_args="-f pulse -i ${1} -ac 1"
       ;;
   esac
 
@@ -126,6 +136,13 @@ get_codec_args() {
   esac
 }
 
+get_codec_args_mic() {
+  case "$RICE" in
+    "$RICE_HIGH") echo "-preset superfast -c:a aac -af loudnorm" ;;
+    *) echo "-preset ultrafast -c:a aac -af loudnorm" ;;
+  esac
+}
+
 # --------------------------------------------------------------------------
 # utilities
 # --------------------------------------------------------------------------
@@ -133,16 +150,22 @@ get_codec_args() {
 start_screen() {
   if [ -z "$1" ]; then exit 0; fi
   echo "$1" > "$screenPidFile"
+  if [ -n "$2" ]; then
+    echo "$2" > "$screenPidFileAlt"
+  fi
   # $BAR_UPDATE
 }
 
 stop_screen() {
   if [ -f "$screenPidFile" ]; then
-    pid="$(cat "$screenPidFile")"
-    kill "$pid"
+    kill "$(cat "$screenPidFile")"
     rm -f "$screenPidFile"
-    # $BAR_UPDATE
   fi
+  if [ -f "$screenPidFileAlt" ]; then
+    kill "$(cat "$screenPidFileAlt")"
+    rm -f "$screenPidFileAlt"
+  fi
+  # $BAR_UPDATE
 }
 
 is_screen_capturing() {
@@ -180,12 +203,23 @@ screenCapture() {
   video_args="$(get_video_args)"
   audio_args="$(get_audio_args)"
   codec_args="$(get_codec_args)"
+  codec_args_mic="$(get_codec_args_mic)"
   output="$(get_output_capture "capture" "mp4")"
+  output_audio="$(get_output_audio "capture-mic" "mkv")"
 
   notify "Screen capture starting."
 
   ffmpeg $video_args $audio_args $codec_args "$output" &
-  start_screen $!
+  capture=$!
+
+  micSink="$(get_mic_sink)"
+  if test -n "$micSink"; then
+    audio_args_mic="$(get_audio_args "$micSink")"
+    ffmpeg $audio_args_mic $codec_args_mic "$output_audio" &
+    mic=$!
+  fi
+
+  start_screen "$capture" "$mic"
 }
 
 # --------------------------------------------------------------------------
@@ -198,12 +232,23 @@ screenCaptureCrop() {
   video_args="$(get_crop_video_args)"
   audio_args="$(get_audio_args)"
   codec_args="$(get_codec_args)"
+  codec_args_mic="$(get_codec_args_mic)"
   output="$(get_output_capture "capture" "mp4")"
+  output_audio="$(get_output_audio "capture-mic" "mkv")"
 
   notify "Screen capture starting."
 
   ffmpeg $video_args $audio_args $codec_args "$output" &
-  start_screen $!
+  capture=$!
+
+  micSink="$(get_mic_sink)"
+  if test -n "$micSink"; then
+    audio_args_mic="$(get_audio_args "$micSink")"
+    ffmpeg $audio_args_mic $codec_args_mic "$output_audio" &
+    mic=$!
+  fi
+
+  start_screen "$capture" "$mic"
 }
 
 # --------------------------------------------------------------------------

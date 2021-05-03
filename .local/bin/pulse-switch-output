@@ -6,7 +6,7 @@ output="$(pacmd "list-sinks" | awk '/name:/{print substr($2, 2, length($2)-2)}' 
 
 if [ -z "$output" ]; then
   echo "${RED}No sink specified.${NC}"
-  return
+  exit 1
 fi
 
 pacmd "set-default-sink" "$output"

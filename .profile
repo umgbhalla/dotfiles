@@ -203,6 +203,7 @@ export PF_INFO="ascii title os host kernel pkgs shell editor wm de uptime memory
 if [ "$OS" = "$OS_OPENBSD" ]; then
   export PKG_PATH="http://ftp.openbsd.org/pub/OpenBSD/$(uname -r)/packages/$(arch -s)/"
 fi
+export PULSE_VIRT_MIC="pulse-virtual-mic"
 export REDSHIFT_LAST="$XDG_CACHE_HOME/redshift_last"
 case "$OS" in
   "$OS_LINUX")

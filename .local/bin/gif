@@ -1,4 +1,0 @@
-#!/bin/sh
-# simple gui macro to record gif
-
-scene gif

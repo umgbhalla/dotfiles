@@ -1,11 +1,33 @@
 #!/bin/sh
-# chooses the default pulseaudio input
+# redirect 
+# set the default pulseaudio input
 
-input=$(pacmd list-sources | awk '/name:.*input/{print substr($2, 2, length($2)-2)}' | shellmenu --prompt="\>\ input\ sink\ ")
+NA="N/A"
 
-if [ -z $input ]; then
-  echo "No sink specified."
-else
-  pacmd set-default-source $input
-  echo "Default source set to $input."
+input="$(\
+  (\
+    echo "$NA"; \
+    pacmd "list-sources" | \
+    awk '/name:.*input/{print substr($2, 2, length($2)-2)}' \
+  ) | \
+  shellmenu \
+  )"
+
+if [ -z "$input" ]; then
+  echo "${RED}No source specified.${NC}"
+  exit 1
 fi
+
+# restore state
+pactl "unload-module" "module-null-sink" 2> "$NULL"
+pactl "unload-module" "module-loopback" 2> "$NULL"
+
+if [ "$input" = "$NA" ]; then
+  exit 0
+fi
+
+output="$(pacmd "list-sinks" | grep -A 1 "\*.*index:" | awk '/name:/{print substr($2, 2, length($2)-2)}')"
+
+pactl "load-module" "module-null-sink" sink_name="$PULSE_VIRT_MIC" sink_properties="device.description=${PULSE_VIRT_MIC}-null-sink"
+pactl "load-module" "module-loopback" source="$input" sink="$PULSE_VIRT_MIC" latency_msec=20
+# pacmd "move-sink-input" "$PULSE_VIRT_MIC" "$output"
