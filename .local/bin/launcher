@@ -14,7 +14,7 @@ case $"OS" in
     ;;
   *)
     $(\
-      ls /bin \
+      (ls /bin; ls /usr/local/bin) \
       | shellmenu \
     )
     ;;

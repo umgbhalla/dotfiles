@@ -17,6 +17,7 @@ SYSD="/${ETC}/systemd"
 SYSDSYS="${SYSD}/system"
 FF_DIR="${HOME}/.mozilla"
 
+mkdir -p "$BIN"
 mkdir -p "$FF_DIR"
 mkdir -p "$FONT_DIR"
 mkdir -p "$ETC"
@@ -232,13 +233,16 @@ touchpadConf="${ETC}/X11/xorg.conf.d/30-touchpad.conf"
 sudo ln -sf "${XDG_CONFIG_HOME}${touchpadConf}" "$touchpadConf"
 
 # unmute audio channel
-# amixer sset Master unmute
+amixer sset Master unmute
 
 # alsamixer
-git clone "https://github.com/bossley9/alsamixer.git" "${TMPDIR}/alsamixer"
-cd "${TMPDIR}/alsamixer"
-make all
-sudo make install clean
+# git clone "https://github.com/bossley9/alsamixer.git" "${TMPDIR}/alsamixer"
+# cd "${TMPDIR}/alsamixer"
+# make all
+# sudo make install clean
+
+# webcam
+sudo ln -sf "${XDG_SCRIPT_HOME}/webcam" "${BIN}/webcam"
 
 # spotify with spicetify
 # if command -v "spotify" > "$NULL"; then

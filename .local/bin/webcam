@@ -1,0 +1,5 @@
+#!/bin/sh
+# opens a webcam stream if available
+
+dev="$(ls "/dev/video"* | shellmenu)"
+mpv "av://v4l2:${dev}" --profile=low-latency --untimed --no-resume-playback
