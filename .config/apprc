@@ -111,10 +111,6 @@ export HERBE_FG="$G_FG"
 export HERBE_BG="$G_BG"
 export HERBE_BORDER_BG="$G_FG_ALT"
 
-# lemonbar
-
-export LEMONBAR_ALERT="${G_ALERT}"
-
 # picom
 
 export PICOM_ALPHA="$(echo "${W_ALPHA}*100" | bc | sed -e 's/\..*//g')"

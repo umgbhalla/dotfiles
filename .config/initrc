@@ -9,7 +9,3 @@ done
 # generate lesskey because less is ridiculous
 command -v "lesskey" > "$NULL" && \
   lesskey "${XDG_CONFIG_HOME}/less/lesskey"
-
-# disable read permissions
-# [ -e "${XDG_CONFIG_HOME}/aria2/aria2.conf" ] && \
-#   chmod 600 "${XDG_CONFIG_HOME}/aria2/aria2.conf"

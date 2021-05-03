@@ -27,12 +27,7 @@ font-1 = Automata:pixelsize=13;3
 
 cursor-click = pointer
 
-; tray
-; tray-position = right
-; tray-padding = ${styles.padding}
-
 modules-left = bspwm capture
-; modules-center = title
 modules-right = audio battery date
 
 [module/bspwm]
@@ -41,6 +36,9 @@ type = internal/bspwm
 label-focused = "  "
 label-occupied = "  "
 label-empty = "  "
+
+label-urgent = "  "
+label-urgent-foreground = ${colors.alert}
 
 [module/capture]
 type = custom/script
@@ -64,13 +62,6 @@ bar-volume-indicator = │
 bar-volume-fill = ―
 bar-volume-empty = ―
 label-muted = ――――――――――――――――――――
-
-click-right = pavucontrol
-
-; [module/audio]
-; type = custom/script
-; interval = 600
-; exec = ${POLYBAR_SCRIPT_DIR}/audio.sh
 
 [module/battery]
 type = custom/script

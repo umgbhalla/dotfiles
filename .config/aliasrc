@@ -42,8 +42,7 @@ case "$OS" in
       reboot="sudo reboot" \
       shutdown="sudo poweroff" \
       suspend="sudo systemctl suspend" \
-      hibernate="sudo systemctl hibernate" \
-      lock="slock"
+      hibernate="sudo systemctl hibernate"
     ;;
   "$OS_FREEBSD")
     alias \
@@ -92,12 +91,10 @@ alias \
   ch="cursor hide" \
   cs="cursor show" \
   cra="npx create-react-app --template=typescript --use-npm" \
-  d="date" \
   em="neomutt" \
   fet="pfetch" \
   lss="du -h -s" \
   n="newsboat -u $XDG_DATA_HOME/newsboat/urls -C $NEWSBOAT_CONFIG/config" \
-  pdf="pdflatex" \
   ss="sc-im" \
   vi="$EDITOR" \
   vim="$EDITOR" \
@@ -127,16 +124,15 @@ case "$OS" in
       pout="pulse-switch-output" \
       sha="sha256sum" \
       sp="ncspot" \
-      system="sudo systemctl" \
-      wi="nmtui"
+      system="sudo systemctl"
     ;;
 esac
 
 # latex compilation
 lat() {
   if [ -z "$1" ]; then
-    echo -e "${RED}ERROR: file not supplied${NC}"
-    return 1
+    echo "${RED}ERROR: file not supplied${NC}"
+    exit 1
   fi
 
   file="$(echo "$1" | cut -d '.' -f 1)"
@@ -271,9 +267,9 @@ alias g="git"
 
 # repo browser
 rp() {
-    mkdir -p "$XDG_REPO_HOME"
-    repo="$(ls "$XDG_REPO_HOME" | fzf)"
-    cd "$XDG_REPO_HOME/$repo"
+  mkdir -p "$XDG_REPO_HOME"
+  repo="$(ls "$XDG_REPO_HOME" | fzf)"
+  cd "$XDG_REPO_HOME/$repo"
 }
 
 # file explorer directory setting
