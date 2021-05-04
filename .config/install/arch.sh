@@ -104,6 +104,7 @@ PKGS="${PKGS} pavucontrol"
 # AURS="${AURS} obs-studio-git"
 # PKGS="${PKGS} linux-headers dkms"
 # PKGA="${PKGA} v4l2loopback-dkms"
+# PKGS="${PKGS} discord"
 
 # PKGS="${PKGS} hsetroot"
 PKGS="${PKGS} redshift"
