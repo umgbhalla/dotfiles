@@ -195,6 +195,7 @@ export FF_PROFILE="default"
 export MK_TEMP="XXXXXXXXXXXXXX"
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
+export MYVIMRC="${XDG_CONFIG_HOME}/nvim/init.vim"
 export NETHACK_VER="3.6.2"
 export NODE_REPL_HISTORY="${XDG_CACHE_HOME}/node_repl_history"
 export PROMPT_EOL_MARK="" # prevent partial line % from appearing
@@ -226,6 +227,7 @@ esac
 export UID="$(id -u)"
 export VI_NAV_JUMP="5"
 export VI_NAV_JUMP_LARGE="25"
+export VIMINIT='source $MYVIMRC'
 export XRDB_RESOURCES="${XDG_CONFIG_HOME}/Xdefaults/Xresources"
 export XRDB_UPDATE="xrdb -merge ${XRDB_RESOURCES}"
 
