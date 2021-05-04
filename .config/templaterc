@@ -1,5 +1,4 @@
 $XDG_CONFIG_HOME/aria2/template.aria2.conf
-$XDG_CONFIG_HOME/gtk-theme/gtk-3.0/template.gtk.css
 $XDG_CONFIG_HOME/gtk-2.0/template.gtkrc
 $XDG_CONFIG_HOME/gtk-3.0/template.bookmarks
 $XDG_CONFIG_HOME/gtk-3.0/template.settings.ini

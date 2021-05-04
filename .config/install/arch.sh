@@ -244,12 +244,10 @@ amixer sset Master unmute
 # webcam
 sudo ln -sf "${XDG_SCRIPT_HOME}/webcam" "${BIN}/webcam"
 
-# spotify with spicetify
-# if command -v "spotify" > "$NULL"; then
-# sudo chmod a+wr "${OPT_DIR}/spotify"
-# sudo chmod -R a+wr "${OPT_DIR}/spotify/Apps"
+# spicetify with spotify
+# sudo chown -R sam:wheel "${OPT_DIR}/spotify"
+# sudo chmod -R go-r "${OPT_DIR}/spotify"
 # AURA="${AURA} spicetify-cli"
-# fi
 
 # xmr
 # XMR_ARCHIVE="${TMPDIR}/xmr.tar.bz2"
