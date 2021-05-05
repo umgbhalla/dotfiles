@@ -299,7 +299,7 @@ if command -v "spicetify" > "$NULL"; then
 fi
 
 # background command
-export BACKGROUND="feh --no-fehbg --bg-fill ${XDG_DATA_HOME}/wallpapers/freebsd.png"
+export BACKGROUND="feh --no-fehbg --bg-fill ${XDG_DATA_HOME}/wallpapers/nixos.png"
 
 # init
 . "${XDG_CONFIG_HOME}/initrc"
