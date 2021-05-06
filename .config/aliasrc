@@ -39,10 +39,10 @@ cd() {
 case "$OS" in
   "$OS_LINUX")
     alias \
-      reboot="sudo reboot" \
-      shutdown="sudo poweroff" \
-      suspend="sudo systemctl suspend" \
-      hibernate="sudo systemctl hibernate"
+      reboot="doas reboot" \
+      shutdown="doas poweroff" \
+      suspend="doas systemctl suspend" \
+      hibernate="doas systemctl hibernate"
     ;;
   "$OS_FREEBSD")
     alias \
@@ -67,7 +67,7 @@ esac
 # package manager
 case "$OS" in
   "$OS_LINUX")
-    alias p="sudo pacman"
+    alias p="doas pacman"
     alias y="paru"
     ;;
   "$OS_FREEBSD")
@@ -116,14 +116,14 @@ case "$OS" in
       am="alsamixer" \
       bt="aria2c" \
       cal="cal -3" \
-      clearmem="sync; echo 1 | sudo tee /proc/sys/vm/drop_caches; sync" \
+      clearmem="sync; echo 1 | doas tee /proc/sys/vm/drop_caches; sync" \
       hack="nethack" \
-      obsv="sudo modprobe v4l2loopback devices=1 video_nr=10 card_label=\"OBS Cam\" exclusive_caps=1" \
+      obsv="doas modprobe v4l2loopback devices=1 video_nr=10 card_label=\"OBS Cam\" exclusive_caps=1" \
       pin="pulse-switch-input" \
       pout="pulse-switch-output" \
       sha="sha256sum" \
       sp="ncspot" \
-      system="sudo systemctl"
+      system="doas systemctl"
     ;;
 esac
 
@@ -381,11 +381,11 @@ clearcache() {
     "$OS_LINUX")
       # clear repository caches
       # if you want to clear the WHOLE cache, try -Scc (unrecommended)
-      sudo pacman -Sc
+      doas pacman -Sc
       paru -Sc
 
-      sudo journalctl --rotate
-      sudo journalctl --vacuum-time=1d
+      doas journalctl --rotate
+      doas journalctl --vacuum-time=1d
 
       # clear any files in trash
       rm -r ${XDG_DATA_HOME}/Trash/* 2> "$NULL"

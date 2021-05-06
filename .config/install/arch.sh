@@ -56,6 +56,7 @@ PKGS="${PKGS} openssh"
 PKGS="${PKGS} tlp brightnessctl"
 # various utils
 PKGS="${PKGS} dash"
+AURS="${AURS} doas"
 AURS="${AURS} mmv"
 PKGS="${PKGS} unzip wget"
 
