@@ -127,6 +127,8 @@ PKGS="${PKGS} qrencode"
 # "omnisharp.useGlobalMono": "always"
 # "omnisharp.monoPath": "/usr/bin/mono"
 # AURS="${AURS} unityhub"
+# sudo chown -R ${USER}:wheel "${OPT_DIR}/unityhub"
+# sudo chmod 700 "${OPT_DIR}/unityhub/unityhub-bin"
 # PKGS="${PKGS} mono"
 # probably don't need this
 # AURS="${AURS} mono-basic"

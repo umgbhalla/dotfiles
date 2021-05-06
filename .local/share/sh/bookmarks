@@ -7,7 +7,7 @@ repos,      $XDG_REPO_HOME
 downloads,  $HOME/Downloads
 music,      $HOME/Music
 ports,      /usr/ports
-pl,         $HOME/Data/Media/pl
+pl,         $HOME/Data/Media/Playlists
 etc,        /etc
 school,     $HOME/Data/School/OSU/Year-4/Spring
 unity,      $HOME/Documents/Unity/Projects
