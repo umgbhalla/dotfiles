@@ -29,7 +29,10 @@
     inoremap kj <Esc>
     inoremap ZZ <Esc>
     inoremap ii <Esc>
-
+    nnoremap oo o<Esc>
+    nnoremap OO O<Esc>
+    " nnoremap yp <Esc>yyp<esc>
+    map <leader>d :bdelete<cr>
 
 " Nert tree toggle
  "   map <C-n> :NERDTreeToggle<CR>
@@ -47,7 +50,7 @@
     nnoremap <S-TAB> :bprevious<CR>
 
 " Alternate way to save
-    nnoremap <C-s> :w<CR>
+    nnoremap <C-s> :w<CR> :SClose <CR>
 " Alternate way to quit
     nnoremap <C-Q> :wq!<CR>
 " Use control-c instead of escape
@@ -55,6 +58,7 @@
 
 " <TAB>: completion.
     inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
 
 " Better tabbing
     vnoremap < <gv
@@ -68,3 +72,10 @@
 
     nnoremap <Leader>o o<Esc>^Da
     nnoremap <Leader>O O<Esc>^Da
+
+    nnoremap <Leader>t <Esc>:FloatermToggle<CR>
+    nnoremap <Leader>r <Esc>:RnvimrToggle<CR>
+    nnoremap <Leader>h <C-W>s
+    nnoremap <Leader>v <C-W>v
+    nnoremap <Leader>; <C-W>s<CR>:terminal <CR>i
+

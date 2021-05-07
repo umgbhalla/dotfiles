@@ -10,8 +10,9 @@ let g:startify_bookmarks = [
             \ { 'c': '~/.config/alacritty/alacritty.yml' },
             \ { 'i': '~/.config/nvim/init.vim' },
             \ { 'z': '~/.zshrc' },
+            \ { 'd': '~/Downloads' },
             \ '/mnt/F',
-            \ '/mnt/F/dotfiles',
+            \ '/mnt/F/sys_dot_files',
             \ '/mnt/F/dev',
             \ ]
 
