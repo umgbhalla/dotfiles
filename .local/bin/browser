@@ -3,6 +3,6 @@
 
 
 case "$1" in
-  "incognito") exec firefox -P "$FF_PROFILE" --private-window ;;
-  *) exec firefox -P "$FF_PROFILE" "$@" ;;
+  "incognito") exec firejail --profile="${FIREJAIL_PROFILE_DIR}/firefox.profile" firefox -P "$FF_PROFILE" --private-window ;;
+  *) exec firejail --profile="${FIREJAIL_PROFILE_DIR}/firefox.profile" firefox -P "$FF_PROFILE" "$@" ;;
 esac

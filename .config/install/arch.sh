@@ -81,6 +81,7 @@ PKGA="${PKGA} firefox-tridactyl"
 AURA="${AURA} firefox-tridactyl-native"
 AURA="${AURA} firefox-ublock-origin"
 AURA="${AURA} firefox-extension-multi-account-containers"
+PKGS="${PKGS} firejail"
 
 PKGS="${PKGS} feh"
 PKGS="${PKGS} mpv"
