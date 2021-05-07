@@ -137,7 +137,11 @@ lat() {
   file="$(echo "$1" | cut -d '.' -f 1)"
 
   pdflatex "$file"
-  bibtex "$file"
+  if command -v "biber" > "$NULL"; then
+    biber "$file"
+  else
+    bibtex "$file"
+  fi
   pdflatex "$file"
   pdflatex "$file"
 }
