@@ -243,7 +243,7 @@ case "$OS" in
   "$OS_OPENBSD") export FF_CACHE_DIR="${TMPDIR}/firefox_cache.${UID}" ;;
   "$OS_LINUX") export FF_CACHE_DIR="/run/user/${UID}/firefox" ;;
 esac
-export FIREJAIL_PROFILE_DIR="${XDG_CONFIG_HOME}/firejail/profiles"
+export FIREJAIL_PROFILE_DIR="${XDG_CONFIG_HOME}/firejail"
 export GIT_CONFIG="$XDG_CONFIG_HOME/git/config"
 export GIT_TEMPLATE_DIR="$XDG_CONFIG_HOME/git/template"
 export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
