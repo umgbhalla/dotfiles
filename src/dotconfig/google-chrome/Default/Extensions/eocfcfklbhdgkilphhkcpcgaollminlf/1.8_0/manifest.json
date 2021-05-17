@@ -1,0 +1,20 @@
+{
+   "background": {
+      "persistent": false,
+      "scripts": [ "background.js" ]
+   },
+   "description": "Automatically backup and restore your bookmarks.",
+   "icons": {
+      "128": "assets/browser_bookmark.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkIAzkC9QK+oxfN8egcuDtq181I11wals3ejI3Hd/0PMBfasVCN3oL3XyAJNgvzOeqpIVdDmqPmeYsaiTljml8uqQlUz21p0FClbr/SN6lq8Addx7nOb3j2G6D3ILf9T3D63orG1kPp25X+VlzZyj2X64yWCknk+TYkmZocB73zw7Qk2oqMYwbzfm1rOzapuTJIplzh42rLsqfFpEbS6VAH4QnAmIcW/bK+Tzq7pJRT7PsFZd+STGZRXirtxcmTLArJ/3PRiefjMnHPiOF3w2HanDy2dLf02OaJG6fTzfIAFhwSvLxBGdEu9ge6+tfjtxQUWBkGnSdrVnr9GGdCJFzQIDAQAB",
+   "manifest_version": 2,
+   "name": "Bookmark Backup",
+   "options_ui": {
+      "open_in_tab": true,
+      "page": "options/options.html"
+   },
+   "permissions": [ "bookmarks", "unlimitedStorage", "alarms", "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.8"
+}

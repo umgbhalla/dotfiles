@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title i18n='welcome_to_startme'></title>
+<link href='welcome.css' rel='stylesheet'>
+<meta charset='UTF-8'>
+</head>
+<body>
+<main step='0'>
+<section class='slides'><div action='get_permissions' class='slide' step='0'>
+<h1>
+<span i18n='welcome_to'></span>
+<img class='logo' src='images/logo-white-noicon.svg' title='i18n_app_name'>!
+</h1>
+<p i18n='lets_personalize_it'></p>
+</div>
+<div class='slide' step='1'>
+<h1 class='spaced' i18n='have_startme_account'></h1>
+<p class='buttons'>
+<button action='go_to_signin'><span i18n='yes'></span>
+<span i18n='signin_with_email'></span></button>
+<button action='create_anonymous'><span i18n='no'></span>
+<span i18n='create_new_free_account'></span></button>
+</p>
+</div>
+<div action='save_name' class='slide' step='2'>
+<h1 i18n='what_is_your_name'></h1>
+<p>
+<span i18n='my_name_is'></span>
+<input autocomplete='name' class='autofocus' id='name' name='name' placeholder='i18n_eg_name' size='12' type='text' x-autocompletetype='name'>
+</p>
+</div>
+<div action='show_country_picker' class='slide' step='3'>
+<h1 i18n='where_do_you_come_from'></h1>
+<div id='country-controls'>
+<button class='hidden' id='btn-country'><span id='country-name'></span>
+<span i18n='click_to_choose_a_different_country'></span></button>
+</div>
+</div>
+<div class='slide import' step='4'>
+<h1 i18n='import_your_bookmarks_question'></h1>
+<p class='buttons'>
+<button action='import'><span i18n='yes'></span>
+<span i18n='please_import_them'></span></button>
+<button><span i18n='no'></span>
+<span i18n='i_may_do_this_later'></span></button>
+</p>
+<p class='working hidden' i18n='your_bookmarks_are_being_imported'></p>
+</div>
+<div action='save_email' class='slide' step='5'>
+<h1 i18n='create_account'></h1>
+<p>
+<span i18n='my_email_is'></span>
+<input autocomplete='email' class='autofocus' id='email' name='email' placeholder='i18n_eg_email' required size='25' type='email' x-autocompletetype='email'>
+</p>
+</div>
+<div class='slide' step='6'>
+<p class='buttons'>
+<button action='done' class='autofocus'><span i18n='done'></span>
+<span i18n='take_me_to_start_page'></span></button>
+</p>
+</div></section>
+<nav class='progressbar'></nav>
+<nav class='steps'>
+<a i18n='shake_hands' step='2'></a>
+<a i18n='import_bookmarks' step='4'></a>
+<a i18n='create_account' step='5'></a>
+</nav>
+<nav class='buttons'>
+<a class='prev fa fa-chevron-left' title='Back'></a>
+<a class='next fa fa-chevron-right' title='Next'></a>
+</nav>
+<i class='fa fa-times' id='close' title='i18n_close'></i>
+<a href='https://start.me' target='_blank' title='i18n_app_name'>
+<img id='logo' src='images/logo-white.svg'>
+</a>
+</main>
+<script src='i18n.js'></script>
+<script src='countries.js'></script>
+<script src='constants.js'></script>
+<script src='lib.js'></script>
+<script src='welcome.js'></script>
+</body>
+</html>

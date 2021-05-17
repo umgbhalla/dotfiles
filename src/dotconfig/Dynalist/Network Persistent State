@@ -1,0 +1,1 @@
+{"net":{"http_server_properties":{"servers":[{"https://dynlst.com":{"supports_spdy":true}},{"https://cdn.discordapp.com":{"supports_spdy":true}},{"https://dynalist.io":{"supports_spdy":true}}],"version":5}}}

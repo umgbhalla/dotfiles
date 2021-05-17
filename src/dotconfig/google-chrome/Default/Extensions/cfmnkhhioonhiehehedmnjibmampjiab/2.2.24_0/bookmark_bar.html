@@ -1,0 +1,208 @@
+<html class='embedded popup'>
+<head>
+<title i18n='add_to_startme'></title>
+<meta charset='UTF-8'>
+<link href='bookmark_bar.css' rel='stylesheet'>
+<base target='_blank'>
+</head>
+<body>
+<aside class='bookmark-bar' data-mode='link' id='bookmarkbar'>
+<div class='bookmark-bar__loader'>
+<div class='loader'>
+<div class='loader__spinner loader__indicator' role='progressbar'>
+<span class='loader__buffer'></span>
+<span class='loader__rect'></span>
+</div>
+</div>
+</div>
+<div class='bookmark-bar__main'>
+<div class='bookmark-bar__container link mode-only'>
+<header class='bookmark-bar__header'>
+<div class='bookmark-bar__space'>
+<span class='bookmark-bar__image-container'>
+<img alt='' class='bookmark-bar__image' src='images/logo-icon.png'>
+</span>
+<span class='bookmark-bar__title' i18n='add_to_startme'></span>
+<span class='bookmark-bar__switcher' id='switcher'>
+<i class='bookmark-bar__switcher-icon fa fa-cog'></i>
+<span class='bookmark-bar__switcher-text' i18n='options'></span>
+</span>
+<span class='bookmark-bar__close js-close-button'>×</span>
+</div>
+</header>
+<div class='bookmark-bar__content'>
+<section class='bookmark-bar__body'>
+<form class='bookmark-bar__form'>
+<section class='link mode-only'>
+<div class='bookmark-bar__heading'>
+<label class='bookmark-bar__label' for='link_title' i18n='title'></label>
+<a class='bookmark-bar__sublink js-change-description-url' i18n='change_description_and_url'></a>
+</div>
+<input autofocus class='bookmark-bar__input' id='link_title' name='title' placeholder='i18n_please_specify_title' required type='text'>
+<div class='js-description-url-wrapper hidden'>
+<div class='bookmark-bar__heading'>
+<label class='bookmark-bar__label' for='link_url' i18n='url'></label>
+</div>
+<input class='bookmark-bar__input' id='link_url' name='url' placeholder='https://' required type='url'>
+<div class='js-bookmark-description-wrapper'>
+<div class='bookmark-bar__heading'>
+<label class='bookmark-bar__label' for='link_area' i18n='pure_description'></label>
+</div>
+<textarea class='bookmark-bar__area js-bookmark-description' id='link_area' rows='4'></textarea>
+</div>
+</div>
+</section>
+<div class='bookmark-bar__heading'>
+<label class='bookmark-bar__label' i18n='save_in' id='newFieldLabel'></label>
+</div>
+<div class='searchable js-searchable'>
+<div class='searchable__wrapper'>
+<div class='searchable__field js-searchable-field'>
+<input autocomplete='off' class='searchable__input searchable__input_query js-searchable-input' disabled placeholder='i18n_select_a_widget' type='text'>
+<i class='searchable__chevron fa fa-chevron-right'></i>
+</div>
+</div>
+<div class='searchable__wrapper'>
+<div class='searchable__field searchable__field_hidden'>
+<input autocomplete='off' class='searchable__input js-searchable-input-new' placeholder='i18n_title_for_new_widget' type='text'>
+<span class='searchable__times js-searchable-input-clear'>×</span>
+</div>
+</div>
+</div>
+</form>
+</section>
+<section class='bookmark-bar__buttons'>
+<a class='bookmark-bar__button' id='save'>
+<span class='bookmark-bar__button-spinner'>
+<span class='three-dots-spinner'>
+<span class='three-dots-spinner__element'></span>
+</span>
+</span>
+<span class='bookmark-bar__caption' i18n='add_bookmark'></span>
+</a>
+<a class='bookmark-bar__button bookmark-bar__button_link js-close-button'>
+<span class='bookmark-bar__caption' i18n='close_window'></span>
+</a>
+</section>
+</div>
+<div class='searchable__container js-search-results' id='search-results'>
+<div class='searchable__box'>
+<div class='searchable__controls js-search-back'>
+<span class='searchable__control js-search-back'>
+<i class='searchable__back fa fa-chevron-left'></i>
+</span>
+<span class='searchable__control js-refresh-pages-list' title='i18n_refresh_list'>
+<i class='searchable__back fa fa-refresh' id='refresh-icon'></i>
+</span>
+</div>
+<div class='searchable__results'>
+<div class='searchable__field searchable__field_active'>
+<input autocomplete='off' class='searchable__input searchable__input_active js-searchable-input-filter' placeholder='i18n_search_widgets' type='text'>
+<i class='searchable__lens fa fa-search'></i>
+<span class='searchable__times js-searchable-input-filter-clear'>×</span>
+</div>
+<div class='searchable__content js-searchable-content'>
+<div class='searchable__list js-searchable-list'></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class='bookmark-bar__container options mode-only'>
+<header class='bookmark-bar__header'>
+<div class='bookmark-bar__space'>
+<span class='bookmark-bar__title bookmark-bar__title_link' id='switcherBack'>
+<i class='bookmark-bar__control fa fa-chevron-left'></i>
+<span i18n='extension_options'></span>
+</span>
+<span class='bookmark-bar__close js-close-button'>×</span>
+</div>
+<ul class='bookmark-bar__tabs'>
+<li class='bookmark-bar__tab bookmark-bar__tab_settings active' i18n='settings' id='options-settings'></li>
+<li class='bookmark-bar__tab bookmark-bar__tab_shortcuts' i18n='shortcuts' id='options-shortcuts'></li>
+</ul>
+</header>
+<div class='bookmark-bar__content'>
+<section class='bookmark-bar__body'>
+<form class='bookmark-bar__form bookmark-bar__form_hiding active' id='options-settings-content'>
+<section class='options mode-only'>
+<div class='bookmark-bar__option' id='my-homepage'>
+<div class='bookmark-bar__heading'>
+<label class='bookmark-bar__label' for='homepage' i18n='select_your_new_tab_page'></label>
+<a class='bookmark-bar__sublink' i18n='refresh_list' id='refresh'></a>
+</div>
+<div class='searchable'>
+<div class='searchable__wrapper searchable__wrapper_visible'>
+<div class='searchable__field'>
+<select class='searchable__input' id='homepage'>
+<option i18n='default_page'></option>
+</select>
+<i class='searchable__chevron fa fa-chevron-down'></i>
+</div>
+</div>
+</div>
+</div>
+<div class='bookmark-bar__option' id='import'>
+<div class='bookmark-bar__heading'>
+<label class='bookmark-bar__label' i18n='import_bookmarks_from_chrome'></label>
+</div>
+<a class='bookmark-bar__button bookmark-bar__button_small' id='import-bookmarks'>
+<i class='bookmark-bar__button-icon fa fa-upload'></i>
+<span class='bookmark-bar__button-text' i18n='import'></span>
+</a>
+</div>
+<div class='bookmark-bar__option bookmark-bar__option_lowered'>
+<a class='bookmark-bar__input bookmark-bar__input_stub bookmark-bar__input_strong' href='https://start.me/users/edit' id='regular-link' target='_blank'>
+<i class='bookmark-bar__input-icon fa fa-user'></i>
+<span class='bookmark-bar__input-text' i18n='change_user_settings'></span>
+</a>
+</div>
+<div class='bookmark-bar__option'>
+<a class='bookmark-bar__input bookmark-bar__input_stub bookmark-bar__input_strong' href='https://support.start.me/hc/en-us/articles/360017846280-New-tab-page-by-start-me' id='regular-link' target='_blank'>
+<i class='bookmark-bar__input-icon fa fa-question'></i>
+<span class='bookmark-bar__input-text' i18n='visit_support_centre'></span>
+</a>
+</div>
+</section>
+</form>
+<form class='bookmark-bar__form bookmark-bar__form_hiding' id='options-shortcuts-content'>
+<section class='options mode-only'>
+<div class='bookmark-bar__option bookmark-bar__option_relative'>
+<div class='bookmark-bar__heading'>
+<label class='bookmark-bar__label' i18n='create_new_bookmark'></label>
+</div>
+<input class='bookmark-bar__input' disabled id='browser-action-shortcut' type='text'>
+<a class='bookmark-bar__changer js-shortcut-changer' i18n='change'></a>
+</div>
+<div class='bookmark-bar__option bookmark-bar__option_relative'>
+<div class='bookmark-bar__heading'>
+<label class='bookmark-bar__label' i18n='open_startme_homepage'></label>
+</div>
+<input class='bookmark-bar__input' disabled id='start-me-homepage-shortcut' type='text'>
+<a class='bookmark-bar__changer js-shortcut-changer' i18n='change'></a>
+</div>
+<div class='bookmark-bar__option'>
+<div class='bookmark-bar__heading'>
+<label class='bookmark-bar__label' i18n='search_bookmarks_from_address_bar'></label>
+</div>
+<a class='bookmark-bar__input bookmark-bar__input_stub' href='https://support.start.me/hc/en-us/articles/360017858020-Search-bookmarks-from-address-bar' id='regular-link' target='_blank'>
+<span class='bookmark-bar__input-text' i18n='learn_how_this_works'></span>
+<i class='bookmark-bar__input-icon fa fa-external-link'></i>
+</a>
+</div>
+</section>
+</form>
+<div class='bookmark-bar__version'>v.2.2.24</div>
+</section>
+</div>
+</div>
+<i class='fa fa-check' id='done'></i>
+<i class='fa fa-times' id='error'></i>
+</div>
+</aside>
+<script src='i18n.js'></script>
+<script src='constants.js'></script>
+<script src='lib.js'></script>
+<script src='bookmark_bar.js'></script>
+</body>
+</html>

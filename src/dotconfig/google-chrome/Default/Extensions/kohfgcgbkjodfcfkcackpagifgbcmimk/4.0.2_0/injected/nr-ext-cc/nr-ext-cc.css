@@ -1,0 +1,200 @@
+html {
+  width: 100%;
+  background-color: transparent;
+}
+body {
+  font-size: 14px;
+  background-color: transparent;
+}
+.nr-ext-cc {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  margin-top: 20px;
+  text-align: center;
+}
+.nr-ext-cc-text{
+  overflow: auto;
+}
+.nr-ext-cc .irs--round .irs-line {
+  top: 0;
+  height: 20px;
+  background-image: linear-gradient(to bottom, transparent 40%, #e4e4e4 50%, transparent 60%);
+}
+.nr-ext-cc .irs--round .irs-bar {
+  top: 0;
+  height: 20px;
+  background-image: linear-gradient(to bottom, transparent 40%, #006cfa 50%, transparent 60%);
+  background-color: transparent;
+}
+.nr-ext-cc .irs--round .irs-handle {
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  background-color: #006cfa;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 255, 0.3);
+}
+.nr-ext-cc-content {
+  position: relative;
+}
+.nr-ext-slider {
+  position: relative;
+  width: 100%;
+  height: 20px;
+}
+.nr-ext-slider > div {
+  position: absolute;
+  left: 0;
+  top: -5px;
+  width: 100%;
+  height: 20px;
+  background: transparent;
+}
+.nr-ext-cc-panel {
+  position: relative;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 140px;
+}
+.nr-ext-cc-panel > .nr-ext-cc-text {
+  font-size: calc(1vw + 1vh + 1.5vmax);
+  line-height: 1.6;
+  padding: 16px;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .nr-ext-cc-panel > .nr-ext-cc-text {
+    font-size: calc(1vw + 1vh + 1vmax);
+    padding: 0 15vw;
+  }
+}
+@media (min-width: 992px) {
+  .nr-ext-cc-panel > .nr-ext-cc-text {
+    font-size: calc(1vw + 1vh + .7vmax);
+    /* padding: 10px 19vw; */
+  }
+}
+@media (min-width: 1200px) {
+  .nr-ext-cc-panel > .nr-ext-cc-text {
+    font-size: calc(1vw + 1vh + .5vmax);
+    padding: 0 18vw;
+    /* padding: 10px 24vw; */
+  }
+}
+.nr-ext-cc-panel > .nr-ext-close {
+  top: 10px;
+  right: 10px;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  background-size: 20px 20px;
+}
+
+/* dyslexic fonts */
+@font-face {
+  font-family: opendyslexic;
+  src: url(chrome-extension://__MSG_@@extension_id__/assets/css/open-dyslexic/OpenDyslexic-Regular.otf);
+  font-style: normal;
+  font-weight: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: opendyslexic;
+  src: url(chrome-extension://__MSG_@@extension_id__/assets/css/open-dyslexic/OpenDyslexic-Italic.otf);
+  font-style: italic;
+  font-weight: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: opendyslexic;
+  src: url(chrome-extension://__MSG_@@extension_id__/assets/css/open-dyslexic/OpenDyslexic-Bold.otf);
+  font-weight: bold;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: opendyslexic;
+  src: url(chrome-extension://__MSG_@@extension_id__/assets/css/open-dyslexic/OpenDyslexic-BoldItalic.otf);
+  font-weight: bold;
+  font-style: italic;
+  font-display: fallback;
+}
+
+.dyslexicfonts {
+  font-family: opendyslexic !important;
+}
+
+.nr-ext-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background: url(chrome-extension://__MSG_@@extension_id__/assets/img/close.svg) center no-repeat;
+  background-size: 16px 16px;
+}
+
+.nr-cc-icon {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  background: url(chrome-extension://__MSG_@@extension_id__/assets/img/cc_info.svg) center center no-repeat;
+  background-size: 24px 24px;
+}
+
+/* hightlight */
+.nr-sentence-highlight-light{
+  background: #B5C687 !important;
+  color:#0d3b55 !important;
+  z-index: 1000;
+}
+
+.nr-word-highlight-light{
+  background-color:#0d3b55 !important;
+  color:#E7ECEE !important;
+  z-index: 1000;
+}
+
+.nr-sentence-highlight-dark{
+  background: #0d3b55 !important;
+  color:#E7ECEE !important;
+  z-index: 1000;
+}
+
+.nr-word-highlight-dark{
+  background-color:#EFD369 !important;
+  color:#393E3E !important;
+  z-index: 1000;
+}
+
+.nr-sentence-highlight-ice{
+  background: #F1F3F4 !important;
+  color:#373D3E !important;
+  z-index: 1000;
+}
+
+.nr-word-highlight-ice{
+  background-color:#0F7895 !important;
+  color:#FFFFFF !important;
+  z-index: 1000;
+}
+
+.nr-sentence-highlight-warm{
+  background: #ebdcb2!important;
+  color:#605140!important;
+  z-index: 1000;
+}
+
+.nr-word-highlight-warm{
+  background-color:#563e20 !important;
+  color:#E6CCB5!important;
+  z-index: 1000;
+}

@@ -1,0 +1,6 @@
+2021/05/16-18:04:35.262 21a3b Creating DB /home/umang/.config/google-chrome/Default/IndexedDB/https_remotedesktop.google.com_0.indexeddb.leveldb since it was missing.
+2021/05/16-18:04:35.275 21a3b Reusing MANIFEST /home/umang/.config/google-chrome/Default/IndexedDB/https_remotedesktop.google.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/05/16-18:05:07.929 21eee Level-0 table #5: started
+2021/05/16-18:05:07.935 21eee Level-0 table #5: 2168 bytes OK
+2021/05/16-18:05:07.942 21eee Delete type=0 #3
+2021/05/16-18:05:07.942 21eee Manual compaction at level-0 from (begin) .. (end); will stop at (end)

@@ -1,0 +1,112 @@
+{
+   "errorSaving": {
+      "description": "Status message shown in either the options or the popup when changes to the settings couldn't be saved.",
+      "message": "Error saving change: $ERROR$",
+      "placeholders": {
+         "error": {
+            "content": "$1",
+            "example": "Storage is full."
+         }
+      }
+   },
+   "extensionDescription": {
+      "description": "Brief description of this extension.",
+      "message": "Re-enables the backspace key as a back navigation button (except when writing text)."
+   },
+   "extensionName": {
+      "description": "Name of this extension, used in Chrome's UI as well as in the extension's own UI pages.",
+      "message": "Go Back With Backspace"
+   },
+   "openOptions": {
+      "description": "Label for the link to open the extension's options UI.",
+      "message": "Options"
+   },
+   "optionsAppletCheckbox": {
+      "description": "Label for a checkbox indicating whether the extension should go back when focus is in embedded content such as a Java or Flash applet.",
+      "message": "Backspace should not go back in applets (Flash, Java, PDF, and certain chat tools)."
+   },
+   "optionsAppletGroup": {
+      "description": "Label for the group of settings that control this extension's behavior in embedded applets (Flash, etc.)",
+      "message": "Applets"
+   },
+   "optionsBlacklist": {
+      "description": "Heading for the text entry box in which the user enters a list of pages on which the backspace extension should never go back.",
+      "message": "Backspace should never go back on these pages:"
+   },
+   "optionsCancel": {
+      "description": "Label for the button that closes the dialog without saving changes.",
+      "message": "Cancel"
+   },
+   "optionsListDetails": {
+      "description": "Additional details shown at the bottom of the options window, explaining what should be entered into the blacklist and whitelist boxes.",
+      "message": "Enter full URLs, one per line. Use * as a wildcard at the end of the path to include every page matching the beginning portion (https://www.example.com/*, https://www.example.com/path/*)."
+   },
+   "optionsSave": {
+      "description": "Label for the button that saves settings and closes the dialog.",
+      "message": "OK"
+   },
+   "optionsTitle": {
+      "description": "Used in the page title and top heading of the options page.",
+      "message": "Go Back With Backspace Options"
+   },
+   "optionsWhitelist": {
+      "description": "Heading for the text entry box in which the user enters a list of pages on which the backspace extension should go back even when focus is in embedded content.",
+      "message": "Even in an applet, backspace should go back on these pages:"
+   },
+   "popupAddBlacklist": {
+      "description": "Label for the button in the popup that adds the current pageto a blacklist, on which the extension will never navigate back.",
+      "message": "Disable on this page"
+   },
+   "popupCurrentURL": {
+      "description": "Label indicating the current page's URL, as shown in the browser-action popup. Long URLs will be truncated.",
+      "message": "Current page: $URL$",
+      "placeholders": {
+         "url": {
+            "content": "$1",
+            "example": "https://www.google.com"
+         }
+      }
+   },
+   "popupDisallowedURL": {
+      "description": "Status message shown in the popup when the current page is one of the special pages on which extensions are prohibited.",
+      "message": "Extensions prohibited on this page."
+   },
+   "popupFileURL": {
+      "description": "Text of a link shown in the popup when the current page is a file:// URL, whether or not the extension currently has access to file:// URLs. The link leads to chrome://extensions.",
+      "message": "Allow this extension access to file URLs"
+   },
+   "popupRemoveBlacklist": {
+      "description": "Label for the button in the popup that removes the current page from the list that controls when the extension won't navigate back from a page at all.",
+      "message": "Enable on this page"
+   },
+   "popupStatusSaved": {
+      "description": "Status message shown in the browser action popup when the current page has been added or removed from the white- or blacklist.",
+      "message": "Change saved."
+   },
+   "popupTitle": {
+      "description": "Title for the small popup window associated with the browser action.",
+      "message": "Go Back With Backspace"
+   },
+   "reportBody": {
+      "description": "Initial body of the feedback email created by the 'Send feedback' button in places where there is no relevant URL (e.g., the options page).",
+      "message": "Is something not working properly? A feature you'd like to see in this extension? Let us know! (We won't be able to respond to every piece of feedback individually, but we appreciate your time and thoughts.)"
+   },
+   "reportBodyWithURL": {
+      "description": "Initial body of the feedback email created by the 'Send feedback' button in places where we have a relevant URL (e.g. the browser action popup).",
+      "message": "The extension doesn't do the right thing on the page at\n$URL$.\n\nAdd any details below. Which part of the page doesn't work properly? (We won't be able to respond to every piece of feedback individually, but we appreciate your time and thoughts.)",
+      "placeholders": {
+         "url": {
+            "content": "$1",
+            "example": "http://www.google.com"
+         }
+      }
+   },
+   "reportSubject": {
+      "description": "Initial Subject of the feedback email created by the 'Send feedback' button.",
+      "message": "Go Back With Backspace feedback"
+   },
+   "sendFeedback": {
+      "description": "Label for the link in the popup to email feedback to the extension developers.",
+      "message": "Send feedback"
+   }
+}

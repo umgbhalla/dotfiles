@@ -1,0 +1,133 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" href="options.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" src="../libs/jquery.js"></script>
+    <script type="text/javascript" src="../libs/moment.js"></script>
+    <script type="text/javascript" src="options.js"></script>
+
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="tabMenu">
+
+            <h1><img src="../assets/browser_bookmark.png" alt="logo" height="30" width="30" style="vertical-align:text-top"> <span>Bookmark Backup</span></h1>
+            <ul class="menu">
+                <li><a href="#basics">Intro</a></li>
+                <li><a href="#styles-container" id="backupList">Backup List</a></li>
+                <li><a href="#backup">Preference</a></li>
+            </ul>
+            <div class='separator'></div>
+            <ul class="menu">
+                <li><a href="#donation">About</a></li>
+            </ul>
+
+        </div>
+
+        <div id="options">
+            <div id="basics">
+                <h2>Introduction</h2>
+
+                <div class="option-section">
+                    <h3>Description</h3>
+                    <div class="option-subsection">
+                        <div>
+                            <span class="option-field">
+                                Bookmark Backup is a simple extension that helps to keep your bookmarks.
+                                Each time a bookmark is added or removed, a copy of your bookmarks will be made on your device.
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="option-section">
+                    <h3>Features</h3>
+                    <div>
+                        <span class="option-field">
+                            ★ Automatically creates daily backups.
+                            <br>★ Each backup will be stored safely on your device.
+                        </span>
+                    </div>
+                </div>
+
+
+            </div>
+            <div id="styles-container">
+                <h2>Backup List</h2>
+
+                <!--<link rel="stylesheet" type="text/css" href="bootstrap-yeti.min.css">-->
+
+                <div style="margin:10px;padding:10px; margin:auto">
+                    <table class="table datatable table-striped table-bordered table-editable" cellspacing="0" table-layout="auto" id="backupTable">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Date</th>
+                                <th>Items</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="donation">
+                <h2>About</h2>
+                <div class="option-section">
+                    <h3>Feedback</h3>
+                    <div>
+                        <a target="_blank" href="https://chrome.google.com/webstore/detail/bookmark-backup/eocfcfklbhdgkilphhkcpcgaollminlf/reviews/">Go to Chrome Store</a>
+                    </div>
+                </div>
+            </div>
+            <div id="backup">
+                <h2>Preference</h2>
+                <div class="option-section">
+                    <h3>Copies Kept</h3>
+                    <div class="option-subsection">
+                        <div>
+                            <span class="option-field">Max number of copies:</span>
+                            <div class='option-value'>
+                                <select id="copiesSelect">
+                                    <option value="30">30</option>
+                                    <option value="60">60</option>
+                                    <option value="90">90</option>
+                                    <option value="99999">Unlimited</option>
+                                </select>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="option-section">
+                    <h3>Frequency</h3>
+                    <div class="option-subsection">
+                        <div>
+                            <span class="option-field">When to make a bookmark backup:</span>
+                            <div class='option-value'>
+                                <select id="frequencySelect">
+                                    <!--<option value="Every Hour">Every Hour</option>-->
+                                    <option value="Every Day">Every Day</option>
+                                    <option value="Every Week">Every Week</option>
+                                    <option value="When Added">When Added/Deleted</option>
+                                </select>
+
+                            </div>
+                            <div id="nextBackup">
+                                <span class="option-field"><br>Next Backup Time:<br></span>
+                                <input id="inputBackup" type="text" readonly />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

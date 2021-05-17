@@ -1,0 +1,12 @@
+2021/05/17-12:52:36.380 20909 Reusing MANIFEST /home/umang/.config/Ferdi/Partitions/service-235374b5-5735-4774-b433-25763305e419/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/05/17-12:52:36.380 20909 Recovering log #13
+2021/05/17-12:52:36.460 20909 Reusing old log /home/umang/.config/Ferdi/Partitions/service-235374b5-5735-4774-b433-25763305e419/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000013.log 
+2021/05/17-12:53:03.991 20f37 Level-0 table #18: started
+2021/05/17-12:53:04.033 20f37 Level-0 table #18: 1222446 bytes OK
+2021/05/17-12:53:04.040 20f37 Delete type=0 #13
+2021/05/17-12:53:05.363 20f37 Compacting 1@1 + 1@2 files
+2021/05/17-12:53:05.428 20f37 Generated table #19@1: 33383 keys, 1823039 bytes
+2021/05/17-12:53:05.428 20f37 Compacted 1@1 + 1@2 files => 1823039 bytes
+2021/05/17-12:53:05.433 20f37 compacted to: files[ 0 0 1 0 0 0 0 ]
+2021/05/17-12:53:05.434 20f37 Delete type=2 #18
+2021/05/17-12:53:05.434 20f37 Delete type=2 #15

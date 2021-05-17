@@ -1,0 +1,44 @@
+{
+   "app_description": {
+      "message": "spoofs User-Agent of request headers."
+   },
+   "app_title": {
+      "message": "Auto Incognito Mode"
+   },
+   "disabled_button": {
+      "message": "Disabled"
+   },
+   "enabled_button": {
+      "message": "Enabled"
+   },
+   "has_error": {
+      "message": "There is an error in the setting."
+   },
+   "incognito_settings": {
+      "message": "incognito mode settings"
+   },
+   "invalid_url": {
+      "message": " line is invalid url filter."
+   },
+   "option": {
+      "message": "Options"
+   },
+   "reset_button": {
+      "message": "Reset"
+   },
+   "save_button": {
+      "message": "Save"
+   },
+   "saved": {
+      "message": "Saved !"
+   },
+   "urls": {
+      "message": " please input URL filter."
+   },
+   "urls_example": {
+      "message": "example of URL filters."
+   },
+   "urls_example_link": {
+      "message": "Click here for details"
+   }
+}

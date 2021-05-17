@@ -1,0 +1,33 @@
+{
+   "background": {
+      "persistent": false,
+      "scripts": [ "/js/background.js" ]
+   },
+   "browser_action": {
+      "default_icon": "/image/icon@128x128.png",
+      "default_popup": "popup.html",
+      "default_title": "WAXP"
+   },
+   "content_scripts": [ {
+      "js": [ "/js/content_script.js" ],
+      "matches": [ "*://web.whatsapp.com/" ]
+   } ],
+   "description": "Export all or unsaved contacts from WhatsApp™ groups, chatlist and labels to CSV file.",
+   "externally_connectable": {
+      "matches": [ "*://web.whatsapp.com/" ]
+   },
+   "homepage_url": "https://codegena.com/WhatsApp-Contacts-Exporter/",
+   "icons": {
+      "128": "/image/icon@128x128.png",
+      "16": "/image/icon@16x16.png",
+      "48": "/image/icon@48x48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArqZ7ZGFEgnUGyxr9jej81clXGdqlcX0MgAbWlyMxrRZ5YxKpcC3ywu+/7Qvx9knysSDw0rMt9P91zdY+Yx8TkU2ffqua/yp7F3FP3TtU25HfLtrjuegTdoOlmkplDI3jSQ7/vlszxI6P5SVrNo93cF0vZlvCTYNd2qQi91YS42kCvLgVUq1a3mupz770vOv/9V6IPXKIZQuw+//8WgVmD9hPqJXIARnHAwlXcnr+qegjFHPu+Ve28cySYo3aSIsQtH7zk0iurXJAwtzGb1KekVbOuolJiXXQRTlDWopCHReJXlyFF1gUsKQHNBztTGpLg6kzFjPJuyysCHrcQG8IDQIDAQAB",
+   "manifest_version": 2,
+   "name": "WAXP - Contacts Exporter for WhatsApp",
+   "permissions": [ "activeTab", "*://api.gumroad.com/*", "storage" ],
+   "short_name": "WAXP",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.39",
+   "web_accessible_resources": [ "/js/client.js", "/js/libphonenumber-max.js", "popup.html", "/image/qrcode.png", "/image/profile-pic.jpg", "/video/loading-animation.mp4", "/video/green-spinner.mp4" ]
+}

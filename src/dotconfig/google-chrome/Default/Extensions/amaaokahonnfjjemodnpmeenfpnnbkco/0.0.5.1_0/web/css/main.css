@@ -1,0 +1,285 @@
+body{
+    background:#fff;
+    position:relative;
+    /*font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;*/
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    line-height: 1.5;
+    color:#24292e;
+    background-color: #fafbfc;
+    padding:10px;
+}
+a{text-decoration:none;
+    color: #319c84;
+}
+
+.clear{clear:both}
+h1{
+    font-family: 'Poppins', sans-serif;
+    font-weight:bold;
+    line-height: 1.2;
+    font-size: 20px;
+    margin-bottom:5px;
+}
+
+.h1_smaller{
+    font-size: 2em;
+}
+
+h4{
+    font-family: 'Poppins', sans-serif;
+    font-weight:bold;
+    line-height: 1.2;
+    font-size: 2em;
+}
+p{
+padding:8px 0px;    
+}
+
+
+
+h3{
+    font-family: 'Poppins', sans-serif;
+    font-size: 2em;
+    font-weight:100;
+}
+
+#your_welcome{
+    font-family: 'Poppins', sans-serif;
+    font-size: 2em;
+    font-weight:100;
+}
+#your_welcome_holder{
+    max-width:700px;
+    margin:0 auto;
+}
+
+h2{
+    font-size:1.2em;
+}
+
+.button1{
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background:#319c84;
+    color:#fff;
+    padding:8px 24px;
+    font-size:1.4em;
+    text-shadow: rgba(0, 0, 0, .5) 0px 1px;
+}
+
+.button3{
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background:#319c84;
+    padding:6px 10px;
+    font-size:.9em;
+    text-shadow: rgba(0, 0, 0, .5) 0px 1px;
+    font-weight:100;
+    color:#fff;
+}
+
+.hero-button-holder{
+    text-align:center;
+    margin-top:30px;
+}
+#grepper_logo{
+    color:#319c84;
+    position:absolute;
+    font-family: 'Poppins', sans-serif;
+    top:10px;
+    left:20px;
+    font-size:40px;
+    font-weight: 100;
+}
+
+#grepper_logo_wink{
+    height: 5px;
+    width: 3px;
+    background-color: #319c84;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    top: 36px;
+    left: 152px;
+}
+
+.navigation_bar{
+    height:30px;
+    padding-right:15px;
+    border-bottom:1px solid  #24292e;
+    padding-top:40px;
+}
+
+.navigation_bar a{
+    float:right;
+    font-size:.9em;
+    color:#319c84;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    text-decoration:none;
+    margin-left:10px;
+    margin-right:10px;
+    padding:0px 10px;
+    display:inline-block;
+   -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+  
+}
+.button4{
+    font-size:.9em;
+    color:#319c84;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+.navigation_bar .install_button{
+    color:#fff;
+    background-color:#319c84;
+}
+.button2{
+    color: #319c84;
+    font-size:.9em;
+    color:#319c84;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    text-decoration:none;
+}
+
+#grepper_logo_wink_right{
+  color: #319c84;
+    display: block;
+    position: absolute;
+    top: 25px;
+    left: 156px;
+    font-size: 15px;
+}
+
+.how_it_works,.tays_section{
+    margin-top:50px;
+    padding-top:20px;
+    border-top:1px solid  #24292e;
+}
+
+.how_it_works h3,
+.tays_section
+{
+    text-align:center;
+}
+.tays_section{
+   border:0px; 
+}
+.border_top{
+    border-top:1px solid  #24292e;
+}
+
+#step1,#step2,#step3{
+    font-size:14px;
+    float:left;
+    width:31%; 
+    padding:1%;
+}
+
+.CodeMirror{
+  height: auto;
+}
+#grepper_answer{
+    position:relative;
+    width:100%;
+    margin:0 auto;
+}
+
+.copy_button{
+    position:absolute;
+    top:0px;
+    right:0px;
+    z-index:99999;
+    background:#fff;
+    font-size:12px;
+    background-color: #ebebeb;
+    color: #999;
+    cursor:pointer;
+    width:140px;
+}
+
+.contribute_text{
+    max-width:1024px;
+    margin:0 auto;
+    text-align:left;
+}
+
+.contribute_text ul ul{
+    padding-left:20px;
+}
+
+.contribute_text ul li{
+    padding:0px 0px;
+}
+
+
+
+
+.add_answer_image{
+    /*border:1px solid  #24292e;*/
+    width:100%;
+    max-width:600px;
+    margin:0 auto;
+    display:block;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.grepper_bounty{
+    border-radius: 3px;
+    background: #319c84;
+    color: #fff;
+    font-size: 10px;
+    padding:3px;
+    text-shadow: rgba(0, 0, 0, 1) 0px 1px;
+    position:relative;
+
+    bottom:2px;
+    left:2px;
+
+    -webkit-box-shadow: 2px 2px 2px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 2px -1px rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 2px -1px rgba(0,0,0,0.75);
+
+}
+
+.note{
+  color:#888;
+}
+
+.answer_title:after{
+    content:'>>';
+    text-align:right;
+    display:block;
+    float:right;
+    
+}
+.answer_title{
+display:block;    
+cursor:pointer;
+background:#eee;
+background-color: #f5f5f5;
+margin-bottom:3px;
+padding:2px;
+
+}
+.left_side{
+width:30%;    
+display:block;
+float:left;
+}
+.right_side{
+width:69%;    
+display:block;
+float:right;
+}
+

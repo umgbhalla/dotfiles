@@ -1,0 +1,14 @@
+{
+   "commandToggleQuickStart": {
+      "description": "The extension description.",
+      "message": "Quick toggle between Quick Start and Folder"
+   },
+   "extDescr": {
+      "description": "The extension description.",
+      "message": "Your newtab with bookmarks, apps and recent tabs from all connected devices"
+   },
+   "extName": {
+      "description": "The extension Name.",
+      "message": "Quick Startpage"
+   }
+}

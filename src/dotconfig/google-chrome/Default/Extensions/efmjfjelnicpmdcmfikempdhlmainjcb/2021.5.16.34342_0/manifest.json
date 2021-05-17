@@ -1,0 +1,32 @@
+{
+   "app": {
+      "display_mode": "standalone",
+      "icon_color": "#A2A2A2",
+      "launch": {
+         "web_url": "https://remotedesktop.google.com/?lfhs=2"
+      },
+      "linked_icons": [ {
+         "size": 512,
+         "url": "https://ssl.gstatic.com/chromoting/chromoting_logo_512.png"
+      } ]
+   },
+   "description": "",
+   "icons": {
+      "128": "icons/128.png",
+      "256": "icons/256.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "512": "icons/512.png",
+      "64": "icons/64.png",
+      "96": "icons/96.png"
+   },
+   "key": "JrX04cVU1Y64UoYsUEkadvoKGHBzuJ/yyTu9X5hvh7Y=",
+   "name": "Chrome Remote Desktop",
+   "url_handlers": {
+      "scope": {
+         "matches": [ "https://remotedesktop.google.com/*" ],
+         "title": "Chrome Remote Desktop"
+      }
+   },
+   "version": "2021.5.16.34342"
+}

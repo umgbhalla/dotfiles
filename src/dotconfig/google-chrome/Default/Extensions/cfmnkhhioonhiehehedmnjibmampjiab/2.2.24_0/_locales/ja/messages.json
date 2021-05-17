@@ -1,0 +1,336 @@
+{
+   "____________________________________________________________________________________________________": {
+      "description": "This file has been generated automatically. Don't modify manually.",
+      "message": ""
+   },
+   "account": {
+      "message": "アカウント"
+   },
+   "add_bookmark": {
+      "message": "ブックマークを追加する"
+   },
+   "add_feed": {
+      "message": "フィードを追加"
+   },
+   "add_tabs": {
+      "message": "タブを入れてください"
+   },
+   "add_to_startme": {
+      "message": "start.meに追加"
+   },
+   "allow_access_to_tabs": {
+      "message": "あなたのブラウザが開いているすべてのタブを閲覧するには、start.meへのアクセスを許可してください。"
+   },
+   "app_description": {
+      "message": "究極のパーソナルスタートページ - start.me"
+   },
+   "app_name": {
+      "message": "Start.me による新しいタブページ"
+   },
+   "app_short_name": {
+      "message": "start.me"
+   },
+   "available_feeds": {
+      "message": "利用可能なフィード"
+   },
+   "bookmark": {
+      "message": "ブックマーク"
+   },
+   "change": {
+      "message": "変更"
+   },
+   "change_description_and_url": {
+      "message": "説明とURLを変える"
+   },
+   "change_user_settings": {
+      "message": "Change user settings"
+   },
+   "clear": {
+      "message": "クリア"
+   },
+   "clear_cache": {
+      "message": "キャッシュのクリア"
+   },
+   "clear_extension_cache": {
+      "message": "Clear extension cache"
+   },
+   "click_to_choose_a_different_country": {
+      "message": "クリックして別の国を選択する"
+   },
+   "close": {
+      "message": "閉じる"
+   },
+   "close_window": {
+      "message": "ウィンドウを閉じる"
+   },
+   "create_account": {
+      "message": "アカウントを作成する"
+   },
+   "create_new_bookmark": {
+      "message": "Create new bookmark"
+   },
+   "create_new_free_account": {
+      "message": "新たに無料のstart.meアカウントを作成"
+   },
+   "create_new_group": {
+      "message": "新たにグループを作成"
+   },
+   "default_page": {
+      "message": "\u003Cデフォルトページ>"
+   },
+   "description": {
+      "message": "究極のパーソナルスタートページ - start.me"
+   },
+   "description_bookmarker": {
+      "message": "This Bookmarker can be used to bookmark webpages to your start.me page while you surf - start.me"
+   },
+   "done": {
+      "message": "完了"
+   },
+   "eg_email": {
+      "message": "例：taro@gmai.com"
+   },
+   "eg_name": {
+      "message": "例：鈴木太郎"
+   },
+   "extension_options": {
+      "message": "Extension options"
+   },
+   "feeds": {
+      "message": "フィード"
+   },
+   "full_name": {
+      "message": "Start.me による新しいタブページ"
+   },
+   "full_name_bookmarker": {
+      "message": "Bookmarker by start.me"
+   },
+   "get_help": {
+      "message": "Get help"
+   },
+   "grant_access": {
+      "message": "アクセス許可"
+   },
+   "have_startme_account": {
+      "message": "登録済みのstart.meのアカウントはもうお持ちですか？"
+   },
+   "help": {
+      "message": "ヘルプ"
+   },
+   "hide_description_and_url": {
+      "message": "説明とURLを隠す"
+   },
+   "home_name": {
+      "message": "start.me"
+   },
+   "i_may_do_this_later": {
+      "message": "あとで行うこともできます"
+   },
+   "import": {
+      "message": "インポート"
+   },
+   "import_bookmarks": {
+      "message": "ブックマークをインポート"
+   },
+   "import_bookmarks_from_chrome": {
+      "message": "ブラウザーからブックマークをインポートする"
+   },
+   "import_your_bookmarks_question": {
+      "message": "ブックマークをインポートしますか？"
+   },
+   "imported_from_chrome": {
+      "message": "Chromeからのインポート"
+   },
+   "importing_your_bookmarks": {
+      "message": "ブックマークをインポート中"
+   },
+   "learn_how_this_works": {
+      "message": "Learn how this works"
+   },
+   "lets_personalize_it": {
+      "message": "あなた専用にカスタマイズしていきましょう、時間はかかりません"
+   },
+   "markdown_supported": {
+      "message": "マークダウンサポート済み"
+   },
+   "my_email_is": {
+      "message": "私のメールアドレスは"
+   },
+   "my_name_is": {
+      "message": "私の名前は"
+   },
+   "my_startme_homepage": {
+      "message": "私のstart.meホームページ"
+   },
+   "name_bookmarker": {
+      "message": "start.me Bookmarker"
+   },
+   "new_tab_page": {
+      "message": "新しいタブページ"
+   },
+   "new_widget": {
+      "message": "新しいウィジェット"
+   },
+   "no": {
+      "message": "いいえ"
+   },
+   "open_browser_tabs": {
+      "message": "ブラウザー・タブを開く"
+   },
+   "open_default_chrome_startpage": {
+      "message": "ブラウザーのデフォルトのスタートページを開く"
+   },
+   "open_my_startme_homepage": {
+      "message": "自分のstart.meホームページを開く"
+   },
+   "open_pagesmenu": {
+      "message": "start.meメニューを開く"
+   },
+   "open_startme_blog": {
+      "message": "start.meブログを開く"
+   },
+   "open_startme_homepage": {
+      "message": "Open start.me homepage"
+   },
+   "open_tabs": {
+      "message": "タブを開く"
+   },
+   "options": {
+      "message": "オプション"
+   },
+   "other_preferences": {
+      "message": "その他の好み設定"
+   },
+   "personal_pages": {
+      "message": "個人ページ"
+   },
+   "please_import_them": {
+      "message": "インポートする"
+   },
+   "please_specify_title": {
+      "message": "タイトルを特定して下さい"
+   },
+   "please_try_again_later": {
+      "message": "申し訳ありません、後でもう一度やり直してください"
+   },
+   "please_wait_a_moment": {
+      "message": "しばらくお待ちください ..."
+   },
+   "preferences": {
+      "message": "設定"
+   },
+   "pro": {
+      "message": "Pro"
+   },
+   "pure_description": {
+      "message": "説明"
+   },
+   "refresh": {
+      "message": "更新"
+   },
+   "refresh_list": {
+      "message": "リストの更新"
+   },
+   "save": {
+      "message": "保存"
+   },
+   "save_in": {
+      "message": "に保存します"
+   },
+   "search_bookmarks_from_address_bar": {
+      "message": "Search bookmarks right from address bar"
+   },
+   "search_widgets": {
+      "message": "Search widgets"
+   },
+   "select_a_widget": {
+      "message": "\u003C ウィジェットを選択 >"
+   },
+   "select_all": {
+      "message": "全選択"
+   },
+   "select_new_tab_page": {
+      "message": "新しいタブページを選択"
+   },
+   "select_your_new_tab_page": {
+      "message": "Select your new tab page"
+   },
+   "settings": {
+      "message": "設定"
+   },
+   "shake_hands": {
+      "message": "あなたの事がわかってきました"
+   },
+   "shortcuts": {
+      "message": "Shortcuts"
+   },
+   "show_chromes_default_page": {
+      "message": "ブラウザーのデフォルトページを表示する"
+   },
+   "show_my_startme_page": {
+      "message": "start.meページを表示する"
+   },
+   "sign_in_to_startme": {
+      "message": "start.meにサインイン"
+   },
+   "signin_with_email": {
+      "message": "あなたの電子メールアドレスでサインイン"
+   },
+   "something_went_wrong": {
+      "message": "エラーが発生しました"
+   },
+   "take_me_to_start_page": {
+      "message": "新しいスタートページへ移動する"
+   },
+   "terms": {
+      "message": "規約"
+   },
+   "title": {
+      "message": "タイトル"
+   },
+   "title_for_new_group": {
+      "message": "Title for new group"
+   },
+   "title_for_new_widget": {
+      "message": "新しいウィジェットのタイトル"
+   },
+   "url": {
+      "message": "URL"
+   },
+   "visit_account_profile": {
+      "message": "アカウントのプロファイル閲覧に進む"
+   },
+   "visit_support_centre": {
+      "message": "Visit support center"
+   },
+   "welcome_to": {
+      "message": "ようこそ"
+   },
+   "welcome_to_startme": {
+      "message": "start.meへようこそ"
+   },
+   "what_is_your_name": {
+      "message": "あなたの名前はなんですか？"
+   },
+   "when_browser_tab_is_opened": {
+      "message": "ブラウザーの新しいタブを開いたとき"
+   },
+   "when_i_open_a_new_chrome_tab": {
+      "message": "新しいタブを開く時に"
+   },
+   "where_do_you_come_from": {
+      "message": "あなたの出身国はどちらですか？"
+   },
+   "which_page_as_your_homepage": {
+      "message": "どのページをあなたのホームページとして使用しますか？"
+   },
+   "yes": {
+      "message": "はい"
+   },
+   "your_bookmarks_are_being_imported": {
+      "message": "あなたのブックマークをインポートしています…"
+   },
+   "your_new_tab_page_question": {
+      "message": "新しいタブページについて"
+   }
+}

@@ -1,0 +1,14 @@
+2021/05/17-12:53:58.055 3 Reusing MANIFEST /home/umang/.config/google-chrome/Default/Local Storage/leveldb/MANIFEST-000001
+2021/05/17-12:53:58.056 3 Recovering log #12
+2021/05/17-12:53:58.058 3 Reusing old log /home/umang/.config/google-chrome/Default/Local Storage/leveldb/000012.log 
+2021/05/17-12:54:07.838 3 Level-0 table #16: started
+2021/05/17-12:54:07.845 3 Level-0 table #16: 26517 bytes OK
+2021/05/17-12:54:07.853 3 Delete type=0 #12
+2021/05/17-12:54:07.854 3 Compacting 4@0 + 0@1 files
+2021/05/17-12:54:07.863 3 Generated table #17@0: 155 keys, 151904 bytes
+2021/05/17-12:54:07.864 3 Compacted 4@0 + 0@1 files => 151904 bytes
+2021/05/17-12:54:07.870 3 compacted to: files[ 0 1 1 0 0 0 0 ]
+2021/05/17-12:54:07.871 3 Delete type=2 #11
+2021/05/17-12:54:07.872 3 Delete type=2 #7
+2021/05/17-12:54:07.872 3 Delete type=2 #16
+2021/05/17-12:54:07.872 3 Delete type=2 #13

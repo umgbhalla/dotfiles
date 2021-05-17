@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title i18n="popupTitle"></title>
+  <link rel="stylesheet" type="text/css" href="popup.css">
+</head>
+
+<body>
+  <h1 i18n="extensionName"></h1>
+  <button i18n="popupAddBlacklist" id="list-edit-button"></button><br>
+
+  <div id="file-url-message" hidden>
+    <a href="" i18n="popupFileURL" id="open-extensions"></a>
+  </div>
+
+  <div class="bottom-bar">
+    <span id="feedback-button">
+      <a id="feedback-link" class="image-link">
+        <img class="button-image" src="feedback.png" i18n-alt="sendFeedback">
+      </a>
+    </span>
+
+    <span id="status">&nbsp;</span>
+
+    <span id="options-button">
+      <a id="options-link" class="image-link">
+        <img class="button-image" src="settings.png" i18n-alt="openOptions">
+      </a>
+    </span>
+  </div>
+
+  <script src="common.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

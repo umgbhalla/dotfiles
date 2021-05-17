@@ -1,0 +1,70 @@
+{
+   "author": "start.me",
+   "background": {
+      "persistent": false,
+      "scripts": [ "constants.js", "lib.js", "background.js" ]
+   },
+   "browser_action": {
+      "browser_style": false,
+      "default_icon": {
+         "19": "icons/icon-grey19.png",
+         "38": "icons/icon-grey38.png"
+      },
+      "default_popup": "bookmark_bar.html",
+      "default_title": "__MSG_APP_NAME__"
+   },
+   "chrome_url_overrides": {
+      "newtab": "newtab.html"
+   },
+   "commands": {
+      "_execute_browser_action": {
+         "description": "__MSG_ADD_TO_STARTME__",
+         "suggested_key": {
+            "default": "Alt+B",
+            "mac": "Alt+B"
+         }
+      },
+      "open_startme_homepage": {
+         "description": "__MSG_OPEN_STARTME_HOMEPAGE__",
+         "suggested_key": {
+            "default": "Alt+H",
+            "mac": "Alt+H"
+         }
+      }
+   },
+   "default_locale": "en",
+   "description": "__MSG_APP_DESCRIPTION__",
+   "externally_connectable": {
+      "ids": [ "*" ],
+      "matches": [ "*://localhost/*", "*://*.start.me/*", "*://*.startme.com/*" ]
+   },
+   "homepage_url": "https://start.me",
+   "icons": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "19": "icons/icon19.png",
+      "32": "icons/icon32.png",
+      "38": "icons/icon38.png",
+      "48": "icons/icon48.png"
+   },
+   "incognito": "split",
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCOTL79YGbTHdtMIYXBtM9sEXaHVP9W/FGm2dtuzxfkB8ouBKRuTERx6t0D1EScCioIJhRBy0/er8Ce3ebPrG/JC/4SIWA4CnKLy0T+jC7Gyfi6gLfZJrPLT60uWcXCmrSnzjmYCSMzmqStGRWcCdzjiQaF5KnmMdO7cpMeuhvs1QIDAQAB",
+   "manifest_version": 2,
+   "minimum_chrome_version": "51",
+   "name": "__MSG_APP_NAME__",
+   "offline_enabled": false,
+   "omnibox": {
+      "keyword": "me"
+   },
+   "optional_permissions": [ "contextMenus", "bookmarks" ],
+   "options_ui": {
+      "chrome_style": true,
+      "open_in_tab": false,
+      "page": "options.html"
+   },
+   "permissions": [ "activeTab", "https://start.me/" ],
+   "short_name": "__MSG_APP_SHORT_NAME__",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.2.24",
+   "web_accessible_resources": [ "bookmark_bar.html" ]
+}

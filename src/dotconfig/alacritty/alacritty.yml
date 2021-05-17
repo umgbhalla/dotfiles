@@ -22,8 +22,11 @@ window:
 scrolling:
   history: 10000
   multiplier: 10
-background_opacity: 1
+background_opacity: 0.8
 window.dynamic_title: false
+
+env:
+  WINIT_X11_SCALE_FACTOR: "1.0"
 
 # Font Customization
 font:
@@ -233,6 +236,6 @@ cursor:
 
 key_bindings:
   - { key: Return, mods: Control, action: SpawnNewInstance }
-#  - { key: Space,  mods: Control,  action: ToggleViMode            }
+  - { key: Space,  mods: Control,  action: ToggleViMode            }
 # - { key: Q, mods: Control, action: Exit }
 

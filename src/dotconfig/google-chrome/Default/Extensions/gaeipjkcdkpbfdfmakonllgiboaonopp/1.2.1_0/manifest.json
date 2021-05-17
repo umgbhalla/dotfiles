@@ -1,0 +1,23 @@
+{
+   "browser_action": {
+      "default_icon": "icon.png",
+      "default_name": "StackOverflow Focus",
+      "default_popup": "popup.html"
+   },
+   "content_scripts": [ {
+      "css": [ "content.css" ],
+      "js": [ "content.js" ],
+      "matches": [ "https://stackoverflow.com/questions/*" ],
+      "run_at": "document_start"
+   } ],
+   "description": "Remove all unnecessary clutter when looking for help on StackOverflow.",
+   "icons": {
+      "128": "icon.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlICuujm+VVJtS5QmmeRX5GjdBqMZhNdH5SWvv/+71G8xfNuNB10NV9eL+eAuksCZAbOEbHc1O4SibuNVa9WKldkA1jhqlANToChdem30DBZKq8od9Yfxdfxu76J/FnovEXg0d267jDgD7gP6eckyGhU2oj19eL7Hdro+N9N0pvQBOXVAbumjzMe9qnh+pwWWiZE/5888iXa58LzOYo2LgesYFhVMMgXCMhYrNjk3BdJ6YLjI3vNCKSNvC3mmRzqzw5+cOfcn+rvjEG5rNZZ0tma9WjhPSHMTHyf9wE8qh6VGmJ4UfIcdqtWPZIY53YtWZt1/D8ZGv4enWBSX1OiDPQIDAQAB",
+   "manifest_version": 2,
+   "name": "StackOverflow focus",
+   "permissions": [ "activeTab", "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.2.1"
+}

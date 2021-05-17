@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Open Sans';
+  src: local("Open Sans"), url("fonts/open-sans-regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Open Sans';
+  src: local("Open Sans"), url("fonts/open-sans-bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal; }
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm9wZW4tc2Fucy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSx5QkFBeUI7RUFDekIsNEVBQTRFO0VBQzVFLG9CQUFvQjtFQUNwQixtQkFBbUIsRUFBRTtBQUN2QjtFQUNFLHlCQUF5QjtFQUN6Qix5RUFBeUU7RUFDekUsa0JBQWtCO0VBQ2xCLG1CQUFtQixFQUFFIiwiZmlsZSI6Im9wZW4tc2Fucy5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAZm9udC1mYWNlIHtcbiAgZm9udC1mYW1pbHk6ICdPcGVuIFNhbnMnO1xuICBzcmM6IGxvY2FsKFwiT3BlbiBTYW5zXCIpLCB1cmwoXCJmb250cy9vcGVuLXNhbnMtcmVndWxhci53b2ZmXCIpIGZvcm1hdChcIndvZmZcIik7XG4gIGZvbnQtd2VpZ2h0OiBub3JtYWw7XG4gIGZvbnQtc3R5bGU6IG5vcm1hbDsgfVxuQGZvbnQtZmFjZSB7XG4gIGZvbnQtZmFtaWx5OiAnT3BlbiBTYW5zJztcbiAgc3JjOiBsb2NhbChcIk9wZW4gU2Fuc1wiKSwgdXJsKFwiZm9udHMvb3Blbi1zYW5zLWJvbGQud29mZlwiKSBmb3JtYXQoXCJ3b2ZmXCIpO1xuICBmb250LXdlaWdodDogYm9sZDtcbiAgZm9udC1zdHlsZTogbm9ybWFsOyB9XG4iXX0= */

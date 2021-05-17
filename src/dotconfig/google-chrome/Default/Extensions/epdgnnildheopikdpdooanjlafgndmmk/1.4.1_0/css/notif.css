@@ -1,0 +1,67 @@
+/* Notification styles */
+.vnotif {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 13px !important;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 2px;
+}
+
+.vnotifError {
+    border: 1px solid #D6E9C6;
+    background-color: #F2DEDE;
+    color: #B94A48;
+}
+
+.vnotifWarn {
+    border: 1px solid #FBEED5;
+    background-color: #FCF8E3;
+    color: #80560E;
+}
+
+.vnotifSuccess {
+    border: 1px solid #D6E9C6;
+    background-color: #DFF0D8;
+    color: #134614;
+}
+
+.vnotifInfo {
+    border: 1px solid #BCE8F1;
+    background-color: #D9EDF7;
+    color: #1D546F;
+}
+
+.vnotifClose {
+    float: right;
+    font-size: 18px;
+    top: 0;
+    position: relative;
+    cursor: pointer;
+    display: inline-block !important;
+}
+
+.vnotifTitleBox {
+    margin-bottom: 3px;
+    display: inline-block !important;
+}
+
+.vnotifTitle {
+    font-weight: bold;
+    margin-right: 5px;
+    text-decoration: underline;
+    display: inline-block !important;
+}
+
+.vnotifMsg {
+    display: contents;
+}
+
+#msgBox {
+    /*margin: 3px;
+    z-index: 9999 !important;
+    float: right !important;
+    top: 0 !important;
+    width: 350px;
+    right: 0;
+    position: absolute;*/
+}

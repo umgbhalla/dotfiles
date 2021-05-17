@@ -1,0 +1,26 @@
+.swal-tts{
+    height: 522px;
+    font-family:Helvetica;
+}
+.swal-upgrade{
+    height:550px;
+    font-family: Helvetica;
+}
+.swal-custom{
+    height: 426px;
+    font-family:Helvetica;
+}
+.swal-not-readable{
+    height: 512px;
+    font-family:Helvetica;
+}
+.swal-pdf{
+    height: 432px;
+    font-family:Helvetica;
+}
+
+.swal-convert{
+    height: 270px;
+    font-family:Helvetica;
+}
+

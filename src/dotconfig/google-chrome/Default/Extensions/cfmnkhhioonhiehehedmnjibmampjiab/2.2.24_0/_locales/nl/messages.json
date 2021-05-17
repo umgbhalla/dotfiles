@@ -1,0 +1,336 @@
+{
+   "____________________________________________________________________________________________________": {
+      "description": "This file has been generated automatically. Don't modify manually.",
+      "message": ""
+   },
+   "account": {
+      "message": "Account"
+   },
+   "add_bookmark": {
+      "message": "Voeg bladwijzer toe"
+   },
+   "add_feed": {
+      "message": "Voeg feed toe"
+   },
+   "add_tabs": {
+      "message": "Voeg tabs toe"
+   },
+   "add_to_startme": {
+      "message": "Aan start.me toevoegen"
+   },
+   "allow_access_to_tabs": {
+      "message": "Om alle browser-tabbladen te kunnen openen, verleen start.me alsjeblieft toegang tot je browser-tabbladen."
+   },
+   "app_description": {
+      "message": "De ultieme persoonlijke startpagina - start.me"
+   },
+   "app_name": {
+      "message": "Nieuwe tabbladpagina door start.me"
+   },
+   "app_short_name": {
+      "message": "start.me"
+   },
+   "available_feeds": {
+      "message": "Beschikbare feeds"
+   },
+   "bookmark": {
+      "message": "Bladwijzer"
+   },
+   "change": {
+      "message": "Veranderen"
+   },
+   "change_description_and_url": {
+      "message": "Verander omschrijving & URL"
+   },
+   "change_user_settings": {
+      "message": "Wijzig gebruikersvoorwaarden"
+   },
+   "clear": {
+      "message": "Gewist"
+   },
+   "clear_cache": {
+      "message": "Wis cache"
+   },
+   "clear_extension_cache": {
+      "message": "Wis extensie-cache"
+   },
+   "click_to_choose_a_different_country": {
+      "message": "Klik om een ander land te kiezen"
+   },
+   "close": {
+      "message": "Sluiten"
+   },
+   "close_window": {
+      "message": "Sluit venster"
+   },
+   "create_account": {
+      "message": "Maak een profiel"
+   },
+   "create_new_bookmark": {
+      "message": "Maak een nieuwe bladwijzer"
+   },
+   "create_new_free_account": {
+      "message": "Maak gratis een nieuwe start.me-account"
+   },
+   "create_new_group": {
+      "message": "Maak nieuwe groep"
+   },
+   "default_page": {
+      "message": "\u003CStandaard pagina>"
+   },
+   "description": {
+      "message": "De ultieme persoonlijke startpagina - start.me"
+   },
+   "description_bookmarker": {
+      "message": "This Bookmarker can be used to bookmark webpages to your start.me page while you surf - start.me"
+   },
+   "done": {
+      "message": "Klaar"
+   },
+   "eg_email": {
+      "message": "b.v. jan@gmail.com"
+   },
+   "eg_name": {
+      "message": "b.v. Jan Smit"
+   },
+   "extension_options": {
+      "message": "Extensie-opties"
+   },
+   "feeds": {
+      "message": "Feeds"
+   },
+   "full_name": {
+      "message": "Nieuwe tabbladpagina door start.me"
+   },
+   "full_name_bookmarker": {
+      "message": "Bookmarker by start.me"
+   },
+   "get_help": {
+      "message": "Krijg hulp"
+   },
+   "grant_access": {
+      "message": "Verleen toegang"
+   },
+   "have_startme_account": {
+      "message": "Heb je al een start.me-account geregistreerd?"
+   },
+   "help": {
+      "message": "Help"
+   },
+   "hide_description_and_url": {
+      "message": "Verberg beschrijving & URL"
+   },
+   "home_name": {
+      "message": "start.me"
+   },
+   "i_may_do_this_later": {
+      "message": "Dat doe ik later"
+   },
+   "import": {
+      "message": "Importeren"
+   },
+   "import_bookmarks": {
+      "message": "Bladwijzers importeren"
+   },
+   "import_bookmarks_from_chrome": {
+      "message": "Bladwijzers vanuit browser importeren"
+   },
+   "import_your_bookmarks_question": {
+      "message": "Je bladwijzers importeren?"
+   },
+   "imported_from_chrome": {
+      "message": "Geïmporteerd uit Chrome"
+   },
+   "importing_your_bookmarks": {
+      "message": "Bezig je bladwijzers te importeren"
+   },
+   "learn_how_this_works": {
+      "message": "Leer hoe dit werkt"
+   },
+   "lets_personalize_it": {
+      "message": "Een paar kleine instellingen. Het duurt niet lang."
+   },
+   "markdown_supported": {
+      "message": "Markdown ondersteund"
+   },
+   "my_email_is": {
+      "message": "Mijn e-mail is"
+   },
+   "my_name_is": {
+      "message": "Mijn naam is"
+   },
+   "my_startme_homepage": {
+      "message": "Mijn start.me homepage"
+   },
+   "name_bookmarker": {
+      "message": "start.me Bookmarker"
+   },
+   "new_tab_page": {
+      "message": "Nieuwe tab"
+   },
+   "new_widget": {
+      "message": "Nieuwe widget"
+   },
+   "no": {
+      "message": "Nee"
+   },
+   "open_browser_tabs": {
+      "message": "Open browser-tabbladen"
+   },
+   "open_default_chrome_startpage": {
+      "message": "open dan de standaard startpagina"
+   },
+   "open_my_startme_homepage": {
+      "message": "open dan mijn start.me homepage"
+   },
+   "open_pagesmenu": {
+      "message": "Open het start.me-menu"
+   },
+   "open_startme_blog": {
+      "message": "Open start.me blog"
+   },
+   "open_startme_homepage": {
+      "message": "Open de homepage van start.me"
+   },
+   "open_tabs": {
+      "message": "Open tabbladen"
+   },
+   "options": {
+      "message": "Opties"
+   },
+   "other_preferences": {
+      "message": "Andere voorkeuren"
+   },
+   "personal_pages": {
+      "message": "Persoonlijke pagina's"
+   },
+   "please_import_them": {
+      "message": "Importeer ze maar"
+   },
+   "please_specify_title": {
+      "message": "Geef een titel op"
+   },
+   "please_try_again_later": {
+      "message": "Het spijt ons. Probeer het later opnieuw."
+   },
+   "please_wait_a_moment": {
+      "message": "Dit kan even duren. Even geduld graag."
+   },
+   "preferences": {
+      "message": "Voorkeuren"
+   },
+   "pro": {
+      "message": "Pro"
+   },
+   "pure_description": {
+      "message": "Omschrijving"
+   },
+   "refresh": {
+      "message": "Verversen"
+   },
+   "refresh_list": {
+      "message": "Ververs lijst"
+   },
+   "save": {
+      "message": "Opslaan"
+   },
+   "save_in": {
+      "message": "Sla op in"
+   },
+   "search_bookmarks_from_address_bar": {
+      "message": "Zoek je bladwijzers direct in de adresbalk"
+   },
+   "search_widgets": {
+      "message": "Zoek widgets"
+   },
+   "select_a_widget": {
+      "message": "Kies een widget"
+   },
+   "select_all": {
+      "message": "Selecteer alles"
+   },
+   "select_new_tab_page": {
+      "message": "Kies nieuw tabblad"
+   },
+   "select_your_new_tab_page": {
+      "message": "Selecteer je nieuwe tabpagina"
+   },
+   "settings": {
+      "message": "Instellingen"
+   },
+   "shake_hands": {
+      "message": "Warm welkom"
+   },
+   "shortcuts": {
+      "message": "Sneltoetsen"
+   },
+   "show_chromes_default_page": {
+      "message": "toon dan de standaardpagina van mijn browser"
+   },
+   "show_my_startme_page": {
+      "message": "laat dan mijn start.me pagina zien"
+   },
+   "sign_in_to_startme": {
+      "message": "Inloggen op start.me"
+   },
+   "signin_with_email": {
+      "message": "Log in met je e-mailadres"
+   },
+   "something_went_wrong": {
+      "message": "Er is iets verkeerd gegaan"
+   },
+   "take_me_to_start_page": {
+      "message": "Ga naar mijn nieuwe startpagina!"
+   },
+   "terms": {
+      "message": "Voorwaarden"
+   },
+   "title": {
+      "message": "Titel"
+   },
+   "title_for_new_group": {
+      "message": "Titel voor nieuwe groep"
+   },
+   "title_for_new_widget": {
+      "message": "Titel van nieuwe widget"
+   },
+   "url": {
+      "message": "URL"
+   },
+   "visit_account_profile": {
+      "message": "Bezoek accountprofiel"
+   },
+   "visit_support_centre": {
+      "message": "Bezoek het helpcentrum"
+   },
+   "welcome_to": {
+      "message": "Welkom bij"
+   },
+   "welcome_to_startme": {
+      "message": "Welkom bij start.me"
+   },
+   "what_is_your_name": {
+      "message": "Hoe heet je?"
+   },
+   "when_browser_tab_is_opened": {
+      "message": "Als een nieuwe browsertab wordt geopend"
+   },
+   "when_i_open_a_new_chrome_tab": {
+      "message": "Als ik een nieuwe tab open"
+   },
+   "where_do_you_come_from": {
+      "message": "Waar kom je vandaan?"
+   },
+   "which_page_as_your_homepage": {
+      "message": "Welke pagina wil je als homepage instellen?"
+   },
+   "yes": {
+      "message": "Ja"
+   },
+   "your_bookmarks_are_being_imported": {
+      "message": "Je bladwijzers worden geïmporteerd"
+   },
+   "your_new_tab_page_question": {
+      "message": "Jouw nieuwe startpagina?"
+   }
+}

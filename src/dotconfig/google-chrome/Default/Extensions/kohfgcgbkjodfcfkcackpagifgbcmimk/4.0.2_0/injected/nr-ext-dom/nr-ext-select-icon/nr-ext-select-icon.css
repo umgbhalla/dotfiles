@@ -1,0 +1,13 @@
+.rs-btn-play {
+    background: url(chrome-extension://__MSG_@@extension_id__/assets/img/readicon.svg) center center no-repeat;
+    height: 30px;
+    width: 30px;
+    border: none;
+    cursor: pointer;
+    outline-style: none;
+}
+
+.nr-onhover{
+    background-color: #D5E5FE !important;
+    cursor: pointer;
+}

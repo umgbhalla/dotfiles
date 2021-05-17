@@ -1,0 +1,15 @@
+{
+  "id": "github",
+  "name": "GitHub",
+  "version": "2.0.0",
+  "description": "GitHub",
+  "main": "index.js",
+  "author": "Amine Mouafik",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://github.com/notifications",
+    "hasNotificationSound": false,
+    "hasDirectMessages": true,
+    "hasIndirectMessages": true
+  }
+}

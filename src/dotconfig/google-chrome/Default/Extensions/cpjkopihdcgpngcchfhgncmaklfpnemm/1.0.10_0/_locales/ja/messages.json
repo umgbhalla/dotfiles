@@ -1,0 +1,44 @@
+{
+   "app_description": {
+      "message": "特定のHPをシークレットモードで開きます"
+   },
+   "app_title": {
+      "message": "Auto Secret Mode"
+   },
+   "disabled_button": {
+      "message": "無効"
+   },
+   "enabled_button": {
+      "message": "有効"
+   },
+   "has_error": {
+      "message": "設定にエラーがあります"
+   },
+   "incognito_settings": {
+      "message": "シークレットモード設定"
+   },
+   "invalid_url": {
+      "message": "行目のurlが不正です."
+   },
+   "option": {
+      "message": "オプション"
+   },
+   "reset_button": {
+      "message": "リセット"
+   },
+   "save_button": {
+      "message": "保存"
+   },
+   "saved": {
+      "message": "保存しました!"
+   },
+   "urls": {
+      "message": " ここにURLのパターンを入力します。"
+   },
+   "urls_example": {
+      "message": "URLの設定例、改行で複数の設定が可能です。"
+   },
+   "urls_example_link": {
+      "message": "詳しくはこちら"
+   }
+}
