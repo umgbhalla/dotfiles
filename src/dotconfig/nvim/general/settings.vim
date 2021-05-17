@@ -34,6 +34,7 @@ set iskeyword+=-                        " treat dash separated words as a word t
 set mouse+=a                            " Enable your mouse
 set splitbelow                          " Horizontal splits will automatically be below
 set splitright                          " Vertical splits will automatically be to the right
+set nohlsearch
 set t_Co=256                            " Support 256 colors
 set conceallevel=2
 set tabstop=4                           " Insert 4 spaces for a tab
