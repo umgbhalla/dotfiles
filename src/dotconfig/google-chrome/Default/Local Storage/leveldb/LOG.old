@@ -1,9 +1,0 @@
-2021/05/16-19:37:59.689 5 Reusing MANIFEST /home/umang/.config/google-chrome/Default/Local Storage/leveldb/MANIFEST-000001
-2021/05/16-19:37:59.691 5 Recovering log #8
-2021/05/16-19:37:59.691 5 Reusing old log /home/umang/.config/google-chrome/Default/Local Storage/leveldb/000008.log 
-2021/05/16-19:39:00.685 5 Level-0 table #11: started
-2021/05/16-19:39:00.691 5 Level-0 table #11: 44155 bytes OK
-2021/05/16-19:39:00.698 5 Delete type=0 #8
-2021/05/16-19:39:06.333 3 Level-0 table #13: started
-2021/05/16-19:39:06.339 3 Level-0 table #13: 24180 bytes OK
-2021/05/16-19:39:06.346 3 Delete type=0 #10

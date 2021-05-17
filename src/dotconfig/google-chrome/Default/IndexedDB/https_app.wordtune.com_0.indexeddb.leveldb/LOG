@@ -1,6 +1,0 @@
-2021/05/16-18:04:42.422 21a3b Creating DB /home/umang/.config/google-chrome/Default/IndexedDB/https_app.wordtune.com_0.indexeddb.leveldb since it was missing.
-2021/05/16-18:04:42.435 21a3b Reusing MANIFEST /home/umang/.config/google-chrome/Default/IndexedDB/https_app.wordtune.com_0.indexeddb.leveldb/MANIFEST-000001
-2021/05/16-18:05:26.031 21b6c Level-0 table #5: started
-2021/05/16-18:05:26.037 21b6c Level-0 table #5: 1112 bytes OK
-2021/05/16-18:05:26.043 21b6c Delete type=0 #3
-2021/05/16-18:05:26.044 21b6c Manual compaction at level-0 from (begin) .. (end); will stop at (end)
