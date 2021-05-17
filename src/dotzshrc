@@ -43,10 +43,10 @@ alias .5='cd ../../../../..'
 alias .f='cd /mnt/F'
 alias .d='cd /mnt/F/sys_dot_files'
 alias .dd='cd ~/Downloads'
-alias .u='cd /mnt/F/umgbhalla.github.io'
+alias .u='cd /mnt/F/hub/umgbhalla.github.io'
 alias .dev='cd /mnt/F/dev'
 alias .n='cd ~/.config/nvim/'
-alias .t='/mnt/F/testingrepo'
+alias .t='/mnt/F/hub/testingrepo'
 alias o='op . && exit' 
 
 #aliases 
@@ -69,12 +69,14 @@ alias gs='git status'
 alias gst='git status'
 alias ixi="curl -F 'f:1=<-' ix.io"
 alias lol=" figlet -c -f ~/.local/share/fonts/figlet-fonts/3d.flf "
+alias lol2=" figlet -c -f ~/.local/share/fonts/figlet-fonts/ANSI\ Shadow "
 alias m='micro'
 alias mpp='mpv --no-video'
 alias mu='youtube-dl -f "bestaudio/best" -ciw -o "%(title)s.%(ext)s" -v --extract-audio --audio-quality 0 --audio-format mp3'
 alias n='nvim'
 alias neo='neovide'
 alias nn='nvim ~/.config/nvim/init.vim'
+alias nt='nvim ~/.todo'
 alias nz='nvim ~/.zshrc'
 alias op='xdg-open'
 alias p='pfetch'
