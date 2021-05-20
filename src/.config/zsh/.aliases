@@ -1,0 +1,94 @@
+
+# navigation
+alias q='exit'
+alias ..='cd ..' 
+alias ...='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+alias .f='cd /mnt/F'
+alias .d='cd /mnt/F/sys_dot_files'
+alias .dd='cd ~/Downloads'
+alias .u='cd /mnt/F/umgbhalla.github.io'
+alias .dev='cd /mnt/F/dev'
+alias .n='cd ~/.config/nvim/'
+alias .t='/mnt/F/testingrepo'
+alias .o='op . && exit' 
+alias mtf='sudo mount /dev/nvme0n1p8 /mnt/F'
+
+#aliases 
+alias aot='mpv https://music.youtube.com/playlist\?list\=PL9PLUrw0CbcRbxo9kzgkbe0rB9CjvigOI --no-video'
+alias b='bat'
+alias batr="bat README.md"
+alias bri='sudo brightnessctl -d amdgpu_bl0 set '
+alias c='clipmenu'
+# alias code='/usr/share/code/bin/code'
+alias color="colorscript -e 32"
+alias covid='curl https://corona-stats.online\?minimal\=true | bat'
+alias ct='cht.sh' #curl cht.sh/:learn
+alias f='tuxi -u'
+alias gad='git add .'
+alias gcl='git clone'
+alias gct='git commit -m'
+alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
+alias gps='git push'
+alias gs='git status'
+alias gst='git status'
+alias ixi="curl -F 'f:1=<-' ix.io"
+alias lol=" figlet -c -f ~/.local/share/fonts/figlet-fonts/3d.flf "
+alias m='micro'
+alias mpp='mpv --no-video'
+alias mu='youtube-dl -f "bestaudio/best" -ciw -o "%(title)s.%(ext)s" -v --extract-audio --audio-quality 0 --audio-format mp3'
+alias n='nvim'
+alias neo='neovide'
+alias nn='nvim ~/.config/nvim/init.vim'
+alias nz='nvim ~/.zshrc'
+alias op='xdg-open'
+alias pacman='sudo pacman'
+alias qr='curl -F-=\<- qrenco.de'
+alias r='ranger .'
+alias rec='asciinema rec'
+alias reload='source ~/.zshrc'
+alias s='surf'
+alias sai='sudo apt install' #hahaha
+alias sc='tty-clock -SscC0'
+alias serv='sudo service --status-all | bat'
+alias spr="curl -F 'sprunge=<-' http://sprunge.us"
+alias srt=' du -sh ./* | sort -n | bat'
+alias ssy='sudo apt update && sudo apt upgrade'
+alias v='vim'
+alias vs='code'
+alias vsf='code /mnt/F '
+alias vsu='cd /mnt/F/umgbhalla.github.io && code .'
+alias ytf=' ytfzf -t '
+#
+# confirm before removing something
+alias rm='rm -i'
+
+
+
+# Changing "ls" to "exa"
+alias ld='(exa -ahl --color=always --group-directories-first) | bat ' # my preferred listing
+alias l='(exa -a --color=always --group-directories-first) |bat '  # all files and dirs
+alias la='(exa -l --color=always --group-directories-first) '  # long format
+alias lt='(exa -aT --color=always --group-directories-first)| bat' # tree listing
+alias l.='exa -a | egrep "^\."'
+alias g="google"
+
+# alias ls=exa
+alias ls="ptls"
+alias pwd="ptpwd"
+alias mkdir="ptmkdir"
+alias touch="pttouch"
+
+
+# youtube-dl
+alias yta-aac="youtube-dl --extract-audio --audio-format aac "
+alias yta-best="youtube-dl --extract-audio --audio-format best "
+alias yta-flac="youtube-dl --extract-audio --audio-format flac "
+alias yta-m4a="youtube-dl --extract-audio --audio-format m4a "
+alias yta-mp3="youtube-dl --extract-audio --audio-format mp3 "
+alias yta-opus="youtube-dl --extract-audio --audio-format opus "
+alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
+alias yta-wav="youtube-dl --extract-audio --audio-format wav "
+alias ytv-best="youtube-dl -f bestvideo+bestaudio "
