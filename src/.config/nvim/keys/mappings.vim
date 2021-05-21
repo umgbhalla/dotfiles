@@ -79,3 +79,6 @@
     nnoremap <Leader>v <C-W>v
     nnoremap <Leader>; <C-W>s<CR>:terminal <CR>i
 
+
+    nnoremap <Leader>p <Esc>:GundoToggle<CR>
+

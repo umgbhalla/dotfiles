@@ -54,4 +54,5 @@ Plug 'voldikss/vim-floaterm'
 " Plug 'zxqfl/tabnine-vim'
 Plug 'tpope/vim-repeat'
 " Plug 'liuchengxu/vim-which-key'
+Plug 'sjl/gundo.vim'
 call plug#end()
