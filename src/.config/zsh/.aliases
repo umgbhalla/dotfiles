@@ -41,8 +41,6 @@ alias mpp='mpv --no-video'
 alias mu='youtube-dl -f "bestaudio/best" -ciw -o "%(title)s.%(ext)s" -v --extract-audio --audio-quality 0 --audio-format mp3'
 alias n='nvim'
 alias neo='neovide'
-alias nn='nvim ~/.config/nvim/init.vim'
-alias nz='nvim ~/.zshrc'
 alias op='xdg-open'
 alias pacman='sudo pacman'
 alias qr='curl -F-=\<- qrenco.de'
@@ -64,8 +62,15 @@ alias ytf=' ytfzf -t '
 #
 # confirm before removing something
 alias rm='rm -i'
+alias yay='paru'
+#configs
 
-
+alias na='nvim ~/.config/zsh/.aliases'
+alias nb='nvim ~/.config/bspwm/bspwmrc'
+alias nn='nvim ~/.config/nvim/init.vim'
+alias np='nvim ~/.config/picom.conf'
+alias ns='nvim ~/.config/sxhkd/sxhkdrc'
+alias nz='nvim ~/.config/zsh/.zshrc'
 
 # Changing "ls" to "exa"
 alias ld='(exa -ahl --color=always --group-directories-first) | bat ' # my preferred listing

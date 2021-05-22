@@ -62,8 +62,6 @@ alias oz='open_with_fzf'
 zstyle ':completion:*' fzf-search-display true
 
 
-export NVM_DIR="/home/umang/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 
 # Path to your oh-my-zsh installation.
@@ -74,7 +72,9 @@ source ~/.profile
 # eval "$(starship init zsh)"
 alias ide="tmux  split-window -v -p 30 ;	tmux  split-window -h -p 50  "
 
-
+export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 #eval $(thefuck --alias)
 #autoload -Uz compinit
 #"figlet -c -f ~/.local/share/fonts/figlet-fonts/3d.flf hello magnus"  
