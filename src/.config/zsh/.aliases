@@ -46,7 +46,7 @@ alias pacman='sudo pacman'
 alias qr='curl -F-=\<- qrenco.de'
 alias r='ranger .'
 alias rec='asciinema rec'
-alias reload='source ~/.zshrc'
+alias reload='source ~/.config/zsh/.zshrc'
 alias s='surf'
 alias sai='sudo apt install' #hahaha
 alias sc='tty-clock -SscC0'
@@ -54,6 +54,7 @@ alias serv='sudo service --status-all | bat'
 alias spr="curl -F 'sprunge=<-' http://sprunge.us"
 alias srt=' du -sh ./* | sort -n | bat'
 alias ssy='sudo apt update && sudo apt upgrade'
+alias ttystat='echo $(tty) $TERM ${COLUMNS}x$LINES'
 alias v='vim'
 alias vs='code'
 alias vsf='code /mnt/F '
@@ -77,11 +78,11 @@ alias ld='(exa -ahl --color=always --group-directories-first) | bat ' # my prefe
 alias l='(exa -a --color=always --group-directories-first) |bat '  # all files and dirs
 alias la='(exa -l --color=always --group-directories-first) '  # long format
 alias lt='(exa -aT --color=always --group-directories-first)| bat' # tree listing
-alias l.='exa -a | egrep "^\."'
+alias l.='exa -a | egrep "^\." | bat'
 alias g="google"
 
-# alias ls=exa
-alias ls="ptls"
+alias ls='exa --color=always --group-directories-first'
+# alias ls="ptls -a"
 alias pwd="ptpwd"
 alias mkdir="ptmkdir"
 alias touch="pttouch"

@@ -8,9 +8,9 @@
 
 configuration {
 
-	font: "Envy Code R 10";
-	width: 30;
-	line-margin: 10;
+	font: "Hack 10";
+	width: 60;
+	line-margin: 3;
 	lines: 6;
 	columns: 2;
 
@@ -49,14 +49,14 @@ configuration {
     
     highlight:     underline bold #eceff4;
 
-    transparent: rgba(46,52,64,0);
+    transparent: rgba(46,52,64,0.3);
 }
 
 window {
     location: center;
     anchor:   center;
     transparency: "screenshot";
-    padding: 10px;
+    padding: 8px;
     border:  0px;
     border-radius: 6px;
 
