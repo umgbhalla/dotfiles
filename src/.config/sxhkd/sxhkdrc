@@ -205,6 +205,9 @@ super+Print
   ~/.config/bspwm/scripts/screenshot.sh
 
 # Shortcuts
+super + e
+  google-chrome-stable
+
 super + w
   firefox
 
