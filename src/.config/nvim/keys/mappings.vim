@@ -29,9 +29,9 @@
     inoremap kj <Esc>
     inoremap ZZ <Esc>
     inoremap ii <Esc>
-    nnoremap oo o<Esc>
     nnoremap OO O<Esc>
     " nnoremap yp <Esc>yyp<esc>
+    nnoremap oo o<Esc>
     map <leader>d :bdelete<cr>
 
 " Nert tree toggle

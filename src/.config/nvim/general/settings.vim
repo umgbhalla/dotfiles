@@ -45,6 +45,7 @@ set showtabline=2                       " Always show tabs
 set fileformat=unix
 set smartindent                         " Makes indenting smart
 set fillchars+=vert:\|
+set fillchars+=eob:\ ,
 set autoindent                          " Good auto indent
 "set laststatus=0                        " Always display the status line
 set cursorline                          " Enable highlighting of the current line
@@ -59,8 +60,14 @@ set formatoptions-=cro                  " Stop newline continution of comments
 set undofile							" keep undo histroy of all files
 set clipboard+=unnamedplus              " Copy paste between vim and everything else
 "set autochdir                           " Your working directory will always be the same as your working directory
-set list listchars=nbsp:_,tab:>~,trail:.,extends:-
+set list listchars=nbsp:¬,tab:>~,trail:.,extends:¤
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 
+
+let g:user_emmet_mode='a' 
+let g:user_emmet_leader_key=','
 " You can't stop me
 cmap w!! w !sudo tee %
+
+
+

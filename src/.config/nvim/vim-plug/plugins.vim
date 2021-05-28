@@ -40,10 +40,8 @@ Plug 'vim-airline/vim-airline-themes'
 " also try :CocInstall coc-marketplace then cmnd for list :CocList marketplace
 " RANGER
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
-" FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Misc
 Plug 'airblade/vim-rooter'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'junegunn/rainbow_parentheses.vim'
@@ -53,6 +51,7 @@ Plug 'tpope/vim-surround'
 Plug 'voldikss/vim-floaterm'
 " Plug 'zxqfl/tabnine-vim'
 Plug 'tpope/vim-repeat'
-" Plug 'liuchengxu/vim-which-key'
-Plug 'sjl/gundo.vim'
+" Plug 'sjl/gundo.vim'
+Plug 'mattn/emmet-vim'
+Plug 'romainl/vim-cool'
 call plug#end()
