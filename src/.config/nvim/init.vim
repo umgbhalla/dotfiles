@@ -29,8 +29,6 @@ source $HOME/.config/nvim/plug-config/floaterm.vim
 source $HOME/.config/nvim/plug-config/gundo.vim
 source $HOME/.config/nvim/plug-config/cool.vim
 " source $HOME/.config/nvim/keys/which-key.vim
-
-source $HOME/.config/nvim/keys/mappings.vim
 map <M-s> :source ~/.config/nvim/init.vim<CR>
 
 luafile $HOME/.config/nvim/lua/plug-colorizer.lua
