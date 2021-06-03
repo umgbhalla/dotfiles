@@ -7,9 +7,14 @@
 super + Return
     alacritty
 
+super + shift + Return
+    kitty
+
 # program launcher
 super + space
-    rofi -modi drun -show drun -font "Hack Regular 10" -show-icons -drun-icon-theme "Arc-X-D"
+    rofi -modi drun -show drun  -line-padding 4  -columns 2 -padding 50 \
+	-hide-scrollbar -terminal alacritty -font "Hack Regular 10" -show-icons \
+	-drun-icon-theme "Arc-X-D"
 
 alt + e
     rofimoji
@@ -35,8 +40,11 @@ alt + Return
 super + d
     dmenu_run
 
-super + h
-	alacritty -e htop
+super + a
+    neovide
+
+super + b
+	alacritty -e bpytop
 
 super + r
 	alacritty -e ranger
@@ -135,6 +143,8 @@ super + {o,i}
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
+
+
 
 #
 # preselect

@@ -24,24 +24,34 @@ export PATH=$PATH:'/home/umang/.node_modules/bin'
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH=$PATH:/home/umang/.cargo/bin
 export CM_LAUNCHER=rofi
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 export FZF_DEFAULT_OPS="--extended"
+
+
 
 export PATH='/home/umang/.scripts/':$PATH 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-# ZSH_THEME="fox"
-# ZSH_THEME="agnoster"
-# ZSH_THEME="robbyrussell"
+
+# ZSH_THEME="refined"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 
-# ZSH_THEME="avit"
 # ZSH_THEME="random"
-ZSH_THEME="wedisagree"
+# ZSH_THEME="alanpeabody"
+ZSH_THEME="dstufft"
+# ZSH_THEME="avit"
+# ZSH_THEME="intheloop"
+# ZSH_THEME="fox"
+# ZSH_THEME="agnoster"
+# ZSH_THEME="robbyrussell"
+# ZSH_THEME="wedisagree"
 
-plugins=(fzf zsh-autosuggestions zsh-syntax-highlighting web-search)
+plugins=(fzf zsh-autosuggestions zsh-syntax-highlighting web-search )
+
 ### "bat" as manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
@@ -55,8 +65,7 @@ cd_with_fzf() {
 
 alias cz='cd_with_fzf'
 alias oz='open_with_fzf'
-#
-# User configuration
+alias keyb='setxkbmap -option caps:swapescape && xset r rate 230 30'
 
 # only for git
 #zstyle ':completion:*:*:git:*' fzf-search-display true
@@ -79,6 +88,6 @@ export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 #eval $(thefuck --alias)
 #autoload -Uz compinit
-#"figlet -c -f ~/.local/share/fonts/figlet-fonts/3d.flf hello magnus"  
 #bat ~/.todo
 colorscript -e 32
+

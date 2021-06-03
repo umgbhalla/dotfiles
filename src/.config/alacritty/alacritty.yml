@@ -12,8 +12,8 @@
 # Window Customization
 window:
   dimensions:
-    columns: 209
-    lines: 53
+    columns: 150
+    lines: 50
   padding:
     x: 14
     y: 14
@@ -21,7 +21,7 @@ window:
   decorations: none
 scrolling:
   history: 10000
-  multiplier: 10
+  multiplier: 11
 background_opacity: 1
 window.dynamic_title: true
 
@@ -225,7 +225,7 @@ font:
 colors:
   primary:
     # contrast background - '#1d2021'
-    background:        &gruvbox_dark_bg '#282828'
+    background:        &gruvbox_dark_bg '#382828'
     # soft contrast background - '#32302f'
     foreground:        '#fbf1c7'
     bright_foreground: '#f9f5d7'
