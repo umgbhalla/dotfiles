@@ -1,5 +1,7 @@
 # dotfiles
+<img alt="" src="https://img.shields.io/github/last-commit/umgbhalla/dotfiles_meow?color=fbdf90&label=updated&style=flat-square&labelColor=1d212a"/>
 
+<img alt="" src="https://img.shields.io/github/repo-size/umgbhalla/dotfiles_meow?style=flat-square&label=repo-size&color=fb9199&labelColor=1d212a"/>
 my dotfiles :uwu:
 
 
